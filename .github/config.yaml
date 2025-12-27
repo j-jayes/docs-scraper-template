@@ -8,5 +8,7 @@ docs_to_scrape:
   #   name: "adk-docs"  # This will create a folder .github/adk-docs/
   
   # Add your documentation URLs here:
-  # - url: "https://example.com/docs/"
-  #   name: "example-docs"
+  - url: "https://google.github.io/adk-docs/"
+    name: "adk-docs"
+  - url: "https://modelcontextprotocol.info/docs/"
+    name: "mcp-docs"
