@@ -34,6 +34,12 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add .github/
-          git diff --staged --quiet || git commit -m "Update scraped documentation"
-          git push
+          # Only add files in the .github directory (excluding workflows and scraper code)
+          # This prevents accidentally committing unwanted files
+          git add .github/*/ 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update scraped documentation"
+            git push
+          fi

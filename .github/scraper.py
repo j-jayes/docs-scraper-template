@@ -66,26 +66,33 @@ class DocsScraper:
     
     def _get_local_path(self, url, base_url, output_dir):
         """Convert URL to local file path."""
-        # Remove the base URL to get the relative path
-        relative_path = url.replace(base_url, '')
+        # Parse both URLs
+        url_parsed = urllib.parse.urlparse(url)
+        base_parsed = urllib.parse.urlparse(base_url)
         
-        # Parse the URL
-        parsed = urllib.parse.urlparse(relative_path)
-        path = parsed.path
+        # Get the relative path by removing the base path
+        url_path = url_parsed.path
+        base_path = base_parsed.path
+        
+        # Remove base path from URL path
+        if url_path.startswith(base_path):
+            relative_path = url_path[len(base_path):]
+        else:
+            relative_path = url_path
         
         # Remove leading slash
-        if path.startswith('/'):
-            path = path[1:]
+        if relative_path.startswith('/'):
+            relative_path = relative_path[1:]
         
         # If path is empty or ends with /, add index.html
-        if not path or path.endswith('/'):
-            path = os.path.join(path, 'index.html')
+        if not relative_path or relative_path.endswith('/'):
+            relative_path = os.path.join(relative_path, 'index.html')
         
         # If path has no extension, assume it's HTML
-        if not os.path.splitext(path)[1]:
-            path = path + '.html'
+        if not os.path.splitext(relative_path)[1]:
+            relative_path = relative_path + '.html'
         
-        return os.path.join(output_dir, path)
+        return os.path.join(output_dir, relative_path)
     
     def _download_page(self, url):
         """Download a single page and return its content."""
@@ -137,7 +144,9 @@ class DocsScraper:
         
         # Save the page
         local_path = self._get_local_path(url, base_url, output_dir)
-        os.makedirs(os.path.dirname(local_path), exist_ok=True)
+        local_dir = os.path.dirname(local_path)
+        if local_dir:  # Only create directories if dirname is not empty
+            os.makedirs(local_dir, exist_ok=True)
         
         try:
             with open(local_path, 'wb') as f:
@@ -148,7 +157,12 @@ class DocsScraper:
             return
         
         # Extract and follow links (only for HTML pages)
-        if url.endswith('.html') or not os.path.splitext(url)[1] or '/' in url.split('/')[-1]:
+        # Check if this is likely an HTML page based on URL extension or lack thereof
+        url_path = urllib.parse.urlparse(url).path
+        file_ext = os.path.splitext(url_path)[1].lower()
+        is_html = (file_ext in ['', '.html', '.htm'] or url_path.endswith('/'))
+        
+        if is_html:
             links = self._extract_links(content, url)
             for link in links:
                 # Remove fragments and query parameters for comparison
