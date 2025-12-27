@@ -14,6 +14,8 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to commit and push scraped docs
     
     steps:
       - name: Checkout repository
