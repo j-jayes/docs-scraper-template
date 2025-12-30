@@ -5,7 +5,8 @@
 docs_to_scrape:
   # Example:
   # - url: "https://google.github.io/adk-docs/"
-  #   name: "adk-docs"  # This will create a folder .github/adk-docs/
+  #   name: "adk-docs"  # Writes to .github/agent-docs/reference/adk-docs/
+  #   type: auto         # Optional: auto (default), website, github_repo
   
   # Add your documentation URLs here:
   - url: "https://google.github.io/adk-docs/"

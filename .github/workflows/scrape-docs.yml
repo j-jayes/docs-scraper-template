@@ -9,7 +9,7 @@ on:
   # Run when config.yaml is updated
   push:
     paths:
-      - '.github/config.yaml'
+      - '.github/agent-docs/config.yaml'
 
 jobs:
   scrape:
@@ -27,18 +27,17 @@ jobs:
           python-version: '3.x'
       
       - name: Install PyYAML
-        run: pip install pyyaml
+        run: pip install pyyaml html2text
       
       - name: Run scraper
-        run: python .github/scraper.py
+        run: python .github/agent-docs/scraper.py
       
       - name: Commit and push scraped docs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          # Only add files in the .github directory (excluding workflows and scraper code)
-          # This prevents accidentally committing unwanted files
-          git add .github/*/ 2>/dev/null || true
+          # Only add generated reference content (exclude workflows and scraper assets)
+          git add .github/agent-docs/reference/ 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else

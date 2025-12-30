@@ -8,7 +8,9 @@ A reusable template for scraping documentation websites and maintaining local co
 - 📦 No virtual environment required - uses only standard Python libraries + PyYAML
 - 🔄 Automatic GitHub Actions workflow
 - 🌐 Recursively scrapes all pages from a documentation root URL
-- 📁 Organizes scraped docs in `.github/<docs-name>/` directories
+- 🧩 Autodetects website vs GitHub repo sources (with override)
+- 📝 Converts HTML → Markdown for agent-friendly reading
+- 📁 Organizes scraped reference docs in `.github/agent-docs/reference/<docs-name>/`
 - ⏰ Runs automatically on schedule (weekly by default) or manually
 
 ## Quick Start
@@ -24,7 +26,7 @@ cp -r /path/to/docs-scraper-template/.github .
 
 ### 2. Configure Documentation URLs
 
-Edit `.github/config.yaml` to specify which documentation sites you want to scrape:
+Edit `.github/agent-docs/config.yaml` to specify which documentation sources you want to scrape:
 
 ```yaml
 docs_to_scrape:
@@ -36,8 +38,8 @@ docs_to_scrape:
 ```
 
 Each entry needs:
-- `url`: The root URL of the documentation to scrape
-- `name`: A folder name where the docs will be saved (creates `.github/<name>/`)
+- `url`: The documentation source (website URL or GitHub repo URL)
+- `name`: A folder name where the reference will be saved (creates `.github/agent-docs/reference/<name>/`)
 
 ### 3. Run the Scraper
 
@@ -56,29 +58,29 @@ The workflow will:
 #### Option B: Run Locally
 
 ```bash
-# Install PyYAML (only dependency)
-pip install pyyaml
+# Install dependencies
+pip install pyyaml html2text
 
 # Run the scraper
-python .github/scraper.py
+python .github/agent-docs/scraper.py
 ```
 
 ## How It Works
 
-1. **Configuration**: The scraper reads `.github/config.yaml` to get the list of documentation URLs
+1. **Configuration**: The scraper reads `.github/agent-docs/config.yaml` to get the list of documentation sources
 2. **Recursive Scraping**: For each URL, it:
    - Downloads the page content
    - Extracts all links on the page
    - Follows links that belong to the same documentation site
    - Saves HTML pages with their original directory structure
-3. **Local Storage**: All scraped content is saved to `.github/<name>/` where `<name>` matches the configuration
+3. **Local Storage**: All scraped reference content is saved to `.github/agent-docs/reference/<name>/` where `<name>` matches the configuration
 4. **Automatic Updates**: The GitHub Actions workflow runs weekly (or on-demand) to keep docs up-to-date
 
 ## Workflow Schedule
 
 The scraper runs automatically:
 - **Weekly**: Every Monday at 00:00 UTC
-- **On Config Changes**: When `.github/config.yaml` is modified
+- **On Config Changes**: When `.github/agent-docs/config.yaml` is modified
 - **Manual**: Via GitHub Actions "Run workflow" button
 
 To change the schedule, edit `.github/workflows/scrape-docs.yml` and modify the `cron` expression.
@@ -88,21 +90,28 @@ To change the schedule, edit `.github/workflows/scrape-docs.yml` and modify the 
 ```
 your-repository/
 └── .github/
-    ├── config.yaml              # Configuration file
-    ├── scraper.py               # Main scraper script
+  ├── agent-docs/
+  │   ├── config.yaml          # Configuration file
+  │   ├── scraper.py           # Main scraper script
+  │   ├── USAGE.md             # Usage examples
+  │   ├── QUICKSTART.md        # Quick start
+  │   └── reference/           # Generated reference content (auto-generated)
+  │       └── <docs-name>/
+  │           ├── raw/          # Raw HTML (for websites)
+  │           ├── md/           # Markdown conversions (for websites)
+  │           ├── repo/         # Extracted GitHub repo (for github.com sources)
+  │           ├── llms.txt
+  │           └── llms-full.txt
     ├── workflows/
     │   └── scrape-docs.yml      # GitHub Actions workflow
-    └── <docs-name>/             # Scraped documentation (auto-generated)
-        ├── index.html
-        ├── page1.html
-        └── ...
+
 ```
 
 ## Customization
 
 ### Adjust Maximum Pages
 
-By default, the scraper limits to 1000 pages per site. To change this, edit `.github/scraper.py`:
+By default, the scraper limits to 1000 pages per website. To change this, edit `.github/agent-docs/scraper.py`:
 
 ```python
 self._scrape_recursive(url, url, output_dir, max_pages=2000)  # Increase limit
@@ -119,15 +128,15 @@ on:
     - cron: '0 0 * * 1'  # Weekly on Monday at 00:00 UTC
   push:
     paths:
-      - '.github/config.yaml'  # When config changes
+      - '.github/agent-docs/config.yaml'  # When config changes
 ```
 
 ## Requirements
 
 - Python 3.x
-- PyYAML (installed automatically by GitHub Actions, or via `pip install pyyaml`)
+- PyYAML and html2text (installed automatically by GitHub Actions, or via `pip install pyyaml html2text`)
 
-No virtual environment needed! The script uses only standard library modules plus PyYAML.
+No virtual environment needed! The script uses only standard library modules plus PyYAML + html2text.
 
 ## Troubleshooting
 

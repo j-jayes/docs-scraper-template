@@ -1,0 +1,6 @@
+# Website page index
+# Columns: url	local_md
+
+https://modelcontextprotocol.info/docs/	md/index.md
+https://modelcontextprotocol.info/docs/concepts/sampling/	md/concepts/sampling/index.md
+https://modelcontextprotocol.info/docs/learning-path/	md/learning-path/index.md

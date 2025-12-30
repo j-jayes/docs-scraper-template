@@ -13,7 +13,7 @@ cp -r /path/to/docs-scraper-template/.github .
 
 ## Step 2: Configure Your Docs
 
-Edit `.github/config.yaml` and add your documentation URLs:
+Edit `.github/agent-docs/config.yaml` and add your documentation sources:
 
 ```yaml
 docs_to_scrape:
@@ -29,16 +29,16 @@ docs_to_scrape:
 
 ### Option B: Run Locally
 ```bash
-pip install pyyaml
-python .github/scraper.py
+pip install pyyaml html2text
+python .github/agent-docs/scraper.py
 ```
 
 ## That's It!
 
-Your docs will be saved to `.github/<name>/` and kept up-to-date automatically.
+Your reference content will be saved to `.github/agent-docs/reference/<name>/` and kept up-to-date automatically.
 
 ---
 
 For more details, see:
-- [README.md](../README.md) - Full documentation
+- [README.md](../../README.md) - Full documentation
 - [USAGE.md](USAGE.md) - Advanced usage examples
