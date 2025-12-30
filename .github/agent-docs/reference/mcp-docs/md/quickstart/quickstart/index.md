@@ -1,0 +1,1251 @@
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog](https://modelcontextprotocol.info/blog/)
+
+`CTRL K`
+
+
+
+
+`CTRL K`
+
+
+
+
+  * [MCP Docs ](https://modelcontextprotocol.info/docs/)
+
+    * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
+    * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
+    * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
+
+      * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
+      * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
+      * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
+      * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
+      * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
+        *         * Building your server
+        * Testing your server with Claude for Desktop
+        * Building your server
+        * Testing your server with Claude for Desktop
+        * What’s happening under the hood
+        * Troubleshooting
+        * Next steps
+
+    * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
+
+      * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
+      * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
+      * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
+      * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
+      * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
+      * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
+      * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
+
+    * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
+
+      * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
+      * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
+      * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+      * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
+
+    * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
+    * [Clients](https://modelcontextprotocol.info/docs/clients/)
+    * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
+    * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
+    * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
+
+      * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
+
+        * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
+        * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
+        * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
+
+    * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
+
+  * [Tools ](https://modelcontextprotocol.info/tools/)
+
+    * [MCP Registry ](https://modelcontextprotocol.info/tools/registry/)
+
+      * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
+      * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
+      * [GitHub Actions 自动化发布](https://modelcontextprotocol.info/tools/registry/github-actions/)
+      * [消费 Registry 数据](https://modelcontextprotocol.info/tools/registry/consuming/)
+      * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
+
+    * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
+    * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
+    * [测试](https://modelcontextprotocol.info/tools/test/)
+
+  * [Specification ](https://modelcontextprotocol.info/specification/)
+
+    * [Specification (Draft) ](https://modelcontextprotocol.info/specification/draft/)
+
+      * [Architecture](https://modelcontextprotocol.info/specification/draft/architecture/)
+      * [Base Protocol ](https://modelcontextprotocol.info/specification/draft/basic/)
+
+        * [Transports](https://modelcontextprotocol.info/specification/draft/basic/transports/)
+        * [Authorization](https://modelcontextprotocol.info/specification/draft/basic/authorization/)
+        * [Messages](https://modelcontextprotocol.info/specification/draft/basic/messages/)
+        * [Lifecycle](https://modelcontextprotocol.info/specification/draft/basic/lifecycle/)
+        * [Versioning](https://modelcontextprotocol.info/specification/draft/basic/versioning/)
+        * [Utilities ](https://modelcontextprotocol.info/specification/draft/basic/utilities/)
+
+          * [Ping](https://modelcontextprotocol.info/specification/draft/basic/utilities/ping/)
+          * [Cancellation](https://modelcontextprotocol.info/specification/draft/basic/utilities/cancellation/)
+          * [Progress](https://modelcontextprotocol.info/specification/draft/basic/utilities/progress/)
+
+      * [Server Features ](https://modelcontextprotocol.info/specification/draft/server/)
+
+        * [Prompts](https://modelcontextprotocol.info/specification/draft/server/prompts/)
+        * [Resources](https://modelcontextprotocol.info/specification/draft/server/resources/)
+        * [Tools](https://modelcontextprotocol.info/specification/draft/server/tools/)
+        * [Utilities ](https://modelcontextprotocol.info/specification/draft/server/utilities/)
+
+          * [Completion](https://modelcontextprotocol.info/specification/draft/server/utilities/completion/)
+          * [Logging](https://modelcontextprotocol.info/specification/draft/server/utilities/logging/)
+          * [Pagination](https://modelcontextprotocol.info/specification/draft/server/utilities/pagination/)
+
+      * [Client Features ](https://modelcontextprotocol.info/specification/draft/client/)
+
+        * [Roots](https://modelcontextprotocol.info/specification/draft/client/roots/)
+        * [Sampling](https://modelcontextprotocol.info/specification/draft/client/sampling/)
+
+      * [Contributions](https://modelcontextprotocol.info/specification/draft/contributing/)
+      * [Revisions ](https://modelcontextprotocol.info/specification/draft/revisions/)
+
+        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/draft/revisions/2024-11-05/)
+
+    * [Specification (Latest) ](https://modelcontextprotocol.info/specification/2024-11-05/)
+
+      * [Architecture](https://modelcontextprotocol.info/specification/2024-11-05/architecture/)
+      * [Base Protocol ](https://modelcontextprotocol.info/specification/2024-11-05/basic/)
+
+        * [Messages](https://modelcontextprotocol.info/specification/2024-11-05/basic/messages/)
+        * [Lifecycle](https://modelcontextprotocol.info/specification/2024-11-05/basic/lifecycle/)
+        * [Transports](https://modelcontextprotocol.info/specification/2024-11-05/basic/transports/)
+        * [Versioning](https://modelcontextprotocol.info/specification/2024-11-05/basic/versioning/)
+        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/)
+
+          * [Ping](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/ping/)
+          * [Cancellation](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/cancellation/)
+          * [Progress](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/progress/)
+
+      * [Server Features ](https://modelcontextprotocol.info/specification/2024-11-05/server/)
+
+        * [Prompts](https://modelcontextprotocol.info/specification/2024-11-05/server/prompts/)
+        * [Resources](https://modelcontextprotocol.info/specification/2024-11-05/server/resources/)
+        * [Tools](https://modelcontextprotocol.info/specification/2024-11-05/server/tools/)
+        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/)
+
+          * [Completion](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/completion/)
+          * [Logging](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/logging/)
+          * [Pagination](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/pagination/)
+
+      * [Client Features ](https://modelcontextprotocol.info/specification/2024-11-05/client/)
+
+        * [Roots](https://modelcontextprotocol.info/specification/2024-11-05/client/roots/)
+        * [Sampling](https://modelcontextprotocol.info/specification/2024-11-05/client/sampling/)
+
+      * [Contributions](https://modelcontextprotocol.info/specification/2024-11-05/contributing/)
+      * [Revisions ](https://modelcontextprotocol.info/specification/2024-11-05/revisions/)
+
+        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/2024-11-05/revisions/2024-11-05/)
+
+  * [MCP Protocol Blog ](https://modelcontextprotocol.info/blog/)
+
+    * [Mastering MCP Tool Development: Unlocking AI Agent Potential](https://modelcontextprotocol.info/blog/writing-effective-mcp-tools/)
+    * [Update on the Next MCP Protocol Release](https://modelcontextprotocol.info/blog/mcp-next-version-update/)
+    * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
+    * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
+    * [一文读懂MCP协议：大模型AI-Agent的USB-C接口](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
+
+  * [About](https://modelcontextprotocol.info/about/)
+  * More
+  * [Docs ↗](https://modelcontextprotocol.info/docs/)
+  * [Specification ↗](https://modelcontextprotocol.info/specification/)
+  * [About](https://modelcontextprotocol.info/about)
+
+
+  * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
+  * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
+  * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
+
+    * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
+    * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
+    * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
+    * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
+    * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
+
+  * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
+
+    * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
+    * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
+    * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
+    * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
+    * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
+    * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
+    * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
+
+  * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
+
+    * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
+    * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
+    * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+    * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
+
+  * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
+  * [Clients](https://modelcontextprotocol.info/docs/clients/)
+  * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
+  * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
+  * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
+
+    * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
+
+      * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
+      * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
+      * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
+
+  * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
+  * More
+  * [Docs ↗](https://modelcontextprotocol.info/docs/)
+  * [Specification ↗](https://modelcontextprotocol.info/specification/)
+  * [About](https://modelcontextprotocol.info/about)
+
+
+
+English
+
+  * [English](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
+  * [简体中文](https://modelcontextprotocol.info/zh-cn/docs/quickstart/quickstart/)
+  * [繁體中文](https://modelcontextprotocol.info/zh-tw/docs/quickstart/quickstart/)
+  * [한국어](https://modelcontextprotocol.info/ko/docs/quickstart/quickstart/)
+
+
+
+  * Light 
+
+  * Dark 
+
+  * System 
+
+
+
+
+On this page
+
+  * What we’ll be building
+  * Core MCP Concepts
+  * Prerequisite knowledge
+  * System requirements
+  * Set up your environment
+
+
+
+
+
+  * Building your server
+  * Importing packages
+  * Setting up the instance
+  * Implementing tool listing
+  * Helper functions
+  * Implementing tool execution
+  * Running the server
+  * Testing your server with Claude for Desktop
+  * Prerequisite knowledge
+  * System requirements
+  * Set up your environment
+
+
+
+
+  * Building your server
+  * Importing packages
+  * Setting up the instance
+  * Implementing tool listing
+  * Helper functions
+  * Implementing tool execution
+  * Running the server
+  * Testing your server with Claude for Desktop
+  * Test with commands
+  * What’s happening under the hood
+  * Troubleshooting
+  * Next steps
+
+
+
+Scroll to top
+
+[MCP Docs](https://modelcontextprotocol.info/docs/)
+
+[Quickstart](https://modelcontextprotocol.info/docs/quickstart/)
+
+Quickstart
+
+# Quickstart
+
+In this tutorial, we'll build a simple MCP weather server and connect it to a host, Claude for Desktop. We'll start with a basic setup, and then progress to more complex use cases.
+
+### What we'll be building
+
+Many LLMs (including Claude) do not currently have the ability to fetch the forecast and severe weather alerts. Let's use MCP to solve that!
+
+We'll build a server that exposes two tools: `get-alerts` and `get-forecast`. Then we'll connect the server to an MCP host (in this case, Claude for Desktop):
+
+Servers can connect to any client. We've chosen Claude desktop here for simplicity, but we also have guides on [building your own client](../../tutorials/building-a-client)
+
+**Why Claude for Desktop and not Claude.ai?**
+
+Because servers are locally run, MCP currently only supports desktop hosts. Remote hosts are in active development.
+
+### Core MCP Concepts
+
+MCP servers can provide three main types of capabilities:
+
+  1. **Resources** : File-like data that can be read by clients (like API responses or file contents)
+  2. **Tools** : Functions that can be called by the LLM (with user approval)
+  3. **Prompts** : Pre-written templates that help users accomplish specific tasks
+
+
+
+This tutorial focuses on tools, but we have intermediate tutorials if you'd like to learn more about Resources and Prompts.
+
+### Prerequisite knowledge
+
+This quickstart assumes you have familiarity with:
+
+  * Python
+  * LLMs like Claude
+
+
+
+### System requirements
+
+For Python, make sure you have Python 3.9 or higher installed.
+
+### Set up your environment
+
+First, let's install `uv` and set up our Python project and environment:
+    
+    
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    
+    
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Make sure to restart your terminal afterwards to ensure that the `uv` command gets picked up.
+
+Now, let's create and set up our project:
+
+```bash MacOS/Linux # Create a new directory for our project uv init weather cd weather
+
+# Create virtual environment and activate it
+
+uv venv source .venv/bin/activate
+
+# Install dependencies
+
+uv add mcp httpx
+
+# Remove template file
+
+rm hello.py
+
+# Create our files
+
+mkdir -p src/weather touch src/weather/**init**.py touch src/weather/server.py
+    
+    
+    ```powershell Windows
+    # Create a new directory for our project
+    uv init weather
+    cd weather
+    
+    # Create virtual environment and activate it
+    uv venv
+    .venv\Scripts\activate
+    
+    # Install dependencies
+    uv add mcp httpx
+    
+    # Clean up boilerplate code
+    rm hello.py
+    
+    # Create our files
+    md src
+    md src\weather
+    new-item src\weather\__init__.py
+    new-item src\weather\server.py
+
+Add this code to `pyproject.toml`:
+    
+    
+    ...rest of config
+    
+    [build-system]
+    requires = [ "hatchling",]
+    build-backend = "hatchling.build"
+    
+    [project.scripts]
+    weather = "weather:main"
+
+Add this code to `__init__.py`:
+    
+    
+    from . import server
+    import asyncio
+    
+    def main():
+        """Main entry point for the package."""
+        asyncio.run(server.main())
+    
+    # Optionally expose other important items at package level
+    __all__ = ['main', 'server']
+
+Now let's dive into building your server.
+
+## Building your server
+
+### Importing packages
+
+Add these to the top of your `server.py`:
+    
+    
+    from typing import Any
+    import asyncio
+    import httpx
+    from mcp.server.models import InitializationOptions
+    import mcp.types as types
+    from mcp.server import NotificationOptions, Server
+    import mcp.server.stdio
+
+### Setting up the instance
+
+Then initialize the server instance and the base URL for the NWS API:
+    
+    
+    NWS_API_BASE = "https://api.weather.gov"
+    USER_AGENT = "weather-app/1.0"
+    
+    server = Server("weather")
+
+### Implementing tool listing
+
+We need to tell clients what tools are available. The `list_tools()` decorator registers this handler:
+    
+    
+    @server.list_tools()
+    async def handle_list_tools() -> list[types.Tool]:
+        """
+        List available tools.
+        Each tool specifies its arguments using JSON Schema validation.
+        """
+        return [
+            types.Tool(
+                name="get-alerts",
+                description="Get weather alerts for a state",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "state": {
+                            "type": "string",
+                            "description": "Two-letter state code (e.g. CA, NY)",
+                        },
+                    },
+                    "required": ["state"],
+                },
+            ),
+            types.Tool(
+                name="get-forecast",
+                description="Get weather forecast for a location",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+                        "latitude": {
+                            "type": "number",
+                            "description": "Latitude of the location",
+                        },
+                        "longitude": {
+                            "type": "number",
+                            "description": "Longitude of the location",
+                        },
+                    },
+                    "required": ["latitude", "longitude"],
+                },
+            ),
+        ]
+
+This defines our two tools: `get-alerts` and `get-forecast`.
+
+### Helper functions
+
+Next, let's add our helper functions for querying and formatting the data from the National Weather Service API:
+    
+    
+    async def make_nws_request(client: httpx.AsyncClient, url: str) -> dict[str, Any] | None:
+        """Make a request to the NWS API with proper error handling."""
+        headers = {
+            "User-Agent": USER_AGENT,
+            "Accept": "application/geo+json"
+        }
+    
+        try:
+            response = await client.get(url, headers=headers, timeout=30.0)
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+    
+    def format_alert(feature: dict) -> str:
+        """Format an alert feature into a concise string."""
+        props = feature["properties"]
+        return (
+            f"Event: {props.get('event', 'Unknown')}\n"
+            f"Area: {props.get('areaDesc', 'Unknown')}\n"
+            f"Severity: {props.get('severity', 'Unknown')}\n"
+            f"Status: {props.get('status', 'Unknown')}\n"
+            f"Headline: {props.get('headline', 'No headline')}\n"
+            "---"
+        )
+
+### Implementing tool execution
+
+The tool execution handler is responsible for actually executing the logic of each tool. Let's add it:
+    
+    
+    @server.call_tool()
+    async def handle_call_tool(
+        name: str, arguments: dict | None
+    ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
+        """
+        Handle tool execution requests.
+        Tools can fetch weather data and notify clients of changes.
+        """
+        if not arguments:
+            raise ValueError("Missing arguments")
+      
+        if name == "get-alerts":
+            state = arguments.get("state")
+            if not state:
+                raise ValueError("Missing state parameter")
+    
+            # Convert state to uppercase to ensure consistent format
+            state = state.upper()
+            if len(state) != 2:
+                raise ValueError("State must be a two-letter code (e.g. CA, NY)")
+    
+            async with httpx.AsyncClient() as client:
+                alerts_url = f"{NWS_API_BASE}/alerts?area={state}"
+                alerts_data = await make_nws_request(client, alerts_url)
+    
+                if not alerts_data:
+                    return [types.TextContent(type="text", text="Failed to retrieve alerts data")]
+    
+                features = alerts_data.get("features", [])
+                if not features:
+                    return [types.TextContent(type="text", text=f"No active alerts for {state}")]
+    
+                # Format each alert into a concise string
+                formatted_alerts = [format_alert(feature) for feature in features[:20]] # only take the first 20 alerts
+                alerts_text = f"Active alerts for {state}:\n\n" + "\n".join(formatted_alerts)
+    
+                return [
+                    types.TextContent(
+                        type="text",
+                        text=alerts_text
+                    )
+                ]
+        elif name == "get-forecast":
+            try:
+                latitude = float(arguments.get("latitude"))
+                longitude = float(arguments.get("longitude"))
+            except (TypeError, ValueError):
+                return [types.TextContent(
+                    type="text",
+                    text="Invalid coordinates. Please provide valid numbers for latitude and longitude."
+                )]
+                
+            # Basic coordinate validation
+            if not (-90 <= latitude <= 90) or not (-180 <= longitude <= 180):
+                return [types.TextContent(
+                    type="text",
+                    text="Invalid coordinates. Latitude must be between -90 and 90, longitude between -180 and 180."
+                )]
+    
+            async with httpx.AsyncClient() as client:
+                # First get the grid point
+                lat_str = f"{latitude}"
+                lon_str = f"{longitude}"
+                points_url = f"{NWS_API_BASE}/points/{lat_str},{lon_str}"
+                points_data = await make_nws_request(client, points_url)
+    
+                if not points_data:
+                    return [types.TextContent(type="text", text=f"Failed to retrieve grid point data for coordinates: {latitude}, {longitude}. This location may not be supported by the NWS API (only US locations are supported).")]
+    
+                # Extract forecast URL from the response
+                properties = points_data.get("properties", {})
+                forecast_url = properties.get("forecast")
+                
+                if not forecast_url:
+                    return [types.TextContent(type="text", text="Failed to get forecast URL from grid point data")]
+    
+                # Get the forecast
+                forecast_data = await make_nws_request(client, forecast_url)
+                
+                if not forecast_data:
+                    return [types.TextContent(type="text", text="Failed to retrieve forecast data")]
+    
+                # Format the forecast periods
+                periods = forecast_data.get("properties", {}).get("periods", [])
+                if not periods:
+                    return [types.TextContent(type="text", text="No forecast periods available")]
+    
+                # Format each period into a concise string
+                formatted_forecast = []
+                for period in periods:
+                    forecast_text = (
+                        f"{period.get('name', 'Unknown')}:\n"
+                        f"Temperature: {period.get('temperature', 'Unknown')}°{period.get('temperatureUnit', 'F')}\n"
+                        f"Wind: {period.get('windSpeed', 'Unknown')} {period.get('windDirection', '')}\n"
+                        f"{period.get('shortForecast', 'No forecast available')}\n"
+                        "---"
+                    )
+                    formatted_forecast.append(forecast_text)
+    
+                forecast_text = f"Forecast for {latitude}, {longitude}:\n\n" + "\n".join(formatted_forecast)
+    
+                return [types.TextContent(
+                    type="text",
+                    text=forecast_text
+                )]
+        else:
+            raise ValueError(f"Unknown tool: {name}")
+
+### Running the server
+
+Finally, implement the main function to run the server:
+    
+    
+    async def main():
+        # Run the server using stdin/stdout streams
+        async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+            await server.run(
+                read_stream,
+                write_stream,
+                InitializationOptions(
+                    server_name="weather",
+                    server_version="0.1.0",
+                    capabilities=server.get_capabilities(
+                        notification_options=NotificationOptions(),
+                        experimental_capabilities={},
+                    ),
+                ),
+            )
+    
+    # This is needed if you'd like to connect to a custom client
+    if __name__ == "__main__":
+        asyncio.run(main())
+
+Your server is complete! Run `uv run src/weather/server.py` to confirm that everything's working.
+
+Let's now test your server from an existing MCP host, Claude for Desktop.
+
+## Testing your server with Claude for Desktop
+
+Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](https://modelcontextprotocol.info/tutorials/building-a-client) tutorial to build an MCP client that connects to the server we just built.
+
+First, make sure you have Claude for Desktop installed. [You can install the latest version here.](https://claude.ai/download)
+
+Next, open your Claude for Desktop App configuration at `~/Library/Application Support/Claude/claude_desktop_config.json` in a text editor.
+
+For example, if you have [VS Code](https://code.visualstudio.com/) installed:
+
+MacOS/LinuxWindows
+    
+    
+    code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+    
+    
+    code $env:AppData\Claude\claude_desktop_config.json
+
+Add this configuration (replace the parent folder path):
+
+MacOS/LinuxWindows
+    
+    
+    {
+        "mcpServers": {
+            "weather": {
+                "command": "uv",
+                "args": [
+                    "--directory",
+                    "/ABSOLUTE/PATH/TO/PARENT/FOLDER/weather",
+                    "run",
+                    "weather"
+                ]
+            }
+        }
+    }
+    
+    
+    {
+        "mcpServers": {
+            "weather": {
+                "command": "uv",
+                "args": [
+                    "--directory",
+                    "C:\\ABSOLUTE\PATH\TO\PARENT\FOLDER\weather",
+                    "run",
+                    "weather"
+                ]
+            }
+        }
+    }
+
+This tells Claude for Desktop:
+
+  1. There's an MCP server named "weather"
+  2. Launch it by running `uv --directory /ABSOLUTE/PATH/TO/PARENT/FOLDER/weather run weather`
+
+
+
+Save the file, and restart **Claude for Desktop**. 
+
+### Prerequisite knowledge
+
+This quickstart assumes you have familiarity with:
+
+  * TypeScript
+  * LLMs like Claude
+
+
+
+### System requirements
+
+For TypeScript, make sure you have the latest version of Node installed.
+
+### Set up your environment
+
+First, let's install Node.js and npm if you haven't already. You can download them from [nodejs.org](https://nodejs.org/). Verify your Node.js installation:
+    
+    
+    node --version
+    npm --version
+
+For this tutorial, you'll need Node.js version 16 or higher.
+
+Now, let's create and set up our project:
+
+```bash MacOS/Linux # Create a new directory for our project mkdir weather cd weather
+
+# Initialize a new npm project
+
+npm init -y
+
+# Install dependencies
+
+npm install @modelcontextprotocol/sdk zod npm install -D @types/node typescript
+
+# Create our files
+
+mkdir src touch src/index.ts
+    
+    
+    ```powershell Windows
+    # Create a new directory for our project
+    md weather
+    cd weather
+    
+    # Initialize a new npm project
+    npm init -y
+    
+    # Install dependencies
+    npm install @modelcontextprotocol/sdk zod
+    npm install -D @types/node typescript
+    
+    # Create our files
+    md src
+    new-item src\index.ts
+
+Update your package.json to add type: "module" and a build script:
+    
+    
+    {
+      "type": "module",
+      "bin": {
+        "weather": "./build/index.js"
+      },
+      "scripts": {
+        "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+      },
+      "files": [
+        "build"
+      ],
+    }
+
+Create a `tsconfig.json` in the root of your project:
+    
+    
+    {
+      "compilerOptions": {
+        "target": "ES2022",
+        "module": "Node16",
+        "moduleResolution": "Node16",
+        "outDir": "./build",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+      },
+      "include": ["src/**/*"],
+      "exclude": ["node_modules"]
+    }
+
+Now let's dive into building your server.
+
+## Building your server
+
+### Importing packages
+
+Add these to the top of your `src/index.ts`:
+    
+    
+    import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+    import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+    import {
+      CallToolRequestSchema,
+      ListToolsRequestSchema,
+    } from "@modelcontextprotocol/sdk/types.js";
+    import { z } from "zod";
+
+### Setting up the instance
+
+Then initialize the NWS API base URL, validation schemas, and server instance:
+    
+    
+    const NWS_API_BASE = "https://api.weather.gov";
+    const USER_AGENT = "weather-app/1.0";
+    
+    // Define Zod schemas for validation
+    const AlertsArgumentsSchema = z.object({
+      state: z.string().length(2),
+    });
+    
+    const ForecastArgumentsSchema = z.object({
+      latitude: z.number().min(-90).max(90),
+      longitude: z.number().min(-180).max(180),
+    });
+    
+    // Create server instance
+    const server = new Server(
+      {
+        name: "weather",
+        version: "1.0.0",
+      },
+      {
+        capabilities: {
+          tools: {},
+        },
+      }
+    );
+
+### Implementing tool listing
+
+We need to tell clients what tools are available. This `server.setRequestHandler` call will register this list for us:
+    
+    
+    // List available tools
+    server.setRequestHandler(ListToolsRequestSchema, async () => {
+      return {
+        tools: [
+          {
+            name: "get-alerts",
+            description: "Get weather alerts for a state",
+            inputSchema: {
+              type: "object",
+              properties: {
+                state: {
+                  type: "string",
+                  description: "Two-letter state code (e.g. CA, NY)",
+                },
+              },
+              required: ["state"],
+            },
+          },
+          {
+            name: "get-forecast",
+            description: "Get weather forecast for a location",
+            inputSchema: {
+              type: "object",
+              properties: {
+                latitude: {
+                  type: "number",
+                  description: "Latitude of the location",
+                },
+                longitude: {
+                  type: "number",
+                  description: "Longitude of the location",
+                },
+              },
+              required: ["latitude", "longitude"],
+            },
+          },
+        ],
+      };
+    });
+
+This defines our two tools: `get-alerts` and `get-forecast`.
+
+### Helper functions
+
+Next, let's add our helper functions for querying and formatting the data from the National Weather Service API:
+    
+    
+    // Helper function for making NWS API requests
+    async function makeNWSRequest<T>(url: string): Promise<T | null> {
+      const headers = {
+        "User-Agent": USER_AGENT,
+        Accept: "application/geo+json",
+      };
+    
+      try {
+        const response = await fetch(url, { headers });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return (await response.json()) as T;
+      } catch (error) {
+        console.error("Error making NWS request:", error);
+        return null;
+      }
+    }
+    
+    interface AlertFeature {
+      properties: {
+        event?: string;
+        areaDesc?: string;
+        severity?: string;
+        status?: string;
+        headline?: string;
+      };
+    }
+    
+    // Format alert data
+    function formatAlert(feature: AlertFeature): string {
+      const props = feature.properties;
+      return [
+        `Event: ${props.event || "Unknown"}`,
+        `Area: ${props.areaDesc || "Unknown"}`,
+        `Severity: ${props.severity || "Unknown"}`,
+        `Status: ${props.status || "Unknown"}`,
+        `Headline: ${props.headline || "No headline"}`,
+        "---",
+      ].join("\n");
+    }
+    
+    interface ForecastPeriod {
+      name?: string;
+      temperature?: number;
+      temperatureUnit?: string;
+      windSpeed?: string;
+      windDirection?: string;
+      shortForecast?: string;
+    }
+    
+    interface AlertsResponse {
+      features: AlertFeature[];
+    }
+    
+    interface PointsResponse {
+      properties: {
+        forecast?: string;
+      };
+    }
+    
+    interface ForecastResponse {
+      properties: {
+        periods: ForecastPeriod[];
+      };
+    }
+
+### Implementing tool execution
+
+The tool execution handler is responsible for actually executing the logic of each tool. Let's add it:
+    
+    
+    // Handle tool execution
+    server.setRequestHandler(CallToolRequestSchema, async (request) => {
+      const { name, arguments: args } = request.params;
+    
+      try {
+        if (name === "get-alerts") {
+          const { state } = AlertsArgumentsSchema.parse(args);
+          const stateCode = state.toUpperCase();
+    
+          const alertsUrl = `${NWS_API_BASE}/alerts?area=${stateCode}`;
+          const alertsData = await makeNWSRequest<AlertsResponse>(alertsUrl);
+    
+          if (!alertsData) {
+            return {
+              content: [
+                {
+                  type: "text",
+                  text: "Failed to retrieve alerts data",
+                },
+              ],
+            };
+          }
+    
+          const features = alertsData.features || [];
+          if (features.length === 0) {
+            return {
+              content: [
+                {
+                  type: "text",
+                  text: `No active alerts for ${stateCode}`,
+                },
+              ],
+            };
+          }
+    
+          const formattedAlerts = features.map(formatAlert).slice(0, 20) // only take the first 20 alerts;
+          const alertsText = `Active alerts for ${stateCode}:\n\n${formattedAlerts.join(
+            "\n"
+          )}`;
+    
+          return {
+            content: [
+              {
+                type: "text",
+                text: alertsText,
+              },
+            ],
+          };
+        } else if (name === "get-forecast") {
+          const { latitude, longitude } = ForecastArgumentsSchema.parse(args);
+    
+          // Get grid point data
+          const pointsUrl = `${NWS_API_BASE}/points/${latitude.toFixed(
+            4
+          )},${longitude.toFixed(4)}`;
+          const pointsData = await makeNWSRequest<PointsResponse>(pointsUrl);
+    
+          if (!pointsData) {
+            return {
+              content: [
+                {
+                  type: "text",
+                  text: `Failed to retrieve grid point data for coordinates: ${latitude}, ${longitude}. This location may not be supported by the NWS API (only US locations are supported).`,
+                },
+              ],
+            };
+          }
+    
+          const forecastUrl = pointsData.properties?.forecast;
+          if (!forecastUrl) {
+            return {
+              content: [
+                {
+                  type: "text",
+                  text: "Failed to get forecast URL from grid point data",
+                },
+              ],
+            };
+          }
+    
+          // Get forecast data
+          const forecastData = await makeNWSRequest<ForecastResponse>(forecastUrl);
+          if (!forecastData) {
+            return {
+              content: [
+                {
+                  type: "text",
+                  text: "Failed to retrieve forecast data",
+                },
+              ],
+            };
+          }
+    
+          const periods = forecastData.properties?.periods || [];
+          if (periods.length === 0) {
+            return {
+              content: [
+                {
+                  type: "text",
+                  text: "No forecast periods available",
+                },
+              ],
+            };
+          }
+    
+          // Format forecast periods
+          const formattedForecast = periods.map((period: ForecastPeriod) =>
+            [
+              `${period.name || "Unknown"}:`,
+              `Temperature: ${period.temperature || "Unknown"}°${
+                period.temperatureUnit || "F"
+              }`,
+              `Wind: ${period.windSpeed || "Unknown"} ${
+                period.windDirection || ""
+              }`,
+              `${period.shortForecast || "No forecast available"}`,
+              "---",
+            ].join("\n")
+          );
+    
+          const forecastText = `Forecast for ${latitude}, ${longitude}:\n\n${formattedForecast.join(
+            "\n"
+          )}`;
+    
+          return {
+            content: [
+              {
+                type: "text",
+                text: forecastText,
+              },
+            ],
+          };
+        } else {
+          throw new Error(`Unknown tool: ${name}`);
+        }
+      } catch (error) {
+        if (error instanceof z.ZodError) {
+          throw new Error(
+            `Invalid arguments: ${error.errors
+              .map((e) => `${e.path.join(".")}: ${e.message}`)
+              .join(", ")}`
+          );
+        }
+        throw error;
+      }
+    });
+
+### Running the server
+
+Finally, implement the main function to run the server:
+    
+    
+    // Start the server
+    async function main() {
+      const transport = new StdioServerTransport();
+      await server.connect(transport);
+      console.error("Weather MCP Server running on stdio");
+    }
+    
+    main().catch((error) => {
+      console.error("Fatal error in main():", error);
+      process.exit(1);
+    });
+
+Make sure to run `npm run build` to build your server! This is a very important step in getting your server to connect.
+
+Let's now test your server from an existing MCP host, Claude for Desktop.
+
+## Testing your server with Claude for Desktop
+
+Unfortunately, Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](/tutorials/building-a-client) tutorial for a workaround.
+
+First, make sure you have Claude for Desktop installed. [You can install the latest version here.](https://claude.ai/download)
+
+Next, open your Claude for Desktop App configuration at `~/Library/Application Support/Claude/claude_desktop_config.json` in a text editor.
+
+For example, if you have [VS Code](https://code.visualstudio.com/) installed:
+
+```bash code ~/Library/Application\ Support/Claude/claude_desktop_config.json ``` ```powershell code $env:AppData\Claude\claude_desktop_config.json ```
+
+Add this configuration (replace the parent folder path):
+
+```json Node { "mcpServers": { "weather": { "command": "node", "args": [ "/ABSOLUTE/PATH/TO/PARENT/FOLDER/weather/build/index.js" ] } } } ``` ```json Node { "mcpServers": { "weather": { "command": "node", "args": [ "C:\\\PATH\TO\PARENT\FOLDER\weather\build\index.js" ] } } } ```
+
+This tells Claude for Desktop:
+
+  1. There's an MCP server named "weather"
+  2. Launch it by running `node /ABSOLUTE/PATH/TO/PARENT/FOLDER/weather/build/index.js`
+
+
+
+Save the file, and restart **Claude for Desktop**.
+
+### Test with commands
+
+First, make sure Claude for Desktop is picking up the two tools we've exposed in our `weather` server. You can do this by looking for the hammer <img src="/images/claude-desktop-mcp-hammer-icon.svg" style={{display: 'inline', margin: 0, height: '1.3em'}} /> icon:
+
+After clicking on the hammer icon, you should see two tools listed:
+
+If your server isn't being picked up by Claude for Desktop, proceed to the Troubleshooting section for debugging advice.
+
+You can now test your server by running the following commands in Claude for Desktop:
+
+  * What's the weather in Sacramento?
+  * What are the active weather alerts in Texas?
+
+Since this is the US National Weather service, the queries will only work for US locations.
+
+## What's happening under the hood
+
+When you ask a question:
+
+  1. The client sends your question to Claude
+  2. Claude analyzes the available tools and decides which one(s) to use
+  3. The client executes the chosen tool(s) through the MCP server
+  4. The results are sent back to Claude
+  5. Claude formulates a natural language response
+  6. The response is displayed to you!
+
+
+
+## Troubleshooting
+
+**Error: Failed to retrieve grid point data**
+
+This usually means either:
+
+  1. The coordinates are outside the US
+  2. The NWS API is having issues
+  3. You're being rate limited
+
+
+
+Fix:
+
+  * Verify you're using US coordinates
+  * Add a small delay between requests
+  * Check the NWS API status page
+
+
+
+**Error: No active alerts for [STATE]**
+
+This isn't an error - it just means there are no current weather alerts for that state. Try a different state or check during severe weather. **Server not showing up in Claude**
+
+  1. Check your configuration file syntax
+  2. Make sure the path to your project is correct
+  3. Restart Claude for Desktop completely
+
+
+
+You can also check Claude's logs for errors like so:
+    
+    
+    # Check Claude's logs for errors
+    tail -n 20 -f ~/Library/Logs/Claude/mcp*.log
+
+**Tool calls failing silently**
+
+If Claude attempts to use the tools but they fail:
+
+  1. Check Claude's logs for errors
+  2. Verify your server runs without errors
+  3. Try restarting Claude for Desktop
+
+
+
+## Next steps
+
+Learn how to build your an MCP client that can connect to your server Check out our gallery of official MCP servers and implementations Understand how MCP connects clients, servers, and LLMs
+
+[Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/ "Your First MCP Experience: 5-Minute Setup")
+
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文](https://chatgptcn.com "ChatGPT 中文社区")
+
+[Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
+
+© 2024 ModelContextProtocol.Info.

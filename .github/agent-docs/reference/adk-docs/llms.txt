@@ -1,136 +1,677 @@
-# Agent Development Kit
+# Website page index
+# Columns: url	local_md
 
-> Build powerful multi-agent systems with Agent Development Kit
-
-An open-source, code-first toolkit for building, evaluating, and deploying sophisticated AI agents with flexibility and control.
-
-## Build Agents
-
-- [Get started](https://google.github.io/adk-docs/get-started/index.md)
-- [Technical Overview](https://google.github.io/adk-docs/get-started/about/index.md)
-- [Go](https://google.github.io/adk-docs/get-started/go/index.md)
-- [Advanced setup](https://google.github.io/adk-docs/get-started/installation/index.md)
-- [Java](https://google.github.io/adk-docs/get-started/java/index.md)
-- [Python](https://google.github.io/adk-docs/get-started/python/index.md)
-- [Multi-tool agent](https://google.github.io/adk-docs/get-started/quickstart/index.md)
-- [TypeScript](https://google.github.io/adk-docs/get-started/typescript/index.md)
-- [Build a streaming agent](https://google.github.io/adk-docs/get-started/streaming/index.md)
-- [Java](https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming-java/index.md)
-- [Python](https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming/index.md)
-- [Build your agent with ADK](https://google.github.io/adk-docs/tutorials/index.md)
-- [Agent team](https://google.github.io/adk-docs/tutorials/agent-team/index.md)
-- [Coding with AI](https://google.github.io/adk-docs/tutorials/coding-with-ai/index.md)
-- [Agents](https://google.github.io/adk-docs/agents/index.md)
-- [Agent Config](https://google.github.io/adk-docs/agents/config/index.md)
-- [Custom agents](https://google.github.io/adk-docs/agents/custom-agents/index.md)
-- [LLM agents](https://google.github.io/adk-docs/agents/llm-agents/index.md)
-- [Models & Authentication](https://google.github.io/adk-docs/agents/models/index.md)
-- [Multi-agent systems](https://google.github.io/adk-docs/agents/multi-agents/index.md)
-- [Workflow Agents](https://google.github.io/adk-docs/agents/workflow-agents/index.md)
-- [Loop agents](https://google.github.io/adk-docs/agents/workflow-agents/loop-agents/index.md)
-- [Parallel agents](https://google.github.io/adk-docs/agents/workflow-agents/parallel-agents/index.md)
-- [Sequential agents](https://google.github.io/adk-docs/agents/workflow-agents/sequential-agents/index.md)
-- [Tools for Agents](https://google.github.io/adk-docs/tools/index.md)
-- [Tool limitations](https://google.github.io/adk-docs/tools/limitations/index.md)
-- [Gemini API tools](https://google.github.io/adk-docs/tools/gemini-api/index.md)
-- [Code Execution](https://google.github.io/adk-docs/tools/gemini-api/code-execution/index.md)
-- [Computer use](https://google.github.io/adk-docs/tools/gemini-api/computer-use/index.md)
-- [Google Search](https://google.github.io/adk-docs/tools/gemini-api/google-search/index.md)
-- [Google Cloud Tools](https://google.github.io/adk-docs/tools/google-cloud/index.md)
-- [Cloud API Registry](https://google.github.io/adk-docs/tools/google-cloud/api-registry/index.md)
-- [Apigee API Hub](https://google.github.io/adk-docs/tools/google-cloud/apigee-api-hub/index.md)
-- [Application Integration](https://google.github.io/adk-docs/tools/google-cloud/application-integration/index.md)
-- [BigQuery](https://google.github.io/adk-docs/tools/google-cloud/bigquery/index.md)
-- [Bigtable](https://google.github.io/adk-docs/tools/google-cloud/bigtable/index.md)
-- [Code Execution with Agent Engine](https://google.github.io/adk-docs/tools/google-cloud/code-exec-agent-engine/index.md)
-- [GKE Code Executor](https://google.github.io/adk-docs/tools/google-cloud/gke-code-executor/index.md)
-- [MCP Toolbox for Databases](https://google.github.io/adk-docs/tools/google-cloud/mcp-toolbox-for-databases/index.md)
-- [Spanner](https://google.github.io/adk-docs/tools/google-cloud/spanner/index.md)
-- [RAG Engine](https://google.github.io/adk-docs/tools/google-cloud/vertex-ai-rag-engine/index.md)
-- [Vertex AI Search](https://google.github.io/adk-docs/tools/google-cloud/vertex-ai-search/index.md)
-- [Third-Party Tools](https://google.github.io/adk-docs/tools/third-party/index.md)
-- [Agentic UI (AG-UI)](https://google.github.io/adk-docs/tools/third-party/ag-ui/index.md)
-- [Atlassian](https://google.github.io/adk-docs/tools/third-party/atlassian/index.md)
-- [GitHub](https://google.github.io/adk-docs/tools/third-party/github/index.md)
-- [GitLab](https://google.github.io/adk-docs/tools/third-party/gitlab/index.md)
-- [Hugging Face](https://google.github.io/adk-docs/tools/third-party/hugging-face/index.md)
-- [Linear](https://google.github.io/adk-docs/tools/third-party/linear/index.md)
-- [n8n](https://google.github.io/adk-docs/tools/third-party/n8n/index.md)
-- [Notion](https://google.github.io/adk-docs/tools/third-party/notion/index.md)
-- [PayPal](https://google.github.io/adk-docs/tools/third-party/paypal/index.md)
-- [Qdrant](https://google.github.io/adk-docs/tools/third-party/qdrant/index.md)
-- [Custom Tools for ADK](https://google.github.io/adk-docs/tools-custom/index.md)
-- [Authentication](https://google.github.io/adk-docs/tools-custom/authentication/index.md)
-- [Action confirmations](https://google.github.io/adk-docs/tools-custom/confirmation/index.md)
-- [Overview](https://google.github.io/adk-docs/tools-custom/function-tools/index.md)
-- [MCP tools](https://google.github.io/adk-docs/tools-custom/mcp-tools/index.md)
-- [OpenAPI tools](https://google.github.io/adk-docs/tools-custom/openapi-tools/index.md)
-- [Tool performance](https://google.github.io/adk-docs/tools-custom/performance/index.md)
-
-## Run Agents
-
-- [Agent Runtime](https://google.github.io/adk-docs/runtime/index.md)
-- [API Server](https://google.github.io/adk-docs/runtime/api-server/index.md)
-- [Resume Agents](https://google.github.io/adk-docs/runtime/resume/index.md)
-- [Runtime Config](https://google.github.io/adk-docs/runtime/runconfig/index.md)
-- [Deploying Your Agent](https://google.github.io/adk-docs/deploy/index.md)
-- [Cloud Run](https://google.github.io/adk-docs/deploy/cloud-run/index.md)
-- [GKE](https://google.github.io/adk-docs/deploy/gke/index.md)
-- [Deploy to Vertex AI Agent Engine](https://google.github.io/adk-docs/deploy/agent-engine/index.md)
-- [Agent Starter Pack](https://google.github.io/adk-docs/deploy/agent-engine/asp/index.md)
-- [Standard deployment](https://google.github.io/adk-docs/deploy/agent-engine/deploy/index.md)
-- [Test deployed agents](https://google.github.io/adk-docs/deploy/agent-engine/test/index.md)
-- [AgentOps](https://google.github.io/adk-docs/observability/agentops/index.md)
-- [Arize AX](https://google.github.io/adk-docs/observability/arize-ax/index.md)
-- [BigQuery Agent Analytics](https://google.github.io/adk-docs/observability/bigquery-agent-analytics/index.md)
-- [Cloud Trace](https://google.github.io/adk-docs/observability/cloud-trace/index.md)
-- [Freeplay](https://google.github.io/adk-docs/observability/freeplay/index.md)
-- [Logging](https://google.github.io/adk-docs/observability/logging/index.md)
-- [MLflow](https://google.github.io/adk-docs/observability/mlflow/index.md)
-- [Monocle](https://google.github.io/adk-docs/observability/monocle/index.md)
-- [Phoenix](https://google.github.io/adk-docs/observability/phoenix/index.md)
-- [W&B Weave](https://google.github.io/adk-docs/observability/weave/index.md)
-- [Safety and Security for AI Agents](https://google.github.io/adk-docs/safety/index.md)
-
-## Components
-
-- [Context](https://google.github.io/adk-docs/context/index.md)
-- [Context caching](https://google.github.io/adk-docs/context/caching/index.md)
-- [Context compression](https://google.github.io/adk-docs/context/compaction/index.md)
-- [Introduction to Conversational Context: Session, State, and Memory](https://google.github.io/adk-docs/sessions/index.md)
-- [Vertex AI Express Mode](https://google.github.io/adk-docs/sessions/express-mode/index.md)
-- [Memory](https://google.github.io/adk-docs/sessions/memory/index.md)
-- [Rewind sessions](https://google.github.io/adk-docs/sessions/rewind/index.md)
-- [Overview](https://google.github.io/adk-docs/sessions/session/index.md)
-- [State](https://google.github.io/adk-docs/sessions/state/index.md)
-- [Callbacks: Observe, Customize, and Control Agent Behavior](https://google.github.io/adk-docs/callbacks/index.md)
-- [Callback patterns](https://google.github.io/adk-docs/callbacks/design-patterns-and-best-practices/index.md)
-- [Types of callbacks](https://google.github.io/adk-docs/callbacks/types-of-callbacks/index.md)
-- [Artifacts](https://google.github.io/adk-docs/artifacts/index.md)
-- [Events](https://google.github.io/adk-docs/events/index.md)
-- [Apps: workflow management class](https://google.github.io/adk-docs/apps/index.md)
-- [Plugins](https://google.github.io/adk-docs/plugins/index.md)
-- [Reflect and retry](https://google.github.io/adk-docs/plugins/reflect-and-retry/index.md)
-- [Model Context Protocol (MCP)](https://google.github.io/adk-docs/mcp/index.md)
-- [ADK with Agent2Agent (A2A) Protocol](https://google.github.io/adk-docs/a2a/index.md)
-- [Introduction to A2A](https://google.github.io/adk-docs/a2a/intro/index.md)
-- [Go](https://google.github.io/adk-docs/a2a/quickstart-consuming-go/index.md)
-- [Python](https://google.github.io/adk-docs/a2a/quickstart-consuming/index.md)
-- [Go](https://google.github.io/adk-docs/a2a/quickstart-exposing-go/index.md)
-- [Python](https://google.github.io/adk-docs/a2a/quickstart-exposing/index.md)
-- [Bidi-streaming (live) in ADK](https://google.github.io/adk-docs/streaming/index.md)
-- [Configuring Bidi-streaming behavior](https://google.github.io/adk-docs/streaming/configuration/index.md)
-- [Streaming Tools](https://google.github.io/adk-docs/streaming/streaming-tools/index.md)
-- [Part 1. Intro to streaming](https://google.github.io/adk-docs/streaming/dev-guide/part1/index.md)
-- [Part 2. Sending messages](https://google.github.io/adk-docs/streaming/dev-guide/part2/index.md)
-- [Part 3. Event handling](https://google.github.io/adk-docs/streaming/dev-guide/part3/index.md)
-- [Part 4. Run configuration](https://google.github.io/adk-docs/streaming/dev-guide/part4/index.md)
-- [Part 5. Audio, Images, and Video](https://google.github.io/adk-docs/streaming/dev-guide/part5/index.md)
-- [Understanding Google Search Grounding](https://google.github.io/adk-docs/grounding/google_search_grounding/index.md)
-- [Understanding Vertex AI Search Grounding](https://google.github.io/adk-docs/grounding/vertex_ai_search_grounding/index.md)
-
-## Reference
-
-- [API Reference](https://google.github.io/adk-docs/api-reference/index.md)
-- [REST API](https://google.github.io/adk-docs/api-reference/rest/index.md)
-
+https://google.github.io/adk-docs/	md/index.md
+https://google.github.io/adk-docs/observability/weave/	md/observability/weave/index.md
+https://google.github.io/adk-docs/agents/workflow-agents/loop-agents/	md/agents/workflow-agents/loop-agents/index.md
+https://google.github.io/adk-docs/tools-custom/function-tools/	md/tools-custom/function-tools/index.md
+https://google.github.io/adk-docs/runtime/resume/	md/runtime/resume/index.md
+https://google.github.io/adk-docs/tools-custom/openapi-tools/	md/tools-custom/openapi-tools/index.md
+https://google.github.io/adk-docs/tools-custom/confirmation/	md/tools-custom/confirmation/index.md
+https://google.github.io/adk-docs/grounding/google_search_grounding/	md/grounding/google_search_grounding/index.md
+https://google.github.io/adk-docs/observability/bigquery-agent-analytics/	md/observability/bigquery-agent-analytics/index.md
+https://google.github.io/adk-docs/tutorials/agent-team/	md/tutorials/agent-team/index.md
+https://google.github.io/adk-docs/callbacks/	md/callbacks/index.md
+https://google.github.io/adk-docs/sessions/express-mode/	md/sessions/express-mode/index.md
+https://google.github.io/adk-docs/get-started/about/	md/get-started/about/index.md
+https://google.github.io/adk-docs/get-started/java/	md/get-started/java/index.md
+https://google.github.io/adk-docs/runtime/	md/runtime/index.md
+https://google.github.io/adk-docs/streaming/dev-guide/part4/	md/streaming/dev-guide/part4/index.md
+https://google.github.io/adk-docs/streaming/dev-guide/part5/	md/streaming/dev-guide/part5/index.md
+https://google.github.io/adk-docs/agents/models/	md/agents/models/index.md
+https://google.github.io/adk-docs/get-started/go/	md/get-started/go/index.md
+https://google.github.io/adk-docs/observability/logging/	md/observability/logging/index.md
+https://google.github.io/adk-docs/tools/google-cloud/vertex-ai-search/	md/tools/google-cloud/vertex-ai-search/index.md
+https://google.github.io/adk-docs/tools/limitations/	md/tools/limitations/index.md
+https://google.github.io/adk-docs/tools/google-cloud/gke-code-executor/	md/tools/google-cloud/gke-code-executor/index.md
+https://google.github.io/adk-docs/release-notes/	md/release-notes/index.md
+https://google.github.io/adk-docs/tools/google-cloud/apigee-api-hub/	md/tools/google-cloud/apigee-api-hub/index.md
+https://google.github.io/adk-docs/tools-custom/	md/tools-custom/index.md
+https://google.github.io/adk-docs/agents/workflow-agents/	md/agents/workflow-agents/index.md
+https://google.github.io/adk-docs/tools/third-party/qdrant/	md/tools/third-party/qdrant/index.md
+https://google.github.io/adk-docs/mcp/	md/mcp/index.md
+https://google.github.io/adk-docs/deploy/cloud-run/	md/deploy/cloud-run/index.md
+https://google.github.io/adk-docs/tools/third-party/hugging-face/	md/tools/third-party/hugging-face/index.md
+https://google.github.io/adk-docs/artifacts/	md/artifacts/index.md
+https://google.github.io/adk-docs/a2a/quickstart-exposing-go/	md/a2a/quickstart-exposing-go/index.md
+https://google.github.io/adk-docs/callbacks/design-patterns-and-best-practices/	md/callbacks/design-patterns-and-best-practices/index.md
+https://google.github.io/adk-docs/apps/	md/apps/index.md
+https://google.github.io/adk-docs/callbacks/types-of-callbacks/	md/callbacks/types-of-callbacks/index.md
+https://google.github.io/adk-docs/agents/config/	md/agents/config/index.md
+https://google.github.io/adk-docs/streaming/dev-guide/part2/	md/streaming/dev-guide/part2/index.md
+https://google.github.io/adk-docs/tutorials/coding-with-ai/	md/tutorials/coding-with-ai/index.md
+https://google.github.io/adk-docs/llms-full.txt	md/llms-full.md
+https://google.github.io/adk-docs/tools/google-cloud/code-exec-agent-engine/	md/tools/google-cloud/code-exec-agent-engine/index.md
+https://google.github.io/adk-docs/sessions/	md/sessions/index.md
+https://google.github.io/adk-docs/tools/gemini-api/computer-use/	md/tools/gemini-api/computer-use/index.md
+https://google.github.io/adk-docs/grounding/vertex_ai_search_grounding/	md/grounding/vertex_ai_search_grounding/index.md
+https://google.github.io/adk-docs/api-reference/agentconfig/	md/api-reference/agentconfig/index.md
+https://google.github.io/adk-docs/tools-custom/authentication/	md/tools-custom/authentication/index.md
+https://google.github.io/adk-docs/deploy/agent-engine/deploy/	md/deploy/agent-engine/deploy/index.md
+https://google.github.io/adk-docs/observability/agentops/	md/observability/agentops/index.md
+https://google.github.io/adk-docs/tools/google-cloud/bigquery/	md/tools/google-cloud/bigquery/index.md
+https://google.github.io/adk-docs/get-started/typescript/	md/get-started/typescript/index.md
+https://google.github.io/adk-docs/visual-builder/	md/visual-builder/index.md
+https://google.github.io/adk-docs/agents/multi-agents/	md/agents/multi-agents/index.md
+https://google.github.io/adk-docs/tools/third-party/linear/	md/tools/third-party/linear/index.md
+https://google.github.io/adk-docs/get-started/python/	md/get-started/python/index.md
+https://google.github.io/adk-docs/context/compaction/	md/context/compaction/index.md
+https://google.github.io/adk-docs/streaming/dev-guide/part1/	md/streaming/dev-guide/part1/index.md
+https://google.github.io/adk-docs/streaming/dev-guide/part3/	md/streaming/dev-guide/part3/index.md
+https://google.github.io/adk-docs/a2a/quickstart-exposing/	md/a2a/quickstart-exposing/index.md
+https://google.github.io/adk-docs/sessions/session/	md/sessions/session/index.md
+https://google.github.io/adk-docs/a2a/quickstart-consuming-go/	md/a2a/quickstart-consuming-go/index.md
+https://google.github.io/adk-docs/streaming/	md/streaming/index.md
+https://google.github.io/adk-docs/agents/workflow-agents/parallel-agents/	md/agents/workflow-agents/parallel-agents/index.md
+https://google.github.io/adk-docs/sessions/state/	md/sessions/state/index.md
+https://google.github.io/adk-docs/agents/custom-agents/	md/agents/custom-agents/index.md
+https://google.github.io/adk-docs/tools/third-party/gitlab/	md/tools/third-party/gitlab/index.md
+https://google.github.io/adk-docs/deploy/agent-engine/asp/	md/deploy/agent-engine/asp/index.md
+https://google.github.io/adk-docs/tools/google-cloud/	md/tools/google-cloud/index.md
+https://google.github.io/adk-docs/evaluate/criteria/	md/evaluate/criteria/index.md
+https://google.github.io/adk-docs/tools/third-party/ag-ui/	md/tools/third-party/ag-ui/index.md
+https://google.github.io/adk-docs/tools/gemini-api/google-search/	md/tools/gemini-api/google-search/index.md
+https://google.github.io/adk-docs/events/	md/events/index.md
+https://google.github.io/adk-docs/sessions/memory/	md/sessions/memory/index.md
+https://google.github.io/adk-docs/tools-custom/performance/	md/tools-custom/performance/index.md
+https://google.github.io/adk-docs/get-started/streaming/	md/get-started/streaming/index.md
+https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming/	md/get-started/streaming/quickstart-streaming/index.md
+https://google.github.io/adk-docs/tools-custom/mcp-tools/	md/tools-custom/mcp-tools/index.md
+https://google.github.io/adk-docs/context/caching/	md/context/caching/index.md
+https://google.github.io/adk-docs/tools/third-party/notion/	md/tools/third-party/notion/index.md
+https://google.github.io/adk-docs/observability/mlflow/	md/observability/mlflow/index.md
+https://google.github.io/adk-docs/tools/third-party/atlassian/	md/tools/third-party/atlassian/index.md
+https://google.github.io/adk-docs/contributing-guide/	md/contributing-guide/index.md
+https://google.github.io/adk-docs/tools/google-cloud/bigtable/	md/tools/google-cloud/bigtable/index.md
+https://google.github.io/adk-docs/tools/third-party/	md/tools/third-party/index.md
+https://google.github.io/adk-docs/agents/llm-agents/	md/agents/llm-agents/index.md
+https://google.github.io/adk-docs/tools/google-cloud/api-registry/	md/tools/google-cloud/api-registry/index.md
+https://google.github.io/adk-docs/tools/third-party/github/	md/tools/third-party/github/index.md
+https://google.github.io/adk-docs/observability/phoenix/	md/observability/phoenix/index.md
+https://google.github.io/adk-docs/a2a/quickstart-consuming/	md/a2a/quickstart-consuming/index.md
+https://google.github.io/adk-docs/tools/third-party/paypal/	md/tools/third-party/paypal/index.md
+https://google.github.io/adk-docs/context/	md/context/index.md
+https://google.github.io/adk-docs/evaluate/	md/evaluate/index.md
+https://google.github.io/adk-docs/a2a/	md/a2a/index.md
+https://google.github.io/adk-docs/get-started/installation/	md/get-started/installation/index.md
+https://google.github.io/adk-docs/api-reference/cli/	md/api-reference/cli/index.md
+https://google.github.io/adk-docs/api-reference/cli/cli.html	md/api-reference/cli/cli.md
+https://google.github.io/adk-docs/api-reference/cli/_sources/cli.rst.txt	md/api-reference/cli/_sources/cli.rst.md
+https://google.github.io/adk-docs/api-reference/cli/index.html	md/api-reference/cli/index.md
+https://google.github.io/adk-docs/api-reference/cli/_sources/index.rst.txt	md/api-reference/cli/_sources/index.rst.md
+https://google.github.io/adk-docs/agents/	md/agents/index.md
+https://google.github.io/adk-docs/tools/google-cloud/application-integration/	md/tools/google-cloud/application-integration/index.md
+https://google.github.io/adk-docs/observability/cloud-trace/	md/observability/cloud-trace/index.md
+https://google.github.io/adk-docs/community/	md/community/index.md
+https://google.github.io/adk-docs/deploy/agent-engine/test/	md/deploy/agent-engine/test/index.md
+https://google.github.io/adk-docs/get-started/quickstart/	md/get-started/quickstart/index.md
+https://google.github.io/adk-docs/get-started/	md/get-started/index.md
+https://google.github.io/adk-docs/tools/third-party/n8n/	md/tools/third-party/n8n/index.md
+https://google.github.io/adk-docs/deploy/agent-engine/	md/deploy/agent-engine/index.md
+https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming-java/	md/get-started/streaming/quickstart-streaming-java/index.md
+https://google.github.io/adk-docs/observability/arize-ax/	md/observability/arize-ax/index.md
+https://google.github.io/adk-docs/tools/google-cloud/spanner/	md/tools/google-cloud/spanner/index.md
+https://google.github.io/adk-docs/api-reference/java/	md/api-reference/java/index.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/langchain4j/package-summary.html	md/api-reference/java/com/google/adk/models/langchain4j/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/langchain4j/package-tree.html	md/api-reference/java/com/google/adk/models/langchain4j/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/langchain4j/package-use.html	md/api-reference/java/com/google/adk/models/langchain4j/package-use.md
+https://google.github.io/adk-docs/api-reference/java/index-all.html	md/api-reference/java/index-all.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/Event.Builder.html	md/api-reference/java/com/google/adk/events/Event.Builder.md
+https://google.github.io/adk-docs/api-reference/java/index.html	md/api-reference/java/index.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/package-summary.html	md/api-reference/java/com/google/adk/network/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/HttpApiResponse.html	md/api-reference/java/com/google/adk/network/HttpApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/search.html	md/api-reference/java/search.md
+https://google.github.io/adk-docs/api-reference/java/overview-tree.html	md/api-reference/java/overview-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.AfterToolCallback.html	md/api-reference/java/com/google/adk/agents/Callbacks.AfterToolCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.html	md/api-reference/java/com/google/adk/agents/Callbacks.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/package-tree.html	md/api-reference/java/com/google/adk/agents/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.AfterAgentCallbackSync.html	md/api-reference/java/com/google/adk/agents/Callbacks.AfterAgentCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterAgentCallbackSync.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterAgentCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LlmAgent.Builder.html	md/api-reference/java/com/google/adk/agents/LlmAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Instruction.html	md/api-reference/java/com/google/adk/agents/Instruction.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Instruction.Provider.html	md/api-reference/java/com/google/adk/agents/Instruction.Provider.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Instruction.Provider.html	md/api-reference/java/com/google/adk/agents/class-use/Instruction.Provider.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/package-summary.html	md/api-reference/java/com/google/adk/agents/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/ParallelAgent.html	md/api-reference/java/com/google/adk/agents/ParallelAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/BaseAgent.html	md/api-reference/java/com/google/adk/agents/BaseAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LoopAgent.html	md/api-reference/java/com/google/adk/agents/LoopAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LoopAgent.html	md/api-reference/java/com/google/adk/agents/class-use/LoopAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LoopAgent.Builder.html	md/api-reference/java/com/google/adk/agents/LoopAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LoopAgent.Builder.html	md/api-reference/java/com/google/adk/agents/class-use/LoopAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.BeforeAgentCallback.html	md/api-reference/java/com/google/adk/agents/Callbacks.BeforeAgentCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/CallbackContext.html	md/api-reference/java/com/google/adk/agents/CallbackContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/ReadonlyContext.html	md/api-reference/java/com/google/adk/agents/ReadonlyContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/Event.html	md/api-reference/java/com/google/adk/events/Event.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/JsonBaseModel.html	md/api-reference/java/com/google/adk/JsonBaseModel.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.RunEvalResult.html	md/api-reference/java/com/google/adk/web/AdkWebServer.RunEvalResult.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/package-tree.html	md/api-reference/java/com/google/adk/web/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.ApiServerSpanExporter.html	md/api-reference/java/com/google/adk/web/AdkWebServer.ApiServerSpanExporter.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/package-summary.html	md/api-reference/java/com/google/adk/web/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.AgentRunRequest.html	md/api-reference/java/com/google/adk/web/AdkWebServer.AgentRunRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.AgentRunRequest.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.AgentRunRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.AgentController.html	md/api-reference/java/com/google/adk/web/AdkWebServer.AgentController.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.AgentController.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.AgentController.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.html	md/api-reference/java/com/google/adk/web/AdkWebServer.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.RunEvalRequest.html	md/api-reference/java/com/google/adk/web/AdkWebServer.RunEvalRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.RunEvalRequest.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.RunEvalRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/BaseSessionService.html	md/api-reference/java/com/google/adk/sessions/BaseSessionService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/BaseSessionService.html	md/api-reference/java/com/google/adk/sessions/class-use/BaseSessionService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/InvocationContext.html	md/api-reference/java/com/google/adk/agents/InvocationContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/exceptions/LlmCallsLimitExceededException.html	md/api-reference/java/com/google/adk/exceptions/LlmCallsLimitExceededException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/exceptions/package-tree.html	md/api-reference/java/com/google/adk/exceptions/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/exceptions/package-use.html	md/api-reference/java/com/google/adk/exceptions/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/exceptions/class-use/LlmCallsLimitExceededException.html	md/api-reference/java/com/google/adk/exceptions/class-use/LlmCallsLimitExceededException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/exceptions/package-summary.html	md/api-reference/java/com/google/adk/exceptions/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/package-summary.html	md/api-reference/java/com/google/adk/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/package-use.html	md/api-reference/java/com/google/adk/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/package-tree.html	md/api-reference/java/com/google/adk/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/Telemetry.html	md/api-reference/java/com/google/adk/Telemetry.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/LlmRequest.html	md/api-reference/java/com/google/adk/models/LlmRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/package-tree.html	md/api-reference/java/com/google/adk/models/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/BaseLlmConnection.html	md/api-reference/java/com/google/adk/models/BaseLlmConnection.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/GeminiLlmConnection.html	md/api-reference/java/com/google/adk/models/GeminiLlmConnection.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/GeminiLlmConnection.html	md/api-reference/java/com/google/adk/models/class-use/GeminiLlmConnection.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/package-summary.html	md/api-reference/java/com/google/adk/models/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/LlmRegistry.html	md/api-reference/java/com/google/adk/models/LlmRegistry.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/LlmRegistry.html	md/api-reference/java/com/google/adk/models/class-use/LlmRegistry.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/LlmRegistry.LlmFactory.html	md/api-reference/java/com/google/adk/models/LlmRegistry.LlmFactory.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/BaseLlm.html	md/api-reference/java/com/google/adk/models/BaseLlm.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/langchain4j/LangChain4j.html	md/api-reference/java/com/google/adk/models/langchain4j/LangChain4j.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/langchain4j/class-use/LangChain4j.html	md/api-reference/java/com/google/adk/models/langchain4j/class-use/LangChain4j.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/LlmResponse.html	md/api-reference/java/com/google/adk/models/LlmResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/LlmResponse.html	md/api-reference/java/com/google/adk/models/class-use/LlmResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.BeforeModelCallbackSync.html	md/api-reference/java/com/google/adk/agents/Callbacks.BeforeModelCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeModelCallbackSync.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeModelCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html	md/api-reference/java/com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/ResponseProcessor.html	md/api-reference/java/com/google/adk/flows/llmflows/ResponseProcessor.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/package-summary.html	md/api-reference/java/com/google/adk/flows/llmflows/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/Examples.html	md/api-reference/java/com/google/adk/flows/llmflows/Examples.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/RequestProcessor.RequestProcessingResult.html	md/api-reference/java/com/google/adk/flows/llmflows/RequestProcessor.RequestProcessingResult.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/RequestProcessor.RequestProcessingResult.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/RequestProcessor.RequestProcessingResult.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/RequestProcessor.html	md/api-reference/java/com/google/adk/flows/llmflows/RequestProcessor.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/AgentTransfer.html	md/api-reference/java/com/google/adk/flows/llmflows/AgentTransfer.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/ToolContext.html	md/api-reference/java/com/google/adk/tools/ToolContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/ToolContext.html	md/api-reference/java/com/google/adk/tools/class-use/ToolContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/BuiltInCodeExecutionTool.html	md/api-reference/java/com/google/adk/tools/BuiltInCodeExecutionTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/BaseTool.html	md/api-reference/java/com/google/adk/tools/BaseTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/LoadArtifactsTool.html	md/api-reference/java/com/google/adk/tools/LoadArtifactsTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/LoadArtifactsTool.html	md/api-reference/java/com/google/adk/tools/class-use/LoadArtifactsTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/package-tree.html	md/api-reference/java/com/google/adk/tools/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/GoogleSearchTool.html	md/api-reference/java/com/google/adk/tools/GoogleSearchTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/GoogleSearchTool.html	md/api-reference/java/com/google/adk/tools/class-use/GoogleSearchTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/package-summary.html	md/api-reference/java/com/google/adk/tools/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/Annotations.Schema.html	md/api-reference/java/com/google/adk/tools/Annotations.Schema.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/Annotations.Schema.html	md/api-reference/java/com/google/adk/tools/class-use/Annotations.Schema.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/Annotations.html	md/api-reference/java/com/google/adk/tools/Annotations.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/Annotations.html	md/api-reference/java/com/google/adk/tools/class-use/Annotations.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/FunctionTool.html	md/api-reference/java/com/google/adk/tools/FunctionTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/FunctionTool.html	md/api-reference/java/com/google/adk/tools/class-use/FunctionTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/LongRunningFunctionTool.html	md/api-reference/java/com/google/adk/tools/LongRunningFunctionTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/LongRunningFunctionTool.html	md/api-reference/java/com/google/adk/tools/class-use/LongRunningFunctionTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/ToolContext.Builder.html	md/api-reference/java/com/google/adk/tools/ToolContext.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/ToolContext.Builder.html	md/api-reference/java/com/google/adk/tools/class-use/ToolContext.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/EventActions.html	md/api-reference/java/com/google/adk/events/EventActions.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/class-use/EventActions.html	md/api-reference/java/com/google/adk/events/class-use/EventActions.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/package-tree.html	md/api-reference/java/com/google/adk/events/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/EventActions.Builder.html	md/api-reference/java/com/google/adk/events/EventActions.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/class-use/EventActions.Builder.html	md/api-reference/java/com/google/adk/events/class-use/EventActions.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/package-summary.html	md/api-reference/java/com/google/adk/events/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/package-use.html	md/api-reference/java/com/google/adk/events/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/class-use/Event.html	md/api-reference/java/com/google/adk/events/class-use/Event.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/Runner.html	md/api-reference/java/com/google/adk/runner/Runner.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/package-summary.html	md/api-reference/java/com/google/adk/runner/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/package-tree.html	md/api-reference/java/com/google/adk/runner/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/package-use.html	md/api-reference/java/com/google/adk/runner/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/class-use/Runner.html	md/api-reference/java/com/google/adk/runner/class-use/Runner.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.RunnerService.html	md/api-reference/java/com/google/adk/web/AdkWebServer.RunnerService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.RunnerService.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.RunnerService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.LiveWebSocketHandler.html	md/api-reference/java/com/google/adk/web/AdkWebServer.LiveWebSocketHandler.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.LiveWebSocketHandler.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.LiveWebSocketHandler.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.WebSocketConfig.html	md/api-reference/java/com/google/adk/web/AdkWebServer.WebSocketConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.WebSocketConfig.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.WebSocketConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/BaseArtifactService.html	md/api-reference/java/com/google/adk/artifacts/BaseArtifactService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/GcsArtifactService.html	md/api-reference/java/com/google/adk/artifacts/GcsArtifactService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/GcsArtifactService.html	md/api-reference/java/com/google/adk/artifacts/class-use/GcsArtifactService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/package-tree.html	md/api-reference/java/com/google/adk/artifacts/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html	md/api-reference/java/com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/ListArtifactVersionsResponse.html	md/api-reference/java/com/google/adk/artifacts/ListArtifactVersionsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactVersionsResponse.html	md/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactVersionsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/package-summary.html	md/api-reference/java/com/google/adk/artifacts/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/package-use.html	md/api-reference/java/com/google/adk/artifacts/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/BaseArtifactService.html	md/api-reference/java/com/google/adk/artifacts/class-use/BaseArtifactService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/Session.html	md/api-reference/java/com/google/adk/sessions/Session.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/package-summary.html	md/api-reference/java/com/google/adk/sessions/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/HttpApiResponse.html	md/api-reference/java/com/google/adk/sessions/HttpApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/ApiResponse.html	md/api-reference/java/com/google/adk/sessions/ApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/package-tree.html	md/api-reference/java/com/google/adk/sessions/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/GetSessionConfig.Builder.html	md/api-reference/java/com/google/adk/sessions/GetSessionConfig.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/GetSessionConfig.html	md/api-reference/java/com/google/adk/sessions/GetSessionConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/GetSessionConfig.html	md/api-reference/java/com/google/adk/sessions/class-use/GetSessionConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/InMemorySessionService.html	md/api-reference/java/com/google/adk/sessions/InMemorySessionService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/InMemorySessionService.html	md/api-reference/java/com/google/adk/sessions/class-use/InMemorySessionService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/ListEventsResponse.html	md/api-reference/java/com/google/adk/sessions/ListEventsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/ListEventsResponse.Builder.html	md/api-reference/java/com/google/adk/sessions/ListEventsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/ListEventsResponse.Builder.html	md/api-reference/java/com/google/adk/sessions/class-use/ListEventsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/ListEventsResponse.html	md/api-reference/java/com/google/adk/sessions/class-use/ListEventsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/VertexAiSessionService.html	md/api-reference/java/com/google/adk/sessions/VertexAiSessionService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/VertexAiSessionService.html	md/api-reference/java/com/google/adk/sessions/class-use/VertexAiSessionService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/ListSessionsResponse.html	md/api-reference/java/com/google/adk/sessions/ListSessionsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/ListSessionsResponse.Builder.html	md/api-reference/java/com/google/adk/sessions/ListSessionsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/ListSessionsResponse.Builder.html	md/api-reference/java/com/google/adk/sessions/class-use/ListSessionsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/ListSessionsResponse.html	md/api-reference/java/com/google/adk/sessions/class-use/ListSessionsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/State.html	md/api-reference/java/com/google/adk/sessions/State.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/State.html	md/api-reference/java/com/google/adk/sessions/class-use/State.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/Session.Builder.html	md/api-reference/java/com/google/adk/sessions/Session.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/Session.Builder.html	md/api-reference/java/com/google/adk/sessions/class-use/Session.Builder.md
+https://google.github.io/adk-docs/api-reference/java/constant-values.html	md/api-reference/java/constant-values.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/Version.html	md/api-reference/java/com/google/adk/Version.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/class-use/Version.html	md/api-reference/java/com/google/adk/class-use/Version.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/HttpApiClient.html	md/api-reference/java/com/google/adk/sessions/HttpApiClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/HttpApiClient.html	md/api-reference/java/com/google/adk/sessions/class-use/HttpApiClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/GetSessionConfig.Builder.html	md/api-reference/java/com/google/adk/sessions/class-use/GetSessionConfig.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/SessionNotFoundException.html	md/api-reference/java/com/google/adk/sessions/SessionNotFoundException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/SessionException.html	md/api-reference/java/com/google/adk/sessions/SessionException.md
+https://google.github.io/adk-docs/api-reference/java/serialized-form.html	md/api-reference/java/serialized-form.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpToolset.McpInitializationException.html	md/api-reference/java/com/google/adk/tools/mcp/McpToolset.McpInitializationException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.McpInitializationException.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.McpInitializationException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/package-tree.html	md/api-reference/java/com/google/adk/tools/mcp/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/SseServerParameters.Builder.html	md/api-reference/java/com/google/adk/tools/mcp/SseServerParameters.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/package-summary.html	md/api-reference/java/com/google/adk/tools/mcp/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/package-use.html	md/api-reference/java/com/google/adk/tools/mcp/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.McpToolsetException.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.McpToolsetException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpToolset.McpToolLoadingException.html	md/api-reference/java/com/google/adk/tools/mcp/McpToolset.McpToolLoadingException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.McpToolLoadingException.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.McpToolLoadingException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpToolset.html	md/api-reference/java/com/google/adk/tools/mcp/McpToolset.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/BaseToolset.html	md/api-reference/java/com/google/adk/tools/BaseToolset.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/BaseToolset.html	md/api-reference/java/com/google/adk/tools/class-use/BaseToolset.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ApplicationIntegrationToolset.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ApplicationIntegrationToolset.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/package-summary.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.EntitySchemaAndOperations.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.EntitySchemaAndOperations.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.EntitySchemaAndOperations.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.EntitySchemaAndOperations.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/package-tree.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/IntegrationClient.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/IntegrationClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/IntegrationClient.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/IntegrationClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/package-use.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.ConnectionDetails.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.ConnectionDetails.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ConnectionDetails.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ConnectionDetails.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.ActionSchema.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.ActionSchema.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ActionSchema.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ActionSchema.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/IntegrationConnectorTool.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/IntegrationConnectorTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/IntegrationConnectorTool.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/IntegrationConnectorTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.html	md/api-reference/java/com/google/adk/tools/applicationintegrationtoolset/class-use/ConnectionsClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/package-summary.html	md/api-reference/java/com/google/adk/tools/retrieval/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/package-tree.html	md/api-reference/java/com/google/adk/tools/retrieval/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/VertexAiRagRetrieval.html	md/api-reference/java/com/google/adk/tools/retrieval/VertexAiRagRetrieval.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/LlmRequest.Builder.html	md/api-reference/java/com/google/adk/models/LlmRequest.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/LlmRequest.Builder.html	md/api-reference/java/com/google/adk/models/class-use/LlmRequest.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/BaseRetrievalTool.html	md/api-reference/java/com/google/adk/tools/retrieval/BaseRetrievalTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/class-use/BaseRetrievalTool.html	md/api-reference/java/com/google/adk/tools/retrieval/class-use/BaseRetrievalTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/class-use/VertexAiRagRetrieval.html	md/api-reference/java/com/google/adk/tools/retrieval/class-use/VertexAiRagRetrieval.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/retrieval/package-use.html	md/api-reference/java/com/google/adk/tools/retrieval/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpSessionManager.html	md/api-reference/java/com/google/adk/tools/mcp/McpSessionManager.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpTransportBuilder.html	md/api-reference/java/com/google/adk/tools/mcp/McpTransportBuilder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpTransportBuilder.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpTransportBuilder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html	md/api-reference/java/com/google/adk/tools/mcp/DefaultMcpTransportBuilder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/DefaultMcpTransportBuilder.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/DefaultMcpTransportBuilder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/SseServerParameters.html	md/api-reference/java/com/google/adk/tools/mcp/SseServerParameters.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/SseServerParameters.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/SseServerParameters.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpSessionManager.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpSessionManager.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpTool.html	md/api-reference/java/com/google/adk/tools/mcp/McpTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpTool.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpAsyncTool.html	md/api-reference/java/com/google/adk/tools/mcp/McpAsyncTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpAsyncTool.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpAsyncTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/McpToolset.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/McpToolset.McpToolsetException.html	md/api-reference/java/com/google/adk/tools/mcp/McpToolset.McpToolsetException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/SseServerParameters.Builder.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/SseServerParameters.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/ConversionUtils.html	md/api-reference/java/com/google/adk/tools/mcp/ConversionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/mcp/class-use/ConversionUtils.html	md/api-reference/java/com/google/adk/tools/mcp/class-use/ConversionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/SessionException.html	md/api-reference/java/com/google/adk/sessions/class-use/SessionException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/SessionNotFoundException.html	md/api-reference/java/com/google/adk/sessions/class-use/SessionNotFoundException.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/package-use.html	md/api-reference/java/com/google/adk/sessions/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/Session.html	md/api-reference/java/com/google/adk/sessions/class-use/Session.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/BaseMemoryService.html	md/api-reference/java/com/google/adk/memory/BaseMemoryService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/InMemoryMemoryService.html	md/api-reference/java/com/google/adk/memory/InMemoryMemoryService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/class-use/InMemoryMemoryService.html	md/api-reference/java/com/google/adk/memory/class-use/InMemoryMemoryService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/package-tree.html	md/api-reference/java/com/google/adk/memory/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/MemoryEntry.html	md/api-reference/java/com/google/adk/memory/MemoryEntry.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/MemoryEntry.Builder.html	md/api-reference/java/com/google/adk/memory/MemoryEntry.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/class-use/MemoryEntry.Builder.html	md/api-reference/java/com/google/adk/memory/class-use/MemoryEntry.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/package-summary.html	md/api-reference/java/com/google/adk/memory/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/package-use.html	md/api-reference/java/com/google/adk/memory/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/class-use/SearchMemoryResponse.Builder.html	md/api-reference/java/com/google/adk/memory/class-use/SearchMemoryResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/SearchMemoryResponse.html	md/api-reference/java/com/google/adk/memory/SearchMemoryResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/class-use/SearchMemoryResponse.html	md/api-reference/java/com/google/adk/memory/class-use/SearchMemoryResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/SearchMemoryResponse.Builder.html	md/api-reference/java/com/google/adk/memory/SearchMemoryResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/class-use/MemoryEntry.html	md/api-reference/java/com/google/adk/memory/class-use/MemoryEntry.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/memory/class-use/BaseMemoryService.html	md/api-reference/java/com/google/adk/memory/class-use/BaseMemoryService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/RunConfig.html	md/api-reference/java/com/google/adk/agents/RunConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/RunConfig.html	md/api-reference/java/com/google/adk/agents/class-use/RunConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/RunConfig.Builder.html	md/api-reference/java/com/google/adk/agents/RunConfig.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/RunConfig.Builder.html	md/api-reference/java/com/google/adk/agents/class-use/RunConfig.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/RunConfig.StreamingMode.html	md/api-reference/java/com/google/adk/agents/RunConfig.StreamingMode.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/RunConfig.StreamingMode.html	md/api-reference/java/com/google/adk/agents/class-use/RunConfig.StreamingMode.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LiveRequestQueue.html	md/api-reference/java/com/google/adk/agents/LiveRequestQueue.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LiveRequestQueue.html	md/api-reference/java/com/google/adk/agents/class-use/LiveRequestQueue.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LiveRequest.html	md/api-reference/java/com/google/adk/agents/LiveRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LiveRequest.Builder.html	md/api-reference/java/com/google/adk/agents/LiveRequest.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LiveRequest.Builder.html	md/api-reference/java/com/google/adk/agents/class-use/LiveRequest.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LiveRequest.html	md/api-reference/java/com/google/adk/agents/class-use/LiveRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/ApiResponse.html	md/api-reference/java/com/google/adk/sessions/class-use/ApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/SessionUtils.html	md/api-reference/java/com/google/adk/sessions/SessionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/SessionUtils.html	md/api-reference/java/com/google/adk/sessions/class-use/SessionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/sessions/class-use/HttpApiResponse.html	md/api-reference/java/com/google/adk/sessions/class-use/HttpApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/InMemoryArtifactService.html	md/api-reference/java/com/google/adk/artifacts/InMemoryArtifactService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/InMemoryArtifactService.html	md/api-reference/java/com/google/adk/artifacts/class-use/InMemoryArtifactService.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/ListArtifactsResponse.html	md/api-reference/java/com/google/adk/artifacts/ListArtifactsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactsResponse.html	md/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactsResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/ListArtifactsResponse.Builder.html	md/api-reference/java/com/google/adk/artifacts/ListArtifactsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactsResponse.Builder.html	md/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactVersionsResponse.Builder.html	md/api-reference/java/com/google/adk/artifacts/class-use/ListArtifactVersionsResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/InMemoryRunner.html	md/api-reference/java/com/google/adk/runner/InMemoryRunner.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/runner/class-use/InMemoryRunner.html	md/api-reference/java/com/google/adk/runner/class-use/InMemoryRunner.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LlmAgent.html	md/api-reference/java/com/google/adk/agents/LlmAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.BeforeModelCallback.html	md/api-reference/java/com/google/adk/agents/Callbacks.BeforeModelCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeModelCallback.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeModelCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LlmAgent.IncludeContents.html	md/api-reference/java/com/google/adk/agents/LlmAgent.IncludeContents.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LlmAgent.IncludeContents.html	md/api-reference/java/com/google/adk/agents/class-use/LlmAgent.IncludeContents.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.BeforeToolCallback.html	md/api-reference/java/com/google/adk/agents/Callbacks.BeforeToolCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeToolCallback.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeToolCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/BaseExampleProvider.html	md/api-reference/java/com/google/adk/examples/BaseExampleProvider.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/package-summary.html	md/api-reference/java/com/google/adk/examples/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/package-use.html	md/api-reference/java/com/google/adk/examples/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/class-use/BaseExampleProvider.html	md/api-reference/java/com/google/adk/examples/class-use/BaseExampleProvider.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/package-tree.html	md/api-reference/java/com/google/adk/examples/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/ExampleUtils.html	md/api-reference/java/com/google/adk/examples/ExampleUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/class-use/ExampleUtils.html	md/api-reference/java/com/google/adk/examples/class-use/ExampleUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/Example.Builder.html	md/api-reference/java/com/google/adk/examples/Example.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/class-use/Example.Builder.html	md/api-reference/java/com/google/adk/examples/class-use/Example.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/Example.html	md/api-reference/java/com/google/adk/examples/Example.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/examples/class-use/Example.html	md/api-reference/java/com/google/adk/examples/class-use/Example.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/Model.html	md/api-reference/java/com/google/adk/models/Model.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/Model.Builder.html	md/api-reference/java/com/google/adk/models/Model.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/Model.Builder.html	md/api-reference/java/com/google/adk/models/class-use/Model.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/Model.html	md/api-reference/java/com/google/adk/models/class-use/Model.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LlmAgent.html	md/api-reference/java/com/google/adk/agents/class-use/LlmAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/BaseLlmFlow.html	md/api-reference/java/com/google/adk/flows/llmflows/BaseLlmFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/BaseFlow.html	md/api-reference/java/com/google/adk/flows/BaseFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/package-tree.html	md/api-reference/java/com/google/adk/flows/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/package-use.html	md/api-reference/java/com/google/adk/flows/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/class-use/BaseFlow.html	md/api-reference/java/com/google/adk/flows/class-use/BaseFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/package-summary.html	md/api-reference/java/com/google/adk/flows/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/AutoFlow.html	md/api-reference/java/com/google/adk/flows/llmflows/AutoFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/AutoFlow.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/AutoFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/package-tree.html	md/api-reference/java/com/google/adk/flows/llmflows/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/Instructions.html	md/api-reference/java/com/google/adk/flows/llmflows/Instructions.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/Instructions.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/Instructions.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/Functions.html	md/api-reference/java/com/google/adk/flows/llmflows/Functions.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/Functions.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/Functions.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/package-use.html	md/api-reference/java/com/google/adk/flows/llmflows/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/SingleFlow.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/SingleFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/SingleFlow.html	md/api-reference/java/com/google/adk/flows/llmflows/SingleFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/ResponseProcessor.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/ResponseProcessor.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/ResponseProcessor.ResponseProcessingResult.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/ResponseProcessor.ResponseProcessingResult.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/RequestProcessor.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/RequestProcessor.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/Basic.html	md/api-reference/java/com/google/adk/flows/llmflows/Basic.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/Basic.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/Basic.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/Contents.html	md/api-reference/java/com/google/adk/flows/llmflows/Contents.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/Contents.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/Contents.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/Identity.html	md/api-reference/java/com/google/adk/flows/llmflows/Identity.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/Identity.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/Identity.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/BaseLlmFlow.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/BaseLlmFlow.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.AfterModelCallback.html	md/api-reference/java/com/google/adk/agents/Callbacks.AfterModelCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterModelCallback.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterModelCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/SequentialAgent.html	md/api-reference/java/com/google/adk/agents/SequentialAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/SequentialAgent.Builder.html	md/api-reference/java/com/google/adk/agents/SequentialAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.AfterAgentCallback.html	md/api-reference/java/com/google/adk/agents/Callbacks.AfterAgentCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterAgentCallback.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterAgentCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/ParallelAgent.Builder.html	md/api-reference/java/com/google/adk/agents/ParallelAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/ParallelAgent.Builder.html	md/api-reference/java/com/google/adk/agents/class-use/ParallelAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/CallbackUtil.html	md/api-reference/java/com/google/adk/agents/CallbackUtil.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/CallbackUtil.html	md/api-reference/java/com/google/adk/agents/class-use/CallbackUtil.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/SequentialAgent.Builder.html	md/api-reference/java/com/google/adk/agents/class-use/SequentialAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/SequentialAgent.html	md/api-reference/java/com/google/adk/agents/class-use/SequentialAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/EventStream.html	md/api-reference/java/com/google/adk/events/EventStream.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/class-use/EventStream.html	md/api-reference/java/com/google/adk/events/class-use/EventStream.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/events/class-use/Event.Builder.html	md/api-reference/java/com/google/adk/events/class-use/Event.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/package-use.html	md/api-reference/java/com/google/adk/tools/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/BaseTool.html	md/api-reference/java/com/google/adk/tools/class-use/BaseTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.AfterToolCallbackSync.html	md/api-reference/java/com/google/adk/agents/Callbacks.AfterToolCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterToolCallbackSync.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterToolCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.BeforeToolCallbackSync.html	md/api-reference/java/com/google/adk/agents/Callbacks.BeforeToolCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeToolCallbackSync.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeToolCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/AgentTool.html	md/api-reference/java/com/google/adk/tools/AgentTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/AgentTool.html	md/api-reference/java/com/google/adk/tools/class-use/AgentTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/ToolPredicate.html	md/api-reference/java/com/google/adk/tools/ToolPredicate.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/ToolPredicate.html	md/api-reference/java/com/google/adk/tools/class-use/ToolPredicate.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/FunctionCallingUtils.html	md/api-reference/java/com/google/adk/tools/FunctionCallingUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/FunctionCallingUtils.html	md/api-reference/java/com/google/adk/tools/class-use/FunctionCallingUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/ExitLoopTool.html	md/api-reference/java/com/google/adk/tools/ExitLoopTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/ExitLoopTool.html	md/api-reference/java/com/google/adk/tools/class-use/ExitLoopTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/tools/class-use/BuiltInCodeExecutionTool.html	md/api-reference/java/com/google/adk/tools/class-use/BuiltInCodeExecutionTool.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/AgentTransfer.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/AgentTransfer.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/class-use/Examples.html	md/api-reference/java/com/google/adk/flows/llmflows/class-use/Examples.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/package-summary.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/VertexSpeechClient.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/VertexSpeechClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/SpeechClientInterface.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/SpeechClientInterface.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/package-tree.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/package-use.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/class-use/SpeechClientInterface.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/class-use/SpeechClientInterface.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/flows/llmflows/audio/class-use/VertexSpeechClient.html	md/api-reference/java/com/google/adk/flows/llmflows/audio/class-use/VertexSpeechClient.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.AfterModelCallbackSync.html	md/api-reference/java/com/google/adk/agents/Callbacks.AfterModelCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterModelCallbackSync.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterModelCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/LlmResponse.Builder.html	md/api-reference/java/com/google/adk/models/LlmResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/LlmResponse.Builder.html	md/api-reference/java/com/google/adk/models/class-use/LlmResponse.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/Gemini.html	md/api-reference/java/com/google/adk/models/Gemini.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/VertexCredentials.html	md/api-reference/java/com/google/adk/models/VertexCredentials.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/VertexCredentials.Builder.html	md/api-reference/java/com/google/adk/models/VertexCredentials.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/VertexCredentials.Builder.html	md/api-reference/java/com/google/adk/models/class-use/VertexCredentials.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/VertexCredentials.html	md/api-reference/java/com/google/adk/models/class-use/VertexCredentials.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/Gemini.Builder.html	md/api-reference/java/com/google/adk/models/Gemini.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/Gemini.Builder.html	md/api-reference/java/com/google/adk/models/class-use/Gemini.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/Gemini.html	md/api-reference/java/com/google/adk/models/class-use/Gemini.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/Claude.html	md/api-reference/java/com/google/adk/models/Claude.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/Claude.html	md/api-reference/java/com/google/adk/models/class-use/Claude.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/BaseLlm.html	md/api-reference/java/com/google/adk/models/class-use/BaseLlm.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/LlmRegistry.LlmFactory.html	md/api-reference/java/com/google/adk/models/class-use/LlmRegistry.LlmFactory.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/package-use.html	md/api-reference/java/com/google/adk/models/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/LlmRequest.html	md/api-reference/java/com/google/adk/models/class-use/LlmRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/models/class-use/BaseLlmConnection.html	md/api-reference/java/com/google/adk/models/class-use/BaseLlmConnection.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/class-use/Telemetry.html	md/api-reference/java/com/google/adk/class-use/Telemetry.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/SchemaUtils.html	md/api-reference/java/com/google/adk/SchemaUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/class-use/SchemaUtils.html	md/api-reference/java/com/google/adk/class-use/SchemaUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/class-use/JsonBaseModel.html	md/api-reference/java/com/google/adk/class-use/JsonBaseModel.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/package-summary.html	md/api-reference/java/com/google/adk/utils/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/InstructionUtils.html	md/api-reference/java/com/google/adk/utils/InstructionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/package-tree.html	md/api-reference/java/com/google/adk/utils/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/package-use.html	md/api-reference/java/com/google/adk/utils/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/CollectionUtils.html	md/api-reference/java/com/google/adk/utils/CollectionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/class-use/CollectionUtils.html	md/api-reference/java/com/google/adk/utils/class-use/CollectionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/Pairs.html	md/api-reference/java/com/google/adk/utils/Pairs.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/class-use/Pairs.html	md/api-reference/java/com/google/adk/utils/class-use/Pairs.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/utils/class-use/InstructionUtils.html	md/api-reference/java/com/google/adk/utils/class-use/InstructionUtils.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/InvocationContext.html	md/api-reference/java/com/google/adk/agents/class-use/InvocationContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AgentCompilerLoader.html	md/api-reference/java/com/google/adk/web/AgentCompilerLoader.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AgentCompilerLoader.html	md/api-reference/java/com/google/adk/web/class-use/AgentCompilerLoader.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/AgentLoadingProperties.html	md/api-reference/java/com/google/adk/web/config/AgentLoadingProperties.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/class-use/AgentLoadingProperties.html	md/api-reference/java/com/google/adk/web/config/class-use/AgentLoadingProperties.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/package-tree.html	md/api-reference/java/com/google/adk/web/config/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/AdkWebCorsConfig.html	md/api-reference/java/com/google/adk/web/config/AdkWebCorsConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/class-use/AdkWebCorsConfig.html	md/api-reference/java/com/google/adk/web/config/class-use/AdkWebCorsConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/package-summary.html	md/api-reference/java/com/google/adk/web/config/package-summary.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/AdkWebCorsProperties.html	md/api-reference/java/com/google/adk/web/config/AdkWebCorsProperties.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/class-use/AdkWebCorsProperties.html	md/api-reference/java/com/google/adk/web/config/class-use/AdkWebCorsProperties.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/config/package-use.html	md/api-reference/java/com/google/adk/web/config/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.GraphResponse.html	md/api-reference/java/com/google/adk/web/AdkWebServer.GraphResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.GraphResponse.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.GraphResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.OpenTelemetryConfig.html	md/api-reference/java/com/google/adk/web/AdkWebServer.OpenTelemetryConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.OpenTelemetryConfig.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.OpenTelemetryConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AdkWebServer.AddSessionToEvalSetRequest.html	md/api-reference/java/com/google/adk/web/AdkWebServer.AddSessionToEvalSetRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.AddSessionToEvalSetRequest.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.AddSessionToEvalSetRequest.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/package-use.html	md/api-reference/java/com/google/adk/web/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.ApiServerSpanExporter.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.ApiServerSpanExporter.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AdkWebServer.RunEvalResult.html	md/api-reference/java/com/google/adk/web/class-use/AdkWebServer.RunEvalResult.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/AgentGraphGenerator.html	md/api-reference/java/com/google/adk/web/AgentGraphGenerator.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/web/class-use/AgentGraphGenerator.html	md/api-reference/java/com/google/adk/web/class-use/AgentGraphGenerator.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/ReadonlyContext.html	md/api-reference/java/com/google/adk/agents/class-use/ReadonlyContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/CallbackContext.html	md/api-reference/java/com/google/adk/agents/class-use/CallbackContext.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Callbacks.BeforeAgentCallbackSync.html	md/api-reference/java/com/google/adk/agents/Callbacks.BeforeAgentCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeAgentCallbackSync.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeAgentCallbackSync.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeAgentCallback.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.BeforeAgentCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/BaseAgent.html	md/api-reference/java/com/google/adk/agents/class-use/BaseAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/ParallelAgent.html	md/api-reference/java/com/google/adk/agents/class-use/ParallelAgent.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/LlmAgentConfig.html	md/api-reference/java/com/google/adk/agents/LlmAgentConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LlmAgentConfig.html	md/api-reference/java/com/google/adk/agents/class-use/LlmAgentConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/BaseAgentConfig.html	md/api-reference/java/com/google/adk/agents/BaseAgentConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/BaseAgentConfig.html	md/api-reference/java/com/google/adk/agents/class-use/BaseAgentConfig.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/Instruction.Static.html	md/api-reference/java/com/google/adk/agents/Instruction.Static.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Instruction.Static.html	md/api-reference/java/com/google/adk/agents/class-use/Instruction.Static.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/package-use.html	md/api-reference/java/com/google/adk/agents/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/LlmAgent.Builder.html	md/api-reference/java/com/google/adk/agents/class-use/LlmAgent.Builder.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterToolCallback.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.AfterToolCallback.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Instruction.html	md/api-reference/java/com/google/adk/agents/class-use/Instruction.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/agents/class-use/Callbacks.html	md/api-reference/java/com/google/adk/agents/class-use/Callbacks.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/package-tree.html	md/api-reference/java/com/google/adk/network/package-tree.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/package-use.html	md/api-reference/java/com/google/adk/network/package-use.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/class-use/ApiResponse.html	md/api-reference/java/com/google/adk/network/class-use/ApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/ApiResponse.html	md/api-reference/java/com/google/adk/network/ApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/com/google/adk/network/class-use/HttpApiResponse.html	md/api-reference/java/com/google/adk/network/class-use/HttpApiResponse.md
+https://google.github.io/adk-docs/api-reference/java/allclasses-index.html	md/api-reference/java/allclasses-index.md
+https://google.github.io/adk-docs/api-reference/java/allpackages-index.html	md/api-reference/java/allpackages-index.md
+https://google.github.io/adk-docs/plugins/reflect-and-retry/	md/plugins/reflect-and-retry/index.md
+https://google.github.io/adk-docs/api-reference/rest/	md/api-reference/rest/index.md
+https://google.github.io/adk-docs/plugins/	md/plugins/index.md
+https://google.github.io/adk-docs/safety/	md/safety/index.md
+https://google.github.io/adk-docs/tools/	md/tools/index.md
+https://google.github.io/adk-docs/agents/workflow-agents/sequential-agents/	md/agents/workflow-agents/sequential-agents/index.md
+https://google.github.io/adk-docs/evaluate/user-sim/	md/evaluate/user-sim/index.md
+https://google.github.io/adk-docs/observability/freeplay/	md/observability/freeplay/index.md
+https://google.github.io/adk-docs/api-reference/typescript/	md/api-reference/typescript/index.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/DeleteSessionRequest.html	md/api-reference/typescript/interfaces/DeleteSessionRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/index.html	md/api-reference/typescript/index.md
+https://google.github.io/adk-docs/api-reference/typescript/enums/LogLevel.html	md/api-reference/typescript/enums/LogLevel.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/Session.html	md/api-reference/typescript/interfaces/Session.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/Event.html	md/api-reference/typescript/interfaces/Event.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/LlmResponse.html	md/api-reference/typescript/interfaces/LlmResponse.md
+https://google.github.io/adk-docs/api-reference/typescript/hierarchy.html	md/api-reference/typescript/hierarchy.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/BaseSessionService.html	md/api-reference/typescript/classes/BaseSessionService.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/GetSessionRequest.html	md/api-reference/typescript/interfaces/GetSessionRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/GetSessionConfig.html	md/api-reference/typescript/interfaces/GetSessionConfig.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/ListSessionsResponse.html	md/api-reference/typescript/interfaces/ListSessionsResponse.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/AppendEventRequest.html	md/api-reference/typescript/interfaces/AppendEventRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/CreateSessionRequest.html	md/api-reference/typescript/interfaces/CreateSessionRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/InMemorySessionService.html	md/api-reference/typescript/classes/InMemorySessionService.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/ListSessionsRequest.html	md/api-reference/typescript/interfaces/ListSessionsRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/MCPToolset.html	md/api-reference/typescript/classes/MCPToolset.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/LlmRequest.html	md/api-reference/typescript/interfaces/LlmRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/BaseTool.html	md/api-reference/typescript/classes/BaseTool.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/MCPTool.html	md/api-reference/typescript/classes/MCPTool.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/MCPSessionManager.html	md/api-reference/typescript/classes/MCPSessionManager.md
+https://google.github.io/adk-docs/api-reference/typescript/types/MCPConnectionParams.html	md/api-reference/typescript/types/MCPConnectionParams.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/StdioConnectionParams.html	md/api-reference/typescript/interfaces/StdioConnectionParams.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/StreamableHTTPConnectionParams.html	md/api-reference/typescript/interfaces/StreamableHTTPConnectionParams.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/RunAsyncToolRequest.html	md/api-reference/typescript/interfaces/RunAsyncToolRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/ToolContext.html	md/api-reference/typescript/classes/ToolContext.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/CallbackContext.html	md/api-reference/typescript/classes/CallbackContext.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/EventActions.html	md/api-reference/typescript/interfaces/EventActions.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/ToolConfirmation.html	md/api-reference/typescript/classes/ToolConfirmation.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/InvocationContext.html	md/api-reference/typescript/classes/InvocationContext.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/BaseAgent.html	md/api-reference/typescript/classes/BaseAgent.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/ParallelAgent.html	md/api-reference/typescript/classes/ParallelAgent.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/LlmAgent.html	md/api-reference/typescript/classes/LlmAgent.md
+https://google.github.io/adk-docs/api-reference/typescript/types/SingleBeforeToolCallback.html	md/api-reference/typescript/types/SingleBeforeToolCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/SingleBeforeModelCallback.html	md/api-reference/typescript/types/SingleBeforeModelCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/BeforeModelCallback.html	md/api-reference/typescript/types/BeforeModelCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/SingleAfterToolCallback.html	md/api-reference/typescript/types/SingleAfterToolCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/BeforeToolCallback.html	md/api-reference/typescript/types/BeforeToolCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/AfterModelCallback.html	md/api-reference/typescript/types/AfterModelCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/SingleAfterModelCallback.html	md/api-reference/typescript/types/SingleAfterModelCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/types/AfterToolCallback.html	md/api-reference/typescript/types/AfterToolCallback.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/BaseLlm.html	md/api-reference/typescript/classes/BaseLlm.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/BaseLlmConnection.html	md/api-reference/typescript/interfaces/BaseLlmConnection.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/Gemini.html	md/api-reference/typescript/classes/Gemini.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/GeminiParams.html	md/api-reference/typescript/interfaces/GeminiParams.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/SequentialAgent.html	md/api-reference/typescript/classes/SequentialAgent.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/LoopAgent.html	md/api-reference/typescript/classes/LoopAgent.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/BaseArtifactService.html	md/api-reference/typescript/interfaces/BaseArtifactService.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/ListVersionsRequest.html	md/api-reference/typescript/interfaces/ListVersionsRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/ListArtifactKeysRequest.html	md/api-reference/typescript/interfaces/ListArtifactKeysRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/SaveArtifactRequest.html	md/api-reference/typescript/interfaces/SaveArtifactRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/DeleteArtifactRequest.html	md/api-reference/typescript/interfaces/DeleteArtifactRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/GcsArtifactService.html	md/api-reference/typescript/classes/GcsArtifactService.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/LoadArtifactRequest.html	md/api-reference/typescript/interfaces/LoadArtifactRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/InMemoryArtifactService.html	md/api-reference/typescript/classes/InMemoryArtifactService.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/PluginManager.html	md/api-reference/typescript/classes/PluginManager.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/BasePlugin.html	md/api-reference/typescript/classes/BasePlugin.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/SecurityPlugin.html	md/api-reference/typescript/classes/SecurityPlugin.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/BasePolicyEngine.html	md/api-reference/typescript/interfaces/BasePolicyEngine.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/ToolCallPolicyContext.html	md/api-reference/typescript/interfaces/ToolCallPolicyContext.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/PolicyCheckResult.html	md/api-reference/typescript/interfaces/PolicyCheckResult.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/InMemoryPolicyEngine.html	md/api-reference/typescript/classes/InMemoryPolicyEngine.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/LoggingPlugin.html	md/api-reference/typescript/classes/LoggingPlugin.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/BaseMemoryService.html	md/api-reference/typescript/interfaces/BaseMemoryService.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/InMemoryMemoryService.html	md/api-reference/typescript/classes/InMemoryMemoryService.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/SearchMemoryResponse.html	md/api-reference/typescript/interfaces/SearchMemoryResponse.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/SearchMemoryRequest.html	md/api-reference/typescript/interfaces/SearchMemoryRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/LiveRequestQueue.html	md/api-reference/typescript/classes/LiveRequestQueue.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/LiveRequest.html	md/api-reference/typescript/interfaces/LiveRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/RunConfig.html	md/api-reference/typescript/interfaces/RunConfig.md
+https://google.github.io/adk-docs/api-reference/typescript/enums/StreamingMode.html	md/api-reference/typescript/enums/StreamingMode.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/BaseCredentialService.html	md/api-reference/typescript/interfaces/BaseCredentialService.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/ToolProcessLlmRequest.html	md/api-reference/typescript/interfaces/ToolProcessLlmRequest.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/AgentTool.html	md/api-reference/typescript/classes/AgentTool.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/FunctionTool.html	md/api-reference/typescript/classes/FunctionTool.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/LongRunningFunctionTool.html	md/api-reference/typescript/classes/LongRunningFunctionTool.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/BaseToolParams.html	md/api-reference/typescript/interfaces/BaseToolParams.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/BaseToolset.html	md/api-reference/typescript/classes/BaseToolset.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/InMemoryRunner.html	md/api-reference/typescript/classes/InMemoryRunner.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/Runner.html	md/api-reference/typescript/classes/Runner.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/getFunctionResponses.html	md/api-reference/typescript/functions/getFunctionResponses.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/hasTrailingCodeExecutionResult.html	md/api-reference/typescript/functions/hasTrailingCodeExecutionResult.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/createSession.html	md/api-reference/typescript/functions/createSession.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/zodObjectToSchema.html	md/api-reference/typescript/functions/zodObjectToSchema.md
+https://google.github.io/adk-docs/api-reference/typescript/variables/REQUEST_CONFIRMATION_FUNCTION_CALL_NAME.html	md/api-reference/typescript/variables/REQUEST_CONFIRMATION_FUNCTION_CALL_NAME.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/createEventActions.html	md/api-reference/typescript/functions/createEventActions.md
+https://google.github.io/adk-docs/api-reference/typescript/variables/functionsExportedForTestingOnly.html	md/api-reference/typescript/variables/functionsExportedForTestingOnly.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/OtelExportersConfig.html	md/api-reference/typescript/interfaces/OtelExportersConfig.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/getGcpResource.html	md/api-reference/typescript/functions/getGcpResource.md
+https://google.github.io/adk-docs/api-reference/typescript/classes/LLMRegistry.html	md/api-reference/typescript/classes/LLMRegistry.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/setLogLevel.html	md/api-reference/typescript/functions/setLogLevel.md
+https://google.github.io/adk-docs/api-reference/typescript/interfaces/OTelHooks.html	md/api-reference/typescript/interfaces/OTelHooks.md
+https://google.github.io/adk-docs/api-reference/typescript/variables/GOOGLE_SEARCH.html	md/api-reference/typescript/variables/GOOGLE_SEARCH.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/getGcpExporters.html	md/api-reference/typescript/functions/getGcpExporters.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/createEvent.html	md/api-reference/typescript/functions/createEvent.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/stringifyContent.html	md/api-reference/typescript/functions/stringifyContent.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/maybeSetOtelProviders.html	md/api-reference/typescript/functions/maybeSetOtelProviders.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/getAskUserConfirmationFunctionCalls.html	md/api-reference/typescript/functions/getAskUserConfirmationFunctionCalls.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/getFunctionCalls.html	md/api-reference/typescript/functions/getFunctionCalls.md
+https://google.github.io/adk-docs/api-reference/typescript/enums/PolicyOutcome.html	md/api-reference/typescript/enums/PolicyOutcome.md
+https://google.github.io/adk-docs/api-reference/typescript/functions/isFinalResponse.html	md/api-reference/typescript/functions/isFinalResponse.md
+https://google.github.io/adk-docs/tools/gemini-api/code-execution/	md/tools/gemini-api/code-execution/index.md
+https://google.github.io/adk-docs/deploy/gke/	md/deploy/gke/index.md
+https://google.github.io/adk-docs/observability/monocle/	md/observability/monocle/index.md
+https://google.github.io/adk-docs/tutorials/	md/tutorials/index.md
+https://google.github.io/adk-docs/api-reference/python/	md/api-reference/python/index.md
+https://google.github.io/adk-docs/api-reference/python/google-adk.html	md/api-reference/python/google-adk.md
+https://google.github.io/adk-docs/api-reference/python/index.html	md/api-reference/python/index.md
+https://google.github.io/adk-docs/api-reference/python/_sources/index.rst.txt	md/api-reference/python/_sources/index.rst.md
+https://google.github.io/adk-docs/api-reference/python/_sources/google-adk.rst.txt	md/api-reference/python/_sources/google-adk.rst.md
+https://google.github.io/adk-docs/deploy/	md/deploy/index.md
+https://google.github.io/adk-docs/tools/gemini-api/	md/tools/gemini-api/index.md
+https://google.github.io/adk-docs/tools/google-cloud/vertex-ai-rag-engine/	md/tools/google-cloud/vertex-ai-rag-engine/index.md
+https://google.github.io/adk-docs/tools/google-cloud/mcp-toolbox-for-databases/	md/tools/google-cloud/mcp-toolbox-for-databases/index.md
+https://google.github.io/adk-docs/api-reference/	md/api-reference/index.md
+https://google.github.io/adk-docs/streaming/configuration/	md/streaming/configuration/index.md
+https://google.github.io/adk-docs/runtime/runconfig/	md/runtime/runconfig/index.md
+https://google.github.io/adk-docs/sessions/rewind/	md/sessions/rewind/index.md
+https://google.github.io/adk-docs/a2a/intro/	md/a2a/intro/index.md
+https://google.github.io/adk-docs/runtime/api-server/	md/runtime/api-server/index.md
+https://google.github.io/adk-docs/streaming/streaming-tools/	md/streaming/streaming-tools/index.md
+https://google.github.io/adk-docs/agents/models	md/agents/models.md
+https://google.github.io/adk-docs/tools/built-in-tools/	md/tools/built-in-tools/index.md
+https://google.github.io/adk-docs/tools/function-tools/	md/tools/function-tools/index.md
+https://google.github.io/adk-docs/llms.txt	md/llms.md
+https://google.github.io/adk-docs/tools/performance/	md/tools/performance/index.md
+https://google.github.io/adk-docs/tools/authentication/	md/tools/authentication/index.md
