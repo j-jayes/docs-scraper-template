@@ -237,7 +237,7 @@ ADK Go release v0.3.0 includes numerous bug fixes, introduces new features such 
 
 News: ADK Java v0.5.0 released!
 
-The ADK Go v0.5.0 release adds new features for tool execution mode configuration and model versioning, along with numerous bug fixes, dependency updates, and significant refactoring to improve the agent and runner architecture. For release details, check out the [release notes](https://github.com/google/adk-java/releases/tag/v0.5.0).
+The ADK Java v0.5.0 release adds new features for tool execution mode configuration and model versioning, along with numerous bug fixes, dependency updates, and significant refactoring to improve the agent and runner architecture. For release details, check out the [release notes](https://github.com/google/adk-java/releases/tag/v0.5.0).
 
 Get started:
 
@@ -264,7 +264,7 @@ pom.xml
     <dependency>
         <groupId>com.google.adk</groupId>
         <artifactId>google-adk</artifactId>
-        <version>0.3.0</version>
+        <version>0.5.0</version>
     </dependency>
     
 
@@ -272,7 +272,7 @@ build.gradle
     
     
     dependencies {
-        implementation 'com.google.adk:google-adk:0.3.0'
+        implementation 'com.google.adk:google-adk:0.5.0'
     }
     
 

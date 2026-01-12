@@ -379,11 +379,11 @@ As you get data flowing into Freeplay, you can use these logs to start building 
 
 As you iterate on your agent, you can run batch tests (i.e., offline experiments) at both the [prompt](https://docs.freeplay.ai/docs/component-level-test-runs) and [end-to-end](https://docs.freeplay.ai/docs/end-to-end-test-runs) agent level. This allows you to compare multiple different models or prompt changes and quantify changes head to head across your full agent execution.
 
-[Here](https://github.com/228Labs/freeplay-google-demo/blob/main/examples/example_test_run.py) is a code example for executing a batch test on Freeplay with ADK. [Here](https://github.com/228Labs/freeplay-google-demo/blob/main/examples/example_test_run.py) is a code example for executing a batch test on Freeplay with the Google ADK.
+[Here](https://github.com/freeplayai/freeplay-google-demo/blob/main/examples/example_test_run.py) is a code example for executing a batch test on Freeplay with ADK.
 
 ## Sign up now¶
 
-Go to [Freeplay](https://freeplay.ai/) to sign up for an account, and check out a full Freeplay <> ADK Integration [here](https://github.com/228Labs/freeplay-google-demo).
+Go to [Freeplay](https://freeplay.ai/) to sign up for an account, and check out a full Freeplay <> ADK Integration [here](https://github.com/freeplayai/freeplay-google-demo/tree/main)
 
 Back to top  [ Previous  Arize AX  ](../arize-ax/) [ Next  MLflow  ](../mlflow/)
 

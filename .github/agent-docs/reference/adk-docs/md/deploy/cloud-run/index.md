@@ -393,7 +393,7 @@ You can create your secret manually or use CLI:
 
 ### Permissions to read¶
 
-You should give appropiate permissision for you service account to read this secret. 
+You should give appropriate permission for you service account to read this secret. 
     
     
     gcloud secrets add-iam-policy-binding GOOGLE_API_KEY --member="serviceAccount:1234567890-compute@developer.gserviceaccount.com" --role="roles/secretmanager.secretAccessor" --project=my-project
@@ -864,12 +864,12 @@ pom.xml
            <dependency>
               <groupId>com.google.adk</groupId>
               <artifactId>google-adk</artifactId>
-              <version>0.1.0</version>
+              <version>0.5.0</version>
            </dependency>
            <dependency>
               <groupId>com.google.adk</groupId>
               <artifactId>google-adk-dev</artifactId>
-              <version>0.1.0</version>
+              <version>0.5.0</version>
            </dependency>
          </dependencies>
          

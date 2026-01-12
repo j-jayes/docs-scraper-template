@@ -149,7 +149,7 @@ Agent Engine
           * 403 Permission Denied for Gemini 2.0 Flash 
           * 404 or Not Found response 
           * Attempt to write a readonly database 
-          * Insufficent Permission to Stream Logs ERROR: (gcloud.builds.submit) 
+          * Insufficient Permission to Stream Logs ERROR: (gcloud.builds.submit) 
           * Gemini-2.0-Flash Not Supported in Live Api 
         * Cleanup 
     * Observability  Observability 
@@ -282,7 +282,7 @@ Table of contents
     * 403 Permission Denied for Gemini 2.0 Flash 
     * 404 or Not Found response 
     * Attempt to write a readonly database 
-    * Insufficent Permission to Stream Logs ERROR: (gcloud.builds.submit) 
+    * Insufficient Permission to Stream Logs ERROR: (gcloud.builds.submit) 
     * Gemini-2.0-Flash Not Supported in Live Api 
   * Cleanup 
 
@@ -906,7 +906,7 @@ or (recommended) you can add a `.dockerignore` file to your project directory to
 
 Build the container image abd deploy the application again.
 
-### Insufficent Permission to Stream Logs `ERROR: (gcloud.builds.submit)`¶
+### Insufficient Permission to Stream Logs `ERROR: (gcloud.builds.submit)`¶
 
 This error can occur when you don't have sufficient permissions to stream build logs, or your VPC-SC security policy restricts access to the default logs bucket.
 

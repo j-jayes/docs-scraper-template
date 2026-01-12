@@ -326,7 +326,7 @@ Before calling `send_realtime()`, ensure your audio data is already in the corre
 
 ADK does not perform audio format conversion. Sending audio in incorrect formats will result in poor quality or errors.
 
-Demo implementation: [main.py:153-156](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L153-L156)
+Demo implementation: [main.py:181-184](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L181-L184)
     
     
     audio_blob = types.Blob(
@@ -368,7 +368,7 @@ In browser-based applications, capturing microphone audio and sending it to the 
 
 
 
-Demo implementation: [audio-recorder.js:7-58](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/audio-recorder.js#L7-L58)
+Demo implementation: [audio-recorder.js:7-58](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/audio-recorder.js#L7-L58)
     
     
     // Start audio recorder worklet
@@ -423,7 +423,7 @@ Demo implementation: [audio-recorder.js:7-58](https://github.com/google/adk-samp
     }
     
 
-Demo implementation: [pcm-recorder-processor.js:1-19](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/pcm-recorder-processor.js#L1-L19)
+Demo implementation: [pcm-recorder-processor.js:1-18](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/pcm-recorder-processor.js#L1-L18)
     
     
     // pcm-recorder-processor.js - AudioWorklet processor for capturing audio
@@ -447,7 +447,7 @@ Demo implementation: [pcm-recorder-processor.js:1-19](https://github.com/google/
     registerProcessor("pcm-recorder-processor", PCMProcessor);
     
 
-Demo implementation: [app.js:865-874](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/app.js#L865-L874)
+Demo implementation: [app.js:977-986](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L977-L986)
     
     
     // Audio recorder handler - called for each audio chunk
@@ -538,7 +538,7 @@ The Live API wire protocol transmits audio data as base64-encoded strings. The g
 
 The bidi-demo uses a different architectural approach: instead of processing audio on the server, it forwards all events (including audio data) to the WebSocket client and handles audio playback in the browser. This pattern separates concerns—the server focuses on ADK event streaming while the client handles media playback using Web Audio API.
 
-Demo implementation: [main.py:197-205](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L197-L205)
+Demo implementation: [main.py:225-233](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L225-L233)
     
     
     # The bidi-demo forwards all events (including audio) to the WebSocket client
@@ -556,7 +556,7 @@ Demo implementation: [main.py:197-205](https://github.com/google/adk-samples/blo
 
 The client-side implementation involves three components: WebSocket message handling, audio player setup with AudioWorklet, and the AudioWorklet processor itself.
 
-Demo implementation: [app.js:544-673](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/app.js#L544-L673)
+Demo implementation: [app.js:638-688](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L638-L688)
     
     
     // 1. WebSocket Message Handler
@@ -604,7 +604,7 @@ Demo implementation: [app.js:544-673](https://github.com/google/adk-samples/blob
     }
     
 
-Demo implementation: [audio-player.js:5-24](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/audio-player.js#L5-L24)
+Demo implementation: [audio-player.js:5-24](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/audio-player.js#L5-L24)
     
     
     // 2. Audio Player Setup
@@ -634,7 +634,7 @@ Demo implementation: [audio-player.js:5-24](https://github.com/google/adk-sample
     }
     
 
-Demo implementation: [pcm-player-processor.js:5-76](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/pcm-player-processor.js#L5-L76)
+Demo implementation: [pcm-player-processor.js:5-76](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/pcm-player-processor.js#L5-L76)
     
     
     // 3. AudioWorklet Processor (Ring Buffer)
@@ -745,7 +745,7 @@ Both images and video in ADK Bidi-streaming are processed as JPEG frames. Rather
 
 
 
-Demo implementation: [main.py:174-189](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L174-L189)
+Demo implementation: [main.py:202-217](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L202-L217)
     
     
     # Decode base64 image data
@@ -785,7 +785,7 @@ In browser-based applications, capturing images from the user's webcam and sendi
 
 
 
-Demo implementation: [app.js:689-731](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/app.js#L689-731)
+Demo implementation: [app.js:801-843](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L801-L843)
     
     
     // 1. Opening Camera Preview
@@ -829,7 +829,7 @@ Demo implementation: [app.js:689-731](https://github.com/google/adk-samples/blob
     }
     
 
-Demo implementation: [app.js:734-802](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/app.js#L734-L802)
+Demo implementation: [app.js:846-914](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L846-L914)
     
     
     // 2. Capturing and Sending Image
@@ -944,8 +944,8 @@ A fully integrated end-to-end audio model architecture where the model processes
 
 Audio Model Architecture | Platform | Model | Notes  
 ---|---|---|---  
-Native Audio | Gemini Live API | [gemini-2.5-flash-native-audio-preview-09-2025](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-live) | Publicly available  
-Native Audio | Vertex AI Live API | [gemini-live-2.5-flash-preview-native-audio-09-2025](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api) | Public preview  
+Native Audio | Gemini Live API | [gemini-2.5-flash-native-audio-preview-12-2025](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-live) | Publicly available  
+Native Audio | Vertex AI Live API | [gemini-live-2.5-flash-native-audio](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api) | Public preview  
   
 **Key Characteristics:**
 
@@ -969,7 +969,7 @@ Audio input is processed natively, but responses are first generated as text the
 
 Audio Model Architecture | Platform | Model | Notes  
 ---|---|---|---  
-Half-Cascade | Gemini Live API | [gemini-2.0-flash-live-001](https://ai.google.dev/gemini-api/docs/models#gemini-2.0-flash-live) | Will be deprecated on December 09, 2025  
+Half-Cascade | Gemini Live API | [gemini-2.0-flash-live-001](https://ai.google.dev/gemini-api/docs/models#gemini-2.0-flash-live) | Deprecated on December 09, 2025  
 Half-Cascade | Vertex AI Live API | [gemini-live-2.5-flash](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash#2.5-flash) | Private GA, not publicly available  
   
 **Key Characteristics:**
@@ -995,7 +995,7 @@ When building ADK applications, you'll need to specify which model to use. The r
     # Use environment variable with fallback to a sensible default
     agent = Agent(
         name="my_agent",
-        model=os.getenv("DEMO_AGENT_MODEL", "gemini-2.5-flash-native-audio-preview-09-2025"),
+        model=os.getenv("DEMO_AGENT_MODEL", "gemini-2.5-flash-native-audio-preview-12-2025"),
         tools=[...],
         instruction="..."
     )
@@ -1003,7 +1003,7 @@ When building ADK applications, you'll need to specify which model to use. The r
 
 **Why use environment variables:**
 
-  * **Model availability changes** : Models are released, updated, and deprecated regularly (e.g., `gemini-2.0-flash-live-001` will be deprecated on December 09, 2025)
+  * **Model availability changes** : Models are released, updated, and deprecated regularly (e.g., `gemini-2.0-flash-live-001` was deprecated on December 09, 2025)
   * **Platform-specific names** : Gemini Live API and Vertex AI Live API use different model naming conventions for the same functionality
   * **Easy switching** : Change models without modifying code by updating the `.env` file
   * **Environment-specific configuration** : Use different models for development, staging, and production
@@ -1014,10 +1014,10 @@ When building ADK applications, you'll need to specify which model to use. The r
     
     
     # For Gemini Live API (publicly available)
-    DEMO_AGENT_MODEL=gemini-2.5-flash-native-audio-preview-09-2025
+    DEMO_AGENT_MODEL=gemini-2.5-flash-native-audio-preview-12-2025
     
     # For Vertex AI Live API (if using Vertex AI)
-    # DEMO_AGENT_MODEL=gemini-live-2.5-flash-preview-native-audio-09-2025
+    # DEMO_AGENT_MODEL=gemini-live-2.5-flash-native-audio
     
 
 Environment Variable Loading Order
@@ -1056,7 +1056,7 @@ This is a Python import behavior: when you import a module, its top-level code e
   3. Native Audio for natural conversational AI with advanced features
   4. Half-Cascade for production reliability with tool execution
   5. **Check current availability** : Refer to the model tables above and official documentation
-  6. **Configure environment variable** : Set `DEMO_AGENT_MODEL` in your `.env` file (see [`agent.py:11-16`](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/google_search_agent/agent.py#L11-L16) and [`main.py:86-124`](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L86-L124))
+  6. **Configure environment variable** : Set `DEMO_AGENT_MODEL` in your `.env` file (see [`agent.py:11-16`](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/google_search_agent/agent.py#L11-L16) and [`main.py:99-152`](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L99-L152))
 
 
 
@@ -1201,7 +1201,7 @@ In web applications, transcription events need to be forwarded from the server t
 
 
 
-Demo implementation: [app.js:438-525](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/static/js/app.js#L438-L525)
+Demo implementation: [app.js:530-653](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L530-L653)
     
     
     // Handle input transcription (user's spoken words)
@@ -1346,7 +1346,7 @@ The automatic enablement happens in `Runner.run_live()` when both conditions are
 
 Source
 
-[`runners.py:1324-1341`](https://github.com/google/adk-python/blob/960b206752918d13f127a9d6ed8d21d34bcbc7fa/src/google/adk/runners.py#L1324-L1341)
+[`runners.py:1359-1374`](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/runners.py#L1359-L1374)
 
 ## Voice Configuration (Speech Config)¶
 
@@ -1370,7 +1370,7 @@ You can configure `speech_config` on a per-agent basis by creating a custom `Gem
     
     # Create a Gemini instance with custom speech config
     custom_llm = Gemini(
-        model="gemini-2.5-flash-native-audio-preview-09-2025",
+        model="gemini-2.5-flash-native-audio-preview-12-2025",
         speech_config=types.SpeechConfig(
             voice_config=types.VoiceConfig(
                 prebuilt_voice_config=types.PrebuiltVoiceConfig(
@@ -1435,7 +1435,7 @@ When both agent-level (via `Gemini` instance) and session-level (via `RunConfig`
     
     # Create Gemini instance with custom voice
     custom_llm = Gemini(
-        model="gemini-2.5-flash-native-audio-preview-09-2025",
+        model="gemini-2.5-flash-native-audio-preview-12-2025",
         speech_config=types.SpeechConfig(
             voice_config=types.VoiceConfig(
                 prebuilt_voice_config=types.PrebuiltVoiceConfig(
@@ -1479,7 +1479,7 @@ For multi-agent workflows, you can assign different voices to different agents b
     
     # Customer service agent with a friendly voice
     customer_service_llm = Gemini(
-        model="gemini-2.5-flash-native-audio-preview-09-2025",
+        model="gemini-2.5-flash-native-audio-preview-12-2025",
         speech_config=types.SpeechConfig(
             voice_config=types.VoiceConfig(
                 prebuilt_voice_config=types.PrebuiltVoiceConfig(
@@ -1497,7 +1497,7 @@ For multi-agent workflows, you can assign different voices to different agents b
     
     # Technical support agent with a professional voice
     technical_support_llm = Gemini(
-        model="gemini-2.5-flash-native-audio-preview-09-2025",
+        model="gemini-2.5-flash-native-audio-preview-12-2025",
         speech_config=types.SpeechConfig(
             voice_config=types.VoiceConfig(
                 prebuilt_voice_config=types.PrebuiltVoiceConfig(
@@ -1516,7 +1516,7 @@ For multi-agent workflows, you can assign different voices to different agents b
     # Root agent that coordinates the workflow
     root_agent = Agent(
         name="root_agent",
-        model="gemini-2.5-flash-native-audio-preview-09-2025",
+        model="gemini-2.5-flash-native-audio-preview-12-2025",
         instruction="Coordinate customer service and technical support.",
         sub_agents=[customer_service_agent, technical_support_agent]
     )
@@ -1923,7 +1923,7 @@ These features are **model-specific** and have platform implications:
 
 **Gemini Live API:**
 
-  * ✅ Supported on `gemini-2.5-flash-native-audio-preview-09-2025` (native audio model)
+  * ✅ Supported on `gemini-2.5-flash-native-audio-preview-12-2025` (native audio model)
   * ❌ Not supported on `gemini-live-2.5-flash-preview` (half-cascade model)
 
 
@@ -1971,7 +1971,7 @@ In this part, you learned how to implement multimodal features in ADK Bidi-strea
 
 **Congratulations!** You've completed the ADK Bidi-streaming Developer Guide. You now have a comprehensive understanding of how to build production-ready real-time streaming AI applications with Google's Agent Development Kit.
 
-← [Previous: Part 4 - Understanding RunConfig](../part4/)
+← [Previous: Part 4: Understanding RunConfig](../part4/)
 
 Back to top  [ Previous  Part 4. Run configuration  ](../part4/) [ Next  Streaming Tools  ](../../streaming-tools/)
 

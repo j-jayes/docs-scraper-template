@@ -243,7 +243,7 @@ This guide explains how to configure your ADK agent workflow to be resumable. If
 
 ## Add resumable configuration¶
 
-Enable the Resume function for an agent workflow by applying a Resumabiltiy configuration to the App object of your ADK workflow, as shown in the following code example:
+Enable the Resume function for an agent workflow by applying a Resumability configuration to the App object of your ADK workflow, as shown in the following code example:
     
     
     app = App(

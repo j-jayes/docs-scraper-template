@@ -267,7 +267,7 @@ Understanding `LiveRequestQueue` is essential for building responsive streaming 
 
 The `LiveRequestQueue` is your primary interface for sending messages to the Agent in streaming conversations. Rather than managing separate channels for text, audio, and control signals, ADK provides a unified `LiveRequest` container that handles all message types through a single, elegant API:
 
-Source reference: [live_request_queue.py](https://github.com/google/adk-python/blob/960b206752918d13f127a9d6ed8d21d34bcbc7fa/src/google/adk/agents/live_request_queue.py)
+Source reference: [live_request_queue.py](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/agents/live_request_queue.py)
     
     
     class LiveRequest(BaseModel):
@@ -326,7 +326,7 @@ The following diagram illustrates how different message types flow from your app
 
 The `send_content()` method sends text messages in turn-by-turn mode, where each message represents a discrete conversation turn. This signals a complete turn to the model, triggering immediate response generation.
 
-Demo implementation: [main.py:166-171](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L166-L171)
+Demo implementation: [main.py:194-199](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L194-L199)
     
     
     content = types.Content(parts=[types.Part(text=json_message["text"])])
@@ -360,7 +360,7 @@ While the Gemini API `Part` type supports many fields (`inline_data`, `file_data
 
 The `send_realtime()` method sends binary data streams—primarily audio, image and video—flow through the `Blob` type, which handles transmission in realtime mode. Unlike text content that gets processed in turn-by-turn mode, blobs are designed for continuous streaming scenarios where data arrives in chunks. You provide raw bytes, and Pydantic automatically handles base64 encoding during JSON serialization for safe network transmission (configured in `LiveRequest.model_config`). The MIME type helps the model understand the content format.
 
-Demo implementation: [main.py:153-156](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L153-L156)
+Demo implementation: [main.py:181-184](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L181-L184)
     
     
     audio_blob = types.Blob(
@@ -422,11 +422,11 @@ The `close` signal provides graceful termination semantics for streaming session
 
 **Manual closure in BIDI mode:** When using `StreamingMode.BIDI` (Bidi-streaming), your application should manually call `close()` when the session terminates or when errors occur. This practice minimizes session resource usage.
 
-**Automatic closure in SSE mode:** When using the legacy `StreamingMode.SSE` (not Bidi-streaming), ADK automatically calls `close()` on the queue when it receives a `turn_complete=True` event from the model (see [`base_llm_flow.py:781`](https://github.com/google/adk-python/blob/960b206752918d13f127a9d6ed8d21d34bcbc7fa/src/google/adk/flows/llm_flows/base_llm_flow.py#L781)).
+**Automatic closure in SSE mode:** When using the legacy `StreamingMode.SSE` (not Bidi-streaming), ADK automatically calls `close()` on the queue when it receives a `turn_complete=True` event from the model (see [`base_llm_flow.py:781`](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/flows/llm_flows/base_llm_flow.py#L781)).
 
 See [Part 4: Understanding RunConfig](../part4/#streamingmode-bidi-or-sse) for detailed comparison and when to use each mode.
 
-Demo implementation: [main.py:210-225](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L210-L225)
+Demo implementation: [main.py:238-253](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L238-L253)
     
     
     try:
@@ -464,7 +464,7 @@ Understanding how `LiveRequestQueue` handles concurrency is essential for buildi
 
 **Why synchronous send methods?** Convenience and simplicity. You can call them from anywhere in your async code without `await`:
 
-Demo implementation: [main.py:141-171](https://github.com/google/adk-samples/blob/4274c70ae3f4c68595f543ee504474747ea9f0da/python/agents/bidi-demo/app/main.py#L141-L171)
+Demo implementation: [main.py:169-199](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L169-L199)
     
     
     async def upstream_task() -> None:
@@ -530,7 +530,7 @@ In this part, you learned how `LiveRequestQueue` provides a unified interface fo
 
 * * *
 
-← [Previous: Part 1 - Introduction to ADK Bidi-streaming](../part1/) | [Next: Part 3 - Event Handling with run_live()](../part3/) →
+← [Previous: Part 1: Introduction to ADK Bidi-streaming](../part1/) | [Next: Part 3: Event Handling with run_live()](../part3/) →
 
 Back to top  [ Previous  Part 1. Intro to streaming  ](../part1/) [ Next  Part 3. Event handling  ](../part3/)
 

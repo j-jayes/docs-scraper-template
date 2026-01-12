@@ -169,7 +169,7 @@ Validators:
 
 
 
-_field _after_agent_callback _: Optional[AfterAgentCallback]__ = None_¶
+_field _after_agent_callback _: AfterAgentCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be invoked after the agent run.
@@ -194,7 +194,7 @@ Return type:
 
 Optional[types.Content]
 
-_field _before_agent_callback _: Optional[BeforeAgentCallback]__ = None_¶
+_field _before_agent_callback _: BeforeAgentCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be invoked before the agent run.
@@ -241,7 +241,7 @@ Validated by:
 
 
 
-_field _parent_agent _: Optional[BaseAgent]__ = None_¶
+_field _parent_agent _: BaseAgent | None_ _ = None_¶
     
 
 The parent agent of this agent.
@@ -1610,6 +1610,18 @@ Show JSON schema
                    ],
                    "default": null
                 },
+                "interactionId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Interactionid"
+                },
                 "invocationId": {
                    "default": "",
                    "title": "Invocationid",
@@ -1905,7 +1917,9 @@ Show JSON schema
                 "IMAGE_SAFETY",
                 "UNEXPECTED_TOOL_CALL",
                 "IMAGE_PROHIBITED_CONTENT",
-                "NO_IMAGE"
+                "NO_IMAGE",
+                "IMAGE_RECITATION",
+                "IMAGE_OTHER"
              ],
              "title": "FinishReason",
              "type": "string"
@@ -3400,7 +3414,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.\n\nThis data type is not supported in Vertex AI.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -3415,7 +3429,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. All the enabled speaker voices.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -3598,6 +3612,24 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "tokenEndpointAuthMethod": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "client_secret_basic",
+                            "client_secret_post",
+                            "client_secret_jwt",
+                            "private_key_jwt"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": "client_secret_basic",
+                   "title": "Tokenendpointauthmethod"
                 }
              },
              "title": "OAuth2Auth",
@@ -4123,7 +4155,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -4390,6 +4423,41 @@ Show JSON schema
                 }
              },
              "title": "RealtimeInputConfig",
+             "type": "object"
+          },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
              "type": "object"
           },
           "ResumabilityConfig": {
@@ -4924,8 +4992,19 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation config.",
              "properties": {
+                "voiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Configuration for the voice of the response."
+                },
                 "languageCode": {
                    "anyOf": [
                       {
@@ -4939,18 +5018,6 @@ Show JSON schema
                    "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
                 },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the speaker to use."
-                },
                 "multiSpeakerVoiceConfig": {
                    "anyOf": [
                       {
@@ -4961,7 +5028,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The configuration for the multi-speaker setup. It is mutually exclusive with the voice_config field. This field is not supported in Vertex AI."
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -4978,6 +5045,7 @@ Show JSON schema
              "type": "string"
           },
           "StreamingMode": {
+             "description": "Streaming modes for agent execution.\n\nThis enum defines different streaming behaviors for how the agent returns\nevents as model response.",
              "enum": [
                 null,
                 "sse",
@@ -5150,8 +5218,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -5230,7 +5309,7 @@ Fields:
 
 
 
-_field _active_streaming_tools _: Optional[dict[str, ActiveStreamingTool]]__ = None_¶
+_field _active_streaming_tools _: dict[str, ActiveStreamingTool] | None_ _ = None_¶
     
 
 The running streaming tools of this invocation.
@@ -5245,10 +5324,10 @@ _field _agent_states _: dict[str, dict[str, Any]]__[Optional]_¶
 
 The state of the agent for this invocation.
 
-_field _artifact_service _: Optional[BaseArtifactService]__ = None_¶
+_field _artifact_service _: BaseArtifactService | None_ _ = None_¶
     
 
-_field _branch _: Optional[str]__ = None_¶
+_field _branch _: str | None_ _ = None_¶
     
 
 The branch of the invocation context.
@@ -5257,15 +5336,15 @@ The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent
 
 Branch is used when multiple sub-agents shouldn’t see their peer agents’ conversation history.
 
-_field _canonical_tools_cache _: Optional[list[BaseTool]]__ = None_¶
+_field _canonical_tools_cache _: list[BaseTool] | None_ _ = None_¶
     
 
 The cache of canonical tools for this invocation.
 
-_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
+_field _context_cache_config _: ContextCacheConfig | None_ _ = None_¶
     
 
-_field _credential_service _: Optional[BaseCredentialService]__ = None_¶
+_field _credential_service _: BaseCredentialService | None_ _ = None_¶
     
 
 _field _end_invocation _: bool_ _ = False_¶
@@ -5280,7 +5359,7 @@ _field _end_of_agents _: dict[str, bool]__[Optional]_¶
 
 The end of agent status for each agent in this invocation.
 
-_field _input_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
+_field _input_realtime_cache _: list[RealtimeCacheEntry] | None_ _ = None_¶
     
 
 Caches input audio chunks before flushing to session and artifact services.
@@ -5290,20 +5369,20 @@ _field _invocation_id _: str_ _[Required]_¶
 
 The id of this invocation context. Readonly.
 
-_field _live_request_queue _: Optional[LiveRequestQueue]__ = None_¶
+_field _live_request_queue _: LiveRequestQueue | None_ _ = None_¶
     
 
 The queue to receive live requests.
 
-_field _live_session_resumption_handle _: Optional[str]__ = None_¶
+_field _live_session_resumption_handle _: str | None_ _ = None_¶
     
 
 The handle for live session resumption.
 
-_field _memory_service _: Optional[BaseMemoryService]__ = None_¶
+_field _memory_service _: BaseMemoryService | None_ _ = None_¶
     
 
-_field _output_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
+_field _output_realtime_cache _: list[RealtimeCacheEntry] | None_ _ = None_¶
     
 
 Caches output audio chunks before flushing to session and artifact services.
@@ -5313,12 +5392,12 @@ _field _plugin_manager _: PluginManager_ _[Optional]_¶
 
 The manager for keeping track of plugins in this invocation.
 
-_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
+_field _resumability_config _: ResumabilityConfig | None_ _ = None_¶
     
 
 The resumability config that applies to all agents under this invocation.
 
-_field _run_config _: Optional[RunConfig]__ = None_¶
+_field _run_config _: RunConfig | None_ _ = None_¶
     
 
 Configurations for live agents under this invocation.
@@ -5331,12 +5410,12 @@ The current session of this invocation context. Readonly.
 _field _session_service _: BaseSessionService_ _[Required]_¶
     
 
-_field _transcription_cache _: Optional[list[TranscriptionEntry]]__ = None_¶
+_field _transcription_cache _: list[TranscriptionEntry] | None_ _ = None_¶
     
 
 Caches necessary data, audio or contents, that are needed by transcription.
 
-_field _user_content _: Optional[types.Content]__ = None_¶
+_field _user_content _: types.Content | None_ _ = None_¶
     
 
 The user content that started this invocation. Readonly.
@@ -6264,7 +6343,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -6423,17 +6503,17 @@ Fields:
 
 
 
-_field _activity_end _: Optional[types.ActivityEnd]__ = None_¶
+_field _activity_end _: types.ActivityEnd | None_ _ = None_¶
     
 
 If set, signal the end of user activity to the model.
 
-_field _activity_start _: Optional[types.ActivityStart]__ = None_¶
+_field _activity_start _: types.ActivityStart | None_ _ = None_¶
     
 
 If set, signal the start of user activity to the model.
 
-_field _blob _: Optional[types.Blob]__ = None_¶
+_field _blob _: types.Blob | None_ _ = None_¶
     
 
 If set, send the blob to the model in realtime mode.
@@ -6443,7 +6523,7 @@ _field _close _: bool_ _ = False_¶
 
 If set, close the queue. queue.shutdown() is only supported in Python 3.13+.
 
-_field _content _: Optional[types.Content]__ = None_¶
+_field _content _: types.Content | None_ _ = None_¶
     
 
 If set, send the content to the model in turn-by-turn mode.
@@ -7227,7 +7307,8 @@ Show JSON schema
              "enum": [
                 "SOURCE_UNSPECIFIED",
                 "UPLOADED",
-                "GENERATED"
+                "GENERATED",
+                "REGISTERED"
              ],
              "title": "FileSource",
              "type": "string"
@@ -7801,7 +7882,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -8003,7 +8085,7 @@ Validators:
 
 
 
-_field _after_model_callback _: Optional[AfterModelCallback]__ = None_¶
+_field _after_model_callback _: AfterModelCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called after calling the LLM.
@@ -8032,7 +8114,7 @@ Validated by:
 
 
 
-_field _after_tool_callback _: Optional[AfterToolCallback]__ = None_¶
+_field _after_tool_callback _: AfterToolCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called after calling the tool.
@@ -8065,7 +8147,7 @@ Validated by:
 
 
 
-_field _before_model_callback _: Optional[BeforeModelCallback]__ = None_¶
+_field _before_model_callback _: BeforeModelCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called before calling the LLM.
@@ -8096,7 +8178,7 @@ Validated by:
 
 
 
-_field _before_tool_callback _: Optional[BeforeToolCallback]__ = None_¶
+_field _before_tool_callback _: BeforeToolCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called before calling the tool.
@@ -8127,7 +8209,7 @@ Validated by:
 
 
 
-_field _code_executor _: Optional[BaseCodeExecutor]__ = None_¶
+_field _code_executor _: BaseCodeExecutor | None_ _ = None_¶
     
 
 Allow agent to execute code blocks from model responses using the provided CodeExecutor.
@@ -8174,7 +8256,7 @@ Validated by:
 
 
 
-_field _generate_content_config _: Optional[types.GenerateContentConfig]__ = None_¶
+_field _generate_content_config _: types.GenerateContentConfig | None_ _ = None_¶
     
 
 The additional content generation configurations.
@@ -8193,7 +8275,7 @@ Validated by:
 
 
 
-_field _global_instruction _: Union[str, InstructionProvider]__ = ''_¶
+_field _global_instruction _: str | InstructionProvider_ _ = ''_¶
     
 
 Instructions for all the agents in the entire agent tree.
@@ -8230,7 +8312,7 @@ Validated by:
 
 
 
-_field _input_schema _: Optional[type[BaseModel]]__ = None_¶
+_field _input_schema _: type[BaseModel] | None_ _ = None_¶
     
 
 The input schema when agent is used as a tool.
@@ -8243,7 +8325,7 @@ Validated by:
 
 
 
-_field _instruction _: Union[str, InstructionProvider]__ = ''_¶
+_field _instruction _: str | InstructionProvider_ _ = ''_¶
     
 
 Dynamic instructions for the LLM model, guiding the agent’s behavior.
@@ -8262,12 +8344,12 @@ Validated by:
 
 
 
-_field _model _: Union[str, BaseLlm]__ = ''_¶
+_field _model _: str | BaseLlm_ _ = ''_¶
     
 
 The model to use for the agent.
 
-When not set, the agent will inherit the model from its ancestor.
+When not set, the agent will inherit the model from its ancestor. If no ancestor provides a model, the agent uses the default model configured via LlmAgent.set_default_model. The built-in default is gemini-2.5-flash.
 
 Validated by:
     
@@ -8277,7 +8359,7 @@ Validated by:
 
 
 
-_field _on_model_error_callback _: Optional[OnModelErrorCallback]__ = None_¶
+_field _on_model_error_callback _: OnModelErrorCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called when a model call encounters an error.
@@ -8308,7 +8390,7 @@ Validated by:
 
 
 
-_field _on_tool_error_callback _: Optional[OnToolErrorCallback]__ = None_¶
+_field _on_tool_error_callback _: OnToolErrorCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called when a tool call encounters an error.
@@ -8341,7 +8423,7 @@ Validated by:
 
 
 
-_field _output_key _: Optional[str]__ = None_¶
+_field _output_key _: str | None_ _ = None_¶
     
 
 The key in session state to store the output of the agent.
@@ -8356,7 +8438,7 @@ Validated by:
 
 
 
-_field _output_schema _: Optional[type[BaseModel]]__ = None_¶
+_field _output_schema _: type[BaseModel] | None_ _ = None_¶
     
 
 The output schema when agent replies.
@@ -8373,7 +8455,7 @@ Validated by:
 
 
 
-_field _planner _: Optional[BasePlanner]__ = None_¶
+_field _planner _: BasePlanner | None_ _ = None_¶
     
 
 Instructs the agent to make a plan and execute it step by step.
@@ -8390,7 +8472,7 @@ Validated by:
 
 
 
-_field _static_instruction _: Optional[types.ContentUnion]__ = None_¶
+_field _static_instruction _: types.ContentUnion | None_ _ = None_¶
     
 
 Static instruction content sent literally as system instruction at the beginning.
@@ -8446,6 +8528,16 @@ config_type¶
     
 
 alias of `LlmAgentConfig`
+
+_classmethod _set_default_model(_model_)¶
+    
+
+Overrides the default model used when an agent has no model set.
+
+Return type:
+    
+
+`None`
 
 _validator _validate_generate_content_config _ » __generate_content_config_¶
     
@@ -8510,6 +8602,11 @@ Return type:
     
 
 `list`[`BaseTool`]
+
+DEFAULT_MODEL _: ClassVar[str]__ = 'gemini-2.5-flash'_¶
+    
+
+System default model used when no model is set on an agent.
 
 _property _canonical_after_model_callbacks _: list[Callable[[CallbackContext, LlmResponse], Awaitable[LlmResponse | None] | LlmResponse | None]]_¶
     
@@ -8694,7 +8791,7 @@ Fields:
 Validators:
     
 
-_field _max_iterations _: Optional[int]__ = None_¶
+_field _max_iterations _: int | None_ _ = None_¶
     
 
 The maximum number of iterations to run the loop agent.
@@ -9157,7 +9254,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.\n\nThis data type is not supported in Vertex AI.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -9172,7 +9269,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. All the enabled speaker voices.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -9265,6 +9362,41 @@ Show JSON schema
              "title": "RealtimeInputConfig",
              "type": "object"
           },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
+             "type": "object"
+          },
           "SessionResumptionConfig": {
              "additionalProperties": false,
              "description": "Configuration of session resumption mechanism.\n\nIncluded in `LiveConnectConfig.session_resumption`. If included server\nwill send `LiveServerSessionResumptionUpdate` messages.",
@@ -9355,8 +9487,19 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation config.",
              "properties": {
+                "voiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Configuration for the voice of the response."
+                },
                 "languageCode": {
                    "anyOf": [
                       {
@@ -9370,18 +9513,6 @@ Show JSON schema
                    "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
                 },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the speaker to use."
-                },
                 "multiSpeakerVoiceConfig": {
                    "anyOf": [
                       {
@@ -9392,7 +9523,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The configuration for the multi-speaker setup. It is mutually exclusive with the voice_config field. This field is not supported in Vertex AI."
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -9409,6 +9540,7 @@ Show JSON schema
              "type": "string"
           },
           "StreamingMode": {
+             "description": "Streaming modes for agent execution.\n\nThis enum defines different streaming behaviors for how the agent returns\nevents as model response.",
              "enum": [
                 null,
                 "sse",
@@ -9428,8 +9560,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -9498,7 +9641,7 @@ Validators:
 
 
 
-_field _context_window_compression _: Optional[types.ContextWindowCompressionConfig]__ = None_¶
+_field _context_window_compression _: types.ContextWindowCompressionConfig | None_ _ = None_¶
     
 
 Configuration for context window compression. If set, this will enable context window compression for LLM input.
@@ -9511,7 +9654,7 @@ Validated by:
 
 
 
-_field _custom_metadata _: Optional[dict[str, Any]]__ = None_¶
+_field _custom_metadata _: dict[str, Any] | None_ _ = None_¶
     
 
 Custom metadata for the current invocation.
@@ -9524,7 +9667,7 @@ Validated by:
 
 
 
-_field _enable_affective_dialog _: Optional[bool]__ = None_¶
+_field _enable_affective_dialog _: bool | None_ _ = None_¶
     
 
 If enabled, the model will detect emotions and adapt its responses accordingly.
@@ -9537,7 +9680,7 @@ Validated by:
 
 
 
-_field _input_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
+_field _input_audio_transcription _: types.AudioTranscriptionConfig | None_ _[Optional]_¶
     
 
 Input transcription for live agents with audio input from user.
@@ -9575,7 +9718,7 @@ Validated by:
 
 
 
-_field _output_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
+_field _output_audio_transcription _: types.AudioTranscriptionConfig | None_ _[Optional]_¶
     
 
 Output transcription for live agents with audio response.
@@ -9588,7 +9731,7 @@ Validated by:
 
 
 
-_field _proactivity _: Optional[types.ProactivityConfig]__ = None_¶
+_field _proactivity _: types.ProactivityConfig | None_ _ = None_¶
     
 
 Configures the proactivity of the model. This allows the model to respond proactively to the input and to ignore irrelevant input.
@@ -9601,7 +9744,7 @@ Validated by:
 
 
 
-_field _realtime_input_config _: Optional[types.RealtimeInputConfig]__ = None_¶
+_field _realtime_input_config _: types.RealtimeInputConfig | None_ _ = None_¶
     
 
 Realtime input config for live agents with audio input from user.
@@ -9614,7 +9757,7 @@ Validated by:
 
 
 
-_field _response_modalities _: Optional[list[str]]__ = None_¶
+_field _response_modalities _: list[str] | None_ _ = None_¶
     
 
 The output modalities. If not set, it’s default to AUDIO.
@@ -9640,7 +9783,7 @@ Validated by:
 
 
 
-_field _session_resumption _: Optional[types.SessionResumptionConfig]__ = None_¶
+_field _session_resumption _: types.SessionResumptionConfig | None_ _ = None_¶
     
 
 Configures session resumption mechanism. Only support transparent session resumption mode now.
@@ -9653,7 +9796,7 @@ Validated by:
 
 
 
-_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
+_field _speech_config _: types.SpeechConfig | None_ _ = None_¶
     
 
 Speech configuration for the live agent.
@@ -11187,7 +11330,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -11740,7 +11884,7 @@ Validators:
 
 
 
-_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
+_field _context_cache_config _: ContextCacheConfig | None_ _ = None_¶
     
 
 Context cache configuration that applies to all LLM agents in the app.
@@ -11753,7 +11897,7 @@ Validated by:
 
 
 
-_field _events_compaction_config _: Optional[EventsCompactionConfig]__ = None_¶
+_field _events_compaction_config _: EventsCompactionConfig | None_ _ = None_¶
     
 
 The config of event compaction for the application.
@@ -11792,7 +11936,7 @@ Validated by:
 
 
 
-_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
+_field _resumability_config _: ResumabilityConfig | None_ _ = None_¶
     
 
 The config of the resumability for the application. If configured, will be applied to all agents in the app.
@@ -12759,6 +12903,18 @@ Show JSON schema
              ],
              "default": null
           },
+          "interactionId": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Interactionid"
+          },
           "invocationId": {
              "default": "",
              "title": "Invocationid",
@@ -13546,7 +13702,9 @@ Show JSON schema
                 "IMAGE_SAFETY",
                 "UNEXPECTED_TOOL_CALL",
                 "IMAGE_PROHIBITED_CONTENT",
-                "NO_IMAGE"
+                "NO_IMAGE",
+                "IMAGE_RECITATION",
+                "IMAGE_OTHER"
              ],
              "title": "FinishReason",
              "type": "string"
@@ -15215,6 +15373,24 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "tokenEndpointAuthMethod": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "client_secret_basic",
+                            "client_secret_post",
+                            "client_secret_jwt",
+                            "private_key_jwt"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": "client_secret_basic",
+                   "title": "Tokenendpointauthmethod"
                 }
              },
              "title": "OAuth2Auth",
@@ -15740,7 +15916,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -16288,7 +16465,7 @@ _field _author _: str_ _[Required]_¶
 
 ‘user’ or the name of the agent, indicating who appended the event to the session.
 
-_field _branch _: Optional[str]__ = None_¶
+_field _branch _: str | None_ _ = None_¶
     
 
 The branch of the event.
@@ -16307,7 +16484,7 @@ _field _invocation_id _: str_ _ = ''__(alias 'invocationId')_¶
 
 The invocation ID of the event. Should be non-empty before appending to a session.
 
-_field _long_running_tool_ids _: Optional[set[str]]__ = None_ _(alias 'longRunningToolIds')_¶
+_field _long_running_tool_ids _: set[str] | None_ _ = None_ _(alias 'longRunningToolIds')_¶
     
 
 Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. only valid for function call event
@@ -17535,6 +17712,24 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "tokenEndpointAuthMethod": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "client_secret_basic",
+                            "client_secret_post",
+                            "client_secret_jwt",
+                            "private_key_jwt"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": "client_secret_basic",
+                   "title": "Tokenendpointauthmethod"
                 }
              },
              "title": "OAuth2Auth",
@@ -18060,7 +18255,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -18376,7 +18572,7 @@ Fields:
 
 
 
-_field _agent_state _: Optional[dict[str, Any]]__ = None_ _(alias 'agentState')_¶
+_field _agent_state _: dict[str, Any] | None_ _ = None_ _(alias 'agentState')_¶
     
 
 The agent state at the current event, used for checkpoint and resume. This should only be set by ADK workflow.
@@ -18386,17 +18582,17 @@ _field _artifact_delta _: dict[str, int]__[Optional]__(alias 'artifactDelta')_¶
 
 Indicates that the event is updating an artifact. key is the filename, value is the version.
 
-_field _compaction _: Optional[EventCompaction]__ = None_¶
+_field _compaction _: EventCompaction | None_ _ = None_¶
     
 
 The compaction of the events.
 
-_field _end_of_agent _: Optional[bool]__ = None_ _(alias 'endOfAgent')_¶
+_field _end_of_agent _: bool | None_ _ = None_ _(alias 'endOfAgent')_¶
     
 
 If true, the current agent has finished its current run. Note that there can be multiple events with end_of_agent=True for the same agent within one invocation when there is a loop. This should only be set by ADK workflow.
 
-_field _escalate _: Optional[bool]__ = None_¶
+_field _escalate _: bool | None_ _ = None_¶
     
 
 The agent is escalating to a higher level agent.
@@ -18413,12 +18609,12 @@ _field _requested_tool_confirmations _: dict[str, ToolConfirmation]__[Optional]_
 
 A dict of tool confirmation requested by this event, keyed by function call id.
 
-_field _rewind_before_invocation_id _: Optional[str]__ = None_ _(alias 'rewindBeforeInvocationId')_¶
+_field _rewind_before_invocation_id _: str | None_ _ = None_ _(alias 'rewindBeforeInvocationId')_¶
     
 
 The invocation id to rewind to. This is only set for rewind event.
 
-_field _skip_summarization _: Optional[bool]__ = None_ _(alias 'skipSummarization')_¶
+_field _skip_summarization _: bool | None_ _ = None_ _(alias 'skipSummarization')_¶
     
 
 If true, it won’t call model to summarize function response.
@@ -18430,7 +18626,7 @@ _field _state_delta _: dict[str, object]__[Optional]__(alias 'stateDelta')_¶
 
 Indicates that the event is updating the state with the given delta.
 
-_field _transfer_to_agent _: Optional[str]__ = None_ _(alias 'transferToAgent')_¶
+_field _transfer_to_agent _: str | None_ _ = None_ _(alias 'transferToAgent')_¶
     
 
 If set, the event transfers to the specified agent.
@@ -19208,7 +19404,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -19365,10 +19562,10 @@ Fields:
 
 
 
-_field _input _: `Content`_ _[Required]_¶
+_field _input _: Content_ _[Required]_¶
     
 
-_field _output _: `list`[`Content`]__[Required]_¶
+_field _output _: list[Content]__[Required]_¶
     
 
 _class _google.adk.examples.VertexAiExampleStore(_examples_store_name_)¶
@@ -19797,58 +19994,6 @@ Return type:
 
 `AsyncGenerator`[`LlmResponse`, `None`]
 
-_pydantic model _google.adk.models.Claude¶
-    
-
-Bases: `AnthropicLlm`
-
-Integration with Claude models served from Vertex AI.
-
-model¶
-    
-
-The name of the Claude model.
-
-max_tokens¶
-    
-
-The maximum number of tokens to generate.
-
-Show JSON schema
-    
-    
-    {
-       "title": "Claude",
-       "description": "Integration with Claude models served from Vertex AI.\n\nAttributes:\n  model: The name of the Claude model.\n  max_tokens: The maximum number of tokens to generate.",
-       "type": "object",
-       "properties": {
-          "model": {
-             "default": "claude-3-5-sonnet-v2@20241022",
-             "title": "Model",
-             "type": "string"
-          },
-          "max_tokens": {
-             "default": 8192,
-             "title": "Max Tokens",
-             "type": "integer"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `model (str)`
-
-
-
-
-_field _model _: str_ _ = 'claude-3-5-sonnet-v2@20241022'_¶
-    
-
-The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
-
 _pydantic model _google.adk.models.Gemini¶
     
 
@@ -19861,12 +20006,17 @@ model¶
 
 The name of the Gemini model.
 
+use_interactions_api¶
+    
+
+Whether to use the interactions API for model invocation.
+
 Show JSON schema
     
     
     {
        "title": "Gemini",
-       "description": "Integration for Gemini models.\n\nAttributes:\n  model: The name of the Gemini model.",
+       "description": "Integration for Gemini models.\n\nAttributes:\n  model: The name of the Gemini model.\n  use_interactions_api: Whether to use the interactions API for model\n    invocation.",
        "type": "object",
        "properties": {
           "model": {
@@ -19884,6 +20034,11 @@ Show JSON schema
                 }
              ],
              "default": null
+          },
+          "use_interactions_api": {
+             "default": false,
+             "title": "Use Interactions Api",
+             "type": "boolean"
           },
           "retry_options": {
              "anyOf": [
@@ -19989,7 +20144,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.\n\nThis data type is not supported in Vertex AI.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -20004,7 +20159,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. All the enabled speaker voices.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -20030,6 +20185,41 @@ Show JSON schema
                 }
              },
              "title": "PrebuiltVoiceConfig",
+             "type": "object"
+          },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
              "type": "object"
           },
           "SpeakerVoiceConfig": {
@@ -20067,8 +20257,19 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation config.",
              "properties": {
+                "voiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Configuration for the voice of the response."
+                },
                 "languageCode": {
                    "anyOf": [
                       {
@@ -20082,18 +20283,6 @@ Show JSON schema
                    "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
                 },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the speaker to use."
-                },
                 "multiSpeakerVoiceConfig": {
                    "anyOf": [
                       {
@@ -20104,7 +20293,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The configuration for the multi-speaker setup. It is mutually exclusive with the voice_config field. This field is not supported in Vertex AI."
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -20112,8 +20301,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -20143,6 +20343,8 @@ Fields:
 
   * `speech_config (Optional[types.SpeechConfig])`
 
+  * `use_interactions_api (bool)`
+
 
 
 
@@ -20151,7 +20353,7 @@ _field _model _: str_ _ = 'gemini-2.5-flash'_¶
 
 The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
 
-_field _retry_options _: Optional[types.HttpRetryOptions]__ = None_¶
+_field _retry_options _: types.HttpRetryOptions | None_ _ = None_¶
     
 
 Allow Gemini to retry failed responses.
@@ -20172,8 +20374,21 @@ retry_options=types.HttpRetryOptions(initial_delay=1, attempts=2),
 
 ## )¶
 
-_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
+_field _speech_config _: types.SpeechConfig | None_ _ = None_¶
     
+
+_field _use_interactions_api _: bool_ _ = False_¶
+    
+
+Whether to use the interactions API for model invocation.
+
+When enabled, uses the interactions API (client.aio.interactions.create()) instead of the traditional generate_content API. The interactions API provides stateful conversation capabilities, allowing you to chain interactions using previous_interaction_id instead of sending full history. The response format will be converted to match the existing LlmResponse structure for compatibility.
+
+Sample: ```python agent = Agent(
+
+> model=Gemini(use_interactions_api=True)
+
+## )¶
 
 _classmethod _supported_models()¶
     
@@ -20247,7 +20462,7 @@ The api client.
 _pydantic model _google.adk.models.Gemma¶
     
 
-Bases: `Gemini`
+Bases: `GemmaFunctionCallingMixin`, `Gemini`
 
 Integration for Gemma models exposed via the Gemini API.
 
@@ -20266,7 +20481,7 @@ Show JSON schema
     
     {
        "title": "Gemma",
-       "description": "Integration for Gemma models exposed via the Gemini API.\n\nOnly Gemma 3 models are supported at this time. For agentic use cases,\nuse of gemma-3-27b-it and gemma-3-12b-it are strongly recommended.\n\nFor full documentation, see: https://ai.google.dev/gemma/docs/core/\n\nNOTE: Gemma does **NOT** support system instructions. Any system instructions\nwill be replaced with an initial *user* prompt in the LLM request. If system\ninstructions change over the course of agent execution, the initial content\n**SHOULD** be replaced. Special care is warranted here.\nSee: https://ai.google.dev/gemma/docs/core/prompt-structure#system-instructions\n\nNOTE: Gemma's function calling support is limited. It does not have full access to the\nsame built-in tools as Gemini. It also does not have special API support for tools and\nfunctions. Rather, tools must be passed in via a `user` prompt, and extracted from model\nresponses based on approximate shape.\n\nNOTE: Vertex AI API support for Gemma is not currently included. This **ONLY** supports\nusage via the Gemini API.",
+       "description": "Integration for Gemma models exposed via the Gemini API.\n\nOnly Gemma 3 models are supported at this time. For agentic use cases,\nuse of gemma-3-27b-it and gemma-3-12b-it are strongly recommended.\n\nFor full documentation, see: https://ai.google.dev/gemma/docs/core/\n\nNOTE: Gemma does **NOT** support system instructions. Any system instructions\nwill be replaced with an initial *user* prompt in the LLM request. If system\ninstructions change over the course of agent execution, the initial content\n**SHOULD** be replaced. Special care is warranted here.\nSee:\nhttps://ai.google.dev/gemma/docs/core/prompt-structure#system-instructions\n\nNOTE: Gemma's function calling support is limited. It does not have full\naccess to the\nsame built-in tools as Gemini. It also does not have special API support for\ntools and\nfunctions. Rather, tools must be passed in via a `user` prompt, and extracted\nfrom model\nresponses based on approximate shape.\n\nNOTE: Vertex AI API support for Gemma is not currently included. This **ONLY**\nsupports\nusage via the Gemini API.",
        "type": "object",
        "properties": {
           "model": {
@@ -20284,6 +20499,11 @@ Show JSON schema
                 }
              ],
              "default": null
+          },
+          "use_interactions_api": {
+             "default": false,
+             "title": "Use Interactions Api",
+             "type": "boolean"
           },
           "retry_options": {
              "anyOf": [
@@ -20389,7 +20609,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.\n\nThis data type is not supported in Vertex AI.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -20404,7 +20624,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. All the enabled speaker voices.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -20430,6 +20650,41 @@ Show JSON schema
                 }
              },
              "title": "PrebuiltVoiceConfig",
+             "type": "object"
+          },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
              "type": "object"
           },
           "SpeakerVoiceConfig": {
@@ -20467,8 +20722,19 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation config.",
              "properties": {
+                "voiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Configuration for the voice of the response."
+                },
                 "languageCode": {
                    "anyOf": [
                       {
@@ -20482,18 +20748,6 @@ Show JSON schema
                    "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
                 },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the speaker to use."
-                },
                 "multiSpeakerVoiceConfig": {
                    "anyOf": [
                       {
@@ -20504,7 +20758,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The configuration for the multi-speaker setup. It is mutually exclusive with the voice_config field. This field is not supported in Vertex AI."
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -20512,8 +20766,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -20644,144 +20909,6 @@ Raises:
     
 
 **ValueError** – If the model is not found.
-
-_pydantic model _google.adk.models.LiteLlm¶
-    
-
-Bases: `BaseLlm`
-
-Wrapper around litellm.
-
-This wrapper can be used with any of the models supported by litellm. The environment variable(s) needed for authenticating with the model endpoint must be set prior to instantiating this class.
-
-Example usage: ``` os.environ[“VERTEXAI_PROJECT”] = “your-gcp-project-id” os.environ[“VERTEXAI_LOCATION”] = “your-gcp-location”
-
-agent = Agent(
-    
-
-model=LiteLlm(model=”[vertex_ai/claude-3-7-sonnet@20250219](mailto:vertex_ai/claude-3-7-sonnet%4020250219)”), …
-
-## )¶
-
-model¶
-    
-
-The name of the LiteLlm model.
-
-llm_client¶
-    
-
-The LLM client to use for the model.
-
-Initializes the LiteLlm class.
-
-param model:
-    
-
-The name of the LiteLlm model.
-
-param **kwargs:
-    
-
-Additional arguments to pass to the litellm completion api.
-
-Show JSON schema
-    
-    
-    {
-       "title": "LiteLlm",
-       "type": "object",
-       "properties": {
-          "model": {
-             "title": "Model",
-             "type": "string"
-          },
-          "llm_client": {
-             "default": null,
-             "title": "Llm Client"
-          }
-       },
-       "required": [
-          "model"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `llm_client (LiteLLMClient)`
-
-
-
-
-_field _llm_client _: LiteLLMClient_ _[Optional]_¶
-    
-
-The LLM client to use for the model.
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
-
-Return type:
-    
-
-`list`[`str`]
-
-Returns:
-    
-
-A list of supported models.
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Generates content asynchronously.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send to the LiteLlm model.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-model_post_init(_context_ , _/_)¶
-    
-
-This function is meant to behave like a BaseModel method to initialise private attributes.
-
-It takes context as an argument since that’s what pydantic-core passes when calling it.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **self** – The BaseModel instance.
-
-  * **context** – The context.
-
-
-
 
 # google.adk.planners module¶
 
@@ -20924,7 +21051,7 @@ Returns:
 
 The processed response parts, or None if no processing is needed.
 
-thinking_config _: `ThinkingConfig`_¶
+thinking_config _: ThinkingConfig_¶
     
 
 Config for model built-in thinking features. An error will be returned if this field is set for models that don’t support thinking.
@@ -22007,17 +22134,17 @@ Raises:
 Self _ = typing.Self_¶
     
 
-agent _: `BaseAgent`_¶
+agent _: BaseAgent_¶
     
 
 The root agent to run.
 
-app_name _: `str`_¶
+app_name _: str_¶
     
 
 The app name of the runner.
 
-artifact_service _: `Optional`[`BaseArtifactService`]__ = None_¶
+artifact_service _: BaseArtifactService | None_ _ = None_¶
     
 
 The artifact service for the runner.
@@ -22027,27 +22154,27 @@ _async _close()¶
 
 Closes the runner.
 
-context_cache_config _: `Optional`[`ContextCacheConfig`]__ = None_¶
+context_cache_config _: ContextCacheConfig | None_ _ = None_¶
     
 
 The context cache config for the runner.
 
-credential_service _: `Optional`[`BaseCredentialService`]__ = None_¶
+credential_service _: BaseCredentialService | None_ _ = None_¶
     
 
 The credential service for the runner.
 
-memory_service _: `Optional`[`BaseMemoryService`]__ = None_¶
+memory_service _: BaseMemoryService | None_ _ = None_¶
     
 
 The memory service for the runner.
 
-plugin_manager _: `PluginManager`_¶
+plugin_manager _: PluginManager_¶
     
 
 The plugin manager for the runner.
 
-resumability_config _: `Optional`[`ResumabilityConfig`]__ = None_¶
+resumability_config _: ResumabilityConfig | None_ _ = None_¶
     
 
 The resumability config for the application.
@@ -22273,7 +22400,7 @@ Note
 
 Either session or both user_id and session_id must be provided.
 
-session_service _: `BaseSessionService`_¶
+session_service _: BaseSessionService_¶
     
 
 The session service for the runner.
@@ -23258,6 +23385,18 @@ Show JSON schema
                    ],
                    "default": null
                 },
+                "interactionId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Interactionid"
+                },
                 "invocationId": {
                    "default": "",
                    "title": "Invocationid",
@@ -23553,7 +23692,9 @@ Show JSON schema
                 "IMAGE_SAFETY",
                 "UNEXPECTED_TOOL_CALL",
                 "IMAGE_PROHIBITED_CONTENT",
-                "NO_IMAGE"
+                "NO_IMAGE",
+                "IMAGE_RECITATION",
+                "IMAGE_OTHER"
              ],
              "title": "FinishReason",
              "type": "string"
@@ -25222,6 +25363,24 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "tokenEndpointAuthMethod": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "client_secret_basic",
+                            "client_secret_post",
+                            "client_secret_jwt",
+                            "private_key_jwt"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": "client_secret_basic",
+                   "title": "Tokenendpointauthmethod"
                 }
              },
              "title": "OAuth2Auth",
@@ -25747,7 +25906,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -27369,6 +27529,24 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "tokenEndpointAuthMethod": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "client_secret_basic",
+                            "client_secret_post",
+                            "client_secret_jwt",
+                            "private_key_jwt"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": "client_secret_basic",
+                   "title": "Tokenendpointauthmethod"
                 }
              },
              "title": "OAuth2Auth",
@@ -27848,7 +28026,7 @@ Bases: `ABC`
 
 The base class for all tools.
 
-custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
+custom_metadata _: dict[str, Any] | None_ _ = None_¶
     
 
 The custom metadata of the BaseTool.
@@ -27857,7 +28035,7 @@ An optional key-value pair for storing and retrieving tool-specific metadata, su
 
 NOTE: the entire dict must be JSON serializable.
 
-description _: `str`_¶
+description _: str_¶
     
 
 The description of the tool.
@@ -27888,12 +28066,12 @@ Returns:
 
 The tool instance.
 
-is_long_running _: `bool`_ _ = False_¶
+is_long_running _: bool_ _ = False_¶
     
 
 Whether the tool is a long running operation, which typically returns a resource id first and finishes the operation later.
 
-name _: `str`_¶
+name _: str_¶
     
 
 The name of the tool.
@@ -28790,7 +28968,7 @@ A list of all available RestApiTool objects.
 
 # google.adk.tools.application_integration_tool module¶
 
-_class _google.adk.tools.application_integration_tool.ApplicationIntegrationToolset(_project_ , _location_ , _integration =None_, _triggers =None_, _connection =None_, _entity_operations =None_, _actions =None_, _tool_name_prefix =''_, _tool_instructions =''_, _service_account_json =None_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_)¶
+_class _google.adk.tools.application_integration_tool.ApplicationIntegrationToolset(_project_ , _location_ , _connection_template_override =None_, _integration =None_, _triggers =None_, _connection =None_, _entity_operations =None_, _actions =None_, _tool_name_prefix =''_, _tool_instructions =''_, _service_account_json =None_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_)¶
     
 
 Bases: `BaseToolset`
@@ -28839,6 +29017,8 @@ Parameters:
   * **project** – The GCP project ID.
 
   * **location** – The GCP location.
+
+  * **connection_template_override** – Overrides ExecuteConnection default integration name.
 
   * **integration** – The integration name.
 
@@ -29120,7 +29300,7 @@ Bases: `ABC`
 
 The base class for all tools.
 
-custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
+custom_metadata _: dict[str, Any] | None_ _ = None_¶
     
 
 The custom metadata of the BaseTool.
@@ -29129,7 +29309,7 @@ An optional key-value pair for storing and retrieving tool-specific metadata, su
 
 NOTE: the entire dict must be JSON serializable.
 
-description _: `str`_¶
+description _: str_¶
     
 
 The description of the tool.
@@ -29160,12 +29340,12 @@ Returns:
 
 The tool instance.
 
-is_long_running _: `bool`_ _ = False_¶
+is_long_running _: bool_ _ = False_¶
     
 
 Whether the tool is a long running operation, which typically returns a resource id first and finishes the operation later.
 
-name _: `str`_¶
+name _: str_¶
     
 
 The name of the tool.
@@ -29525,133 +29705,6 @@ Return type:
 
 # google.adk.tools.crewai_tool module¶
 
-_class _google.adk.tools.crewai_tool.CrewaiTool(_tool_ , _*_ , _name_ , _description_)¶
-    
-
-Bases: `FunctionTool`
-
-Use this class to wrap a CrewAI tool.
-
-If the original tool name and description are not suitable, you can override them in the constructor.
-
-Initializes the FunctionTool. Extracts metadata from a callable object.
-
-Parameters:
-    
-
-  * **func** – The function to wrap.
-
-  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
-
-
-
-
-_classmethod _from_config(_config_ , _config_abs_path_)¶
-    
-
-Creates a tool instance from a config.
-
-This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
-
-Return type:
-    
-
-`CrewaiTool`
-
-Parameters:
-    
-
-  * **config** – The config for the tool.
-
-  * **config_abs_path** – The absolute path to the config file that contains the tool config.
-
-
-
-Returns:
-    
-
-The tool instance.
-
-_async _run_async(_*_ , _args_ , _tool_context_)¶
-    
-
-Override run_async to handle CrewAI-specific parameter filtering.
-
-CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
-
-Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
-
-Return type:
-    
-
-`Any`
-
-tool _: CrewaiBaseTool_¶
-    
-
-The wrapped CrewAI tool.
-
-_pydantic model _google.adk.tools.crewai_tool.CrewaiToolConfig¶
-    
-
-Bases: `BaseToolConfig`
-
-Show JSON schema
-    
-    
-    {
-       "title": "CrewaiToolConfig",
-       "type": "object",
-       "properties": {
-          "tool": {
-             "title": "Tool",
-             "type": "string"
-          },
-          "name": {
-             "default": "",
-             "title": "Name",
-             "type": "string"
-          },
-          "description": {
-             "default": "",
-             "title": "Description",
-             "type": "string"
-          }
-       },
-       "additionalProperties": false,
-       "required": [
-          "tool"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `description (str)`
-
-  * `name (str)`
-
-  * `tool (str)`
-
-
-
-
-_field _description _: str_ _ = ''_¶
-    
-
-The description of the tool.
-
-_field _name _: str_ _ = ''_¶
-    
-
-The name of the tool.
-
-_field _tool _: str_ _[Required]_¶
-    
-
-The fully qualified path of the CrewAI tool instance.
-
 # google.adk.tools.enterprise_search_tool module¶
 
 _class _google.adk.tools.enterprise_search_tool.EnterpriseWebSearchTool¶
@@ -29661,9 +29714,11 @@ Bases: `BaseTool`
 
 A Gemini 2+ built-in tool using web grounding for Enterprise compliance.
 
+NOTE: This tool is not the same as Vertex AI Search, which is used to be called “Enterprise Search”.
+
 See the documentation for more details: <https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/web-grounding-enterprise>.
 
-Initializes the Vertex AI Search tool.
+Initializes the Enterprise Web Search tool.
 
 _async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
     
@@ -30503,7 +30558,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -30658,7 +30714,7 @@ Fields:
 
 
 
-_field _examples _: Union[list[Example], str]__[Required]_¶
+_field _examples _: list[Example] | str_ _[Required]_¶
     
 
 The examples to add to the LLM request. User can either provide a list of examples or a fully-qualified name to a BaseExampleProvider object in code.
@@ -31185,138 +31241,6 @@ Parameters:
 
 
 # google.adk.tools.langchain_tool module¶
-
-_class _google.adk.tools.langchain_tool.LangchainTool(_tool_ , _name =None_, _description =None_)¶
-    
-
-Bases: `FunctionTool`
-
-Adapter class that wraps a Langchain tool for use with ADK.
-
-This adapter converts Langchain tools into a format compatible with Google’s generative AI function calling interface. It preserves the tool’s name, description, and functionality while adapting its schema.
-
-The original tool’s name and description can be overridden if needed.
-
-Parameters:
-    
-
-  * **tool** – A Langchain tool to wrap (BaseTool or a tool with a .run method)
-
-  * **name** – Optional override for the tool’s name
-
-  * **description** – Optional override for the tool’s description
-
-
-
-
-Examples:
-    
-    
-    from langchain.tools import DuckDuckGoSearchTool
-    from google.genai.tools import LangchainTool
-    
-    search_tool = DuckDuckGoSearchTool()
-    wrapped_tool = LangchainTool(search_tool)
-    
-
-Initializes the FunctionTool. Extracts metadata from a callable object.
-
-Parameters:
-    
-
-  * **func** – The function to wrap.
-
-  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
-
-
-
-
-_classmethod _from_config(_config_ , _config_abs_path_)¶
-    
-
-Creates a tool instance from a config.
-
-This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
-
-Return type:
-    
-
-`LangchainTool`
-
-Parameters:
-    
-
-  * **config** – The config for the tool.
-
-  * **config_abs_path** – The absolute path to the config file that contains the tool config.
-
-
-
-Returns:
-    
-
-The tool instance.
-
-_pydantic model _google.adk.tools.langchain_tool.LangchainToolConfig¶
-    
-
-Bases: `BaseToolConfig`
-
-Show JSON schema
-    
-    
-    {
-       "title": "LangchainToolConfig",
-       "type": "object",
-       "properties": {
-          "tool": {
-             "title": "Tool",
-             "type": "string"
-          },
-          "name": {
-             "default": "",
-             "title": "Name",
-             "type": "string"
-          },
-          "description": {
-             "default": "",
-             "title": "Description",
-             "type": "string"
-          }
-       },
-       "additionalProperties": false,
-       "required": [
-          "tool"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `description (str)`
-
-  * `name (str)`
-
-  * `tool (str)`
-
-
-
-
-_field _description _: str_ _ = ''_¶
-    
-
-The description of the tool.
-
-_field _name _: str_ _ = ''_¶
-    
-
-The name of the tool.
-
-_field _tool _: str_ _[Required]_¶
-    
-
-The fully qualified path of the Langchain tool instance.
 
 # google.adk.tools.load_artifacts_tool module¶
 
@@ -32164,7 +32088,8 @@ Show JSON schema
                 "MEDIA_RESOLUTION_UNSPECIFIED",
                 "MEDIA_RESOLUTION_LOW",
                 "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH"
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
              ],
              "title": "PartMediaResolutionLevel",
              "type": "string"
@@ -32936,12 +32861,16 @@ terminate_on_close¶
 
 Whether to terminate the MCP Streamable HTTP server when the connection is closed.
 
+httpx_client_factory¶
+    
+
+Factory function to create a custom HTTPX client. If not provided, a default factory will be used.
+
 Show JSON schema
     
     
     {
        "title": "StreamableHTTPConnectionParams",
-       "description": "Parameters for the MCP Streamable HTTP connection.\n\nSee MCP Streamable HTTP Client documentation for more details.\nhttps://github.com/modelcontextprotocol/python-sdk/blob/main/src/mcp/client/streamable_http.py\n\nAttributes:\n    url: URL for the MCP Streamable HTTP server.\n    headers: Headers for the MCP Streamable HTTP connection.\n    timeout: Timeout in seconds for establishing the connection to the MCP\n      Streamable HTTP server.\n    sse_read_timeout: Timeout in seconds for reading data from the MCP\n      Streamable HTTP server.\n    terminate_on_close: Whether to terminate the MCP Streamable HTTP server\n      when the connection is closed.",
        "type": "object",
        "properties": {
           "url": {
@@ -32975,6 +32904,10 @@ Show JSON schema
              "default": true,
              "title": "Terminate On Close",
              "type": "boolean"
+          },
+          "httpx_client_factory": {
+             "default": null,
+             "title": "Httpx Client Factory"
           }
        },
        "required": [
@@ -32988,6 +32921,8 @@ Fields:
 
   * `headers (dict[str, Any] | None)`
 
+  * `httpx_client_factory (google.adk.tools.mcp_tool.mcp_session_manager.CheckableMcpHttpClientFactory)`
+
   * `sse_read_timeout (float)`
 
   * `terminate_on_close (bool)`
@@ -33000,6 +32935,9 @@ Fields:
 
 
 _field _headers _: dict[str, Any] | None_ _ = None_¶
+    
+
+_field _httpx_client_factory _: CheckableMcpHttpClientFactory_ _ = <function create_mcp_http_client>_¶
     
 
 _field _sse_read_timeout _: float_ _ = 300.0_¶
@@ -33072,7 +33010,7 @@ Raises:
 
 # google.adk.tools.openapi_tool module¶
 
-_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_)¶
+_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_)¶
     
 
 Bases: `BaseToolset`
@@ -33134,6 +33072,12 @@ Parameters:
 
   * **tool_filter** – The filter used to filter the tools in the toolset. It can be either a tool predicate or a list of tool names of the tools to expose.
 
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset. Useful when multiple OpenAPI specs have tools with similar names.
+
+  * **ssl_verify** – SSL certificate verification option for all tools. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
+
+  * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
 
 
 
@@ -33145,6 +33089,18 @@ Performs cleanup and releases resources held by the toolset.
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+configure_ssl_verify_all(_ssl_verify =None_)¶
+    
+
+Configure SSL certificate verification for all tools.
+
+This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
+
+Parameters:
+    
+
+**ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
 
 get_tool(_tool_name_)¶
     
@@ -33166,7 +33122,7 @@ Return type:
 
 `List`[`RestApiTool`]
 
-_class _google.adk.tools.openapi_tool.RestApiTool(_name_ , _description_ , _endpoint_ , _operation_ , _auth_scheme =None_, _auth_credential =None_, _should_parse_operation =True_)¶
+_class _google.adk.tools.openapi_tool.RestApiTool(_name_ , _description_ , _endpoint_ , _operation_ , _auth_scheme =None_, _auth_credential =None_, _should_parse_operation =True_, _ssl_verify =None_, _header_provider =None_)¶
     
 
 Bases: `BaseTool`
@@ -33219,6 +33175,10 @@ Parameters:
 
   * **should_parse_operation** – Whether to parse the operation.
 
+  * **ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
+
+  * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
 
 
 
@@ -33266,7 +33226,19 @@ Parameters:
 
 **auth_scheme** – AuthScheme|dict -: The authentication scheme. The dict is converted to a AuthScheme object.
 
-_classmethod _from_parsed_operation(_parsed_)¶
+configure_ssl_verify(_ssl_verify =None_)¶
+    
+
+Configures SSL certificate verification for the API call.
+
+This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
+
+Parameters:
+    
+
+**ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
+
+_classmethod _from_parsed_operation(_parsed_ , _ssl_verify =None_, _header_provider =None_)¶
     
 
 Initializes the RestApiTool from a ParsedOperation object.
@@ -33279,7 +33251,13 @@ Return type:
 Parameters:
     
 
-**parsed** – A ParsedOperation object.
+  * **parsed** – A ParsedOperation object.
+
+  * **ssl_verify** – SSL certificate verification option.
+
+  * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
+
 
 Returns:
     
@@ -33467,67 +33445,6 @@ Return type:
 `SearchMemoryResponse`
 
 # google.adk.tools.toolbox_toolset module¶
-
-_class _google.adk.tools.toolbox_toolset.ToolboxToolset(_server_url_ , _toolset_name =None_, _tool_names =None_, _auth_token_getters =None_, _bound_params =None_)¶
-    
-
-Bases: `BaseToolset`
-
-A class that provides access to toolbox toolsets.
-
-Example: ``python toolbox_toolset = ToolboxToolset("http://127.0.0.1:5000", toolset_name="my-toolset") ) ``
-
-Parameters:
-    
-
-  * **server_url** – The URL of the toolbox server.
-
-  * **toolset_name** – The name of the toolbox toolset to load.
-
-  * **tool_names** – The names of the tools to load.
-
-  * **auth_token_getters** – A mapping of authentication service names to callables that return the corresponding authentication token. see: <https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-core#authenticating-tools> for details.
-
-  * **bound_params** – A mapping of parameter names to bind to specific values or callables that are called to produce values as needed. see: <https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-core#binding-parameter-values> for details.
-
-
-
-
-The resulting ToolboxToolset will contain both tools loaded by tool_names and toolset_name.
-
-_async _close()¶
-    
-
-Performs cleanup and releases resources held by the toolset.
-
-Note
-
-This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
-
-_async _get_tools(_readonly_context =None_)¶
-    
-
-Return all tools in the toolset based on the provided context.
-
-Return type:
-    
-
-`list`[`BaseTool`]
-
-Parameters:
-    
-
-**readonly_context** (_ReadonlyContext_ _,__optional_) – Context used to filter tools available to the agent. If None, all tools in the toolset are returned.
-
-Returns:
-    
-
-A list of tools available under the specified context.
-
-Return type:
-    
-
-list[BaseTool]
 
 # google.adk.tools.transfer_to_agent_tool module¶
 

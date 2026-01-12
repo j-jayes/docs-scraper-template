@@ -551,7 +551,7 @@ PythonTypescriptGoJava
     
 
   * **[`LoopAgent`](../workflow-agents/loop-agents/):** Executes its `sub_agents` sequentially in a loop.
-    * **Termination:** The loop stops if the optional `max_iterations` is reached, or if any sub-agent returns an [`Event`](../../events/) with `escalate=True` in it's Event Actions.
+    * **Termination:** The loop stops if the optional `max_iterations` is reached, or if any sub-agent returns an [`Event`](../../events/) with `escalate=True` in its Event Actions.
     * **Context & State:** Passes the _same_ `InvocationContext` in each iteration, allowing state changes (e.g., counters, flags) to persist across loops.
 
 
@@ -1208,7 +1208,7 @@ PythonTypescriptGoJava
 ### Sequential Pipeline Pattern¶
 
   * **Structure:** A [`SequentialAgent`](../workflow-agents/sequential-agents/) contains `sub_agents` executed in a fixed order.
-  * **Goal:** Implement a multi-step process where the output of one step feeds into the next.
+  * **Goal:** Implement a multistep process where the output of one-step feeds into the next.
   * **ADK Primitives Used:**
     * **Workflow:** `SequentialAgent` defines the order.
     * **Communication:** Primarily uses **Shared Session State**. Earlier agents write results (often via `output_key`), later agents read those results from `context.state`.
