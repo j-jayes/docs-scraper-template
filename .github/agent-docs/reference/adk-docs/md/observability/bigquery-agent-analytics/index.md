@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -135,6 +149,9 @@ Agent Engine
             * Agent lifecycle & Generic Events 
             * GCS Offloading Examples (Multimodal & Large Text) 
         * Advanced analysis queries 
+          * 7\. AI-Powered Root Cause Analysis (Agent Ops) 
+        * Conversational Analytics in BigQuery 
+        * Looker Studio Dashboard 
         * Additional resources 
       * [ AgentOps  ](../agentops/)
       * [ Arize AX  ](../arize-ax/)
@@ -166,7 +183,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -244,6 +260,9 @@ Table of contents
       * Agent lifecycle & Generic Events 
       * GCS Offloading Examples (Multimodal & Large Text) 
   * Advanced analysis queries 
+    * 7\. AI-Powered Root Cause Analysis (Agent Ops) 
+  * Conversational Analytics in BigQuery 
+  * Looker Studio Dashboard 
   * Additional resources 
 
 
@@ -397,6 +416,8 @@ You can customize the plugin using `BigQueryLoggerConfig`.
   * **`event_denylist`** (`Optional[List[str]]`, default: `None`): A list of event types to skip logging. For a comprehensive list of supported event types, refer to the Event types and payloads section.
   * **`content_formatter`** (`Optional[Callable[[Any, str], Any]]`, default: `None`): An optional function to format event content before logging.
   * **`log_multi_modal_content`** (`bool`, default: `True`): Whether to log detailed content parts (including GCS references).
+  * **`queue_max_size`** (`int`, default: `10000`): The maximum number of events to hold in the in-memory queue before dropping new events.
+  * **`retry_config`** (`RetryConfig`, default: `RetryConfig()`): Configuration for retrying failed BigQuery writes (attributes: `max_retries`, `initial_delay`, `multiplier`, `max_delay`).
 
 
 
@@ -433,7 +454,8 @@ The following code sample shows how to define a configuration for the BigQuery A
         client_close_timeout=2.0, # Wait up to 2s for BQ client to close
         max_content_length=500, # Truncate content to 500 chars
         content_formatter=redact_dollar_amounts, # Redact the dollar amounts in the logging content
-    
+        queue_max_size=10000, # Max events to hold in memory
+        # retry_config=RetryConfig(max_retries=3), # Optional: Configure retries
     )
     
     plugin = BigQueryAgentAnalyticsPlugin(..., config=config)
@@ -472,7 +494,7 @@ The plugin automatically creates the table if it does not exist. However, for pr
         part_attributes STRING,
         storage_mode STRING
       >> OPTIONS(description="Detailed content parts for multi-modal data."),
-      attributes JSON OPTIONS(description="Arbitrary key-value pairs for additional metadata."),
+      attributes JSON OPTIONS(description="Arbitrary key-value pairs for additional metadata (e.g., 'root_agent_name', 'model_version', 'usage_metadata')."),
       latency_ms JSON OPTIONS(description="Latency measurements (e.g., total_ms)."),
       status STRING OPTIONS(description="The outcome of the event, typically 'OK' or 'ERROR'."),
       error_message STRING OPTIONS(description="Populated if an error occurs."),
@@ -519,7 +541,8 @@ These events track the raw requests sent to and responses received from the LLM.
     
     {
       "tools": ["tool_a", "tool_b"],
-      "llm_config": {"temperature": 0.5}
+      "llm_config": {"temperature": 0.5},
+      "root_agent_name": "my_root_agent"
     }
     
 
@@ -549,7 +572,15 @@ These events track the raw requests sent to and responses received from the LLM.
 | 
     
     
-    {}
+    {
+      "model_version": "gemini-2.5-pro-001",
+      "usage_metadata": {
+        "prompt_token_count": 15,
+        "candidates_token_count": 7,
+        "total_token_count": 22
+      }
+    }
+    
 
 | 
     
@@ -852,10 +883,66 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
     ORDER BY timestamp ASC;
     
 
+### 7\. AI-Powered Root Cause Analysis (Agent Ops)¶
+
+Automatically analyze failed sessions to determine the root cause of errors using BigQuery ML and Gemini.
+    
+    
+    DECLARE failed_session_id STRING;
+    -- Find a recent failed session
+    SET failed_session_id = (
+        SELECT session_id
+        FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+        WHERE error_message IS NOT NULL
+        ORDER BY timestamp DESC
+        LIMIT 1
+    );
+    
+    -- Reconstruct the full conversation context
+    WITH SessionContext AS (
+        SELECT
+            session_id,
+            STRING_AGG(CONCAT(event_type, ': ', COALESCE(TO_JSON_STRING(content), '')), '\n' ORDER BY timestamp) as full_history
+        FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+        WHERE session_id = failed_session_id
+        GROUP BY session_id
+    )
+    -- Ask Gemini to diagnose the issue
+    SELECT
+        session_id,
+        AI.GENERATE(
+            ('Analyze this conversation log and explain the root cause of the failure. Log: ', full_history),
+            connection_id => 'your-gcp-project-id.us.my-connection',
+            endpoint => 'gemini-2.5-flash'
+        ).result AS root_cause_explanation
+    FROM SessionContext;
+    
+
+## Conversational Analytics in BigQuery¶
+
+You can also use [BigQuery Conversational Analytics](https://cloud.google.com/bigquery/docs/conversational-analytics) to analyze your agent logs using natural language. Use this tool to answer questions like:
+
+  * "Show me the error rate over time"
+  * "What are the most common tool calls?"
+  * "Identify sessions with high token usage"
+
+
+
+## Looker Studio Dashboard¶
+
+You can visualize your agent's performance using our pre-built [Looker Studio Dashboard template](https://lookerstudio.google.com/c/reporting/f1c5b513-3095-44f8-90a2-54953d41b125/page/8YdhF).
+
+To connect this dashboard to your own BigQuery table, use the following link format, replacing the placeholders with your specific project, dataset, and table IDs:
+    
+    
+    https://lookerstudio.google.com/reporting/create?c.reportId=f1c5b513-3095-44f8-90a2-54953d41b125&ds.ds3.connector=bigQuery&ds.ds3.type=TABLE&ds.ds3.projectId=<your-project-id>&ds.ds3.datasetId=<your-dataset-id>&ds.ds3.tableId=<your-table-id>
+    
+
 ## Additional resources¶
 
   * [BigQuery Storage Write API](https://cloud.google.com/bigquery/docs/write-api)
   * [Introduction to Object Tables](https://cloud.google.com/bigquery/docs/object-tables-intro)
+  * [Interactive Demo Notebook](https://github.com/haiyuan-eng-google/demo_BQ_agent_analytics_plugin_notebook)
 
 
 

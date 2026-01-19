@@ -59,7 +59,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -83,6 +92,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -95,6 +105,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -111,9 +122,12 @@ Custom Tools
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -159,7 +173,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -372,7 +385,7 @@ If you prefer a setup that handles the runner and session management automatical
     # --- Define Model Constants for easier use ---
     
     # More supported models can be referenced here: https://ai.google.dev/gemini-api/docs/models#model-variations
-    MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"
+    MODEL_GEMINI_2_5_FLASH = "gemini-2.5-flash"
     
     # More supported models can be referenced here: https://docs.litellm.ai/docs/providers/openai#openai-chat-completion-models
     MODEL_GPT_4O = "openai/gpt-4.1" # You can also try: gpt-4.1-mini, gpt-4o etc.
@@ -456,7 +469,7 @@ Now, let's create the **Agent** itself. An `Agent` in ADK orchestrates the inter
 We configure it with several key parameters:
 
   * `name`: A unique identifier for this agent (e.g., "weather_agent_v1"). 
-  * `model`: Specifies which LLM to use (e.g., `MODEL_GEMINI_2_0_FLASH`). We'll start with a specific Gemini model. 
+  * `model`: Specifies which LLM to use (e.g., `MODEL_GEMINI_2_5_FLASH`). We'll start with a specific Gemini model. 
   * `description`: A concise summary of the agent's overall purpose. This becomes crucial later when other agents need to decide whether to delegate tasks to _this_ agent. 
   * `instruction`: Detailed guidance for the LLM on how to behave, its persona, its goals, and specifically _how and when_ to utilize its assigned `tools`. 
   * `tools`: A list containing the actual Python tool functions the agent is allowed to use (e.g., `[get_weather]`).
@@ -470,7 +483,7 @@ We configure it with several key parameters:
     
     # @title Define the Weather Agent
     # Use one of the model constants defined earlier
-    AGENT_MODEL = MODEL_GEMINI_2_0_FLASH # Starting with Gemini
+    AGENT_MODEL = MODEL_GEMINI_2_5_FLASH # Starting with Gemini
     
     weather_agent = Agent(
         name="weather_agent_v1",
@@ -959,14 +972,14 @@ Now, create the `Agent` instances for our specialists. Notice their highly focus
     # If you want to use models other than Gemini, Ensure LiteLlm is imported and API keys are set (from Step 0/2)
     # from google.adk.models.lite_llm import LiteLlm
     # MODEL_GPT_4O, MODEL_CLAUDE_SONNET etc. should be defined
-    # Or else, continue to use: model = MODEL_GEMINI_2_0_FLASH
+    # Or else, continue to use: model = MODEL_GEMINI_2_5_FLASH
     
     # --- Greeting Agent ---
     greeting_agent = None
     try:
         greeting_agent = Agent(
             # Using a potentially different/cheaper model for a simple task
-            model = MODEL_GEMINI_2_0_FLASH,
+            model = MODEL_GEMINI_2_5_FLASH,
             # model=LiteLlm(model=MODEL_GPT_4O), # If you would like to experiment with other models
             name="greeting_agent",
             instruction="You are the Greeting Agent. Your ONLY task is to provide a friendly greeting to the user. "
@@ -985,7 +998,7 @@ Now, create the `Agent` instances for our specialists. Notice their highly focus
     try:
         farewell_agent = Agent(
             # Can use the same or a different model
-            model = MODEL_GEMINI_2_0_FLASH,
+            model = MODEL_GEMINI_2_5_FLASH,
             # model=LiteLlm(model=MODEL_GPT_4O), # If you would like to experiment with other models
             name="farewell_agent",
             instruction="You are the Farewell Agent. Your ONLY task is to provide a polite goodbye message. "
@@ -1025,7 +1038,7 @@ Now, we upgrade our `weather_agent`. The key changes are:
     
     if greeting_agent and farewell_agent and 'get_weather' in globals():
         # Let's use a capable Gemini model for the root agent to handle orchestration
-        root_agent_model = MODEL_GEMINI_2_0_FLASH
+        root_agent_model = MODEL_GEMINI_2_5_FLASH
     
         weather_agent_team = Agent(
             name="weather_agent_v2", # Give it a new version name
@@ -1336,13 +1349,13 @@ To ensure this step is self-contained and builds correctly, we first redefine th
     from google.adk.models.lite_llm import LiteLlm
     from google.adk.runners import Runner
     # Ensure tools 'say_hello', 'say_goodbye' are defined (from Step 3)
-    # Ensure model constants MODEL_GPT_4O, MODEL_GEMINI_2_0_FLASH etc. are defined
+    # Ensure model constants MODEL_GPT_4O, MODEL_GEMINI_2_5_FLASH etc. are defined
     
     # --- Redefine Greeting Agent (from Step 3) ---
     greeting_agent = None
     try:
         greeting_agent = Agent(
-            model=MODEL_GEMINI_2_0_FLASH,
+            model=MODEL_GEMINI_2_5_FLASH,
             name="greeting_agent",
             instruction="You are the Greeting Agent. Your ONLY task is to provide a friendly greeting using the 'say_hello' tool. Do nothing else.",
             description="Handles simple greetings and hellos using the 'say_hello' tool.",
@@ -1356,7 +1369,7 @@ To ensure this step is self-contained and builds correctly, we first redefine th
     farewell_agent = None
     try:
         farewell_agent = Agent(
-            model=MODEL_GEMINI_2_0_FLASH,
+            model=MODEL_GEMINI_2_5_FLASH,
             name="farewell_agent",
             instruction="You are the Farewell Agent. Your ONLY task is to provide a polite goodbye message using the 'say_goodbye' tool. Do not perform any other actions.",
             description="Handles simple farewells and goodbyes using the 'say_goodbye' tool.",
@@ -1373,7 +1386,7 @@ To ensure this step is self-contained and builds correctly, we first redefine th
     # Check prerequisites before creating the root agent
     if greeting_agent and farewell_agent and 'get_weather_stateful' in globals():
     
-        root_agent_model = MODEL_GEMINI_2_0_FLASH # Choose orchestration model
+        root_agent_model = MODEL_GEMINI_2_5_FLASH # Choose orchestration model
     
         root_agent_stateful = Agent(
             name="weather_agent_v4_stateful", # New version name
@@ -1668,7 +1681,7 @@ _Important:_ We need to redefine the sub-agents (`greeting_agent`, `farewell_age
     try:
         # Use a defined model constant
         greeting_agent = Agent(
-            model=MODEL_GEMINI_2_0_FLASH,
+            model=MODEL_GEMINI_2_5_FLASH,
             name="greeting_agent", # Keep original name for consistency
             instruction="You are the Greeting Agent. Your ONLY task is to provide a friendly greeting using the 'say_hello' tool. Do nothing else.",
             description="Handles simple greetings and hellos using the 'say_hello' tool.",
@@ -1682,7 +1695,7 @@ _Important:_ We need to redefine the sub-agents (`greeting_agent`, `farewell_age
     try:
         # Use a defined model constant
         farewell_agent = Agent(
-            model=MODEL_GEMINI_2_0_FLASH,
+            model=MODEL_GEMINI_2_5_FLASH,
             name="farewell_agent", # Keep original name
             instruction="You are the Farewell Agent. Your ONLY task is to provide a polite goodbye message using the 'say_goodbye' tool. Do not perform any other actions.",
             description="Handles simple farewells and goodbyes using the 'say_goodbye' tool.",
@@ -1701,7 +1714,7 @@ _Important:_ We need to redefine the sub-agents (`greeting_agent`, `farewell_age
     if greeting_agent and farewell_agent and 'get_weather_stateful' in globals() and 'block_keyword_guardrail' in globals():
     
         # Use a defined model constant
-        root_agent_model = MODEL_GEMINI_2_0_FLASH
+        root_agent_model = MODEL_GEMINI_2_5_FLASH
     
         root_agent_model_guardrail = Agent(
             name="weather_agent_v5_model_guardrail", # New version name for clarity
@@ -1966,7 +1979,7 @@ _Self-Contained Execution Note:_ Similar to Step 5, ensure all prerequisites (su
     try:
         # Use a defined model constant
         greeting_agent = Agent(
-            model=MODEL_GEMINI_2_0_FLASH,
+            model=MODEL_GEMINI_2_5_FLASH,
             name="greeting_agent", # Keep original name for consistency
             instruction="You are the Greeting Agent. Your ONLY task is to provide a friendly greeting using the 'say_hello' tool. Do nothing else.",
             description="Handles simple greetings and hellos using the 'say_hello' tool.",
@@ -1980,7 +1993,7 @@ _Self-Contained Execution Note:_ Similar to Step 5, ensure all prerequisites (su
     try:
         # Use a defined model constant
         farewell_agent = Agent(
-            model=MODEL_GEMINI_2_0_FLASH,
+            model=MODEL_GEMINI_2_5_FLASH,
             name="farewell_agent", # Keep original name
             instruction="You are the Farewell Agent. Your ONLY task is to provide a polite goodbye message using the 'say_goodbye' tool. Do not perform any other actions.",
             description="Handles simple farewells and goodbyes using the 'say_goodbye' tool.",
@@ -2000,7 +2013,7 @@ _Self-Contained Execution Note:_ Similar to Step 5, ensure all prerequisites (su
         'block_keyword_guardrail' in globals() and
         'block_paris_tool_guardrail' in globals()):
     
-        root_agent_model = MODEL_GEMINI_2_0_FLASH
+        root_agent_model = MODEL_GEMINI_2_5_FLASH
     
         root_agent_tool_guardrail = Agent(
             name="weather_agent_v6_tool_guardrail", # New version name

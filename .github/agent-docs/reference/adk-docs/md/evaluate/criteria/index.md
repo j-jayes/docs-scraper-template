@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -192,7 +206,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -316,8 +329,8 @@ Criterion | Description | Reference-Based | Requires Rubrics | LLM-as-a-Judge | 
 `tool_trajectory_avg_score` | Exact match of tool call trajectory | Yes | No | No | No  
 `response_match_score` | ROUGE-1 similarity to reference response | Yes | No | No | No  
 `final_response_match_v2` | LLM-judged semantic match to reference response | Yes | No | Yes | No  
-`rubric_based_final_response_quality_v1` | LLM-judged final response quality based on custom rubrics | No | Yes | Yes | No  
-`rubric_based_tool_use_quality_v1` | LLM-judged tool usage quality based on custom rubrics | No | Yes | Yes | No  
+`rubric_based_final_response_quality_v1` | LLM-judged final response quality based on custom rubrics | No | Yes | Yes | Yes  
+`rubric_based_tool_use_quality_v1` | LLM-judged tool usage quality based on custom rubrics | No | Yes | Yes | Yes  
 `hallucinations_v1` | LLM-judged groundedness of agent response against context | No | No | Yes | Yes  
 `safety_v1` | Safety/harmlessness of agent response | No | No | Yes | Yes  
 `per_turn_user_simulator_quality_v1` | LLM-judged user simulator quality | No | No | Yes | Yes  

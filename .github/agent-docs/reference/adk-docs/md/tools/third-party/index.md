@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../google-cloud/spanner/)
         * [ Vertex AI Search  ](../google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../google-cloud/express-mode/)
       * [ Third-party tools  ](./)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](notion/)
         * [ PayPal  ](paypal/)
         * [ Qdrant  ](qdrant/)
+        * [ Stripe  ](stripe/)
         * [ Agentic UI (AG-UI)  ](ag-ui/)
       * [ Tool limitations  ](../limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -152,7 +166,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -225,9 +238,9 @@ API Reference
 
 Check out the following third-party tools that you can use with ADK agents:
 
-### [Atlassian Manage issues, search pages, and update team content ](/adk-docs/tools/third-party/atlassian/) ### [GitHub Analyze code, manage issues and PRs, and automate workflows ](/adk-docs/tools/third-party/github/) ### [GitLab Perform semantic code search, inspect pipelines, manage merge requests ](/adk-docs/tools/third-party/gitlab/) ### [Hugging Face Access models, datasets, research papers, and AI tools ](/adk-docs/tools/third-party/hugging-face/) ### [Linear Manage issues, track projects, and streamline development ](/adk-docs/tools/third-party/linear/) ### [n8n Trigger automated workflows, connect apps, and process data ](/adk-docs/tools/third-party/n8n/) ### [Notion Search workspaces, create pages, and manage tasks and databases ](/adk-docs/tools/third-party/notion/) ### [Paypal Manage payments, send invoices, and handle subscriptions ](/adk-docs/tools/third-party/paypal/) ### [Qdrant Store and retrieve information using semantic vector search ](/adk-docs/tools/third-party/qdrant/)
+### [Atlassian Manage issues, search pages, and update team content ](/adk-docs/tools/third-party/atlassian/) ### [GitHub Analyze code, manage issues and PRs, and automate workflows ](/adk-docs/tools/third-party/github/) ### [GitLab Perform semantic code search, inspect pipelines, manage merge requests ](/adk-docs/tools/third-party/gitlab/) ### [Hugging Face Access models, datasets, research papers, and AI tools ](/adk-docs/tools/third-party/hugging-face/) ### [Linear Manage issues, track projects, and streamline development ](/adk-docs/tools/third-party/linear/) ### [n8n Trigger automated workflows, connect apps, and process data ](/adk-docs/tools/third-party/n8n/) ### [Notion Search workspaces, create pages, and manage tasks and databases ](/adk-docs/tools/third-party/notion/) ### [Paypal Manage payments, send invoices, and handle subscriptions ](/adk-docs/tools/third-party/paypal/) ### [Qdrant Store and retrieve information using semantic vector search ](/adk-docs/tools/third-party/qdrant/) ### [Stripe Manage payments, customers, subscriptions, and invoices ](/adk-docs/tools/third-party/stripe/)
 
-Back to top  [ Previous  Vertex AI Search  ](../google-cloud/vertex-ai-search/) [ Next  Atlassian  ](atlassian/)
+Back to top  [ Previous  Vertex AI express mode  ](../google-cloud/express-mode/) [ Next  Atlassian  ](atlassian/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

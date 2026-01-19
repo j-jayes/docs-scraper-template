@@ -63,7 +63,16 @@ Workflow agents
         * Deploy agent configs 
         * Known limitations 
         * Next steps 
-      * [ Models & Authentication  ](../models/)
+    * [ Models for Agents  ](../models/)
+
+Models for Agents 
+      * [ Gemini  ](../models/google-gemini/)
+      * [ Claude  ](../models/anthropic/)
+      * [ Vertex AI hosted  ](../models/vertex/)
+      * [ Apigee AI Gateway  ](../models/apigee/)
+      * [ Ollama  ](../models/ollama/)
+      * [ vLLM  ](../models/vllm/)
+      * [ LiteLLM  ](../models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -87,6 +96,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -99,6 +109,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -115,9 +126,12 @@ Custom Tools
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -163,7 +177,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -251,7 +264,7 @@ Table of contents
 
 Supported in ADKPython v1.11.0Experimental
 
-The ADK Agent Config feature lets you build an ADK workflow without writing code. An Agent Config uses a YAML format text file with a brief description of the agent, allowing just about anyone to assemble and run an ADK agent. The following is a simple example of an basic Agent Config definition:
+The ADK Agent Config feature lets you build an ADK workflow without writing code. An Agent Config uses a YAML format text file with a brief description of the agent, allowing just about anyone to assemble and run an ADK agent. The following is a simple example of a basic Agent Config definition:
     
     
     name: assistant_agent
@@ -278,7 +291,7 @@ Note
 
 The Agent Config feature currently only supports Gemini models. For more information about additional; functional restrictions, see Known limitations.
 
-To setup ADK for use with Agent Config:
+To set up ADK for use with Agent Config:
 
   1. Install the ADK Python libraries by following the [Installation](/adk-docs/get-started/installation/#python) instructions. _Python is currently required._ For more information, see the Known limitations.
   2. Verify that ADK is installed by running the following command in your terminal:
@@ -457,7 +470,7 @@ The Agent Config feature is experimental and includes the following limitations:
 
 For ideas on how and what to build with ADK Agent Configs, see the yaml-based agent definitions in the ADK [adk-samples](https://github.com/search?q=repo:google/adk-python+path:/%5Econtributing%5C/samples%5C//+root_agent.yaml&type=code) repository. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/adk-docs/api-reference/agentconfig/).
 
-Back to top  [ Previous  Multi-agent systems  ](../multi-agents/) [ Next  Models & Authentication  ](../models/)
+Back to top  [ Previous  Multi-agent systems  ](../multi-agents/) [ Next  AI Models for ADK agents  ](../models/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

@@ -567,7 +567,7 @@ Example of correct path usage:
 
 ℹ️
 
-This is a quickstart demo based on Spring AI MCP auto-configuration and boot starters. To learn how to create sync and async MCP Clients manually, consult the [Java SDK Client](https://modelcontextprotocol.info/sdk/java/mcp-client) documentation
+This is a quickstart demo based on Spring AI MCP auto-configuration and boot starters. To learn how to create sync and async MCP Clients manually, consult the [Java SDK Client](https://modelcontextprotocol.info/sdk/java/mcp-client/) documentation
 
 ## System Requirements
 
@@ -790,12 +790,12 @@ This provides similar functionality but uses a WebFlux-based SSE transport imple
 
 ## Next steps
 
-[Core architectureUnderstand how MCP connects clients, servers, and LLMs](https://modelcontextprotocol.info/docs/concepts/architecture)[Building MCP with LLMsUse LLMs to speed up MCP development](https://modelcontextprotocol.info/building-mcp-with-llms)[ClientsView the list of clients that support MCP integrations](https://modelcontextprotocol.info/clients)[Example serversCheck out our gallery of official MCP servers](https://modelcontextprotocol.info/examples)
+[Core architectureUnderstand how MCP connects clients, servers, and LLMs](https://modelcontextprotocol.info/docs/concepts/architecture/)[Building MCP with LLMsUse LLMs to speed up MCP development](https://modelcontextprotocol.info/building-mcp-with-llms/)[ClientsView the list of clients that support MCP integrations](https://modelcontextprotocol.info/clients/)[Example serversCheck out our gallery of official MCP servers](https://modelcontextprotocol.info/examples/)
 
 
 [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/ "For Server Developers")[Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/ "Your First MCP Experience: 5-Minute Setup")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文](https://chatgptcn.com "ChatGPT 中文社区")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术](https://ucp.md "UCP 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

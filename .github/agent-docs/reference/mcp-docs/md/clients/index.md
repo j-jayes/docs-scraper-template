@@ -255,28 +255,28 @@ This page provides an overview of applications that support the Model Context Pr
 
 Client| [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)| [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)| [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)| [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)| Roots| Notes  
 ---|---|---|---|---|---|---  
-[5ire](https://modelcontextprotocol.info/docs/clients/5ire)| ❌| ❌| ✅| ❌| ❌| Supports tools  
-[BeeAI Framework](https://modelcontextprotocol.info/docs/clients/beeai-framework)| ❌| ❌| ✅| ❌| ❌| Supports tools in agentic workflows  
+[5ire](https://modelcontextprotocol.info/docs/clients/5ire/)| ❌| ❌| ✅| ❌| ❌| Supports tools  
+[BeeAI Framework](https://modelcontextprotocol.info/docs/clients/beeai-framework/)| ❌| ❌| ✅| ❌| ❌| Supports tools in agentic workflows  
 [Claude Desktop App](https://claude.ai/download)| ✅| ✅| ✅| ❌| ✅| Full support for all MCP features, including roots  
 [Claude Code](https://claude.ai/code)| ✅| ✅| ✅| ❌| ✅| Claude Code programming assistant with roots support  
-[Cline](https://modelcontextprotocol.info/docs/clients/cline)| ✅| ❌| ✅| ❌| ❌| Supports tools and resources  
+[Cline](https://modelcontextprotocol.info/docs/clients/cline/)| ✅| ❌| ✅| ❌| ❌| Supports tools and resources  
 [Continue](https://github.com/continuedev/continue)| ✅| ✅| ✅| ❌| ❌| Full support for all MCP features  
-[Copilot-MCP](https://modelcontextprotocol.info/docs/clients/copilot-mcp)| ❌| ❌| ✅| ❌| ❌| GitHub Copilot MCP integration  
-[Cursor](https://modelcontextprotocol.info/docs/clients/cursor)| ❌| ❌| ✅| ❌| ❌| Supports tools  
-[Emacs Mcp](https://modelcontextprotocol.info/docs/clients/mcp-el)| ❌| ❌| ✅| ❌| ❌| Supports tools in Emacs  
-[Fast-Agent](https://modelcontextprotocol.info/docs/clients/fast-agent)| ❌| ❌| ✅| ❌| ❌| Fast agent with tool integration support  
+[Copilot-MCP](https://modelcontextprotocol.info/docs/clients/copilot-mcp/)| ❌| ❌| ✅| ❌| ❌| GitHub Copilot MCP integration  
+[Cursor](https://modelcontextprotocol.info/docs/clients/cursor/)| ❌| ❌| ✅| ❌| ❌| Supports tools  
+[Emacs Mcp](https://modelcontextprotocol.info/docs/clients/mcp-el/)| ❌| ❌| ✅| ❌| ❌| Supports tools in Emacs  
+[Fast-Agent](https://modelcontextprotocol.info/docs/clients/fast-agent/)| ❌| ❌| ✅| ❌| ❌| Fast agent with tool integration support  
 [Firebase Genkit](https://github.com/firebase/genkit)| ⚠️| ✅| ✅| ❌| ❌| Supports resource list and lookup through tools  
 [GenAIScript](https://microsoft.github.io/genaiscript/reference/scripts/mcp-tools/)| ❌| ❌| ✅| ❌| ❌| Supports tools  
-[Goose](https://modelcontextprotocol.info/docs/clients/goose)| ❌| ❌| ✅| ❌| ❌| Supports tools  
-[LibreChat](https://modelcontextprotocol.info/docs/clients/librechat)| ❌| ❌| ✅| ❌| ❌| Supports tools for Agents  
-[mcp-agent](https://modelcontextprotocol.info/docs/clients/mcp-agent)| ❌| ❌| ✅| ⚠️| ❌| Supports tools, server connection management, and agent workflows  
-[OpenSumi](https://modelcontextprotocol.info/docs/clients/opensumi)| ❌| ❌| ✅| ❌| ❌| Supports tools in OpenSumi  
-[Roo Code](https://modelcontextprotocol.info/docs/clients/roo-code)| ✅| ❌| ✅| ❌| ❌| Supports tools and resources  
+[Goose](https://modelcontextprotocol.info/docs/clients/goose/)| ❌| ❌| ✅| ❌| ❌| Supports tools  
+[LibreChat](https://modelcontextprotocol.info/docs/clients/librechat/)| ❌| ❌| ✅| ❌| ❌| Supports tools for Agents  
+[mcp-agent](https://modelcontextprotocol.info/docs/clients/mcp-agent/)| ❌| ❌| ✅| ⚠️| ❌| Supports tools, server connection management, and agent workflows  
+[OpenSumi](https://modelcontextprotocol.info/docs/clients/opensumi/)| ❌| ❌| ✅| ❌| ❌| Supports tools in OpenSumi  
+[Roo Code](https://modelcontextprotocol.info/docs/clients/roo-code/)| ✅| ❌| ✅| ❌| ❌| Supports tools and resources  
 [Sourcegraph Cody](https://sourcegraph.com/cody)| ✅| ❌| ❌| ❌| ❌| Supports resources through OpenCTX  
-[Superinterface](https://modelcontextprotocol.info/docs/clients/superinterface)| ❌| ❌| ✅| ❌| ❌| Supports tools  
-[TheiaAI/TheiaIDE](https://modelcontextprotocol.info/docs/clients/theia)| ❌| ❌| ✅| ❌| ❌| Supports tools for Agents in Theia AI and IDE  
+[Superinterface](https://modelcontextprotocol.info/docs/clients/superinterface/)| ❌| ❌| ✅| ❌| ❌| Supports tools  
+[TheiaAI/TheiaIDE](https://modelcontextprotocol.info/docs/clients/theia/)| ❌| ❌| ✅| ❌| ❌| Supports tools for Agents in Theia AI and IDE  
 [VS Code MCP](https://marketplace.visualstudio.com/items?itemName=modelcontextprotocol.mcp)| ✅| ❌| ✅| ❌| ❌| VS Code extension supporting MCP tools and resources  
-[Windsurf Editor](https://modelcontextprotocol.info/docs/clients/windsurf)| ❌| ❌| ✅| ❌| ❌| Supports tools with AI Flow  
+[Windsurf Editor](https://modelcontextprotocol.info/docs/clients/windsurf/)| ❌| ❌| ✅| ❌| ❌| Supports tools with AI Flow  
 [Zed](https://zed.dev)| ❌| ✅| ❌| ❌| ❌| Prompts appear as slash commands  
   
 ## Client details
@@ -381,7 +381,7 @@ This list is maintained by the community. If you notice any inaccuracies or woul
 
 [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/ "MCP Server Ecosystem: From Proof-of-Concept to Production")[MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/ "MCP FAQ: Expert Answers to Real-World Questions")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文](https://chatgptcn.com "ChatGPT 中文社区")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术](https://ucp.md "UCP 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

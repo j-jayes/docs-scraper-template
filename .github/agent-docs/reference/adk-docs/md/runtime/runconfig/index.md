@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -104,6 +115,10 @@ Custom Tools
     * [ Agent Runtime  ](../)
 
 Agent Runtime 
+      * [ Web Interface  ](../web-interface/)
+      * [ Command Line  ](../command-line/)
+      * [ API Server  ](../api-server/)
+      * [ Resume Agents  ](../resume/)
       * Runtime Config  [ Runtime Config  ](./) Table of contents 
         * Class Definition 
         * Runtime Parameters 
@@ -119,8 +134,7 @@ Agent Runtime
           * Enabling streaming 
           * Enabling speech support 
           * Enabling CFC Support 
-      * [ API Server  ](../api-server/)
-      * [ Resume Agents  ](../resume/)
+      * [ Event Loop  ](../event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -166,7 +180,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -257,7 +270,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0
 
-`RunConfig` defines runtime behavior and options for agents in the ADK. It controls speech and streaming settings, function calling, artifact saving, and limits on LLM calls.
+`RunConfig` defines runtime behavior and options for agents in ADK. It controls speech and streaming settings, function calling, artifact saving, and limits on LLM calls.
 
 When constructing an agent run, you can pass a `RunConfig` to customize how the agent interacts with models, handles audio, and streams responses. By default, no streaming is enabled and inputs aren’t retained as artifacts. Use `RunConfig` to override these defaults.
 
@@ -694,7 +707,7 @@ Experimental release
 
 The Compositional Function Calling (CFC) streaming feature is an experimental release.
 
-Back to top  [ Previous  Agent Runtime  ](../) [ Next  API Server  ](../api-server/)
+Back to top  [ Previous  Resume Agents  ](../resume/) [ Next  Event Loop  ](../event-loop/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

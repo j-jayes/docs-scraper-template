@@ -267,11 +267,11 @@ MCP servers can provide three main types of capabilities:
 
 ## Getting Started
 
-[QuickstartBuild your first MCP server in under 30 minutes](https://modelcontextprotocol.info/docs/quickstart)[Core ConceptsLearn about MCP's architecture and design](https://modelcontextprotocol.info/docs/concepts/architecture)[ExamplesExplore example MCP servers and implementations](https://modelcontextprotocol.info/docs/examples)[API ReferenceDetailed API documentation for developers](https://modelcontextprotocol.info/api)
+[QuickstartBuild your first MCP server in under 30 minutes](https://modelcontextprotocol.info/docs/quickstart/)[Core ConceptsLearn about MCP's architecture and design](https://modelcontextprotocol.info/docs/concepts/architecture/)[ExamplesExplore example MCP servers and implementations](https://modelcontextprotocol.info/docs/examples/)[API ReferenceDetailed API documentation for developers](https://modelcontextprotocol.info/api/)
 
 [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/ "For Server Developers")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文](https://chatgptcn.com "ChatGPT 中文社区")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术](https://ucp.md "UCP 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

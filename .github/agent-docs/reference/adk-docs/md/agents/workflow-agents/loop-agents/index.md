@@ -55,7 +55,16 @@ Workflow agents
       * [ Custom agents  ](../../custom-agents/)
       * [ Multi-agent systems  ](../../multi-agents/)
       * [ Agent Config  ](../../config/)
-      * [ Models & Authentication  ](../../models/)
+    * [ Models for Agents  ](../../models/)
+
+Models for Agents 
+      * [ Gemini  ](../../models/google-gemini/)
+      * [ Claude  ](../../models/anthropic/)
+      * [ Vertex AI hosted  ](../../models/vertex/)
+      * [ Apigee AI Gateway  ](../../models/apigee/)
+      * [ Ollama  ](../../models/ollama/)
+      * [ vLLM  ](../../models/vllm/)
+      * [ LiteLLM  ](../../models/litellm/)
     * [ Tools for Agents  ](../../../tools/)
 
 Tools for Agents 
@@ -79,6 +88,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../../tools/third-party/)
 
 Third-party tools 
@@ -91,6 +101,7 @@ Third-party tools
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ PayPal  ](../../../tools/third-party/paypal/)
         * [ Qdrant  ](../../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../../tools/limitations/)
     * [ Custom Tools  ](../../../tools-custom/)
@@ -107,9 +118,12 @@ Custom Tools
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Web Interface  ](../../../runtime/web-interface/)
+      * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
@@ -155,7 +169,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../../sessions/rewind/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../../sessions/express-mode/)
     * [ Callbacks  ](../../../callbacks/)
 
 Callbacks 
@@ -242,11 +255,11 @@ Use the `LoopAgent` when your workflow involves repetition or iterative refineme
 
 ### Example¶
 
-  * You want to build an agent that can generate images of food, but sometimes when you want to generate a specific number of items (e.g. 5 bananas), it generates a different number of those items in the image (e.g. an image of 7 bananas). You have two tools: `Generate Image`, `Count Food Items`. Because you want to keep generating images until it either correctly generates the specified number of items, or after a certain number of iterations, you should build your agent using a `LoopAgent`.
+  * You want to build an agent that can generate images of food, but sometimes when you want to generate a specific number of items (e.g. 5 bananas), it generates a different number of those items in the image, such as an image of 7 bananas. You have two tools: `Generate Image`, `Count Food Items`. Because you want to keep generating images until it either correctly generates the specified number of items, or after a certain number of iterations, you should build your agent using a `LoopAgent`.
 
 
 
-As with other [workflow agents](../), the `LoopAgent` is not powered by an LLM, and is thus deterministic in how it executes. That being said, workflow agents are only concerned only with their execution (i.e. in a loop), and not their internal logic; the tools or sub-agents of a workflow agent may or may not utilize LLMs.
+As with other [workflow agents](../), the `LoopAgent` is not powered by an LLM, and is thus deterministic in how it executes. That being said, workflow agents are only concerned with their execution, such as in a loop, and not their internal logic; the tools or sub-agents of a workflow agent may or may not utilize LLMs.
 
 ### How it Works¶
 
@@ -312,6 +325,7 @@ PythonTypescriptGoJava
       """Call this function ONLY when the critique indicates no further changes are needed, signaling the iterative process should end."""
       print(f"  [Tool Call] exit_loop triggered by {tool_context.agent_name}")
       tool_context.actions.escalate = True
+      tool_context.actions.skip_summarization = True
       # Return empty dict as tools should typically return JSON-serializable output
       return {}
     

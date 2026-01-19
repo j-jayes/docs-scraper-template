@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../../agents/multi-agents/)
       * [ Agent Config  ](../../../agents/config/)
-      * [ Models & Authentication  ](../../../agents/models/)
+    * [ Models for Agents  ](../../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Claude  ](../../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
+      * [ Ollama  ](../../../agents/models/ollama/)
+      * [ vLLM  ](../../../agents/models/vllm/)
+      * [ LiteLLM  ](../../../agents/models/litellm/)
     * [ Tools for Agents  ](../../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ PayPal  ](../../../tools/third-party/paypal/)
         * [ Qdrant  ](../../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../../tools/limitations/)
     * [ Custom Tools  ](../../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Web Interface  ](../../../runtime/web-interface/)
+      * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
@@ -152,7 +166,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../../sessions/rewind/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../../sessions/express-mode/)
     * [ Callbacks  ](../../../callbacks/)
 
 Callbacks 
@@ -521,28 +534,38 @@ SSE (Server-Sent Events) mode uses HTTP streaming where you send a complete requ
 
 ### Progressive SSE Streaming¶
 
-**Progressive SSE streaming** is an experimental feature that enhances how SSE mode delivers streaming responses. When enabled, this feature improves response aggregation by:
+**Progressive SSE streaming** is a feature that enhances how SSE mode delivers streaming responses. This feature improves response aggregation by:
 
   * **Content ordering preservation** : Maintains the original order of mixed content types (text, function calls, inline data)
   * **Intelligent text merging** : Only merges consecutive text parts of the same type (regular text vs thought text)
   * **Progressive delivery** : Marks all intermediate chunks as `partial=True`, with a single final aggregated response at the end
-  * **Deferred function execution** : Skips executing function calls in partial events, only executing them in the final aggregated event to avoid duplicate executions
+  * **Deferred function execution** : Skips executing function calls in partial events, only executing them in the final aggregated event to ensure parallel function calls are executed together rather than sequentially
+  * **Function call argument streaming** : Supports progressive building of function call arguments through `partial_args`, enabling real-time display of function call construction
 
 
 
-**Enabling the feature:**
+**Default Behavior:**
 
-This is an experimental (WIP stage) feature disabled by default. Enable it via environment variable:
+Progressive SSE streaming is **enabled by default** in ADK. This means when you use `StreamingMode.SSE`, you automatically benefit from these improvements without any configuration.
+
+**Disabling the feature (if needed):**
+
+If you need to revert to the legacy SSE streaming behavior (simple text accumulation), you can disable it via environment variable:
     
     
-    export ADK_ENABLE_PROGRESSIVE_SSE_STREAMING=1
+    export ADK_DISABLE_PROGRESSIVE_SSE_STREAMING=1
     
 
-**When to use:**
+Legacy Behavior Trade-offs
 
-  * You're using `StreamingMode.SSE` and need better handling of mixed content types (text + function calls)
+Disabling progressive SSE streaming reverts to simple text accumulation, which: \- May lose original content ordering when mixing text and function calls \- Does not support function call argument streaming via `partial_args` \- Is provided for backward compatibility only—new applications should use the default progressive mode
+
+**When progressive SSE streaming helps:**
+
+  * You're using `StreamingMode.SSE` and have mixed content types (text + function calls)
   * Your responses include thought text (extended thinking) mixed with regular text
   * You want to ensure function calls execute only once after complete response aggregation
+  * You need to display function call construction in real-time as arguments stream in
 
 
 
@@ -1326,7 +1349,7 @@ ADK validates CFC compatibility at session initialization and will raise an erro
 
   * ✅ **Supported** : `gemini-2.x` models (e.g., `gemini-2.5-flash-native-audio-preview-12-2025`)
   * ❌ **Not supported** : `gemini-1.5-x` models
-  * **Validation** : ADK checks that the model name starts with `gemini-2` when `support_cfc=True` ([`runners.py:1322-1328`](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/runners.py#L1322-L1328))
+  * **Validation** : ADK checks that the model name starts with `gemini-2` when `support_cfc=True` ([`runners.py:1322-1328`](https://github.com/google/adk-python/blob/fd2c0f556b786417a9f6add744827b07e7a06b7d/src/google/adk/runners.py#L1361-L1367))
   * **Code executor** : ADK automatically injects `BuiltInCodeExecutor` when CFC is enabled for safe parallel tool execution
 
 

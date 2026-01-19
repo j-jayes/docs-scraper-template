@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../../agents/multi-agents/)
       * [ Agent Config  ](../../../agents/config/)
-      * [ Models & Authentication  ](../../../agents/models/)
+    * [ Models for Agents  ](../../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Claude  ](../../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
+      * [ Ollama  ](../../../agents/models/ollama/)
+      * [ vLLM  ](../../../agents/models/vllm/)
+      * [ LiteLLM  ](../../../agents/models/litellm/)
     * [ Tools for Agents  ](../../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ PayPal  ](../../../tools/third-party/paypal/)
         * [ Qdrant  ](../../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../../tools/limitations/)
     * [ Custom Tools  ](../../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Web Interface  ](../../../runtime/web-interface/)
+      * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
@@ -152,7 +166,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../../sessions/rewind/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../../sessions/express-mode/)
     * [ Callbacks  ](../../../callbacks/)
 
 Callbacks 
@@ -964,7 +977,7 @@ One Queue Per Session
 
 Never reuse a `LiveRequestQueue` across multiple streaming sessions. Each call to `run_live()` requires a fresh queue. Reusing queues can cause message ordering issues and state corruption.
 
-The close signal persists in the queue (see [`live_request_queue.py:59-60`](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/agents/live_request_queue.py#L59-L60)) and terminates the sender loop (see [`base_llm_flow.py:264-266`](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/flows/llm_flows/base_llm_flow.py#L264-L266)). Reusing a queue would carry over this signal and any remaining messages from the previous session.
+The close signal persists in the queue (see [`live_request_queue.py:59-60`](https://github.com/google/adk-python/blob/fd2c0f556b786417a9f6add744827b07e7a06b7d/src/google/adk/agents/live_request_queue.py#L66-L67)) and terminates the sender loop (see [`base_llm_flow.py:264-266`](https://github.com/google/adk-python/blob/fd2c0f556b786417a9f6add744827b07e7a06b7d/src/google/adk/flows/llm_flows/base_llm_flow.py#L260-L262)). Reusing a queue would carry over this signal and any remaining messages from the previous session.
 
 ### Phase 3: Bidi-streaming with `run_live()` event loop¶
 

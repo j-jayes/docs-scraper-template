@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../../agents/multi-agents/)
       * [ Agent Config  ](../../../agents/config/)
-      * [ Models & Authentication  ](../../../agents/models/)
+    * [ Models for Agents  ](../../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Claude  ](../../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
+      * [ Ollama  ](../../../agents/models/ollama/)
+      * [ vLLM  ](../../../agents/models/vllm/)
+      * [ LiteLLM  ](../../../agents/models/litellm/)
     * [ Tools for Agents  ](../../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ PayPal  ](../../../tools/third-party/paypal/)
         * [ Qdrant  ](../../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../../tools/limitations/)
     * [ Custom Tools  ](../../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Web Interface  ](../../../runtime/web-interface/)
+      * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
@@ -152,7 +166,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../../sessions/rewind/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../../sessions/express-mode/)
     * [ Callbacks  ](../../../callbacks/)
 
 Callbacks 
@@ -447,7 +460,7 @@ Demo implementation: [pcm-recorder-processor.js:1-18](https://github.com/google/
     registerProcessor("pcm-recorder-processor", PCMProcessor);
     
 
-Demo implementation: [app.js:977-986](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L977-L986)
+Demo implementation: [app.js:977-986](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L979-L988)
     
     
     // Audio recorder handler - called for each audio chunk
@@ -556,7 +569,7 @@ Demo implementation: [main.py:225-233](https://github.com/google/adk-samples/blo
 
 The client-side implementation involves three components: WebSocket message handling, audio player setup with AudioWorklet, and the AudioWorklet processor itself.
 
-Demo implementation: [app.js:638-688](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L638-L688)
+Demo implementation: [app.js:638-688](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L640-L690)
     
     
     // 1. WebSocket Message Handler
@@ -785,7 +798,7 @@ In browser-based applications, capturing images from the user's webcam and sendi
 
 
 
-Demo implementation: [app.js:801-843](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L801-L843)
+Demo implementation: [app.js:801-843](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L803-L845)
     
     
     // 1. Opening Camera Preview
@@ -829,7 +842,7 @@ Demo implementation: [app.js:801-843](https://github.com/google/adk-samples/blob
     }
     
 
-Demo implementation: [app.js:846-914](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L846-L914)
+Demo implementation: [app.js:846-914](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L848-L916)
     
     
     // 2. Capturing and Sending Image
@@ -1201,7 +1214,7 @@ In web applications, transcription events need to be forwarded from the server t
 
 
 
-Demo implementation: [app.js:530-653](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/app.js#L530-L653)
+Demo implementation: [app.js:530-653](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L532-L655)
     
     
     // Handle input transcription (user's spoken words)
@@ -1346,7 +1359,7 @@ The automatic enablement happens in `Runner.run_live()` when both conditions are
 
 Source
 
-[`runners.py:1359-1374`](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/runners.py#L1359-L1374)
+[`runners.py:1395-1404`](https://github.com/google/adk-python/blob/fd2c0f556b786417a9f6add744827b07e7a06b7d/src/google/adk/runners.py#L1395-L1404)
 
 ## Voice Configuration (Speech Config)¶
 

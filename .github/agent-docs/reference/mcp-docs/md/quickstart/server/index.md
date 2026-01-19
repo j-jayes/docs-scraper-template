@@ -886,7 +886,7 @@ Let's now test your server from an existing MCP host, Claude for Desktop.
 
 ## Testing your server with Claude for Desktop
 
-Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](https://modelcontextprotocol.info/quickstart/client) tutorial to build an MCP client that connects to the server we just built.
+Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](https://modelcontextprotocol.info/quickstart/client/) tutorial to build an MCP client that connects to the server we just built.
 
 First, make sure you have Claude for Desktop installed. [You can install the latest version here.](https://claude.ai/download) If you already have Claude for Desktop, **make sure it 's updated to the latest version.**
 
@@ -941,11 +941,11 @@ This tells Claude for Desktop:
 
 Save the file, and restart **Claude for Desktop**.
 
-This is a quickstart demo based on Spring AI MCP auto-configuraiton and boot starters. To learn how to create sync and async MCP Servers, manually, consult the [Java SDK Server](https://modelcontextprotocol.info/sdk/java/mcp-server) documentation.
+This is a quickstart demo based on Spring AI MCP auto-configuraiton and boot starters. To learn how to create sync and async MCP Servers, manually, consult the [Java SDK Server](https://modelcontextprotocol.info/sdk/java/mcp-server/) documentation.
 
 Let's get started with building our weather server! [You can find the complete code for what we'll be building here.](https://github.com/spring-projects/spring-ai-examples/tree/main/model-context-protocol/weather/starter-stdio-server)
 
-For more information, see the [MCP Server Boot Starter](https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html) reference documentation. For manual MCP Server implementation, refer to the [MCP Server Java SDK documentation](https://modelcontextprotocol.info/sdk/java/mcp-server).
+For more information, see the [MCP Server Boot Starter](https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html) reference documentation. For manual MCP Server implementation, refer to the [MCP Server Java SDK documentation](https://modelcontextprotocol.info/sdk/java/mcp-server/).
 
 ### System requirements
 
@@ -1271,7 +1271,7 @@ If Claude attempts to use the tools but they fail:
 
 **None of this is working. What do I do?**
 
-Please refer to our [debugging guide](https://modelcontextprotocol.info/docs/tools/debugging) for better debugging tools and more detailed guidance.
+Please refer to our [debugging guide](https://modelcontextprotocol.info/docs/tools/debugging/) for better debugging tools and more detailed guidance.
 
 **Weather API Issues**
 
@@ -1299,15 +1299,15 @@ This isn't an error - it just means there are no current weather alerts for that
 
 📚
 
-For more advanced troubleshooting, check out our guide on [Debugging MCP](https://modelcontextprotocol.info/docs/tools/debugging)
+For more advanced troubleshooting, check out our guide on [Debugging MCP](https://modelcontextprotocol.info/docs/tools/debugging/)
 
 ## Next steps
 
-[Building a clientLearn how to build your own MCP client that can connect to your server](https://modelcontextprotocol.info/docs/quickstart/client)[Example serversCheck out our gallery of official MCP servers and implementations](https://modelcontextprotocol.info/docs/examples)[Debugging GuideLearn how to effectively debug MCP servers and integrations](https://modelcontextprotocol.info/tools/debugging)[Building MCP with LLMsLearn how to use LLMs like Claude to speed up your MCP development](https://modelcontextprotocol.info/building-mcp-with-llms)
+[Building a clientLearn how to build your own MCP client that can connect to your server](https://modelcontextprotocol.info/docs/quickstart/client/)[Example serversCheck out our gallery of official MCP servers and implementations](https://modelcontextprotocol.info/docs/examples/)[Debugging GuideLearn how to effectively debug MCP servers and integrations](https://modelcontextprotocol.info/tools/debugging/)[Building MCP with LLMsLearn how to use LLMs like Claude to speed up your MCP development](https://modelcontextprotocol.info/building-mcp-with-llms/)
 
 [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/ "Guide")[For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/ "For Client Developers")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文](https://chatgptcn.com "ChatGPT 中文社区")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术](https://ucp.md "UCP 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

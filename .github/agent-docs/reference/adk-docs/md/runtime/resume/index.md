@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -104,13 +115,16 @@ Custom Tools
     * [ Agent Runtime  ](../)
 
 Agent Runtime 
-      * [ Runtime Config  ](../runconfig/)
+      * [ Web Interface  ](../web-interface/)
+      * [ Command Line  ](../command-line/)
       * [ API Server  ](../api-server/)
       * Resume Agents  [ Resume Agents  ](./) Table of contents 
         * Add resumable configuration 
         * Resume a stopped workflow 
         * How it works 
         * Add resume to custom Agents 
+      * [ Runtime Config  ](../runconfig/)
+      * [ Event Loop  ](../event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -156,7 +170,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -421,7 +434,7 @@ The following example shows the required code modifications to the example Story
         yield self._create_agent_state_event(ctx, end_of_agent=True)
     
 
-Back to top  [ Previous  API Server  ](../api-server/) [ Next  Deploying Your Agent  ](../../deploy/)
+Back to top  [ Previous  API Server  ](../api-server/) [ Next  Runtime Config  ](../runconfig/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

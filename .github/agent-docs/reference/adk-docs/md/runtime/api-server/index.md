@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
       * [ Agent Config  ](../../agents/config/)
-      * [ Models & Authentication  ](../../agents/models/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -104,25 +115,27 @@ Custom Tools
     * [ Agent Runtime  ](../)
 
 Agent Runtime 
-      * [ Runtime Config  ](../runconfig/)
+      * [ Web Interface  ](../web-interface/)
+      * [ Command Line  ](../command-line/)
       * API Server  [ API Server  ](./) Table of contents 
-        * Local testing 
+        * Start the API server 
+        * Test locally 
         * Integrations 
-        * Deploying your agent 
-        * The ADK API Server 
-        * Running the Server 
-        * Debugging with Interactive API Docs 
-        * API Endpoints 
-          * Utility Endpoints 
-            * List Available Agents 
-          * Session Management 
-            * Update a Session 
-            * Get a Session 
-            * Delete a Session 
-          * Agent Execution 
-            * Run Agent (Single Response) 
-            * Run Agent (Streaming) 
+        * Deploy your agent 
+        * Interactive API docs 
+        * API endpoints 
+          * Utility endpoints 
+            * List available agents 
+          * Session management 
+            * Update a session 
+            * Get a session 
+            * Delete a session 
+          * Agent execution 
+            * Run agent (single response) 
+            * Run agent (streaming) 
       * [ Resume Agents  ](../resume/)
+      * [ Runtime Config  ](../runconfig/)
+      * [ Event Loop  ](../event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -168,7 +181,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -233,22 +245,21 @@ API Reference
 
 Table of contents 
 
-  * Local testing 
+  * Start the API server 
+  * Test locally 
   * Integrations 
-  * Deploying your agent 
-  * The ADK API Server 
-  * Running the Server 
-  * Debugging with Interactive API Docs 
-  * API Endpoints 
-    * Utility Endpoints 
-      * List Available Agents 
-    * Session Management 
-      * Update a Session 
-      * Get a Session 
-      * Delete a Session 
-    * Agent Execution 
-      * Run Agent (Single Response) 
-      * Run Agent (Streaming) 
+  * Deploy your agent 
+  * Interactive API docs 
+  * API endpoints 
+    * Utility endpoints 
+      * List available agents 
+    * Session management 
+      * Update a session 
+      * Get a session 
+      * Delete a session 
+    * Agent execution 
+      * Run agent (single response) 
+      * Run agent (streaming) 
 
 
 
@@ -261,7 +272,11 @@ Table of contents
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
 
-Before you deploy your agent, you should test it to ensure that it is working as intended. The easiest way to test your agent in your development environment is to use the ADK API server.
+Before you deploy your agent, you should test it to ensure that it is working as intended. Use the API server in ADK to expose your agents through a REST API for programmatic testing and integration.
+
+## Start the API server¶
+
+Use the following command to run your agent in an ADK API server:
 
 PythonTypeScriptGoJava
     
@@ -316,15 +331,15 @@ Finally, on the command-line, run the following command:
 
 In Java, both the Dev UI and the API server are bundled together.
 
-This command will launch a local web server, where you can run cURL commands or send API requests to test your agent.
+This command will launch a local web server, where you can run cURL commands or send API requests to test your agent. By default, the server runs on `http://localhost:8000`.
 
 Advanced Usage and Debugging
 
 For a complete reference on all available endpoints, request/response formats, and tips for debugging (including how to use the interactive API documentation), see the **ADK API Server Guide** below.
 
-## Local testing¶
+## Test locally¶
 
-Local testing involves launching a local web server, creating a session, and sending queries to your agent. First, ensure you are in the correct working directory.
+Testing locally involves launching a local web server, creating a session, and sending queries to your agent. First, ensure you are in the correct working directory.
 
 For TypeScript, you should be inside the agent project directory itself.
     
@@ -362,8 +377,6 @@ PythonTypeScriptJava
     2025-05-13T23:32:08.980-06:00  INFO 37864 --- [ebServer.main()] com.google.adk.web.AdkWebServer          : Started AdkWebServer in 1.15 seconds (process running for 2.877)
     2025-05-13T23:32:08.981-06:00  INFO 37864 --- [ebServer.main()] com.google.adk.web.AdkWebServer          : AdkWebServer application started successfully.
     
-
-```
 
 Your server is now running locally. Ensure you use the correct **_port number_** in all the subsequent commands.
 
@@ -421,7 +434,7 @@ There are two ways to send queries via POST to your agent, via the `/run` or `/r
     }'
     
 
-In TypeScript, currently only `cameCase` field names are supported (e.g. `appName`, `userId`, `sessionId`, etc.), with `snake_case` support coming soon.
+In TypeScript, currently only `camelCase` field names are supported (e.g. `appName`, `userId`, `sessionId`, etc.).
 
 If using `/run`, you will see the full output of events at the same time, as a list, which should appear similar to:
     
@@ -462,8 +475,8 @@ You can set `streaming` to `true` to enable token-level streaming, which means t
     
     
     curl -X POST http://localhost:8000/run \
-    --H 'Content-Type: application/json' \
-    --d '{
+    -H 'Content-Type: application/json' \
+    -d '{
        "appName":"my_sample_agent",
        "userId":"u_123",
        "sessionId":"s_123",
@@ -498,34 +511,16 @@ ADK uses [Callbacks](../../callbacks/) to integrate with third-party observabili
 
 
 
-## Deploying your agent¶
+## Deploy your agent¶
 
 Now that you've verified the local operation of your agent, you're ready to move on to deploying your agent! Here are some ways you can deploy your agent:
 
-  * Deploy to [Agent Engine](../../deploy/agent-engine/), the easiest way to deploy your ADK agents to a managed service in Vertex AI on Google Cloud.
+  * Deploy to [Agent Engine](../../deploy/agent-engine/), a simple way to deploy your ADK agents to a managed service in Vertex AI on Google Cloud.
   * Deploy to [Cloud Run](../../deploy/cloud-run/) and have full control over how you scale and manage your agents using serverless architecture on Google Cloud.
 
 
 
-## The ADK API Server¶
-
-The ADK API Server is a pre-packaged [FastAPI](https://fastapi.tiangolo.com/) web server that exposes your agents through a RESTful API. It is the primary tool for local testing and development, allowing you to interact with your agents programmatically before deploying them.
-
-## Running the Server¶
-
-To start the server, run the following command from your project's root directory:
-    
-    
-    adk api_server
-    
-
-By default, the server runs on `http://localhost:8000`. You will see output confirming that the server has started:
-    
-    
-    INFO:     Uvicorn running on http://localhost:8000 (Press CTRL+C to quit)
-    
-
-## Debugging with Interactive API Docs¶
+## Interactive API docs¶
 
 The API server automatically generates interactive API documentation using Swagger UI. This is an invaluable tool for exploring endpoints, understanding request formats, and testing your agent directly from your browser.
 
@@ -533,9 +528,7 @@ To access the interactive docs, start the API server and navigate to <http://loc
 
 You will see a complete, interactive list of all available API endpoints, which you can expand to see detailed information about parameters, request bodies, and response schemas. You can even click "Try it out" to send live requests to your running agents.
 
-In TypeScript, interactive API documentation support is coming soon.
-
-## API Endpoints¶
+## API endpoints¶
 
 The following sections detail the primary endpoints for interacting with your agents.
 
@@ -545,9 +538,9 @@ JSON Naming Convention
 
 
 
-### Utility Endpoints¶
+### Utility endpoints¶
 
-#### List Available Agents¶
+#### List available agents¶
 
 Returns a list of all agent applications discovered by the server.
 
@@ -570,11 +563,11 @@ Returns a list of all agent applications discovered by the server.
 
 * * *
 
-### Session Management¶
+### Session management¶
 
 Sessions store the state and event history for a specific user's interaction with an agent.
 
-#### Update a Session¶
+#### Update a session¶
 
 Updates an existing session.
 
@@ -608,7 +601,7 @@ Updates an existing session.
     {"id":"s_abc","appName":"my_sample_agent","userId":"u_123","state":{"visit_count":5},"events":[],"lastUpdateTime":1743711430.022186}
     
 
-#### Get a Session¶
+#### Get a session¶
 
 Retrieves the details of a specific session, including its current state and all associated events.
 
@@ -629,7 +622,7 @@ Retrieves the details of a specific session, including its current state and all
     {"id":"s_abc","appName":"my_sample_agent","userId":"u_123","state":{"visit_count":5},"events":[...],"lastUpdateTime":1743711430.022186}
     
 
-#### Delete a Session¶
+#### Delete a session¶
 
 Deletes a session and all of its associated data.
 
@@ -648,11 +641,11 @@ Deletes a session and all of its associated data.
 
 * * *
 
-### Agent Execution¶
+### Agent execution¶
 
 These endpoints are used to send a new message to an agent and get a response.
 
-#### Run Agent (Single Response)¶
+#### Run agent (single response)¶
 
 Executes the agent and returns all generated events in a single JSON array after the run is complete.
 
@@ -677,7 +670,7 @@ Executes the agent and returns all generated events in a single JSON array after
     }
     
 
-In TypeScript, currently only `cameCase` field names are supported (e.g. `appName`, `userId`, `sessionId`, etc.), with `snake_case` support coming soon.
+In TypeScript, currently only `camelCase` field names are supported (e.g. `appName`, `userId`, `sessionId`, etc.).
 
 **Example Request**
     
@@ -695,7 +688,7 @@ In TypeScript, currently only `cameCase` field names are supported (e.g. `appNam
       }'
     
 
-#### Run Agent (Streaming)¶
+#### Run agent (streaming)¶
 
 Executes the agent and streams events back to the client as they are generated using [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).
 
@@ -740,7 +733,7 @@ Executes the agent and streams events back to the client as they are generated u
       }'
     
 
-Back to top  [ Previous  Runtime Config  ](../runconfig/) [ Next  Resume Agents  ](../resume/)
+Back to top  [ Previous  Command Line  ](../command-line/) [ Next  Resume Agents  ](../resume/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

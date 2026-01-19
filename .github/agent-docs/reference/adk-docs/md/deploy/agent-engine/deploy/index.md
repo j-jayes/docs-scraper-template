@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../../agents/multi-agents/)
       * [ Agent Config  ](../../../agents/config/)
-      * [ Models & Authentication  ](../../../agents/models/)
+    * [ Models for Agents  ](../../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Claude  ](../../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
+      * [ Ollama  ](../../../agents/models/ollama/)
+      * [ vLLM  ](../../../agents/models/vllm/)
+      * [ LiteLLM  ](../../../agents/models/litellm/)
     * [ Tools for Agents  ](../../../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ PayPal  ](../../../tools/third-party/paypal/)
         * [ Qdrant  ](../../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../../tools/limitations/)
     * [ Custom Tools  ](../../../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Web Interface  ](../../../runtime/web-interface/)
+      * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../)
 
 Deployment 
@@ -161,7 +175,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../../sessions/rewind/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../../sessions/express-mode/)
     * [ Callbacks  ](../../../callbacks/)
 
 Callbacks 
@@ -283,16 +296,8 @@ To deploy your agent to Agent Engine, you need a Google Cloud project:
   5. **Enable Cloud Resource Manager API in your project**
 
      * To use Agent Engine, you need to [enable the Cloud Resource Manager API](https://console.developers.google.com/apis/api/cloudresourcemanager.googleapis.com/overview). Click on the "Enable" button to enable the API. Once enabled, it should say "API Enabled".
-  6. **Create a Google Cloud Storage (GCS) Bucket** :
 
-     * Agent Engine requires a GCS bucket to stage your agent's code and dependencies for deployment. If you already have a GCS bucket, you should create a new one specifically for deployment use.
-     * Create a GCS bucket by following the [instructions](https://cloud.google.com/storage/docs/creating-buckets). You should start with the default settings when creating your first bucket.
-     * Once you have created a storage bucket, you should be able to see it on the [Cloud Storage Buckets page](https://console.cloud.google.com/storage/browser).
-     * You need the GCS bucket path to set as your staging bucket. For example, if your GCS bucket name is "my-bucket", then your bucket path should be "gs://my-bucket".
 
-Deploy without a GCS bucket
-
-You can avoid using a Google Cloud Storage bucket for deployment using a different configuration method. For details on this method, see [Deploy an Agent](https://docs.cloud.google.com/agent-builder/agent-engine/deploy#from-source-files) in the Agent Engine documentation.
 
 ## Set up your coding environment¶
 
@@ -346,12 +351,10 @@ The following example deploy command uses the `multi_tool_agent` sample code as 
     
     PROJECT_ID=my-project-id
     LOCATION_ID=us-central1
-    GCS_BUCKET=gs://MY-CLOUD-STORAGE-BUCKET
     
     adk deploy agent_engine \
             --project=$PROJECT_ID \
             --region=$LOCATION_ID \
-            --staging_bucket=$GCS_BUCKET \
             --display_name="My First Agent" \
             multi_tool_agent
     

@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
       * [ Agent Config  ](../agents/config/)
-      * [ Models & Authentication  ](../agents/models/)
+    * [ Models for Agents  ](../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Claude  ](../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Ollama  ](../agents/models/ollama/)
+      * [ vLLM  ](../agents/models/vllm/)
+      * [ LiteLLM  ](../agents/models/litellm/)
     * [ Tools for Agents  ](../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../tools/third-party/notion/)
         * [ PayPal  ](../tools/third-party/paypal/)
         * [ Qdrant  ](../tools/third-party/qdrant/)
+        * [ Stripe  ](../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../tools/limitations/)
     * [ Custom Tools  ](../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../runtime/runconfig/)
+      * [ Web Interface  ](../runtime/web-interface/)
+      * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Runtime Config  ](../runtime/runconfig/)
+      * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
@@ -152,7 +166,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../sessions/rewind/)
       * [ State  ](../sessions/state/)
       * [ Memory  ](../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../sessions/express-mode/)
     * [ Callbacks  ](../callbacks/)
 
 Callbacks 
@@ -212,6 +225,7 @@ API Reference
       * [ REST API  ](../api-reference/rest/)
     * Community Resources  [ Community Resources  ](./) Table of contents 
       * Getting Started 
+      * ADK Community Calls 
       * Courses & Deep Dives 
       * Agent Tutorials and Demos 
       * ADK for Java 
@@ -224,6 +238,7 @@ API Reference
 Table of contents 
 
   * Getting Started 
+  * ADK Community Calls 
   * Courses & Deep Dives 
   * Agent Tutorials and Demos 
   * ADK for Java 
@@ -245,6 +260,14 @@ Google and the ADK team do not provide support for the content linked in these e
 ## Getting Started¶
 
 [ Video Demo 📺 Introducing Agent Development Kit A demo of building a multi-agent travel planner, showcasing core design principles. ](https://www.youtube.com/watch?v=zgrOwow_uTQ) [ Video 📺 Getting started with Agent Development Kit Learn the fundamentals of agent definition and how to run and debug your first agent. ](https://www.youtube.com/watch?v=44C8u0CDtSo) [ Video 📺 Getting Started with ADK Tools A guide to building a software bug assistant using tools like MCP and Google Search. ](https://www.youtube.com/watch?v=5ZmaWY7UX6k)
+
+## ADK Community Calls¶
+
+Stay Connected
+
+Join the [ADK Community Google Group](https://groups.google.com/g/adk-community) for updates, calendar invites, and to connect with the ADK community.
+
+[ Community Call 📞 ADK Community Call (Dec 2025) Discussions include the ADK TypeScript launch, Gemini 3 Flash support, bidirectional streaming for voice agents, and the Visual Builder UI. ](https://www.youtube.com/watch?v=cNVWhrbdn-E) [ Community Call 📞 ADK Community Call (Nov 2025) Discussions include the ADK Go launch, the reflect & retry plugin for error recovery, and time travel debugging for rewinding agent sessions. ](https://www.youtube.com/watch?v=bftUz-WBqyw) [ Community Call 📞 ADK Community Call (Oct 2025) Discussions include the ADK roadmap, context compaction and caching for reducing cost and latency, and community contribution guidelines. ](https://www.youtube.com/watch?v=A95mQaSRKik)
 
 ## Courses & Deep Dives¶
 

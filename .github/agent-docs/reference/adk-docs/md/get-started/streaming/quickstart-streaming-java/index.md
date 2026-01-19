@@ -44,8 +44,8 @@ Streaming agent
           * Run agent with Dev UI 
             * Define environment variables 
             * Run Dev UI 
-          * Try Dev UI with text 
-            * Try with voice and video 
+          * Try Dev UI with voice and video 
+            * Caveat 
             * Stop the tool 
           * Run agent with a custom live audio app 
             * A Maven pom.xml build file for Live Audio 
@@ -68,7 +68,16 @@ Workflow agents
       * [ Custom agents  ](../../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../../agents/multi-agents/)
       * [ Agent Config  ](../../../agents/config/)
-      * [ Models & Authentication  ](../../../agents/models/)
+    * [ Models for Agents  ](../../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Claude  ](../../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
+      * [ Ollama  ](../../../agents/models/ollama/)
+      * [ vLLM  ](../../../agents/models/vllm/)
+      * [ LiteLLM  ](../../../agents/models/litellm/)
     * [ Tools for Agents  ](../../../tools/)
 
 Tools for Agents 
@@ -92,6 +101,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../../tools/third-party/)
 
 Third-party tools 
@@ -104,6 +114,7 @@ Third-party tools
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ PayPal  ](../../../tools/third-party/paypal/)
         * [ Qdrant  ](../../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../../tools/limitations/)
     * [ Custom Tools  ](../../../tools-custom/)
@@ -120,9 +131,12 @@ Custom Tools
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Web Interface  ](../../../runtime/web-interface/)
+      * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Runtime Config  ](../../../runtime/runconfig/)
+      * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
@@ -168,7 +182,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../../sessions/rewind/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../../sessions/express-mode/)
     * [ Callbacks  ](../../../callbacks/)
 
 Callbacks 
@@ -241,8 +254,8 @@ Table of contents
   * Run agent with Dev UI 
     * Define environment variables 
     * Run Dev UI 
-  * Try Dev UI with text 
-    * Try with voice and video 
+  * Try Dev UI with voice and video 
+    * Caveat 
     * Stop the tool 
   * Run agent with a custom live audio app 
     * A Maven pom.xml build file for Live Audio 
@@ -340,11 +353,13 @@ Create the **ScienceTeacherAgent.java** file under the `src/main/java/agents/` d
       // (the agent must be initialized at declaration time)
       public static final BaseAgent ROOT_AGENT = initAgent();
     
+      // Please fill in the latest model id that supports live API from
+      // https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming/#supported-models
       public static BaseAgent initAgent() {
         return LlmAgent.builder()
             .name("science-app")
             .description("Science teacher agent")
-            .model("gemini-2.0-flash-exp")
+            .model("...") // Pleaase fill in the latest model id for live API
             .instruction("""
                 You are a helpful science teacher that explains
                 science concepts to kids and teenagers.
@@ -353,10 +368,6 @@ Create the **ScienceTeacherAgent.java** file under the `src/main/java/agents/` d
       }
     }
     
-
-Troubleshooting
-
-The model `gemini-2.0-flash-exp` will be deprecated in the future. If you see any issues on using it, try using `gemini-2.0-flash-live-001` instead
 
 We will use `Dev UI` to run this agent later. For the tool to automatically recognize the agent, its Java class has to comply with the following two rules:
 
@@ -408,21 +419,21 @@ Caution: ADK Web for development only
 
 ADK Web is **_not meant for use in production deployments_**. You should use ADK Web for development and debugging purposes only.
 
-## Try Dev UI with text¶
+## Try Dev UI with voice and video¶
 
 With your favorite browser, navigate to: <http://127.0.0.1:8080/>
 
 You should see the following interface:
 
-Click the `Token Streaming` switch at the top right, and ask any questions for the science teacher such as `What's the electron?`. Then you should see the output text in streaming on the UI.
-
-As we saw, you do not have to write any specific code in the agent itself for the text streaming capability. It is provided as an ADK Agent feature by default.
-
-### Try with voice and video¶
-
-To try with voice, reload the web browser, click the microphone button to enable the voice input, and ask the same question in voice. You will hear the answer in voice in real-time.
+Click the microphone button to enable the voice input, and ask a question `What's the electron?` in voice. You will hear the answer in voice in real-time.
 
 To try with video, reload the web browser, click the camera button to enable the video input, and ask questions like "What do you see?". The agent will answer what they see in the video input.
+
+### Caveat¶
+
+  * You can not use text chat with the native-audio models. You will see errors when entering text messages on `adk web`.
+
+
 
 ### Stop the tool¶
 

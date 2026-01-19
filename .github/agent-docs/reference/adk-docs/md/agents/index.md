@@ -52,7 +52,16 @@ Workflow agents
       * [ Custom agents  ](custom-agents/)
       * [ Multi-agent systems  ](multi-agents/)
       * [ Agent Config  ](config/)
-      * [ Models & Authentication  ](models/)
+    * [ Models for Agents  ](models/)
+
+Models for Agents 
+      * [ Gemini  ](models/google-gemini/)
+      * [ Claude  ](models/anthropic/)
+      * [ Vertex AI hosted  ](models/vertex/)
+      * [ Apigee AI Gateway  ](models/apigee/)
+      * [ Ollama  ](models/ollama/)
+      * [ vLLM  ](models/vllm/)
+      * [ LiteLLM  ](models/litellm/)
     * [ Tools for Agents  ](../tools/)
 
 Tools for Agents 
@@ -76,6 +85,7 @@ Google Cloud tools
         * [ RAG Engine  ](../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../tools/third-party/)
 
 Third-party tools 
@@ -88,6 +98,7 @@ Third-party tools
         * [ Notion  ](../tools/third-party/notion/)
         * [ PayPal  ](../tools/third-party/paypal/)
         * [ Qdrant  ](../tools/third-party/qdrant/)
+        * [ Stripe  ](../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../tools/limitations/)
     * [ Custom Tools  ](../tools-custom/)
@@ -104,9 +115,12 @@ Custom Tools
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../runtime/runconfig/)
+      * [ Web Interface  ](../runtime/web-interface/)
+      * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Runtime Config  ](../runtime/runconfig/)
+      * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
@@ -152,7 +166,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../sessions/rewind/)
       * [ State  ](../sessions/state/)
       * [ Memory  ](../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../sessions/express-mode/)
     * [ Callbacks  ](../callbacks/)
 
 Callbacks 
@@ -233,7 +246,7 @@ Table of contents
 
 Supported in ADKPythonTypeScriptGoJava
 
-In the Agent Development Kit (ADK), an **Agent** is a self-contained execution unit designed to act autonomously to achieve specific goals. Agents can perform tasks, interact with users, utilize external tools, and coordinate with other agents.
+In Agent Development Kit (ADK), an **Agent** is a self-contained execution unit designed to act autonomously to achieve specific goals. Agents can perform tasks, interact with users, utilize external tools, and coordinate with other agents.
 
 The foundation for all agents in ADK is the `BaseAgent` class. It serves as the fundamental blueprint. To create functional agents, you typically extend `BaseAgent` in one of three main ways, catering to different needs – from intelligent reasoning to structured process control.
 
@@ -283,7 +296,7 @@ Now that you have an overview of the different agent types available in ADK, div
   * [**Workflow Agents:**](workflow-agents/) Learn how to orchestrate tasks using `SequentialAgent`, `ParallelAgent`, and `LoopAgent` for structured and predictable processes.
   * [**Custom Agents:**](custom-agents/) Discover the principles of extending `BaseAgent` to build agents with unique logic and integrations tailored to your specific needs.
   * [**Multi-Agents:**](multi-agents/) Understand how to combine different agent types to create sophisticated, collaborative systems capable of tackling complex problems.
-  * [**Models:**](models/) Learn about the different LLM integrations available and how to select the right model for your agents.
+  * [**Models:**](/adk-docs/agents/models/) Learn about the different LLM integrations available and how to select the right model for your agents.
 
 
 

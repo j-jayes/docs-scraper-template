@@ -63,7 +63,16 @@ Workflow agents
       * [ Custom agents  ](../custom-agents/)
       * [ Multi-agent systems  ](../multi-agents/)
       * [ Agent Config  ](../config/)
-      * [ Models & Authentication  ](../models/)
+    * [ Models for Agents  ](../models/)
+
+Models for Agents 
+      * [ Gemini  ](../models/google-gemini/)
+      * [ Claude  ](../models/anthropic/)
+      * [ Vertex AI hosted  ](../models/vertex/)
+      * [ Apigee AI Gateway  ](../models/apigee/)
+      * [ Ollama  ](../models/ollama/)
+      * [ vLLM  ](../models/vllm/)
+      * [ LiteLLM  ](../models/litellm/)
     * [ Tools for Agents  ](../../tools/)
 
 Tools for Agents 
@@ -87,6 +96,7 @@ Google Cloud tools
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
+        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
@@ -99,6 +109,7 @@ Third-party tools
         * [ Notion  ](../../tools/third-party/notion/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
+        * [ Stripe  ](../../tools/third-party/stripe/)
         * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
       * [ Tool limitations  ](../../tools/limitations/)
     * [ Custom Tools  ](../../tools-custom/)
@@ -115,9 +126,12 @@ Custom Tools
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
-      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
@@ -163,7 +177,6 @@ Sessions & Memory
         * [ Rewind sessions  ](../../sessions/rewind/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
-      * [ Vertex AI Express Mode  ](../../sessions/express-mode/)
     * [ Callbacks  ](../../callbacks/)
 
 Callbacks 
@@ -265,7 +278,7 @@ First, you need to establish what the agent _is_ and what it's _for_.
 
   * **`description` (Optional, Recommended for Multi-Agent):** Provide a concise summary of the agent's capabilities. This description is primarily used by _other_ LLM agents to determine if they should route a task to this agent. Make it specific enough to differentiate it from peers (e.g., "Handles inquiries about current billing statements," not just "Billing agent").
 
-  * **`model` (Required):** Specify the underlying LLM that will power this agent's reasoning. This is a string identifier like `"gemini-2.0-flash"`. The choice of model impacts the agent's capabilities, cost, and performance. See the [Models](../models/) page for available options and considerations.
+  * **`model` (Required):** Specify the underlying LLM that will power this agent's reasoning. This is a string identifier like `"gemini-2.5-flash"`. The choice of model impacts the agent's capabilities, cost, and performance. See the [Models](/adk-docs/agents/models/) page for available options and considerations.
 
 
 
@@ -275,7 +288,7 @@ PythonTypescriptGoJava
     
     # Example: Defining the basic identity
     capital_agent = LlmAgent(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         name="capital_agent",
         description="Answers user questions about the capital city of a given country."
         # instruction and tools will be added next
@@ -306,7 +319,7 @@ PythonTypescriptGoJava
     // Example: Defining the basic identity
     LlmAgent capitalAgent =
         LlmAgent.builder()
-            .model("gemini-2.0-flash")
+            .model("gemini-2.5-flash")
             .name("capital_agent")
             .description("Answers user questions about the capital city of a given country.")
             // instruction and tools will be added next
@@ -348,7 +361,7 @@ PythonTypescriptGoJava
     
     # Example: Adding instructions
     capital_agent = LlmAgent(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         name="capital_agent",
         description="Answers user questions about the capital city of a given country.",
         instruction="""You are an agent that provides the capital city of a country.
@@ -402,7 +415,7 @@ PythonTypescriptGoJava
     // Example: Adding instructions
     LlmAgent capitalAgent =
         LlmAgent.builder()
-            .model("gemini-2.0-flash")
+            .model("gemini-2.5-flash")
             .name("capital_agent")
             .description("Answers user questions about the capital city of a given country.")
             .instruction(
@@ -446,7 +459,7 @@ PythonTypescriptGoJava
     
     # Add the tool to the agent
     capital_agent = LlmAgent(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         name="capital_agent",
         description="Answers user questions about the capital city of a given country.",
         instruction="""You are an agent that provides the capital city of a country... (previous instruction text)""",
@@ -550,7 +563,7 @@ PythonTypescriptGoJava
     FunctionTool capitalTool = FunctionTool.create(experiment.getClass(), "getCapitalCity");
     LlmAgent capitalAgent =
         LlmAgent.builder()
-            .model("gemini-2.0-flash")
+            .model("gemini-2.5-flash")
             .name("capital_agent")
             .description("Answers user questions about the capital city of a given country.")
             .instruction("You are an agent that provides the capital city of a country... (previous instruction text)")
@@ -824,7 +837,7 @@ Here, the `thinking_budget` parameter guides the model on the number of thinking
         from google.adk.planners import PlanReActPlanner
         
         my_agent = Agent(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash",
             planner=PlanReActPlanner(),
             # ... your tools here
         )
