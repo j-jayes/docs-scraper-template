@@ -80,6 +80,7 @@ Google Cloud tools
         * [ Bigtable  ](../bigtable/)
         * [ Cloud API Registry  ](../api-registry/)
         * [ Code Execution with Agent Engine  ](../code-exec-agent-engine/)
+        * [ Data Agents  ](../data-agent/)
         * [ GKE Code Executor  ](../gke-code-executor/)
         * MCP Toolbox for Databases  [ MCP Toolbox for Databases  ](./) Table of contents 
           * Supported Data Sources 
@@ -92,9 +93,14 @@ Google Cloud tools
           * Configure and deploy 
           * Install Client SDK for ADK 
             * Loading Toolbox Tools 
+            * Authentication 
+            * Advanced Configuration 
+              * Parameter Binding 
+              * Usage with Hooks 
             * Loading Toolbox Tools 
             * Loading Toolbox Tools 
           * Advanced Toolbox Features 
+        * [ Pub/Sub  ](../pubsub/)
         * [ RAG Engine  ](../vertex-ai-rag-engine/)
         * [ Spanner  ](../spanner/)
         * [ Vertex AI Search  ](../vertex-ai-search/)
@@ -102,13 +108,17 @@ Google Cloud tools
       * [ Third-party tools  ](../../third-party/)
 
 Third-party tools 
+        * [ Asana  ](../../third-party/asana/)
         * [ Atlassian  ](../../third-party/atlassian/)
+        * [ Cartesia  ](../../third-party/cartesia/)
+        * [ ElevenLabs  ](../../third-party/elevenlabs/)
         * [ GitHub  ](../../third-party/github/)
         * [ GitLab  ](../../third-party/gitlab/)
         * [ Hugging Face  ](../../third-party/hugging-face/)
         * [ Linear  ](../../third-party/linear/)
         * [ n8n  ](../../third-party/n8n/)
         * [ Notion  ](../../third-party/notion/)
+        * [ Postman  ](../../third-party/postman/)
         * [ PayPal  ](../../third-party/paypal/)
         * [ Qdrant  ](../../third-party/qdrant/)
         * [ Stripe  ](../../third-party/stripe/)
@@ -174,9 +184,11 @@ Context
     * [ Sessions & Memory  ](../../../sessions/)
 
 Sessions & Memory 
-      * Sessions  Sessions 
-        * [ Overview  ](../../../sessions/session/)
-        * [ Rewind sessions  ](../../../sessions/rewind/)
+      * [ Sessions  ](../../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../../sessions/session/migrate/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
     * [ Callbacks  ](../../../callbacks/)
@@ -253,6 +265,10 @@ Table of contents
   * Configure and deploy 
   * Install Client SDK for ADK 
     * Loading Toolbox Tools 
+    * Authentication 
+    * Advanced Configuration 
+      * Parameter Binding 
+      * Usage with Hooks 
     * Loading Toolbox Tools 
     * Loading Toolbox Tools 
   * Advanced Toolbox Features 
@@ -349,31 +365,80 @@ Toolbox is an open source server that you deploy and manage yourself. For more i
 
 PythonTypescriptGo
 
-ADK relies on the `toolbox-core` python package to use Toolbox. Install the package before getting started:
+ADK relies on the `toolbox-adk` python package to use Toolbox. Install the package before getting started:
     
     
-    pip install toolbox-core
+    pip install google-adk[toolbox]
     
 
 ### Loading Toolbox Tools¶
 
-Once you’re Toolbox server is configured and up and running, you can load tools from your server using ADK:
+Once your Toolbox server is configured, up and running, you can load tools from your server using ADK:
     
     
     from google.adk.agents import Agent
-    from toolbox_core import ToolboxSyncClient
+    from google.adk.tools.toolbox_toolset import ToolboxToolset
     
-    toolbox = ToolboxSyncClient("https://127.0.0.1:5000")
-    
-    # Load a specific set of tools
-    tools = toolbox.load_toolset('my-toolset-name'),
-    # Load single tool
-    tools = toolbox.load_tool('my-tool-name'),
+    toolset = ToolboxToolset(
+        server_url="http://127.0.0.1:5000"
+    )
     
     root_agent = Agent(
         ...,
-        tools=tools # Provide the list of tools to the Agent
+        tools=[toolset] # Provide the toolset to the Agent
+    )
     
+
+### Authentication¶
+
+The `ToolboxToolset` supports various authentication strategies including Workload Identity (ADC), User Identity (OAuth2), and API Keys. For full documentation, see the [Toolbox ADK Authentication Guide](https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-adk#authentication).
+
+**Example: Workload Identity (ADC)**
+
+Recommended for Cloud Run, GKE, or local development with `gcloud auth login`.
+    
+    
+    from google.adk.tools.toolbox_toolset import ToolboxToolset
+    from toolbox_adk import CredentialStrategy
+    
+    # target_audience: The URL of your Toolbox server
+    creds = CredentialStrategy.workload_identity(target_audience="<TOOLBOX_URL>")
+    
+    toolset = ToolboxToolset(
+        server_url="<TOOLBOX_URL>",
+        credentials=creds
+    )
+    
+
+### Advanced Configuration¶
+
+You can configure parameter binding, request hooks, and additional headers. See the [Toolbox ADK documentation](https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-adk) for details.
+
+#### Parameter Binding¶
+
+Bind values to tool parameters globally. These values are hidden from the model.
+    
+    
+    toolset = ToolboxToolset(
+        server_url="...",
+        bound_params={
+            "region": "us-central1",
+            "api_key": lambda: get_api_key() # Can be a callable
+        }
+    )
+    
+
+#### Usage with Hooks¶
+
+Attach `pre_hook` and `post_hook` functions to execute logic before and after tool invocation.
+    
+    
+    async def log_start(context, args):
+        print(f"Starting tool with args: {args}")
+    
+    toolset = ToolboxToolset(
+        server_url="...",
+        pre_hook=log_start
     )
     
 
@@ -501,7 +566,7 @@ Toolbox has a variety of features to make developing Gen AI tools for databases.
 
 
 
-Back to top  [ Previous  GKE Code Executor  ](../gke-code-executor/) [ Next  RAG Engine  ](../vertex-ai-rag-engine/)
+Back to top  [ Previous  GKE Code Executor  ](../gke-code-executor/) [ Next  Pub/Sub  ](../pubsub/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

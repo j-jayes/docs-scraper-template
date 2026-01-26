@@ -80,8 +80,10 @@ Google Cloud tools
         * [ Bigtable  ](../../tools/google-cloud/bigtable/)
         * [ Cloud API Registry  ](../../tools/google-cloud/api-registry/)
         * [ Code Execution with Agent Engine  ](../../tools/google-cloud/code-exec-agent-engine/)
+        * [ Data Agents  ](../../tools/google-cloud/data-agent/)
         * [ GKE Code Executor  ](../../tools/google-cloud/gke-code-executor/)
         * [ MCP Toolbox for Databases  ](../../tools/google-cloud/mcp-toolbox-for-databases/)
+        * [ Pub/Sub  ](../../tools/google-cloud/pubsub/)
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
@@ -89,13 +91,17 @@ Google Cloud tools
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
+        * [ Asana  ](../../tools/third-party/asana/)
         * [ Atlassian  ](../../tools/third-party/atlassian/)
+        * [ Cartesia  ](../../tools/third-party/cartesia/)
+        * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
         * [ GitHub  ](../../tools/third-party/github/)
         * [ GitLab  ](../../tools/third-party/gitlab/)
         * [ Hugging Face  ](../../tools/third-party/hugging-face/)
         * [ Linear  ](../../tools/third-party/linear/)
         * [ n8n  ](../../tools/third-party/n8n/)
         * [ Notion  ](../../tools/third-party/notion/)
+        * [ Postman  ](../../tools/third-party/postman/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
         * [ Stripe  ](../../tools/third-party/stripe/)
@@ -202,9 +208,11 @@ Context
     * [ Sessions & Memory  ](../../sessions/)
 
 Sessions & Memory 
-      * Sessions  Sessions 
-        * [ Overview  ](../../sessions/session/)
-        * [ Rewind sessions  ](../../sessions/rewind/)
+      * [ Sessions  ](../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
     * [ Callbacks  ](../../callbacks/)
@@ -452,7 +460,7 @@ Optional but recommended: Setting environment variables can make the deployment 
     export SERVICE_NAME="capital-agent-service"
     
     # Set an application name (optional)
-    export APP_NAME="capital-agent-app"
+    export APP_NAME="capital_agent_app"
     
 
 #### Command usage¶

@@ -85,8 +85,10 @@ Google Cloud tools
           * Configuration 
           * Additional resources 
         * [ Code Execution with Agent Engine  ](../code-exec-agent-engine/)
+        * [ Data Agents  ](../data-agent/)
         * [ GKE Code Executor  ](../gke-code-executor/)
         * [ MCP Toolbox for Databases  ](../mcp-toolbox-for-databases/)
+        * [ Pub/Sub  ](../pubsub/)
         * [ RAG Engine  ](../vertex-ai-rag-engine/)
         * [ Spanner  ](../spanner/)
         * [ Vertex AI Search  ](../vertex-ai-search/)
@@ -94,13 +96,17 @@ Google Cloud tools
       * [ Third-party tools  ](../../third-party/)
 
 Third-party tools 
+        * [ Asana  ](../../third-party/asana/)
         * [ Atlassian  ](../../third-party/atlassian/)
+        * [ Cartesia  ](../../third-party/cartesia/)
+        * [ ElevenLabs  ](../../third-party/elevenlabs/)
         * [ GitHub  ](../../third-party/github/)
         * [ GitLab  ](../../third-party/gitlab/)
         * [ Hugging Face  ](../../third-party/hugging-face/)
         * [ Linear  ](../../third-party/linear/)
         * [ n8n  ](../../third-party/n8n/)
         * [ Notion  ](../../third-party/notion/)
+        * [ Postman  ](../../third-party/postman/)
         * [ PayPal  ](../../third-party/paypal/)
         * [ Qdrant  ](../../third-party/qdrant/)
         * [ Stripe  ](../../third-party/stripe/)
@@ -166,9 +172,11 @@ Context
     * [ Sessions & Memory  ](../../../sessions/)
 
 Sessions & Memory 
-      * Sessions  Sessions 
-        * [ Overview  ](../../../sessions/session/)
-        * [ Rewind sessions  ](../../../sessions/rewind/)
+      * [ Sessions  ](../../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../../sessions/session/migrate/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
     * [ Callbacks  ](../../../callbacks/)

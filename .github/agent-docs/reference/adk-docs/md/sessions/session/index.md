@@ -4,7 +4,7 @@ Skip to content
 
 [ Agent Development Kit ](../.. "Agent Development Kit")
 
-Overview 
+Session: Tracking Individual Conversations 
 
 Initializing search 
 
@@ -80,8 +80,10 @@ Google Cloud tools
         * [ Bigtable  ](../../tools/google-cloud/bigtable/)
         * [ Cloud API Registry  ](../../tools/google-cloud/api-registry/)
         * [ Code Execution with Agent Engine  ](../../tools/google-cloud/code-exec-agent-engine/)
+        * [ Data Agents  ](../../tools/google-cloud/data-agent/)
         * [ GKE Code Executor  ](../../tools/google-cloud/gke-code-executor/)
         * [ MCP Toolbox for Databases  ](../../tools/google-cloud/mcp-toolbox-for-databases/)
+        * [ Pub/Sub  ](../../tools/google-cloud/pubsub/)
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
@@ -89,13 +91,17 @@ Google Cloud tools
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
+        * [ Asana  ](../../tools/third-party/asana/)
         * [ Atlassian  ](../../tools/third-party/atlassian/)
+        * [ Cartesia  ](../../tools/third-party/cartesia/)
+        * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
         * [ GitHub  ](../../tools/third-party/github/)
         * [ GitLab  ](../../tools/third-party/gitlab/)
         * [ Hugging Face  ](../../tools/third-party/hugging-face/)
         * [ Linear  ](../../tools/third-party/linear/)
         * [ n8n  ](../../tools/third-party/n8n/)
         * [ Notion  ](../../tools/third-party/notion/)
+        * [ Postman  ](../../tools/third-party/postman/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
         * [ Stripe  ](../../tools/third-party/stripe/)
@@ -161,14 +167,11 @@ Context
     * [ Sessions & Memory  ](../)
 
 Sessions & Memory 
-      * Sessions  Sessions 
-        * Overview  [ Overview  ](./) Table of contents 
-          * The Session Object 
-            * Example: Examining Session Properties 
-          * Managing Sessions with a SessionService 
-          * SessionService Implementations 
-          * The Session Lifecycle 
-        * [ Rewind sessions  ](../rewind/)
+      * [ Sessions  ](./)
+
+Sessions 
+        * [ Rewind sessions  ](rewind/)
+        * [ Migrate sessions  ](migrate/)
       * [ State  ](../state/)
       * [ Memory  ](../memory/)
     * [ Callbacks  ](../../callbacks/)
@@ -238,7 +241,10 @@ Table of contents
   * The Session Object 
     * Example: Examining Session Properties 
   * Managing Sessions with a SessionService 
-  * SessionService Implementations 
+  * SessionService implementations 
+    * InMemorySessionService 
+    * VertexAiSessionService 
+    * DatabaseSessionService 
   * The Session Lifecycle 
 
 
@@ -247,7 +253,7 @@ Table of contents
   2. [ Sessions & Memory  ](../)
   3. [ Sessions  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/sessions/session.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/session.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/sessions/session/index.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/session/index.md "View source of this page")
 
 # Session: Tracking Individual Conversations¶
 
@@ -413,50 +419,58 @@ Its core responsibilities include:
 
 
 
-## `SessionService` Implementations¶
+## `SessionService` implementations¶
 
 ADK provides different `SessionService` implementations, allowing you to choose the storage backend that best suits your needs:
 
-  1. **`InMemorySessionService`**
+### `InMemorySessionService`¶
 
-     * **How it works:** Stores all session data directly in the application's memory.
-     * **Persistence:** None. **All conversation data is lost if the application restarts.**
-     * **Requires:** Nothing extra.
-     * **Best for:** Quick development, local testing, examples, and scenarios where long-term persistence isn't required.
+  * **How it works:** Stores all session data directly in the application's memory.
+  * **Persistence:** None. **All conversation data is lost if the application restarts.**
+  * **Requires:** Nothing extra.
+  * **Best for:** Quick development, local testing, examples, and scenarios where long-term persistence isn't required.
+
+
 
 PythonTypeScriptGoJava
     
-    from google.adk.sessions import InMemorySessionService
-     session_service = InMemorySessionService()
+    
+      from google.adk.sessions import InMemorySessionService
+      session_service = InMemorySessionService()
     
     
-    import { InMemorySessionService } from "@google/adk";
-     const sessionService = new InMemorySessionService();
+    
+      import { InMemorySessionService } from "@google/adk";
+      const sessionService = new InMemorySessionService();
     
     
-    import "google.golang.org/adk/session"
     
-     inMemoryService := session.InMemoryService()
+      import "google.golang.org/adk/session"
+      inMemoryService := session.InMemoryService()
     
     
-    import com.google.adk.sessions.InMemorySessionService;
-     InMemorySessionService exampleSessionService = new InMemorySessionService();
+    
+      import com.google.adk.sessions.InMemorySessionService;
+      InMemorySessionService exampleSessionService = new InMemorySessionService();
     
 
-  2. **`VertexAiSessionService`**
+### `VertexAiSessionService`¶
 
 Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0
 
-     * **How it works:** Uses Google Cloud Vertex AI infrastructure via API calls for session management.
-     * **Persistence:** Yes. Data is managed reliably and scalably via [Vertex AI Agent Engine](https://google.github.io/adk-docs/deploy/agent-engine/).
-     * **Requires:**
-       * A Google Cloud project (`pip install vertexai`)
-       * A Google Cloud storage bucket that can be configured by this [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
-       * A Reasoning Engine resource name/ID that can setup following this [tutorial](https://google.github.io/adk-docs/deploy/agent-engine/).
-       * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Vertex AI Express Mode](/adk-docs/tools/google-cloud/express-mode/).
-     * **Best for:** Scalable production applications deployed on Google Cloud, especially when integrating with other Vertex AI features.
+  * **How it works:** Uses Google Cloud Vertex AI infrastructure via API calls for session management.
+  * **Persistence:** Yes. Data is managed reliably and scalably via [Vertex AI Agent Engine](https://google.github.io/adk-docs/deploy/agent-engine/).
+  * **Requires:**
+    * A Google Cloud project (`pip install vertexai`)
+    * A Google Cloud storage bucket that can be configured by this [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
+    * A Reasoning Engine resource name/ID that can setup following this [tutorial](https://google.github.io/adk-docs/deploy/agent-engine/).
+    * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Vertex AI Express Mode](/adk-docs/tools/google-cloud/express-mode/).
+  * **Best for:** Scalable production applications deployed on Google Cloud, especially when integrating with other Vertex AI features.
+
+
 
 PythonGoJava
+    
     
     # Requires: pip install google-adk[vertexai]
     # Plus GCP setup and authentication
@@ -472,6 +486,7 @@ PythonGoJava
     # session_service = await session_service.create_session(app_name=REASONING_ENGINE_APP_NAME, ...)
     
     
+    
     import "google.golang.org/adk/session"
     
     // 2. VertexAIService
@@ -480,13 +495,14 @@ PythonGoJava
     // export GOOGLE_CLOUD_PROJECT="your-gcp-project-id"
     // export GOOGLE_CLOUD_LOCATION="your-gcp-location"
     
-    modelName := "gemini-1.5-flash-001" // Replace with your desired model
+    modelName := "gemini-flash-latest" // Replace with your desired model
     vertexService, err := session.VertexAIService(ctx, modelName)
     if err != nil {
       log.Printf("Could not initialize VertexAIService (this is expected if the gcloud project is not set): %v", err)
     } else {
       fmt.Println("Successfully initialized VertexAIService.")
     }
+    
     
     
     // Please look at the set of requirements above, consequently export the following in your bashrc file:
@@ -510,14 +526,17 @@ PythonGoJava
             .blockingGet();
     
 
-  3. **`DatabaseSessionService`**
+### `DatabaseSessionService`¶
 
 Supported in ADKPython v0.1.0Go v0.1.0
 
-     * **How it works:** Connects to a relational database (e.g., PostgreSQL, MySQL, SQLite) to store session data persistently in tables.
-     * **Persistence:** Yes. Data survives application restarts.
-     * **Requires:** A configured database.
-     * **Best for:** Applications needing reliable, persistent storage that you manage yourself.
+  * **How it works:** Connects to a relational database (e.g., PostgreSQL, MySQL, SQLite) to store session data persistently in tables.
+  * **Persistence:** Yes. Data survives application restarts.
+  * **Requires:** A configured database.
+  * **Best for:** Applications needing reliable, persistent storage that you manage yourself.
+
+
+    
     
     from google.adk.sessions import DatabaseSessionService
     # Example using a local SQLite file:
@@ -529,12 +548,11 @@ Supported in ADKPython v0.1.0Go v0.1.0
 
 Async Driver Requirement
 
-`DatabaseSessionService` requires an async database driver. When using SQLite, you must use `sqlite+aiosqlite` instead of `sqlite` in your connection string. For other databases (PostgreSQL, MySQL), ensure you're using an async-compatible driver (e.g., `asyncpg` for PostgreSQL, `aiomysql` for MySQL).
+`DatabaseSessionService` requires an async database driver. When using SQLite, you must use `sqlite+aiosqlite` instead of `sqlite` in your connection string. For other databases (PostgreSQL, MySQL), ensure you're using an async-compatible driver, such as `asyncpg` for PostgreSQL, `aiomysql` for MySQL.
 
+Session database schema change in ADK Python v1.22.0
 
-
-
-Choosing the right `SessionService` is key to defining how your agent's conversation history and temporary data are stored and persist.
+The schema for the session database changed in ADK Python v1.22.0, which requires migration of the Session Database. For more information, see [Session database schema migration](/adk-docs/sessions/session/migrate/).
 
 ## The Session Lifecycle¶
 
@@ -552,7 +570,7 @@ Here’s a simplified flow of how `Session` and `SessionService` work together d
 
 This cycle highlights how the `SessionService` ensures conversational continuity by managing the history and state associated with each `Session` object.
 
-Back to top  [ Previous  Introduction to Conversational Context: Session, State, and Memory  ](../) [ Next  Rewind sessions  ](../rewind/)
+Back to top  [ Previous  Introduction to Conversational Context: Session, State, and Memory  ](../) [ Next  Rewind sessions  ](rewind/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

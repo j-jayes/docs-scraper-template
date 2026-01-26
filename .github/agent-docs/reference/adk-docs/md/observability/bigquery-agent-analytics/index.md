@@ -80,8 +80,10 @@ Google Cloud tools
         * [ Bigtable  ](../../tools/google-cloud/bigtable/)
         * [ Cloud API Registry  ](../../tools/google-cloud/api-registry/)
         * [ Code Execution with Agent Engine  ](../../tools/google-cloud/code-exec-agent-engine/)
+        * [ Data Agents  ](../../tools/google-cloud/data-agent/)
         * [ GKE Code Executor  ](../../tools/google-cloud/gke-code-executor/)
         * [ MCP Toolbox for Databases  ](../../tools/google-cloud/mcp-toolbox-for-databases/)
+        * [ Pub/Sub  ](../../tools/google-cloud/pubsub/)
         * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../tools/google-cloud/spanner/)
         * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
@@ -89,13 +91,17 @@ Google Cloud tools
       * [ Third-party tools  ](../../tools/third-party/)
 
 Third-party tools 
+        * [ Asana  ](../../tools/third-party/asana/)
         * [ Atlassian  ](../../tools/third-party/atlassian/)
+        * [ Cartesia  ](../../tools/third-party/cartesia/)
+        * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
         * [ GitHub  ](../../tools/third-party/github/)
         * [ GitLab  ](../../tools/third-party/gitlab/)
         * [ Hugging Face  ](../../tools/third-party/hugging-face/)
         * [ Linear  ](../../tools/third-party/linear/)
         * [ n8n  ](../../tools/third-party/n8n/)
         * [ Notion  ](../../tools/third-party/notion/)
+        * [ Postman  ](../../tools/third-party/postman/)
         * [ PayPal  ](../../tools/third-party/paypal/)
         * [ Qdrant  ](../../tools/third-party/qdrant/)
         * [ Stripe  ](../../tools/third-party/stripe/)
@@ -141,7 +147,6 @@ Agent Engine
           * IAM permissions 
         * Use with agent 
           * Run and test agent 
-        * Configuration options 
         * Schema and production setup 
           * Event types and payloads 
             * LLM interactions (plugin lifecycle) 
@@ -178,9 +183,11 @@ Context
     * [ Sessions & Memory  ](../../sessions/)
 
 Sessions & Memory 
-      * Sessions  Sessions 
-        * [ Overview  ](../../sessions/session/)
-        * [ Rewind sessions  ](../../sessions/rewind/)
+      * [ Sessions  ](../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
       * [ Memory  ](../../sessions/memory/)
     * [ Callbacks  ](../../callbacks/)
@@ -252,7 +259,6 @@ Table of contents
     * IAM permissions 
   * Use with agent 
     * Run and test agent 
-  * Configuration options 
   * Schema and production setup 
     * Event types and payloads 
       * LLM interactions (plugin lifecycle) 
@@ -334,6 +340,17 @@ my_bq_agent/agent.py
     from google.adk.models.google_llm import Gemini
     from google.adk.tools.bigquery import BigQueryToolset, BigQueryCredentialsConfig
     
+    
+    # --- OpenTelemetry Initialization (Optional) ---
+    # Recommended for enabling distributed tracing (populates trace_id, span_id).
+    # If not configured, the plugin uses internal UUIDs for span correlation.
+    try:
+        from opentelemetry import trace
+        from opentelemetry.sdk.trace import TracerProvider
+        trace.set_tracer_provider(TracerProvider())
+    except ImportError:
+        pass # OpenTelemetry is optional
+    
     # --- Configuration ---
     PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT", "your-gcp-project-id")
     DATASET_ID = os.environ.get("BIG_QUERY_DATASET_ID", "your-big-query-dataset-id")
@@ -399,31 +416,45 @@ Test the plugin by running the agent and making a few requests through the chat 
     ORDER BY timestamp DESC
     LIMIT 20;
     
-
-## Configuration options¶
-
-You can customize the plugin using `BigQueryLoggerConfig`.
-
-  * **`enabled`** (`bool`, default: `True`): To disable the plugin from logging agent data to the BigQuery table, set this parameter to False.
-  * **`clustering_fields`** (`List[str]`, default: `["event_type", "agent", "user_id"]`): The fields used to cluster the BigQuery table when it is automatically created.
-  * **`gcs_bucket_name`** (`Optional[str]`, default: `None`): The name of the GCS bucket to offload large content (images, blobs, large text) to. If not provided, large content may be truncated or replaced with placeholders.
-  * **`connection_id`** (`Optional[str]`, default: `None`): The BigQuery connection ID (e.g., `us.my-connection`) to use as the authorizer for `ObjectRef` columns. Required for using `ObjectRef` with BigQuery ML.
-  * **`max_content_length`** (`int`, default: `500 * 1024`): The maximum length (in characters) of text content to store **inline** in BigQuery before offloading to GCS (if configured) or truncating. Default is 500 KB.
-  * **`batch_size`** (`int`, default: `1`): The number of events to batch before writing to BigQuery.
-  * **`batch_flush_interval`** (`float`, default: `1.0`): The maximum time (in seconds) to wait before flushing a partial batch.
-  * **`shutdown_timeout`** (`float`, default: `10.0`): Seconds to wait for logs to flush during shutdown.
-  * **`event_allowlist`** (`Optional[List[str]]`, default: `None`): A list of event types to log. If `None`, all events are logged except those in `event_denylist`. For a comprehensive list of supported event types, refer to the Event types and payloads section.
-  * **`event_denylist`** (`Optional[List[str]]`, default: `None`): A list of event types to skip logging. For a comprehensive list of supported event types, refer to the Event types and payloads section.
-  * **`content_formatter`** (`Optional[Callable[[Any, str], Any]]`, default: `None`): An optional function to format event content before logging.
-  * **`log_multi_modal_content`** (`bool`, default: `True`): Whether to log detailed content parts (including GCS references).
-  * **`queue_max_size`** (`int`, default: `10000`): The maximum number of events to hold in the in-memory queue before dropping new events.
-  * **`retry_config`** (`RetryConfig`, default: `RetryConfig()`): Configuration for retrying failed BigQuery writes (attributes: `max_retries`, `initial_delay`, `multiplier`, `max_delay`).
-
-
-
-The following code sample shows how to define a configuration for the BigQuery Agent Analytics plugin:
     
     
+    ## Tracing and Observability
+    
+    The plugin supports **OpenTelemetry** for distributed tracing.
+    
+    - **Automatic Span Management**: The plugin automatically generates spans for Agent execution, LLM calls, and Tool executions.
+    - **OpenTelemetry Integration**: If an OpenTelemetry `TracerProvider` is configured (as shown in the example above), the plugin will use valid OTel spans, populating `trace_id`, `span_id`, and `parent_span_id` with standard OTel identifiers. This allows you to correlate agent logs with other services in your distributed system.
+    - **Fallback Mechanism**: If OpenTelemetry is not installed or configured, the plugin automatically falls back to generating internal UUIDs for spans and uses the `invocation_id` as the trace ID. This ensures that the parent-child hierarchy (Agent -> Span -> Tool/LLM) is *always* preserved in the BigQuery logs, even without a full OTel setup.
+    
+    ## Configuration options
+    
+    You can customize the plugin using `BigQueryLoggerConfig`.
+    
+    -   **`enabled`** (`bool`, default: `True`): To disable the plugin from logging agent data to the BigQuery table, set this parameter to False.
+    -   **`clustering_fields`** (`List[str]`, default: `["event_type", "agent", "user_id"]`): The fields used to cluster the BigQuery table when it is automatically created.
+    -   **`gcs_bucket_name`** (`Optional[str]`, default: `None`): The name of the GCS bucket to offload large content (images, blobs, large text) to. If not provided, large content may be truncated or replaced with placeholders.
+    -   **`connection_id`** (`Optional[str]`, default: `None`): The BigQuery connection ID (e.g., `us.my-connection`) to use as the authorizer for `ObjectRef` columns. Required for using `ObjectRef` with BigQuery ML.
+    -   **`max_content_length`** (`int`, default: `500 * 1024`): The maximum length (in characters) of text content to store **inline** in BigQuery before offloading to GCS (if configured) or truncating. Default is 500 KB.
+    -   **`batch_size`** (`int`, default: `1`): The number of events to batch before writing to BigQuery.
+    -   **`batch_flush_interval`** (`float`, default: `1.0`): The maximum time (in seconds) to wait before flushing a partial batch.
+    -   **`shutdown_timeout`** (`float`, default: `10.0`): Seconds to wait for logs to flush during shutdown.
+    -   **`event_allowlist`** (`Optional[List[str]]`, default: `None`): A list
+        of event types to log. If `None`, all events are logged except those in
+        `event_denylist`. For a comprehensive list of supported event types, refer
+        to the [Event types and payloads](#event-types) section.
+    -   **`event_denylist`** (`Optional[List[str]]`, default: `None`): A list of
+        event types to skip logging. For a comprehensive list of supported event
+        types, refer to the [Event types and payloads](#event-types) section.
+    -   **`content_formatter`** (`Optional[Callable[[Any, str], Any]]`, default: `None`): An optional function to format event content before logging.
+    -   **`log_multi_modal_content`** (`bool`, default: `True`): Whether to log detailed content parts (including GCS references).
+    -   **`queue_max_size`** (`int`, default: `10000`): The maximum number of events to hold in the in-memory queue before dropping new events.
+    -   **`retry_config`** (`RetryConfig`, default: `RetryConfig()`): Configuration for retrying failed BigQuery writes (attributes: `max_retries`, `initial_delay`, `multiplier`, `max_delay`).
+    
+    
+    The following code sample shows how to define a configuration for the
+    BigQuery Agent Analytics plugin:
+    
+    ```python
     import json
     import re
     

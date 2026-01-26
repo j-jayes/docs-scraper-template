@@ -80,8 +80,10 @@ Google Cloud tools
         * [ Bigtable  ](../../google-cloud/bigtable/)
         * [ Cloud API Registry  ](../../google-cloud/api-registry/)
         * [ Code Execution with Agent Engine  ](../../google-cloud/code-exec-agent-engine/)
+        * [ Data Agents  ](../../google-cloud/data-agent/)
         * [ GKE Code Executor  ](../../google-cloud/gke-code-executor/)
         * [ MCP Toolbox for Databases  ](../../google-cloud/mcp-toolbox-for-databases/)
+        * [ Pub/Sub  ](../../google-cloud/pubsub/)
         * [ RAG Engine  ](../../google-cloud/vertex-ai-rag-engine/)
         * [ Spanner  ](../../google-cloud/spanner/)
         * [ Vertex AI Search  ](../../google-cloud/vertex-ai-search/)
@@ -89,7 +91,10 @@ Google Cloud tools
       * [ Third-party tools  ](../)
 
 Third-party tools 
+        * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
+        * [ Cartesia  ](../cartesia/)
+        * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * Hugging Face  [ Hugging Face  ](./) Table of contents 
@@ -102,6 +107,7 @@ Third-party tools
         * [ Linear  ](../linear/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
+        * [ Postman  ](../postman/)
         * [ PayPal  ](../paypal/)
         * [ Qdrant  ](../qdrant/)
         * [ Stripe  ](../stripe/)
@@ -167,9 +173,11 @@ Context
     * [ Sessions & Memory  ](../../../sessions/)
 
 Sessions & Memory 
-      * Sessions  Sessions 
-        * [ Overview  ](../../../sessions/session/)
-        * [ Rewind sessions  ](../../../sessions/rewind/)
+      * [ Sessions  ](../../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../../sessions/session/migrate/)
       * [ State  ](../../../sessions/state/)
       * [ Memory  ](../../../sessions/memory/)
     * [ Callbacks  ](../../../callbacks/)
