@@ -94,6 +94,8 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * GitHub  [ GitHub  ](./) Table of contents 
           * Use cases 
@@ -105,6 +107,7 @@ Third-party tools
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -257,9 +260,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/github.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/github.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/github.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/github.md "View Markdown source")
 
 # GitHub¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [GitHub MCP Server](https://github.com/github/github-mcp-server) connects AI tools directly to GitHub's platform. This gives your ADK agent the ability to read repositories and code files, manage issues and PRs, analyze code, and automate workflows using natural language.
 
@@ -278,6 +283,8 @@ The [GitHub MCP Server](https://github.com/github/github-mcp-server) connects AI
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Remote MCP Server
     
@@ -305,6 +312,33 @@ Remote MCP Server
             )
         ],
     )
+    
+
+Remote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const GITHUB_TOKEN = "YOUR_GITHUB_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "github_agent",
+        instruction: "Help users get information from GitHub",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: "https://api.githubcopilot.com/mcp/",
+                header: {
+                    Authorization: `Bearer ${GITHUB_TOKEN}`,
+                    "X-MCP-Toolsets": "all",
+                    "X-MCP-Readonly": "true",
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 ## Available tools¶

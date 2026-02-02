@@ -169,7 +169,7 @@ Validators:
 
 
 
-_field _after_agent_callback _: AfterAgentCallback | None_ _ = None_¶
+_field _after_agent_callback _: Optional[AfterAgentCallback]__ = None_¶
     
 
 Callback or list of callbacks to be invoked after the agent run.
@@ -194,7 +194,7 @@ Return type:
 
 Optional[types.Content]
 
-_field _before_agent_callback _: BeforeAgentCallback | None_ _ = None_¶
+_field _before_agent_callback _: Optional[BeforeAgentCallback]__ = None_¶
     
 
 Callback or list of callbacks to be invoked before the agent run.
@@ -241,7 +241,7 @@ Validated by:
 
 
 
-_field _parent_agent _: BaseAgent | None_ _ = None_¶
+_field _parent_agent _: Optional[BaseAgent]__ = None_¶
     
 
 The parent agent of this agent.
@@ -3146,6 +3146,21 @@ Show JSON schema
                 },
                 "credentials": {
                    "$ref": "#/$defs/HttpCredentials"
+                },
+                "additionalHeaders": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Additionalheaders"
                 }
              },
              "required": [
@@ -4461,7 +4476,7 @@ Show JSON schema
              "type": "object"
           },
           "ResumabilityConfig": {
-             "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
+             "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long-running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
              "properties": {
                 "is_resumable": {
                    "default": false,
@@ -5309,7 +5324,7 @@ Fields:
 
 
 
-_field _active_streaming_tools _: dict[str, ActiveStreamingTool] | None_ _ = None_¶
+_field _active_streaming_tools _: Optional[dict[str, ActiveStreamingTool]]__ = None_¶
     
 
 The running streaming tools of this invocation.
@@ -5324,10 +5339,10 @@ _field _agent_states _: dict[str, dict[str, Any]]__[Optional]_¶
 
 The state of the agent for this invocation.
 
-_field _artifact_service _: BaseArtifactService | None_ _ = None_¶
+_field _artifact_service _: Optional[BaseArtifactService]__ = None_¶
     
 
-_field _branch _: str | None_ _ = None_¶
+_field _branch _: Optional[str]__ = None_¶
     
 
 The branch of the invocation context.
@@ -5336,15 +5351,15 @@ The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent
 
 Branch is used when multiple sub-agents shouldn’t see their peer agents’ conversation history.
 
-_field _canonical_tools_cache _: list[BaseTool] | None_ _ = None_¶
+_field _canonical_tools_cache _: Optional[list[BaseTool]]__ = None_¶
     
 
 The cache of canonical tools for this invocation.
 
-_field _context_cache_config _: ContextCacheConfig | None_ _ = None_¶
+_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
     
 
-_field _credential_service _: BaseCredentialService | None_ _ = None_¶
+_field _credential_service _: Optional[BaseCredentialService]__ = None_¶
     
 
 _field _end_invocation _: bool_ _ = False_¶
@@ -5359,7 +5374,7 @@ _field _end_of_agents _: dict[str, bool]__[Optional]_¶
 
 The end of agent status for each agent in this invocation.
 
-_field _input_realtime_cache _: list[RealtimeCacheEntry] | None_ _ = None_¶
+_field _input_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
     
 
 Caches input audio chunks before flushing to session and artifact services.
@@ -5369,20 +5384,20 @@ _field _invocation_id _: str_ _[Required]_¶
 
 The id of this invocation context. Readonly.
 
-_field _live_request_queue _: LiveRequestQueue | None_ _ = None_¶
+_field _live_request_queue _: Optional[LiveRequestQueue]__ = None_¶
     
 
 The queue to receive live requests.
 
-_field _live_session_resumption_handle _: str | None_ _ = None_¶
+_field _live_session_resumption_handle _: Optional[str]__ = None_¶
     
 
 The handle for live session resumption.
 
-_field _memory_service _: BaseMemoryService | None_ _ = None_¶
+_field _memory_service _: Optional[BaseMemoryService]__ = None_¶
     
 
-_field _output_realtime_cache _: list[RealtimeCacheEntry] | None_ _ = None_¶
+_field _output_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
     
 
 Caches output audio chunks before flushing to session and artifact services.
@@ -5392,12 +5407,12 @@ _field _plugin_manager _: PluginManager_ _[Optional]_¶
 
 The manager for keeping track of plugins in this invocation.
 
-_field _resumability_config _: ResumabilityConfig | None_ _ = None_¶
+_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
     
 
 The resumability config that applies to all agents under this invocation.
 
-_field _run_config _: RunConfig | None_ _ = None_¶
+_field _run_config _: Optional[RunConfig]__ = None_¶
     
 
 Configurations for live agents under this invocation.
@@ -5410,12 +5425,12 @@ The current session of this invocation context. Readonly.
 _field _session_service _: BaseSessionService_ _[Required]_¶
     
 
-_field _transcription_cache _: list[TranscriptionEntry] | None_ _ = None_¶
+_field _transcription_cache _: Optional[list[TranscriptionEntry]]__ = None_¶
     
 
 Caches necessary data, audio or contents, that are needed by transcription.
 
-_field _user_content _: types.Content | None_ _ = None_¶
+_field _user_content _: Optional[types.Content]__ = None_¶
     
 
 The user content that started this invocation. Readonly.
@@ -6503,30 +6518,38 @@ Fields:
 
 
 
-_field _activity_end _: types.ActivityEnd | None_ _ = None_¶
+_field _activity_end _: Optional[types.ActivityEnd]__ = None_¶
     
 
 If set, signal the end of user activity to the model.
 
-_field _activity_start _: types.ActivityStart | None_ _ = None_¶
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
+
+_field _activity_start _: Optional[types.ActivityStart]__ = None_¶
     
 
 If set, signal the start of user activity to the model.
 
-_field _blob _: types.Blob | None_ _ = None_¶
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
+
+_field _blob _: Optional[types.Blob]__ = None_¶
     
 
 If set, send the blob to the model in realtime mode.
+
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
 
 _field _close _: bool_ _ = False_¶
     
 
 If set, close the queue. queue.shutdown() is only supported in Python 3.13+.
 
-_field _content _: types.Content | None_ _ = None_¶
+_field _content _: Optional[types.Content]__ = None_¶
     
 
 If set, send the content to the model in turn-by-turn mode.
+
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
 
 _class _google.adk.agents.LiveRequestQueue¶
     
@@ -7307,8 +7330,7 @@ Show JSON schema
              "enum": [
                 "SOURCE_UNSPECIFIED",
                 "UPLOADED",
-                "GENERATED",
-                "REGISTERED"
+                "GENERATED"
              ],
              "title": "FileSource",
              "type": "string"
@@ -8085,7 +8107,7 @@ Validators:
 
 
 
-_field _after_model_callback _: AfterModelCallback | None_ _ = None_¶
+_field _after_model_callback _: Optional[AfterModelCallback]__ = None_¶
     
 
 Callback or list of callbacks to be called after calling the LLM.
@@ -8114,7 +8136,7 @@ Validated by:
 
 
 
-_field _after_tool_callback _: AfterToolCallback | None_ _ = None_¶
+_field _after_tool_callback _: Optional[AfterToolCallback]__ = None_¶
     
 
 Callback or list of callbacks to be called after calling the tool.
@@ -8147,7 +8169,7 @@ Validated by:
 
 
 
-_field _before_model_callback _: BeforeModelCallback | None_ _ = None_¶
+_field _before_model_callback _: Optional[BeforeModelCallback]__ = None_¶
     
 
 Callback or list of callbacks to be called before calling the LLM.
@@ -8178,7 +8200,7 @@ Validated by:
 
 
 
-_field _before_tool_callback _: BeforeToolCallback | None_ _ = None_¶
+_field _before_tool_callback _: Optional[BeforeToolCallback]__ = None_¶
     
 
 Callback or list of callbacks to be called before calling the tool.
@@ -8209,7 +8231,7 @@ Validated by:
 
 
 
-_field _code_executor _: BaseCodeExecutor | None_ _ = None_¶
+_field _code_executor _: Optional[BaseCodeExecutor]__ = None_¶
     
 
 Allow agent to execute code blocks from model responses using the provided CodeExecutor.
@@ -8256,12 +8278,12 @@ Validated by:
 
 
 
-_field _generate_content_config _: types.GenerateContentConfig | None_ _ = None_¶
+_field _generate_content_config _: Optional[types.GenerateContentConfig]__ = None_¶
     
 
 The additional content generation configurations.
 
-NOTE: not all fields are usable, e.g. tools must be configured via tools, thinking_config must be configured via planner in LlmAgent.
+NOTE: not all fields are usable, e.g. tools must be configured via tools, thinking_config can be configured here or via the planner. If both are set, the planner’s configuration takes precedence.
 
 For example: use this config to adjust model temperature, configure safety settings, etc.
 
@@ -8275,7 +8297,7 @@ Validated by:
 
 
 
-_field _global_instruction _: str | InstructionProvider_ _ = ''_¶
+_field _global_instruction _: Union[str, InstructionProvider]__ = ''_¶
     
 
 Instructions for all the agents in the entire agent tree.
@@ -8312,7 +8334,7 @@ Validated by:
 
 
 
-_field _input_schema _: type[BaseModel] | None_ _ = None_¶
+_field _input_schema _: Optional[type[BaseModel]]__ = None_¶
     
 
 The input schema when agent is used as a tool.
@@ -8325,7 +8347,7 @@ Validated by:
 
 
 
-_field _instruction _: str | InstructionProvider_ _ = ''_¶
+_field _instruction _: Union[str, InstructionProvider]__ = ''_¶
     
 
 Dynamic instructions for the LLM model, guiding the agent’s behavior.
@@ -8344,7 +8366,7 @@ Validated by:
 
 
 
-_field _model _: str | BaseLlm_ _ = ''_¶
+_field _model _: Union[str, BaseLlm]__ = ''_¶
     
 
 The model to use for the agent.
@@ -8359,7 +8381,7 @@ Validated by:
 
 
 
-_field _on_model_error_callback _: OnModelErrorCallback | None_ _ = None_¶
+_field _on_model_error_callback _: Optional[OnModelErrorCallback]__ = None_¶
     
 
 Callback or list of callbacks to be called when a model call encounters an error.
@@ -8390,7 +8412,7 @@ Validated by:
 
 
 
-_field _on_tool_error_callback _: OnToolErrorCallback | None_ _ = None_¶
+_field _on_tool_error_callback _: Optional[OnToolErrorCallback]__ = None_¶
     
 
 Callback or list of callbacks to be called when a tool call encounters an error.
@@ -8423,7 +8445,7 @@ Validated by:
 
 
 
-_field _output_key _: str | None_ _ = None_¶
+_field _output_key _: Optional[str]__ = None_¶
     
 
 The key in session state to store the output of the agent.
@@ -8438,7 +8460,7 @@ Validated by:
 
 
 
-_field _output_schema _: type[BaseModel] | None_ _ = None_¶
+_field _output_schema _: Optional[type[BaseModel]]__ = None_¶
     
 
 The output schema when agent replies.
@@ -8455,7 +8477,7 @@ Validated by:
 
 
 
-_field _planner _: BasePlanner | None_ _ = None_¶
+_field _planner _: Optional[BasePlanner]__ = None_¶
     
 
 Instructs the agent to make a plan and execute it step by step.
@@ -8472,7 +8494,7 @@ Validated by:
 
 
 
-_field _static_instruction _: types.ContentUnion | None_ _ = None_¶
+_field _static_instruction _: Optional[types.ContentUnion]__ = None_¶
     
 
 Static instruction content sent literally as system instruction at the beginning.
@@ -8602,6 +8624,16 @@ Return type:
     
 
 `list`[`BaseTool`]
+
+model_post_init(__LlmAgent__context_)¶
+    
+
+Provides a warning if multiple thinking configurations are found.
+
+Return type:
+    
+
+`None`
 
 DEFAULT_MODEL _: ClassVar[str]__ = 'gemini-2.5-flash'_¶
     
@@ -8791,7 +8823,7 @@ Fields:
 Validators:
     
 
-_field _max_iterations _: int | None_ _ = None_¶
+_field _max_iterations _: Optional[int]__ = None_¶
     
 
 The maximum number of iterations to run the loop agent.
@@ -9641,7 +9673,7 @@ Validators:
 
 
 
-_field _context_window_compression _: types.ContextWindowCompressionConfig | None_ _ = None_¶
+_field _context_window_compression _: Optional[types.ContextWindowCompressionConfig]__ = None_¶
     
 
 Configuration for context window compression. If set, this will enable context window compression for LLM input.
@@ -9654,7 +9686,7 @@ Validated by:
 
 
 
-_field _custom_metadata _: dict[str, Any] | None_ _ = None_¶
+_field _custom_metadata _: Optional[dict[str, Any]]__ = None_¶
     
 
 Custom metadata for the current invocation.
@@ -9667,7 +9699,7 @@ Validated by:
 
 
 
-_field _enable_affective_dialog _: bool | None_ _ = None_¶
+_field _enable_affective_dialog _: Optional[bool]__ = None_¶
     
 
 If enabled, the model will detect emotions and adapt its responses accordingly.
@@ -9680,7 +9712,7 @@ Validated by:
 
 
 
-_field _input_audio_transcription _: types.AudioTranscriptionConfig | None_ _[Optional]_¶
+_field _input_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
     
 
 Input transcription for live agents with audio input from user.
@@ -9718,7 +9750,7 @@ Validated by:
 
 
 
-_field _output_audio_transcription _: types.AudioTranscriptionConfig | None_ _[Optional]_¶
+_field _output_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
     
 
 Output transcription for live agents with audio response.
@@ -9731,7 +9763,7 @@ Validated by:
 
 
 
-_field _proactivity _: types.ProactivityConfig | None_ _ = None_¶
+_field _proactivity _: Optional[types.ProactivityConfig]__ = None_¶
     
 
 Configures the proactivity of the model. This allows the model to respond proactively to the input and to ignore irrelevant input.
@@ -9744,7 +9776,7 @@ Validated by:
 
 
 
-_field _realtime_input_config _: types.RealtimeInputConfig | None_ _ = None_¶
+_field _realtime_input_config _: Optional[types.RealtimeInputConfig]__ = None_¶
     
 
 Realtime input config for live agents with audio input from user.
@@ -9757,7 +9789,7 @@ Validated by:
 
 
 
-_field _response_modalities _: list[str] | None_ _ = None_¶
+_field _response_modalities _: Optional[list[str]]__ = None_¶
     
 
 The output modalities. If not set, it’s default to AUDIO.
@@ -9783,7 +9815,7 @@ Validated by:
 
 
 
-_field _session_resumption _: types.SessionResumptionConfig | None_ _ = None_¶
+_field _session_resumption _: Optional[types.SessionResumptionConfig]__ = None_¶
     
 
 Configures session resumption mechanism. Only support transparent session resumption mode now.
@@ -9796,7 +9828,7 @@ Validated by:
 
 
 
-_field _speech_config _: types.SpeechConfig | None_ _ = None_¶
+_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
     
 
 Speech configuration for the live agent.
@@ -11839,7 +11871,7 @@ Show JSON schema
              "type": "object"
           },
           "ResumabilityConfig": {
-             "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
+             "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long-running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
              "properties": {
                 "is_resumable": {
                    "default": false,
@@ -11884,7 +11916,7 @@ Validators:
 
 
 
-_field _context_cache_config _: ContextCacheConfig | None_ _ = None_¶
+_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
     
 
 Context cache configuration that applies to all LLM agents in the app.
@@ -11897,7 +11929,7 @@ Validated by:
 
 
 
-_field _events_compaction_config _: EventsCompactionConfig | None_ _ = None_¶
+_field _events_compaction_config _: Optional[EventsCompactionConfig]__ = None_¶
     
 
 The config of event compaction for the application.
@@ -11936,7 +11968,7 @@ Validated by:
 
 
 
-_field _resumability_config _: ResumabilityConfig | None_ _ = None_¶
+_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
     
 
 The config of the resumability for the application. If configured, will be applied to all agents in the app.
@@ -11969,7 +12001,7 @@ Bases: `BaseModel`
 
 The config of the resumability for an application.
 
-The “resumability” in ADK refers to the ability to: 1\. pause an invocation upon a long running function call. 2\. resume an invocation from the last event, if it’s paused or failed midway through.
+The “resumability” in ADK refers to the ability to: 1\. pause an invocation upon a long-running function call. 2\. resume an invocation from the last event, if it’s paused or failed midway through.
 
 Note: ADK resumes the invocation in a best-effort manner: 1\. Tool call to resume needs to be idempotent because we only guarantee an at-least-once behavior once resumed. 2\. Any temporary / in-memory state will be lost upon resumption.
 
@@ -11978,7 +12010,7 @@ Show JSON schema
     
     {
        "title": "ResumabilityConfig",
-       "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
+       "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long-running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
        "type": "object",
        "properties": {
           "is_resumable": {
@@ -14931,6 +14963,21 @@ Show JSON schema
                 },
                 "credentials": {
                    "$ref": "#/$defs/HttpCredentials"
+                },
+                "additionalHeaders": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Additionalheaders"
                 }
              },
              "required": [
@@ -16465,7 +16512,7 @@ _field _author _: str_ _[Required]_¶
 
 ‘user’ or the name of the agent, indicating who appended the event to the session.
 
-_field _branch _: str | None_ _ = None_¶
+_field _branch _: Optional[str]__ = None_¶
     
 
 The branch of the event.
@@ -16484,7 +16531,7 @@ _field _invocation_id _: str_ _ = ''__(alias 'invocationId')_¶
 
 The invocation ID of the event. Should be non-empty before appending to a session.
 
-_field _long_running_tool_ids _: set[str] | None_ _ = None_ _(alias 'longRunningToolIds')_¶
+_field _long_running_tool_ids _: Optional[set[str]]__ = None_ _(alias 'longRunningToolIds')_¶
     
 
 Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. only valid for function call event
@@ -17474,6 +17521,21 @@ Show JSON schema
                 },
                 "credentials": {
                    "$ref": "#/$defs/HttpCredentials"
+                },
+                "additionalHeaders": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Additionalheaders"
                 }
              },
              "required": [
@@ -18572,7 +18634,7 @@ Fields:
 
 
 
-_field _agent_state _: dict[str, Any] | None_ _ = None_ _(alias 'agentState')_¶
+_field _agent_state _: Optional[dict[str, Any]]__ = None_ _(alias 'agentState')_¶
     
 
 The agent state at the current event, used for checkpoint and resume. This should only be set by ADK workflow.
@@ -18582,17 +18644,17 @@ _field _artifact_delta _: dict[str, int]__[Optional]__(alias 'artifactDelta')_¶
 
 Indicates that the event is updating an artifact. key is the filename, value is the version.
 
-_field _compaction _: EventCompaction | None_ _ = None_¶
+_field _compaction _: Optional[EventCompaction]__ = None_¶
     
 
 The compaction of the events.
 
-_field _end_of_agent _: bool | None_ _ = None_ _(alias 'endOfAgent')_¶
+_field _end_of_agent _: Optional[bool]__ = None_ _(alias 'endOfAgent')_¶
     
 
 If true, the current agent has finished its current run. Note that there can be multiple events with end_of_agent=True for the same agent within one invocation when there is a loop. This should only be set by ADK workflow.
 
-_field _escalate _: bool | None_ _ = None_¶
+_field _escalate _: Optional[bool]__ = None_¶
     
 
 The agent is escalating to a higher level agent.
@@ -18609,12 +18671,12 @@ _field _requested_tool_confirmations _: dict[str, ToolConfirmation]__[Optional]_
 
 A dict of tool confirmation requested by this event, keyed by function call id.
 
-_field _rewind_before_invocation_id _: str | None_ _ = None_ _(alias 'rewindBeforeInvocationId')_¶
+_field _rewind_before_invocation_id _: Optional[str]__ = None_ _(alias 'rewindBeforeInvocationId')_¶
     
 
 The invocation id to rewind to. This is only set for rewind event.
 
-_field _skip_summarization _: bool | None_ _ = None_ _(alias 'skipSummarization')_¶
+_field _skip_summarization _: Optional[bool]__ = None_ _(alias 'skipSummarization')_¶
     
 
 If true, it won’t call model to summarize function response.
@@ -18626,7 +18688,7 @@ _field _state_delta _: dict[str, object]__[Optional]__(alias 'stateDelta')_¶
 
 Indicates that the event is updating the state with the given delta.
 
-_field _transfer_to_agent _: str | None_ _ = None_ _(alias 'transferToAgent')_¶
+_field _transfer_to_agent _: Optional[str]__ = None_ _(alias 'transferToAgent')_¶
     
 
 If set, the event transfers to the specified agent.
@@ -19562,10 +19624,10 @@ Fields:
 
 
 
-_field _input _: Content_ _[Required]_¶
+_field _input _: types.Content_ _[Required]_¶
     
 
-_field _output _: list[Content]__[Required]_¶
+_field _output _: list[types.Content]__[Required]_¶
     
 
 _class _google.adk.examples.VertexAiExampleStore(_examples_store_name_)¶
@@ -19774,7 +19836,7 @@ Parameters:
 
   * **similarity_top_k** – The number of contexts to retrieve.
 
-  * **vector_distance_threshold** – Only returns contexts with vector distance smaller than the threshold..
+  * **vector_distance_threshold** – Only returns contexts with vector distance smaller than the threshold.
 
 
 
@@ -19993,6 +20055,58 @@ Return type:
     
 
 `AsyncGenerator`[`LlmResponse`, `None`]
+
+_pydantic model _google.adk.models.Claude¶
+    
+
+Bases: `AnthropicLlm`
+
+Integration with Claude models served from Vertex AI.
+
+model¶
+    
+
+The name of the Claude model.
+
+max_tokens¶
+    
+
+The maximum number of tokens to generate.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Claude",
+       "description": "Integration with Claude models served from Vertex AI.\n\nAttributes:\n  model: The name of the Claude model.\n  max_tokens: The maximum number of tokens to generate.",
+       "type": "object",
+       "properties": {
+          "model": {
+             "default": "claude-3-5-sonnet-v2@20241022",
+             "title": "Model",
+             "type": "string"
+          },
+          "max_tokens": {
+             "default": 8192,
+             "title": "Max Tokens",
+             "type": "integer"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `model (str)`
+
+
+
+
+_field _model _: str_ _ = 'claude-3-5-sonnet-v2@20241022'_¶
+    
+
+The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
 
 _pydantic model _google.adk.models.Gemini¶
     
@@ -20353,7 +20467,7 @@ _field _model _: str_ _ = 'gemini-2.5-flash'_¶
 
 The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
 
-_field _retry_options _: types.HttpRetryOptions | None_ _ = None_¶
+_field _retry_options _: Optional[types.HttpRetryOptions]__ = None_¶
     
 
 Allow Gemini to retry failed responses.
@@ -20374,7 +20488,7 @@ retry_options=types.HttpRetryOptions(initial_delay=1, attempts=2),
 
 ## )¶
 
-_field _speech_config _: types.SpeechConfig | None_ _ = None_¶
+_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
     
 
 _field _use_interactions_api _: bool_ _ = False_¶
@@ -20848,6 +20962,107 @@ Yields:
 
 _LlmResponse_ – The model response.
 
+_pydantic model _google.adk.models.Gemma3Ollama¶
+    
+
+Bases: `GemmaFunctionCallingMixin`, `LiteLlm`
+
+Integration for Gemma 3 models running locally via Ollama.
+
+This enables fully local agent workflows using Gemma 3 models. Requires Ollama to be running with a Gemma 3 model pulled.
+
+Example
+
+ollama pull gemma3:12b model = Gemma3Ollama(model=”ollama/gemma3:12b”)
+
+Show JSON schema
+    
+    
+    {
+       "title": "Gemma3Ollama",
+       "type": "object",
+       "properties": {
+          "model": {
+             "title": "Model",
+             "type": "string"
+          },
+          "llm_client": {
+             "default": null,
+             "title": "Llm Client"
+          }
+       },
+       "required": [
+          "model"
+       ]
+    }
+    
+
+Fields:
+    
+
+_classmethod _supported_models()¶
+    
+
+Provides the list of supported models.
+
+This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
+
+Return type:
+    
+
+`list`[`str`]
+
+Returns:
+    
+
+A list of supported models.
+
+_async _generate_content_async(_llm_request_ , _stream =False_)¶
+    
+
+Sends a request to Gemma via Ollama/LiteLLM.
+
+Return type:
+    
+
+`AsyncGenerator`[`LlmResponse`, `None`]
+
+Parameters:
+    
+
+  * **llm_request** – LlmRequest, the request to send.
+
+  * **stream** – bool = False, whether to do streaming call.
+
+
+
+Yields:
+    
+
+_LlmResponse_ – The model response.
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
 _class _google.adk.models.LLMRegistry¶
     
 
@@ -20909,6 +21124,144 @@ Raises:
     
 
 **ValueError** – If the model is not found.
+
+_pydantic model _google.adk.models.LiteLlm¶
+    
+
+Bases: `BaseLlm`
+
+Wrapper around litellm.
+
+This wrapper can be used with any of the models supported by litellm. The environment variable(s) needed for authenticating with the model endpoint must be set prior to instantiating this class.
+
+Example usage: ``` os.environ[“VERTEXAI_PROJECT”] = “your-gcp-project-id” os.environ[“VERTEXAI_LOCATION”] = “your-gcp-location”
+
+agent = Agent(
+    
+
+model=LiteLlm(model=”[vertex_ai/claude-3-7-sonnet@20250219](mailto:vertex_ai/claude-3-7-sonnet%4020250219)”), …
+
+## )¶
+
+model¶
+    
+
+The name of the LiteLlm model.
+
+llm_client¶
+    
+
+The LLM client to use for the model.
+
+Initializes the LiteLlm class.
+
+param model:
+    
+
+The name of the LiteLlm model.
+
+param **kwargs:
+    
+
+Additional arguments to pass to the litellm completion api.
+
+Show JSON schema
+    
+    
+    {
+       "title": "LiteLlm",
+       "type": "object",
+       "properties": {
+          "model": {
+             "title": "Model",
+             "type": "string"
+          },
+          "llm_client": {
+             "default": null,
+             "title": "Llm Client"
+          }
+       },
+       "required": [
+          "model"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `llm_client (LiteLLMClient)`
+
+
+
+
+_field _llm_client _: LiteLLMClient_ _[Optional]_¶
+    
+
+The LLM client to use for the model.
+
+_classmethod _supported_models()¶
+    
+
+Provides the list of supported models.
+
+This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
+
+Return type:
+    
+
+`list`[`str`]
+
+Returns:
+    
+
+A list of supported models.
+
+_async _generate_content_async(_llm_request_ , _stream =False_)¶
+    
+
+Generates content asynchronously.
+
+Return type:
+    
+
+`AsyncGenerator`[`LlmResponse`, `None`]
+
+Parameters:
+    
+
+  * **llm_request** – LlmRequest, the request to send to the LiteLlm model.
+
+  * **stream** – bool = False, whether to do streaming call.
+
+
+
+Yields:
+    
+
+_LlmResponse_ – The model response.
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
 
 # google.adk.planners module¶
 
@@ -21051,7 +21404,7 @@ Returns:
 
 The processed response parts, or None if no processing is needed.
 
-thinking_config _: ThinkingConfig_¶
+thinking_config _: `ThinkingConfig`_¶
     
 
 Config for model built-in thinking features. An error will be returned if this field is set for models that don’t support thinking.
@@ -21132,7 +21485,7 @@ Relation with [Agent callbacks](<https://google.github.io/adk-docs/callbacks/>):
 
 **Execution Order** Similar to Agent callbacks, Plugins are executed in the order they are registered. However, Plugin and Agent Callbacks are executed sequentially, with Plugins takes precedence over agent callbacks. When the callback in a plugin returns a value, it will short circuit all remaining plugins and agent callbacks, causing all remaining plugins and agent callbacks to be skipped.
 
-**Change Propagation** Plugins and agent callbacks can both modify the value of the input parameters, including agent input, tool input, and LLM request/response, etc. They work in the exactly same way. The modifications will be visible and passed to the next callback in the chain. For example, if a plugin modifies the tool input with before_tool_callback, the modified tool input will be passed to the before_tool_callback of the next plugin, and further passed to the agent callbacks if not short circuited.
+**Change Propagation** Plugins and agent callbacks can both modify the value of the input parameters, including agent input, tool input, and LLM request/response, etc. They work in the exactly same way. The modifications will be visible and passed to the next callback in the chain. For example, if a plugin modifies the tool input with before_tool_callback, the modified tool input will be passed to the before_tool_callback of the next plugin, and further passed to the agent callbacks if not short-circuited.
 
 To use a plugin, implement the desired callback methods and pass an instance of your custom plugin class to the ADK Runner.
 
@@ -21500,6 +21853,178 @@ Returns:
 
 An optional types.Content to be returned to the ADK. Returning a value to replace the user message. Returning None to proceed normally.
 
+_class _google.adk.plugins.DebugLoggingPlugin(_*_ , _name ='debug_logging_plugin'_, _output_path ='adk_debug.yaml'_, _include_session_state =True_, _include_system_instruction =True_)¶
+    
+
+Bases: `BasePlugin`
+
+A plugin that captures complete debug information to a file.
+
+This plugin records detailed interaction data including: \- LLM requests (model, system instruction, contents, tools) \- LLM responses (content, usage metadata, errors) \- Function calls with arguments \- Function responses with results \- Events yielded from the runner \- Session state at the end of each invocation
+
+The output is written as YAML format for human readability. Each invocation is appended to the file as a separate YAML document (separated by —). This format is easy to read and can be shared for debugging purposes.
+
+Example
+    
+    
+    >>> debug_plugin = DebugLoggingPlugin(output_path="/tmp/adk_debug.yaml")
+    >>> runner = Runner(
+    ...     agents=[my_agent],
+    ...     plugins=[debug_plugin],
+    ... )
+    
+
+output_path¶
+    
+
+Path to the output file. Defaults to “adk_debug.yaml”.
+
+include_session_state¶
+    
+
+Whether to include session state in the output.
+
+include_system_instruction¶
+    
+
+Whether to include system instructions.
+
+Initialize the debug logging plugin.
+
+Parameters:
+    
+
+  * **name** – The name of the plugin instance.
+
+  * **output_path** – Path to the output file. Defaults to “adk_debug.yaml”.
+
+  * **include_session_state** – Whether to include session state snapshot.
+
+  * **include_system_instruction** – Whether to include full system instructions.
+
+
+
+
+_async _after_agent_callback(_*_ , _agent_ , _callback_context_)¶
+    
+
+Log agent execution completion.
+
+Return type:
+    
+
+`Content` | `None`
+
+_async _after_model_callback(_*_ , _callback_context_ , _llm_response_)¶
+    
+
+Log LLM response after receiving from model.
+
+Return type:
+    
+
+`LlmResponse` | `None`
+
+_async _after_run_callback(_*_ , _invocation_context_)¶
+    
+
+Finalize and write debug data to file.
+
+Return type:
+    
+
+`None`
+
+_async _after_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _result_)¶
+    
+
+Log tool execution completion.
+
+Return type:
+    
+
+`dict`[`str`, `Any`] | `None`
+
+_async _before_agent_callback(_*_ , _agent_ , _callback_context_)¶
+    
+
+Log agent execution start.
+
+Return type:
+    
+
+`Content` | `None`
+
+_async _before_model_callback(_*_ , _callback_context_ , _llm_request_)¶
+    
+
+Log LLM request before sending to model.
+
+Return type:
+    
+
+`LlmResponse` | `None`
+
+_async _before_run_callback(_*_ , _invocation_context_)¶
+    
+
+Initialize debug state for this invocation.
+
+Return type:
+    
+
+`Content` | `None`
+
+_async _before_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_)¶
+    
+
+Log tool execution start.
+
+Return type:
+    
+
+`dict`[`str`, `Any`] | `None`
+
+_async _on_event_callback(_*_ , _invocation_context_ , _event_)¶
+    
+
+Log events yielded from the runner.
+
+Return type:
+    
+
+`Event` | `None`
+
+_async _on_model_error_callback(_*_ , _callback_context_ , _llm_request_ , _error_)¶
+    
+
+Log LLM error.
+
+Return type:
+    
+
+`LlmResponse` | `None`
+
+_async _on_tool_error_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _error_)¶
+    
+
+Log tool error.
+
+Return type:
+    
+
+`dict`[`str`, `Any`] | `None`
+
+_async _on_user_message_callback(_*_ , _invocation_context_ , _user_message_)¶
+    
+
+Log user message and invocation start.
+
+Return type:
+    
+
+`Content` | `None`
+
 _class _google.adk.plugins.LoggingPlugin(_name ='logging_plugin'_)¶
     
 
@@ -21507,7 +22032,7 @@ Bases: `BasePlugin`
 
 A plugin that logs important information at each callback point.
 
-This plugin helps printing all critical events in the console. It is not a replacement of existing logging in ADK. It rather helps terminal based debugging by showing all logs in the console, and serves as a simple demo for everyone to leverage when developing new plugins.
+This plugin helps print all critical events in the console. It is not a replacement of existing logging in ADK. It rather helps terminal based debugging by showing all logs in the console, and serves as a simple demo for everyone to leverage when developing new plugins.
 
 This plugin helps users track the invocation status by logging: \- User messages and invocation context \- Agent execution flow \- LLM requests and responses \- Tool calls with arguments and results \- Events and final responses \- Errors during model and tool execution
 
@@ -22045,7 +22570,7 @@ Parameters:
 
 
 
-_class _google.adk.runners.Runner(_*_ , _app =None_, _app_name =None_, _agent =None_, _plugins =None_, _artifact_service =None_, _session_service_ , _memory_service =None_, _credential_service =None_, _plugin_close_timeout =5.0_)¶
+_class _google.adk.runners.Runner(_*_ , _app =None_, _app_name =None_, _agent =None_, _plugins =None_, _artifact_service =None_, _session_service_ , _memory_service =None_, _credential_service =None_, _plugin_close_timeout =5.0_, _auto_create_session =False_)¶
     
 
 Bases: `object`
@@ -22101,16 +22626,16 @@ The resumability config for the application.
 
 Initializes the Runner.
 
-Developers should provide either an app instance or both app_name and agent. Providing a mix of app and app_name/agent will result in a ValueError. Providing app is the recommended way to create a runner.
+Developers should provide either an app instance or both app_name and agent. When app is provided, app_name can optionally override the app’s name (useful for deployment scenarios like Agent Engine where the resource name differs from the app’s identifier). However, agent should not be provided when app is provided. Providing app is the recommended way to create a runner.
 
 Parameters:
     
 
-  * **app** – An optional App instance. If provided, app_name and agent should not be specified.
+  * **app** – An optional App instance. If provided, agent should not be specified. app_name can optionally override app.name.
 
-  * **app_name** – The application name of the runner. Required if app is not provided.
+  * **app_name** – The application name of the runner. Required if app is not provided. If app is provided, this can optionally override app.name (e.g., for deployment scenarios where a resource name differs from the app identifier).
 
-  * **agent** – The root agent to run. Required if app is not provided.
+  * **agent** – The root agent to run. Required if app is not provided. Should not be provided when app is provided.
 
   * **plugins** – Deprecated. A list of plugins for the runner. Please use the app argument to provide plugins instead.
 
@@ -22124,27 +22649,29 @@ Parameters:
 
   * **plugin_close_timeout** – The timeout in seconds for plugin close methods.
 
+  * **auto_create_session** – Whether to automatically create a session when not found. Defaults to False. If False, a missing session raises ValueError with a helpful message.
+
 
 
 Raises:
     
 
-**ValueError** – If app is provided along with app_name or plugins, or if app is not provided but either app_name or agent is missing.
+**ValueError** – If app is provided along with agent or plugins, or if app is not provided but either app_name or agent is missing.
 
 Self _ = typing.Self_¶
     
 
-agent _: BaseAgent_¶
+agent _: `BaseAgent`_¶
     
 
 The root agent to run.
 
-app_name _: str_¶
+app_name _: `str`_¶
     
 
 The app name of the runner.
 
-artifact_service _: BaseArtifactService | None_ _ = None_¶
+artifact_service _: `Optional`[`BaseArtifactService`]__ = None_¶
     
 
 The artifact service for the runner.
@@ -22154,27 +22681,27 @@ _async _close()¶
 
 Closes the runner.
 
-context_cache_config _: ContextCacheConfig | None_ _ = None_¶
+context_cache_config _: `Optional`[`ContextCacheConfig`]__ = None_¶
     
 
 The context cache config for the runner.
 
-credential_service _: BaseCredentialService | None_ _ = None_¶
+credential_service _: `Optional`[`BaseCredentialService`]__ = None_¶
     
 
 The credential service for the runner.
 
-memory_service _: BaseMemoryService | None_ _ = None_¶
+memory_service _: `Optional`[`BaseMemoryService`]__ = None_¶
     
 
 The memory service for the runner.
 
-plugin_manager _: PluginManager_¶
+plugin_manager _: `PluginManager`_¶
     
 
 The plugin manager for the runner.
 
-resumability_config _: ResumabilityConfig | None_ _ = None_¶
+resumability_config _: `Optional`[`ResumabilityConfig`]__ = None_¶
     
 
 The resumability config for the application.
@@ -22340,7 +22867,7 @@ Return type:
 
 > audio Blob data(inline_data).
 
-  * **Live Model Audio Events with File Data:** Both input and ouput audio data are aggregated into a audio file saved into artifacts. The reference to the file is saved in the event as file_data.
+  * **Live Model Audio Events with File Data:** Both input and ouput audio data are aggregated into an audio file saved into artifacts. The reference to the file is saved in the event as file_data.
 
   * **Usage Metadata:** Events containing token usage.
 
@@ -22355,7 +22882,7 @@ Return type:
 
 **Events Saved to the Session:** * **Live Model Audio Events with File Data:** Both input and ouput audio
 
-> data are aggregated into a audio file saved into artifacts. The reference to the file is saved as event in the file_data to session if RunConfig.save_live_model_audio_to_session is True.
+> data are aggregated into an audio file saved into artifacts. The reference to the file is saved as event in the file_data to session if RunConfig.save_live_model_audio_to_session is True.
 
   * **Usage Metadata Events:** Saved to the session.
 
@@ -22400,7 +22927,7 @@ Note
 
 Either session or both user_id and session_id must be provided.
 
-session_service _: BaseSessionService_¶
+session_service _: `BaseSessionService`_¶
     
 
 The session service for the runner.
@@ -24921,6 +25448,21 @@ Show JSON schema
                 },
                 "credentials": {
                    "$ref": "#/$defs/HttpCredentials"
+                },
+                "additionalHeaders": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Additionalheaders"
                 }
              },
              "required": [
@@ -27300,6 +27842,21 @@ Show JSON schema
                 },
                 "credentials": {
                    "$ref": "#/$defs/HttpCredentials"
+                },
+                "additionalHeaders": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Additionalheaders"
                 }
              },
              "required": [
@@ -28026,7 +28583,7 @@ Bases: `ABC`
 
 The base class for all tools.
 
-custom_metadata _: dict[str, Any] | None_ _ = None_¶
+custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
     
 
 The custom metadata of the BaseTool.
@@ -28035,7 +28592,7 @@ An optional key-value pair for storing and retrieving tool-specific metadata, su
 
 NOTE: the entire dict must be JSON serializable.
 
-description _: str_¶
+description _: `str`_¶
     
 
 The description of the tool.
@@ -28066,12 +28623,12 @@ Returns:
 
 The tool instance.
 
-is_long_running _: bool_ _ = False_¶
+is_long_running _: `bool`_ _ = False_¶
     
 
 Whether the tool is a long running operation, which typically returns a resource id first and finishes the operation later.
 
-name _: str_¶
+name _: `str`_¶
     
 
 The name of the tool.
@@ -29300,7 +29857,7 @@ Bases: `ABC`
 
 The base class for all tools.
 
-custom_metadata _: dict[str, Any] | None_ _ = None_¶
+custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
     
 
 The custom metadata of the BaseTool.
@@ -29309,7 +29866,7 @@ An optional key-value pair for storing and retrieving tool-specific metadata, su
 
 NOTE: the entire dict must be JSON serializable.
 
-description _: str_¶
+description _: `str`_¶
     
 
 The description of the tool.
@@ -29340,12 +29897,12 @@ Returns:
 
 The tool instance.
 
-is_long_running _: bool_ _ = False_¶
+is_long_running _: `bool`_ _ = False_¶
     
 
 Whether the tool is a long running operation, which typically returns a resource id first and finishes the operation later.
 
-name _: str_¶
+name _: `str`_¶
     
 
 The name of the tool.
@@ -29704,6 +30261,133 @@ Return type:
 `List`[`BaseTool`]
 
 # google.adk.tools.crewai_tool module¶
+
+_class _google.adk.tools.crewai_tool.CrewaiTool(_tool_ , _*_ , _name_ , _description_)¶
+    
+
+Bases: `FunctionTool`
+
+Use this class to wrap a CrewAI tool.
+
+If the original tool name and description are not suitable, you can override them in the constructor.
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`CrewaiTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Override run_async to handle CrewAI-specific parameter filtering.
+
+CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
+
+Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
+
+Return type:
+    
+
+`Any`
+
+tool _: CrewaiBaseTool_¶
+    
+
+The wrapped CrewAI tool.
+
+_pydantic model _google.adk.tools.crewai_tool.CrewaiToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "CrewaiToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the CrewAI tool instance.
 
 # google.adk.tools.enterprise_search_tool module¶
 
@@ -30714,7 +31398,7 @@ Fields:
 
 
 
-_field _examples _: list[Example] | str_ _[Required]_¶
+_field _examples _: Union[list[Example], str]__[Required]_¶
     
 
 The examples to add to the LLM request. User can either provide a list of examples or a fully-qualified name to a BaseExampleProvider object in code.
@@ -31202,7 +31886,7 @@ Parameters:
 
 # google.adk.tools.google_search_tool module¶
 
-_class _google.adk.tools.google_search_tool.GoogleSearchTool(_*_ , _bypass_multi_tools_limit =False_)¶
+_class _google.adk.tools.google_search_tool.GoogleSearchTool(_*_ , _bypass_multi_tools_limit =False_, _model =None_)¶
     
 
 Bases: `BaseTool`
@@ -31216,7 +31900,12 @@ Initializes the Google search tool.
 Parameters:
     
 
-**bypass_multi_tools_limit** – Whether to bypass the multi tools limitation, so that the tool can be used with other tools in the same agent.
+  * **bypass_multi_tools_limit** – Whether to bypass the multi tools limitation, so that the tool can be used with other tools in the same agent.
+
+  * **model** – Optional model name to use for processing the LLM request. If provided, this model will be used instead of the model from the incoming llm_request.
+
+
+
 
 _async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
     
@@ -31241,6 +31930,138 @@ Parameters:
 
 
 # google.adk.tools.langchain_tool module¶
+
+_class _google.adk.tools.langchain_tool.LangchainTool(_tool_ , _name =None_, _description =None_)¶
+    
+
+Bases: `FunctionTool`
+
+Adapter class that wraps a Langchain tool for use with ADK.
+
+This adapter converts Langchain tools into a format compatible with Google’s generative AI function calling interface. It preserves the tool’s name, description, and functionality while adapting its schema.
+
+The original tool’s name and description can be overridden if needed.
+
+Parameters:
+    
+
+  * **tool** – A Langchain tool to wrap (BaseTool or a tool with a .run method)
+
+  * **name** – Optional override for the tool’s name
+
+  * **description** – Optional override for the tool’s description
+
+
+
+
+Examples:
+    
+    
+    from langchain.tools import DuckDuckGoSearchTool
+    from google.genai.tools import LangchainTool
+    
+    search_tool = DuckDuckGoSearchTool()
+    wrapped_tool = LangchainTool(search_tool)
+    
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`LangchainTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+_pydantic model _google.adk.tools.langchain_tool.LangchainToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "LangchainToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the Langchain tool instance.
 
 # google.adk.tools.load_artifacts_tool module¶
 
@@ -32307,8 +33128,6 @@ Returns:
 A list of memory results.
 
 # google.adk.tools.load_web_page module¶
-
-Tool for web browse.
 
 google.adk.tools.load_web_page.load_web_page(_url_)¶
     
@@ -33445,6 +34264,85 @@ Return type:
 `SearchMemoryResponse`
 
 # google.adk.tools.toolbox_toolset module¶
+
+_class _google.adk.tools.toolbox_toolset.ToolboxToolset(_server_url_ , _toolset_name =None_, _tool_names =None_, _auth_token_getters =None_, _bound_params =None_, _credentials =None_, _additional_headers =None_, _** kwargs_)¶
+    
+
+Bases: `BaseToolset`
+
+A class that provides access to toolbox toolsets.
+
+Example: ``python toolbox_toolset = ToolboxToolset("http://127.0.0.1:5000") ``
+
+Initializes the ToolboxToolset.
+
+Parameters:
+    
+
+  * **server_url** – The URL of the toolbox server.
+
+  * **toolset_name** – (Optional) The name of the toolbox toolset to load.
+
+  * **tool_names** – (Optional) The names of the tools to load.
+
+  * **auth_token_getters** – 
+
+(Optional) A mapping of authentication service names to callables that return the corresponding authentication token. see: <https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-core#authenticating-tools>
+
+> for details.
+
+  * **bound_params** – 
+
+(Optional) A mapping of parameter names to bind to specific values or callables that are called to produce values as needed. see: <https://github.com/googleapis/mcp-toolbox-sdk-python/tree/main/packages/toolbox-core#binding-parameter-values>
+
+> for details.
+
+  * **credentials** – (Optional) toolbox_adk.CredentialConfig object.
+
+  * **additional_headers** – (Optional) Static headers mapping.
+
+  * ****kwargs** – Additional arguments passed to the underlying toolbox_adk.ToolboxToolset.
+
+
+
+
+The resulting ToolboxToolset will contain both tools loaded by tool_names and toolset_name.
+
+Note: toolset_name and tool_names are optional. If both are omitted, all tools are loaded.
+
+_async _close()¶
+    
+
+Performs cleanup and releases resources held by the toolset.
+
+Note
+
+This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Return all tools in the toolset based on the provided context.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+Parameters:
+    
+
+**readonly_context** (_ReadonlyContext_ _,__optional_) – Context used to filter tools available to the agent. If None, all tools in the toolset are returned.
+
+Returns:
+    
+
+A list of tools available under the specified context.
+
+Return type:
+    
+
+list[BaseTool]
 
 # google.adk.tools.transfer_to_agent_tool module¶
 

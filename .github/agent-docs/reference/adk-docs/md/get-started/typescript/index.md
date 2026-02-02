@@ -25,9 +25,8 @@ Get Started
       * [ Python  ](../python/)
       * TypeScript  [ TypeScript  ](./) Table of contents 
         * Create an agent project 
-          * Define the agent code 
           * Configure project and dependencies 
-          * Compile the project 
+          * Define the agent code 
           * Set your API key 
         * Run your agent 
           * Run with command-line interface 
@@ -103,11 +102,14 @@ Third-party tools
         * [ Asana  ](../../tools/third-party/asana/)
         * [ Atlassian  ](../../tools/third-party/atlassian/)
         * [ Cartesia  ](../../tools/third-party/cartesia/)
+        * [ Chroma  ](../../tools/third-party/chroma/)
+        * [ Daytona  ](../../tools/third-party/daytona/)
         * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
         * [ GitHub  ](../../tools/third-party/github/)
         * [ GitLab  ](../../tools/third-party/gitlab/)
         * [ Hugging Face  ](../../tools/third-party/hugging-face/)
         * [ Linear  ](../../tools/third-party/linear/)
+        * [ MongoDB  ](../../tools/third-party/mongodb/)
         * [ n8n  ](../../tools/third-party/n8n/)
         * [ Notion  ](../../tools/third-party/notion/)
         * [ Postman  ](../../tools/third-party/postman/)
@@ -248,9 +250,8 @@ API Reference
 Table of contents 
 
   * Create an agent project 
-    * Define the agent code 
     * Configure project and dependencies 
-    * Compile the project 
+    * Define the agent code 
     * Set your API key 
   * Run your agent 
     * Run with command-line interface 
@@ -262,27 +263,23 @@ Table of contents
   1. [ Build Agents  ](../)
   2. [ Get Started  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/typescript.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/typescript.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/typescript.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/typescript.md "View Markdown source")
 
 # TypeScript Quickstart for ADK¶
 
 This guide shows you how to get up and running with Agent Development Kit for TypeScript. Before you start, make sure you have the following installed:
 
-  * Node.js 20.12.7 or later
-  * Node Package Manager (npm) 9.2.0 or later
+  * Node.js 24.13.0 or later
+  * Node Package Manager (npm) 11.8.0 or later
 
 
 
 ## Create an agent project¶
 
-Create an agent project with the following files and directory structure:
+Create an empty `my-agent` directory for your project:
     
     
     my-agent/
-        agent.ts        # main agent code
-        package.json    # project configuration
-        tsconfig.json   # TypeScript configuration
-        .env            # API keys or project IDs
     
 
 Create this project structure using the command line
@@ -290,24 +287,32 @@ Create this project structure using the command line
 MacOS / LinuxWindows
     
     
-    mkdir -p my-agent/ && \
-        touch my-agent/agent.ts \
-        touch my-agent/package.json \
-        touch my-agent/.env
+    mkdir -p my-agent/
     
     
     
-    mkdir my-agent\
-    type nul > my-agent\agent.ts
-    type nul > my-agent\package.json
-    type nul > my-agent\.env
+    mkdir my-agent
     
 
-**Note:** Do not create `tsconfig.json`, you generate that file in a later step.
+### Configure project and dependencies¶
+
+Use the `npm` tool to install and configure dependencies for your project, including the package file, ADK TypeScript main library, and developer tools. Run the following commands from your `my-agent/` directory to create the `package.json` file and install the project dependencies:
+    
+    
+    cd my-agent/
+    # initialize a project as an ES module
+    npm init --yes
+    npm pkg set type="module"
+    npm pkg set main="agent.ts"
+    # install ADK libraries
+    npm install @google/adk
+    # install dev tools as a dev dependency
+    npm install -D @google/adk-devtools
+    
 
 ### Define the agent code¶
 
-Create the code for a basic agent, including a simple implementation of an ADK [Function Tool](/adk-docs/tools/function-tools/), called `getCurrentTime`. Add the following code to the `agent.ts` file in your project directory:
+Create the code for a basic agent, including a simple implementation of an ADK [Function Tool](/adk-docs/tools/function-tools/), called `getCurrentTime`. Create an `agent.ts` file in your project directory and add the following code:
 
 my-agent/agent.ts
     
@@ -337,62 +342,6 @@ my-agent/agent.ts
     });
     
 
-### Configure project and dependencies¶
-
-Use the `npm` tool to install and configure dependencies for your project, including the package file, TypeScript configuration, ADK TypeScript main library and developer tools. Run the following commands from your `my-agent/` directory:
-    
-    
-    cd my-agent/
-    # initialize a project with default values
-    npm init --yes
-    # configure TypeScript
-    npm install -D typescript
-    npx tsc --init
-    # install ADK libraries
-    npm install @google/adk
-    npm install @google/adk-devtools
-    
-
-After completing these installation and configuration steps, open the `package.json` project file and verify that the `main:` value is set to `agent.ts`, that the TypeScript dependency is set, as well as the ADK library dependencies, as shown in this example:
-
-my-agent/package.json
-    
-    
-    {
-      "name": "my-agent",
-      "version": "1.0.0",
-      "description": "My ADK Agent",
-      "main": "agent.ts",
-      "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-      },
-      "devDependencies": {
-        "typescript": "^5.9.3"
-      },
-      "dependencies": {
-        "@google/adk": "^0.2.0",
-        "@google/adk-devtools": "^0.2.0"
-      }
-    }
-    
-
-For development convenience, in the `tsconfig.json` file, update the setting for `verbatimModuleSyntax` to `false` to allow simpler syntax when adding modules:
-
-my-agent/tsconfig.json
-    
-    
-        // set to false to allow CommonJS module syntax:
-        "verbatimModuleSyntax": false,
-    
-
-### Compile the project¶
-
-After completing the project setup, compile the project to prepare for running your ADK agent:
-    
-    
-    npx tsc
-    
-
 ### Set your API key¶
 
 This project uses the Gemini API, which requires an API key. If you don't already have Gemini API key, create a key in Google AI Studio on the [API Keys](https://aistudio.google.com/app/apikey) page.
@@ -418,7 +367,7 @@ You can run your ADK agent with the `@google/adk-devtools` library as an interac
 Run your agent with the ADK TypeScript command-line interface tool using the following command:
     
     
-    npx @google/adk-devtools run agent.ts
+    npx adk run agent.ts
     
 
 ### Run with web interface¶
@@ -426,7 +375,7 @@ Run your agent with the ADK TypeScript command-line interface tool using the fol
 Run your agent with the ADK web interface using the following command:
     
     
-    npx @google/adk-devtools web
+    npx adk web
     
 
 This command starts a web server with a chat interface for your agent. You can access the web interface at (http://localhost:8000). Select your agent at the upper right corner and type a request.

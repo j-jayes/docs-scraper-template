@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](asana/)
         * [ Atlassian  ](atlassian/)
         * [ Cartesia  ](cartesia/)
+        * [ Chroma  ](chroma/)
+        * [ Daytona  ](daytona/)
         * [ ElevenLabs  ](elevenlabs/)
         * [ GitHub  ](github/)
         * [ GitLab  ](gitlab/)
         * [ Hugging Face  ](hugging-face/)
         * [ Linear  ](linear/)
+        * [ MongoDB  ](mongodb/)
         * [ n8n  ](n8n/)
         * [ Notion  ](notion/)
         * [ Postman  ](postman/)
@@ -240,13 +243,13 @@ API Reference
   2. [ Tools for Agents  ](../)
   3. [ Third-party tools  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/index.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/index.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/index.md "View Markdown source")
 
 # Third-Party Tools¶
 
 Check out the following third-party tools that you can use with ADK agents:
 
-### [Asana Manage projects, tasks, and goals for team collaboration ](/adk-docs/tools/third-party/asana/) ### [Atlassian Manage issues, search pages, and update team content ](/adk-docs/tools/third-party/atlassian/) ### [Cartesia Generate speech, localize voices, and create audio content ](/adk-docs/tools/third-party/cartesia/) ### [ElevenLabs Generate speech, clone voices, transcribe audio, and create sound effects ](/adk-docs/tools/third-party/elevenlabs/) ### [GitHub Analyze code, manage issues and PRs, and automate workflows ](/adk-docs/tools/third-party/github/) ### [GitLab Perform semantic code search, inspect pipelines, manage merge requests ](/adk-docs/tools/third-party/gitlab/) ### [Hugging Face Access models, datasets, research papers, and AI tools ](/adk-docs/tools/third-party/hugging-face/) ### [Linear Manage issues, track projects, and streamline development ](/adk-docs/tools/third-party/linear/) ### [n8n Trigger automated workflows, connect apps, and process data ](/adk-docs/tools/third-party/n8n/) ### [Notion Search workspaces, create pages, and manage tasks and databases ](/adk-docs/tools/third-party/notion/) ### [Postman Manage API collections, workspaces, and generate client code ](/adk-docs/tools/third-party/postman/) ### [Paypal Manage payments, send invoices, and handle subscriptions ](/adk-docs/tools/third-party/paypal/) ### [Qdrant Store and retrieve information using semantic vector search ](/adk-docs/tools/third-party/qdrant/) ### [Stripe Manage payments, customers, subscriptions, and invoices ](/adk-docs/tools/third-party/stripe/)
+### [Asana Manage projects, tasks, and goals for team collaboration ](/adk-docs/tools/third-party/asana/) ### [Atlassian Manage issues, search pages, and update team content ](/adk-docs/tools/third-party/atlassian/) ### [Cartesia Generate speech, localize voices, and create audio content ](/adk-docs/tools/third-party/cartesia/) ### [Chroma Store and retrieve information using semantic vector search ](/adk-docs/tools/third-party/chroma/) ### [Daytona Execute code, run shell commands, and manage files in secure sandboxes ](/adk-docs/tools/third-party/daytona/) ### [ElevenLabs Generate speech, clone voices, transcribe audio, and create sound effects ](/adk-docs/tools/third-party/elevenlabs/) ### [GitHub Analyze code, manage issues and PRs, and automate workflows ](/adk-docs/tools/third-party/github/) ### [GitLab Perform semantic code search, inspect pipelines, manage merge requests ](/adk-docs/tools/third-party/gitlab/) ### [Hugging Face Access models, datasets, research papers, and AI tools ](/adk-docs/tools/third-party/hugging-face/) ### [Linear Manage issues, track projects, and streamline development ](/adk-docs/tools/third-party/linear/) ### [MongoDB Query collections, manage databases, and analyze schemas ](/adk-docs/tools/third-party/mongodb/) ### [n8n Trigger automated workflows, connect apps, and process data ](/adk-docs/tools/third-party/n8n/) ### [Notion Search workspaces, create pages, and manage tasks and databases ](/adk-docs/tools/third-party/notion/) ### [Postman Manage API collections, workspaces, and generate client code ](/adk-docs/tools/third-party/postman/) ### [Paypal Manage payments, send invoices, and handle subscriptions ](/adk-docs/tools/third-party/paypal/) ### [Qdrant Store and retrieve information using semantic vector search ](/adk-docs/tools/third-party/qdrant/) ### [Stripe Manage payments, customers, subscriptions, and invoices ](/adk-docs/tools/third-party/stripe/)
 
 Back to top  [ Previous  Vertex AI express mode  ](../google-cloud/express-mode/) [ Next  Asana  ](asana/)
 

@@ -94,6 +94,8 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * GitLab  [ GitLab  ](./) Table of contents 
@@ -104,6 +106,7 @@ Third-party tools
           * Additional resources 
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/gitlab.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/gitlab.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/gitlab.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/gitlab.md "View Markdown source")
 
 # GitLab¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [GitLab MCP Server](https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/) connects your ADK agent directly to [GitLab.com](https://gitlab.com/) or your self-managed GitLab instance. This integration gives your agent the ability to manage issues and merge requests, inspect CI/CD pipelines, perform semantic code searches, and automate development workflows using natural language.
 
@@ -280,6 +285,8 @@ The [GitLab MCP Server](https://docs.gitlab.com/user/gitlab_duo/model_context_pr
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP Server
     
@@ -314,6 +321,38 @@ Local MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    // Replace with your instance URL if self-hosted (e.g., "gitlab.example.com")
+    const GITLAB_INSTANCE_URL = "gitlab.com";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "gitlab_agent",
+        instruction: "Help users get information from GitLab",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "mcp-remote",
+                        `https://${GITLAB_INSTANCE_URL}/api/v4/mcp`,
+                        "--static-oauth-client-metadata",
+                        '{"scope": "mcp"}',
+                    ],
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 Note

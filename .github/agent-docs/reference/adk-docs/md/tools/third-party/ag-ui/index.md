@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -257,7 +260,7 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/ag-ui.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/ag-ui.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/ag-ui.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/ag-ui.md "View Markdown source")
 
 # Build chat experiences with AG-UI and CopilotKit¶
 

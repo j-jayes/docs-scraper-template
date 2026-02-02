@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../tools/third-party/asana/)
         * [ Atlassian  ](../tools/third-party/atlassian/)
         * [ Cartesia  ](../tools/third-party/cartesia/)
+        * [ Chroma  ](../tools/third-party/chroma/)
+        * [ Daytona  ](../tools/third-party/daytona/)
         * [ ElevenLabs  ](../tools/third-party/elevenlabs/)
         * [ GitHub  ](../tools/third-party/github/)
         * [ GitLab  ](../tools/third-party/gitlab/)
         * [ Hugging Face  ](../tools/third-party/hugging-face/)
         * [ Linear  ](../tools/third-party/linear/)
+        * [ MongoDB  ](../tools/third-party/mongodb/)
         * [ n8n  ](../tools/third-party/n8n/)
         * [ Notion  ](../tools/third-party/notion/)
         * [ Postman  ](../tools/third-party/postman/)
@@ -255,7 +258,7 @@ Table of contents
 
 
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/community.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/community.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/community.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/community.md "View Markdown source")
 
 # Community Resources¶
 
@@ -275,15 +278,17 @@ Stay Connected
 
 Join the [ADK Community Google Group](https://groups.google.com/g/adk-community) for updates, calendar invites, and to connect with the ADK community.
 
-[ Community Call 📞 ADK Community Call (Dec 2025) Discussions include the ADK TypeScript launch, Gemini 3 Flash support, bidirectional streaming for voice agents, and the Visual Builder UI. ](https://www.youtube.com/watch?v=cNVWhrbdn-E) [ Community Call 📞 ADK Community Call (Nov 2025) Discussions include the ADK Go launch, the reflect & retry plugin for error recovery, and time travel debugging for rewinding agent sessions. ](https://www.youtube.com/watch?v=bftUz-WBqyw) [ Community Call 📞 ADK Community Call (Oct 2025) Discussions include the ADK roadmap, context compaction and caching for reducing cost and latency, and community contribution guidelines. ](https://www.youtube.com/watch?v=A95mQaSRKik)
+See recent recordings below, or browse all past calls on our [YouTube playlist](https://www.youtube.com/playlist?list=PLwi6PfxEP7zZbBPmWiZ8QbPcuKyAY5RR3).
+
+[ Community Call 📞 Jan 2026 Recording Discussions include Session Service schema for cross-language support, TypeScript multi-agent demo, API Registry for MCP servers, and third-party tool integrations. ](https://www.youtube.com/watch?v=h9Lueiqo89E) [ Community Call 📞 Dec 2025 Recording Discussions include the ADK TypeScript launch, Gemini 3 Flash support, bidirectional streaming for voice agents, and the Visual Builder UI. ](https://www.youtube.com/watch?v=cNVWhrbdn-E) [ Community Call 📞 Nov 2025 Recording Discussions include the ADK Go launch, the reflect & retry plugin for error recovery, and time travel debugging for rewinding agent sessions. ](https://www.youtube.com/watch?v=bftUz-WBqyw)
 
 ## Courses & Deep Dives¶
 
-[ Online Course 5-Day AI Agents Intensive Course with Google Build with core ADK agent components including, models, tools, memory, evaluation, and deployment. ](https://www.kaggle.com/learn-guide/5-day-agents) [ Video Course 🎓 ADK Masterclass: Build AI Agents & Automate Workflows A complete crash course that takes you from beginner to expert with 12 hands-on examples. ](https://www.youtube.com/watch?v=P4VFL9nIaIA) [ Website 🎓 ADK Training Hub Master ADK from first principles to production with comprehensive tutorials and examples. ](https://raphaelmansuy.github.io/adk_training/) [ YouTube Playlist 🎓 Master Agentic AI with ADK A step-by-step playlist covering everything from setup to deploying and scaling agents. ](https://www.youtube.com/playlist?list=PLLrA_pU9-Gz2HwepRUVpq1TEPuYWo_fSi) [ YouTube Playlist 🎓 Google ADK End-to-end Course Build, deploy, and scale production-ready agents with this in-depth course series. ](https://www.youtube.com/playlist?list=PL6tW9BrhiPTAZts0W5nQS9dbW6VMnLKab) [ Blog Series 🎓 Building Intelligent Agents with Google ADK A developer's guide to building intelligent agents with Google’s code-first Python toolkit. ](https://iamulya.one/tags/building-intelligent-agents-with-google-adk/) [ YouTube Playlist 📻️ ADK News - ADK Podcast in Japanese An auto-generated Japanese podcast about ADK, created by an ADK agent that covers commit logs, release notes, and blog posts. ](https://www.youtube.com/playlist?list=PL0Zc2RFDZsM_MkHOzWNJpaT4EH5fQxA8n)
+[ Online Course 🎓 5-Day AI Agents Intensive Course with Google Build with core ADK agent components including, models, tools, memory, evaluation, and deployment. ](https://www.kaggle.com/learn-guide/5-day-agents) [ Video Course 🎓 ADK Masterclass: Build AI Agents & Automate Workflows A complete crash course that takes you from beginner to expert with 12 hands-on examples. ](https://www.youtube.com/watch?v=P4VFL9nIaIA) [ Website 🎓 ADK Training Hub Master ADK from first principles to production with comprehensive tutorials and examples. ](https://raphaelmansuy.github.io/adk_training/) [ YouTube Playlist 🎓 Master Agentic AI with ADK A step-by-step playlist covering everything from setup to deploying and scaling agents. ](https://www.youtube.com/playlist?list=PLLrA_pU9-Gz2HwepRUVpq1TEPuYWo_fSi) [ YouTube Playlist 🎓 Google ADK End-to-end Course Build, deploy, and scale production-ready agents with this in-depth course series. ](https://www.youtube.com/playlist?list=PL6tW9BrhiPTAZts0W5nQS9dbW6VMnLKab) [ Blog Series 🎓 Building Intelligent Agents with Google ADK A developer's guide to building intelligent agents with Google's code-first Python toolkit. ](https://iamulya.one/tags/building-intelligent-agents-with-google-adk/) [ Online Course 🎓 Google ADK Masterclass: Hands-on Series Build production-ready AI agents with 20 modules covering agents, workflows, tools, memory, and MCP integrations. ](https://github.com/arjunprabhulal/google-adk-masterclass) [ YouTube Playlist 📻️ ADK News - ADK Podcast in Japanese An auto-generated Japanese podcast about ADK, created by an ADK agent that covers commit logs, release notes, and blog posts. ](https://www.youtube.com/playlist?list=PL0Zc2RFDZsM_MkHOzWNJpaT4EH5fQxA8n)
 
 ## Agent Tutorials and Demos¶
 
-[ Video Tutorial 📖 How to Build a Data Science Agent with ADK A deep dive into building a multi-agent system for database queries, Python analysis, and BigQuery ML. ](https://www.youtube.com/watch?v=efcUXoMX818) [ Video Tutorial 📖 Build a Browser Use Agent with ADK and Selenium Learn to build an agent that enhances a retail website's product data by filling in missing information. ](https://www.youtube.com/watch?v=hPzjkQFV5yI) [ Jupyter Notebook 📖 Build an E-commerce Recommendation Agent A tutorial on creating a simple multi-agent system for generative e-commerce recommendations. ](https://github.com/google/adk-docs/blob/main/examples/python/notebooks/shop_agent.ipynb) [ Blog Post 📖 Google ADK + Vertex AI Live API Go beyond the ADK CLI by building real-time, streaming experiences with the Live API. ](https://medium.com/google-cloud/google-adk-vertex-ai-live-api-125238982d5e) [ Video Demo 📺 Shopper's Concierge Demo See how AI agents can revolutionize shopping with personalized, real-time recommendations. ](https://www.youtube.com/watch?v=LwHPYyw7u6U)
+[ Video Tutorial 📖 How to Build a Data Science Agent with ADK A deep dive into building a multi-agent system for database queries, Python analysis, and BigQuery ML. ](https://www.youtube.com/watch?v=efcUXoMX818) [ Video Tutorial 📖 Build a Browser Use Agent with ADK and Selenium Learn to build an agent that enhances a retail website's product data by filling in missing information. ](https://www.youtube.com/watch?v=hPzjkQFV5yI) [ Jupyter Notebook 📖 Build an E-commerce Recommendation Agent A tutorial on creating a simple multi-agent system for generative e-commerce recommendations. ](https://github.com/google/adk-docs/blob/main/examples/python/notebooks/shop_agent.ipynb) [ Blog Post 📖 Google ADK + Vertex AI Live API Go beyond the ADK CLI by building real-time, streaming experiences with the Live API. ](https://medium.com/google-cloud/google-adk-vertex-ai-live-api-125238982d5e) [ Video Demo 📺 Shopper's Concierge Demo See how AI agents can revolutionize shopping with personalized, real-time recommendations. ](https://www.youtube.com/watch?v=LwHPYyw7u6U) [ Gallery 📖 ADK Agent Directory Discover and test production-ready ADK agents for web search, image generation, research, and more. ](https://agentdirectory.folch.ai/)
 
 ## ADK for Java¶
 

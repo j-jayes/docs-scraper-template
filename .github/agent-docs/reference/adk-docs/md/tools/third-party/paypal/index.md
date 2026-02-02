@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -271,9 +274,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/paypal.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/paypal.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/paypal.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/paypal.md "View Markdown source")
 
 # PayPal¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [PayPal MCP Server](https://github.com/paypal/paypal-mcp-server) connects your ADK agent to the [PayPal](https://www.paypal.com/) ecosystem. This integration gives your agent the ability to manage payments, invoices, subscriptions, and disputes using natural language, enabling automated commerce workflows and business insights.
 
@@ -297,6 +302,8 @@ The [PayPal MCP Server](https://github.com/paypal/paypal-mcp-server) connects yo
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP ServerRemote MCP Server
     
@@ -360,6 +367,42 @@ Local MCP ServerRemote MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const PAYPAL_ENVIRONMENT = "SANDBOX"; // Options: "SANDBOX" or "PRODUCTION"
+    const PAYPAL_ACCESS_TOKEN = "YOUR_PAYPAL_ACCESS_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "paypal_agent",
+        instruction: "Help users manage their PayPal account",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "@paypal/mcp",
+                        "--tools=all",
+                        // (Optional) Specify which tools to enable
+                        // "--tools=subscriptionPlans.list,subscriptionPlans.show",
+                    ],
+                    env: {
+                        PAYPAL_ACCESS_TOKEN: PAYPAL_ACCESS_TOKEN,
+                        PAYPAL_ENVIRONMENT: PAYPAL_ENVIRONMENT,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 Note

@@ -100,11 +100,14 @@ Third-party tools
           * Available tools 
           * Configuration 
           * Additional resources 
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -257,9 +260,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/cartesia.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/cartesia.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/cartesia.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/cartesia.md "View Markdown source")
 
 # Cartesia¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Cartesia MCP Server](https://github.com/cartesia-ai/cartesia-mcp) connects your ADK agent to the [Cartesia](https://cartesia.ai/) AI audio platform. This integration gives your agent the ability to generate speech, localize voices across languages, and create audio content using natural language.
 
@@ -284,6 +289,8 @@ The [Cartesia MCP Server](https://github.com/cartesia-ai/cartesia-mcp) connects 
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP Server
     
@@ -317,6 +324,35 @@ Local MCP Server
     )
     
 
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const CARTESIA_API_KEY = "YOUR_CARTESIA_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "cartesia_agent",
+        instruction: "Help users generate speech and work with audio content",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "uvx",
+                    args: ["cartesia-mcp"],
+                    env: {
+                        CARTESIA_API_KEY: CARTESIA_API_KEY,
+                        // OUTPUT_DIRECTORY: "/path/to/output",  // Optional
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+
 ## Available tools¶
 
 Tool | Description  
@@ -348,7 +384,7 @@ Variable | Description | Required
 
 
 
-Back to top  [ Previous  Atlassian  ](../atlassian/) [ Next  ElevenLabs  ](../elevenlabs/)
+Back to top  [ Previous  Atlassian  ](../atlassian/) [ Next  Chroma  ](../chroma/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

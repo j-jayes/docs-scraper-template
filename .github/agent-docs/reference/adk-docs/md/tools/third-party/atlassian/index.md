@@ -99,11 +99,14 @@ Third-party tools
           * Available tools 
           * Additional resources 
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/atlassian.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/atlassian.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/atlassian.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/atlassian.md "View Markdown source")
 
 # Atlassian¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Atlassian MCP Server](https://github.com/atlassian/atlassian-mcp-server) connects your ADK agent to the [Atlassian](https://www.atlassian.com/) ecosystem, bridging the gap between project tracking in Jira and knowledge management in Confluence. This integration gives your agent the ability to manage issues, search and update documentation pages, and streamline collaboration workflows using natural language.
 
@@ -281,6 +286,8 @@ The [Atlassian MCP Server](https://github.com/atlassian/atlassian-mcp-server) co
 
 ## Use with agent¶
 
+PythonTypeScript
+
 Local MCP Server
     
     
@@ -302,7 +309,7 @@ Local MCP Server
                         args=[
                             "-y",
                             "mcp-remote",
-                            "https://mcp.atlassian.com/v1/sse",
+                            "https://mcp.atlassian.com/v1/mcp",
                         ]
                     ),
                     timeout=30,
@@ -310,6 +317,33 @@ Local MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "atlassian_agent",
+        instruction: "Help users work with data in Atlassian products",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "mcp-remote",
+                        "https://mcp.atlassian.com/v1/mcp",
+                    ],
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 Note

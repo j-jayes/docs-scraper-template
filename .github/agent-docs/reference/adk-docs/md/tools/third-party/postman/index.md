@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * Postman  [ Postman  ](./) Table of contents 
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/postman.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/postman.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/postman.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/postman.md "View Markdown source")
 
 # Postman¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Postman MCP Server](https://github.com/postmanlabs/postman-mcp-server) connects your ADK agent to the [Postman](https://www.postman.com/) ecosystem. This integration gives your agent the ability to access workspaces, manage collections and environments, evaluate APIs, and automate workflows through natural language interactions.
 
@@ -282,6 +287,8 @@ The [Postman MCP Server](https://github.com/postmanlabs/postman-mcp-server) conn
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP ServerRemote MCP Server
     
@@ -345,6 +352,66 @@ Local MCP ServerRemote MCP Server
             )
         ],
     )
+    
+
+Local MCP ServerRemote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const POSTMAN_API_KEY = "YOUR_POSTMAN_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "postman_agent",
+        instruction: "Help users manage their Postman workspaces and collections",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "@postman/postman-mcp-server",
+                        // "--full",  // Use all 100+ tools
+                        // "--code",  // Use code generation tools
+                        // "--region", "eu",  // Use EU region
+                    ],
+                    env: {
+                        POSTMAN_API_KEY: POSTMAN_API_KEY,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const POSTMAN_API_KEY = "YOUR_POSTMAN_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "postman_agent",
+        instruction: "Help users manage their Postman workspaces and collections",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: "https://mcp.postman.com/mcp",
+                // (Optional) Use "/minimal" for essential tools only
+                // (Optional) Use "/code" for code generation tools
+                // (Optional) Use "https://mcp.eu.postman.com" for EU region
+                header: {
+                    Authorization: `Bearer ${POSTMAN_API_KEY}`,
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 ## Configuration¶

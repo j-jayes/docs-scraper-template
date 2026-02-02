@@ -94,6 +94,8 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * ElevenLabs  [ ElevenLabs  ](./) Table of contents 
           * Use cases 
           * Prerequisites 
@@ -110,6 +112,7 @@ Third-party tools
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -267,9 +270,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/elevenlabs.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/elevenlabs.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/elevenlabs.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/elevenlabs.md "View Markdown source")
 
 # ElevenLabs¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [ElevenLabs MCP Server](https://github.com/elevenlabs/elevenlabs-mcp) connects your ADK agent to the [ElevenLabs](https://elevenlabs.io/) AI audio platform. This integration gives your agent the ability to generate speech, clone voices, transcribe audio, create sound effects, and build conversational AI experiences using natural language.
 
@@ -294,6 +299,8 @@ The [ElevenLabs MCP Server](https://github.com/elevenlabs/elevenlabs-mcp) connec
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP Server
     
@@ -324,6 +331,34 @@ Local MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const ELEVENLABS_API_KEY = "YOUR_ELEVENLABS_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "elevenlabs_agent",
+        instruction: "Help users generate speech, clone voices, and process audio",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "uvx",
+                    args: ["elevenlabs-mcp"],
+                    env: {
+                        ELEVENLABS_API_KEY: ELEVENLABS_API_KEY,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 ## Available tools¶
@@ -401,7 +436,7 @@ The `ELEVENLABS_MCP_OUTPUT_MODE` environment variable supports three modes:
 
 
 
-Back to top  [ Previous  Cartesia  ](../cartesia/) [ Next  GitHub  ](../github/)
+Back to top  [ Previous  Daytona  ](../daytona/) [ Next  GitHub  ](../github/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

@@ -94,6 +94,8 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
@@ -105,6 +107,7 @@ Third-party tools
           * Configuration 
           * Additional resources 
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -257,9 +260,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/hugging-face.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/hugging-face.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/hugging-face.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/hugging-face.md "View Markdown source")
 
 # Hugging Face¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Hugging Face MCP Server](https://github.com/huggingface/hf-mcp-server) can be used to connect your ADK agent to the Hugging Face Hub and thousands of Gradio AI Applications.
 
@@ -278,6 +283,8 @@ The [Hugging Face MCP Server](https://github.com/huggingface/hf-mcp-server) can 
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP ServerRemote MCP Server
     
@@ -335,6 +342,57 @@ Local MCP ServerRemote MCP Server
             )
         ],
     )
+    
+
+Local MCP ServerRemote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const HUGGING_FACE_TOKEN = "YOUR_HUGGING_FACE_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "hugging_face_agent",
+        instruction: "Help users get information from Hugging Face",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: ["-y", "@llmindset/hf-mcp-server"],
+                    env: {
+                        HF_TOKEN: HUGGING_FACE_TOKEN,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const HUGGING_FACE_TOKEN = "YOUR_HUGGING_FACE_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "hugging_face_agent",
+        instruction: "Help users get information from Hugging Face",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: "https://huggingface.co/mcp",
+                header: {
+                    Authorization: `Bearer ${HUGGING_FACE_TOKEN}`,
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 ## Available tools¶

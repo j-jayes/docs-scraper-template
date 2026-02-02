@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../../../tools/third-party/asana/)
         * [ Atlassian  ](../../../tools/third-party/atlassian/)
         * [ Cartesia  ](../../../tools/third-party/cartesia/)
+        * [ Chroma  ](../../../tools/third-party/chroma/)
+        * [ Daytona  ](../../../tools/third-party/daytona/)
         * [ ElevenLabs  ](../../../tools/third-party/elevenlabs/)
         * [ GitHub  ](../../../tools/third-party/github/)
         * [ GitLab  ](../../../tools/third-party/gitlab/)
         * [ Hugging Face  ](../../../tools/third-party/hugging-face/)
         * [ Linear  ](../../../tools/third-party/linear/)
+        * [ MongoDB  ](../../../tools/third-party/mongodb/)
         * [ n8n  ](../../../tools/third-party/n8n/)
         * [ Notion  ](../../../tools/third-party/notion/)
         * [ Postman  ](../../../tools/third-party/postman/)
@@ -311,7 +314,7 @@ Table of contents
   2. [ Bidi-streaming (live)  ](../../)
   3. [ Bidi-streaming development guide series  ](../part1/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/streaming/dev-guide/part4.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/dev-guide/part4.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/streaming/dev-guide/part4.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/dev-guide/part4.md "View Markdown source")
 
 # Part 4: Understanding RunConfig¶
 
@@ -554,7 +557,7 @@ SSE (Server-Sent Events) mode uses HTTP streaming where you send a complete requ
 
 **Default Behavior:**
 
-Progressive SSE streaming is **enabled by default** in ADK. This means when you use `StreamingMode.SSE`, you automatically benefit from these improvements without any configuration.
+When you use `StreamingMode.SSE`, progressive SSE streaming is **enabled by default**. This means you automatically benefit from these improvements without any additional configuration.
 
 **Disabling the feature (if needed):**
 

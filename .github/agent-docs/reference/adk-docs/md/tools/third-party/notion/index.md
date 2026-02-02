@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * Notion  [ Notion  ](./) Table of contents 
           * Use cases 
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/notion.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/notion.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/notion.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/notion.md "View Markdown source")
 
 # Notion¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Notion MCP Server](https://github.com/makenotion/notion-mcp-server) connects your ADK agent to Notion, allowing it to search, create, and manage pages, databases, and more within a workspace. This gives your agent the ability to query, create, and organize content in your Notion workspace using natural language.
 
@@ -282,6 +287,8 @@ The [Notion MCP Server](https://github.com/makenotion/notion-mcp-server) connect
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP Server
     
@@ -315,6 +322,34 @@ Local MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const NOTION_TOKEN = "YOUR_NOTION_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "notion_agent",
+        instruction: "Help users get information from Notion",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: ["-y", "@notionhq/notion-mcp-server"],
+                    env: {
+                        NOTION_TOKEN: NOTION_TOKEN,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 ## Available tools¶

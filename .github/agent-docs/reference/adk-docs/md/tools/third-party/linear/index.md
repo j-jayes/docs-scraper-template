@@ -94,6 +94,8 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
@@ -104,6 +106,7 @@ Third-party tools
           * Use with agent 
           * Available tools 
           * Additional resources 
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/linear.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/linear.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/linear.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/linear.md "View Markdown source")
 
 # Linear¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Linear MCP Server](https://linear.app/docs/mcp) connects your ADK agent to [Linear](https://linear.app/), a purpose-built tool for planning and building products. This integration gives your agent the ability to manage issues, track project cycles, and automate development workflows using natural language.
 
@@ -280,6 +285,8 @@ The [Linear MCP Server](https://linear.app/docs/mcp) connects your ADK agent to 
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP ServerRemote MCP Server
     
@@ -343,6 +350,60 @@ Note
 
 This code example uses an API key for authentication. To use a browser-based OAuth authentication flow instead, remove the `headers` parameter and run the agent.
 
+Local MCP ServerRemote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "linear_agent",
+        instruction: "Help users manage issues, projects, and cycles in Linear",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+
+Note
+
+When you run this agent for the first time, a browser window will open automatically to request access via OAuth. Alternatively, you can use the authorization URL printed in the console. You must approve this request to allow the agent to access your Linear data.
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const LINEAR_API_KEY = "YOUR_LINEAR_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "linear_agent",
+        instruction: "Help users manage issues, projects, and cycles in Linear",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: "https://mcp.linear.app/mcp",
+                header: {
+                    Authorization: `Bearer ${LINEAR_API_KEY}`,
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+
+Note
+
+This code example uses an API key for authentication. To use a browser-based OAuth authentication flow instead, remove the `header` property and run the agent.
+
 ## Available tools¶
 
 Tool | Description  
@@ -378,7 +439,7 @@ Tool | Description
 
 
 
-Back to top  [ Previous  Hugging Face  ](../hugging-face/) [ Next  n8n  ](../n8n/)
+Back to top  [ Previous  Hugging Face  ](../hugging-face/) [ Next  MongoDB  ](../mongodb/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -259,9 +262,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/qdrant.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/qdrant.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/qdrant.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/qdrant.md "View Markdown source")
 
 # Qdrant¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Qdrant MCP Server](https://github.com/qdrant/mcp-server-qdrant) connects your ADK agent to [Qdrant](https://qdrant.tech/), an open-source vector search engine. This integration gives your agent the ability to store and retrieve information using semantic search.
 
@@ -286,6 +291,8 @@ The [Qdrant MCP Server](https://github.com/qdrant/mcp-server-qdrant) connects yo
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP Server
     
@@ -320,6 +327,38 @@ Local MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const QDRANT_URL = "http://localhost:6333"; // Or your Qdrant Cloud URL
+    const COLLECTION_NAME = "my_collection";
+    // const QDRANT_API_KEY = "YOUR_QDRANT_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "qdrant_agent",
+        instruction: "Help users store and retrieve information using semantic search",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "uvx",
+                    args: ["mcp-server-qdrant"],
+                    env: {
+                        QDRANT_URL: QDRANT_URL,
+                        COLLECTION_NAME: COLLECTION_NAME,
+                        // QDRANT_API_KEY: QDRANT_API_KEY,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 ## Available tools¶

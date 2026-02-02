@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * n8n  [ n8n  ](./) Table of contents 
           * Use cases 
           * Prerequisites 
@@ -257,9 +260,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/n8n.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/n8n.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/n8n.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/n8n.md "View Markdown source")
 
 # n8n¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [n8n MCP Server](https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/) connects your ADK agent to [n8n](https://n8n.io/), an extendable workflow automation tool. This integration allows your agent to securely connect to an n8n instance to search, inspect, and trigger workflows directly from a natural language interface.
 
@@ -289,6 +294,8 @@ The configuration guide on this page covers **Instance-level MCP access** , whic
 Refer to the [n8n MCP documentation](https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/) for detailed setup instructions.
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP ServerRemote MCP Server
     
@@ -351,6 +358,63 @@ Local MCP ServerRemote MCP Server
     )
     
 
+Local MCP ServerRemote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const N8N_INSTANCE_URL = "https://localhost:5678";
+    const N8N_MCP_TOKEN = "YOUR_N8N_MCP_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "n8n_agent",
+        instruction: "Help users manage and execute workflows in n8n",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "supergateway",
+                        "--streamableHttp",
+                        `${N8N_INSTANCE_URL}/mcp-server/http`,
+                        "--header",
+                        `authorization:Bearer ${N8N_MCP_TOKEN}`,
+                    ],
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const N8N_INSTANCE_URL = "https://localhost:5678";
+    const N8N_MCP_TOKEN = "YOUR_N8N_MCP_TOKEN";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "n8n_agent",
+        instruction: "Help users manage and execute workflows in n8n",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: `${N8N_INSTANCE_URL}/mcp-server/http`,
+                header: {
+                    Authorization: `Bearer ${N8N_MCP_TOKEN}`,
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+
 ## Available tools¶
 
 Tool | Description  
@@ -378,7 +442,7 @@ To make workflows accessible to your agent, they must meet the following criteri
 
 
 
-Back to top  [ Previous  Linear  ](../linear/) [ Next  Notion  ](../notion/)
+Back to top  [ Previous  MongoDB  ](../mongodb/) [ Next  Notion  ](../notion/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

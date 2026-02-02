@@ -108,11 +108,14 @@ Third-party tools
         * [ Asana  ](../../third-party/asana/)
         * [ Atlassian  ](../../third-party/atlassian/)
         * [ Cartesia  ](../../third-party/cartesia/)
+        * [ Chroma  ](../../third-party/chroma/)
+        * [ Daytona  ](../../third-party/daytona/)
         * [ ElevenLabs  ](../../third-party/elevenlabs/)
         * [ GitHub  ](../../third-party/github/)
         * [ GitLab  ](../../third-party/gitlab/)
         * [ Hugging Face  ](../../third-party/hugging-face/)
         * [ Linear  ](../../third-party/linear/)
+        * [ MongoDB  ](../../third-party/mongodb/)
         * [ n8n  ](../../third-party/n8n/)
         * [ Notion  ](../../third-party/notion/)
         * [ Postman  ](../../third-party/postman/)
@@ -273,7 +276,7 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Google Cloud tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/google-cloud/application-integration.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/google-cloud/application-integration.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/google-cloud/application-integration.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/google-cloud/application-integration.md "View Markdown source")
 
 # Application Integration Tools for ADK¶
 

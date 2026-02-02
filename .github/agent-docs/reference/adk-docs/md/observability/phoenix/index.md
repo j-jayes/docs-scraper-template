@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../../tools/third-party/asana/)
         * [ Atlassian  ](../../tools/third-party/atlassian/)
         * [ Cartesia  ](../../tools/third-party/cartesia/)
+        * [ Chroma  ](../../tools/third-party/chroma/)
+        * [ Daytona  ](../../tools/third-party/daytona/)
         * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
         * [ GitHub  ](../../tools/third-party/github/)
         * [ GitLab  ](../../tools/third-party/gitlab/)
         * [ Hugging Face  ](../../tools/third-party/hugging-face/)
         * [ Linear  ](../../tools/third-party/linear/)
+        * [ MongoDB  ](../../tools/third-party/mongodb/)
         * [ n8n  ](../../tools/third-party/n8n/)
         * [ Notion  ](../../tools/third-party/notion/)
         * [ Postman  ](../../tools/third-party/postman/)
@@ -260,7 +263,7 @@ Table of contents
   1. [ Run Agents  ](../../runtime/)
   2. [ Observability  ](../logging/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/observability/phoenix.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/observability/phoenix.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/observability/phoenix.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/observability/phoenix.md "View Markdown source")
 
 # Agent Observability with Phoenix¶
 

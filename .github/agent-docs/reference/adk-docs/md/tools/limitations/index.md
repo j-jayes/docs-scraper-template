@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../third-party/asana/)
         * [ Atlassian  ](../third-party/atlassian/)
         * [ Cartesia  ](../third-party/cartesia/)
+        * [ Chroma  ](../third-party/chroma/)
+        * [ Daytona  ](../third-party/daytona/)
         * [ ElevenLabs  ](../third-party/elevenlabs/)
         * [ GitHub  ](../third-party/github/)
         * [ GitLab  ](../third-party/gitlab/)
         * [ Hugging Face  ](../third-party/hugging-face/)
         * [ Linear  ](../third-party/linear/)
+        * [ MongoDB  ](../third-party/mongodb/)
         * [ n8n  ](../third-party/n8n/)
         * [ Notion  ](../third-party/notion/)
         * [ Postman  ](../third-party/postman/)
@@ -250,13 +253,17 @@ Table of contents
   1. [ Build Agents  ](../../get-started/)
   2. [ Tools for Agents  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/limitations.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/limitations.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/limitations.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/limitations.md "View Markdown source")
 
 # Limitations for ADK tools¶
 
 Some ADK tools have limitations that can impact how you implement them within an agent workflow. This page lists these tool limitations and workarounds, if available.
 
 ## One tool per agent limitation¶
+
+ONLY for Search in ADK Python v1.15.0 and lower
+
+This limitation only applies to the use of Google Search and Vertex AI Search tools in ADK Python v1.15.0 and lower. ADK Python release v1.16.0 and higher provides a built-in workaround to remove this limitation.
 
 In general, you can use more than one tool in an agent, but use of specific tools within an agent excludes the use of any other tools in that agent. The following ADK Tools can only be used by themselves, without any other tools, in a single agent object:
 

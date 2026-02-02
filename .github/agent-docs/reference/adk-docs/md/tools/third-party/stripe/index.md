@@ -94,11 +94,14 @@ Third-party tools
         * [ Asana  ](../asana/)
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/stripe.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/stripe.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/stripe.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/stripe.md "View Markdown source")
 
 # Stripe¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Stripe MCP Server](https://docs.stripe.com/mcp) connects your ADK agent to the [Stripe](https://stripe.com/) ecosystem. This integration gives your agent the ability to manage payments, customers, subscriptions, and invoices using natural language, enabling automated commerce workflows and financial operations.
 
@@ -280,6 +285,8 @@ The [Stripe MCP Server](https://docs.stripe.com/mcp) connects your ADK agent to 
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP ServerRemote MCP Server
     
@@ -340,6 +347,63 @@ Local MCP ServerRemote MCP Server
             )
         ],
     )
+    
+
+Local MCP ServerRemote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const STRIPE_SECRET_KEY = "YOUR_STRIPE_SECRET_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "stripe_agent",
+        instruction: "Help users manage their Stripe account",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "@stripe/mcp",
+                        "--tools=all",
+                        // (Optional) Specify which tools to enable
+                        // "--tools=customers.read,invoices.read,products.read",
+                    ],
+                    env: {
+                        STRIPE_SECRET_KEY: STRIPE_SECRET_KEY,
+                    },
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const STRIPE_SECRET_KEY = "YOUR_STRIPE_SECRET_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "stripe_agent",
+        instruction: "Help users manage their Stripe account",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: "https://mcp.stripe.com",
+                header: {
+                    Authorization: `Bearer ${STRIPE_SECRET_KEY}`,
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 Best practices

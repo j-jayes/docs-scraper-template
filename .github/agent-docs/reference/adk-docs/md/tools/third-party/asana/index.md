@@ -99,11 +99,14 @@ Third-party tools
           * Additional resources 
         * [ Atlassian  ](../atlassian/)
         * [ Cartesia  ](../cartesia/)
+        * [ Chroma  ](../chroma/)
+        * [ Daytona  ](../daytona/)
         * [ ElevenLabs  ](../elevenlabs/)
         * [ GitHub  ](../github/)
         * [ GitLab  ](../gitlab/)
         * [ Hugging Face  ](../hugging-face/)
         * [ Linear  ](../linear/)
+        * [ MongoDB  ](../mongodb/)
         * [ n8n  ](../n8n/)
         * [ Notion  ](../notion/)
         * [ Postman  ](../postman/)
@@ -255,9 +258,11 @@ Table of contents
   2. [ Tools for Agents  ](../../)
   3. [ Third-party tools  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/asana.md "Edit this page") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/asana.md "View source of this page")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools/third-party/asana.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/third-party/asana.md "View Markdown source")
 
 # Asana¶
+
+Supported in ADKPython v0.1.0TypeScript v0.2.0
 
 The [Asana MCP Server](https://developers.asana.com/docs/using-asanas-mcp-server) connects your ADK agent to the [Asana](https://asana.com/) work management platform. This integration gives your agent the ability to manage projects, tasks, goals, and team collaboration using natural language.
 
@@ -279,6 +284,8 @@ The [Asana MCP Server](https://developers.asana.com/docs/using-asanas-mcp-server
 
 
 ## Use with agent¶
+
+PythonTypeScript
 
 Local MCP Server
     
@@ -308,6 +315,33 @@ Local MCP Server
             )
         ],
     )
+    
+
+Local MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "asana_agent",
+        instruction: "Help users manage projects, tasks, and goals in Asana",
+        tools: [
+            new MCPToolset({
+                type: "StdioConnectionParams",
+                serverParams: {
+                    command: "npx",
+                    args: [
+                        "-y",
+                        "mcp-remote",
+                        "https://mcp.asana.com/sse",
+                    ],
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
     
 
 Note
