@@ -4,7 +4,7 @@ Skip to content
 
 [ Agent Development Kit ](../.. "Agent Development Kit")
 
-Understanding Google Search Grounding 
+Google Search Grounding 
 
 Initializing search 
 
@@ -62,54 +62,9 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
-    * [ Tools for Agents  ](../../tools/)
+    * [ Tools and Integrations  ](../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../../tools/third-party/asana/)
-        * [ Atlassian  ](../../tools/third-party/atlassian/)
-        * [ Cartesia  ](../../tools/third-party/cartesia/)
-        * [ Chroma  ](../../tools/third-party/chroma/)
-        * [ Daytona  ](../../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../../tools/third-party/github/)
-        * [ GitLab  ](../../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../../tools/third-party/hugging-face/)
-        * [ Linear  ](../../tools/third-party/linear/)
-        * [ MongoDB  ](../../tools/third-party/mongodb/)
-        * [ n8n  ](../../tools/third-party/n8n/)
-        * [ Notion  ](../../tools/third-party/notion/)
-        * [ Postman  ](../../tools/third-party/postman/)
-        * [ PayPal  ](../../tools/third-party/paypal/)
-        * [ Qdrant  ](../../tools/third-party/qdrant/)
-        * [ Stripe  ](../../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../../tools-custom/)
 
 Custom Tools 
@@ -120,6 +75,7 @@ Custom Tools
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -143,15 +99,6 @@ Agent Engine
       * [ GKE  ](../../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../../observability/logging/)
-      * [ Cloud Trace  ](../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../observability/agentops/)
-      * [ Arize AX  ](../../observability/arize-ax/)
-      * [ Freeplay  ](../../observability/freeplay/)
-      * [ MLflow  ](../../observability/mlflow/)
-      * [ Monocle  ](../../observability/monocle/)
-      * [ Phoenix  ](../../observability/phoenix/)
-      * [ W&B; Weave  ](../../observability/weave/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -194,7 +141,6 @@ Apps
     * [ Plugins  ](../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../plugins/reflect-and-retry/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -219,8 +165,10 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
-    * Grounding  Grounding 
-      * Understanding Google Search Grounding  [ Understanding Google Search Grounding  ](./) Table of contents 
+    * [ Grounding  ](../)
+
+Grounding 
+      * Google Search Grounding  [ Google Search Grounding  ](./) Table of contents 
         * What You'll Learn 
           * Additional resource 
         * Google Search Grounding Quickstart 
@@ -239,7 +187,7 @@ Bidi-streaming (live)
           * How to display grounding responses with Google Search 
             * Displaying Search Suggestions 
         * Summary 
-      * [ Understanding Vertex AI Search Grounding  ](../vertex_ai_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
@@ -281,11 +229,11 @@ Table of contents
 
 
   1. [ Components  ](../../get-started/about/)
-  2. [ Grounding  ](./)
+  2. [ Grounding  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/grounding/google_search_grounding.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/grounding/google_search_grounding.md "View Markdown source")
 
-# Understanding Google Search Grounding¶
+# Google Search Grounding for agents¶
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0
 
@@ -628,7 +576,7 @@ Google Search Grounding transforms AI agents from static knowledge repositories 
 
 The grounding process seamlessly connects user queries to Google's vast search index, enriching responses with up-to-date context while maintaining the conversational flow. With proper implementation and display of grounded responses, your agents become powerful tools for information discovery and decision-making.
 
-Back to top  [ Previous  Configuring Bidi-streaming behavior  ](../../streaming/configuration/) [ Next  Understanding Vertex AI Search Grounding  ](../vertex_ai_search_grounding/)
+Back to top  [ Previous  Grounding agents with data  ](../) [ Next  Vertex AI Search Grounding  ](../vertex_ai_search_grounding/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog](https://modelcontextprotocol.info/blog/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -67,13 +67,12 @@
 
       * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
       * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [GitHub Actions 自动化发布](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [消费 Registry 数据](https://modelcontextprotocol.info/tools/registry/consuming/)
+      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
+      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
       * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
 
     * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
     * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-    * [测试](https://modelcontextprotocol.info/tools/test/)
 
   * [Specification ](https://modelcontextprotocol.info/specification/)
 
@@ -172,13 +171,13 @@
     * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
     * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
     * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [一文读懂MCP协议：大模型AI-Agent的USB-C接口](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
+    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
 
   * [About](https://modelcontextprotocol.info/about/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
   * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
@@ -225,7 +224,7 @@
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
 
@@ -289,7 +288,7 @@ Writing Effective Tools for Agents: Complete MCP Development Guide
 
 Agents are only as effective as the tools we give them. This guide shares how to write high-quality tools and evaluations, and how you can boost performance by using Claude to optimize its tools for itself.
 
-The [Model Context Protocol (MCP)](./../../introduction) can empower LLM agents with potentially hundreds of tools to solve real-world tasks. But how do we make those tools maximally effective?
+The [Model Context Protocol (MCP)](./../../introduction/) can empower LLM agents with potentially hundreds of tools to solve real-world tasks. But how do we make those tools maximally effective?
 
 In this guide, we describe our most effective techniques for improving performance in a variety of agentic AI systems.
 
@@ -301,7 +300,7 @@ When we traditionally write software, we're establishing a contract between dete
 
 **Tools are a new kind of software** which reflects a contract between deterministic systems and non-deterministic agents. When a user asks "Should I bring an umbrella today?," an agent might call the weather tool, answer from general knowledge, or even ask a clarifying question about location first. Occasionally, an agent might hallucinate or even fail to grasp how to use a tool.
 
-This means **fundamentally rethinking our approach** when writing software for agents: instead of writing tools and [MCP servers](../../../docs/introduction) the way we'd write functions and APIs for other developers or systems, we need to design them for agents.
+This means **fundamentally rethinking our approach** when writing software for agents: instead of writing tools and [MCP servers](../../../docs/introduction/) the way we'd write functions and APIs for other developers or systems, we need to design them for agents.
 
 ## How to Write Tools
 
@@ -309,9 +308,9 @@ This means **fundamentally rethinking our approach** when writing software for a
 
 It can be difficult to anticipate which tools agents will find ergonomic and which tools they won't without getting hands-on yourself. Start by standing up a quick prototype of your tools.
 
-If you're using Claude Code to write your tools, it helps to give Claude documentation for any software libraries, APIs, or SDKs (including potentially the [MCP SDK](../sdk)) your tools will rely on. LLM-friendly documentation can commonly be found in flat `llms.txt` files on official documentation sites.
+If you're using Claude Code to write your tools, it helps to give Claude documentation for any software libraries, APIs, or SDKs (including potentially the [MCP SDK](../sdk/)) your tools will rely on. LLM-friendly documentation can commonly be found in flat `llms.txt` files on official documentation sites.
 
-Wrapping your tools in a [local MCP server](../quickstart/server) will allow you to connect and test your tools in Claude Code or the Claude Desktop app.
+Wrapping your tools in a [local MCP server](../quickstart/server/) will allow you to connect and test your tools in Claude Code or the Claude Desktop app.
 
 To connect your local MCP server to Claude Code, run `claude mcp add <name> <command> [args...]`.
 
@@ -350,7 +349,7 @@ With your early prototype, Claude Code can quickly explore your tools and create
 
 **Weaker evaluation task examples:**
 
-  * Schedule a meeting with [[email protected]](/cdn-cgi/l/email-protection#1a707b747f5a7b79777f347975686a) next week.
+  * Schedule a meeting with [[email protected]](/cdn-cgi/l/email-protection#81ebe0efe4c1e0e2ece4afe2eef3f1) next week.
   * Search the payment logs for `purchase_complete` and `customer_id=9182`.
   * Find the cancellation request by Customer ID 45892.
 
@@ -508,16 +507,16 @@ As agents become more capable, the tools they use will evolve alongside them. Wi
 
 ## Related Resources
 
-  * [MCP Tools Concepts](../concepts/tools) \- Learn the basics of MCP tools
-  * [Building MCP Servers](../quickstart/server) \- Create your first MCP server
-  * [Best Practices Guide](../best-practices) \- MCP development best practices
+  * [MCP Tools Concepts](../concepts/tools/) \- Learn the basics of MCP tools
+  * [Building MCP Servers](../quickstart/server/) \- Create your first MCP server
+  * [Best Practices Guide](../best-practices/) \- MCP development best practices
   * [Tool Evaluation Cookbook](https://github.com/anthropics/anthropic-cookbook/blob/main/tool_evaluation/tool_evaluation.ipynb) \- End-to-end evaluation examples
 
 
 
 [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/ "Building MCP clients-Node.js")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://moltBotlab.com/ "molt Bot 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

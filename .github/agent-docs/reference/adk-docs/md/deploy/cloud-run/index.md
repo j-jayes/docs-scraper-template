@@ -62,54 +62,9 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
-    * [ Tools for Agents  ](../../tools/)
+    * [ Tools and Integrations  ](../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../../tools/third-party/asana/)
-        * [ Atlassian  ](../../tools/third-party/atlassian/)
-        * [ Cartesia  ](../../tools/third-party/cartesia/)
-        * [ Chroma  ](../../tools/third-party/chroma/)
-        * [ Daytona  ](../../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../../tools/third-party/github/)
-        * [ GitLab  ](../../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../../tools/third-party/hugging-face/)
-        * [ Linear  ](../../tools/third-party/linear/)
-        * [ MongoDB  ](../../tools/third-party/mongodb/)
-        * [ n8n  ](../../tools/third-party/n8n/)
-        * [ Notion  ](../../tools/third-party/notion/)
-        * [ Postman  ](../../tools/third-party/postman/)
-        * [ PayPal  ](../../tools/third-party/paypal/)
-        * [ Qdrant  ](../../tools/third-party/qdrant/)
-        * [ Stripe  ](../../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../../tools-custom/)
 
 Custom Tools 
@@ -120,6 +75,7 @@ Custom Tools
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -155,6 +111,9 @@ Agent Engine
               * Full command with optional flags 
               * Arguments 
               * Options 
+              * Passing gcloud CLI Arguments 
+                * Syntax Example: 
+                * Example: 
               * Authenticated access 
           * gcloud CLI for Python 
             * Project Structure 
@@ -184,15 +143,6 @@ Agent Engine
       * [ GKE  ](../gke/)
     * Observability  Observability 
       * [ Logging  ](../../observability/logging/)
-      * [ Cloud Trace  ](../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../observability/agentops/)
-      * [ Arize AX  ](../../observability/arize-ax/)
-      * [ Freeplay  ](../../observability/freeplay/)
-      * [ MLflow  ](../../observability/mlflow/)
-      * [ Monocle  ](../../observability/monocle/)
-      * [ Phoenix  ](../../observability/phoenix/)
-      * [ W&B; Weave  ](../../observability/weave/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -235,7 +185,6 @@ Apps
     * [ Plugins  ](../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../plugins/reflect-and-retry/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -260,9 +209,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
@@ -297,6 +248,9 @@ Table of contents
         * Full command with optional flags 
         * Arguments 
         * Options 
+        * Passing gcloud CLI Arguments 
+          * Syntax Example: 
+          * Example: 
         * Authenticated access 
     * gcloud CLI for Python 
       * Project Structure 
@@ -508,6 +462,22 @@ Optional but recommended: Setting environment variables can make the deployment 
   * `--help`: Show the help message and exit.
 
 
+
+##### Passing gcloud CLI Arguments¶
+
+To pass specific gcloud flags through the `adk deploy cloud_run` command, use the double-dash separator (`--`) after the ADK arguments. Any flags (except ADK-managed) following the `--` will be passed directly to the underlying gcloud command.
+
+###### Syntax Example:¶
+    
+    
+    adk deploy cloud_run [ADK_FLAGS] -- [GCLOUD_FLAGS]
+    
+
+###### Example:¶
+    
+    
+    adk deploy cloud_run --project=[PROJECT_ID] --region=[REGION] path/to/my_agent    -- --no-allow-unauthenticated --min-instances=2
+    
 
 ##### Authenticated access¶
 

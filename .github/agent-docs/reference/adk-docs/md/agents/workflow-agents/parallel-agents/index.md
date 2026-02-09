@@ -66,54 +66,9 @@ Models for Agents
       * [ Ollama  ](../../models/ollama/)
       * [ vLLM  ](../../models/vllm/)
       * [ LiteLLM  ](../../models/litellm/)
-    * [ Tools for Agents  ](../../../tools/)
+    * [ Tools and Integrations  ](../../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../../../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../../../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../../../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../../../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../../../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../../../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../../../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../../../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../../../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../../../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../../../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../../../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../../../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../../../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../../../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../../../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../../../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../../../tools/third-party/asana/)
-        * [ Atlassian  ](../../../tools/third-party/atlassian/)
-        * [ Cartesia  ](../../../tools/third-party/cartesia/)
-        * [ Chroma  ](../../../tools/third-party/chroma/)
-        * [ Daytona  ](../../../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../../../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../../../tools/third-party/github/)
-        * [ GitLab  ](../../../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../../../tools/third-party/hugging-face/)
-        * [ Linear  ](../../../tools/third-party/linear/)
-        * [ MongoDB  ](../../../tools/third-party/mongodb/)
-        * [ n8n  ](../../../tools/third-party/n8n/)
-        * [ Notion  ](../../../tools/third-party/notion/)
-        * [ Postman  ](../../../tools/third-party/postman/)
-        * [ PayPal  ](../../../tools/third-party/paypal/)
-        * [ Qdrant  ](../../../tools/third-party/qdrant/)
-        * [ Stripe  ](../../../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../../../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../../../tools-custom/)
 
 Custom Tools 
@@ -124,6 +79,7 @@ Custom Tools
       * [ MCP tools  ](../../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
@@ -147,15 +103,6 @@ Agent Engine
       * [ GKE  ](../../../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../../../observability/logging/)
-      * [ Cloud Trace  ](../../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../../observability/agentops/)
-      * [ Arize AX  ](../../../observability/arize-ax/)
-      * [ Freeplay  ](../../../observability/freeplay/)
-      * [ MLflow  ](../../../observability/mlflow/)
-      * [ Monocle  ](../../../observability/monocle/)
-      * [ Phoenix  ](../../../observability/phoenix/)
-      * [ W&B; Weave  ](../../../observability/weave/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -198,7 +145,6 @@ Apps
     * [ Plugins  ](../../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../../plugins/reflect-and-retry/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -223,9 +169,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../../release-notes/)
     * [ API Reference  ](../../../api-reference/)
@@ -313,19 +261,26 @@ Full Code
 PythonTypescriptGoJava
     
     
-     # Part of agent.py --> Follow https://google.github.io/adk-docs/get-started/quickstart/ to learn the setup
-     # --- 1. Define Researcher Sub-Agents (to run in parallel) ---
+     from google.adk.agents.parallel_agent import ParallelAgent
+     from google.adk.agents.llm_agent import LlmAgent
+     from google.adk.agents.sequential_agent import SequentialAgent
+     from google.adk.tools import google_search
     
+     # --- Constants ---
+     GEMINI_MODEL = "gemini-2.5-flash"
+    
+     # --- 1. Define Researcher Sub-Agents (to run in parallel) ---
      # Researcher 1: Renewable Energy
      researcher_agent_1 = LlmAgent(
          name="RenewableEnergyResearcher",
          model=GEMINI_MODEL,
-         instruction="""You are an AI Research Assistant specializing in energy.
-     Research the latest advancements in 'renewable energy sources'.
-     Use the Google Search tool provided.
-     Summarize your key findings concisely (1-2 sentences).
-     Output *only* the summary.
-     """,
+         instruction="""
+         You are an AI Research Assistant specializing in energy.
+         Research the latest advancements in 'renewable energy sources'.
+         Use the Google Search tool provided.
+         Summarize your key findings concisely (1-2 sentences).
+         Output *only* the summary.
+         """,
          description="Researches renewable energy sources.",
          tools=[google_search],
          # Store result in state for the merger agent
@@ -336,12 +291,13 @@ PythonTypescriptGoJava
      researcher_agent_2 = LlmAgent(
          name="EVResearcher",
          model=GEMINI_MODEL,
-         instruction="""You are an AI Research Assistant specializing in transportation.
-     Research the latest developments in 'electric vehicle technology'.
-     Use the Google Search tool provided.
-     Summarize your key findings concisely (1-2 sentences).
-     Output *only* the summary.
-     """,
+         instruction="""
+         You are an AI Research Assistant specializing in transportation.
+         Research the latest developments in 'electric vehicle technology'.
+         Use the Google Search tool provided.
+         Summarize your key findings concisely (1-2 sentences).
+         Output *only* the summary.
+         """,
          description="Researches electric vehicle technology.",
          tools=[google_search],
          # Store result in state for the merger agent
@@ -352,12 +308,13 @@ PythonTypescriptGoJava
      researcher_agent_3 = LlmAgent(
          name="CarbonCaptureResearcher",
          model=GEMINI_MODEL,
-         instruction="""You are an AI Research Assistant specializing in climate solutions.
-     Research the current state of 'carbon capture methods'.
-     Use the Google Search tool provided.
-     Summarize your key findings concisely (1-2 sentences).
-     Output *only* the summary.
-     """,
+         instruction="""
+         You are an AI Research Assistant specializing in climate solutions.
+         Research the current state of 'carbon capture methods'.
+         Use the Google Search tool provided.
+         Summarize your key findings concisely (1-2 sentences).
+         Output *only* the summary.
+         """,
          description="Researches carbon capture methods.",
          tools=[google_search],
          # Store result in state for the merger agent
@@ -379,44 +336,45 @@ PythonTypescriptGoJava
      merger_agent = LlmAgent(
          name="SynthesisAgent",
          model=GEMINI_MODEL,  # Or potentially a more powerful model if needed for synthesis
-         instruction="""You are an AI Assistant responsible for combining research findings into a structured report.
+         instruction="""
+         You are an AI Assistant responsible for combining research findings into a structured report.
     
-     Your primary task is to synthesize the following research summaries, clearly attributing findings to their source areas. Structure your response using headings for each topic. Ensure the report is coherent and integrates the key points smoothly.
+         Your primary task is to synthesize the following research summaries, clearly attributing findings to their source areas. Structure your response using headings for each topic. Ensure the report is coherent and integrates the key points smoothly.
     
-     **Crucially: Your entire response MUST be grounded *exclusively* on the information provided in the 'Input Summaries' below. Do NOT add any external knowledge, facts, or details not present in these specific summaries.**
+         **Crucially: Your entire response MUST be grounded *exclusively* on the information provided in the 'Input Summaries' below. Do NOT add any external knowledge, facts, or details not present in these specific summaries.**
     
-     **Input Summaries:**
+         **Input Summaries:**
     
-     *   **Renewable Energy:**
-         {renewable_energy_result}
+         *   **Renewable Energy:**
+             {renewable_energy_result}
     
-     *   **Electric Vehicles:**
-         {ev_technology_result}
+         *   **Electric Vehicles:**
+             {ev_technology_result}
     
-     *   **Carbon Capture:**
-         {carbon_capture_result}
+         *   **Carbon Capture:**
+             {carbon_capture_result}
     
-     **Output Format:**
+         **Output Format:**
     
-     ## Summary of Recent Sustainable Technology Advancements
+         ## Summary of Recent Sustainable Technology Advancements
     
-     ### Renewable Energy Findings
-     (Based on RenewableEnergyResearcher's findings)
-     [Synthesize and elaborate *only* on the renewable energy input summary provided above.]
+         ### Renewable Energy Findings
+         (Based on RenewableEnergyResearcher's findings)
+         [Synthesize and elaborate *only* on the renewable energy input summary provided above.]
     
-     ### Electric Vehicle Findings
-     (Based on EVResearcher's findings)
-     [Synthesize and elaborate *only* on the EV input summary provided above.]
+         ### Electric Vehicle Findings
+         (Based on EVResearcher's findings)
+         [Synthesize and elaborate *only* on the EV input summary provided above.]
     
-     ### Carbon Capture Findings
-     (Based on CarbonCaptureResearcher's findings)
-     [Synthesize and elaborate *only* on the carbon capture input summary provided above.]
+         ### Carbon Capture Findings
+         (Based on CarbonCaptureResearcher's findings)
+         [Synthesize and elaborate *only* on the carbon capture input summary provided above.]
     
-     ### Overall Conclusion
-     [Provide a brief (1-2 sentence) concluding statement that connects *only* the findings presented above.]
+         ### Overall Conclusion
+         [Provide a brief (1-2 sentence) concluding statement that connects *only* the findings presented above.]
     
-     Output *only* the structured report following this format. Do not include introductory or concluding phrases outside this structure, and strictly adhere to using only the provided input summary content.
-     """,
+         Output *only* the structured report following this format. Do not include introductory or concluding phrases outside this structure, and strictly adhere to using only the provided input summary content.
+         """,
          description="Combines research findings from parallel agents into a structured, cited report, strictly grounded on provided inputs.",
          # No tools needed for merging
          # No output_key needed here, as its direct response is the final output of the sequence

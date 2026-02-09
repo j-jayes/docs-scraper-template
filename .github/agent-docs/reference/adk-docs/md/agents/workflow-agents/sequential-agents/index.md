@@ -65,54 +65,9 @@ Models for Agents
       * [ Ollama  ](../../models/ollama/)
       * [ vLLM  ](../../models/vllm/)
       * [ LiteLLM  ](../../models/litellm/)
-    * [ Tools for Agents  ](../../../tools/)
+    * [ Tools and Integrations  ](../../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../../../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../../../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../../../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../../../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../../../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../../../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../../../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../../../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../../../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../../../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../../../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../../../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../../../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../../../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../../../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../../../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../../../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../../../tools/third-party/asana/)
-        * [ Atlassian  ](../../../tools/third-party/atlassian/)
-        * [ Cartesia  ](../../../tools/third-party/cartesia/)
-        * [ Chroma  ](../../../tools/third-party/chroma/)
-        * [ Daytona  ](../../../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../../../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../../../tools/third-party/github/)
-        * [ GitLab  ](../../../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../../../tools/third-party/hugging-face/)
-        * [ Linear  ](../../../tools/third-party/linear/)
-        * [ MongoDB  ](../../../tools/third-party/mongodb/)
-        * [ n8n  ](../../../tools/third-party/n8n/)
-        * [ Notion  ](../../../tools/third-party/notion/)
-        * [ Postman  ](../../../tools/third-party/postman/)
-        * [ PayPal  ](../../../tools/third-party/paypal/)
-        * [ Qdrant  ](../../../tools/third-party/qdrant/)
-        * [ Stripe  ](../../../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../../../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../../../tools-custom/)
 
 Custom Tools 
@@ -123,6 +78,7 @@ Custom Tools
       * [ MCP tools  ](../../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
@@ -146,15 +102,6 @@ Agent Engine
       * [ GKE  ](../../../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../../../observability/logging/)
-      * [ Cloud Trace  ](../../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../../observability/agentops/)
-      * [ Arize AX  ](../../../observability/arize-ax/)
-      * [ Freeplay  ](../../../observability/freeplay/)
-      * [ MLflow  ](../../../observability/mlflow/)
-      * [ Monocle  ](../../../observability/monocle/)
-      * [ Phoenix  ](../../../observability/phoenix/)
-      * [ W&B; Weave  ](../../../observability/weave/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -197,7 +144,6 @@ Apps
     * [ Plugins  ](../../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../../plugins/reflect-and-retry/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -222,9 +168,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../../release-notes/)
     * [ API Reference  ](../../../api-reference/)
@@ -306,7 +254,11 @@ Code
 PythonTypescriptGoJava
     
     
-    # Part of agent.py --> Follow https://google.github.io/adk-docs/get-started/quickstart/ to learn the setup
+    from google.adk.agents.sequential_agent import SequentialAgent
+    from google.adk.agents.llm_agent import LlmAgent
+    
+    # --- Constants ---
+    GEMINI_MODEL = "gemini-2.5-flash"
     
     # --- 1. Define Sub-Agents for Each Pipeline Stage ---
     
@@ -315,14 +267,14 @@ PythonTypescriptGoJava
     code_writer_agent = LlmAgent(
         name="CodeWriterAgent",
         model=GEMINI_MODEL,
-        # Change 3: Improved instruction
-        instruction="""You are a Python Code Generator.
-    Based *only* on the user's request, write Python code that fulfills the requirement.
-    Output *only* the complete Python code block, enclosed in triple backticks (```python ... ```). 
-    Do not add any other text before or after the code block.
-    """,
+        instruction="""
+        You are a Python Code Generator.
+        Based *only* on the user's request, write Python code that fulfills the requirement.
+        Output *only* the complete Python code block, enclosed in triple backticks (```python ... ```).
+        Do not add any other text before or after the code block.
+        """,
         description="Writes initial Python code based on a specification.",
-        output_key="generated_code" # Stores output in state['generated_code']
+        output_key="generated_code"
     )
     
     # Code Reviewer Agent
@@ -330,8 +282,8 @@ PythonTypescriptGoJava
     code_reviewer_agent = LlmAgent(
         name="CodeReviewerAgent",
         model=GEMINI_MODEL,
-        # Change 3: Improved instruction, correctly using state key injection
-        instruction="""You are an expert Python Code Reviewer. 
+        instruction="""
+        You are an expert Python Code Reviewer.
         Your task is to provide constructive feedback on the provided code.
     
         **Code to Review:**
@@ -339,20 +291,20 @@ PythonTypescriptGoJava
         {generated_code}
         ```
     
-    **Review Criteria:**
-    1.  **Correctness:** Does the code work as intended? Are there logic errors?
-    2.  **Readability:** Is the code clear and easy to understand? Follows PEP 8 style guidelines?
-    3.  **Efficiency:** Is the code reasonably efficient? Any obvious performance bottlenecks?
-    4.  **Edge Cases:** Does the code handle potential edge cases or invalid inputs gracefully?
-    5.  **Best Practices:** Does the code follow common Python best practices?
+        **Review Criteria:**
+        1.  **Correctness:** Does the code work as intended? Are there logic errors?
+        2.  **Readability:** Is the code clear and easy to understand? Follows PEP 8 style guidelines?
+        3.  **Efficiency:** Is the code reasonably efficient? Any obvious performance bottlenecks?
+        4.  **Edge Cases:** Does the code handle potential edge cases or invalid inputs gracefully?
+        5.  **Best Practices:** Does the code follow common Python best practices?
     
-    **Output:**
-    Provide your feedback as a concise, bulleted list. Focus on the most important points for improvement.
-    If the code is excellent and requires no changes, simply state: "No major issues found."
-    Output *only* the review comments or the "No major issues" statement.
-    """,
+        **Output:**
+        Provide your feedback as a concise, bulleted list. Focus on the most important points for improvement.
+        If the code is excellent and requires no changes, simply state: "No major issues found."
+        Output *only* the review comments or the "No major issues" statement.
+        """,
         description="Reviews code and provides feedback.",
-        output_key="review_comments", # Stores output in state['review_comments']
+        output_key="review_comments"
     )
     
     
@@ -361,29 +313,29 @@ PythonTypescriptGoJava
     code_refactorer_agent = LlmAgent(
         name="CodeRefactorerAgent",
         model=GEMINI_MODEL,
-        # Change 3: Improved instruction, correctly using state key injection
-        instruction="""You are a Python Code Refactoring AI.
-    Your goal is to improve the given Python code based on the provided review comments.
+        instruction="""
+        You are a Python Code Refactoring AI.
+        Your goal is to improve the given Python code based on the provided review comments.
     
-      **Original Code:**
-      ```python
-      {generated_code}
-      ```
+        **Original Code:**
+        ```python
+        {generated_code}
+        ```
     
-      **Review Comments:**
-      {review_comments}
+        **Review Comments:**
+        {review_comments}
     
-    **Task:**
-    Carefully apply the suggestions from the review comments to refactor the original code.
-    If the review comments state "No major issues found," return the original code unchanged.
-    Ensure the final code is complete, functional, and includes necessary imports and docstrings.
+        **Task:**
+        Carefully apply the suggestions from the review comments to refactor the original code.
+        If the review comments state "No major issues found," return the original code unchanged.
+        Ensure the final code is complete, functional, and includes necessary imports and docstrings.
     
-    **Output:**
-    Output *only* the final, refactored Python code block, enclosed in triple backticks (```python ... ```). 
-    Do not add any other text before or after the code block.
-    """,
+        **Output:**
+        Output *only* the final, refactored Python code block, enclosed in triple backticks (```python ... ```).
+        Do not add any other text before or after the code block.
+        """,
         description="Refactors code based on review comments.",
-        output_key="refactored_code", # Stores output in state['refactored_code']
+        output_key="refactored_code"
     )
     
     
@@ -393,10 +345,8 @@ PythonTypescriptGoJava
         name="CodePipelineAgent",
         sub_agents=[code_writer_agent, code_reviewer_agent, code_refactorer_agent],
         description="Executes a sequence of code writing, reviewing, and refactoring.",
-        # The agents will run in the order provided: Writer -> Reviewer -> Refactorer
     )
     
-    # For ADK tools compatibility, the root agent must be named `root_agent`
     root_agent = code_pipeline_agent
     
     

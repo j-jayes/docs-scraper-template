@@ -62,57 +62,9 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
-    * [ Tools for Agents  ](../)
+    * [ Tools and Integrations  ](../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../gemini-api/code-execution/)
-        * [ Computer use  ](../gemini-api/computer-use/)
-        * [ Google Search  ](../gemini-api/google-search/)
-      * [ Google Cloud tools  ](../google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../google-cloud/application-integration/)
-        * [ BigQuery  ](../google-cloud/bigquery/)
-        * [ Bigtable  ](../google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../google-cloud/pubsub/)
-        * [ RAG Engine  ](../google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../google-cloud/spanner/)
-        * [ Vertex AI Search  ](../google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../google-cloud/express-mode/)
-      * [ Third-party tools  ](../third-party/)
-
-Third-party tools 
-        * [ Asana  ](../third-party/asana/)
-        * [ Atlassian  ](../third-party/atlassian/)
-        * [ Cartesia  ](../third-party/cartesia/)
-        * [ Chroma  ](../third-party/chroma/)
-        * [ Daytona  ](../third-party/daytona/)
-        * [ ElevenLabs  ](../third-party/elevenlabs/)
-        * [ GitHub  ](../third-party/github/)
-        * [ GitLab  ](../third-party/gitlab/)
-        * [ Hugging Face  ](../third-party/hugging-face/)
-        * [ Linear  ](../third-party/linear/)
-        * [ MongoDB  ](../third-party/mongodb/)
-        * [ n8n  ](../third-party/n8n/)
-        * [ Notion  ](../third-party/notion/)
-        * [ Postman  ](../third-party/postman/)
-        * [ PayPal  ](../third-party/paypal/)
-        * [ Qdrant  ](../third-party/qdrant/)
-        * [ Stripe  ](../third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../third-party/ag-ui/)
-      * Tool limitations  [ Tool limitations  ](./) Table of contents 
-        * One tool per agent limitation 
-          * Workaround #1: AgentTool.create() method 
-          * Workaround #2: bypass_multi_tools_limit 
+Tools and Integrations 
     * [ Custom Tools  ](../../tools-custom/)
 
 Custom Tools 
@@ -123,6 +75,10 @@ Custom Tools
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
+      * Tool limitations  [ Tool limitations  ](./) Table of contents 
+        * One tool per agent limitation 
+          * Workaround #1: AgentTool.create() method 
+          * Workaround #2: bypass_multi_tools_limit 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -146,15 +102,6 @@ Agent Engine
       * [ GKE  ](../../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../../observability/logging/)
-      * [ Cloud Trace  ](../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../observability/agentops/)
-      * [ Arize AX  ](../../observability/arize-ax/)
-      * [ Freeplay  ](../../observability/freeplay/)
-      * [ MLflow  ](../../observability/mlflow/)
-      * [ Monocle  ](../../observability/monocle/)
-      * [ Phoenix  ](../../observability/phoenix/)
-      * [ W&B; Weave  ](../../observability/weave/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -197,7 +144,6 @@ Apps
     * [ Plugins  ](../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../plugins/reflect-and-retry/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -222,9 +168,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
@@ -251,7 +199,7 @@ Table of contents
 
 
   1. [ Build Agents  ](../../get-started/)
-  2. [ Tools for Agents  ](../)
+  2. [ Custom Tools  ](../../tools-custom/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/tools/limitations.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/limitations.md "View Markdown source")
 
@@ -460,7 +408,7 @@ PythonJava
             .build();
     
 
-Back to top  [ Previous  Agentic UI (AG-UI)  ](../third-party/ag-ui/) [ Next  Custom Tools for ADK  ](../../tools-custom/)
+Back to top  [ Previous  Authentication  ](../../tools-custom/authentication/) [ Next  Agent Runtime  ](../../runtime/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

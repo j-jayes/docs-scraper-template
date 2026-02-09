@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog](https://modelcontextprotocol.info/blog/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -63,13 +63,12 @@
 
       * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
       * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [GitHub Actions 自动化发布](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [消费 Registry 数据](https://modelcontextprotocol.info/tools/registry/consuming/)
+      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
+      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
       * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
 
     * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
     * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-    * [测试](https://modelcontextprotocol.info/tools/test/)
 
   * [Specification ](https://modelcontextprotocol.info/specification/)
 
@@ -168,13 +167,13 @@
     * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
     * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
     * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [一文读懂MCP协议：大模型AI-Agent的USB-C接口](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
+    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
 
   * [About](https://modelcontextprotocol.info/about/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
   * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
@@ -221,7 +220,7 @@
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
 
@@ -274,7 +273,7 @@ Transform your understanding into **working code**. These tutorials take you fro
 
 ### 🚀 Level 1: AI-Assisted Development (Beginner)
 
-**[Building MCP with LLMs](./building-mcp-with-llms)** ⭐ _Perfect for: Developers new to MCP who want to leverage AI for faster learning_
+**[Building MCP with LLMs](./building-mcp-with-llms/)** ⭐ _Perfect for: Developers new to MCP who want to leverage AI for faster learning_
 
 **What you 'll master**:
 
@@ -291,7 +290,7 @@ Transform your understanding into **working code**. These tutorials take you fro
 
 ### 🐍 Level 2: Python Client Mastery (Intermediate)
 
-**[Building MCP Clients - Python](./building-a-client)** ⭐⭐ _Perfect for: Python developers building AI applications_
+**[Building MCP Clients - Python](./building-a-client/)** ⭐⭐ _Perfect for: Python developers building AI applications_
 
 **What you 'll master**:
 
@@ -308,7 +307,7 @@ Transform your understanding into **working code**. These tutorials take you fro
 
 ### 🟨 Level 3: TypeScript Client Engineering (Advanced)
 
-**[Building MCP Clients - Node.js](./building-a-client-node)** ⭐⭐⭐ _Perfect for: JavaScript/TypeScript developers building web applications_
+**[Building MCP Clients - Node.js](./building-a-client-node/)** ⭐⭐⭐ _Perfect for: JavaScript/TypeScript developers building web applications_
 
 **What you 'll master**:
 
@@ -323,9 +322,9 @@ Transform your understanding into **working code**. These tutorials take you fro
 
 ## Where to Start?
 
-  * **New to MCP?** Start with our [Quickstart Guide](../quickstart) before diving into these tutorials.
-  * **Want to build a server?** Begin with [Building MCP with LLMs](./building-mcp-with-llms).
-  * **Need a client?** Choose either the [Python](./building-a-client) or [Node.js](./building-a-client-node) client tutorial based on your preferred language.
+  * **New to MCP?** Start with our [Quickstart Guide](../quickstart/) before diving into these tutorials.
+  * **Want to build a server?** Begin with [Building MCP with LLMs](./building-mcp-with-llms/).
+  * **Need a client?** Choose either the [Python](./building-a-client/) or [Node.js](./building-a-client-node/) client tutorial based on your preferred language.
 
 
 
@@ -343,7 +342,7 @@ Each tutorial follows a similar pattern:
 
 Ready to begin? Choose a tutorial above and start building with MCP!
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://moltBotlab.com/ "molt Bot 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

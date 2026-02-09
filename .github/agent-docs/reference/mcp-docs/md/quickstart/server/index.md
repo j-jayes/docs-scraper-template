@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog](https://modelcontextprotocol.info/blog/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -63,13 +63,12 @@
 
       * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
       * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [GitHub Actions 自动化发布](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [消费 Registry 数据](https://modelcontextprotocol.info/tools/registry/consuming/)
+      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
+      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
       * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
 
     * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
     * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-    * [测试](https://modelcontextprotocol.info/tools/test/)
 
   * [Specification ](https://modelcontextprotocol.info/specification/)
 
@@ -168,13 +167,13 @@
     * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
     * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
     * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [一文读懂MCP协议：大模型AI-Agent的USB-C接口](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
+    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
 
   * [About](https://modelcontextprotocol.info/about/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
   * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
@@ -221,7 +220,7 @@
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
 
@@ -318,7 +317,7 @@ This quickstart assumes you have familiarity with:
 
 First, let's install `uv` and set up our Python project and environment:
 
-安装 uv
+Install uv
     
     
     curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -581,7 +580,7 @@ For this tutorial, you'll need Node.js version 16 or higher.
 
 Now, let's create and set up our project:
 
-创建项目
+Create project
     
     
     # Create a new directory for our project
@@ -924,7 +923,7 @@ You'll then add your servers in the `mcpServers` key. The MCP UI elements will o
 
 In this case, we'll add our single weather server like so:
 
-配置 Claude for Desktop
+Configure Claude for Desktop
     
     
     {
@@ -1289,7 +1288,7 @@ If Claude attempts to use the tools but they fail:
 
 **None of this is working. What do I do?**
 
-Please refer to our [debugging guide](https://modelcontextprotocol.info/docs/tools/debugging/) for better debugging tools and more detailed guidance.
+Please refer to our [debugging guide](https://modelcontextprotocol.info/en/tools/debugging/) for better debugging tools and more detailed guidance.
 
 **Weather API Issues**
 
@@ -1317,7 +1316,7 @@ This isn't an error - it just means there are no current weather alerts for that
 
 📚
 
-For more advanced troubleshooting, check out our guide on [Debugging MCP](https://modelcontextprotocol.info/docs/tools/debugging/)
+For more advanced troubleshooting, check out our guide on [Debugging MCP](https://modelcontextprotocol.info/en/tools/debugging/)
 
 ## Next steps
 
@@ -1325,7 +1324,7 @@ For more advanced troubleshooting, check out our guide on [Debugging MCP](https:
 
 [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/ "Guide")[For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/ "For Client Developers")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://moltBotlab.com/ "molt Bot 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

@@ -62,54 +62,9 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
-    * [ Tools for Agents  ](../../tools/)
+    * [ Tools and Integrations  ](../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../../tools/third-party/asana/)
-        * [ Atlassian  ](../../tools/third-party/atlassian/)
-        * [ Cartesia  ](../../tools/third-party/cartesia/)
-        * [ Chroma  ](../../tools/third-party/chroma/)
-        * [ Daytona  ](../../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../../tools/third-party/github/)
-        * [ GitLab  ](../../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../../tools/third-party/hugging-face/)
-        * [ Linear  ](../../tools/third-party/linear/)
-        * [ MongoDB  ](../../tools/third-party/mongodb/)
-        * [ n8n  ](../../tools/third-party/n8n/)
-        * [ Notion  ](../../tools/third-party/notion/)
-        * [ Postman  ](../../tools/third-party/postman/)
-        * [ PayPal  ](../../tools/third-party/paypal/)
-        * [ Qdrant  ](../../tools/third-party/qdrant/)
-        * [ Stripe  ](../../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../../tools-custom/)
 
 Custom Tools 
@@ -120,6 +75,7 @@ Custom Tools
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -143,15 +99,6 @@ Agent Engine
       * [ GKE  ](../../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../../observability/logging/)
-      * [ Cloud Trace  ](../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../observability/agentops/)
-      * [ Arize AX  ](../../observability/arize-ax/)
-      * [ Freeplay  ](../../observability/freeplay/)
-      * [ MLflow  ](../../observability/mlflow/)
-      * [ Monocle  ](../../observability/monocle/)
-      * [ Phoenix  ](../../observability/phoenix/)
-      * [ W&B; Weave  ](../../observability/weave/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -203,7 +150,6 @@ Apps
     * [ Plugins  ](../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../plugins/reflect-and-retry/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -228,9 +174,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
@@ -783,7 +731,7 @@ PythonTypescriptGoJava
 
 **When:** Called _immediately after_ the agent's `_run_async_impl` (or `_run_live_impl`) method successfully completes. It does _not_ run if the agent was skipped due to `before_agent_callback` returning content or if `end_invocation` was set during the agent's run.
 
-**Purpose:** Useful for cleanup tasks, post-execution validation, logging the completion of an agent's activity, modifying final state, or augmenting/replacing the agent's final output.
+**Purpose:** Useful for cleanup tasks, post-execution validation, logging the completion of an agent's activity, modifying final state, or augmenting the agent's final output.
 
 Code
 
@@ -1315,11 +1263,11 @@ PythonTypescriptGoJava
 
   * **What it Shows:** This example demonstrates the `after_agent_callback`. This callback runs _right after_ the agent's main processing logic has finished and produced its result, but _before_ that result is finalized and returned.
   * **How it Works:** The callback function (`modify_output_after_agent`) checks a flag (`add_concluding_note`) in the session's state.
-    * If the flag is `True`, the callback returns a _new_ `types.Content` object. This tells the ADK framework to **replace** the agent's original output with the content returned by the callback.
+    * If the flag is `True`, the callback returns a _new_ `types.Content` object. This tells the ADK framework to **append** the agent's original output with the content returned by the callback.
     * If the flag is `False` (or not set), the callback returns `None` or an empty object. This tells the ADK framework to **use** the original output generated by the agent.
   * **Expected Outcome:** You'll see two scenarios:
     1. In the session _without_ the `add_concluding_note: True` state, the callback allows the agent's original output ("Processing complete!") to be used.
-    2. In the session _with_ that state flag, the callback intercepts the agent's original output and replaces it with its own message ("Concluding note added...").
+    2. In the session _with_ that state flag, the callback intercepts the agent's original output and appends it with its own message ("Concluding note added...").
   * **Understanding Callbacks:** This highlights how `after_` callbacks allow **post-processing** or **modification**. You can inspect the result of a step (the agent's run) and decide whether to let it pass through, change it, or completely replace it based on your logic.
 
 

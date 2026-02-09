@@ -65,54 +65,9 @@ Models for Agents
       * [ Ollama  ](../../models/ollama/)
       * [ vLLM  ](../../models/vllm/)
       * [ LiteLLM  ](../../models/litellm/)
-    * [ Tools for Agents  ](../../../tools/)
+    * [ Tools and Integrations  ](../../../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../../../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../../../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../../../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../../../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../../../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../../../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../../../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../../../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../../../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../../../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../../../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../../../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../../../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../../../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../../../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../../../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../../../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../../../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../../../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../../../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../../../tools/third-party/asana/)
-        * [ Atlassian  ](../../../tools/third-party/atlassian/)
-        * [ Cartesia  ](../../../tools/third-party/cartesia/)
-        * [ Chroma  ](../../../tools/third-party/chroma/)
-        * [ Daytona  ](../../../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../../../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../../../tools/third-party/github/)
-        * [ GitLab  ](../../../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../../../tools/third-party/hugging-face/)
-        * [ Linear  ](../../../tools/third-party/linear/)
-        * [ MongoDB  ](../../../tools/third-party/mongodb/)
-        * [ n8n  ](../../../tools/third-party/n8n/)
-        * [ Notion  ](../../../tools/third-party/notion/)
-        * [ Postman  ](../../../tools/third-party/postman/)
-        * [ PayPal  ](../../../tools/third-party/paypal/)
-        * [ Qdrant  ](../../../tools/third-party/qdrant/)
-        * [ Stripe  ](../../../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../../../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../../../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../../../tools-custom/)
 
 Custom Tools 
@@ -123,6 +78,7 @@ Custom Tools
       * [ MCP tools  ](../../../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
@@ -146,15 +102,6 @@ Agent Engine
       * [ GKE  ](../../../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../../../observability/logging/)
-      * [ Cloud Trace  ](../../../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../../../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../../../observability/agentops/)
-      * [ Arize AX  ](../../../observability/arize-ax/)
-      * [ Freeplay  ](../../../observability/freeplay/)
-      * [ MLflow  ](../../../observability/mlflow/)
-      * [ Monocle  ](../../../observability/monocle/)
-      * [ Phoenix  ](../../../observability/phoenix/)
-      * [ W&B; Weave  ](../../../observability/weave/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -197,7 +144,6 @@ Apps
     * [ Plugins  ](../../../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../../../plugins/reflect-and-retry/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -222,9 +168,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../../../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../../../release-notes/)
     * [ API Reference  ](../../../api-reference/)
@@ -306,24 +254,12 @@ Full Code
 PythonTypescriptGoJava
     
     
-    # Part of agent.py --> Follow https://google.github.io/adk-docs/get-started/quickstart/ to learn the setup
-    
-    import asyncio
-    import os
     from google.adk.agents import LoopAgent, LlmAgent, SequentialAgent
-    from google.genai import types
-    from google.adk.runners import InMemoryRunner
-    from google.adk.agents.invocation_context import InvocationContext
     from google.adk.tools.tool_context import ToolContext
-    from typing import AsyncGenerator, Optional
-    from google.adk.events import Event, EventActions
+    from google.adk.agents.callback_context import CallbackContext
     
     # --- Constants ---
-    APP_NAME = "doc_writing_app_v3" # New App Name
-    USER_ID = "dev_user_01"
-    SESSION_ID_BASE = "loop_exit_tool_session" # New Base Session ID
-    GEMINI_MODEL = "gemini-2.0-flash"
-    STATE_INITIAL_TOPIC = "initial_topic"
+    GEMINI_MODEL = "gemini-2.5-flash"
     
     # --- State Keys ---
     STATE_CURRENT_DOC = "current_document"
@@ -333,12 +269,17 @@ PythonTypescriptGoJava
     
     # --- Tool Definition ---
     def exit_loop(tool_context: ToolContext):
-      """Call this function ONLY when the critique indicates no further changes are needed, signaling the iterative process should end."""
-      print(f"  [Tool Call] exit_loop triggered by {tool_context.agent_name}")
-      tool_context.actions.escalate = True
-      tool_context.actions.skip_summarization = True
-      # Return empty dict as tools should typically return JSON-serializable output
-      return {}
+        """Call this function ONLY when the critique indicates no further changes are needed, signaling the iterative process should end."""
+        print(f"  [Tool Call] exit_loop triggered by {tool_context.agent_name}")
+        tool_context.actions.escalate = True
+        tool_context.actions.skip_summarization = True
+        # Return empty dict as tools should typically return JSON-serializable output
+        return {}
+    
+    # --- Before Agent Callback ---
+    def update_initial_topic_state(callback_context: CallbackContext):
+        """Ensure 'initial_topic' is set in state before pipeline starts."""
+        callback_context.state['initial_topic'] = callback_context.state.get('initial_topic', 'a robot developing unexpected emotions')
     
     # --- Agent Definitions ---
     
@@ -347,14 +288,14 @@ PythonTypescriptGoJava
         name="InitialWriterAgent",
         model=GEMINI_MODEL,
         include_contents='none',
-        # MODIFIED Instruction: Ask for a slightly more developed start
-        instruction=f"""You are a Creative Writing Assistant tasked with starting a story.
-        Write the *first draft* of a short story (aim for 2-4 sentences).
-        Base the content *only* on the topic provided below. Try to introduce a specific element (like a character, a setting detail, or a starting action) to make it engaging.
+        instruction=f"""
+        You are a Creative Writing Assistant tasked with starting a story.
+        Write a *very basic* first draft of a short story (just 1-2 simple sentences).
+        Keep it plain and minimal - do NOT add descriptive language yet.
         Topic: {{initial_topic}}
     
         Output *only* the story/document text. Do not add introductions or explanations.
-    """,
+        """,
         description="Writes the initial document draft based on the topic, aiming for some initial substance.",
         output_key=STATE_CURRENT_DOC
     )
@@ -364,29 +305,30 @@ PythonTypescriptGoJava
         name="CriticAgent",
         model=GEMINI_MODEL,
         include_contents='none',
-        # MODIFIED Instruction: More nuanced completion criteria, look for clear improvement paths.
-        instruction=f"""You are a Constructive Critic AI reviewing a short document draft (typically 2-6 sentences). Your goal is balanced feedback.
+        instruction=f"""
+        You are a Constructive Critic AI reviewing a short story draft.
     
         **Document to Review:**
         ```
         {{current_document}}
         ```
     
+        **Completion Criteria (ALL must be met):**
+        1. At least 4 sentences long
+        2. Has a clear beginning, middle, and end
+        3. Includes at least one descriptive detail (sensory or emotional)
+    
         **Task:**
-        Review the document for clarity, engagement, and basic coherence according to the initial topic (if known).
+        Check the document against the criteria above.
     
-        IF you identify 1-2 *clear and actionable* ways the document could be improved to better capture the topic or enhance reader engagement (e.g., "Needs a stronger opening sentence", "Clarify the character's goal"):
-        Provide these specific suggestions concisely. Output *only* the critique text.
+        IF any criteria is NOT met, provide specific feedback on what to add or improve.
+        Output *only* the critique text.
     
-        ELSE IF the document is coherent, addresses the topic adequately for its length, and has no glaring errors or obvious omissions:
-        Respond *exactly* with the phrase "{COMPLETION_PHRASE}" and nothing else. It doesn't need to be perfect, just functionally complete for this stage. Avoid suggesting purely subjective stylistic preferences if the core is sound.
-    
-        Do not add explanations. Output only the critique OR the exact completion phrase.
-    """,
+        IF ALL criteria are met, respond *exactly* with: "{COMPLETION_PHRASE}"
+        """,
         description="Reviews the current draft, providing critique if clear improvements are needed, otherwise signals completion.",
         output_key=STATE_CRITICISM
     )
-    
     
     # STEP 2b: Refiner/Exiter Agent (Inside the Refinement Loop)
     refiner_agent_in_loop = LlmAgent(
@@ -394,7 +336,8 @@ PythonTypescriptGoJava
         model=GEMINI_MODEL,
         # Relies solely on state via placeholders
         include_contents='none',
-        instruction=f"""You are a Creative Writing Assistant refining a document based on feedback OR exiting the process.
+        instruction=f"""
+        You are a Creative Writing Assistant refining a document based on feedback OR exiting the process.
         **Current Document:**
         ```
         {{current_document}}
@@ -410,12 +353,11 @@ PythonTypescriptGoJava
         Carefully apply the suggestions to improve the 'Current Document'. Output *only* the refined document text.
     
         Do not add explanations. Either output the refined document OR call the exit_loop function.
-    """,
+        """,
         description="Refines the document based on critique, or calls exit_loop if critique indicates completion.",
         tools=[exit_loop], # Provide the exit_loop tool
         output_key=STATE_CURRENT_DOC # Overwrites state['current_document'] with the refined version
     )
-    
     
     # STEP 2: Refinement Loop Agent
     refinement_loop = LoopAgent(
@@ -436,6 +378,7 @@ PythonTypescriptGoJava
             initial_writer_agent, # Run first to create initial doc
             refinement_loop       # Then run the critique/refine loop
         ],
+        before_agent_callback=update_initial_topic_state, # set initial topic in state
         description="Writes an initial document and then iteratively refines it with critique using an exit tool."
     )
     

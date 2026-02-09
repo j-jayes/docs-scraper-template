@@ -169,7 +169,7 @@ Validators:
 
 
 
-_field _after_agent_callback _: Optional[AfterAgentCallback]__ = None_¶
+_field _after_agent_callback _: AfterAgentCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be invoked after the agent run.
@@ -194,7 +194,7 @@ Return type:
 
 Optional[types.Content]
 
-_field _before_agent_callback _: Optional[BeforeAgentCallback]__ = None_¶
+_field _before_agent_callback _: BeforeAgentCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be invoked before the agent run.
@@ -241,7 +241,7 @@ Validated by:
 
 
 
-_field _parent_agent _: Optional[BaseAgent]__ = None_¶
+_field _parent_agent _: BaseAgent | None_ _ = None_¶
     
 
 The parent agent of this agent.
@@ -4635,6 +4635,17 @@ Show JSON schema
                    "title": "Save Live Blob",
                    "type": "boolean"
                 },
+                "tool_thread_pool_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolThreadPoolConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
                 "save_live_audio": {
                    "default": false,
                    "deprecated": true,
@@ -5096,6 +5107,21 @@ Show JSON schema
              "title": "ToolConfirmation",
              "type": "object"
           },
+          "ToolThreadPoolConfig": {
+             "additionalProperties": false,
+             "description": "Configuration for the tool thread pool executor.\n\nAttributes:\n  max_workers: Maximum number of worker threads in the pool. Defaults to 4.",
+             "properties": {
+                "max_workers": {
+                   "default": 4,
+                   "description": "Maximum number of worker threads in the pool.",
+                   "minimum": 1,
+                   "title": "Max Workers",
+                   "type": "integer"
+                }
+             },
+             "title": "ToolThreadPoolConfig",
+             "type": "object"
+          },
           "TrafficType": {
              "description": "Output only.\n\nThe traffic type for this request. This enum is not supported in Gemini API.",
              "enum": [
@@ -5324,7 +5350,7 @@ Fields:
 
 
 
-_field _active_streaming_tools _: Optional[dict[str, ActiveStreamingTool]]__ = None_¶
+_field _active_streaming_tools _: dict[str, ActiveStreamingTool] | None_ _ = None_¶
     
 
 The running streaming tools of this invocation.
@@ -5339,10 +5365,10 @@ _field _agent_states _: dict[str, dict[str, Any]]__[Optional]_¶
 
 The state of the agent for this invocation.
 
-_field _artifact_service _: Optional[BaseArtifactService]__ = None_¶
+_field _artifact_service _: BaseArtifactService | None_ _ = None_¶
     
 
-_field _branch _: Optional[str]__ = None_¶
+_field _branch _: str | None_ _ = None_¶
     
 
 The branch of the invocation context.
@@ -5351,15 +5377,15 @@ The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent
 
 Branch is used when multiple sub-agents shouldn’t see their peer agents’ conversation history.
 
-_field _canonical_tools_cache _: Optional[list[BaseTool]]__ = None_¶
+_field _canonical_tools_cache _: list[BaseTool] | None_ _ = None_¶
     
 
 The cache of canonical tools for this invocation.
 
-_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
+_field _context_cache_config _: ContextCacheConfig | None_ _ = None_¶
     
 
-_field _credential_service _: Optional[BaseCredentialService]__ = None_¶
+_field _credential_service _: BaseCredentialService | None_ _ = None_¶
     
 
 _field _end_invocation _: bool_ _ = False_¶
@@ -5374,7 +5400,7 @@ _field _end_of_agents _: dict[str, bool]__[Optional]_¶
 
 The end of agent status for each agent in this invocation.
 
-_field _input_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
+_field _input_realtime_cache _: list[RealtimeCacheEntry] | None_ _ = None_¶
     
 
 Caches input audio chunks before flushing to session and artifact services.
@@ -5384,20 +5410,20 @@ _field _invocation_id _: str_ _[Required]_¶
 
 The id of this invocation context. Readonly.
 
-_field _live_request_queue _: Optional[LiveRequestQueue]__ = None_¶
+_field _live_request_queue _: LiveRequestQueue | None_ _ = None_¶
     
 
 The queue to receive live requests.
 
-_field _live_session_resumption_handle _: Optional[str]__ = None_¶
+_field _live_session_resumption_handle _: str | None_ _ = None_¶
     
 
 The handle for live session resumption.
 
-_field _memory_service _: Optional[BaseMemoryService]__ = None_¶
+_field _memory_service _: BaseMemoryService | None_ _ = None_¶
     
 
-_field _output_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
+_field _output_realtime_cache _: list[RealtimeCacheEntry] | None_ _ = None_¶
     
 
 Caches output audio chunks before flushing to session and artifact services.
@@ -5407,12 +5433,12 @@ _field _plugin_manager _: PluginManager_ _[Optional]_¶
 
 The manager for keeping track of plugins in this invocation.
 
-_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
+_field _resumability_config _: ResumabilityConfig | None_ _ = None_¶
     
 
 The resumability config that applies to all agents under this invocation.
 
-_field _run_config _: Optional[RunConfig]__ = None_¶
+_field _run_config _: RunConfig | None_ _ = None_¶
     
 
 Configurations for live agents under this invocation.
@@ -5425,12 +5451,12 @@ The current session of this invocation context. Readonly.
 _field _session_service _: BaseSessionService_ _[Required]_¶
     
 
-_field _transcription_cache _: Optional[list[TranscriptionEntry]]__ = None_¶
+_field _transcription_cache _: list[TranscriptionEntry] | None_ _ = None_¶
     
 
 Caches necessary data, audio or contents, that are needed by transcription.
 
-_field _user_content _: Optional[types.Content]__ = None_¶
+_field _user_content _: types.Content | None_ _ = None_¶
     
 
 The user content that started this invocation. Readonly.
@@ -6518,21 +6544,21 @@ Fields:
 
 
 
-_field _activity_end _: Optional[types.ActivityEnd]__ = None_¶
+_field _activity_end _: types.ActivityEnd | None_ _ = None_¶
     
 
 If set, signal the end of user activity to the model.
 
 When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
 
-_field _activity_start _: Optional[types.ActivityStart]__ = None_¶
+_field _activity_start _: types.ActivityStart | None_ _ = None_¶
     
 
 If set, signal the start of user activity to the model.
 
 When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
 
-_field _blob _: Optional[types.Blob]__ = None_¶
+_field _blob _: types.Blob | None_ _ = None_¶
     
 
 If set, send the blob to the model in realtime mode.
@@ -6544,7 +6570,7 @@ _field _close _: bool_ _ = False_¶
 
 If set, close the queue. queue.shutdown() is only supported in Python 3.13+.
 
-_field _content _: Optional[types.Content]__ = None_¶
+_field _content _: types.Content | None_ _ = None_¶
     
 
 If set, send the content to the model in turn-by-turn mode.
@@ -7330,7 +7356,8 @@ Show JSON schema
              "enum": [
                 "SOURCE_UNSPECIFIED",
                 "UPLOADED",
-                "GENERATED"
+                "GENERATED",
+                "REGISTERED"
              ],
              "title": "FileSource",
              "type": "string"
@@ -8107,7 +8134,7 @@ Validators:
 
 
 
-_field _after_model_callback _: Optional[AfterModelCallback]__ = None_¶
+_field _after_model_callback _: AfterModelCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called after calling the LLM.
@@ -8136,7 +8163,7 @@ Validated by:
 
 
 
-_field _after_tool_callback _: Optional[AfterToolCallback]__ = None_¶
+_field _after_tool_callback _: AfterToolCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called after calling the tool.
@@ -8169,7 +8196,7 @@ Validated by:
 
 
 
-_field _before_model_callback _: Optional[BeforeModelCallback]__ = None_¶
+_field _before_model_callback _: BeforeModelCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called before calling the LLM.
@@ -8200,7 +8227,7 @@ Validated by:
 
 
 
-_field _before_tool_callback _: Optional[BeforeToolCallback]__ = None_¶
+_field _before_tool_callback _: BeforeToolCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called before calling the tool.
@@ -8231,7 +8258,7 @@ Validated by:
 
 
 
-_field _code_executor _: Optional[BaseCodeExecutor]__ = None_¶
+_field _code_executor _: BaseCodeExecutor | None_ _ = None_¶
     
 
 Allow agent to execute code blocks from model responses using the provided CodeExecutor.
@@ -8278,7 +8305,7 @@ Validated by:
 
 
 
-_field _generate_content_config _: Optional[types.GenerateContentConfig]__ = None_¶
+_field _generate_content_config _: types.GenerateContentConfig | None_ _ = None_¶
     
 
 The additional content generation configurations.
@@ -8297,7 +8324,7 @@ Validated by:
 
 
 
-_field _global_instruction _: Union[str, InstructionProvider]__ = ''_¶
+_field _global_instruction _: str | InstructionProvider_ _ = ''_¶
     
 
 Instructions for all the agents in the entire agent tree.
@@ -8334,7 +8361,7 @@ Validated by:
 
 
 
-_field _input_schema _: Optional[type[BaseModel]]__ = None_¶
+_field _input_schema _: type[BaseModel] | None_ _ = None_¶
     
 
 The input schema when agent is used as a tool.
@@ -8347,7 +8374,7 @@ Validated by:
 
 
 
-_field _instruction _: Union[str, InstructionProvider]__ = ''_¶
+_field _instruction _: str | InstructionProvider_ _ = ''_¶
     
 
 Dynamic instructions for the LLM model, guiding the agent’s behavior.
@@ -8366,7 +8393,7 @@ Validated by:
 
 
 
-_field _model _: Union[str, BaseLlm]__ = ''_¶
+_field _model _: str | BaseLlm_ _ = ''_¶
     
 
 The model to use for the agent.
@@ -8381,7 +8408,7 @@ Validated by:
 
 
 
-_field _on_model_error_callback _: Optional[OnModelErrorCallback]__ = None_¶
+_field _on_model_error_callback _: OnModelErrorCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called when a model call encounters an error.
@@ -8412,7 +8439,7 @@ Validated by:
 
 
 
-_field _on_tool_error_callback _: Optional[OnToolErrorCallback]__ = None_¶
+_field _on_tool_error_callback _: OnToolErrorCallback | None_ _ = None_¶
     
 
 Callback or list of callbacks to be called when a tool call encounters an error.
@@ -8445,7 +8472,7 @@ Validated by:
 
 
 
-_field _output_key _: Optional[str]__ = None_¶
+_field _output_key _: str | None_ _ = None_¶
     
 
 The key in session state to store the output of the agent.
@@ -8460,7 +8487,7 @@ Validated by:
 
 
 
-_field _output_schema _: Optional[type[BaseModel]]__ = None_¶
+_field _output_schema _: type[BaseModel] | None_ _ = None_¶
     
 
 The output schema when agent replies.
@@ -8477,7 +8504,7 @@ Validated by:
 
 
 
-_field _planner _: Optional[BasePlanner]__ = None_¶
+_field _planner _: BasePlanner | None_ _ = None_¶
     
 
 Instructs the agent to make a plan and execute it step by step.
@@ -8494,7 +8521,7 @@ Validated by:
 
 
 
-_field _static_instruction _: Optional[types.ContentUnion]__ = None_¶
+_field _static_instruction _: types.ContentUnion | None_ _ = None_¶
     
 
 Static instruction content sent literally as system instruction at the beginning.
@@ -8823,7 +8850,7 @@ Fields:
 Validators:
     
 
-_field _max_iterations _: Optional[int]__ = None_¶
+_field _max_iterations _: int | None_ _ = None_¶
     
 
 The maximum number of iterations to run the loop agent.
@@ -9125,6 +9152,17 @@ Show JSON schema
              "default": false,
              "title": "Save Live Blob",
              "type": "boolean"
+          },
+          "tool_thread_pool_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/ToolThreadPoolConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
           },
           "save_live_audio": {
              "default": false,
@@ -9580,6 +9618,21 @@ Show JSON schema
              ],
              "title": "StreamingMode"
           },
+          "ToolThreadPoolConfig": {
+             "additionalProperties": false,
+             "description": "Configuration for the tool thread pool executor.\n\nAttributes:\n  max_workers: Maximum number of worker threads in the pool. Defaults to 4.",
+             "properties": {
+                "max_workers": {
+                   "default": 4,
+                   "description": "Maximum number of worker threads in the pool.",
+                   "minimum": 1,
+                   "title": "Max Workers",
+                   "type": "integer"
+                }
+             },
+             "title": "ToolThreadPoolConfig",
+             "type": "object"
+          },
           "TurnCoverage": {
              "description": "Options about which input is included in the user's turn.",
              "enum": [
@@ -9661,6 +9714,8 @@ Fields:
 
   * `support_cfc (bool)`
 
+  * `tool_thread_pool_config (google.adk.agents.run_config.ToolThreadPoolConfig | None)`
+
 
 
 Validators:
@@ -9673,7 +9728,7 @@ Validators:
 
 
 
-_field _context_window_compression _: Optional[types.ContextWindowCompressionConfig]__ = None_¶
+_field _context_window_compression _: types.ContextWindowCompressionConfig | None_ _ = None_¶
     
 
 Configuration for context window compression. If set, this will enable context window compression for LLM input.
@@ -9686,7 +9741,7 @@ Validated by:
 
 
 
-_field _custom_metadata _: Optional[dict[str, Any]]__ = None_¶
+_field _custom_metadata _: dict[str, Any] | None_ _ = None_¶
     
 
 Custom metadata for the current invocation.
@@ -9699,7 +9754,7 @@ Validated by:
 
 
 
-_field _enable_affective_dialog _: Optional[bool]__ = None_¶
+_field _enable_affective_dialog _: bool | None_ _ = None_¶
     
 
 If enabled, the model will detect emotions and adapt its responses accordingly.
@@ -9712,7 +9767,7 @@ Validated by:
 
 
 
-_field _input_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
+_field _input_audio_transcription _: types.AudioTranscriptionConfig | None_ _[Optional]_¶
     
 
 Input transcription for live agents with audio input from user.
@@ -9750,7 +9805,7 @@ Validated by:
 
 
 
-_field _output_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
+_field _output_audio_transcription _: types.AudioTranscriptionConfig | None_ _[Optional]_¶
     
 
 Output transcription for live agents with audio response.
@@ -9763,7 +9818,7 @@ Validated by:
 
 
 
-_field _proactivity _: Optional[types.ProactivityConfig]__ = None_¶
+_field _proactivity _: types.ProactivityConfig | None_ _ = None_¶
     
 
 Configures the proactivity of the model. This allows the model to respond proactively to the input and to ignore irrelevant input.
@@ -9776,7 +9831,7 @@ Validated by:
 
 
 
-_field _realtime_input_config _: Optional[types.RealtimeInputConfig]__ = None_¶
+_field _realtime_input_config _: types.RealtimeInputConfig | None_ _ = None_¶
     
 
 Realtime input config for live agents with audio input from user.
@@ -9789,7 +9844,7 @@ Validated by:
 
 
 
-_field _response_modalities _: Optional[list[str]]__ = None_¶
+_field _response_modalities _: list[str] | None_ _ = None_¶
     
 
 The output modalities. If not set, it’s default to AUDIO.
@@ -9815,7 +9870,7 @@ Validated by:
 
 
 
-_field _session_resumption _: Optional[types.SessionResumptionConfig]__ = None_¶
+_field _session_resumption _: types.SessionResumptionConfig | None_ _ = None_¶
     
 
 Configures session resumption mechanism. Only support transparent session resumption mode now.
@@ -9828,7 +9883,7 @@ Validated by:
 
 
 
-_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
+_field _speech_config _: types.SpeechConfig | None_ _ = None_¶
     
 
 Speech configuration for the live agent.
@@ -9862,6 +9917,49 @@ Whether to support CFC (Compositional Function Calling). Only applicable for Str
 Warning
 
 This feature is **experimental** and its API or behavior may change in future releases.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
+_field _tool_thread_pool_config _: ToolThreadPoolConfig | None_ _ = None_¶
+    
+
+Configuration for running tools in a thread pool for live mode.
+
+When set, tool executions will run in a separate thread pool executor instead of the main event loop. When None (default), tools run in the main event loop.
+
+This helps keep the event loop responsive for: \- User interruptions to be processed immediately \- Model responses to continue being received
+
+Both sync and async tools are supported. Async tools are run in a new event loop within the background thread, which helps catch blocking I/O mistakenly used inside async functions.
+
+IMPORTANT - GIL (Global Interpreter Lock) Considerations:
+
+Thread pool HELPS with (GIL is released): \- Blocking I/O: time.sleep(), network calls, file I/O, database queries \- C extensions: numpy, hashlib, image processing libraries \- Async functions containing blocking I/O (common user mistake)
+
+Thread pool does NOT help with (GIL is held): \- Pure Python CPU-bound code: loops, calculations, recursive algorithms \- The GIL prevents true parallel execution for Python bytecode
+
+For CPU-intensive Python code, consider alternatives: \- Use C extensions that release the GIL \- Break work into chunks with periodic await asyncio.sleep(0) \- Use multiprocessing (ProcessPoolExecutor) for true parallelism
+
+Example
+
+```python from google.adk.agents.run_config import RunConfig, ToolThreadPoolConfig
+
+# Enable thread pool with default settings run_config = RunConfig(
+
+> tool_thread_pool_config=ToolThreadPoolConfig(),
+
+)
+
+# Enable thread pool with custom max_workers run_config = RunConfig(
+
+> tool_thread_pool_config=ToolThreadPoolConfig(max_workers=8),
+
+## )¶
 
 Validated by:
     
@@ -11916,7 +12014,7 @@ Validators:
 
 
 
-_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
+_field _context_cache_config _: ContextCacheConfig | None_ _ = None_¶
     
 
 Context cache configuration that applies to all LLM agents in the app.
@@ -11929,7 +12027,7 @@ Validated by:
 
 
 
-_field _events_compaction_config _: Optional[EventsCompactionConfig]__ = None_¶
+_field _events_compaction_config _: EventsCompactionConfig | None_ _ = None_¶
     
 
 The config of event compaction for the application.
@@ -11968,7 +12066,7 @@ Validated by:
 
 
 
-_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
+_field _resumability_config _: ResumabilityConfig | None_ _ = None_¶
     
 
 The config of the resumability for the application. If configured, will be applied to all agents in the app.
@@ -16512,7 +16610,7 @@ _field _author _: str_ _[Required]_¶
 
 ‘user’ or the name of the agent, indicating who appended the event to the session.
 
-_field _branch _: Optional[str]__ = None_¶
+_field _branch _: str | None_ _ = None_¶
     
 
 The branch of the event.
@@ -16531,7 +16629,7 @@ _field _invocation_id _: str_ _ = ''__(alias 'invocationId')_¶
 
 The invocation ID of the event. Should be non-empty before appending to a session.
 
-_field _long_running_tool_ids _: Optional[set[str]]__ = None_ _(alias 'longRunningToolIds')_¶
+_field _long_running_tool_ids _: set[str] | None_ _ = None_ _(alias 'longRunningToolIds')_¶
     
 
 Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. only valid for function call event
@@ -18634,7 +18732,7 @@ Fields:
 
 
 
-_field _agent_state _: Optional[dict[str, Any]]__ = None_ _(alias 'agentState')_¶
+_field _agent_state _: dict[str, Any] | None_ _ = None_ _(alias 'agentState')_¶
     
 
 The agent state at the current event, used for checkpoint and resume. This should only be set by ADK workflow.
@@ -18644,17 +18742,17 @@ _field _artifact_delta _: dict[str, int]__[Optional]__(alias 'artifactDelta')_¶
 
 Indicates that the event is updating an artifact. key is the filename, value is the version.
 
-_field _compaction _: Optional[EventCompaction]__ = None_¶
+_field _compaction _: EventCompaction | None_ _ = None_¶
     
 
 The compaction of the events.
 
-_field _end_of_agent _: Optional[bool]__ = None_ _(alias 'endOfAgent')_¶
+_field _end_of_agent _: bool | None_ _ = None_ _(alias 'endOfAgent')_¶
     
 
 If true, the current agent has finished its current run. Note that there can be multiple events with end_of_agent=True for the same agent within one invocation when there is a loop. This should only be set by ADK workflow.
 
-_field _escalate _: Optional[bool]__ = None_¶
+_field _escalate _: bool | None_ _ = None_¶
     
 
 The agent is escalating to a higher level agent.
@@ -18671,12 +18769,12 @@ _field _requested_tool_confirmations _: dict[str, ToolConfirmation]__[Optional]_
 
 A dict of tool confirmation requested by this event, keyed by function call id.
 
-_field _rewind_before_invocation_id _: Optional[str]__ = None_ _(alias 'rewindBeforeInvocationId')_¶
+_field _rewind_before_invocation_id _: str | None_ _ = None_ _(alias 'rewindBeforeInvocationId')_¶
     
 
 The invocation id to rewind to. This is only set for rewind event.
 
-_field _skip_summarization _: Optional[bool]__ = None_ _(alias 'skipSummarization')_¶
+_field _skip_summarization _: bool | None_ _ = None_ _(alias 'skipSummarization')_¶
     
 
 If true, it won’t call model to summarize function response.
@@ -18688,7 +18786,7 @@ _field _state_delta _: dict[str, object]__[Optional]__(alias 'stateDelta')_¶
 
 Indicates that the event is updating the state with the given delta.
 
-_field _transfer_to_agent _: Optional[str]__ = None_ _(alias 'transferToAgent')_¶
+_field _transfer_to_agent _: str | None_ _ = None_ _(alias 'transferToAgent')_¶
     
 
 If set, the event transfers to the specified agent.
@@ -20056,58 +20154,6 @@ Return type:
 
 `AsyncGenerator`[`LlmResponse`, `None`]
 
-_pydantic model _google.adk.models.Claude¶
-    
-
-Bases: `AnthropicLlm`
-
-Integration with Claude models served from Vertex AI.
-
-model¶
-    
-
-The name of the Claude model.
-
-max_tokens¶
-    
-
-The maximum number of tokens to generate.
-
-Show JSON schema
-    
-    
-    {
-       "title": "Claude",
-       "description": "Integration with Claude models served from Vertex AI.\n\nAttributes:\n  model: The name of the Claude model.\n  max_tokens: The maximum number of tokens to generate.",
-       "type": "object",
-       "properties": {
-          "model": {
-             "default": "claude-3-5-sonnet-v2@20241022",
-             "title": "Model",
-             "type": "string"
-          },
-          "max_tokens": {
-             "default": 8192,
-             "title": "Max Tokens",
-             "type": "integer"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `model (str)`
-
-
-
-
-_field _model _: str_ _ = 'claude-3-5-sonnet-v2@20241022'_¶
-    
-
-The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
-
 _pydantic model _google.adk.models.Gemini¶
     
 
@@ -20467,7 +20513,7 @@ _field _model _: str_ _ = 'gemini-2.5-flash'_¶
 
 The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
 
-_field _retry_options _: Optional[types.HttpRetryOptions]__ = None_¶
+_field _retry_options _: types.HttpRetryOptions | None_ _ = None_¶
     
 
 Allow Gemini to retry failed responses.
@@ -20488,7 +20534,7 @@ retry_options=types.HttpRetryOptions(initial_delay=1, attempts=2),
 
 ## )¶
 
-_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
+_field _speech_config _: types.SpeechConfig | None_ _ = None_¶
     
 
 _field _use_interactions_api _: bool_ _ = False_¶
@@ -20962,107 +21008,6 @@ Yields:
 
 _LlmResponse_ – The model response.
 
-_pydantic model _google.adk.models.Gemma3Ollama¶
-    
-
-Bases: `GemmaFunctionCallingMixin`, `LiteLlm`
-
-Integration for Gemma 3 models running locally via Ollama.
-
-This enables fully local agent workflows using Gemma 3 models. Requires Ollama to be running with a Gemma 3 model pulled.
-
-Example
-
-ollama pull gemma3:12b model = Gemma3Ollama(model=”ollama/gemma3:12b”)
-
-Show JSON schema
-    
-    
-    {
-       "title": "Gemma3Ollama",
-       "type": "object",
-       "properties": {
-          "model": {
-             "title": "Model",
-             "type": "string"
-          },
-          "llm_client": {
-             "default": null,
-             "title": "Llm Client"
-          }
-       },
-       "required": [
-          "model"
-       ]
-    }
-    
-
-Fields:
-    
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
-
-Return type:
-    
-
-`list`[`str`]
-
-Returns:
-    
-
-A list of supported models.
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Sends a request to Gemma via Ollama/LiteLLM.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-model_post_init(_context_ , _/_)¶
-    
-
-This function is meant to behave like a BaseModel method to initialise private attributes.
-
-It takes context as an argument since that’s what pydantic-core passes when calling it.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **self** – The BaseModel instance.
-
-  * **context** – The context.
-
-
-
-
 _class _google.adk.models.LLMRegistry¶
     
 
@@ -21124,144 +21069,6 @@ Raises:
     
 
 **ValueError** – If the model is not found.
-
-_pydantic model _google.adk.models.LiteLlm¶
-    
-
-Bases: `BaseLlm`
-
-Wrapper around litellm.
-
-This wrapper can be used with any of the models supported by litellm. The environment variable(s) needed for authenticating with the model endpoint must be set prior to instantiating this class.
-
-Example usage: ``` os.environ[“VERTEXAI_PROJECT”] = “your-gcp-project-id” os.environ[“VERTEXAI_LOCATION”] = “your-gcp-location”
-
-agent = Agent(
-    
-
-model=LiteLlm(model=”[vertex_ai/claude-3-7-sonnet@20250219](mailto:vertex_ai/claude-3-7-sonnet%4020250219)”), …
-
-## )¶
-
-model¶
-    
-
-The name of the LiteLlm model.
-
-llm_client¶
-    
-
-The LLM client to use for the model.
-
-Initializes the LiteLlm class.
-
-param model:
-    
-
-The name of the LiteLlm model.
-
-param **kwargs:
-    
-
-Additional arguments to pass to the litellm completion api.
-
-Show JSON schema
-    
-    
-    {
-       "title": "LiteLlm",
-       "type": "object",
-       "properties": {
-          "model": {
-             "title": "Model",
-             "type": "string"
-          },
-          "llm_client": {
-             "default": null,
-             "title": "Llm Client"
-          }
-       },
-       "required": [
-          "model"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `llm_client (LiteLLMClient)`
-
-
-
-
-_field _llm_client _: LiteLLMClient_ _[Optional]_¶
-    
-
-The LLM client to use for the model.
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
-
-Return type:
-    
-
-`list`[`str`]
-
-Returns:
-    
-
-A list of supported models.
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Generates content asynchronously.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send to the LiteLlm model.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-model_post_init(_context_ , _/_)¶
-    
-
-This function is meant to behave like a BaseModel method to initialise private attributes.
-
-It takes context as an argument since that’s what pydantic-core passes when calling it.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **self** – The BaseModel instance.
-
-  * **context** – The context.
-
-
-
 
 # google.adk.planners module¶
 
@@ -21404,7 +21211,7 @@ Returns:
 
 The processed response parts, or None if no processing is needed.
 
-thinking_config _: `ThinkingConfig`_¶
+thinking_config _: ThinkingConfig_¶
     
 
 Config for model built-in thinking features. An error will be returned if this field is set for models that don’t support thinking.
@@ -21869,7 +21676,7 @@ Example
     
     >>> debug_plugin = DebugLoggingPlugin(output_path="/tmp/adk_debug.yaml")
     >>> runner = Runner(
-    ...     agents=[my_agent],
+    ...     agent=my_agent,
     ...     plugins=[debug_plugin],
     ... )
     
@@ -22661,17 +22468,17 @@ Raises:
 Self _ = typing.Self_¶
     
 
-agent _: `BaseAgent`_¶
+agent _: BaseAgent_¶
     
 
 The root agent to run.
 
-app_name _: `str`_¶
+app_name _: str_¶
     
 
 The app name of the runner.
 
-artifact_service _: `Optional`[`BaseArtifactService`]__ = None_¶
+artifact_service _: BaseArtifactService | None_ _ = None_¶
     
 
 The artifact service for the runner.
@@ -22681,27 +22488,27 @@ _async _close()¶
 
 Closes the runner.
 
-context_cache_config _: `Optional`[`ContextCacheConfig`]__ = None_¶
+context_cache_config _: ContextCacheConfig | None_ _ = None_¶
     
 
 The context cache config for the runner.
 
-credential_service _: `Optional`[`BaseCredentialService`]__ = None_¶
+credential_service _: BaseCredentialService | None_ _ = None_¶
     
 
 The credential service for the runner.
 
-memory_service _: `Optional`[`BaseMemoryService`]__ = None_¶
+memory_service _: BaseMemoryService | None_ _ = None_¶
     
 
 The memory service for the runner.
 
-plugin_manager _: `PluginManager`_¶
+plugin_manager _: PluginManager_¶
     
 
 The plugin manager for the runner.
 
-resumability_config _: `Optional`[`ResumabilityConfig`]__ = None_¶
+resumability_config _: ResumabilityConfig | None_ _ = None_¶
     
 
 The resumability config for the application.
@@ -22927,7 +22734,7 @@ Note
 
 Either session or both user_id and session_id must be provided.
 
-session_service _: `BaseSessionService`_¶
+session_service _: BaseSessionService_¶
     
 
 The session service for the runner.
@@ -27199,7 +27006,7 @@ A ListSessionsResponse containing the sessions.
 
 # google.adk.telemetry module¶
 
-google.adk.telemetry.trace_call_llm(_invocation_context_ , _event_id_ , _llm_request_ , _llm_response_)¶
+google.adk.telemetry.trace_call_llm(_invocation_context_ , _event_id_ , _llm_request_ , _llm_response_ , _span =None_)¶
     
 
 Traces a call to the LLM.
@@ -27382,6 +27189,18 @@ Performs cleanup and releases resources held by the toolset.
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset.
+
+ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
 
 _async _get_tools(_readonly_context =None_)¶
     
@@ -28583,7 +28402,7 @@ Bases: `ABC`
 
 The base class for all tools.
 
-custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
+custom_metadata _: dict[str, Any] | None_ _ = None_¶
     
 
 The custom metadata of the BaseTool.
@@ -28592,7 +28411,7 @@ An optional key-value pair for storing and retrieving tool-specific metadata, su
 
 NOTE: the entire dict must be JSON serializable.
 
-description _: `str`_¶
+description _: str_¶
     
 
 The description of the tool.
@@ -28623,12 +28442,12 @@ Returns:
 
 The tool instance.
 
-is_long_running _: `bool`_ _ = False_¶
+is_long_running _: bool_ _ = False_¶
     
 
 Whether the tool is a long running operation, which typically returns a resource id first and finishes the operation later.
 
-name _: `str`_¶
+name _: str_¶
     
 
 The name of the tool.
@@ -28988,6 +28807,28 @@ Return type:
 
 `McpToolset`
 
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset.
+
+ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
+
+_async _get_resource_info(_name_ , _readonly_context =None_)¶
+    
+
+Returns metadata about a specific resource (name, MIME type, etc.).
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
 _async _get_tools(_readonly_context =None_)¶
     
 
@@ -29012,6 +28853,40 @@ Return type:
     
 
 List[BaseTool]
+
+_async _list_resources(_readonly_context =None_)¶
+    
+
+Returns a list of resource names available on the MCP server.
+
+Return type:
+    
+
+`list`[`str`]
+
+_async _read_resource(_name_ , _readonly_context =None_)¶
+    
+
+Fetches and returns a list of contents of the named resource.
+
+Return type:
+    
+
+`Any`
+
+Parameters:
+    
+
+  * **name** – The name of the resource to fetch.
+
+  * **readonly_context** – Context used to provide headers for the MCP session.
+
+
+
+Returns:
+    
+
+List of contents of the resource.
 
 _class _google.adk.tools.ToolContext(_invocation_context_ , _*_ , _function_call_id =None_, _event_actions =None_, _tool_confirmation =None_)¶
     
@@ -29048,10 +28923,24 @@ _property _actions _: EventActions_¶
 get_auth_response(_auth_config_)¶
     
 
+Gets the auth response credential from session state.
+
+This method retrieves an authentication credential that was previously stored in session state after a user completed an OAuth flow or other authentication process.
+
 Return type:
     
 
 `AuthCredential`
+
+Parameters:
+    
+
+**auth_config** – The authentication configuration for the credential.
+
+Returns:
+    
+
+The auth credential from the auth response, or None if not found.
 
 request_confirmation(_*_ , _hint =None_, _payload =None_)¶
     
@@ -29128,6 +29017,28 @@ search_engine_id¶
     
 
 The Vertex AI search engine resource ID.
+
+To dynamically customize the search configuration at runtime (e.g., set filter based on user context), subclass this tool and override the _build_vertex_ai_search_config method.
+
+Example
+
+```python class DynamicFilterSearchTool(VertexAiSearchTool):
+
+> def _build_vertex_ai_search_config(
+>     
+> 
+> self, ctx: ReadonlyContext
+> 
+> ) -> types.VertexAISearch:
+>     
+> 
+> user_id = ctx.state.get(‘user_id’) return types.VertexAISearch(
+>
+>> datastore=self.data_store_id, engine=self.search_engine_id, filter=f”user_id = ‘{user_id}’”, max_results=self.max_results,
+> 
+> )
+
+```
 
 Initializes the Vertex AI Search tool.
 
@@ -29508,6 +29419,18 @@ Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
 
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset.
+
+ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
+
 _async _get_tools(_readonly_context =None_)¶
     
 
@@ -29620,6 +29543,18 @@ Return type:
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset.
+
+ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
 
 _async _get_tools(_readonly_context =None_)¶
     
@@ -29857,7 +29792,7 @@ Bases: `ABC`
 
 The base class for all tools.
 
-custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
+custom_metadata _: dict[str, Any] | None_ _ = None_¶
     
 
 The custom metadata of the BaseTool.
@@ -29866,7 +29801,7 @@ An optional key-value pair for storing and retrieving tool-specific metadata, su
 
 NOTE: the entire dict must be JSON serializable.
 
-description _: `str`_¶
+description _: str_¶
     
 
 The description of the tool.
@@ -29897,12 +29832,12 @@ Returns:
 
 The tool instance.
 
-is_long_running _: `bool`_ _ = False_¶
+is_long_running _: bool_ _ = False_¶
     
 
 Whether the tool is a long running operation, which typically returns a resource id first and finishes the operation later.
 
-name _: `str`_¶
+name _: str_¶
     
 
 The name of the tool.
@@ -30022,6 +29957,23 @@ Returns:
     
 
 The toolset instance.
+
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset. ADK will make sure the ‘exchanged_auth_credential’ field in the config is populated with ready-to-use credential (e.g. oauth token for OAuth flow) before calling get_tools method or execute any tools returned by this toolset. Thus toolset can use this credential either for tool listing or tool calling. If tool calling needs a different credential from ADK client, call tool_context.request_credential in the tool.
+
+Toolsets that support authentication should override this method to return an AuthConfig constructed from their auth_scheme, auth_credential, and optional credential_key parameters.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
+
+Returns:
+    
+
+AuthConfig if the toolset has authentication configured, None otherwise.
 
 _abstractmethod async _get_tools(_readonly_context =None_)¶
     
@@ -30261,133 +30213,6 @@ Return type:
 `List`[`BaseTool`]
 
 # google.adk.tools.crewai_tool module¶
-
-_class _google.adk.tools.crewai_tool.CrewaiTool(_tool_ , _*_ , _name_ , _description_)¶
-    
-
-Bases: `FunctionTool`
-
-Use this class to wrap a CrewAI tool.
-
-If the original tool name and description are not suitable, you can override them in the constructor.
-
-Initializes the FunctionTool. Extracts metadata from a callable object.
-
-Parameters:
-    
-
-  * **func** – The function to wrap.
-
-  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
-
-
-
-
-_classmethod _from_config(_config_ , _config_abs_path_)¶
-    
-
-Creates a tool instance from a config.
-
-This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
-
-Return type:
-    
-
-`CrewaiTool`
-
-Parameters:
-    
-
-  * **config** – The config for the tool.
-
-  * **config_abs_path** – The absolute path to the config file that contains the tool config.
-
-
-
-Returns:
-    
-
-The tool instance.
-
-_async _run_async(_*_ , _args_ , _tool_context_)¶
-    
-
-Override run_async to handle CrewAI-specific parameter filtering.
-
-CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
-
-Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
-
-Return type:
-    
-
-`Any`
-
-tool _: CrewaiBaseTool_¶
-    
-
-The wrapped CrewAI tool.
-
-_pydantic model _google.adk.tools.crewai_tool.CrewaiToolConfig¶
-    
-
-Bases: `BaseToolConfig`
-
-Show JSON schema
-    
-    
-    {
-       "title": "CrewaiToolConfig",
-       "type": "object",
-       "properties": {
-          "tool": {
-             "title": "Tool",
-             "type": "string"
-          },
-          "name": {
-             "default": "",
-             "title": "Name",
-             "type": "string"
-          },
-          "description": {
-             "default": "",
-             "title": "Description",
-             "type": "string"
-          }
-       },
-       "additionalProperties": false,
-       "required": [
-          "tool"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `description (str)`
-
-  * `name (str)`
-
-  * `tool (str)`
-
-
-
-
-_field _description _: str_ _ = ''_¶
-    
-
-The description of the tool.
-
-_field _name _: str_ _ = ''_¶
-    
-
-The name of the tool.
-
-_field _tool _: str_ _[Required]_¶
-    
-
-The fully qualified path of the CrewAI tool instance.
 
 # google.adk.tools.enterprise_search_tool module¶
 
@@ -31398,7 +31223,7 @@ Fields:
 
 
 
-_field _examples _: Union[list[Example], str]__[Required]_¶
+_field _examples _: list[Example] | str_ _[Required]_¶
     
 
 The examples to add to the LLM request. User can either provide a list of examples or a fully-qualified name to a BaseExampleProvider object in code.
@@ -31930,138 +31755,6 @@ Parameters:
 
 
 # google.adk.tools.langchain_tool module¶
-
-_class _google.adk.tools.langchain_tool.LangchainTool(_tool_ , _name =None_, _description =None_)¶
-    
-
-Bases: `FunctionTool`
-
-Adapter class that wraps a Langchain tool for use with ADK.
-
-This adapter converts Langchain tools into a format compatible with Google’s generative AI function calling interface. It preserves the tool’s name, description, and functionality while adapting its schema.
-
-The original tool’s name and description can be overridden if needed.
-
-Parameters:
-    
-
-  * **tool** – A Langchain tool to wrap (BaseTool or a tool with a .run method)
-
-  * **name** – Optional override for the tool’s name
-
-  * **description** – Optional override for the tool’s description
-
-
-
-
-Examples:
-    
-    
-    from langchain.tools import DuckDuckGoSearchTool
-    from google.genai.tools import LangchainTool
-    
-    search_tool = DuckDuckGoSearchTool()
-    wrapped_tool = LangchainTool(search_tool)
-    
-
-Initializes the FunctionTool. Extracts metadata from a callable object.
-
-Parameters:
-    
-
-  * **func** – The function to wrap.
-
-  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
-
-
-
-
-_classmethod _from_config(_config_ , _config_abs_path_)¶
-    
-
-Creates a tool instance from a config.
-
-This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
-
-Return type:
-    
-
-`LangchainTool`
-
-Parameters:
-    
-
-  * **config** – The config for the tool.
-
-  * **config_abs_path** – The absolute path to the config file that contains the tool config.
-
-
-
-Returns:
-    
-
-The tool instance.
-
-_pydantic model _google.adk.tools.langchain_tool.LangchainToolConfig¶
-    
-
-Bases: `BaseToolConfig`
-
-Show JSON schema
-    
-    
-    {
-       "title": "LangchainToolConfig",
-       "type": "object",
-       "properties": {
-          "tool": {
-             "title": "Tool",
-             "type": "string"
-          },
-          "name": {
-             "default": "",
-             "title": "Name",
-             "type": "string"
-          },
-          "description": {
-             "default": "",
-             "title": "Description",
-             "type": "string"
-          }
-       },
-       "additionalProperties": false,
-       "required": [
-          "tool"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `description (str)`
-
-  * `name (str)`
-
-  * `tool (str)`
-
-
-
-
-_field _description _: str_ _ = ''_¶
-    
-
-The description of the tool.
-
-_field _name _: str_ _ = ''_¶
-    
-
-The name of the tool.
-
-_field _tool _: str_ _[Required]_¶
-    
-
-The fully qualified path of the Langchain tool instance.
 
 # google.adk.tools.load_artifacts_tool module¶
 
@@ -33400,6 +33093,28 @@ Return type:
 
 `McpToolset`
 
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset.
+
+ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
+
+_async _get_resource_info(_name_ , _readonly_context =None_)¶
+    
+
+Returns metadata about a specific resource (name, MIME type, etc.).
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
 _async _get_tools(_readonly_context =None_)¶
     
 
@@ -33424,6 +33139,40 @@ Return type:
     
 
 List[BaseTool]
+
+_async _list_resources(_readonly_context =None_)¶
+    
+
+Returns a list of resource names available on the MCP server.
+
+Return type:
+    
+
+`list`[`str`]
+
+_async _read_resource(_name_ , _readonly_context =None_)¶
+    
+
+Fetches and returns a list of contents of the named resource.
+
+Return type:
+    
+
+`Any`
+
+Parameters:
+    
+
+  * **name** – The name of the resource to fetch.
+
+  * **readonly_context** – Context used to provide headers for the MCP session.
+
+
+
+Returns:
+    
+
+List of contents of the resource.
 
 _pydantic model _google.adk.tools.mcp_tool.SseConnectionParams¶
     
@@ -33829,7 +33578,7 @@ Raises:
 
 # google.adk.tools.openapi_tool module¶
 
-_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_)¶
+_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _credential_key =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_)¶
     
 
 Bases: `BaseToolset`
@@ -33889,6 +33638,8 @@ Parameters:
 
   * **auth_credential** – The auth credential to use for all tools. Use AuthCredential or use helpers in `google.adk.tools.openapi_tool.auth.auth_helpers`
 
+  * **credential_key** – Optional stable key used for interactive auth and credential caching across all tools in this toolset.
+
   * **tool_filter** – The filter used to filter the tools in the toolset. It can be either a tool predicate or a list of tool names of the tools to expose.
 
   * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset. Useful when multiple OpenAPI specs have tools with similar names.
@@ -33921,6 +33672,18 @@ Parameters:
 
 **ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
 
+get_auth_config()¶
+    
+
+Returns the auth config for this toolset.
+
+Note: This returns a copy so any exchanged credentials populated by the ADK framework do not persist on the toolset instance across invocations.
+
+Return type:
+    
+
+`Optional`[`AuthConfig`]
+
 get_tool(_tool_name_)¶
     
 
@@ -33941,7 +33704,7 @@ Return type:
 
 `List`[`RestApiTool`]
 
-_class _google.adk.tools.openapi_tool.RestApiTool(_name_ , _description_ , _endpoint_ , _operation_ , _auth_scheme =None_, _auth_credential =None_, _should_parse_operation =True_, _ssl_verify =None_, _header_provider =None_)¶
+_class _google.adk.tools.openapi_tool.RestApiTool(_name_ , _description_ , _endpoint_ , _operation_ , _auth_scheme =None_, _auth_credential =None_, _should_parse_operation =True_, _ssl_verify =None_, _header_provider =None_, _*_ , _credential_key =None_)¶
     
 
 Bases: `BaseTool`
@@ -33998,6 +33761,8 @@ Parameters:
 
   * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
 
+  * **credential_key** – Optional stable key used for interactive auth and credential caching.
+
 
 
 
@@ -34044,6 +33809,11 @@ Parameters:
     
 
 **auth_scheme** – AuthScheme|dict -: The authentication scheme. The dict is converted to a AuthScheme object.
+
+configure_credential_key(_credential_key =None_)¶
+    
+
+Configures the credential key for interactive auth / caching.
 
 configure_ssl_verify(_ssl_verify =None_)¶
     
@@ -34220,10 +33990,24 @@ _property _actions _: EventActions_¶
 get_auth_response(_auth_config_)¶
     
 
+Gets the auth response credential from session state.
+
+This method retrieves an authentication credential that was previously stored in session state after a user completed an OAuth flow or other authentication process.
+
 Return type:
     
 
 `AuthCredential`
+
+Parameters:
+    
+
+**auth_config** – The authentication configuration for the credential.
+
+Returns:
+    
+
+The auth credential from the auth response, or None if not found.
 
 request_confirmation(_*_ , _hint =None_, _payload =None_)¶
     
@@ -34439,6 +34223,28 @@ search_engine_id¶
     
 
 The Vertex AI search engine resource ID.
+
+To dynamically customize the search configuration at runtime (e.g., set filter based on user context), subclass this tool and override the _build_vertex_ai_search_config method.
+
+Example
+
+```python class DynamicFilterSearchTool(VertexAiSearchTool):
+
+> def _build_vertex_ai_search_config(
+>     
+> 
+> self, ctx: ReadonlyContext
+> 
+> ) -> types.VertexAISearch:
+>     
+> 
+> user_id = ctx.state.get(‘user_id’) return types.VertexAISearch(
+>
+>> datastore=self.data_store_id, engine=self.search_engine_id, filter=f”user_id = ‘{user_id}’”, max_results=self.max_results,
+> 
+> )
+
+```
 
 Initializes the Vertex AI Search tool.
 

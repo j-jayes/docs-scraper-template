@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog](https://modelcontextprotocol.info/blog/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -63,13 +63,12 @@
 
       * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
       * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [GitHub Actions 自动化发布](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [消费 Registry 数据](https://modelcontextprotocol.info/tools/registry/consuming/)
+      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
+      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
       * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
 
     * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
     * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-    * [测试](https://modelcontextprotocol.info/tools/test/)
 
   * [Specification ](https://modelcontextprotocol.info/specification/)
 
@@ -168,13 +167,13 @@
     * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
     * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
     * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [一文读懂MCP协议：大模型AI-Agent的USB-C接口](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
+    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
 
   * [About](https://modelcontextprotocol.info/about/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
   * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
@@ -221,7 +220,7 @@
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
 
@@ -412,15 +411,21 @@ This capability allows:
 
 Tools are server-side functions that clients can discover and execute. The MCP client provides methods to list available tools and execute them with specific parameters. Each tool has a unique name and accepts a map of parameters.
 
-```java // List available tools and their names var tools = client.listTools(); tools.forEach(tool -> System.out.println(tool.getName()));
-
-// Execute a tool with parameters var result = client.callTool("calculator", Map.of( "operation", "add", "a", 1, "b", 2 ));
+Sync APIAsync API
     
     
-      </Tab>
+    // List available tools and their names
+    var tools = client.listTools();
+    tools.forEach(tool -> System.out.println(tool.getName()));
     
-      <Tab title="Async API">
-    ```java
+    // Execute a tool with parameters
+    var result = client.callTool("calculator", Map.of(
+        "operation", "add",
+        "a", 1,
+        "b", 2
+    ));
+    
+    
     // List available tools asynchronously
     client.listTools()
         .doOnNext(tools -> tools.forEach(tool -> 
@@ -439,15 +444,19 @@ Tools are server-side functions that clients can discover and execute. The MCP c
 
 Resources represent server-side data sources that clients can access using URI templates. The MCP client provides methods to discover available resources and retrieve their contents through a standardized interface.
 
-```java // List available resources and their names var resources = client.listResources(); resources.forEach(resource -> System.out.println(resource.getName()));
-
-// Retrieve resource content using a URI template var content = client.getResource("file", Map.of( "path", "/path/to/file.txt" ));
+Sync APIAsync API
     
     
-      </Tab>
+    // List available resources and their names
+    var resources = client.listResources();
+    resources.forEach(resource -> System.out.println(resource.getName()));
     
-      <Tab title="Async API">
-    ```java
+    // Retrieve resource content using a URI template
+    var content = client.getResource("file", Map.of(
+        "path", "/path/to/file.txt"
+    ));
+    
+    
     // List available resources asynchronously
     client.listResources()
         .doOnNext(resources -> resources.forEach(resource -> 
@@ -464,15 +473,19 @@ Resources represent server-side data sources that clients can access using URI t
 
 The prompt system enables interaction with server-side prompt templates. These templates can be discovered and executed with custom parameters, allowing for dynamic text generation based on predefined patterns.
 
-```java // List available prompt templates var prompts = client.listPrompts(); prompts.forEach(prompt -> System.out.println(prompt.getName()));
-
-// Execute a prompt template with parameters var response = client.executePrompt("echo", Map.of( "text", "Hello, World!" ));
+Sync APIAsync API
     
     
-      </Tab>
+    // List available prompt templates
+    var prompts = client.listPrompts();
+    prompts.forEach(prompt -> System.out.println(prompt.getName()));
     
-      <Tab title="Async API">
-    ```java
+    // Execute a prompt template with parameters
+    var response = client.executePrompt("echo", Map.of(
+        "text", "Hello, World!"
+    ));
+    
+    
     // List available prompt templates asynchronously
     client.listPrompts()
         .doOnNext(prompts -> prompts.forEach(prompt -> 
@@ -487,7 +500,7 @@ The prompt system enables interaction with server-side prompt templates. These t
 
 [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/ "MCP Server")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://moltBotlab.com/ "molt Bot 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

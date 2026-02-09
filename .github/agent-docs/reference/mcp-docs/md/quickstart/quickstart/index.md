@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog](https://modelcontextprotocol.info/blog/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -21,11 +21,7 @@
       * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
       * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
       * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
-        *         * Building your server
-        * Testing your server with Claude for Desktop
-        * Building your server
-        * Testing your server with Claude for Desktop
-        * What’s happening under the hood
+        *         * What’s happening under the hood
         * Troubleshooting
         * Next steps
 
@@ -67,13 +63,12 @@
 
       * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
       * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [GitHub Actions 自动化发布](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [消费 Registry 数据](https://modelcontextprotocol.info/tools/registry/consuming/)
+      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
+      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
       * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
 
     * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
     * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-    * [测试](https://modelcontextprotocol.info/tools/test/)
 
   * [Specification ](https://modelcontextprotocol.info/specification/)
 
@@ -172,13 +167,13 @@
     * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
     * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
     * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [一文读懂MCP协议：大模型AI-Agent的USB-C接口](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
+    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
 
   * [About](https://modelcontextprotocol.info/about/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
   * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
@@ -225,7 +220,7 @@
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about)
+  * [About](https://modelcontextprotocol.info/about/)
 
 
 
@@ -251,37 +246,6 @@ On this page
 
   * What we’ll be building
   * Core MCP Concepts
-  * Prerequisite knowledge
-  * System requirements
-  * Set up your environment
-
-
-
-
-
-  * Building your server
-  * Importing packages
-  * Setting up the instance
-  * Implementing tool listing
-  * Helper functions
-  * Implementing tool execution
-  * Running the server
-  * Testing your server with Claude for Desktop
-  * Prerequisite knowledge
-  * System requirements
-  * Set up your environment
-
-
-
-
-  * Building your server
-  * Importing packages
-  * Setting up the instance
-  * Implementing tool listing
-  * Helper functions
-  * Implementing tool execution
-  * Running the server
-  * Testing your server with Claude for Desktop
   * Test with commands
   * What’s happening under the hood
   * Troubleshooting
@@ -307,7 +271,7 @@ Many LLMs (including Claude) do not currently have the ability to fetch the fore
 
 We'll build a server that exposes two tools: `get-alerts` and `get-forecast`. Then we'll connect the server to an MCP host (in this case, Claude for Desktop):
 
-Servers can connect to any client. We've chosen Claude desktop here for simplicity, but we also have guides on [building your own client](../../tutorials/building-a-client)
+Servers can connect to any client. We've chosen Claude desktop here for simplicity, but we also have guides on [building your own client](../../tutorials/building-a-client/)
 
 **Why Claude for Desktop and not Claude.ai?**
 
@@ -324,6 +288,8 @@ MCP servers can provide three main types of capabilities:
 
 
 This tutorial focuses on tools, but we have intermediate tutorials if you'd like to learn more about Resources and Prompts.
+
+PythonNode
 
 ### Prerequisite knowledge
 
@@ -351,27 +317,28 @@ First, let's install `uv` and set up our Python project and environment:
 Make sure to restart your terminal afterwards to ensure that the `uv` command gets picked up.
 
 Now, let's create and set up our project:
-
-```bash MacOS/Linux # Create a new directory for our project uv init weather cd weather
-
-# Create virtual environment and activate it
-
-uv venv source .venv/bin/activate
-
-# Install dependencies
-
-uv add mcp httpx
-
-# Remove template file
-
-rm hello.py
-
-# Create our files
-
-mkdir -p src/weather touch src/weather/**init**.py touch src/weather/server.py
     
     
-    ```powershell Windows
+    # Create a new directory for our project
+    uv init weather
+    cd weather
+    
+    # Create virtual environment and activate it
+    uv venv
+    source .venv/bin/activate
+    
+    # Install dependencies
+    uv add mcp httpx 
+    
+    # Remove template file
+    rm hello.py
+    
+    # Create our files
+    mkdir -p src/weather
+    touch src/weather/__init__.py
+    touch src/weather/server.py
+    
+    
     # Create a new directory for our project
     uv init weather
     cd weather
@@ -667,7 +634,7 @@ Let's now test your server from an existing MCP host, Claude for Desktop.
 
 ## Testing your server with Claude for Desktop
 
-Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](https://modelcontextprotocol.info/tutorials/building-a-client/) tutorial to build an MCP client that connects to the server we just built.
+Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](https://modelcontextprotocol.info/en/docs/tutorials/building-a-client/) tutorial to build an MCP client that connects to the server we just built.
 
 First, make sure you have Claude for Desktop installed. [You can install the latest version here.](https://claude.ai/download)
 
@@ -724,7 +691,7 @@ This tells Claude for Desktop:
 
 
 
-Save the file, and restart **Claude for Desktop**. 
+Save the file, and restart **Claude for Desktop**.
 
 ### Prerequisite knowledge
 
@@ -750,23 +717,24 @@ First, let's install Node.js and npm if you haven't already. You can download th
 For this tutorial, you'll need Node.js version 16 or higher.
 
 Now, let's create and set up our project:
-
-```bash MacOS/Linux # Create a new directory for our project mkdir weather cd weather
-
-# Initialize a new npm project
-
-npm init -y
-
-# Install dependencies
-
-npm install @modelcontextprotocol/sdk zod npm install -D @types/node typescript
-
-# Create our files
-
-mkdir src touch src/index.ts
     
     
-    ```powershell Windows
+    # Create a new directory for our project
+    mkdir weather
+    cd weather
+    
+    # Initialize a new npm project
+    npm init -y
+    
+    # Install dependencies
+    npm install @modelcontextprotocol/sdk zod
+    npm install -D @types/node typescript
+    
+    # Create our files
+    mkdir src
+    touch src/index.ts
+    
+    
     # Create a new directory for our project
     md weather
     cd weather
@@ -1159,7 +1127,7 @@ Let's now test your server from an existing MCP host, Claude for Desktop.
 
 ## Testing your server with Claude for Desktop
 
-Unfortunately, Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](/tutorials/building-a-client/) tutorial for a workaround.
+Unfortunately, Claude for Desktop is not yet available on Linux. Linux users can proceed to the [Building a client](https://modelcontextprotocol.info/en/docs/tutorials/building-a-client/) tutorial for a workaround.
 
 First, make sure you have Claude for Desktop installed. [You can install the latest version here.](https://claude.ai/download)
 
@@ -1167,11 +1135,41 @@ Next, open your Claude for Desktop App configuration at `~/Library/Application S
 
 For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 
-```bash code ~/Library/Application\ Support/Claude/claude_desktop_config.json ``` ```powershell code $env:AppData\Claude\claude_desktop_config.json ```
+MacOS/Linux
+    
+    
+    code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+    
+    
+    code $env:AppData\Claude\claude_desktop_config.json
 
 Add this configuration (replace the parent folder path):
 
-```json Node { "mcpServers": { "weather": { "command": "node", "args": [ "/ABSOLUTE/PATH/TO/PARENT/FOLDER/weather/build/index.js" ] } } } ``` ```json Node { "mcpServers": { "weather": { "command": "node", "args": [ "C:\\\PATH\TO\PARENT\FOLDER\weather\build\index.js" ] } } } ```
+MacOS/LinuxWindows
+    
+    
+    {
+        "mcpServers": {
+            "weather": {
+                "command": "node",
+                "args": [
+                    "/ABSOLUTE/PATH/TO/PARENT/FOLDER/weather/build/index.js"
+                ]
+            }
+        }
+    }
+    
+    
+    {
+        "mcpServers": {
+            "weather": {
+                "command": "node",
+                "args": [
+                    "C:\\PATH\TO\PARENT\FOLDER\weather\build\index.js"
+                ]
+            }
+        }
+    }
 
 This tells Claude for Desktop:
 
@@ -1184,7 +1182,7 @@ Save the file, and restart **Claude for Desktop**.
 
 ### Test with commands
 
-First, make sure Claude for Desktop is picking up the two tools we've exposed in our `weather` server. You can do this by looking for the hammer <img src="/images/claude-desktop-mcp-hammer-icon.svg" style={{display: 'inline', margin: 0, height: '1.3em'}} /> icon:
+First, make sure Claude for Desktop is picking up the two tools we've exposed in our `weather` server. You can do this by looking for the hammer  icon:
 
 After clicking on the hammer icon, you should see two tools listed:
 
@@ -1194,6 +1192,8 @@ You can now test your server by running the following commands in Claude for Des
 
   * What's the weather in Sacramento?
   * What are the active weather alerts in Texas?
+
+
 
 Since this is the US National Weather service, the queries will only work for US locations.
 
@@ -1211,6 +1211,8 @@ When you ask a question:
 
 
 ## Troubleshooting
+
+**Weather API Issues**
 
 **Error: Failed to retrieve grid point data**
 
@@ -1232,7 +1234,11 @@ Fix:
 
 **Error: No active alerts for [STATE]**
 
-This isn't an error - it just means there are no current weather alerts for that state. Try a different state or check during severe weather. **Server not showing up in Claude**
+This isn't an error - it just means there are no current weather alerts for that state. Try a different state or check during severe weather.
+
+**Claude for Desktop Integration Issues**
+
+**Server not showing up in Claude**
 
   1. Check your configuration file syntax
   2. Make sure the path to your project is correct
@@ -1258,11 +1264,11 @@ If Claude attempts to use the tools but they fail:
 
 ## Next steps
 
-Learn how to build your an MCP client that can connect to your server Check out our gallery of official MCP servers and implementations Understand how MCP connects clients, servers, and LLMs
+[Building a clientLearn how to build your an MCP client that can connect to your server](https://modelcontextprotocol.info/en/docs/tutorials/building-a-client/)[Example serversCheck out our gallery of official MCP servers and implementations](https://modelcontextprotocol.info/en/docs/examples/)[Core architectureUnderstand how MCP connects clients, servers, and LLMs](https://modelcontextprotocol.info/en/docs/concepts/architecture/)
 
 [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/ "Your First MCP Experience: 5-Minute Setup")
 
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://moltBotlab.com/ "molt Bot 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

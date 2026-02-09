@@ -62,54 +62,9 @@ Models for Agents
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
-    * [ Tools for Agents  ](../tools/)
+    * [ Tools and Integrations  ](../integrations/)
 
-Tools for Agents 
-      * [ Gemini API tools  ](../tools/gemini-api/)
-
-Gemini API tools 
-        * [ Code Execution  ](../tools/gemini-api/code-execution/)
-        * [ Computer use  ](../tools/gemini-api/computer-use/)
-        * [ Google Search  ](../tools/gemini-api/google-search/)
-      * [ Google Cloud tools  ](../tools/google-cloud/)
-
-Google Cloud tools 
-        * [ Apigee API Hub  ](../tools/google-cloud/apigee-api-hub/)
-        * [ Application Integration  ](../tools/google-cloud/application-integration/)
-        * [ BigQuery  ](../tools/google-cloud/bigquery/)
-        * [ Bigtable  ](../tools/google-cloud/bigtable/)
-        * [ Cloud API Registry  ](../tools/google-cloud/api-registry/)
-        * [ Code Execution with Agent Engine  ](../tools/google-cloud/code-exec-agent-engine/)
-        * [ Data Agents  ](../tools/google-cloud/data-agent/)
-        * [ GKE Code Executor  ](../tools/google-cloud/gke-code-executor/)
-        * [ MCP Toolbox for Databases  ](../tools/google-cloud/mcp-toolbox-for-databases/)
-        * [ Pub/Sub  ](../tools/google-cloud/pubsub/)
-        * [ RAG Engine  ](../tools/google-cloud/vertex-ai-rag-engine/)
-        * [ Spanner  ](../tools/google-cloud/spanner/)
-        * [ Vertex AI Search  ](../tools/google-cloud/vertex-ai-search/)
-        * [ Vertex AI express mode  ](../tools/google-cloud/express-mode/)
-      * [ Third-party tools  ](../tools/third-party/)
-
-Third-party tools 
-        * [ Asana  ](../tools/third-party/asana/)
-        * [ Atlassian  ](../tools/third-party/atlassian/)
-        * [ Cartesia  ](../tools/third-party/cartesia/)
-        * [ Chroma  ](../tools/third-party/chroma/)
-        * [ Daytona  ](../tools/third-party/daytona/)
-        * [ ElevenLabs  ](../tools/third-party/elevenlabs/)
-        * [ GitHub  ](../tools/third-party/github/)
-        * [ GitLab  ](../tools/third-party/gitlab/)
-        * [ Hugging Face  ](../tools/third-party/hugging-face/)
-        * [ Linear  ](../tools/third-party/linear/)
-        * [ MongoDB  ](../tools/third-party/mongodb/)
-        * [ n8n  ](../tools/third-party/n8n/)
-        * [ Notion  ](../tools/third-party/notion/)
-        * [ Postman  ](../tools/third-party/postman/)
-        * [ PayPal  ](../tools/third-party/paypal/)
-        * [ Qdrant  ](../tools/third-party/qdrant/)
-        * [ Stripe  ](../tools/third-party/stripe/)
-        * [ Agentic UI (AG-UI)  ](../tools/third-party/ag-ui/)
-      * [ Tool limitations  ](../tools/limitations/)
+Tools and Integrations 
     * [ Custom Tools  ](../tools-custom/)
 
 Custom Tools 
@@ -120,6 +75,7 @@ Custom Tools
       * [ MCP tools  ](../tools-custom/mcp-tools/)
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -143,15 +99,6 @@ Agent Engine
       * [ GKE  ](../deploy/gke/)
     * Observability  Observability 
       * [ Logging  ](../observability/logging/)
-      * [ Cloud Trace  ](../observability/cloud-trace/)
-      * [ BigQuery Agent Analytics  ](../observability/bigquery-agent-analytics/)
-      * [ AgentOps  ](../observability/agentops/)
-      * [ Arize AX  ](../observability/arize-ax/)
-      * [ Freeplay  ](../observability/freeplay/)
-      * [ MLflow  ](../observability/mlflow/)
-      * [ Monocle  ](../observability/monocle/)
-      * [ Phoenix  ](../observability/phoenix/)
-      * [ W&B; Weave  ](../observability/weave/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
@@ -194,7 +141,6 @@ Apps
     * [ Plugins  ](../plugins/)
 
 Plugins 
-      * [ Reflect and retry  ](../plugins/reflect-and-retry/)
     * [ MCP  ](./)
 
 MCP 
@@ -219,9 +165,11 @@ Bidi-streaming (live)
         * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../streaming/streaming-tools/)
       * [ Configuring Bidi-streaming behavior  ](../streaming/configuration/)
-    * Grounding  Grounding 
-      * [ Understanding Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Understanding Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+    * [ Grounding  ](../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
   * Reference  Reference 
     * [ Release Notes  ](../release-notes/)
     * [ API Reference  ](../api-reference/)
@@ -243,15 +191,6 @@ Table of contents
 
   * How does MCP work? 
   * MCP Tools in ADK 
-  * MCP Toolbox for Databases 
-    * Supported Data Sources 
-      * Google Cloud 
-      * Relational & SQL Databases 
-      * NoSQL & Key-Value Stores 
-      * Graph Databases 
-      * Data Platforms & Federation 
-      * Other 
-    * Documentation 
   * ADK Agent and FastMCP server 
   * MCP Servers for Google Cloud Genmedia 
 
@@ -276,91 +215,18 @@ MCP follows a client-server architecture, defining how data (resources), interac
 
 ADK helps you both use and consume MCP tools in your agents, whether you're trying to build a tool to call an MCP service, or exposing an MCP server for other developers or agents to interact with your tools.
 
-Refer to the [MCP Tools documentation](/adk-docs/tools-custom/mcp-tools/) for code samples and design patterns that help you use ADK together with MCP servers, including:
+See [Tools and Integrations](/adk-docs/integrations/) for pre-built MCP tools you can use in your agents. Refer to the [MCP Tools documentation](/adk-docs/tools-custom/mcp-tools/) for code samples and design patterns that help you use ADK together with MCP servers, including:
 
   * **Using Existing MCP Servers within ADK** : An ADK agent can act as an MCP client and use tools provided by external MCP servers.
   * **Exposing ADK Tools via an MCP Server** : How to build an MCP server that wraps ADK tools, making them accessible to any MCP client.
 
 
 
-## MCP Toolbox for Databases¶
-
-[MCP Toolbox for Databases](https://github.com/googleapis/genai-toolbox) is an open-source MCP server that securely exposes your backend data sources as a set of pre-built, production-ready tools for Gen AI agents. It functions as a universal abstraction layer, allowing your ADK agent to securely query, analyze, and retrieve information from a wide array of databases with built-in support.
-
-The MCP Toolbox server includes a comprehensive library of connectors, ensuring that agents can safely interact with your complex data estate.
-
-### Supported Data Sources¶
-
-MCP Toolbox provides out-of-the-box toolsets for the following databases and data platforms:
-
-#### Google Cloud¶
-
-  * [BigQuery](https://googleapis.github.io/genai-toolbox/resources/sources/bigquery/) (including tools for SQL execution, schema discovery, and AI-powered time series forecasting)
-  * [AlloyDB](https://googleapis.github.io/genai-toolbox/resources/sources/alloydb-pg/) (PostgreSQL-compatible, with tools for both standard queries and natural language queries)
-  * [AlloyDB Admin](https://googleapis.github.io/genai-toolbox/resources/sources/alloydb-admin/)
-  * [Spanner](https://googleapis.github.io/genai-toolbox/resources/sources/spanner/) (supporting both GoogleSQL and PostgreSQL dialects)
-  * Cloud SQL (with dedicated support for [Cloud SQL for PostgreSQL](https://googleapis.github.io/genai-toolbox/resources/sources/cloud-sql-pg/), [Cloud SQL for MySQL](https://googleapis.github.io/genai-toolbox/resources/sources/cloud-sql-mysql/), and [Cloud SQL for SQL Server](https://googleapis.github.io/genai-toolbox/resources/sources/cloud-sql-mssql/))
-  * [Cloud SQL Admin](https://googleapis.github.io/genai-toolbox/resources/sources/cloud-sql-admin/)
-  * [Firestore](https://googleapis.github.io/genai-toolbox/resources/sources/firestore/)
-  * [Bigtable](https://googleapis.github.io/genai-toolbox/resources/sources/bigtable/)
-  * [Dataplex](https://googleapis.github.io/genai-toolbox/resources/sources/dataplex/) (for data discovery and metadata search)
-  * [Cloud Monitoring](https://googleapis.github.io/genai-toolbox/resources/sources/cloud-monitoring/)
-
-
-
-#### Relational & SQL Databases¶
-
-  * [PostgreSQL](https://googleapis.github.io/genai-toolbox/resources/sources/postgres/) (generic)
-  * [MySQL](https://googleapis.github.io/genai-toolbox/resources/sources/mysql/) (generic)
-  * [Microsoft SQL Server](https://googleapis.github.io/genai-toolbox/resources/sources/mssql/) (generic)
-  * [ClickHouse](https://googleapis.github.io/genai-toolbox/resources/sources/clickhouse/)
-  * [TiDB](https://googleapis.github.io/genai-toolbox/resources/sources/tidb/)
-  * [OceanBase](https://googleapis.github.io/genai-toolbox/resources/sources/oceanbase/)
-  * [Firebird](https://googleapis.github.io/genai-toolbox/resources/sources/firebird/)
-  * [SQLite](https://googleapis.github.io/genai-toolbox/resources/sources/sqlite/)
-  * [YugabyteDB](https://googleapis.github.io/genai-toolbox/resources/sources/yugabytedb/)
-
-
-
-#### NoSQL & Key-Value Stores¶
-
-  * [MongoDB](https://googleapis.github.io/genai-toolbox/resources/sources/mongodb/)
-  * [Couchbase](https://googleapis.github.io/genai-toolbox/resources/sources/couchbase/)
-  * [Redis](https://googleapis.github.io/genai-toolbox/resources/sources/redis/)
-  * [Valkey](https://googleapis.github.io/genai-toolbox/resources/sources/valkey/)
-  * [Cassandra](https://googleapis.github.io/genai-toolbox/resources/sources/cassandra/)
-
-
-
-#### Graph Databases¶
-
-  * [Neo4j](https://googleapis.github.io/genai-toolbox/resources/sources/neo4j/) (with tools for Cypher queries and schema inspection)
-  * [Dgraph](https://googleapis.github.io/genai-toolbox/resources/sources/dgraph/)
-
-
-
-#### Data Platforms & Federation¶
-
-  * [Looker](https://googleapis.github.io/genai-toolbox/resources/sources/looker/) (for running Looks, queries, and building dashboards via the Looker API)
-  * [Trino](https://googleapis.github.io/genai-toolbox/resources/sources/trino/) (for running federated queries across multiple sources)
-
-
-
-#### Other¶
-
-  * [HTTP](https://googleapis.github.io/genai-toolbox/resources/sources/http/)
-
-
-
-### Documentation¶
-
-Refer to the [MCP Toolbox for Databases](/adk-docs/tools/google-cloud/mcp-toolbox-for-databases/) documentation on how you can use ADK together with the MCP Toolbox for Databases. For getting started with the MCP Toolbox for Databases, a blog post [Tutorial : MCP Toolbox for Databases - Exposing Big Query Datasets](https://medium.com/google-cloud/tutorial-mcp-toolbox-for-databases-exposing-big-query-datasets-9321f0064f4e) and Codelab [MCP Toolbox for Databases:Making BigQuery datasets available to MCP clients](https://codelabs.developers.google.com/mcp-toolbox-bigquery-dataset?hl=en#0) are also available.
-
 ## ADK Agent and FastMCP server¶
 
-[FastMCP](https://github.com/jlowin/fastmcp) handles all the complex MCP protocol details and server management, so you can focus on building great tools. It's designed to be high-level and Pythonic; in most cases, decorating a function is all you need.
+ADK uses [FastMCP](https://github.com/jlowin/fastmcp) to handle all the complex MCP protocol details and server management, so you can focus on building great tools. It's designed to be high-level and Pythonic; in most cases, decorating a function is all you need.
 
-Refer to the [MCP Tools documentation](/adk-docs/tools-custom/mcp-tools/) documentation on how you can use ADK together with the FastMCP server running on Cloud Run.
+Refer to the [MCP Tools](/adk-docs/tools-custom/mcp-tools/) documentation on how you can use ADK together with the FastMCP server running on Cloud Run.
 
 ## MCP Servers for Google Cloud Genmedia¶
 
@@ -368,7 +234,7 @@ Refer to the [MCP Tools documentation](/adk-docs/tools-custom/mcp-tools/) docume
 
 Agent Development Kit (ADK) and [Genkit](https://genkit.dev/) provide built-in support for these MCP tools, allowing your AI agents to effectively orchestrate generative media workflows. For implementation guidance, refer to the [ADK example agent](https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio/tree/main/experiments/mcp-genmedia/sample-agents/adk) and the [Genkit example](https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio/tree/main/experiments/mcp-genmedia/sample-agents/genkit).
 
-Back to top  [ Previous  Reflect and retry  ](../plugins/reflect-and-retry/) [ Next  ADK with Agent2Agent (A2A) Protocol  ](../a2a/)
+Back to top  [ Previous  Plugins  ](../plugins/) [ Next  ADK with Agent2Agent (A2A) Protocol  ](../a2a/)
 
 Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
