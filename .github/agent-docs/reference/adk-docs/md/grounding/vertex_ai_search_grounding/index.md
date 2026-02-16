@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../../deploy/agent-engine/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -582,7 +587,7 @@ The grounding process seamlessly connects user queries to your organization's kn
 
 Back to top  [ Previous  Google Search Grounding  ](../google_search_grounding/) [ Next  Release Notes  ](../../release-notes/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

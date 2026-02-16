@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../deploy/agent-engine/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../observability/)
+
+Observability 
       * [ Logging  ](../observability/logging/)
     * [ Evaluation  ](../evaluate/)
 
@@ -230,13 +235,13 @@ A Plugin in Agent Development Kit (ADK) is a custom code module that can be exec
 
 
 
-Tip
+Tip: Use Plugins for safety features
 
 When implementing security guardrails and policies, use ADK Plugins for better modularity and flexibility than Callbacks. For more details, see [Callbacks and Plugins for Security Guardrails](/adk-docs/safety/#callbacks-and-plugins-for-security-guardrails).
 
-Caution
+Tip: ADK Integrations
 
-Plugins are not supported by the [ADK web interface](../evaluate/#1-adk-web-run-evaluations-via-the-web-ui). If your ADK workflow uses Plugins, you must run your workflow without the web interface.
+For a list of pre-built plugins and other integrations for ADK, see [Tools and Integrations](/adk-docs/integrations/).
 
 ## How do Plugins work?¶
 
@@ -343,7 +348,7 @@ count_plugin.ts
             console.log(`[Plugin] LLM request count: ${this.llmRequestCount}`);
             return undefined;
         }
-    }    
+    }
     
 
 This example code implements callbacks for `before_agent_callback` and `before_model_callback` to count execution of these tasks during the lifecycle of the agent.
@@ -491,8 +496,6 @@ PythonTypescript
     
     npx ts-node path.to.main.ts
     
-
-Plugins are not supported by the [ADK web interface](../evaluate/#1-adk-web-run-evaluations-via-the-web-ui). If your ADK workflow uses Plugins, you must run your workflow without the web interface.
 
 The output of this previously described agent should look similar to the following:
     
@@ -670,7 +673,7 @@ PythonTypescript
         error: Error
     ): Promise<LlmResponse | undefined> {
         // Your implementation here
-    }  
+    }
     
 
 ### Tool callbacks¶
@@ -720,7 +723,7 @@ PythonTypescript
         error: Error
     ): Promise<{ [key:string]: any } | undefined> {
         // Your implementation here
-    }    
+    }
     
 
 ### Event callbacks¶
@@ -749,7 +752,7 @@ PythonTypescript
         event: Event
     ): Promise<Event | undefined> {
         // Your implementation here
-    }    
+    }
     
 
 ### Runner end callbacks¶
@@ -775,7 +778,7 @@ PythonTypescript
     
     async afterRunCallback(invocationContext: InvocationContext): Promise<void> {
         // Your implementation here
-    }    
+    }
     
 
 ## Next steps¶
@@ -789,7 +792,7 @@ Check out these resources for developing and applying Plugins to your ADK projec
 
 Back to top  [ Previous  Apps: workflow management class  ](../apps/) [ Next  Model Context Protocol (MCP)  ](../mcp/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

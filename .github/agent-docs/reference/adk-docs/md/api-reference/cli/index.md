@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 1.24.0.
+This page contains the auto-generated command-line reference for ADK 1.25.0.
 
   * adk
 
@@ -247,6 +247,11 @@ Deprecated. Use –session_service_uri instead.
 
 Deprecated. Use –artifact_service_uri instead.
 
+\--auto_create_session¶
+    
+
+Automatically create a session if it doesn’t exist when calling /run.
+
 Arguments
 
 AGENTS_DIR¶
@@ -303,7 +308,7 @@ Validates that agents produce consistent outputs by comparing against recorded i
 
 PATHS can be any number of folder paths. Each folder can either: \- Contain a spec.yaml file directly (single test case) \- Contain subdirectories with spec.yaml files (multiple test cases)
 
-If no paths are provided, defaults to searching the ‘tests’ folder.
+If no paths are provided, defaults to searching for the ‘tests’ folder.
 
 TEST MODES:
 
@@ -327,6 +332,10 @@ generated-recordings.yaml # Recorded interactions (replay mode)
 
 generated-session.yaml # Session data (replay mode)
 
+REPORT GENERATION:
+
+Use –generate_report to create a Markdown report of test results. Use –report_dir to specify where the report should be saved.
+
 EXAMPLES:
 
 # Run all tests in current directory’s ‘tests’ folder
@@ -344,6 +353,14 @@ adk conformance test tests/core/description_001
 # Run in live mode (when available)
 
 adk conformance test –mode=live tests/core
+
+# Generate a test report
+
+adk conformance test –generate_report
+
+# Generate a test report in a specific directory
+
+adk conformance test –generate_report –report_dir=reports
 
 Usage
     
@@ -367,6 +384,21 @@ Options:
     
 
 replay | live
+
+\--generate_report¶
+    
+
+Optional. Whether to generate a Markdown report of the test results.
+
+Default:
+    
+
+`False`
+
+\--report_dir <report_dir>¶
+    
+
+Optional. Directory to store the generated report. Defaults to current directory.
 
 Arguments
 
@@ -610,7 +642,7 @@ Optional. The port of the ADK API server (default: 8000).
 \--trace_to_cloud¶
     
 
-Optional. Whether to enable Cloud Trace for cloud run.
+Optional. Whether to enable Cloud Trace export for Cloud Run deployments.
 
 Default:
     
@@ -620,7 +652,7 @@ Default:
 \--otel_to_cloud¶
     
 
-Optional. Whether to enable OpenTelemetry for Agent Engine.
+Optional. Whether to enable OpenTelemetry export to GCP for Cloud Run deployments.
 
 Default:
     
@@ -670,7 +702,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'1.24.0'`
+`'1.25.0'`
 
 \--a2a¶
     
@@ -875,7 +907,7 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'1.24.0'`
+`'1.25.0'`
 
 \--session_service_uri <session_service_uri>¶
     

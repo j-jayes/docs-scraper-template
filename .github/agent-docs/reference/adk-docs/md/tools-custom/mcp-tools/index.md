@@ -116,6 +116,9 @@ Custom Tools
       * [ OpenAPI tools  ](../openapi-tools/)
       * [ Authentication  ](../authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -137,7 +140,9 @@ Agent Engine
         * [ Test deployed agents  ](../../deploy/agent-engine/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -282,6 +287,10 @@ Table of contents
 Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0
 
 This guide walks you through two ways of integrating Model Context Protocol (MCP) with ADK.
+
+MCP tools for ADK
+
+For a list of pre-built MCP tools for ADK, see [Tools and Integrations](/adk-docs/integrations/?topic=mcp).
 
 ## What is Model Context Protocol (MCP)?¶
 
@@ -1572,7 +1581,7 @@ When deploying agents with MCP tools to production:
 
 Back to top  [ Previous  Action confirmations  ](../confirmation/) [ Next  OpenAPI tools  ](../openapi-tools/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

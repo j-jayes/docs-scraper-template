@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../../deploy/agent-engine/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../)
 
@@ -321,12 +326,16 @@ You can override the default user simulator configuration to change the model, i
   * `model`: The model backing the user simulator.
   * `model_configuration`: A [`GenerateContentConfig`](https://github.com/googleapis/python-genai/blob/6196b1b4251007e33661bb5d7dc27bafee3feefe/google/genai/types.py#L4295) which controls the model behavior.
   * `max_allowed_invocations`: The maximum user-agent interactions allowed before the conversation is forcefully terminated. This should be set to be greater than the longest reasonable user-agent interaction in your `EvalSet`.
+  * `custom_instructions`: Optional. Overrides the default instructions for the user simulator. The instruction string must contain the following formatting placeholders exactly as shown below (_do not substitute values in advance!_):
+    * `{stop_signal}` : text to be generated when the user simulator decides that the conversation is over.
+    * `{conversation_plan}` : the overall plan for the conversation that the user simulator must follow.
+    * `{conversation_history}` : the conversation between the user and the agent so far.
 
 
 
 Back to top  [ Previous  Criteria  ](../criteria/) [ Next  Safety and Security for AI Agents  ](../../safety/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

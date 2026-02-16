@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
       * [ Tool limitations  ](../../../tools/limitations/)
+    * [ Skills for Agents  ](../../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
@@ -107,7 +110,9 @@ Agent Engine
           * Clean up deployments 
       * [ Cloud Run  ](../../cloud-run/)
       * [ GKE  ](../../gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../../observability/)
+
+Observability 
       * [ Logging  ](../../../observability/logging/)
     * [ Evaluation  ](../../../evaluate/)
 
@@ -470,7 +475,7 @@ The `force=True` parameter also deletes any child resources that were generated 
 
 Back to top  [ Previous  Agent Starter Pack  ](../asp/) [ Next  Cloud Run  ](../../cloud-run/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

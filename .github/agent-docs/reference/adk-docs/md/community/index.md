@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../deploy/agent-engine/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../observability/)
+
+Observability 
       * [ Logging  ](../observability/logging/)
     * [ Evaluation  ](../evaluate/)
 
@@ -249,6 +254,7 @@ Community-provided translations of the ADK documentation.
   * [🇨🇳 Chinese (中文) Documentation](https://adk.wiki/)
   * [🇰🇷 Korean (한국어) Documentation](https://adk-labs.github.io/adk-docs/ko/)
   * [🇯🇵 Japanese (日本語) Documentation](https://adk-labs.github.io/adk-docs/ja/)
+  * [🇪🇸 Spanish (Español) Documentation](https://adk-es.fabian-castro-c.dev/)
 
 
 
@@ -262,7 +268,7 @@ Thank you for your contributions to Agent Development Kit! ❤️
 
 Back to top  [ Previous  REST API  ](../api-reference/rest/) [ Next  Contributing Guide  ](../contributing-guide/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

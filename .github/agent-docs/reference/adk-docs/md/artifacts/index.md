@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../deploy/agent-engine/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../observability/)
+
+Observability 
       * [ Logging  ](../observability/logging/)
     * [ Evaluation  ](../evaluate/)
 
@@ -408,11 +413,12 @@ PythonTypescriptGoJava
     import { InMemoryRunner } from '@google/adk';
     import { LlmAgent } from '@google/adk';
     import { InMemoryArtifactService } from '@google/adk';
+    import { InMemorySessionService } from '@google/adk';
     
     // Example: Configuring the Runner with an Artifact Service
     const myAgent = new LlmAgent({name: "artifact_user_agent", model: "gemini-2.5-flash"});
     const artifactService = new InMemoryArtifactService(); // Choose an implementation
-    const sessionService = new InMemoryArtifactService();
+    const sessionService = new InMemorySessionService();
     
     const runner = new InMemoryRunner({
         agent: myAgent,
@@ -737,7 +743,7 @@ In Python, you provide this instance when initializing your `Runner`.
 If no `artifact_service` is configured in the `InvocationContext` (which happens if it's not passed to the `Runner`), calling `save_artifact`, `load_artifact`, or `list_artifacts` on the context objects will raise a `ValueError`.
     
     
-    import { LlmAgent, InMemoryRunner, InMemoryArtifactService } from '@google/adk';
+    import { LlmAgent, InMemoryRunner, InMemoryArtifactService, InMemorySessionService } from '@google/adk';
     
     // Your agent definition
     const agent = new LlmAgent({name: "my_agent", model: "gemini-2.5-flash"});
@@ -749,7 +755,7 @@ If no `artifact_service` is configured in the `InvocationContext` (which happens
     const runner = new InMemoryRunner({
         agent: agent,
         appName: "artifact_app",
-        sessionService: new InMemoryArtifactService(),
+        sessionService: new InMemorySessionService(),
         artifactService: artifactService, // Service must be provided here
     });
     // If no artifactService is configured, calling artifact methods on context objects will throw an error.
@@ -1544,7 +1550,7 @@ To use artifacts effectively and maintainably:
 
 Back to top  [ Previous  Callback patterns  ](../callbacks/design-patterns-and-best-practices/) [ Next  Events  ](../events/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

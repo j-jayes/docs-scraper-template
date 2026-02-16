@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](agent-engine/test/)
       * [ Cloud Run  ](cloud-run/)
       * [ GKE  ](gke/)
-    * Observability  Observability 
+    * [ Observability  ](../observability/)
+
+Observability 
       * [ Logging  ](../observability/logging/)
     * [ Evaluation  ](../evaluate/)
 
@@ -236,7 +241,7 @@ Follow the instructions for [deploying your agent to Cloud Run](cloud-run/#deplo
 
 Back to top  [ Previous  Event Loop  ](../runtime/event-loop/) [ Next  Deploy to Vertex AI Agent Engine  ](agent-engine/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

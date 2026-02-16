@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../deploy/agent-engine/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../observability/)
+
+Observability 
       * [ Logging  ](../observability/logging/)
     * [ Evaluation  ](../evaluate/)
 
@@ -207,6 +212,10 @@ Supported in ADKPythonTypeScriptGoJava
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard designed to standardize how Large Language Models (LLMs) like Gemini and Claude communicate with external applications, data sources, and tools. Think of it as a universal connection mechanism that simplifies how LLMs obtain context, execute actions, and interact with various systems.
 
+MCP tools for ADK
+
+For a list of pre-built MCP tools for ADK, see [Tools and Integrations](/adk-docs/integrations/?topic=mcp).
+
 ## How does MCP work?¶
 
 MCP follows a client-server architecture, defining how data (resources), interactive templates (prompts), and actionable functions (tools) are exposed by an MCP server and consumed by an MCP client (which could be an LLM host application or an AI agent).
@@ -236,7 +245,7 @@ Agent Development Kit (ADK) and [Genkit](https://genkit.dev/) provide built-in s
 
 Back to top  [ Previous  Plugins  ](../plugins/) [ Next  ADK with Agent2Agent (A2A) Protocol  ](../a2a/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

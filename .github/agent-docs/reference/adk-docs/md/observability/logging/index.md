@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../../deploy/agent-engine/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../)
+
+Observability 
       * Logging  [ Logging  ](./) Table of contents 
         * Logging Philosophy 
         * How to Configure Logging 
@@ -207,7 +212,7 @@ Table of contents
 
 
   1. [ Run Agents  ](../../runtime/)
-  2. [ Observability  ](./)
+  2. [ Observability  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/observability/logging.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/observability/logging.md "View Markdown source")
 
@@ -413,9 +418,9 @@ By reading the logger name, you can immediately pinpoint the source of the log a
 
 This detailed output allows you to diagnose a wide range of issues, from incorrect prompt engineering to problems with tool definitions, directly from the log files.
 
-Back to top  [ Previous  GKE  ](../../deploy/gke/) [ Next  Why Evaluate Agents  ](../../evaluate/)
+Back to top  [ Previous  Observability for agents  ](../) [ Next  Why Evaluate Agents  ](../../evaluate/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

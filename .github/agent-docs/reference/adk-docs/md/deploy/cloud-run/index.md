@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -121,6 +124,13 @@ Agent Engine
             * Defining Multiple Agents 
             * Deploy using gcloud 
           * adk CLI 
+            * Setup environment variables 
+            * Command usage 
+              * Minimal command 
+              * Full command with optional flags 
+              * Options 
+              * Authenticated access 
+          * adk CLI 
             * Agent Code Structure 
             * How it Works 
             * Setup environment variables 
@@ -141,7 +151,9 @@ Agent Engine
             * Create or Update a Session 
             * Run the Agent 
       * [ GKE  ](../gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -258,6 +270,13 @@ Table of contents
       * Defining Multiple Agents 
       * Deploy using gcloud 
     * adk CLI 
+      * Setup environment variables 
+      * Command usage 
+        * Minimal command 
+        * Full command with optional flags 
+        * Options 
+        * Authenticated access 
+    * adk CLI 
       * Agent Code Structure 
       * How it Works 
       * Setup environment variables 
@@ -287,7 +306,7 @@ Table of contents
 
 # Deploy to Cloud Run¶
 
-Supported in ADKPythonGoJava
+Supported in ADKPythonTypeScriptGoJava
 
 [Cloud Run](https://cloud.google.com/run) is a fully managed platform that enables you to run your code directly on top of Google's scalable infrastructure.
 
@@ -299,12 +318,18 @@ For each of the commands, we will reference the `Capital Agent` sample defined o
 
 To proceed, confirm that your agent code is configured as follows:
 
-PythonGoJava
+PythonTypeScriptGoJava
 
   1. Agent code is in a file called `agent.py` within your agent directory.
   2. Your agent variable is named `root_agent`.
   3. `__init__.py` is within your agent directory and contains `from . import agent`.
   4. Your `requirements.txt` file is present in the agent directory.
+
+
+
+  1. Agent code is in a file called `agent.ts` within your project directory.
+  2. Your agent variable is named `rootAgent` and is exported.
+  3. Your `package.json` file is present in the agent directory with `@google/adk` and other dependencies.
 
 
 
@@ -379,7 +404,7 @@ You should give appropriate permission for you service account to read this secr
 
 ## Deployment payload¶
 
-When you deploy your ADK agent workflow to the Google Cloud Run, the following content is uploaded to the service:
+When you deploy your ADK agent workflow to Google Cloud Run, the following content is uploaded to the service:
 
   * Your ADK agent code
   * Any dependencies declared in your ADK agent code
@@ -391,7 +416,7 @@ The default deployment _does not_ include the ADK web user interface libraries, 
 
 ## Deployment commands¶
 
-Python - adk CLIPython - gcloud CLIGo - adkgo CLIJava - gcloud CLI
+Python - adk CLIPython - gcloud CLITypeScript - adk CLIGo - adkgo CLIJava - gcloud CLI
 
 ### adk CLI¶
 
@@ -632,6 +657,72 @@ Navigate to `your-project-directory` in your terminal.
 `gcloud` will build the Docker image, push it to Google Artifact Registry, and deploy it to Cloud Run. Upon completion, it will output the URL of your deployed service.
 
 For a full list of deployment options, see the [`gcloud run deploy` reference documentation](https://cloud.google.com/sdk/gcloud/reference/run/deploy).
+
+### adk CLI¶
+
+The `adk deploy cloud_run` command deploys your agent code to Google Cloud Run.
+
+Ensure you have authenticated with Google Cloud (`gcloud auth login` and `gcloud config set project <your-project-id>`).
+
+#### Setup environment variables¶
+
+Optional but recommended: Setting environment variables can make the deployment commands cleaner.
+    
+    
+    # Set your Google Cloud Project ID
+    export GOOGLE_CLOUD_PROJECT="your-gcp-project-id"
+    
+    # Set your desired Google Cloud Location
+    export GOOGLE_CLOUD_LOCATION="us-central1" # Example location
+    
+    # Set a name for your Cloud Run service (optional)
+    export SERVICE_NAME="capital-agent-service"
+    
+
+#### Command usage¶
+
+This deployment command should be run from the directory of your agent code, where your `package.json` file is located.
+
+##### Minimal command¶
+    
+    
+    npx adk deploy cloud_run \
+    --project=$GOOGLE_CLOUD_PROJECT \
+    --region=$GOOGLE_CLOUD_LOCATION
+    
+
+##### Full command with optional flags¶
+    
+    
+    npx adk deploy cloud_run \
+    --project=$GOOGLE_CLOUD_PROJECT \
+    --region=$GOOGLE_CLOUD_LOCATION \
+    --service_name=$SERVICE_NAME \
+    --with_ui
+    
+
+##### Options¶
+
+  * `--project TEXT`: (Required) Your Google Cloud project ID (e.g., `$GOOGLE_CLOUD_PROJECT`).
+  * `--region TEXT`: (Required) The Google Cloud location for deployment (e.g., `$GOOGLE_CLOUD_LOCATION`, `us-central1`).
+  * `--service_name TEXT`: (Optional) The name for the Cloud Run service (e.g., `$SERVICE_NAME`). Defaults to `adk-default-service-name`.
+  * `--port INTEGER`: (Optional) The port number the ADK API server will listen on within the container. Defaults to 8000.
+  * `--with_ui`: (Optional) If included, deploys the ADK dev UI alongside the agent API server. By default, only the API server is deployed.
+  * `--temp_folder TEXT`: (Optional) Specifies a directory for storing intermediate files generated during the deployment process. Defaults to a timestamped folder in the system's temporary directory. _(Note: This option is generally not needed unless troubleshooting issues)._
+  * `--help`: Show the help message and exit.
+
+
+
+##### Authenticated access¶
+
+During the deployment process, you might be prompted: `Allow unauthenticated invocations to [your-service-name] (y/N)?`.
+
+  * Enter `y` to allow public access to your agent's API endpoint without authentication.
+  * Enter `N` (or press Enter for the default) to require authentication (e.g., using an identity token as shown in the "Testing your agent" section).
+
+
+
+Upon successful execution, the command deploys your agent to Cloud Run and provides the URL of the deployed service.
 
 ### adk CLI¶
 
@@ -1042,7 +1133,7 @@ Send a prompt to your agent. Replace `capital_agent` with your app name and adju
 
 Back to top  [ Previous  Test deployed agents  ](../agent-engine/test/) [ Next  GKE  ](../gke/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

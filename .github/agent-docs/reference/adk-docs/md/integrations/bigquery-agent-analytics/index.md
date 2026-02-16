@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../../deploy/agent-engine/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -208,6 +213,7 @@ Table of contents
     * 7\. AI-Powered Root Cause Analysis (Agent Ops) 
   * Conversational Analytics in BigQuery 
   * Looker Studio Dashboard 
+  * Feedback 
   * Additional resources 
 
 
@@ -220,7 +226,7 @@ Supported in ADKPython v1.21.0Preview
 
 Version Requirement
 
-Use the **_latest version_** of the ADK (version 1.21.0 or higher) to make full use of the features described in this document.
+Use ADK Python version 1.21.0 or higher to make full use of the features described in this document.
 
 The BigQuery Agent Analytics Plugin significantly enhances the Agent Development Kit (ADK) by providing a robust solution for in-depth agent behavior analysis. Using the ADK Plugin architecture and the **BigQuery Storage Write API** , it captures and logs critical operational events directly into a Google BigQuery table, empowering you with advanced capabilities for debugging, real-time monitoring, and comprehensive offline performance evaluation.
 
@@ -870,6 +876,10 @@ To connect this dashboard to your own BigQuery table, use the following link for
     https://lookerstudio.google.com/reporting/create?c.reportId=f1c5b513-3095-44f8-90a2-54953d41b125&ds.ds3.connector=bigQuery&ds.ds3.type=TABLE&ds.ds3.projectId=<your-project-id>&ds.ds3.datasetId=<your-dataset-id>&ds.ds3.tableId=<your-table-id>
     
 
+## Feedback¶
+
+We welcome your feedback on BigQuery Agent Analytics. If you have questions, suggestions, or encounter any issues, please reach out to the team at bqaa-feedback@google.com.
+
 ## Additional resources¶
 
   * [BigQuery Storage Write API](https://cloud.google.com/bigquery/docs/write-api)
@@ -880,7 +890,7 @@ To connect this dashboard to your own BigQuery table, use the following link for
 
 Back to top 
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

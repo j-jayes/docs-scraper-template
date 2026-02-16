@@ -79,6 +79,9 @@ Custom Tools
         * One tool per agent limitation 
           * Workaround #1: AgentTool.create() method 
           * Workaround #2: bypass_multi_tools_limit 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -100,7 +103,9 @@ Agent Engine
         * [ Test deployed agents  ](../../deploy/agent-engine/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -408,9 +413,9 @@ PythonJava
             .build();
     
 
-Back to top  [ Previous  Authentication  ](../../tools-custom/authentication/) [ Next  Agent Runtime  ](../../runtime/)
+Back to top  [ Previous  Authentication  ](../../tools-custom/authentication/) [ Next  Skills for ADK agents  ](../../skills/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

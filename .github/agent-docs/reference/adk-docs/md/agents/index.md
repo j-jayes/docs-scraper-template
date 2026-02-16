@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
@@ -97,7 +100,9 @@ Agent Engine
         * [ Test deployed agents  ](../deploy/agent-engine/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
-    * Observability  Observability 
+    * [ Observability  ](../observability/)
+
+Observability 
       * [ Logging  ](../observability/logging/)
     * [ Evaluation  ](../evaluate/)
 
@@ -192,7 +197,8 @@ Table of contents
   * Core Agent Categories 
   * Choosing the Right Agent Type 
   * Agents Working Together: Multi-Agent Systems 
-  * What's Next? 
+  * Extend Agent Capabilities 
+  * Next Steps 
 
 
 
@@ -245,9 +251,28 @@ While each agent type serves a distinct purpose, the true power often comes from
 
 Understanding these core types is the first step toward building sophisticated, capable AI applications with ADK.
 
-* * *
+## Extend Agent Capabilities¶
 
-## What's Next?¶
+Beyond the core agent types, ADK allows you to significantly expand what your agents can do through several key mechanisms:
+
+  * [**AI Models**](/adk-docs/agents/models/): Swap the underlying intelligence of your agents by integrating with different generative AI models from Google and other providers.
+
+  * [**Artifacts**](/adk-docs/artifacts/): Enable agents to create and manage persistent outputs like files, code, or documents that exist beyond the conversation lifecycle.
+
+  * [**Pre-built tools and integrations**](/adk-docs/integrations/): Equip your agents with a wide array tools, plugins, and other integrations to interact with the world, including web sites, MCP tools, applications, databases, programming interfaces, and more.
+
+  * [**Custom tools**](/adk-docs/tools-custom/): Create your own, task-specific tools for solving specific problems with precision and control.
+
+  * [**Plugins**](/adk-docs/plugins/): Integrate complex, pre-packaged behaviors and third-party services directly into your agent's workflow.
+
+  * [**Skills**](/adk-docs/skills/): Use prebuilt or custom [Agent Skills](https://agentskills.io/) to extend agent capabilities in a way that works efficiently inside AI context window limits.
+
+  * [**Callbacks**](/adk-docs/callbacks/): Hook into specific events during an agent's execution lifecycle to add logging, monitoring, or custom side-effects without altering core agent logic.
+
+
+
+
+## Next Steps¶
 
 Now that you have an overview of the different agent types available in ADK, dive deeper into how they work and how to use them effectively:
 
@@ -261,7 +286,7 @@ Now that you have an overview of the different agent types available in ADK, div
 
 Back to top  [ Previous  Advanced setup  ](../get-started/installation/) [ Next  LLM agents  ](llm-agents/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

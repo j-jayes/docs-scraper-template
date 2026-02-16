@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
       * [ Tool limitations  ](../../../tools/limitations/)
+    * [ Skills for Agents  ](../../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
@@ -106,7 +109,9 @@ Agent Engine
         * [ Test deployed agents  ](../test/)
       * [ Cloud Run  ](../../cloud-run/)
       * [ GKE  ](../../gke/)
-    * Observability  Observability 
+    * [ Observability  ](../../../observability/)
+
+Observability 
       * [ Logging  ](../../../observability/logging/)
     * [ Evaluation  ](../../../evaluate/)
 
@@ -369,7 +374,7 @@ After completing deployment of your ADK agent you should test the workflow in it
 
 Back to top  [ Previous  Deploy to Vertex AI Agent Engine  ](../) [ Next  Agent Starter Pack  ](../asp/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

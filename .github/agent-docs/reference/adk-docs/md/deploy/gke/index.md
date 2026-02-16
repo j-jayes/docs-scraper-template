@@ -76,6 +76,9 @@ Custom Tools
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
@@ -131,7 +134,9 @@ Agent Engine
           * Insufficient Permission to Stream Logs ERROR: (gcloud.builds.submit) 
           * Gemini-2.0-Flash Not Supported in Live Api 
         * Cleanup 
-    * Observability  Observability 
+    * [ Observability  ](../../observability/)
+
+Observability 
       * [ Logging  ](../../observability/logging/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -916,9 +921,9 @@ You can also delete the project if you no longer need it. This will delete all r
     gcloud projects delete $GOOGLE_CLOUD_PROJECT
     
 
-Back to top  [ Previous  Cloud Run  ](../cloud-run/) [ Next  Logging  ](../../observability/logging/)
+Back to top  [ Previous  Cloud Run  ](../cloud-run/) [ Next  Observability for agents  ](../../observability/)
 
-Copyright Google 2025  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 
