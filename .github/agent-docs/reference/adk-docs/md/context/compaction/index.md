@@ -1,8 +1,8 @@
 Skip to content 
 
-[ ](../.. "Agent Development Kit")
+[ ](../.. "Agent Development Kit \(ADK\)")
 
-[ Agent Development Kit ](../.. "Agent Development Kit")
+[ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
 
 Context compression 
 
@@ -289,7 +289,7 @@ You can customize the process of context compression by defining a summarizer. T
     )
     
 
-You can further refine the operation of the `SlidingWindowCompactor` by by modifying its summarizer class `LlmEventSummarizer` including changing the `prompt_template` setting of that class. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60).
+You can further refine the operation of the `SlidingWindowCompactor` by modifying its summarizer class `LlmEventSummarizer` including changing the `prompt_template` setting of that class. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60).
 
 Back to top  [ Previous  Context caching  ](../caching/) [ Next  Introduction to Conversational Context: Session, State, and Memory  ](../../sessions/)
 

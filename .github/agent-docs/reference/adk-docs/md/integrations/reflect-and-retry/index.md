@@ -1,8 +1,8 @@
 Skip to content 
 
-[ ](../.. "Agent Development Kit")
+[ ](../.. "Agent Development Kit \(ADK\)")
 
-[ Agent Development Kit ](../.. "Agent Development Kit")
+[ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
 
 Reflect and Retry plugin for ADK 
 

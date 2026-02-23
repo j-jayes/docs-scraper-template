@@ -1,0 +1,339 @@
+Skip to content 
+
+[ ](../.. "Agent Development Kit \(ADK\)")
+
+[ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
+
+Windsor.ai MCP tool for ADK 
+
+Initializing search 
+
+
+
+
+[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+
+[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+
+  * [ Home  ](../..)
+
+Home 
+  * Build Agents  Build Agents 
+    * [ Get Started  ](../../get-started/)
+
+Get Started 
+      * [ Python  ](../../get-started/python/)
+      * [ TypeScript  ](../../get-started/typescript/)
+      * [ Go  ](../../get-started/go/)
+      * [ Java  ](../../get-started/java/)
+    * [ Build your Agent  ](../../tutorials/)
+
+Build your Agent 
+      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Agent team  ](../../tutorials/agent-team/)
+      * [ Streaming agent  ](../../get-started/streaming/)
+
+Streaming agent 
+        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
+        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
+      * [ Visual Builder  ](../../visual-builder/)
+      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
+      * [ Advanced setup  ](../../get-started/installation/)
+    * [ Agents  ](../../agents/)
+
+Agents 
+      * [ LLM agents  ](../../agents/llm-agents/)
+      * [ Workflow agents  ](../../agents/workflow-agents/)
+
+Workflow agents 
+        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
+      * [ Custom agents  ](../../agents/custom-agents/)
+      * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent Config  ](../../agents/config/)
+    * [ Models for Agents  ](../../agents/models/)
+
+Models for Agents 
+      * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Claude  ](../../agents/models/anthropic/)
+      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Ollama  ](../../agents/models/ollama/)
+      * [ vLLM  ](../../agents/models/vllm/)
+      * [ LiteLLM  ](../../agents/models/litellm/)
+    * [ Tools and Integrations  ](../)
+
+Tools and Integrations 
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+  * Run Agents  Run Agents 
+    * [ Agent Runtime  ](../../runtime/)
+
+Agent Runtime 
+      * [ Web Interface  ](../../runtime/web-interface/)
+      * [ Command Line  ](../../runtime/command-line/)
+      * [ API Server  ](../../runtime/api-server/)
+      * [ Resume Agents  ](../../runtime/resume/)
+      * [ Runtime Config  ](../../runtime/runconfig/)
+      * [ Event Loop  ](../../runtime/event-loop/)
+    * [ Deployment  ](../../deploy/)
+
+Deployment 
+      * [ Agent Engine  ](../../deploy/agent-engine/)
+
+Agent Engine 
+        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
+        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
+        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+      * [ Cloud Run  ](../../deploy/cloud-run/)
+      * [ GKE  ](../../deploy/gke/)
+    * [ Observability  ](../../observability/)
+
+Observability 
+      * [ Logging  ](../../observability/logging/)
+    * [ Evaluation  ](../../evaluate/)
+
+Evaluation 
+      * [ Criteria  ](../../evaluate/criteria/)
+      * [ User Simulation  ](../../evaluate/user-sim/)
+    * [ Safety and Security  ](../../safety/)
+
+Safety and Security 
+  * Components  Components 
+    * [ Technical Overview  ](../../get-started/about/)
+    * [ Context  ](../../context/)
+
+Context 
+      * [ Context caching  ](../../context/caching/)
+      * [ Context compression  ](../../context/compaction/)
+    * [ Sessions & Memory  ](../../sessions/)
+
+Sessions & Memory 
+      * [ Sessions  ](../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../sessions/session/migrate/)
+      * [ State  ](../../sessions/state/)
+      * [ Memory  ](../../sessions/memory/)
+    * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Events  ](../../events/)
+
+Events 
+    * [ Apps  ](../../apps/)
+
+Apps 
+    * [ Plugins  ](../../plugins/)
+
+Plugins 
+    * [ MCP  ](../../mcp/)
+
+MCP 
+    * [ A2A Protocol  ](../../a2a/)
+
+A2A Protocol 
+      * [ Introduction to A2A  ](../../a2a/intro/)
+      * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
+        * [ Python  ](../../a2a/quickstart-exposing/)
+        * [ Go  ](../../a2a/quickstart-exposing-go/)
+      * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
+        * [ Python  ](../../a2a/quickstart-consuming/)
+        * [ Go  ](../../a2a/quickstart-consuming-go/)
+    * [ Bidi-streaming (live)  ](../../streaming/)
+
+Bidi-streaming (live) 
+      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
+      * [ Streaming Tools  ](../../streaming/streaming-tools/)
+      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+    * [ Grounding  ](../../grounding/)
+
+Grounding 
+      * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
+      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+  * Reference  Reference 
+    * [ Release Notes  ](../../release-notes/)
+    * [ API Reference  ](../../api-reference/)
+
+API Reference 
+      * [ Python ADK  ](../../api-reference/python/)
+      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ Java ADK  ](../../api-reference/java/)
+      * [ CLI Reference  ](../../api-reference/cli/)
+      * [ Agent Config Reference  ](../../api-reference/agentconfig/)
+      * [ REST API  ](../../api-reference/rest/)
+    * [ Community Resources  ](../../community/)
+    * [ Contributing Guide  ](../../contributing-guide/)
+
+
+
+Table of contents 
+
+  * Use cases 
+  * Prerequisites 
+  * Use with agent 
+  * Capabilities 
+  * Supported data sources 
+  * Additional resources 
+
+
+
+[ ](https://github.com/google/adk-docs/edit/main/docs/integrations/windsor-ai.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/integrations/windsor-ai.md "View Markdown source")
+
+# Windsor.ai MCP tool for ADK¶
+
+Supported in ADKPythonTypeScript
+
+The [Windsor MCP Server](https://github.com/windsor-ai/windsor_mcp) connects your ADK agent to [Windsor.ai](https://windsor.ai/), a data integration platform that unifies marketing, sales, and customer data from 325+ sources. This integration gives your agent the ability to query and analyze cross-channel business data using natural language, without writing SQL or custom scripts.
+
+## Use cases¶
+
+  * **Marketing Performance Analysis** : Analyze campaign performance across channels like Facebook Ads, Google Ads, TikTok Ads, and more. Ask questions like "What campaigns had the best ROAS last month?" and get instant insights.
+
+  * **Cross-Channel Reporting** : Generate comprehensive reports combining data from multiple platforms such as GA4, Shopify, Salesforce, and HubSpot to get a unified view of business performance.
+
+  * **Budget Optimization** : Identify underperforming campaigns, detect budget inefficiencies, and get AI-driven recommendations for spend allocation across advertising channels.
+
+
+
+
+## Prerequisites¶
+
+  * A [Windsor.ai](https://windsor.ai/) account with connected data sources
+  * A Windsor.ai API key (obtain from [onboard.windsor.ai](https://onboard.windsor.ai))
+
+
+
+## Use with agent¶
+
+PythonTypeScript
+
+Remote MCP Server
+    
+    
+    import os
+    from google.adk.agents import Agent
+    from google.adk.tools.mcp_tool import McpToolset
+    from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPServerParams
+    
+    # Required for recursive $ref in MCP schema (https://github.com/google/adk-python/issues/3870)
+    os.environ["ADK_ENABLE_JSON_SCHEMA_FOR_FUNC_DECL"] = "1"
+    
+    WINDSOR_API_KEY = "YOUR_WINDSOR_API_KEY"
+    
+    root_agent = Agent(
+        model="gemini-2.5-pro",
+        name="windsor_agent",
+        instruction="Help users analyze their marketing and business data.",
+        tools=[
+            McpToolset(
+                connection_params=StreamableHTTPServerParams(
+                    url="https://mcp.windsor.ai",
+                    headers={
+                        "Authorization": f"Bearer {WINDSOR_API_KEY}",
+                    },
+                ),
+            )
+        ],
+    )
+    
+
+Remote MCP Server
+    
+    
+    import { LlmAgent, MCPToolset } from "@google/adk";
+    
+    const WINDSOR_API_KEY = "YOUR_WINDSOR_API_KEY";
+    
+    const rootAgent = new LlmAgent({
+        model: "gemini-2.5-pro",
+        name: "windsor_agent",
+        instruction: "Help users analyze their marketing and business data.",
+        tools: [
+            new MCPToolset({
+                type: "StreamableHTTPConnectionParams",
+                url: "https://mcp.windsor.ai",
+                header: {
+                    Authorization: `Bearer ${WINDSOR_API_KEY}`,
+                },
+            }),
+        ],
+    });
+    
+    export { rootAgent };
+    
+
+## Capabilities¶
+
+Windsor MCP provides a natural language interface to your integrated business data. Rather than exposing discrete tools, it interprets your questions and returns structured insights from your connected data sources.
+
+Capability | Description  
+---|---  
+Data querying | Query normalized data from any of your 325+ connected platforms  
+Performance analysis | Analyze KPIs, trends, and campaign metrics across channels  
+Report generation | Create marketing dashboards and cross-channel performance reports  
+Budget analysis | Identify spend inefficiencies and get optimization recommendations  
+Anomaly detection | Detect outliers and unusual patterns in performance data  
+  
+## Supported data sources¶
+
+Windsor.ai connects to 325+ platforms, including:
+
+  * **Advertising** : Facebook Ads, Google Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads
+  * **Analytics** : Google Analytics 4, Adobe Analytics
+  * **CRM** : Salesforce, HubSpot
+  * **E-commerce** : Shopify
+  * **And more** : See the [full list of connectors](https://windsor.ai/) on the Windsor.ai website
+
+
+
+## Additional resources¶
+
+  * [Windsor MCP Server Repository](https://github.com/windsor-ai/windsor_mcp)
+  * [Windsor.ai Documentation](https://windsor.ai/documentation/windsor-mcp/)
+  * [Windsor MCP Introduction](https://windsor.ai/introducing-windsor-mcp/)
+  * [Windsor MCP Use Cases & Examples](https://windsor.ai/how-to-use-windsor-mcp-examples-use-cases/)
+
+
+
+Back to top 
+
+Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+
+Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
+
+#### Cookie consent
+
+We use cookies to recognize repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find the information they need. With your consent, you're helping us to make our documentation better.
+
+  * Google Analytics 
+  * GitHub 
+
+
+
+Accept Manage settings

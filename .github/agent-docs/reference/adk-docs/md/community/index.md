@@ -1,8 +1,8 @@
 Skip to content 
 
-[ ](.. "Agent Development Kit")
+[ ](.. "Agent Development Kit \(ADK\)")
 
-[ Agent Development Kit ](.. "Agent Development Kit")
+[ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
 
 Community Resources 
 
@@ -233,7 +233,7 @@ Join the [ADK Community Google Group](https://groups.google.com/g/adk-community)
 
 See recent recordings below, or browse all past calls on our [YouTube playlist](https://www.youtube.com/playlist?list=PLwi6PfxEP7zZbBPmWiZ8QbPcuKyAY5RR3).
 
-[ Community Call 📞 Jan 2026 Recording Discussions include Session Service schema for cross-language support, TypeScript multi-agent demo, API Registry for MCP servers, and third-party tool integrations. ](https://www.youtube.com/watch?v=h9Lueiqo89E) [ Community Call 📞 Dec 2025 Recording Discussions include the ADK TypeScript launch, Gemini 3 Flash support, bidirectional streaming for voice agents, and the Visual Builder UI. ](https://www.youtube.com/watch?v=cNVWhrbdn-E) [ Community Call 📞 Nov 2025 Recording Discussions include the ADK Go launch, the reflect & retry plugin for error recovery, and time travel debugging for rewinding agent sessions. ](https://www.youtube.com/watch?v=bftUz-WBqyw)
+[ Community Call 📞 Feb 2026 Recording Discussions include ADK evaluations with built-in metrics, token-based context compaction, the BigQuery observability plugin, and a community spotlight on Redis integration. ](https://www.youtube.com/watch?v=cXDr4RYJxK0) [ Community Call 📞 Jan 2026 Recording Discussions include Session Service schema for cross-language support, TypeScript multi-agent demo, API Registry for MCP servers, and third-party tool integrations. ](https://www.youtube.com/watch?v=h9Lueiqo89E) [ Community Call 📞 Dec 2025 Recording Discussions include the ADK TypeScript launch, Gemini 3 Flash support, bidirectional streaming for voice agents, and the Visual Builder UI. ](https://www.youtube.com/watch?v=cNVWhrbdn-E)
 
 ## Courses & Deep Dives¶
 

@@ -1,8 +1,8 @@
 Skip to content 
 
-[ ](../.. "Agent Development Kit")
+[ ](../.. "Agent Development Kit \(ADK\)")
 
-[ Agent Development Kit ](../.. "Agent Development Kit")
+[ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
 
 Cloud Run 
 
@@ -1035,7 +1035,7 @@ UI TestingAPI Testing (curl)
 
 If you deployed your agent with the UI enabled:
 
-  * **adk CLI:** You included the `--webui` flag during deployment.
+  * **adk CLI:** You included the corresponding flag (`--webui` in Go or `--with_ui` in Python or Typescript) during deployment.
   * **gcloud CLI:** You set `SERVE_WEB_INTERFACE = True` in your `main.py`.
 
 

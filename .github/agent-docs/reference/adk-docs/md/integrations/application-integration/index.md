@@ -1,8 +1,8 @@
 Skip to content 
 
-[ ](../.. "Agent Development Kit")
+[ ](../.. "Agent Development Kit \(ADK\)")
 
-[ Agent Development Kit ](../.. "Agent Development Kit")
+[ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
 
 Google Cloud Application Integration tool for ADK 
 
