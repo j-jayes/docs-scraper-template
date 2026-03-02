@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.models
 
@@ -47,11 +46,23 @@ Description
 
  
 
-  * All Classes and InterfacesInterfacesClasses
+[com.google.adk.models.springai](springai/package-summary.html)
+
+ 
+
+  * All Classes and InterfacesInterfacesClassesException Classes
 
 Class
 
 Description
+
+[ApigeeLlm](ApigeeLlm.html "class in com.google.adk.models")
+
+A [`BaseLlm`](BaseLlm.html "class in com.google.adk.models") implementation for calling an Apigee proxy.
+
+[ApigeeLlm.Builder](ApigeeLlm.Builder.html "class in com.google.adk.models")
+
+Builder for [`ApigeeLlm`](ApigeeLlm.html "class in com.google.adk.models").
 
 [BaseLlm](BaseLlm.html "class in com.google.adk.models")
 
@@ -76,6 +87,14 @@ Builder for [`Gemini`](Gemini.html "class in com.google.adk.models").
 [GeminiLlmConnection](GeminiLlmConnection.html "class in com.google.adk.models")
 
 Manages a persistent, bidirectional connection to the Gemini model via WebSockets for real-time interaction.
+
+[GeminiUtil](GeminiUtil.html "class in com.google.adk.models")
+
+Request / Response utilities for [`Gemini`](Gemini.html "class in com.google.adk.models").
+
+[LlmCallsLimitExceededException](LlmCallsLimitExceededException.html "class in com.google.adk.models")
+
+An error indicating that the limit for calls to the LLM has been exceeded.
 
 [LlmRegistry](LlmRegistry.html "class in com.google.adk.models")
 
@@ -122,4 +141,4 @@ Builder for [`VertexCredentials`](VertexCredentials.html "class in com.google.ad
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

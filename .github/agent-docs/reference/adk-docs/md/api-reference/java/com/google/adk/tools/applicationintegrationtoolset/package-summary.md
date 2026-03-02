@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.tools.applicationintegrationtoolset
 
@@ -43,6 +42,10 @@ Description
 
  
 
+[com.google.adk.tools.computeruse](../computeruse/package-summary.html)
+
+ 
+
 [com.google.adk.tools.mcp](../mcp/package-summary.html)
 
  
@@ -51,7 +54,7 @@ Description
 
  
 
-  * Classes
+  * All Classes and InterfacesInterfacesClasses
 
 Class
 
@@ -77,6 +80,14 @@ Represents details of a connection.
 
 Represents the schema and available operations for an entity.
 
+[CredentialsHelper](CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset")
+
+This interface provides a method to convert a service account JSON string to a Google Credentials object.
+
+[GoogleCredentialsHelper](GoogleCredentialsHelper.html "class in com.google.adk.tools.applicationintegrationtoolset")
+
+ 
+
 [IntegrationClient](IntegrationClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
 
 Utility class for interacting with Google Cloud Application Integration.
@@ -90,4 +101,4 @@ Application Integration Tool
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

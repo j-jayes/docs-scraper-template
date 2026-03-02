@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseAgentConfig.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,20 +21,29 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Nested Class Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
      1. BaseAgentConfig()
-  5. Method Details
+     2. BaseAgentConfig(String)
+     3. BaseAgentConfig(String, String, String)
+  6. Method Details
      1. name()
      2. setName(String)
      3. description()
      4. setDescription(String)
+     5. setAgentClass(String)
+     6. agentClass()
+     7. subAgents()
+     8. setSubAgents(List)
+     9. beforeAgentCallbacks()
+     10. setBeforeAgentCallbacks(List)
+     11. afterAgentCallbacks()
+     12. setAfterAgentCallbacks(List)
 
-
+Hide sidebar  Show sidebar
 
 # Class BaseAgentConfig
 
@@ -42,15 +52,37 @@ Hide sidebar ❮❯ Show sidebar
 com.google.adk.agents.BaseAgentConfig
 
 Direct Known Subclasses:
-    `[LlmAgentConfig](LlmAgentConfig.html "class in com.google.adk.agents")`
+    `[LlmAgentConfig](LlmAgentConfig.html "class in com.google.adk.agents"), [LoopAgentConfig](LoopAgentConfig.html "class in com.google.adk.agents"), [ParallelAgentConfig](ParallelAgentConfig.html "class in com.google.adk.agents"), [SequentialAgentConfig](SequentialAgentConfig.html "class in com.google.adk.agents")`
 
 * * *
 
 public class BaseAgentConfig extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
-Base configuration for all agents. 
+Base configuration for all agents with subagent support. 
 
-workInProgress: Config agent features are not yet ready for public use.
+TODO: Config agent features are not yet ready for public use.
+
+  * ## Nested Class Summary
+
+Nested Classes
+
+Modifier and Type
+
+Class
+
+Description
+
+`static class `
+
+`[BaseAgentConfig.AgentRefConfig](BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")`
+
+Configuration for referencing other agents (subagents).
+
+`static class `
+
+`[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")`
+
+Reference to a callback stored in the ComponentRegistry.
 
   * ## Constructor Summary
 
@@ -64,6 +96,14 @@ Description
 
  
 
+`BaseAgentConfig([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass)`
+
+ 
+
+`BaseAgentConfig([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass)`
+
+Constructor with basic fields.
+
   * ## Method Summary
 
 All MethodsInstance MethodsConcrete Methods
@@ -73,6 +113,24 @@ Modifier and Type
 Method
 
 Description
+
+`com.google.common.collect.ImmutableList<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+
+`afterAgentCallbacks()`
+
+ 
+
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`agentClass()`
+
+ 
+
+`com.google.common.collect.ImmutableList<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+
+`beforeAgentCallbacks()`
+
+ 
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -88,6 +146,24 @@ Description
 
 `void`
 
+`setAfterAgentCallbacks([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterAgentCallbacks)`
+
+ 
+
+`void`
+
+`setAgentClass([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass)`
+
+ 
+
+`void`
+
+`setBeforeAgentCallbacks([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeAgentCallbacks)`
+
+ 
+
+`void`
+
 `setDescription([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
 
  
@@ -98,7 +174,19 @@ Description
 
  
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+`void`
+
+`setSubAgents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.AgentRefConfig](BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")> subAgents)`
+
+ 
+
+`com.google.common.collect.ImmutableList<[BaseAgentConfig.AgentRefConfig](BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")>`
+
+`subAgents()`
+
+ 
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -110,6 +198,21 @@ Description
     * ### BaseAgentConfig
 
 public BaseAgentConfig()
+
+    * ### BaseAgentConfig
+
+public BaseAgentConfig([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass)
+
+    * ### BaseAgentConfig
+
+public BaseAgentConfig([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass)
+
+Constructor with basic fields.
+
+Parameters:
+    `name` \- The agent name
+    `description` \- The agent description
+    `agentClass` \- The agent class name
 
   * ## Method Details
 
@@ -129,9 +232,41 @@ public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/jav
 
 public void setDescription([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
 
+    * ### setAgentClass
+
+public void setAgentClass([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass)
+
+    * ### agentClass
+
+public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClass()
+
+    * ### subAgents
+
+public com.google.common.collect.ImmutableList<[BaseAgentConfig.AgentRefConfig](BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")> subAgents()
+
+    * ### setSubAgents
+
+public void setSubAgents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.AgentRefConfig](BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")> subAgents)
+
+    * ### beforeAgentCallbacks
+
+public com.google.common.collect.ImmutableList<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeAgentCallbacks()
+
+    * ### setBeforeAgentCallbacks
+
+public void setBeforeAgentCallbacks([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeAgentCallbacks)
+
+    * ### afterAgentCallbacks
+
+public com.google.common.collect.ImmutableList<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterAgentCallbacks()
+
+    * ### setAfterAgentCallbacks
+
+public void setAfterAgentCallbacks([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterAgentCallbacks)
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

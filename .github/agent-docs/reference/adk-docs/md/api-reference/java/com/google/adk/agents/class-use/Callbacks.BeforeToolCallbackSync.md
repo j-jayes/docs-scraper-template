@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Callbacks.BeforeToolCallbackSync.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -53,4 +54,4 @@ LlmAgent.Builder.`[beforeToolCallbackSync](../LlmAgent.Builder.html#beforeToolCa
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -159,17 +159,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](a2a/quickstart-consuming/)
         * [ Go  ](a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](streaming/)
+    * [ Gemini Live API Toolkit  ](streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](streaming/dev-guide/part5/)
       * [ Streaming Tools  ](streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](streaming/configuration/)
+      * [ Configuring streaming behavior  ](streaming/configuration/)
     * [ Grounding  ](grounding/)
 
 Grounding 
@@ -227,7 +227,7 @@ pom.xml
     <dependency>
         <groupId>com.google.adk</groupId>
         <artifactId>google-adk</artifactId>
-        <version>0.5.0</version>
+        <version>0.6.0</version>
     </dependency>
     
 
@@ -235,7 +235,7 @@ build.gradle
     
     
     dependencies {
-        implementation 'com.google.adk:google-adk:0.5.0'
+        implementation 'com.google.adk:google-adk:0.6.0'
     }
     
 

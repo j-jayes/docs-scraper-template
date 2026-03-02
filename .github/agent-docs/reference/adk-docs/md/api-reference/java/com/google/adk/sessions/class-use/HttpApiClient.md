@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../HttpApiClient.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -52,4 +53,4 @@ Creates a new instance of the Vertex AI Session Service with a custom ApiClient 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

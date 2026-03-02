@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -26,7 +27,15 @@ Package
 
 Description
 
-com.google.adk
+com.google.adk.a2a
+
+ 
+
+com.google.adk.a2a.converters
+
+ 
+
+com.google.adk.a2a.executor
 
  
 
@@ -46,6 +55,10 @@ com.google.adk.flows.llmflows
 
  
 
+com.google.adk.plugins
+
+ 
+
 com.google.adk.runner
 
  
@@ -54,21 +67,49 @@ com.google.adk.sessions
 
  
 
+com.google.adk.summarizer
+
+ 
+
+com.google.adk.telemetry
+
+ 
+
 com.google.adk.tools
 
  
 
-com.google.adk.web
+com.google.adk.web.controller
 
  
 
-  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk](../package-summary.html)
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.a2a](../a2a/package-summary.html)
 
 Class
 
 Description
 
-[Event](class-use/Event.html#com.google.adk)
+[Event](class-use/Event.html#com.google.adk.a2a)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.a2a.converters](../a2a/converters/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.a2a.converters)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.a2a.executor)
 
 Represents an event in a session.
 
@@ -108,6 +149,22 @@ Represents the actions attached to an event.
 
 Builder for [`EventActions`](EventActions.html "class in com.google.adk.events").
 
+[EventCompaction](class-use/EventCompaction.html#com.google.adk.events)
+
+The compaction of the events.
+
+[EventCompaction.Builder](class-use/EventCompaction.Builder.html#com.google.adk.events)
+
+Builder for [`EventCompaction`](EventCompaction.html "class in com.google.adk.events").
+
+[ToolConfirmation](class-use/ToolConfirmation.html#com.google.adk.events)
+
+Represents a tool confirmation configuration.
+
+[ToolConfirmation.Builder](class-use/ToolConfirmation.Builder.html#com.google.adk.events)
+
+Builder for [`ToolConfirmation`](ToolConfirmation.html "class in com.google.adk.events").
+
   * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.flows](../flows/package-summary.html)
 
 Class
@@ -125,6 +182,16 @@ Class
 Description
 
 [Event](class-use/Event.html#com.google.adk.flows.llmflows)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.plugins](../plugins/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.plugins)
 
 Represents an event in a session.
 
@@ -148,6 +215,26 @@ Description
 
 Represents an event in a session.
 
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.summarizer](../summarizer/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.summarizer)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.telemetry](../telemetry/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.telemetry)
+
+Represents an event in a session.
+
   * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.tools](../tools/package-summary.html)
 
 Class
@@ -158,13 +245,17 @@ Description
 
 Represents the actions attached to an event.
 
-  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.web](../web/package-summary.html)
+[ToolConfirmation](class-use/ToolConfirmation.html#com.google.adk.tools)
+
+Represents a tool confirmation configuration.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.web.controller](../web/controller/package-summary.html)
 
 Class
 
 Description
 
-[Event](class-use/Event.html#com.google.adk.web)
+[Event](class-use/Event.html#com.google.adk.web.controller)
 
 Represents an event in a session.
 
@@ -173,4 +264,4 @@ Represents an event in a session.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

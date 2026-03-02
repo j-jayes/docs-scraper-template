@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../BaseLlm.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -39,6 +40,18 @@ com.google.adk.models.langchain4j
 
  
 
+com.google.adk.models.springai
+
+ 
+
+com.google.adk.summarizer
+
+ 
+
+com.google.adk.tools
+
+ 
+
   * ## Uses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.agents](../../agents/package-summary.html)
 
 Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
@@ -64,6 +77,12 @@ Modifier and Type
 Class
 
 Description
+
+`class `
+
+`[ApigeeLlm](../ApigeeLlm.html "class in com.google.adk.models")`
+
+A [`BaseLlm`](../BaseLlm.html "class in com.google.adk.models") implementation for calling an Apigee proxy.
 
 `class `
 
@@ -141,9 +160,69 @@ Description
 
  
 
+  * ## Uses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.models.springai](../springai/package-summary.html)
+
+Subclasses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.models.springai](../springai/package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[SpringAI](../springai/SpringAI.html "class in com.google.adk.models.springai")`
+
+Spring AI implementation of BaseLlm that wraps Spring AI ChatModel and StreamingChatModel.
+
+  * ## Uses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.summarizer](../../summarizer/package-summary.html)
+
+Constructors in [com.google.adk.summarizer](../../summarizer/package-summary.html) with parameters of type [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[LlmEventSummarizer](../../summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") baseLlm)`
+
+ 
+
+` `
+
+`[LlmEventSummarizer](../../summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") baseLlm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") promptTemplate)`
+
+ 
+
+  * ## Uses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.tools](../../tools/package-summary.html)
+
+Methods in [com.google.adk.tools](../../tools/package-summary.html) with parameters of type [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [GoogleSearchAgentTool](../../tools/GoogleSearchAgentTool.html "class in com.google.adk.tools")`
+
+GoogleSearchAgentTool.`[create](../../tools/GoogleSearchAgentTool.html#create\(com.google.adk.models.BaseLlm\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") model)`
+
+ 
+
+`static [VertexAiSearchAgentTool](../../tools/VertexAiSearchAgentTool.html "class in com.google.adk.tools")`
+
+VertexAiSearchAgentTool.`[create](../../tools/VertexAiSearchAgentTool.html#create\(com.google.adk.models.BaseLlm,com.google.adk.tools.VertexAiSearchTool\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") model, [VertexAiSearchTool](../../tools/VertexAiSearchTool.html "class in com.google.adk.tools") vertexAiSearchTool)`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

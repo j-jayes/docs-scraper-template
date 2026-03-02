@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../VertexCredentials.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -80,4 +81,4 @@ Constructs a new Gemini instance with a Google Gemini API key.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

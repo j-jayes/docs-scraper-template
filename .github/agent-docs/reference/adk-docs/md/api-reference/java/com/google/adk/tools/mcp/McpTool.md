@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/McpTool.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,21 +21,18 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Nested Class Summary
+  3. Field Summary
+  4. Constructor Summary
+  5. Method Summary
+  6. Constructor Details
      1. McpTool(McpSchema.Tool, McpSyncClient, McpSessionManager)
      2. McpTool(McpSchema.Tool, McpSyncClient, McpSessionManager, ObjectMapper)
-  5. Method Details
-     1. getMcpSession()
-     2. toGeminiSchema(McpSchema.JsonSchema)
-     3. declaration()
-     4. runAsync(Map, ToolContext)
+  7. Method Details
+     1. runAsync(Map, ToolContext)
 
-
+Hide sidebar  Show sidebar
 
 # Class McpTool
 
@@ -42,15 +40,29 @@ Hide sidebar ❮❯ Show sidebar
 
 [com.google.adk.tools.BaseTool](../BaseTool.html "class in com.google.adk.tools")
 
+[com.google.adk.tools.mcp.AbstractMcpTool](AbstractMcpTool.html "class in com.google.adk.tools.mcp")<io.modelcontextprotocol.client.McpSyncClient>
+
 com.google.adk.tools.mcp.McpTool
 
 * * *
 
-public final class McpTool extends [BaseTool](../BaseTool.html "class in com.google.adk.tools")
+public final class McpTool extends [AbstractMcpTool](AbstractMcpTool.html "class in com.google.adk.tools.mcp")<io.modelcontextprotocol.client.McpSyncClient>
 
 Initializes a MCP tool. 
 
 This wraps a MCP Tool interface and an active MCP Session. It invokes the MCP Tool through executing the tool from remote MCP Session.
+
+  * ## Nested Class Summary
+
+### Nested classes/interfaces inherited from class [BaseTool](../BaseTool.html#nested-class-summary "class in com.google.adk.tools")
+
+`[BaseTool.ToolArgsConfig](../BaseTool.ToolArgsConfig.html "class in com.google.adk.tools"), [BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools")`
+
+  * ## Field Summary
+
+### Fields inherited from class [AbstractMcpTool](AbstractMcpTool.html#field-summary "class in com.google.adk.tools.mcp")
+
+`[mcpSession](AbstractMcpTool.html#mcpSession), [mcpSessionManager](AbstractMcpTool.html#mcpSessionManager), [mcpTool](AbstractMcpTool.html#mcpTool), [objectMapper](AbstractMcpTool.html#objectMapper)`
 
   * ## Constructor Summary
 
@@ -78,35 +90,21 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FunctionDeclaration>`
-
-`declaration()`
-
-Gets the `FunctionDeclaration` representation of this tool.
-
-`io.modelcontextprotocol.client.McpSyncClient`
-
-`getMcpSession()`
-
- 
-
 `io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
 
 `runAsync([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
 Calls a tool.
 
-`com.google.genai.types.Schema`
+### Methods inherited from class [AbstractMcpTool](AbstractMcpTool.html#method-summary "class in com.google.adk.tools.mcp")
 
-`toGeminiSchema(io.modelcontextprotocol.spec.McpSchema.JsonSchema openApiSchema)`
+`[annotations](AbstractMcpTool.html#annotations\(\) "annotations\(\)"), [declaration](AbstractMcpTool.html#declaration\(\) "declaration\(\)"), [getMcpSession](AbstractMcpTool.html#getMcpSession\(\) "getMcpSession\(\)"), [meta](AbstractMcpTool.html#meta\(\) "meta\(\)"), [wrapCallResult](AbstractMcpTool.html#wrapCallResult\(com.fasterxml.jackson.databind.ObjectMapper,java.lang.String,io.modelcontextprotocol.spec.McpSchema.CallToolResult\) "wrapCallResult\(ObjectMapper, String, McpSchema.CallToolResult\)")`
 
- 
+### Methods inherited from class [BaseTool](../BaseTool.html#method-summary "class in com.google.adk.tools")
 
-### Methods inherited from class com.google.adk.tools.[BaseTool](../BaseTool.html "class in com.google.adk.tools")
+`[customMetadata](../BaseTool.html#customMetadata\(\) "customMetadata\(\)"), [description](../BaseTool.html#description\(\) "description\(\)"), [fromConfig](../BaseTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\) "fromConfig\(BaseTool.ToolConfig, String\)"), [longRunning](../BaseTool.html#longRunning\(\) "longRunning\(\)"), [name](../BaseTool.html#name\(\) "name\(\)"), [processLlmRequest](../BaseTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\) "processLlmRequest\(LlmRequest.Builder, ToolContext\)"), [setCustomMetadata](../BaseTool.html#setCustomMetadata\(java.lang.String,java.lang.Object\) "setCustomMetadata\(String, Object\)")`
 
-`[description](../BaseTool.html#description\(\)), [longRunning](../BaseTool.html#longRunning\(\)), [name](../BaseTool.html#name\(\)), [processLlmRequest](../BaseTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))`
-
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -144,25 +142,6 @@ Throws:
 
   * ## Method Details
 
-    * ### getMcpSession
-
-public io.modelcontextprotocol.client.McpSyncClient getMcpSession()
-
-    * ### toGeminiSchema
-
-public com.google.genai.types.Schema toGeminiSchema(io.modelcontextprotocol.spec.McpSchema.JsonSchema openApiSchema)
-
-    * ### declaration
-
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FunctionDeclaration> declaration()
-
-Description copied from class: `[BaseTool](../BaseTool.html#declaration\(\))`
-
-Gets the `FunctionDeclaration` representation of this tool.
-
-Overrides:
-    `[declaration](../BaseTool.html#declaration\(\))` in class `[BaseTool](../BaseTool.html "class in com.google.adk.tools")`
-
     * ### runAsync
 
 public io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> runAsync([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)
@@ -179,4 +158,4 @@ Overrides:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

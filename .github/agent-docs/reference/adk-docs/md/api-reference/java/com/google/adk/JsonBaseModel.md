@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/JsonBaseModel.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../deprecated-list.html)
   * [Index](../../../index-all.html)
   * [Search](../../../search.html)
 
@@ -19,8 +20,6 @@ Skip navigation links
 
 
 Contents 
-
-Hide sidebar ❮❯ Show sidebar
 
   1. Description
   2. Constructor Summary
@@ -35,7 +34,7 @@ Hide sidebar ❮❯ Show sidebar
      5. fromJsonString(String, Class)
      6. fromJsonNode(JsonNode, Class)
 
-
+Hide sidebar  Show sidebar
 
 # Class JsonBaseModel
 
@@ -44,7 +43,7 @@ Hide sidebar ❮❯ Show sidebar
 com.google.adk.JsonBaseModel
 
 Direct Known Subclasses:
-    `[AdkWebServer.RunEvalResult](web/AdkWebServer.RunEvalResult.html "class in com.google.adk.web")`, `[Event](events/Event.html "class in com.google.adk.events")`, `[LiveRequest](agents/LiveRequest.html "class in com.google.adk.agents")`, `[LlmRequest](models/LlmRequest.html "class in com.google.adk.models")`, `[LlmResponse](models/LlmResponse.html "class in com.google.adk.models")`, `[Session](sessions/Session.html "class in com.google.adk.sessions")`
+    `[BaseCodeExecutor](codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors"), [BaseTool.ToolArgsConfig](tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools"), [BaseTool.ToolConfig](tools/BaseTool.ToolConfig.html "class in com.google.adk.tools"), [CodeExecutionUtils.CodeExecutionInput](codeexecutors/CodeExecutionUtils.CodeExecutionInput.html "class in com.google.adk.codeexecutors"), [CodeExecutionUtils.CodeExecutionResult](codeexecutors/CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors"), [CodeExecutionUtils.File](codeexecutors/CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors"), [Event](events/Event.html "class in com.google.adk.events"), [EventActions](events/EventActions.html "class in com.google.adk.events"), [Example](examples/Example.html "class in com.google.adk.examples"), [LiveRequest](agents/LiveRequest.html "class in com.google.adk.agents"), [LlmRequest](models/LlmRequest.html "class in com.google.adk.models"), [LlmResponse](models/LlmResponse.html "class in com.google.adk.models"), [McpToolset.McpToolsetConfig](tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp"), [RunEvalResult](web/dto/RunEvalResult.html "class in com.google.adk.web.dto"), [Session](sessions/Session.html "class in com.google.adk.sessions"), [ToolConfirmation](events/ToolConfirmation.html "class in com.google.adk.events")`
 
 * * *
 
@@ -92,13 +91,13 @@ Deserializes a Json string to an object of the given type.
 
 `getMapper()`
 
- 
+Returns the mutable ObjectMapper instance used by ADK.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `toJson()`
 
- 
+Serializes this object (i.e., the ObjectMappper instance used by ADK) to a Json string.
 
 `protected static com.fasterxml.jackson.databind.JsonNode`
 
@@ -106,13 +105,13 @@ Deserializes a Json string to an object of the given type.
 
 Serializes an object to a JsonNode.
 
-`protected static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `toJsonString([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") object)`
 
 Serializes an object to a Json string.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -129,7 +128,7 @@ public JsonBaseModel()
 
     * ### toJsonString
 
-protected static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toJsonString([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") object)
+public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toJsonString([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") object)
 
 Serializes an object to a Json string.
 
@@ -137,9 +136,13 @@ Serializes an object to a Json string.
 
 public static com.fasterxml.jackson.databind.ObjectMapper getMapper()
 
+Returns the mutable ObjectMapper instance used by ADK.
+
     * ### toJson
 
 public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toJson()
+
+Serializes this object (i.e., the ObjectMappper instance used by ADK) to a Json string.
 
     * ### toJsonNode
 
@@ -164,4 +167,4 @@ Deserializes a JsonNode to an object of the given type.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

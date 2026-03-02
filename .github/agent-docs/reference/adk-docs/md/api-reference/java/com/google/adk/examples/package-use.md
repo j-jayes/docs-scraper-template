@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -31,6 +32,10 @@ com.google.adk.agents
  
 
 com.google.adk.examples
+
+ 
+
+com.google.adk.tools
 
  
 
@@ -66,9 +71,23 @@ Represents an few-shot example.
 
 Builder for constructing [`Example`](Example.html "class in com.google.adk.examples") instances.
 
+  * Classes in [com.google.adk.examples](package-summary.html) used by [com.google.adk.tools](../tools/package-summary.html)
+
+Class
+
+Description
+
+[BaseExampleProvider](class-use/BaseExampleProvider.html#com.google.adk.tools)
+
+An interface that provides examples for a given query.
+
+[Example](class-use/Example.html#com.google.adk.tools)
+
+Represents an few-shot example.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

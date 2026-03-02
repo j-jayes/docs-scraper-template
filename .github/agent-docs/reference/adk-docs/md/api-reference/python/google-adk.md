@@ -446,6 +446,342 @@ _property _root_agent _: BaseAgent_¶
 
 Gets the root agent of this agent.
 
+_class _google.adk.agents.Context(_invocation_context_ , _*_ , _event_actions =None_, _function_call_id =None_, _tool_confirmation =None_)¶
+    
+
+Bases: `ReadonlyContext`
+
+The context within an agent run.
+
+Initializes the Context.
+
+Parameters:
+    
+
+  * **invocation_context** – The invocation context.
+
+  * **event_actions** – The event actions for state and artifact deltas.
+
+  * **function_call_id** – The function call id of the current tool call. Required for tool-specific methods like request_credential and request_confirmation.
+
+  * **tool_confirmation** – The tool confirmation of the current tool call.
+
+
+
+
+_property _actions _: EventActions_¶
+    
+
+The event actions for the current context.
+
+_async _add_events_to_memory(_*_ , _events_ , _custom_metadata =None_)¶
+    
+
+Adds an explicit list of events to the memory service.
+
+Uses this callback’s current session identifiers as memory scope.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **events** – Explicit events to add to memory.
+
+  * **custom_metadata** – Optional metadata forwarded to the configured memory service. Supported keys are implementation-specific.
+
+
+
+Raises:
+    
+
+**ValueError** – If memory service is not available.
+
+_async _add_memory(_*_ , _memories_ , _custom_metadata =None_)¶
+    
+
+Adds explicit memory items directly to the memory service.
+
+Uses this callback’s current session identifiers as memory scope.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **memories** – Explicit memory items to add.
+
+  * **custom_metadata** – Optional metadata forwarded to the configured memory service. Supported keys are implementation-specific.
+
+
+
+Raises:
+    
+
+**ValueError** – If memory service is not available.
+
+_async _add_session_to_memory()¶
+    
+
+Triggers memory generation for the current session.
+
+This method saves the current session’s events to the memory service, enabling the agent to recall information from past interactions.
+
+Return type:
+    
+
+`None`
+
+Raises:
+    
+
+**ValueError** – If memory service is not available.
+
+Example
+
+```python async def my_after_agent_callback(ctx: Context):
+
+> # Save conversation to memory at the end of each interaction await ctx.add_session_to_memory()
+
+```
+
+_property _function_call_id _: str | None_¶
+    
+
+The function call id of the current tool call.
+
+_async _get_artifact_version(_filename_ , _version =None_)¶
+    
+
+Gets artifact version info.
+
+Return type:
+    
+
+`ArtifactVersion` | `None`
+
+Parameters:
+    
+
+  * **filename** – The filename of the artifact.
+
+  * **version** – The version of the artifact. If None, the latest version will be returned.
+
+
+
+Returns:
+    
+
+The artifact version info.
+
+get_auth_response(_auth_config_)¶
+    
+
+Gets the auth response credential from session state.
+
+This method retrieves an authentication credential that was previously stored in session state after a user completed an OAuth flow or other authentication process.
+
+Return type:
+    
+
+`AuthCredential` | `None`
+
+Parameters:
+    
+
+**auth_config** – The authentication configuration for the credential.
+
+Returns:
+    
+
+The auth credential from the auth response, or None if not found.
+
+_async _list_artifacts()¶
+    
+
+Lists the filenames of the artifacts attached to the current session.
+
+Return type:
+    
+
+`list`[`str`]
+
+_async _load_artifact(_filename_ , _version =None_)¶
+    
+
+Loads an artifact attached to the current session.
+
+Return type:
+    
+
+`Part` | `None`
+
+Parameters:
+    
+
+  * **filename** – The filename of the artifact.
+
+  * **version** – The version of the artifact. If None, the latest version will be returned.
+
+
+
+Returns:
+    
+
+The artifact.
+
+_async _load_credential(_auth_config_)¶
+    
+
+Loads a credential from the credential service.
+
+Return type:
+    
+
+`AuthCredential` | `None`
+
+Parameters:
+    
+
+**auth_config** – The authentication configuration for the credential.
+
+Returns:
+    
+
+The loaded credential, or None if not found.
+
+request_confirmation(_*_ , _hint =None_, _payload =None_)¶
+    
+
+Requests confirmation for the current tool call.
+
+This method can only be called in a tool context where function_call_id is set.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **hint** – A hint to the user on how to confirm the tool call.
+
+  * **payload** – The payload used to confirm the tool call.
+
+
+
+Raises:
+    
+
+**ValueError** – If function_call_id is not set.
+
+request_credential(_auth_config_)¶
+    
+
+Requests a credential for the current tool call.
+
+This method can only be called in a tool context where function_call_id is set. For callback contexts, use save_credential/load_credential instead.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**auth_config** – The authentication configuration for the credential.
+
+Raises:
+    
+
+**ValueError** – If function_call_id is not set.
+
+_async _save_artifact(_filename_ , _artifact_ , _custom_metadata =None_)¶
+    
+
+Saves an artifact and records it as delta for the current session.
+
+Return type:
+    
+
+`int`
+
+Parameters:
+    
+
+  * **filename** – The filename of the artifact.
+
+  * **artifact** – The artifact to save.
+
+  * **custom_metadata** – Custom metadata to associate with the artifact.
+
+
+
+Returns:
+    
+
+The version of the artifact.
+
+_async _save_credential(_auth_config_)¶
+    
+
+Saves a credential to the credential service.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**auth_config** – The authentication configuration containing the credential.
+
+_async _search_memory(_query_)¶
+    
+
+Searches the memory of the current user.
+
+Return type:
+    
+
+`SearchMemoryResponse`
+
+Parameters:
+    
+
+**query** – The search query.
+
+Returns:
+    
+
+The search results from the memory service.
+
+Raises:
+    
+
+**ValueError** – If memory service is not available.
+
+_property _state _: State_¶
+    
+
+The delta-aware state of the current session.
+
+For any state change, you can mutate this object directly, e.g. ctx.state[‘foo’] = ‘bar’
+
+_property _tool_confirmation _: ToolConfirmation | None_¶
+    
+
+The tool confirmation of the current tool call.
+
 _pydantic model _google.adk.agents.InvocationContext¶
     
 
@@ -682,6 +1018,15 @@ Show JSON schema
                 }
              ],
              "default": null
+          },
+          "events_compaction_config": {
+             "default": null,
+             "title": "Events Compaction Config"
+          },
+          "token_compaction_checked": {
+             "default": false,
+             "title": "Token Compaction Checked",
+             "type": "boolean"
           },
           "plugin_manager": {
              "default": null,
@@ -1027,19 +1372,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -1053,6 +1385,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -1149,7 +1494,7 @@ Show JSON schema
           },
           "Citation": {
              "additionalProperties": false,
-             "description": "Source attributions for content.",
+             "description": "Source attributions for content.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "endIndex": {
                    "anyOf": [
@@ -1319,7 +1664,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -1867,7 +2212,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -1917,7 +2262,9 @@ Show JSON schema
                 "IMAGE_SAFETY",
                 "UNEXPECTED_TOOL_CALL",
                 "IMAGE_PROHIBITED_CONTENT",
-                "NO_IMAGE"
+                "NO_IMAGE",
+                "IMAGE_RECITATION",
+                "IMAGE_OTHER"
              ],
              "title": "FinishReason",
              "type": "string"
@@ -1963,8 +2310,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -2089,6 +2465,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -2123,6 +2512,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -2173,7 +2575,7 @@ Show JSON schema
           },
           "GenerateContentResponseUsageMetadata": {
              "additionalProperties": false,
-             "description": "Usage metadata about response(s).",
+             "description": "Usage metadata about the content generation request and response.\n\nThis message provides a detailed breakdown of token usage and other relevant\nmetrics. This data type is not supported in Gemini API.",
              "properties": {
                 "cacheTokensDetails": {
                    "anyOf": [
@@ -2188,7 +2590,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities of the cached content in the request input.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the cached content.",
                    "title": "Cachetokensdetails"
                 },
                 "cachedContentTokenCount": {
@@ -2201,7 +2603,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens in the cached part in the input (the cached content).",
+                   "description": "Output only. The number of tokens in the cached content that was used for this request.",
                    "title": "Cachedcontenttokencount"
                 },
                 "candidatesTokenCount": {
@@ -2214,7 +2616,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Number of tokens in the response(s).",
+                   "description": "The total number of tokens in the generated candidates.",
                    "title": "Candidatestokencount"
                 },
                 "candidatesTokensDetails": {
@@ -2230,7 +2632,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were returned in the response.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the generated candidates.",
                    "title": "Candidatestokensdetails"
                 },
                 "promptTokenCount": {
@@ -2243,7 +2645,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Number of tokens in the request. When `cached_content` is set, this is still the total effective prompt size meaning this includes the number of tokens in the cached content.",
+                   "description": "The total number of tokens in the prompt. This includes any text, images, or other media provided in the request. When `cached_content` is set, this also includes the number of tokens in the cached content.",
                    "title": "Prompttokencount"
                 },
                 "promptTokensDetails": {
@@ -2259,7 +2661,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were processed in the request input.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the prompt.",
                    "title": "Prompttokensdetails"
                 },
                 "thoughtsTokenCount": {
@@ -2272,7 +2674,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens present in thoughts output.",
+                   "description": "Output only. The number of tokens that were part of the model's generated \"thoughts\" output, if applicable.",
                    "title": "Thoughtstokencount"
                 },
                 "toolUsePromptTokenCount": {
@@ -2285,7 +2687,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens present in tool-use prompt(s).",
+                   "description": "Output only. The number of tokens in the results from tool executions, which are provided back to the model as input, if applicable.",
                    "title": "Tooluseprompttokencount"
                 },
                 "toolUsePromptTokensDetails": {
@@ -2301,7 +2703,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were processed for tool-use request inputs.",
+                   "description": "Output only. A detailed breakdown by modality of the token counts from the results of tool executions, which are provided back to the model as input.",
                    "title": "Tooluseprompttokensdetails"
                 },
                 "totalTokenCount": {
@@ -2314,7 +2716,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Total token count for prompt, response candidates, and tool-use prompts (if present).",
+                   "description": "The total number of tokens for the entire request. This is the sum of `prompt_token_count`, `candidates_token_count`, `tool_use_prompt_token_count`, and `thoughts_token_count`.",
                    "title": "Totaltokencount"
                 },
                 "trafficType": {
@@ -2327,7 +2729,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Traffic type. This shows whether a request consumes Pay-As-You-Go or Provisioned Throughput quota."
+                   "description": "Output only. The traffic type for this request."
                 }
              },
              "title": "GenerateContentResponseUsageMetadata",
@@ -2335,7 +2737,7 @@ Show JSON schema
           },
           "GoogleTypeDate": {
              "additionalProperties": false,
-             "description": "Represents a whole or partial calendar date, such as a birthday.\n\nThe time of day and time zone are either specified elsewhere or are\ninsignificant. The date is relative to the Gregorian Calendar. This can\nrepresent one of the following: * A full date, with non-zero year, month, and\nday values. * A month and day, with a zero year (for example, an anniversary).\n* A year on its own, with a zero month and a zero day. * A year and month,\nwith a zero day (for example, a credit card expiration date). Related types: *\ngoogle.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp",
+             "description": "Represents a whole or partial calendar date, such as a birthday.\n\nThe time of day and time zone are either specified elsewhere or are\ninsignificant. The date is relative to the Gregorian Calendar. This can\nrepresent one of the following: * A full date, with non-zero year, month, and\nday values. * A month and day, with a zero year (for example, an anniversary).\n* A year on its own, with a zero month and a zero day. * A year and month,\nwith a zero day (for example, a credit card expiration date). Related types: *\ngoogle.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp. This\ndata type is not supported in Gemini API.",
              "properties": {
                 "day": {
                    "anyOf": [
@@ -2394,7 +2796,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Grounding chunk from Google Maps."
+                   "description": "Grounding chunk from Google Maps. This field is not supported in Gemini API."
                 },
                 "retrievedContext": {
                    "anyOf": [
@@ -2406,7 +2808,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Grounding chunk from context retrieved by the retrieval tools."
+                   "description": "Grounding chunk from context retrieved by the retrieval tools. This field is not supported in Gemini API."
                 },
                 "web": {
                    "anyOf": [
@@ -2426,7 +2828,7 @@ Show JSON schema
           },
           "GroundingChunkMaps": {
              "additionalProperties": false,
-             "description": "Chunk from Google Maps.",
+             "description": "Chunk from Google Maps. This data type is not supported in Gemini API.",
              "properties": {
                 "placeAnswerSources": {
                    "anyOf": [
@@ -2463,7 +2865,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Text of the chunk.",
+                   "description": "Text of the place answer.",
                    "title": "Text"
                 },
                 "title": {
@@ -2476,7 +2878,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Title of the chunk.",
+                   "description": "Title of the place.",
                    "title": "Title"
                 },
                 "uri": {
@@ -2489,7 +2891,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "URI reference of the chunk.",
+                   "description": "URI reference of the place.",
                    "title": "Uri"
                 }
              },
@@ -2498,7 +2900,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSources": {
              "additionalProperties": false,
-             "description": "Sources used to generate the place answer.",
+             "description": "Sources used to generate the place answer.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "flagContentUri": {
                    "anyOf": [
@@ -2535,7 +2937,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution": {
              "additionalProperties": false,
-             "description": "Author attribution for a photo or review.",
+             "description": "Author attribution for a photo or review.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "displayName": {
                    "anyOf": [
@@ -2582,7 +2984,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSourcesReviewSnippet": {
              "additionalProperties": false,
-             "description": "Encapsulates a review snippet.",
+             "description": "Encapsulates a review snippet.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "authorAttribution": {
                    "anyOf": [
@@ -2680,7 +3082,7 @@ Show JSON schema
           },
           "GroundingChunkRetrievedContext": {
              "additionalProperties": false,
-             "description": "Chunk from context retrieved by the retrieval tools.",
+             "description": "Chunk from context retrieved by the retrieval tools.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "documentName": {
                    "anyOf": [
@@ -2764,7 +3166,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Domain of the (original) URI.",
+                   "description": "Domain of the (original) URI. This field is not supported in Gemini API.",
                    "title": "Domain"
                 },
                 "title": {
@@ -2811,7 +3213,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding.",
+                   "description": "Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding. This field is not supported in Gemini API.",
                    "title": "Googlemapswidgetcontexttoken"
                 },
                 "groundingChunks": {
@@ -2871,7 +3273,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Queries executed by the retrieval tools.",
+                   "description": "Optional. Queries executed by the retrieval tools. This field is not supported in Gemini API.",
                    "title": "Retrievalqueries"
                 },
                 "searchEntryPoint": {
@@ -2899,7 +3301,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding.",
+                   "description": "Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding. This field is not supported in Gemini API.",
                    "title": "Sourceflagginguris"
                 },
                 "webSearchQueries": {
@@ -2924,7 +3326,7 @@ Show JSON schema
           },
           "GroundingMetadataSourceFlaggingUri": {
              "additionalProperties": false,
-             "description": "Source content flagging uri for a place or review.\n\nThis is currently populated only for Google Maps grounding.",
+             "description": "Source content flagging uri for a place or review.\n\nThis is currently populated only for Google Maps grounding. This data type is\nnot supported in Gemini API.",
              "properties": {
                 "flagContentUri": {
                    "anyOf": [
@@ -3158,7 +3560,7 @@ Show JSON schema
              "type": "object"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -3372,7 +3774,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -3387,7 +3789,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -3534,6 +3936,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Refreshtoken"
+                },
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Idtoken"
                 },
                 "expiresAt": {
                    "anyOf": [
@@ -3920,7 +4334,7 @@ Show JSON schema
              "type": "object"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -3934,80 +4348,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -4033,6 +4384,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -4044,6 +4419,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -4057,9 +4444,180 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
+             "type": "object"
+          },
+          "PartMediaResolution": {
+             "additionalProperties": false,
+             "description": "Media resolution for the input media.",
+             "properties": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
+                },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
              "type": "object"
           },
           "PrebuiltVoiceConfig": {
@@ -4076,7 +4634,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the prebuilt voice to use.",
+                   "description": "The name of the preset voice to use.",
                    "title": "Voicename"
                 }
              },
@@ -4106,7 +4664,7 @@ Show JSON schema
           },
           "RagChunk": {
              "additionalProperties": false,
-             "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.",
+             "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "pageSpan": {
                    "anyOf": [
@@ -4139,7 +4697,7 @@ Show JSON schema
           },
           "RagChunkPageSpan": {
              "additionalProperties": false,
-             "description": "Represents where the chunk starts and ends in the document.",
+             "description": "Represents where the chunk starts and ends in the document.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "firstPage": {
                    "anyOf": [
@@ -4237,6 +4795,41 @@ Show JSON schema
                 }
              },
              "title": "RealtimeInputConfig",
+             "type": "object"
+          },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
              "type": "object"
           },
           "ResumabilityConfig": {
@@ -4546,7 +5139,7 @@ Show JSON schema
           },
           "ServiceAccount": {
              "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.",
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
              "properties": {
                 "serviceAccountCredential": {
                    "anyOf": [
@@ -4560,11 +5153,19 @@ Show JSON schema
                    "default": null
                 },
                 "scopes": {
-                   "items": {
-                      "type": "string"
-                   },
-                   "title": "Scopes",
-                   "type": "array"
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
                 },
                 "useDefaultCredential": {
                    "anyOf": [
@@ -4577,11 +5178,32 @@ Show JSON schema
                    ],
                    "default": false,
                    "title": "Usedefaultcredential"
+                },
+                "useIdToken": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Useidtoken"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
                 }
              },
-             "required": [
-                "scopes"
-             ],
              "title": "ServiceAccount",
              "type": "object"
           },
@@ -4749,7 +5371,7 @@ Show JSON schema
           },
           "SpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the speaker to use.",
+             "description": "Configuration for a single speaker in a multi speaker setup.",
              "properties": {
                 "speaker": {
                    "anyOf": [
@@ -4761,7 +5383,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the speaker to use. Should be the same as in the\n          prompt.",
+                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
                    "title": "Speaker"
                 },
                 "voiceConfig": {
@@ -4774,7 +5396,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the voice to use."
+                   "description": "Required. The configuration for the voice of this speaker."
                 }
              },
              "title": "SpeakerVoiceConfig",
@@ -4782,7 +5404,6 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation configuration.",
              "properties": {
                 "voiceConfig": {
                    "anyOf": [
@@ -4794,19 +5415,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the multi-speaker setup.\n          It is mutually exclusive with the voice_config field.\n          "
+                   "description": "Configuration for the voice of the response."
                 },
                 "languageCode": {
                    "anyOf": [
@@ -4818,8 +5427,20 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Language code (ISO 639. e.g. en-US) for the speech synthesization.\n      Only available for Live API.\n      ",
+                   "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
+                },
+                "multiSpeakerVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -4888,7 +5509,7 @@ Show JSON schema
              "type": "object"
           },
           "TrafficType": {
-             "description": "Output only.\n\nTraffic type. This shows whether a request consumes Pay-As-You-Go or\nProvisioned Throughput quota.",
+             "description": "Output only.\n\nThe traffic type for this request. This enum is not supported in Gemini API.",
              "enum": [
                 "TRAFFIC_TYPE_UNSPECIFIED",
                 "ON_DEMAND",
@@ -4977,21 +5598,8 @@ Show JSON schema
           },
           "VideoMetadata": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Metadata describes the input video content.",
              "properties": {
-                "fps": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
-                },
                 "endOffset": {
                    "anyOf": [
                       {
@@ -5004,6 +5612,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -5024,8 +5645,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -5036,7 +5668,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
+                   "description": "The configuration for the prebuilt voice to use."
                 }
              },
              "title": "VoiceConfig",
@@ -5075,6 +5707,8 @@ Fields:
 
   * `end_of_agents (dict[str, bool])`
 
+  * `events_compaction_config (google.adk.apps.app.EventsCompactionConfig | None)`
+
   * `input_realtime_cache (list[google.adk.agents.invocation_context.RealtimeCacheEntry] | None)`
 
   * `invocation_id (str)`
@@ -5096,6 +5730,8 @@ Fields:
   * `session (google.adk.sessions.session.Session)`
 
   * `session_service (google.adk.sessions.base_session_service.BaseSessionService)`
+
+  * `token_compaction_checked (bool)`
 
   * `transcription_cache (list[google.adk.agents.transcription_entry.TranscriptionEntry] | None)`
 
@@ -5154,6 +5790,11 @@ _field _end_of_agents _: dict[str, bool]__[Optional]_¶
 
 The end of agent status for each agent in this invocation.
 
+_field _events_compaction_config _: Optional[EventsCompactionConfig]__ = None_¶
+    
+
+The compaction config for this invocation.
+
 _field _input_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
     
 
@@ -5204,6 +5845,11 @@ The current session of this invocation context. Readonly.
 
 _field _session_service _: BaseSessionService_ _[Required]_¶
     
+
+_field _token_compaction_checked _: bool_ _ = False_¶
+    
+
+Whether token-threshold compaction ran during this invocation.
 
 _field _transcription_cache _: Optional[list[TranscriptionEntry]]__ = None_¶
     
@@ -5437,19 +6083,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -5463,6 +6096,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -5544,7 +6190,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -5598,7 +6244,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -5672,8 +6318,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -5798,6 +6473,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -5832,6 +6520,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -5881,7 +6582,7 @@ Show JSON schema
              "type": "string"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -5890,7 +6591,7 @@ Show JSON schema
              "type": "string"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -5904,80 +6605,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -6003,6 +6641,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -6014,6 +6676,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -6027,16 +6701,114 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
-          "VideoMetadata": {
+          "PartMediaResolution": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Media resolution for the input media.",
              "properties": {
-                "fps": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
                    "anyOf": [
                       {
                          "type": "number"
@@ -6046,9 +6818,69 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
                 },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Metadata describes the input video content.",
+             "properties": {
                 "endOffset": {
                    "anyOf": [
                       {
@@ -6061,6 +6893,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -6521,19 +7366,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -6547,6 +7379,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -6628,7 +7473,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -6873,7 +7718,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -7019,8 +7864,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -7145,6 +8019,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -7179,6 +8066,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -7228,7 +8128,7 @@ Show JSON schema
              "type": "string"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -7237,7 +8137,7 @@ Show JSON schema
              "type": "string"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -7251,80 +8151,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -7350,6 +8187,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -7361,6 +8222,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -7374,16 +8247,114 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
-          "VideoMetadata": {
+          "PartMediaResolution": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Media resolution for the input media.",
              "properties": {
-                "fps": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
                    "anyOf": [
                       {
                          "type": "number"
@@ -7393,9 +8364,69 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
                 },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Metadata describes the input video content.",
+             "properties": {
                 "endOffset": {
                    "anyOf": [
                       {
@@ -7408,6 +8439,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -8679,7 +9723,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -8694,7 +9738,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -8715,7 +9759,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the prebuilt voice to use.",
+                   "description": "The name of the preset voice to use.",
                    "title": "Voicename"
                 }
              },
@@ -8787,6 +9831,41 @@ Show JSON schema
              "title": "RealtimeInputConfig",
              "type": "object"
           },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
+             "type": "object"
+          },
           "SessionResumptionConfig": {
              "additionalProperties": false,
              "description": "Configuration of session resumption mechanism.\n\nIncluded in `LiveConnectConfig.session_resumption`. If included server\nwill send `LiveServerSessionResumptionUpdate` messages.",
@@ -8844,7 +9923,7 @@ Show JSON schema
           },
           "SpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the speaker to use.",
+             "description": "Configuration for a single speaker in a multi speaker setup.",
              "properties": {
                 "speaker": {
                    "anyOf": [
@@ -8856,7 +9935,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the speaker to use. Should be the same as in the\n          prompt.",
+                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
                    "title": "Speaker"
                 },
                 "voiceConfig": {
@@ -8869,7 +9948,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the voice to use."
+                   "description": "Required. The configuration for the voice of this speaker."
                 }
              },
              "title": "SpeakerVoiceConfig",
@@ -8877,7 +9956,6 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation configuration.",
              "properties": {
                 "voiceConfig": {
                    "anyOf": [
@@ -8889,19 +9967,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the multi-speaker setup.\n          It is mutually exclusive with the voice_config field.\n          "
+                   "description": "Configuration for the voice of the response."
                 },
                 "languageCode": {
                    "anyOf": [
@@ -8913,8 +9979,20 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Language code (ISO 639. e.g. en-US) for the speech synthesization.\n      Only available for Live API.\n      ",
+                   "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
+                },
+                "multiSpeakerVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -8966,8 +10044,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -8978,7 +10067,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
+                   "description": "The configuration for the prebuilt voice to use."
                 }
              },
              "title": "VoiceConfig",
@@ -10106,19 +11195,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -10132,6 +11208,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -10230,7 +11319,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -10304,8 +11393,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -10430,6 +11548,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -10464,6 +11595,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -10513,7 +11657,7 @@ Show JSON schema
              "type": "string"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -10522,7 +11666,7 @@ Show JSON schema
              "type": "string"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -10536,80 +11680,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -10635,6 +11716,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -10646,6 +11751,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -10659,16 +11776,114 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
-          "VideoMetadata": {
+          "PartMediaResolution": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Media resolution for the input media.",
              "properties": {
-                "fps": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
                    "anyOf": [
                       {
                          "type": "number"
@@ -10678,9 +11893,69 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
                 },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Metadata describes the input video content.",
+             "properties": {
                 "endOffset": {
                    "anyOf": [
                       {
@@ -10693,6 +11968,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -12405,19 +13693,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -12431,6 +13706,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -12527,7 +13815,7 @@ Show JSON schema
           },
           "Citation": {
              "additionalProperties": false,
-             "description": "Source attributions for content.",
+             "description": "Source attributions for content.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "endIndex": {
                    "anyOf": [
@@ -12697,7 +13985,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -12893,7 +14181,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -12943,7 +14231,9 @@ Show JSON schema
                 "IMAGE_SAFETY",
                 "UNEXPECTED_TOOL_CALL",
                 "IMAGE_PROHIBITED_CONTENT",
-                "NO_IMAGE"
+                "NO_IMAGE",
+                "IMAGE_RECITATION",
+                "IMAGE_OTHER"
              ],
              "title": "FinishReason",
              "type": "string"
@@ -12989,8 +14279,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -13115,6 +14434,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -13149,6 +14481,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -13199,7 +14544,7 @@ Show JSON schema
           },
           "GenerateContentResponseUsageMetadata": {
              "additionalProperties": false,
-             "description": "Usage metadata about response(s).",
+             "description": "Usage metadata about the content generation request and response.\n\nThis message provides a detailed breakdown of token usage and other relevant\nmetrics. This data type is not supported in Gemini API.",
              "properties": {
                 "cacheTokensDetails": {
                    "anyOf": [
@@ -13214,7 +14559,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities of the cached content in the request input.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the cached content.",
                    "title": "Cachetokensdetails"
                 },
                 "cachedContentTokenCount": {
@@ -13227,7 +14572,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens in the cached part in the input (the cached content).",
+                   "description": "Output only. The number of tokens in the cached content that was used for this request.",
                    "title": "Cachedcontenttokencount"
                 },
                 "candidatesTokenCount": {
@@ -13240,7 +14585,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Number of tokens in the response(s).",
+                   "description": "The total number of tokens in the generated candidates.",
                    "title": "Candidatestokencount"
                 },
                 "candidatesTokensDetails": {
@@ -13256,7 +14601,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were returned in the response.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the generated candidates.",
                    "title": "Candidatestokensdetails"
                 },
                 "promptTokenCount": {
@@ -13269,7 +14614,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Number of tokens in the request. When `cached_content` is set, this is still the total effective prompt size meaning this includes the number of tokens in the cached content.",
+                   "description": "The total number of tokens in the prompt. This includes any text, images, or other media provided in the request. When `cached_content` is set, this also includes the number of tokens in the cached content.",
                    "title": "Prompttokencount"
                 },
                 "promptTokensDetails": {
@@ -13285,7 +14630,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were processed in the request input.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the prompt.",
                    "title": "Prompttokensdetails"
                 },
                 "thoughtsTokenCount": {
@@ -13298,7 +14643,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens present in thoughts output.",
+                   "description": "Output only. The number of tokens that were part of the model's generated \"thoughts\" output, if applicable.",
                    "title": "Thoughtstokencount"
                 },
                 "toolUsePromptTokenCount": {
@@ -13311,7 +14656,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens present in tool-use prompt(s).",
+                   "description": "Output only. The number of tokens in the results from tool executions, which are provided back to the model as input, if applicable.",
                    "title": "Tooluseprompttokencount"
                 },
                 "toolUsePromptTokensDetails": {
@@ -13327,7 +14672,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were processed for tool-use request inputs.",
+                   "description": "Output only. A detailed breakdown by modality of the token counts from the results of tool executions, which are provided back to the model as input.",
                    "title": "Tooluseprompttokensdetails"
                 },
                 "totalTokenCount": {
@@ -13340,7 +14685,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Total token count for prompt, response candidates, and tool-use prompts (if present).",
+                   "description": "The total number of tokens for the entire request. This is the sum of `prompt_token_count`, `candidates_token_count`, `tool_use_prompt_token_count`, and `thoughts_token_count`.",
                    "title": "Totaltokencount"
                 },
                 "trafficType": {
@@ -13353,7 +14698,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Traffic type. This shows whether a request consumes Pay-As-You-Go or Provisioned Throughput quota."
+                   "description": "Output only. The traffic type for this request."
                 }
              },
              "title": "GenerateContentResponseUsageMetadata",
@@ -13361,7 +14706,7 @@ Show JSON schema
           },
           "GoogleTypeDate": {
              "additionalProperties": false,
-             "description": "Represents a whole or partial calendar date, such as a birthday.\n\nThe time of day and time zone are either specified elsewhere or are\ninsignificant. The date is relative to the Gregorian Calendar. This can\nrepresent one of the following: * A full date, with non-zero year, month, and\nday values. * A month and day, with a zero year (for example, an anniversary).\n* A year on its own, with a zero month and a zero day. * A year and month,\nwith a zero day (for example, a credit card expiration date). Related types: *\ngoogle.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp",
+             "description": "Represents a whole or partial calendar date, such as a birthday.\n\nThe time of day and time zone are either specified elsewhere or are\ninsignificant. The date is relative to the Gregorian Calendar. This can\nrepresent one of the following: * A full date, with non-zero year, month, and\nday values. * A month and day, with a zero year (for example, an anniversary).\n* A year on its own, with a zero month and a zero day. * A year and month,\nwith a zero day (for example, a credit card expiration date). Related types: *\ngoogle.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp. This\ndata type is not supported in Gemini API.",
              "properties": {
                 "day": {
                    "anyOf": [
@@ -13420,7 +14765,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Grounding chunk from Google Maps."
+                   "description": "Grounding chunk from Google Maps. This field is not supported in Gemini API."
                 },
                 "retrievedContext": {
                    "anyOf": [
@@ -13432,7 +14777,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Grounding chunk from context retrieved by the retrieval tools."
+                   "description": "Grounding chunk from context retrieved by the retrieval tools. This field is not supported in Gemini API."
                 },
                 "web": {
                    "anyOf": [
@@ -13452,7 +14797,7 @@ Show JSON schema
           },
           "GroundingChunkMaps": {
              "additionalProperties": false,
-             "description": "Chunk from Google Maps.",
+             "description": "Chunk from Google Maps. This data type is not supported in Gemini API.",
              "properties": {
                 "placeAnswerSources": {
                    "anyOf": [
@@ -13489,7 +14834,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Text of the chunk.",
+                   "description": "Text of the place answer.",
                    "title": "Text"
                 },
                 "title": {
@@ -13502,7 +14847,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Title of the chunk.",
+                   "description": "Title of the place.",
                    "title": "Title"
                 },
                 "uri": {
@@ -13515,7 +14860,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "URI reference of the chunk.",
+                   "description": "URI reference of the place.",
                    "title": "Uri"
                 }
              },
@@ -13524,7 +14869,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSources": {
              "additionalProperties": false,
-             "description": "Sources used to generate the place answer.",
+             "description": "Sources used to generate the place answer.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "flagContentUri": {
                    "anyOf": [
@@ -13561,7 +14906,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution": {
              "additionalProperties": false,
-             "description": "Author attribution for a photo or review.",
+             "description": "Author attribution for a photo or review.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "displayName": {
                    "anyOf": [
@@ -13608,7 +14953,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSourcesReviewSnippet": {
              "additionalProperties": false,
-             "description": "Encapsulates a review snippet.",
+             "description": "Encapsulates a review snippet.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "authorAttribution": {
                    "anyOf": [
@@ -13706,7 +15051,7 @@ Show JSON schema
           },
           "GroundingChunkRetrievedContext": {
              "additionalProperties": false,
-             "description": "Chunk from context retrieved by the retrieval tools.",
+             "description": "Chunk from context retrieved by the retrieval tools.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "documentName": {
                    "anyOf": [
@@ -13790,7 +15135,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Domain of the (original) URI.",
+                   "description": "Domain of the (original) URI. This field is not supported in Gemini API.",
                    "title": "Domain"
                 },
                 "title": {
@@ -13837,7 +15182,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding.",
+                   "description": "Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding. This field is not supported in Gemini API.",
                    "title": "Googlemapswidgetcontexttoken"
                 },
                 "groundingChunks": {
@@ -13897,7 +15242,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Queries executed by the retrieval tools.",
+                   "description": "Optional. Queries executed by the retrieval tools. This field is not supported in Gemini API.",
                    "title": "Retrievalqueries"
                 },
                 "searchEntryPoint": {
@@ -13925,7 +15270,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding.",
+                   "description": "Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding. This field is not supported in Gemini API.",
                    "title": "Sourceflagginguris"
                 },
                 "webSearchQueries": {
@@ -13950,7 +15295,7 @@ Show JSON schema
           },
           "GroundingMetadataSourceFlaggingUri": {
              "additionalProperties": false,
-             "description": "Source content flagging uri for a place or review.\n\nThis is currently populated only for Google Maps grounding.",
+             "description": "Source content flagging uri for a place or review.\n\nThis is currently populated only for Google Maps grounding. This data type is\nnot supported in Gemini API.",
              "properties": {
                 "flagContentUri": {
                    "anyOf": [
@@ -14184,7 +15529,7 @@ Show JSON schema
              "type": "object"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -14536,6 +15881,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Refreshtoken"
+                },
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Idtoken"
                 },
                 "expiresAt": {
                    "anyOf": [
@@ -14922,7 +16279,7 @@ Show JSON schema
              "type": "object"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -14936,80 +16293,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -15035,6 +16329,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -15046,6 +16364,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -15059,14 +16389,185 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
+          "PartMediaResolution": {
+             "additionalProperties": false,
+             "description": "Media resolution for the input media.",
+             "properties": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
+                },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
           "RagChunk": {
              "additionalProperties": false,
-             "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.",
+             "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "pageSpan": {
                    "anyOf": [
@@ -15099,7 +16600,7 @@ Show JSON schema
           },
           "RagChunkPageSpan": {
              "additionalProperties": false,
-             "description": "Represents where the chunk starts and ends in the document.",
+             "description": "Represents where the chunk starts and ends in the document.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "firstPage": {
                    "anyOf": [
@@ -15259,7 +16760,7 @@ Show JSON schema
           },
           "ServiceAccount": {
              "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.",
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
              "properties": {
                 "serviceAccountCredential": {
                    "anyOf": [
@@ -15273,11 +16774,19 @@ Show JSON schema
                    "default": null
                 },
                 "scopes": {
-                   "items": {
-                      "type": "string"
-                   },
-                   "title": "Scopes",
-                   "type": "array"
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
                 },
                 "useDefaultCredential": {
                    "anyOf": [
@@ -15290,11 +16799,32 @@ Show JSON schema
                    ],
                    "default": false,
                    "title": "Usedefaultcredential"
+                },
+                "useIdToken": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Useidtoken"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
                 }
              },
-             "required": [
-                "scopes"
-             ],
              "title": "ServiceAccount",
              "type": "object"
           },
@@ -15392,7 +16922,7 @@ Show JSON schema
              "type": "object"
           },
           "TrafficType": {
-             "description": "Output only.\n\nTraffic type. This shows whether a request consumes Pay-As-You-Go or\nProvisioned Throughput quota.",
+             "description": "Output only.\n\nThe traffic type for this request. This enum is not supported in Gemini API.",
              "enum": [
                 "TRAFFIC_TYPE_UNSPECIFIED",
                 "ON_DEMAND",
@@ -15437,21 +16967,8 @@ Show JSON schema
           },
           "VideoMetadata": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Metadata describes the input video content.",
              "properties": {
-                "fps": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
-                },
                 "endOffset": {
                    "anyOf": [
                       {
@@ -15464,6 +16981,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -15926,19 +17456,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -15952,6 +17469,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -16033,7 +17563,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -16111,7 +17641,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -16185,8 +17715,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -16311,6 +17870,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -16345,6 +17917,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -16543,7 +18128,7 @@ Show JSON schema
              "type": "object"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -16691,6 +18276,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Refreshtoken"
+                },
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Idtoken"
                 },
                 "expiresAt": {
                    "anyOf": [
@@ -17077,7 +18674,7 @@ Show JSON schema
              "type": "object"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -17091,80 +18688,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -17190,6 +18724,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -17201,6 +18759,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -17214,9 +18784,180 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
+             "type": "object"
+          },
+          "PartMediaResolution": {
+             "additionalProperties": false,
+             "description": "Media resolution for the input media.",
+             "properties": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
+                },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
              "type": "object"
           },
           "SecuritySchemeType": {
@@ -17231,7 +18972,7 @@ Show JSON schema
           },
           "ServiceAccount": {
              "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.",
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
              "properties": {
                 "serviceAccountCredential": {
                    "anyOf": [
@@ -17245,11 +18986,19 @@ Show JSON schema
                    "default": null
                 },
                 "scopes": {
-                   "items": {
-                      "type": "string"
-                   },
-                   "title": "Scopes",
-                   "type": "array"
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
                 },
                 "useDefaultCredential": {
                    "anyOf": [
@@ -17262,11 +19011,32 @@ Show JSON schema
                    ],
                    "default": false,
                    "title": "Usedefaultcredential"
+                },
+                "useIdToken": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Useidtoken"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
                 }
              },
-             "required": [
-                "scopes"
-             ],
              "title": "ServiceAccount",
              "type": "object"
           },
@@ -17365,21 +19135,8 @@ Show JSON schema
           },
           "VideoMetadata": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Metadata describes the input video content.",
              "properties": {
-                "fps": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
-                },
                 "endOffset": {
                    "anyOf": [
                       {
@@ -17392,6 +19149,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -17574,19 +19344,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -17600,6 +19357,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -17681,7 +19451,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -17735,7 +19505,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -17809,8 +19579,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -17935,6 +19734,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -17969,6 +19781,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -18018,7 +19843,7 @@ Show JSON schema
              "type": "string"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -18027,7 +19852,7 @@ Show JSON schema
              "type": "string"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -18041,80 +19866,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -18140,6 +19902,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -18151,6 +19937,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -18164,16 +19962,114 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
-          "VideoMetadata": {
+          "PartMediaResolution": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Media resolution for the input media.",
              "properties": {
-                "fps": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
                    "anyOf": [
                       {
                          "type": "number"
@@ -18183,9 +20079,69 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
                 },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Metadata describes the input video content.",
+             "properties": {
                 "endOffset": {
                    "anyOf": [
                       {
@@ -18198,6 +20154,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -18312,7 +20281,33 @@ Parameters:
 
   * **session_id** – Optional session ID for memory scope/partitioning.
 
-  * **custom_metadata** – Optional, portable metadata for memory generation. Prefer this for service-specific fields (e.g., TTL) that may later become first-class API parameters.
+  * **custom_metadata** – Optional, portable metadata for memory generation. Prefer this for service-specific fields (e.g., TTL) that may later become first-class API parameters. Supported keys are implementation-defined by each memory service.
+
+
+
+
+_async _add_memory(_*_ , _app_name_ , _user_id_ , _memories_ , _custom_metadata =None_)¶
+    
+
+Adds explicit memory items directly to the memory service.
+
+This is intended for services that support direct memory writes in addition to event-based memory generation.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **app_name** – The application name for memory scope.
+
+  * **user_id** – The user ID for memory scope.
+
+  * **memories** – Explicit memory items to add.
+
+  * **custom_metadata** – Optional, portable metadata for memory writes. Supported keys are implementation-defined by each memory service.
 
 
 
@@ -18396,7 +20391,7 @@ Parameters:
 
   * **session_id** – Optional session ID for memory scope/partitioning.
 
-  * **custom_metadata** – Optional, portable metadata for memory generation. Prefer this for service-specific fields (e.g., TTL) that may later become first-class API parameters.
+  * **custom_metadata** – Optional, portable metadata for memory generation. Prefer this for service-specific fields (e.g., TTL) that may later become first-class API parameters. Supported keys are implementation-defined by each memory service.
 
 
 
@@ -18470,11 +20465,7 @@ Parameters:
 _async _add_events_to_memory(_*_ , _app_name_ , _user_id_ , _events_ , _session_id =None_, _custom_metadata =None_)¶
     
 
-Adds an explicit list of events to the memory service.
-
-This is intended for cases where callers want to persist only a subset of events (e.g., the latest turn), rather than re-ingesting the full session.
-
-Implementations should treat events as an incremental update (delta) and must not assume it represents the full session. Implementations may ignore session_id if it is not applicable.
+Adds events to Vertex AI Memory Bank via memories.generate.
 
 Return type:
     
@@ -18488,14 +20479,26 @@ Parameters:
 
   * **user_id** – The user ID for memory scope.
 
-  * **events** – The events to add to memory.
+  * **events** – The events to process for memory generation.
 
-  * **session_id** – Optional session ID for memory scope/partitioning.
+  * **session_id** – Optional session ID. Currently unused.
 
-  * **custom_metadata** – Optional, portable metadata for memory generation. Prefer this for service-specific fields (e.g., TTL) that may later become first-class API parameters.
+  * **custom_metadata** – Optional service-specific metadata for generate config.
 
 
 
+
+_async _add_memory(_*_ , _app_name_ , _user_id_ , _memories_ , _custom_metadata =None_)¶
+    
+
+Adds explicit memory items using Vertex Memory Bank.
+
+By default, this writes directly via memories.create. If custom_metadata[“enable_consolidation”] is set to True, this uses memories.generate with direct_memories_source so provided memories are consolidated server-side.
+
+Return type:
+    
+
+`None`
 
 _async _add_session_to_memory(_session_)¶
     
@@ -18908,7 +20911,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries.",
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
                    "title": "Attempts"
                 },
                 "initialDelay": {
@@ -18921,7 +20924,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Initial delay before the first retry, in fractions of a second.",
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
                    "title": "Initialdelay"
                 },
                 "maxDelay": {
@@ -18934,7 +20937,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Maximum delay between retries, in fractions of a second.",
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
                    "title": "Maxdelay"
                 },
                 "expBase": {
@@ -18947,7 +20950,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Multiplier by which the delay increases after each attempt.",
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
                    "title": "Expbase"
                 },
                 "jitter": {
@@ -18960,7 +20963,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Randomness factor for the delay.",
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0.",
                    "title": "Jitter"
                 },
                 "httpStatusCodes": {
@@ -18976,7 +20979,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of HTTP status codes that should trigger a retry.\n      If not specified, a default set of retryable codes may be used.",
+                   "description": "List of HTTP status codes that should trigger a retry.\n      If not specified, a default set of retryable codes (408, 429, and 5xx) may be used.",
                    "title": "Httpstatuscodes"
                 }
              },
@@ -18985,7 +20988,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -19000,7 +21003,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -19021,16 +21024,51 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the prebuilt voice to use.",
+                   "description": "The name of the preset voice to use.",
                    "title": "Voicename"
                 }
              },
              "title": "PrebuiltVoiceConfig",
              "type": "object"
           },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
+             "type": "object"
+          },
           "SpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the speaker to use.",
+             "description": "Configuration for a single speaker in a multi speaker setup.",
              "properties": {
                 "speaker": {
                    "anyOf": [
@@ -19042,7 +21080,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the speaker to use. Should be the same as in the\n          prompt.",
+                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
                    "title": "Speaker"
                 },
                 "voiceConfig": {
@@ -19055,7 +21093,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the voice to use."
+                   "description": "Required. The configuration for the voice of this speaker."
                 }
              },
              "title": "SpeakerVoiceConfig",
@@ -19063,7 +21101,6 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation configuration.",
              "properties": {
                 "voiceConfig": {
                    "anyOf": [
@@ -19075,19 +21112,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the multi-speaker setup.\n          It is mutually exclusive with the voice_config field.\n          "
+                   "description": "Configuration for the voice of the response."
                 },
                 "languageCode": {
                    "anyOf": [
@@ -19099,8 +21124,20 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Language code (ISO 639. e.g. en-US) for the speech synthesization.\n      Only available for Live API.\n      ",
+                   "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
+                },
+                "multiSpeakerVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -19108,8 +21145,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -19120,7 +21168,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
+                   "description": "The configuration for the prebuilt voice to use."
                 }
              },
              "title": "VoiceConfig",
@@ -19347,7 +21395,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries.",
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
                    "title": "Attempts"
                 },
                 "initialDelay": {
@@ -19360,7 +21408,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Initial delay before the first retry, in fractions of a second.",
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
                    "title": "Initialdelay"
                 },
                 "maxDelay": {
@@ -19373,7 +21421,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Maximum delay between retries, in fractions of a second.",
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
                    "title": "Maxdelay"
                 },
                 "expBase": {
@@ -19386,7 +21434,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Multiplier by which the delay increases after each attempt.",
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
                    "title": "Expbase"
                 },
                 "jitter": {
@@ -19399,7 +21447,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Randomness factor for the delay.",
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0.",
                    "title": "Jitter"
                 },
                 "httpStatusCodes": {
@@ -19415,7 +21463,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of HTTP status codes that should trigger a retry.\n      If not specified, a default set of retryable codes may be used.",
+                   "description": "List of HTTP status codes that should trigger a retry.\n      If not specified, a default set of retryable codes (408, 429, and 5xx) may be used.",
                    "title": "Httpstatuscodes"
                 }
              },
@@ -19424,7 +21472,7 @@ Show JSON schema
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the multi-speaker setup.",
+             "description": "Configuration for a multi-speaker text-to-speech request.",
              "properties": {
                 "speakerVoiceConfigs": {
                    "anyOf": [
@@ -19439,7 +21487,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.",
+                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
                    "title": "Speakervoiceconfigs"
                 }
              },
@@ -19460,16 +21508,51 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the prebuilt voice to use.",
+                   "description": "The name of the preset voice to use.",
                    "title": "Voicename"
                 }
              },
              "title": "PrebuiltVoiceConfig",
              "type": "object"
           },
+          "ReplicatedVoiceConfig": {
+             "additionalProperties": false,
+             "description": "ReplicatedVoiceConfig is used to configure replicated voice.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mime type of the replicated voice.\n      ",
+                   "title": "Mimetype"
+                },
+                "voiceSampleAudio": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The sample audio of the replicated voice.\n      ",
+                   "title": "Voicesampleaudio"
+                }
+             },
+             "title": "ReplicatedVoiceConfig",
+             "type": "object"
+          },
           "SpeakerVoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the speaker to use.",
+             "description": "Configuration for a single speaker in a multi speaker setup.",
              "properties": {
                 "speaker": {
                    "anyOf": [
@@ -19481,7 +21564,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The name of the speaker to use. Should be the same as in the\n          prompt.",
+                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
                    "title": "Speaker"
                 },
                 "voiceConfig": {
@@ -19494,7 +21577,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the voice to use."
+                   "description": "Required. The configuration for the voice of this speaker."
                 }
              },
              "title": "SpeakerVoiceConfig",
@@ -19502,7 +21585,6 @@ Show JSON schema
           },
           "SpeechConfig": {
              "additionalProperties": false,
-             "description": "The speech generation configuration.",
              "properties": {
                 "voiceConfig": {
                    "anyOf": [
@@ -19514,19 +21596,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for the multi-speaker setup.\n          It is mutually exclusive with the voice_config field.\n          "
+                   "description": "Configuration for the voice of the response."
                 },
                 "languageCode": {
                    "anyOf": [
@@ -19538,8 +21608,20 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Language code (ISO 639. e.g. en-US) for the speech synthesization.\n      Only available for Live API.\n      ",
+                   "description": "Optional. Language code (ISO 639. e.g. en-US) for the speech synthesization.",
                    "title": "Languagecode"
+                },
+                "multiSpeakerVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
                 }
              },
              "title": "SpeechConfig",
@@ -19547,8 +21629,19 @@ Show JSON schema
           },
           "VoiceConfig": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
              "properties": {
+                "replicatedVoiceConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, the model will use a replicated voice for the response."
+                },
                 "prebuiltVoiceConfig": {
                    "anyOf": [
                       {
@@ -19559,7 +21652,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for the speaker to use.\n      "
+                   "description": "The configuration for the prebuilt voice to use."
                 }
              },
              "title": "VoiceConfig",
@@ -22058,19 +24151,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -22084,6 +24164,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -22180,7 +24273,7 @@ Show JSON schema
           },
           "Citation": {
              "additionalProperties": false,
-             "description": "Source attributions for content.",
+             "description": "Source attributions for content.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "endIndex": {
                    "anyOf": [
@@ -22350,7 +24443,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -22825,7 +24918,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -22875,7 +24968,9 @@ Show JSON schema
                 "IMAGE_SAFETY",
                 "UNEXPECTED_TOOL_CALL",
                 "IMAGE_PROHIBITED_CONTENT",
-                "NO_IMAGE"
+                "NO_IMAGE",
+                "IMAGE_RECITATION",
+                "IMAGE_OTHER"
              ],
              "title": "FinishReason",
              "type": "string"
@@ -22921,8 +25016,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -23047,6 +25171,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -23081,6 +25218,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -23131,7 +25281,7 @@ Show JSON schema
           },
           "GenerateContentResponseUsageMetadata": {
              "additionalProperties": false,
-             "description": "Usage metadata about response(s).",
+             "description": "Usage metadata about the content generation request and response.\n\nThis message provides a detailed breakdown of token usage and other relevant\nmetrics. This data type is not supported in Gemini API.",
              "properties": {
                 "cacheTokensDetails": {
                    "anyOf": [
@@ -23146,7 +25296,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities of the cached content in the request input.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the cached content.",
                    "title": "Cachetokensdetails"
                 },
                 "cachedContentTokenCount": {
@@ -23159,7 +25309,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens in the cached part in the input (the cached content).",
+                   "description": "Output only. The number of tokens in the cached content that was used for this request.",
                    "title": "Cachedcontenttokencount"
                 },
                 "candidatesTokenCount": {
@@ -23172,7 +25322,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Number of tokens in the response(s).",
+                   "description": "The total number of tokens in the generated candidates.",
                    "title": "Candidatestokencount"
                 },
                 "candidatesTokensDetails": {
@@ -23188,7 +25338,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were returned in the response.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the generated candidates.",
                    "title": "Candidatestokensdetails"
                 },
                 "promptTokenCount": {
@@ -23201,7 +25351,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Number of tokens in the request. When `cached_content` is set, this is still the total effective prompt size meaning this includes the number of tokens in the cached content.",
+                   "description": "The total number of tokens in the prompt. This includes any text, images, or other media provided in the request. When `cached_content` is set, this also includes the number of tokens in the cached content.",
                    "title": "Prompttokencount"
                 },
                 "promptTokensDetails": {
@@ -23217,7 +25367,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were processed in the request input.",
+                   "description": "Output only. A detailed breakdown of the token count for each modality in the prompt.",
                    "title": "Prompttokensdetails"
                 },
                 "thoughtsTokenCount": {
@@ -23230,7 +25380,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens present in thoughts output.",
+                   "description": "Output only. The number of tokens that were part of the model's generated \"thoughts\" output, if applicable.",
                    "title": "Thoughtstokencount"
                 },
                 "toolUsePromptTokenCount": {
@@ -23243,7 +25393,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Number of tokens present in tool-use prompt(s).",
+                   "description": "Output only. The number of tokens in the results from tool executions, which are provided back to the model as input, if applicable.",
                    "title": "Tooluseprompttokencount"
                 },
                 "toolUsePromptTokensDetails": {
@@ -23259,7 +25409,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. List of modalities that were processed for tool-use request inputs.",
+                   "description": "Output only. A detailed breakdown by modality of the token counts from the results of tool executions, which are provided back to the model as input.",
                    "title": "Tooluseprompttokensdetails"
                 },
                 "totalTokenCount": {
@@ -23272,7 +25422,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Total token count for prompt, response candidates, and tool-use prompts (if present).",
+                   "description": "The total number of tokens for the entire request. This is the sum of `prompt_token_count`, `candidates_token_count`, `tool_use_prompt_token_count`, and `thoughts_token_count`.",
                    "title": "Totaltokencount"
                 },
                 "trafficType": {
@@ -23285,7 +25435,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Output only. Traffic type. This shows whether a request consumes Pay-As-You-Go or Provisioned Throughput quota."
+                   "description": "Output only. The traffic type for this request."
                 }
              },
              "title": "GenerateContentResponseUsageMetadata",
@@ -23293,7 +25443,7 @@ Show JSON schema
           },
           "GoogleTypeDate": {
              "additionalProperties": false,
-             "description": "Represents a whole or partial calendar date, such as a birthday.\n\nThe time of day and time zone are either specified elsewhere or are\ninsignificant. The date is relative to the Gregorian Calendar. This can\nrepresent one of the following: * A full date, with non-zero year, month, and\nday values. * A month and day, with a zero year (for example, an anniversary).\n* A year on its own, with a zero month and a zero day. * A year and month,\nwith a zero day (for example, a credit card expiration date). Related types: *\ngoogle.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp",
+             "description": "Represents a whole or partial calendar date, such as a birthday.\n\nThe time of day and time zone are either specified elsewhere or are\ninsignificant. The date is relative to the Gregorian Calendar. This can\nrepresent one of the following: * A full date, with non-zero year, month, and\nday values. * A month and day, with a zero year (for example, an anniversary).\n* A year on its own, with a zero month and a zero day. * A year and month,\nwith a zero day (for example, a credit card expiration date). Related types: *\ngoogle.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp. This\ndata type is not supported in Gemini API.",
              "properties": {
                 "day": {
                    "anyOf": [
@@ -23352,7 +25502,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Grounding chunk from Google Maps."
+                   "description": "Grounding chunk from Google Maps. This field is not supported in Gemini API."
                 },
                 "retrievedContext": {
                    "anyOf": [
@@ -23364,7 +25514,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Grounding chunk from context retrieved by the retrieval tools."
+                   "description": "Grounding chunk from context retrieved by the retrieval tools. This field is not supported in Gemini API."
                 },
                 "web": {
                    "anyOf": [
@@ -23384,7 +25534,7 @@ Show JSON schema
           },
           "GroundingChunkMaps": {
              "additionalProperties": false,
-             "description": "Chunk from Google Maps.",
+             "description": "Chunk from Google Maps. This data type is not supported in Gemini API.",
              "properties": {
                 "placeAnswerSources": {
                    "anyOf": [
@@ -23421,7 +25571,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Text of the chunk.",
+                   "description": "Text of the place answer.",
                    "title": "Text"
                 },
                 "title": {
@@ -23434,7 +25584,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Title of the chunk.",
+                   "description": "Title of the place.",
                    "title": "Title"
                 },
                 "uri": {
@@ -23447,7 +25597,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "URI reference of the chunk.",
+                   "description": "URI reference of the place.",
                    "title": "Uri"
                 }
              },
@@ -23456,7 +25606,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSources": {
              "additionalProperties": false,
-             "description": "Sources used to generate the place answer.",
+             "description": "Sources used to generate the place answer.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "flagContentUri": {
                    "anyOf": [
@@ -23493,7 +25643,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution": {
              "additionalProperties": false,
-             "description": "Author attribution for a photo or review.",
+             "description": "Author attribution for a photo or review.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "displayName": {
                    "anyOf": [
@@ -23540,7 +25690,7 @@ Show JSON schema
           },
           "GroundingChunkMapsPlaceAnswerSourcesReviewSnippet": {
              "additionalProperties": false,
-             "description": "Encapsulates a review snippet.",
+             "description": "Encapsulates a review snippet.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "authorAttribution": {
                    "anyOf": [
@@ -23638,7 +25788,7 @@ Show JSON schema
           },
           "GroundingChunkRetrievedContext": {
              "additionalProperties": false,
-             "description": "Chunk from context retrieved by the retrieval tools.",
+             "description": "Chunk from context retrieved by the retrieval tools.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "documentName": {
                    "anyOf": [
@@ -23722,7 +25872,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Domain of the (original) URI.",
+                   "description": "Domain of the (original) URI. This field is not supported in Gemini API.",
                    "title": "Domain"
                 },
                 "title": {
@@ -23769,7 +25919,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding.",
+                   "description": "Optional. Output only. Resource name of the Google Maps widget context token to be used with the PlacesContextElement widget to render contextual data. This is populated only for Google Maps grounding. This field is not supported in Gemini API.",
                    "title": "Googlemapswidgetcontexttoken"
                 },
                 "groundingChunks": {
@@ -23829,7 +25979,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Queries executed by the retrieval tools.",
+                   "description": "Optional. Queries executed by the retrieval tools. This field is not supported in Gemini API.",
                    "title": "Retrievalqueries"
                 },
                 "searchEntryPoint": {
@@ -23857,7 +26007,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding.",
+                   "description": "Optional. Output only. List of source flagging uris. This is currently populated only for Google Maps grounding. This field is not supported in Gemini API.",
                    "title": "Sourceflagginguris"
                 },
                 "webSearchQueries": {
@@ -23882,7 +26032,7 @@ Show JSON schema
           },
           "GroundingMetadataSourceFlaggingUri": {
              "additionalProperties": false,
-             "description": "Source content flagging uri for a place or review.\n\nThis is currently populated only for Google Maps grounding.",
+             "description": "Source content flagging uri for a place or review.\n\nThis is currently populated only for Google Maps grounding. This data type is\nnot supported in Gemini API.",
              "properties": {
                 "flagContentUri": {
                    "anyOf": [
@@ -24116,7 +26266,7 @@ Show JSON schema
              "type": "object"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -24468,6 +26618,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Refreshtoken"
+                },
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Idtoken"
                 },
                 "expiresAt": {
                    "anyOf": [
@@ -24854,7 +27016,7 @@ Show JSON schema
              "type": "object"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -24868,80 +27030,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -24967,6 +27066,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -24978,6 +27101,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -24991,14 +27126,185 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
+          "PartMediaResolution": {
+             "additionalProperties": false,
+             "description": "Media resolution for the input media.",
+             "properties": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
+                },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
           "RagChunk": {
              "additionalProperties": false,
-             "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.",
+             "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "pageSpan": {
                    "anyOf": [
@@ -25031,7 +27337,7 @@ Show JSON schema
           },
           "RagChunkPageSpan": {
              "additionalProperties": false,
-             "description": "Represents where the chunk starts and ends in the document.",
+             "description": "Represents where the chunk starts and ends in the document.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "firstPage": {
                    "anyOf": [
@@ -25191,7 +27497,7 @@ Show JSON schema
           },
           "ServiceAccount": {
              "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.",
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
              "properties": {
                 "serviceAccountCredential": {
                    "anyOf": [
@@ -25205,11 +27511,19 @@ Show JSON schema
                    "default": null
                 },
                 "scopes": {
-                   "items": {
-                      "type": "string"
-                   },
-                   "title": "Scopes",
-                   "type": "array"
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
                 },
                 "useDefaultCredential": {
                    "anyOf": [
@@ -25222,11 +27536,32 @@ Show JSON schema
                    ],
                    "default": false,
                    "title": "Usedefaultcredential"
+                },
+                "useIdToken": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Useidtoken"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
                 }
              },
-             "required": [
-                "scopes"
-             ],
              "title": "ServiceAccount",
              "type": "object"
           },
@@ -25324,7 +27659,7 @@ Show JSON schema
              "type": "object"
           },
           "TrafficType": {
-             "description": "Output only.\n\nTraffic type. This shows whether a request consumes Pay-As-You-Go or\nProvisioned Throughput quota.",
+             "description": "Output only.\n\nThe traffic type for this request. This enum is not supported in Gemini API.",
              "enum": [
                 "TRAFFIC_TYPE_UNSPECIFIED",
                 "ON_DEMAND",
@@ -25369,21 +27704,8 @@ Show JSON schema
           },
           "VideoMetadata": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Metadata describes the input video content.",
              "properties": {
-                "fps": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
-                },
                 "endOffset": {
                    "anyOf": [
                       {
@@ -25396,6 +27718,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -26518,6 +28853,18 @@ Show JSON schema
                    "default": null,
                    "title": "Refreshtoken"
                 },
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Idtoken"
+                },
                 "expiresAt": {
                    "anyOf": [
                       {
@@ -26914,7 +29261,7 @@ Show JSON schema
           },
           "ServiceAccount": {
              "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.",
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
              "properties": {
                 "serviceAccountCredential": {
                    "anyOf": [
@@ -26928,11 +29275,19 @@ Show JSON schema
                    "default": null
                 },
                 "scopes": {
-                   "items": {
-                      "type": "string"
-                   },
-                   "title": "Scopes",
-                   "type": "array"
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
                 },
                 "useDefaultCredential": {
                    "anyOf": [
@@ -26945,11 +29300,32 @@ Show JSON schema
                    ],
                    "default": false,
                    "title": "Usedefaultcredential"
+                },
+                "useIdToken": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Useidtoken"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
                 }
              },
-             "required": [
-                "scopes"
-             ],
              "title": "ServiceAccount",
              "type": "object"
           },
@@ -28796,133 +31172,6 @@ Return type:
 
 # google.adk.tools.crewai_tool module¶
 
-_class _google.adk.tools.crewai_tool.CrewaiTool(_tool_ , _*_ , _name_ , _description_)¶
-    
-
-Bases: `FunctionTool`
-
-Use this class to wrap a CrewAI tool.
-
-If the original tool name and description are not suitable, you can override them in the constructor.
-
-Initializes the FunctionTool. Extracts metadata from a callable object.
-
-Parameters:
-    
-
-  * **func** – The function to wrap.
-
-  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
-
-
-
-
-_classmethod _from_config(_config_ , _config_abs_path_)¶
-    
-
-Creates a tool instance from a config.
-
-This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
-
-Return type:
-    
-
-`CrewaiTool`
-
-Parameters:
-    
-
-  * **config** – The config for the tool.
-
-  * **config_abs_path** – The absolute path to the config file that contains the tool config.
-
-
-
-Returns:
-    
-
-The tool instance.
-
-_async _run_async(_*_ , _args_ , _tool_context_)¶
-    
-
-Override run_async to handle CrewAI-specific parameter filtering.
-
-CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
-
-Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
-
-Return type:
-    
-
-`Any`
-
-tool _: CrewaiBaseTool_¶
-    
-
-The wrapped CrewAI tool.
-
-_pydantic model _google.adk.tools.crewai_tool.CrewaiToolConfig¶
-    
-
-Bases: `BaseToolConfig`
-
-Show JSON schema
-    
-    
-    {
-       "title": "CrewaiToolConfig",
-       "type": "object",
-       "properties": {
-          "tool": {
-             "title": "Tool",
-             "type": "string"
-          },
-          "name": {
-             "default": "",
-             "title": "Name",
-             "type": "string"
-          },
-          "description": {
-             "default": "",
-             "title": "Description",
-             "type": "string"
-          }
-       },
-       "additionalProperties": false,
-       "required": [
-          "tool"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `description (str)`
-
-  * `name (str)`
-
-  * `tool (str)`
-
-
-
-
-_field _description _: str_ _ = ''_¶
-    
-
-The description of the tool.
-
-_field _name _: str_ _ = ''_¶
-    
-
-The name of the tool.
-
-_field _tool _: str_ _[Required]_¶
-    
-
-The fully qualified path of the CrewAI tool instance.
-
 # google.adk.tools.enterprise_search_tool module¶
 
 _class _google.adk.tools.enterprise_search_tool.EnterpriseWebSearchTool¶
@@ -29054,19 +31303,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -29080,6 +31316,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -29161,7 +31410,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -29236,7 +31485,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -29310,8 +31559,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -29436,6 +31714,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -29470,6 +31761,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -29519,7 +31823,7 @@ Show JSON schema
              "type": "string"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -29528,7 +31832,7 @@ Show JSON schema
              "type": "string"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -29542,80 +31846,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -29641,6 +31882,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -29652,6 +31917,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -29665,16 +31942,114 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
-          "VideoMetadata": {
+          "PartMediaResolution": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Media resolution for the input media.",
              "properties": {
-                "fps": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
                    "anyOf": [
                       {
                          "type": "number"
@@ -29684,9 +32059,69 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
                 },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Metadata describes the input video content.",
+             "properties": {
                 "endOffset": {
                    "anyOf": [
                       {
@@ -29699,6 +32134,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -30489,19 +32937,6 @@ Show JSON schema
              "additionalProperties": false,
              "description": "Content blob.",
              "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is not currently used in the Gemini GenerateContent calls.",
-                   "title": "Displayname"
-                },
                 "data": {
                    "anyOf": [
                       {
@@ -30515,6 +32950,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Raw bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
                 },
                 "mimeType": {
                    "anyOf": [
@@ -30596,7 +33044,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The producer of the content. Must be either 'user' or\n      'model'. Useful to set for multi-turn conversations, otherwise can be\n      empty. If role is not specified, SDK will determine the role.",
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. Useful to set for multi-turn conversations, otherwise can be left blank or unset.",
                    "title": "Role"
                 }
              },
@@ -30650,7 +33098,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. It is not currently used in the Gemini GenerateContent calls.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 },
                 "fileUri": {
@@ -30724,8 +33172,37 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
                    "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
                 }
              },
              "title": "FunctionCall",
@@ -30850,6 +33327,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. Inline media bytes.",
                    "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseBlob",
@@ -30884,6 +33374,19 @@ Show JSON schema
                    "default": null,
                    "description": "Required. The IANA standard MIME type of the source data.",
                    "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "title": "Displayname"
                 }
              },
              "title": "FunctionResponseFileData",
@@ -30933,7 +33436,7 @@ Show JSON schema
              "type": "string"
           },
           "Language": {
-             "description": "Required. Programming language of the `code`.",
+             "description": "Programming language of the `code`.",
              "enum": [
                 "LANGUAGE_UNSPECIFIED",
                 "PYTHON"
@@ -30996,7 +33499,7 @@ Show JSON schema
              "type": "object"
           },
           "Outcome": {
-             "description": "Required. Outcome of the code execution.",
+             "description": "Outcome of the code execution.",
              "enum": [
                 "OUTCOME_UNSPECIFIED",
                 "OUTCOME_OK",
@@ -31010,80 +33513,17 @@ Show JSON schema
              "additionalProperties": false,
              "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
              "properties": {
-                "videoMetadata": {
+                "mediaResolution": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/VideoMetadata"
+                         "$ref": "#/$defs/PartMediaResolution"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "Metadata for a given video."
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Indicates if the part is thought from the model.",
-                   "title": "Thought"
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inlined bytes data."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "A predicted [FunctionCall] returned from the model that contains a string\n      representing the [FunctionDeclaration.name] and a structured JSON object\n      containing the parameters and their values."
+                   "description": "Media resolution for the input media.\n    "
                 },
                 "codeExecutionResult": {
                    "anyOf": [
@@ -31109,6 +33549,30 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Code generated by the model that is meant to be executed."
                 },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. URI based data."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values."
+                },
                 "functionResponse": {
                    "anyOf": [
                       {
@@ -31120,6 +33584,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "description": "Optional. The result output of a [FunctionCall] that contains a string representing the [FunctionDeclaration.name] and a structured JSON object containing any output from the function call. It is used as context to the model."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inlined bytes data."
                 },
                 "text": {
                    "anyOf": [
@@ -31133,16 +33609,114 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Text part (can be code).",
                    "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the part is thought from the model.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
                 }
              },
              "title": "Part",
              "type": "object"
           },
-          "VideoMetadata": {
+          "PartMediaResolution": {
              "additionalProperties": false,
-             "description": "Describes how the video in the Part should be used by the model.",
+             "description": "Media resolution for the input media.",
              "properties": {
-                "fps": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
                    "anyOf": [
                       {
                          "type": "number"
@@ -31152,9 +33726,69 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The frame rate of the video sent to the model. If not specified, the\n        default value will be 1.0. The fps range is (0.0, 24.0].",
-                   "title": "Fps"
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
                 },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Metadata describes the input video content.",
+             "properties": {
                 "endOffset": {
                    "anyOf": [
                       {
@@ -31167,6 +33801,19 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The end offset of the video.",
                    "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value will be 1.0. The fps range is (0.0, 24.0].",
+                   "title": "Fps"
                 },
                 "startOffset": {
                    "anyOf": [
@@ -32686,5 +35333,5 @@ Parameters:
 Copyright (C) 2025, Google 
 
 Made with [Sphinx](https://www.sphinx-doc.org/) and [@pradyunsg](https://pradyunsg.me)'s [Furo](https://github.com/pradyunsg/furo)
-  *[/]: Positional-only parameter separator (PEP 570)
   *[*]: Keyword-only parameters separator (PEP 3102)
+  *[/]: Positional-only parameter separator (PEP 570)

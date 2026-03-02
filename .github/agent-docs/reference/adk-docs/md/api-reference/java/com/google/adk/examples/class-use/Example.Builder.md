@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Example.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -71,4 +72,4 @@ Example.`[toBuilder](../Example.html#toBuilder\(\))()`
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

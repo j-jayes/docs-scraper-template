@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../McpSessionManager.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -33,6 +34,20 @@ com.google.adk.tools.mcp
 
   * ## Uses of [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") in [com.google.adk.tools.mcp](../package-summary.html)
 
+Fields in [com.google.adk.tools.mcp](../package-summary.html) declared as [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp")
+
+Modifier and Type
+
+Field
+
+Description
+
+`protected final [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp")`
+
+AbstractMcpTool.`[mcpSessionManager](../AbstractMcpTool.html#mcpSessionManager)`
+
+ 
+
 Constructors in [com.google.adk.tools.mcp](../package-summary.html) with parameters of type [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp")
 
 Modifier
@@ -40,6 +55,12 @@ Modifier
 Constructor
 
 Description
+
+`protected `
+
+`[AbstractMcpTool](../AbstractMcpTool.html#%3Cinit%3E\(io.modelcontextprotocol.spec.McpSchema.Tool,T,com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper\))(io.modelcontextprotocol.spec.McpSchema.Tool mcpTool, [T](../AbstractMcpTool.html#type-param-T "type parameter in AbstractMcpTool") mcpSession, [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+ 
 
 ` `
 
@@ -52,6 +73,12 @@ Creates a new McpAsyncTool with the default ObjectMapper.
 `[McpAsyncTool](../McpAsyncTool.html#%3Cinit%3E\(io.modelcontextprotocol.spec.McpSchema.Tool,io.modelcontextprotocol.client.McpAsyncClient,com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper\))(io.modelcontextprotocol.spec.McpSchema.Tool mcpTool, io.modelcontextprotocol.client.McpAsyncClient mcpSession, [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
 
 Creates a new McpAsyncTool
+
+` `
+
+`[McpAsyncToolset](../McpAsyncToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,java.util.Optional\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+
+Initializes the McpAsyncToolset with a provided McpSessionManager.
 
 ` `
 
@@ -76,4 +103,4 @@ Initializes the McpToolset with an McpSessionManager.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseLlmConnection.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,8 +21,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
@@ -32,7 +31,7 @@ Hide sidebar ❮❯ Show sidebar
      5. close()
      6. close(Throwable)
 
-
+Hide sidebar  Show sidebar
 
 # Interface BaseLlmConnection
 
@@ -143,4 +142,4 @@ Closes the connection with an error.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

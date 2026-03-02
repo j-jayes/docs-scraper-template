@@ -159,17 +159,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../)
+    * [ Gemini Live API Toolkit  ](../)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../dev-guide/part1/)
         * [ Part 2. Sending messages  ](../dev-guide/part2/)
         * [ Part 3. Event handling  ](../dev-guide/part3/)
         * [ Part 4. Run configuration  ](../dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../dev-guide/part5/)
       * [ Streaming Tools  ](./)
-      * [ Configuring Bidi-streaming behavior  ](../configuration/)
+      * [ Configuring streaming behavior  ](../configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -193,7 +193,7 @@ API Reference
 
 
   1. [ Components  ](../../get-started/about/)
-  2. [ Bidi-streaming (live)  ](../)
+  2. [ Gemini Live API Toolkit  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/streaming/streaming-tools.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/streaming-tools.md "View Markdown source")
 
@@ -349,7 +349,7 @@ Now let's define an agent that can monitor stock price changes and monitor the v
 
 Here are some sample queries to test: \- Help me monitor the stock price for $XYZ stock. \- Help me monitor how many people are there in the video stream.
 
-Back to top  [ Previous  Part 5. Audio, Images, and Video  ](../dev-guide/part5/) [ Next  Configuring Bidi-streaming behavior  ](../configuration/)
+Back to top  [ Previous  Part 5. Audio, Images, and Video  ](../dev-guide/part5/) [ Next  Configuring streaming behavior  ](../configuration/)
 
 Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

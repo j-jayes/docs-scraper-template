@@ -159,17 +159,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../streaming/)
+    * [ Gemini Live API Toolkit  ](../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../streaming/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -745,7 +745,7 @@ Code execution is a special tool that has extra security implications: sandboxin
 
 Google and the ADK provide several options for safe code execution. [Vertex Gemini Enterprise API code execution feature](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/code-execution-api) enables agents to take advantage of sandboxed code execution server-side by enabling the tool_execution tool. For code performing data analysis, you can use the [Code Executor](/adk-docs/tools/gemini-api/code-execution/) tool in ADK to call the [Vertex Code Interpreter Extension](https://cloud.google.com/vertex-ai/generative-ai/docs/extensions/code-interpreter).
 
-If none of these options satisfy your requirements, you can build your own code executor using the building blocks provided by the ADK. We recommend creating execution environments that are hermetic: no network connections and API calls permitted to avoid uncontrolled data exfiltration; and full clean up of data across execution to not create cross-user exfiltration concerns.
+If none of these options satisfy your requirements, you can build your own code executor using the building blocks provided by the ADK. We recommend creating execution environments that are hermetic: no network connections and API calls permitted to avoid uncontrolled data exfiltration; and full cleanup of data across execution to not create cross-user exfiltration concerns.
 
 ### Evaluations¶
 

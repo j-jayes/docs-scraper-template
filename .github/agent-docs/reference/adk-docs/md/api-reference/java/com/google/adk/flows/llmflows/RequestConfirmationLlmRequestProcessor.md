@@ -1,0 +1,120 @@
+JavaScript is disabled on your browser.
+
+   
+
+Skip navigation links
+
+  * [Overview](../../../../../index.html)
+  * Class
+  * [Use](class-use/RequestConfirmationLlmRequestProcessor.html)
+  * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
+  * [Index](../../../../../index-all.html)
+  * [Search](../../../../../search.html)
+
+
+
+  1. [com.google.adk.flows.llmflows](package-summary.html)
+  2. [RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html)
+
+
+
+Contents 
+
+  1. Description
+  2. Nested Class Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
+     1. RequestConfirmationLlmRequestProcessor()
+  6. Method Details
+     1. processRequest(InvocationContext, LlmRequest)
+
+Hide sidebar  Show sidebar
+
+# Class RequestConfirmationLlmRequestProcessor
+
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+
+com.google.adk.flows.llmflows.RequestConfirmationLlmRequestProcessor
+
+All Implemented Interfaces:
+    `[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")`
+
+* * *
+
+public class RequestConfirmationLlmRequestProcessor extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements [RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")
+
+Handles tool confirmation information to build the LLM request.
+
+  * ## Nested Class Summary
+
+### Nested classes/interfaces inherited from interface [RequestProcessor](RequestProcessor.html#nested-class-summary "interface in com.google.adk.flows.llmflows")
+
+`[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")`
+
+  * ## Constructor Summary
+
+Constructors
+
+Constructor
+
+Description
+
+`RequestConfirmationLlmRequestProcessor()`
+
+ 
+
+  * ## Method Summary
+
+All MethodsInstance MethodsConcrete Methods
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
+`processRequest([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Process the LLM request as part of the pre-processing stage.
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+
+
+
+
+  * ## Constructor Details
+
+    * ### RequestConfirmationLlmRequestProcessor
+
+public RequestConfirmationLlmRequestProcessor()
+
+  * ## Method Details
+
+    * ### processRequest
+
+public io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")> processRequest([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)
+
+Description copied from interface: `[RequestProcessor](RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))`
+
+Process the LLM request as part of the pre-processing stage.
+
+Specified by:
+    `[processRequest](RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))` in interface `[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")`
+Parameters:
+    `invocationContext` \- the invocation context.
+    `llmRequest` \- the LLM request to process.
+Returns:
+    a list of events generated during processing (if any).
+
+
+
+
+* * *
+
+Copyright (C) 1980\. All rights reserved.

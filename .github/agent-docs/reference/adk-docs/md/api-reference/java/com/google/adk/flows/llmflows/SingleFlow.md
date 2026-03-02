@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/SingleFlow.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -19,8 +20,6 @@ Skip navigation links
 
 
 Contents 
-
-Hide sidebar ❮❯ Show sidebar
 
   1. Description
   2. Field Summary
@@ -34,7 +33,7 @@ Hide sidebar ❮❯ Show sidebar
      2. SingleFlow(Optional)
      3. SingleFlow(List, List, Optional)
 
-
+Hide sidebar  Show sidebar
 
 # Class SingleFlow
 
@@ -54,7 +53,7 @@ Direct Known Subclasses:
 
 public class SingleFlow extends [BaseLlmFlow](BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
 
-Basic LLM flow with fixed request processors and no response post-processing.
+Basic LLM flow with fixed request and response processors.
 
   * ## Field Summary
 
@@ -78,9 +77,9 @@ Description
 
  
 
-### Fields inherited from class com.google.adk.flows.llmflows.[BaseLlmFlow](BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
+### Fields inherited from class [BaseLlmFlow](BaseLlmFlow.html#field-summary "class in com.google.adk.flows.llmflows")
 
-`[maxSteps](BaseLlmFlow.html#maxSteps), [requestProcessors](BaseLlmFlow.html#requestProcessors), [responseProcessors](BaseLlmFlow.html#responseProcessors), [stepsCompleted](BaseLlmFlow.html#stepsCompleted)`
+`[maxSteps](BaseLlmFlow.html#maxSteps), [requestProcessors](BaseLlmFlow.html#requestProcessors), [responseProcessors](BaseLlmFlow.html#responseProcessors)`
 
   * ## Constructor Summary
 
@@ -112,11 +111,11 @@ Description
 
   * ## Method Summary
 
-### Methods inherited from class com.google.adk.flows.llmflows.[BaseLlmFlow](BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
+### Methods inherited from class [BaseLlmFlow](BaseLlmFlow.html#method-summary "class in com.google.adk.flows.llmflows")
 
-`[postprocess](BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\)), [preprocess](BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\)), [run](BaseLlmFlow.html#run\(com.google.adk.agents.InvocationContext\)), [runLive](BaseLlmFlow.html#runLive\(com.google.adk.agents.InvocationContext\))`
+`[postprocess](BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\) "postprocess\(InvocationContext, Event, LlmRequest, LlmResponse\)"), [preprocess](BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,java.util.concurrent.atomic.AtomicReference\) "preprocess\(InvocationContext, AtomicReference\)"), [run](BaseLlmFlow.html#run\(com.google.adk.agents.InvocationContext\) "run\(InvocationContext\)"), [runLive](BaseLlmFlow.html#runLive\(com.google.adk.agents.InvocationContext\) "runLive\(InvocationContext\)")`
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -152,4 +151,4 @@ protected SingleFlow([List](https://docs.oracle.com/en/java/javase/17/docs/api/j
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

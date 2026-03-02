@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Instruction.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,17 +21,15 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
 
-
+Hide sidebar  Show sidebar
 
 # Interface Instruction
 
 All Known Implementing Classes:
-    `[Instruction.Provider](Instruction.Provider.html "class in com.google.adk.agents")`, `[Instruction.Static](Instruction.Static.html "class in com.google.adk.agents")`
+    `[Instruction.Provider](Instruction.Provider.html "class in com.google.adk.agents"), [Instruction.Static](Instruction.Static.html "class in com.google.adk.agents")`
 
 * * *
 
@@ -71,4 +70,4 @@ Plain instruction directly provided to the agent.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

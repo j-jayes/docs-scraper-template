@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Runner.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -31,7 +32,7 @@ com.google.adk.runner
 
  
 
-com.google.adk.web
+com.google.adk.web.service
 
  
 
@@ -47,13 +48,17 @@ Description
 
 `class `
 
+`[FirestoreDatabaseRunner](../FirestoreDatabaseRunner.html "class in com.google.adk.runner")`
+
+FirestoreDatabaseRunner
+
+`class `
+
 `[InMemoryRunner](../InMemoryRunner.html "class in com.google.adk.runner")`
 
 The class for the in-memory GenAi runner, using in-memory artifact and session services.
 
-  * ## Uses of [Runner](../Runner.html "class in com.google.adk.runner") in [com.google.adk.web](../../web/package-summary.html)
-
-Methods in [com.google.adk.web](../../web/package-summary.html) that return [Runner](../Runner.html "class in com.google.adk.runner")
+Methods in [com.google.adk.runner](../package-summary.html) that return [Runner](../Runner.html "class in com.google.adk.runner")
 
 Modifier and Type
 
@@ -63,7 +68,23 @@ Description
 
 `[Runner](../Runner.html "class in com.google.adk.runner")`
 
-AdkWebServer.RunnerService.`[getRunner](../../web/AdkWebServer.RunnerService.html#getRunner\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName)`
+Runner.Builder.`[build](../Runner.Builder.html#build\(\))()`
+
+ 
+
+  * ## Uses of [Runner](../Runner.html "class in com.google.adk.runner") in [com.google.adk.web.service](../../web/service/package-summary.html)
+
+Methods in [com.google.adk.web.service](../../web/service/package-summary.html) that return [Runner](../Runner.html "class in com.google.adk.runner")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[Runner](../Runner.html "class in com.google.adk.runner")`
+
+RunnerService.`[getRunner](../../web/service/RunnerService.html#getRunner\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName)`
 
 Gets the Runner instance for a given application name.
 
@@ -72,4 +93,4 @@ Gets the Runner instance for a given application name.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

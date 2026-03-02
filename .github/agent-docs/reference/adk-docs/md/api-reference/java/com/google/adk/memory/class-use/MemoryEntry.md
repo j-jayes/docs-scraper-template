@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../MemoryEntry.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -28,6 +29,10 @@ Package
 Description
 
 com.google.adk.memory
+
+ 
+
+com.google.adk.tools
 
  
 
@@ -75,9 +80,39 @@ SearchMemoryResponse.Builder.`[setMemories](../SearchMemoryResponse.Builder.html
 
 Sets the list of memory entries using a list.
 
+  * ## Uses of [MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory") in [com.google.adk.tools](../../tools/package-summary.html)
+
+Methods in [com.google.adk.tools](../../tools/package-summary.html) that return types with arguments of type [MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")>`
+
+LoadMemoryResponse.`[memories](../../tools/LoadMemoryResponse.html#memories\(\))()`
+
+Returns the value of the `memories` record component.
+
+Constructor parameters in [com.google.adk.tools](../../tools/package-summary.html) with type arguments of type [MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[LoadMemoryResponse](../../tools/LoadMemoryResponse.html#%3Cinit%3E\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+Creates an instance of a `LoadMemoryResponse` record class.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

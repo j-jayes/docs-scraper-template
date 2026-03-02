@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.web.config
 
@@ -40,6 +39,22 @@ Package
 Description
 
 [com.google.adk.web](../package-summary.html)
+
+ 
+
+[com.google.adk.web.controller](../controller/package-summary.html)
+
+ 
+
+[com.google.adk.web.dto](../dto/package-summary.html)
+
+ 
+
+[com.google.adk.web.service](../service/package-summary.html)
+
+ 
+
+[com.google.adk.web.websocket](../websocket/package-summary.html)
 
  
 
@@ -61,9 +76,13 @@ Properties for configuring CORS in ADK Web.
 
 Properties for loading agents.
 
+[OpenTelemetryConfig](OpenTelemetryConfig.html "class in com.google.adk.web.config")
+
+Configuration class for OpenTelemetry, setting up the tracer provider and span exporter.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

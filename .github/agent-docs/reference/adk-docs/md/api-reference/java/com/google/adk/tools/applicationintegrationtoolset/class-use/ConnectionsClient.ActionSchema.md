@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ConnectionsClient.ActionSchema.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -53,4 +54,4 @@ Retrieves the input and output JSON schema for a given action.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

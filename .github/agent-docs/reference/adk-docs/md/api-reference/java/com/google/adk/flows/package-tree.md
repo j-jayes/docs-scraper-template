@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * [Use](package-use.html)
   * Tree
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -33,4 +34,4 @@ Package Hierarchies:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -172,17 +172,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../streaming/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -624,6 +624,7 @@ Or, you can configure your agent to use the Memory Bank by manually instantiatin
 Python
     
     
+    from google import adk
     from google.adk.memory import VertexAiMemoryBankService
     
     agent_engine_id = agent_engine.api_resource.name.split("/")[-1]
@@ -670,6 +671,7 @@ To extract memories from your session, you need to call `add_session_to_memory`.
 Python
     
     
+    from google.adk.agents import Agent
     from google import adk
     
     async def auto_save_session_to_memory_callback(callback_context):

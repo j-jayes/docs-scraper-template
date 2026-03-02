@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/IntegrationClient.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,15 +21,13 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Field Summary
   3. Method Summary
   4. Field Details
-     1. OBJECT_MAPPER
+     1. objectMapper
 
-
+Hide sidebar  Show sidebar
 
 # Class IntegrationClient
 
@@ -56,13 +55,13 @@ Description
 
 `static final com.fasterxml.jackson.databind.ObjectMapper`
 
-`OBJECT_MAPPER`
+`objectMapper`
 
  
 
   * ## Method Summary
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -71,13 +70,13 @@ Description
 
   * ## Field Details
 
-    * ### OBJECT_MAPPER
+    * ### objectMapper
 
-public static final com.fasterxml.jackson.databind.ObjectMapper OBJECT_MAPPER
+public static final com.fasterxml.jackson.databind.ObjectMapper objectMapper
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../LlmRequest.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -28,7 +29,19 @@ Package
 
 Description
 
+com.google.adk.agents
+
+ 
+
+com.google.adk.codeexecutors
+
+ 
+
 com.google.adk.models
+
+ 
+
+com.google.adk.plugins
 
  
 
@@ -36,9 +49,51 @@ com.google.adk.tools
 
  
 
+com.google.adk.tools.computeruse
+
+ 
+
 com.google.adk.tools.retrieval
 
  
+
+  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.agents](../../agents/package-summary.html)
+
+Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+Callbacks.BeforeModelCallback.`[call](../../agents/Callbacks.BeforeModelCallback.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)`
+
+Async callback before LLM invocation.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+Callbacks.BeforeModelCallbackSync.`[call](../../agents/Callbacks.BeforeModelCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)`
+
+ 
+
+  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.codeexecutors](../../codeexecutors/package-summary.html)
+
+Methods in [com.google.adk.codeexecutors](../../codeexecutors/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`void`
+
+BuiltInCodeExecutor.`[processLlmRequest](../../codeexecutors/BuiltInCodeExecutor.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)`
+
+Pre-process the LLM request for Gemini 2.0+ models to use the code execution tool.
 
   * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.models](../package-summary.html)
 
@@ -104,6 +159,82 @@ LlmRequest.`[toBuilder](../LlmRequest.html#toBuilder\(\))()`
 
  
 
+  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.plugins](../../plugins/package-summary.html)
+
+Methods in [com.google.adk.plugins](../../plugins/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+ContextFilterPlugin.`[beforeModelCallback](../../plugins/ContextFilterPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+Filters the LLM request context by trimming recent turns and applying any custom filter.
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+GlobalInstructionPlugin.`[beforeModelCallback](../../plugins/GlobalInstructionPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+LoggingPlugin.`[beforeModelCallback](../../plugins/LoggingPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`default io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+Plugin.`[beforeModelCallback](../../plugins/Plugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+Callback executed before a request is sent to the model.
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+PluginManager.`[beforeModelCallback](../../plugins/PluginManager.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+ReplayPlugin.`[beforeModelCallback](../../plugins/ReplayPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+LoggingPlugin.`[onModelErrorCallback](../../plugins/LoggingPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+
+ 
+
+`default io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+Plugin.`[onModelErrorCallback](../../plugins/Plugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+
+Callback executed when a model call encounters an error.
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+PluginManager.`[onModelErrorCallback](../../plugins/PluginManager.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+PluginManager.`[runBeforeModelCallback](../../plugins/PluginManager.html#runBeforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+PluginManager.`[runOnModelErrorCallback](../../plugins/PluginManager.html#runOnModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+
+ 
+
   * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.tools](../../tools/package-summary.html)
 
 Methods in [com.google.adk.tools](../../tools/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
@@ -134,6 +265,18 @@ BuiltInCodeExecutionTool.`[processLlmRequest](../../tools/BuiltInCodeExecutionTo
 
 `io.reactivex.rxjava3.core.Completable`
 
+ExampleTool.`[processLlmRequest](../../tools/ExampleTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Completable`
+
+GoogleMapsTool.`[processLlmRequest](../../tools/GoogleMapsTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Completable`
+
 GoogleSearchTool.`[processLlmRequest](../../tools/GoogleSearchTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
@@ -143,6 +286,40 @@ GoogleSearchTool.`[processLlmRequest](../../tools/GoogleSearchTool.html#processL
 LoadArtifactsTool.`[processLlmRequest](../../tools/LoadArtifactsTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
+
+`io.reactivex.rxjava3.core.Completable`
+
+LoadMemoryTool.`[processLlmRequest](../../tools/LoadMemoryTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Completable`
+
+UrlContextTool.`[processLlmRequest](../../tools/UrlContextTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Completable`
+
+VertexAiSearchTool.`[processLlmRequest](../../tools/VertexAiSearchTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html)
+
+Methods in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Completable`
+
+ComputerUseToolset.`[processLlmRequest](../../tools/computeruse/ComputerUseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+Adds computer use configuration to the LLM request.
 
   * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.tools.retrieval](../../tools/retrieval/package-summary.html)
 
@@ -165,4 +342,4 @@ VertexAiRagRetrieval.`[processLlmRequest](../../tools/retrieval/VertexAiRagRetri
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

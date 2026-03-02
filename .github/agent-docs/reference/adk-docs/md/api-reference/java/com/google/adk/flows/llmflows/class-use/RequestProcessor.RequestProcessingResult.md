@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../RequestProcessor.RequestProcessingResult.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -46,7 +47,7 @@ Description
 
 RequestProcessor.RequestProcessingResult.`[create](../RequestProcessor.RequestProcessingResult.html#create\(com.google.adk.models.LlmRequest,java.lang.Iterable\))([LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") updatedRequest, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../../events/Event.html "class in com.google.adk.events")> events)`
 
- 
+Creates a new [`RequestProcessor.RequestProcessingResult`](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows").
 
 Methods in [com.google.adk.flows.llmflows](../package-summary.html) that return types with arguments of type [RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")
 
@@ -55,12 +56,6 @@ Modifier and Type
 Method
 
 Description
-
-`protected io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
-
-BaseLlmFlow.`[preprocess](../BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
-
-Pre-processes the LLM request before sending it to the LLM.
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
@@ -71,6 +66,12 @@ AgentTransfer.`[processRequest](../AgentTransfer.html#processRequest\(com.google
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
 Basic.`[processRequest](../Basic.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") request)`
+
+ 
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
+Compaction.`[processRequest](../Compaction.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") request)`
 
  
 
@@ -100,6 +101,12 @@ Instructions.`[processRequest](../Instructions.html#processRequest\(com.google.a
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
+RequestConfirmationLlmRequestProcessor.`[processRequest](../RequestConfirmationLlmRequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
 RequestProcessor.`[processRequest](../RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") request)`
 
 Process the LLM request as part of the pre-processing stage.
@@ -109,4 +116,4 @@ Process the LLM request as part of the pre-processing stage.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

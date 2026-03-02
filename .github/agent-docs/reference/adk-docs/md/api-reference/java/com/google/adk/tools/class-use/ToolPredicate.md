@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ToolPredicate.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -21,8 +22,35 @@ Skip navigation links
 # Uses of Interface  
 com.google.adk.tools.ToolPredicate
 
-No usage of com.google.adk.tools.ToolPredicate 
+Packages that use [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools")
+
+Package
+
+Description
+
+com.google.adk.tools
+
+ 
+
+  * ## Uses of [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
+
+Classes in [com.google.adk.tools](../package-summary.html) that implement [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools")
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[NamedToolPredicate](../NamedToolPredicate.html "class in com.google.adk.tools")`
+
+ 
+
+
+
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

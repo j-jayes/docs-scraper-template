@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/MemoryEntry.Builder.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -21,21 +22,19 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Constructor Summary
   3. Method Summary
   4. Constructor Details
      1. Builder()
   5. Method Details
-     1. setContent(Content)
-     2. setAuthor(String)
-     3. setTimestamp(String)
-     4. setTimestamp(Instant)
+     1. content(Content)
+     2. author(String)
+     3. timestamp(String)
+     4. timestamp(Instant)
      5. build()
 
-
+Hide sidebar  Show sidebar
 
 # Class MemoryEntry.Builder
 
@@ -74,6 +73,12 @@ Method
 
 Description
 
+`abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory")`
+
+`author([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author)`
+
+Sets the author of the memory.
+
 `abstract [MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")`
 
 `build()`
@@ -82,29 +87,23 @@ Builds the immutable [`MemoryEntry`](MemoryEntry.html "class in com.google.adk.m
 
 `abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory")`
 
-`setAuthor([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author)`
-
-Sets the author of the memory.
-
-`abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory")`
-
-`setContent(com.google.genai.types.Content content)`
+`content(com.google.genai.types.Content content)`
 
 Sets the main content of the memory.
 
 `abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory")`
 
-`setTimestamp([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp)`
+`timestamp([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp)`
 
 Sets the timestamp when the original content of this memory happened.
 
 `[MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory")`
 
-`setTimestamp([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") instant)`
+`timestamp([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") instant)`
 
 A convenience method to set the timestamp from an [`Instant`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") object, formatted as an ISO 8601 string.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -119,29 +118,29 @@ public Builder()
 
   * ## Method Details
 
-    * ### setContent
+    * ### content
 
-public abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") setContent(com.google.genai.types.Content content)
+public abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") content(com.google.genai.types.Content content)
 
 Sets the main content of the memory. 
 
 This is a required field.
 
-    * ### setAuthor
+    * ### author
 
-public abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") setAuthor(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author)
+public abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") author(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author)
 
 Sets the author of the memory.
 
-    * ### setTimestamp
+    * ### timestamp
 
-public abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") setTimestamp(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp)
+public abstract [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") timestamp(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp)
 
 Sets the timestamp when the original content of this memory happened.
 
-    * ### setTimestamp
+    * ### timestamp
 
-public [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") setTimestamp([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") instant)
+public [MemoryEntry.Builder](MemoryEntry.Builder.html "class in com.google.adk.memory") timestamp([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") instant)
 
 A convenience method to set the timestamp from an [`Instant`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") object, formatted as an ISO 8601 string.
 
@@ -159,4 +158,4 @@ Builds the immutable [`MemoryEntry`](MemoryEntry.html "class in com.google.adk.m
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

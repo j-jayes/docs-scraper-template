@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../BaseExampleProvider.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -32,6 +33,10 @@ com.google.adk.agents
  
 
 com.google.adk.examples
+
+ 
+
+com.google.adk.tools
 
  
 
@@ -81,9 +86,25 @@ ExampleUtils.`[buildExampleSi](../ExampleUtils.html#buildExampleSi\(com.google.a
 
 Builds a formatted few-shot example string for the given query.
 
+  * ## Uses of [BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") in [com.google.adk.tools](../../tools/package-summary.html)
+
+Methods in [com.google.adk.tools](../../tools/package-summary.html) with parameters of type [BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[ExampleTool.Builder](../../tools/ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+ExampleTool.Builder.`[setExampleProvider](../../tools/ExampleTool.Builder.html#setExampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

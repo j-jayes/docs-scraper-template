@@ -1,0 +1,56 @@
+JavaScript is disabled on your browser.
+
+   
+
+Skip navigation links
+
+  * [Overview](../../../../../index.html)
+  * [Class](../LoopAgentConfig.html)
+  * Use
+  * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
+  * [Index](../../../../../index-all.html)
+  * [Search](../../../../../search.html)
+
+
+
+  1. [com.google.adk.agents](../package-summary.html)
+  2. [LoopAgentConfig](../LoopAgentConfig.html)
+
+
+
+# Uses of Class  
+com.google.adk.agents.LoopAgentConfig
+
+Packages that use [LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents")
+
+Package
+
+Description
+
+com.google.adk.agents
+
+ 
+
+  * ## Uses of [LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents") in [com.google.adk.agents](../package-summary.html)
+
+Methods in [com.google.adk.agents](../package-summary.html) with parameters of type [LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [LoopAgent](../LoopAgent.html "class in com.google.adk.agents")`
+
+LoopAgent.`[fromConfig](../LoopAgent.html#fromConfig\(com.google.adk.agents.LoopAgentConfig,java.lang.String\))([LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+
+Creates a LoopAgent from configuration.
+
+
+
+
+* * *
+
+Copyright (C) 1980\. All rights reserved.

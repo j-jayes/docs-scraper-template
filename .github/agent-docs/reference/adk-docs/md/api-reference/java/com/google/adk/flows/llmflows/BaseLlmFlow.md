@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseLlmFlow.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,8 +21,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Field Summary
   3. Constructor Summary
@@ -29,18 +28,17 @@ Hide sidebar ❮❯ Show sidebar
   5. Field Details
      1. requestProcessors
      2. responseProcessors
-     3. stepsCompleted
-     4. maxSteps
+     3. maxSteps
   6. Constructor Details
      1. BaseLlmFlow(List, List)
      2. BaseLlmFlow(List, List, Optional)
   7. Method Details
-     1. preprocess(InvocationContext, LlmRequest)
+     1. preprocess(InvocationContext, AtomicReference)
      2. postprocess(InvocationContext, Event, LlmRequest, LlmResponse)
      3. run(InvocationContext)
      4. runLive(InvocationContext)
 
-
+Hide sidebar  Show sidebar
 
 # Class BaseLlmFlow
 
@@ -88,12 +86,6 @@ Description
 
  
 
-`protected int`
-
-`stepsCompleted`
-
- 
-
   * ## Constructor Summary
 
 Constructors
@@ -120,15 +112,15 @@ Method
 
 Description
 
-`protected io.reactivex.rxjava3.core.Single<[ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 `postprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
 Post-processes the LLM response after receiving it from the LLM.
 
-`protected io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-`preprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+`preprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [AtomicReference](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html "class or interface in java.util.concurrent.atomic")<[LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models")> llmRequestRef)`
 
 Pre-processes the LLM request before sending it to the LLM.
 
@@ -136,7 +128,7 @@ Pre-processes the LLM request before sending it to the LLM.
 
 `run([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
-Executes the full LLM flow by repeatedly calling `runOneStep(com.google.adk.agents.InvocationContext)` until a final response is produced.
+Executes the full LLM flow by repeatedly calling `runOneStep(InvocationContext)` until a final response is produced.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
@@ -144,7 +136,7 @@ Executes the full LLM flow by repeatedly calling `runOneStep(com.google.adk.agen
 
 Executes the LLM flow in streaming mode.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -160,10 +152,6 @@ protected final [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.b
     * ### responseProcessors
 
 protected final [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[ResponseProcessor](ResponseProcessor.html "interface in com.google.adk.flows.llmflows")> responseProcessors
-
-    * ### stepsCompleted
-
-protected int stepsCompleted
 
     * ### maxSteps
 
@@ -183,21 +171,21 @@ public BaseLlmFlow([List](https://docs.oracle.com/en/java/javase/17/docs/api/jav
 
     * ### preprocess
 
-protected io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")> preprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)
+protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")> preprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [AtomicReference](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html "class or interface in java.util.concurrent.atomic")<[LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models")> llmRequestRef)
 
-Pre-processes the LLM request before sending it to the LLM. Executes all registered [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows").
+Pre-processes the LLM request before sending it to the LLM. Executes all registered [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") transforming the provided `llmRequestRef` in-place, and emits the events generated by them.
 
     * ### postprocess
 
-protected io.reactivex.rxjava3.core.Single<[ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")> postprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)
+protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")> postprocess([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)
 
-Post-processes the LLM response after receiving it from the LLM. Executes all registered [`ResponseProcessor`](ResponseProcessor.html "interface in com.google.adk.flows.llmflows") instances. Handles function calls if present in the response.
+Post-processes the LLM response after receiving it from the LLM. Executes all registered [`ResponseProcessor`](ResponseProcessor.html "interface in com.google.adk.flows.llmflows") instances. Emits events for the model response and any subsequent function calls.
 
     * ### run
 
 public io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")> run([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Executes the full LLM flow by repeatedly calling `runOneStep(com.google.adk.agents.InvocationContext)` until a final response is produced.
+Executes the full LLM flow by repeatedly calling `runOneStep(InvocationContext)` until a final response is produced.
 
 Specified by:
     `[run](../BaseFlow.html#run\(com.google.adk.agents.InvocationContext\))` in interface `[BaseFlow](../BaseFlow.html "interface in com.google.adk.flows")`
@@ -222,4 +210,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

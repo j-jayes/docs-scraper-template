@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../AgentTool.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -32,6 +33,26 @@ com.google.adk.tools
  
 
   * ## Uses of [AgentTool](../AgentTool.html "class in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
+
+Subclasses of [AgentTool](../AgentTool.html "class in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[GoogleSearchAgentTool](../GoogleSearchAgentTool.html "class in com.google.adk.tools")`
+
+A tool that wraps a sub-agent that only uses google_search tool.
+
+`class `
+
+`[VertexAiSearchAgentTool](../VertexAiSearchAgentTool.html "class in com.google.adk.tools")`
+
+A tool that wraps a sub-agent that only uses vertex_ai_search tool.
 
 Methods in [com.google.adk.tools](../package-summary.html) that return [AgentTool](../AgentTool.html "class in com.google.adk.tools")
 
@@ -58,4 +79,4 @@ AgentTool.`[create](../AgentTool.html#create\(com.google.adk.agents.BaseAgent,bo
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

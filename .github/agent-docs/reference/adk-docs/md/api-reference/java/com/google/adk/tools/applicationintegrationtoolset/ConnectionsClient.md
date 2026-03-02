@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/ConnectionsClient.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,14 +21,13 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
   3. Constructor Summary
   4. Method Summary
   5. Constructor Details
-     1. ConnectionsClient(String, String, String, IntegrationConnectorTool.HttpExecutor, ObjectMapper)
+     1. ConnectionsClient(String, String, String, String, HttpClient, CredentialsHelper, ObjectMapper)
+     2. ConnectionsClient(String, String, String, HttpClient, ObjectMapper)
   6. Method Details
      1. getConnectionDetails()
      2. getEntitySchemaAndOperations(String)
@@ -50,7 +50,7 @@ Hide sidebar ❮❯ Show sidebar
      19. actionResponse(String)
      20. executeCustomQueryRequest()
 
-
+Hide sidebar  Show sidebar
 
 # Class ConnectionsClient
 
@@ -102,9 +102,13 @@ Constructor
 
 Description
 
-`ConnectionsClient([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, com.google.adk.tools.applicationintegrationtoolset.IntegrationConnectorTool.HttpExecutor httpExecutor, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+`ConnectionsClient([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") serviceAccountJson, [HttpClient](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html "class or interface in java.net.http") httpClient, [CredentialsHelper](CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset") credentialsHelper, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
 
 Initializes the ConnectionsClient.
+
+`ConnectionsClient([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, [HttpClient](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html "class or interface in java.net.http") httpClient, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+ 
 
   * ## Method Summary
 
@@ -236,7 +240,7 @@ Retrieves the JSON schema and available operations for a given entity.
 
  
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -247,7 +251,7 @@ Retrieves the JSON schema and available operations for a given entity.
 
     * ### ConnectionsClient
 
-public ConnectionsClient([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, com.google.adk.tools.applicationintegrationtoolset.IntegrationConnectorTool.HttpExecutor httpExecutor, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+public ConnectionsClient([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") serviceAccountJson, [HttpClient](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html "class or interface in java.net.http") httpClient, [CredentialsHelper](CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset") credentialsHelper, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
 
 Initializes the ConnectionsClient.
 
@@ -255,6 +259,10 @@ Parameters:
     `project` \- The Google Cloud project ID.
     `location` \- The Google Cloud location (e.g., us-central1).
     `connection` \- The connection name.
+
+    * ### ConnectionsClient
+
+public ConnectionsClient([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, [HttpClient](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html "class or interface in java.net.http") httpClient, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
 
   * ## Method Details
 
@@ -378,4 +386,4 @@ public static com.google.common.collect.ImmutableMap<[String](https://docs.oracl
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

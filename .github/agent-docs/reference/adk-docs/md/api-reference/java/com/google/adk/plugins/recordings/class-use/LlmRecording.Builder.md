@@ -1,0 +1,69 @@
+JavaScript is disabled on your browser.
+
+   
+
+Skip navigation links
+
+  * [Overview](../../../../../../index.html)
+  * [Class](../LlmRecording.Builder.html)
+  * Use
+  * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
+  * [Index](../../../../../../index-all.html)
+  * [Search](../../../../../../search.html)
+
+
+
+  1. [com.google.adk.plugins.recordings](../package-summary.html)
+  2. [LlmRecording](../LlmRecording.html)
+  3. [Builder](../LlmRecording.Builder.html)
+
+
+
+# Uses of Class  
+com.google.adk.plugins.recordings.LlmRecording.Builder
+
+Packages that use [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")
+
+Package
+
+Description
+
+com.google.adk.plugins.recordings
+
+ 
+
+  * ## Uses of [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings") in [com.google.adk.plugins.recordings](../package-summary.html)
+
+Methods in [com.google.adk.plugins.recordings](../package-summary.html) that return [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
+
+LlmRecording.`[builder](../LlmRecording.html#builder\(\))()`
+
+ 
+
+`abstract [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
+
+LlmRecording.Builder.`[llmRequest](../LlmRecording.Builder.html#llmRequest\(com.google.adk.models.LlmRequest\))([LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`abstract [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
+
+LlmRecording.Builder.`[llmResponse](../LlmRecording.Builder.html#llmResponse\(com.google.adk.models.LlmResponse\))([LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+
+ 
+
+
+
+
+* * *
+
+Copyright (C) 1980\. All rights reserved.

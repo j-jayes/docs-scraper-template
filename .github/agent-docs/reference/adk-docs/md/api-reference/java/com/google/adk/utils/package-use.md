@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,8 +21,51 @@ Skip navigation links
 # Uses of Package  
 com.google.adk.utils
 
-No usage of com.google.adk.utils 
+Packages that use [com.google.adk.utils](package-summary.html)
+
+Package
+
+Description
+
+com.example
+
+ 
+
+com.google.adk.utils
+
+ 
+
+  * Classes in [com.google.adk.utils](package-summary.html) used by [com.example](../../../example/package-summary.html)
+
+Class
+
+Description
+
+[ComponentRegistry](class-use/ComponentRegistry.html#com.example)
+
+A registry for storing and retrieving ADK instances by name.
+
+  * Classes in [com.google.adk.utils](package-summary.html) used by [com.google.adk.utils](package-summary.html)
+
+Class
+
+Description
+
+[AdkComponentProvider](class-use/AdkComponentProvider.html#com.google.adk.utils)
+
+Service provider interface for ADK components to be registered in [`ComponentRegistry`](ComponentRegistry.html "class in com.google.adk.utils").
+
+[ComponentRegistry](class-use/ComponentRegistry.html#com.google.adk.utils)
+
+A registry for storing and retrieving ADK instances by name.
+
+[FirestoreProperties](class-use/FirestoreProperties.html#com.google.adk.utils)
+
+Placeholder class to test that the FirestoreProperties file is correctly included in the test resources.
+
+
+
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

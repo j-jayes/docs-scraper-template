@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Callbacks.AfterAgentCallback.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -28,11 +29,87 @@ Package
 
 Description
 
+com.example
+
+ 
+
+com.google.adk.a2a
+
+ 
+
 com.google.adk.agents
 
  
 
+com.google.adk.utils
+
+ 
+
+  * ## Uses of [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") in [com.example](../../../../example/package-summary.html)
+
+Fields in [com.example](../../../../example/package-summary.html) declared as [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")`
+
+CoreCallbacks.`[AFTER_AGENT_CALLBACK](../../../../example/CoreCallbacks.html#AFTER_AGENT_CALLBACK)`
+
+ 
+
+`static final [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")`
+
+CoreCallbacks.`[AFTER_AGENT_CALLBACK1](../../../../example/CoreCallbacks.html#AFTER_AGENT_CALLBACK1)`
+
+ 
+
+`static final [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")`
+
+CoreCallbacks.`[AFTER_AGENT_CALLBACK2](../../../../example/CoreCallbacks.html#AFTER_AGENT_CALLBACK2)`
+
+ 
+
+`static final [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")`
+
+CoreCallbacks.`[AFTER_AGENT_CALLBACK3](../../../../example/CoreCallbacks.html#AFTER_AGENT_CALLBACK3)`
+
+ 
+
+  * ## Uses of [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") in [com.google.adk.a2a](../../a2a/package-summary.html)
+
+Method parameters in [com.google.adk.a2a](../../a2a/package-summary.html) with type arguments of type [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[RemoteA2AAgent.Builder](../../a2a/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")`
+
+RemoteA2AAgent.Builder.`[afterAgentCallback](../../a2a/RemoteA2AAgent.Builder.html#afterAgentCallback\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
+
+ 
+
   * ## Uses of [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") in [com.google.adk.agents](../package-summary.html)
+
+Fields in [com.google.adk.agents](../package-summary.html) with type parameters of type [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`protected com.google.common.collect.ImmutableList<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
+
+BaseAgent.Builder.`[afterAgentCallback](../BaseAgent.Builder.html#afterAgentCallback)`
+
+ 
 
 Methods in [com.google.adk.agents](../package-summary.html) that return types with arguments of type [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
 
@@ -42,13 +119,19 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>>`
+`com.google.common.collect.ImmutableList<? extends [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
 
 BaseAgent.`[afterAgentCallback](../BaseAgent.html#afterAgentCallback\(\))()`
 
  
 
-`static @Nullable com.google.common.collect.ImmutableList<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
+`com.google.common.collect.ImmutableList<? extends [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
+
+BaseAgent.`[canonicalAfterAgentCallbacks](../BaseAgent.html#canonicalAfterAgentCallbacks\(\))()`
+
+The resolved afterAgentCallback field as a list.
+
+`static com.google.common.collect.ImmutableList<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
 
 CallbackUtil.`[getAfterAgentCallbacks](../CallbackUtil.html#getAfterAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.AfterAgentCallbackBase> afterAgentCallback)`
 
@@ -62,27 +145,25 @@ Method
 
 Description
 
-`[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
+`[B](../BaseAgent.Builder.html#type-param-B "type parameter in BaseAgent.Builder")`
 
-LlmAgent.Builder.`[afterAgentCallback](../LlmAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\))([Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") afterAgentCallback)`
-
- 
-
-`[LoopAgent.Builder](../LoopAgent.Builder.html "class in com.google.adk.agents")`
-
-LoopAgent.Builder.`[afterAgentCallback](../LoopAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\))([Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") afterAgentCallback)`
+BaseAgent.Builder.`[afterAgentCallback](../BaseAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\))([Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") afterAgentCallback)`
 
  
 
-`[ParallelAgent.Builder](../ParallelAgent.Builder.html "class in com.google.adk.agents")`
+  * ## Uses of [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") in [com.google.adk.utils](../../utils/package-summary.html)
 
-ParallelAgent.Builder.`[afterAgentCallback](../ParallelAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\))([Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") afterAgentCallback)`
+Methods in [com.google.adk.utils](../../utils/package-summary.html) that return types with arguments of type [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
 
- 
+Modifier and Type
 
-`[SequentialAgent.Builder](../SequentialAgent.Builder.html "class in com.google.adk.agents")`
+Method
 
-SequentialAgent.Builder.`[afterAgentCallback](../SequentialAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\))([Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents") afterAgentCallback)`
+Description
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
+
+ComponentRegistry.`[resolveAfterAgentCallback](../../utils/ComponentRegistry.html#resolveAfterAgentCallback\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
 
  
 
@@ -91,4 +172,4 @@ SequentialAgent.Builder.`[afterAgentCallback](../SequentialAgent.Builder.html#af
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

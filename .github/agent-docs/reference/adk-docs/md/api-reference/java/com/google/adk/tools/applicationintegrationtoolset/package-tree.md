@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * [Use](package-use.html)
   * Tree
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -35,10 +36,17 @@ Package Hierarchies:
     * com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.ActionSchema](ConnectionsClient.ActionSchema.html "class in com.google.adk.tools.applicationintegrationtoolset")
     * com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.ConnectionDetails](ConnectionsClient.ConnectionDetails.html "class in com.google.adk.tools.applicationintegrationtoolset")
     * com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.EntitySchemaAndOperations](ConnectionsClient.EntitySchemaAndOperations.html "class in com.google.adk.tools.applicationintegrationtoolset")
+    * com.google.adk.tools.applicationintegrationtoolset.[GoogleCredentialsHelper](GoogleCredentialsHelper.html "class in com.google.adk.tools.applicationintegrationtoolset") (implements com.google.adk.tools.applicationintegrationtoolset.[CredentialsHelper](CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset"))
     * com.google.adk.tools.applicationintegrationtoolset.[IntegrationClient](IntegrationClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
+
+
+
+## Interface Hierarchy
+
+  * com.google.adk.tools.applicationintegrationtoolset.[CredentialsHelper](CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset")
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

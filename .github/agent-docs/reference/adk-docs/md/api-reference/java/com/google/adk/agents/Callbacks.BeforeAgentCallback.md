@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Callbacks.BeforeAgentCallback.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -21,14 +22,12 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
      1. call(CallbackContext)
 
-
+Hide sidebar  Show sidebar
 
 # Interface Callbacks.BeforeAgentCallback
 
@@ -41,6 +40,8 @@ Functional Interface:
 * * *
 
 [@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface Callbacks.BeforeAgentCallback
+
+Async callback interface for actions to be performed before an agent starts running.
 
   * ## Method Summary
 
@@ -79,4 +80,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

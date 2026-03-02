@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -26,6 +27,10 @@ Package
 
 Description
 
+com.google.adk.a2a.executor
+
+ 
+
 com.google.adk.agents
 
  
@@ -41,6 +46,24 @@ com.google.adk.runner
 com.google.adk.web
 
  
+
+com.google.adk.web.controller
+
+ 
+
+com.google.adk.web.service
+
+ 
+
+  * Classes in [com.google.adk.artifacts](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+
+Class
+
+Description
+
+[BaseArtifactService](class-use/BaseArtifactService.html#com.google.adk.a2a.executor)
+
+Base interface for artifact services.
 
   * Classes in [com.google.adk.artifacts](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
 
@@ -98,9 +121,29 @@ Description
 
 Base interface for artifact services.
 
+  * Classes in [com.google.adk.artifacts](package-summary.html) used by [com.google.adk.web.controller](../web/controller/package-summary.html)
+
+Class
+
+Description
+
+[BaseArtifactService](class-use/BaseArtifactService.html#com.google.adk.web.controller)
+
+Base interface for artifact services.
+
+  * Classes in [com.google.adk.artifacts](package-summary.html) used by [com.google.adk.web.service](../web/service/package-summary.html)
+
+Class
+
+Description
+
+[BaseArtifactService](class-use/BaseArtifactService.html#com.google.adk.web.service)
+
+Base interface for artifact services.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

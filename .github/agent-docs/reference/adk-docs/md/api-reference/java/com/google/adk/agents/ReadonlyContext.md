@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/ReadonlyContext.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,8 +21,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Field Summary
   3. Constructor Summary
@@ -32,14 +31,16 @@ Hide sidebar ❮❯ Show sidebar
      1. ReadonlyContext(InvocationContext)
   7. Method Details
      1. userContent()
-     2. invocationId()
-     3. branch()
-     4. agentName()
-     5. sessionId()
-     6. events()
-     7. state()
+     2. invocationContext()
+     3. invocationId()
+     4. branch()
+     5. agentName()
+     6. userId()
+     7. sessionId()
+     8. events()
+     9. state()
 
-
+Hide sidebar  Show sidebar
 
 # Class ReadonlyContext
 
@@ -112,6 +113,12 @@ Returns the branch of the current invocation, if present.
 
 Returns an unmodifiable view of the events of the session.
 
+`[InvocationContext](InvocationContext.html "class in com.google.adk.agents")`
+
+`invocationContext()`
+
+Returns the invocation context.
+
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `invocationId()`
@@ -136,7 +143,13 @@ Returns an unmodifiable view of the state of the session.
 
 Returns the user content that initiated this invocation.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`userId()`
+
+Returns the user ID.
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -163,6 +176,12 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
 Returns the user content that initiated this invocation.
 
+    * ### invocationContext
+
+public [InvocationContext](InvocationContext.html "class in com.google.adk.agents") invocationContext()
+
+Returns the invocation context.
+
     * ### invocationId
 
 public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId()
@@ -180,6 +199,12 @@ Returns the branch of the current invocation, if present.
 public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName()
 
 Returns the name of the agent currently running.
+
+    * ### userId
+
+public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId()
+
+Returns the user ID.
 
     * ### sessionId
 
@@ -208,4 +233,4 @@ Returns an unmodifiable view of the state of the session.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

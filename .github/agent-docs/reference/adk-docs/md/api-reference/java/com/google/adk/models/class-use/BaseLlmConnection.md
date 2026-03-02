@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../BaseLlmConnection.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -35,6 +36,10 @@ com.google.adk.models.langchain4j
 
  
 
+com.google.adk.models.springai
+
+ 
+
   * ## Uses of [BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models") in [com.google.adk.models](../package-summary.html)
 
 Classes in [com.google.adk.models](../package-summary.html) that implement [BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")
@@ -58,6 +63,12 @@ Modifier and Type
 Method
 
 Description
+
+`[BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
+
+ApigeeLlm.`[connect](../ApigeeLlm.html#connect\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
 
 `abstract [BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
 
@@ -93,9 +104,25 @@ LangChain4j.`[connect](../langchain4j/LangChain4j.html#connect\(com.google.adk.m
 
  
 
+  * ## Uses of [BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models") in [com.google.adk.models.springai](../springai/package-summary.html)
+
+Methods in [com.google.adk.models.springai](../springai/package-summary.html) that return [BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
+
+SpringAI.`[connect](../springai/SpringAI.html#connect\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

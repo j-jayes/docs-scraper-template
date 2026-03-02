@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseTool.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,23 +21,25 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Nested Class Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
      1. BaseTool(String, String)
      2. BaseTool(String, String, boolean)
-  5. Method Details
+  6. Method Details
      1. name()
      2. description()
      3. longRunning()
      4. declaration()
-     5. runAsync(Map, ToolContext)
-     6. processLlmRequest(LlmRequest.Builder, ToolContext)
+     5. customMetadata()
+     6. setCustomMetadata(String, Object)
+     7. runAsync(Map, ToolContext)
+     8. processLlmRequest(LlmRequest.Builder, ToolContext)
+     9. fromConfig(BaseTool.ToolConfig, String)
 
-
+Hide sidebar  Show sidebar
 
 # Class BaseTool
 
@@ -45,13 +48,35 @@ Hide sidebar ❮❯ Show sidebar
 com.google.adk.tools.BaseTool
 
 Direct Known Subclasses:
-    `[AgentTool](AgentTool.html "class in com.google.adk.tools")`, `[BaseRetrievalTool](retrieval/BaseRetrievalTool.html "class in com.google.adk.tools.retrieval")`, `[BuiltInCodeExecutionTool](BuiltInCodeExecutionTool.html "class in com.google.adk.tools")`, `[FunctionTool](FunctionTool.html "class in com.google.adk.tools")`, `[GoogleSearchTool](GoogleSearchTool.html "class in com.google.adk.tools")`, `[IntegrationConnectorTool](applicationintegrationtoolset/IntegrationConnectorTool.html "class in com.google.adk.tools.applicationintegrationtoolset")`, `[LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools")`, `[McpAsyncTool](mcp/McpAsyncTool.html "class in com.google.adk.tools.mcp")`, `[McpTool](mcp/McpTool.html "class in com.google.adk.tools.mcp")`
+    `[AbstractMcpTool](mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp"), [AgentTool](AgentTool.html "class in com.google.adk.tools"), [BaseRetrievalTool](retrieval/BaseRetrievalTool.html "class in com.google.adk.tools.retrieval"), [BuiltInCodeExecutionTool](BuiltInCodeExecutionTool.html "class in com.google.adk.tools"), [ExampleTool](ExampleTool.html "class in com.google.adk.tools"), [FunctionTool](FunctionTool.html "class in com.google.adk.tools"), [GoogleMapsTool](GoogleMapsTool.html "class in com.google.adk.tools"), [GoogleSearchTool](GoogleSearchTool.html "class in com.google.adk.tools"), [IntegrationConnectorTool](applicationintegrationtoolset/IntegrationConnectorTool.html "class in com.google.adk.tools.applicationintegrationtoolset"), [LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools"), [UrlContextTool](UrlContextTool.html "class in com.google.adk.tools"), [VertexAiSearchTool](VertexAiSearchTool.html "class in com.google.adk.tools")`
 
 * * *
 
 public abstract class BaseTool extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
 The base class for all ADK tools.
+
+  * ## Nested Class Summary
+
+Nested Classes
+
+Modifier and Type
+
+Class
+
+Description
+
+`static class `
+
+`[BaseTool.ToolArgsConfig](BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")`
+
+Configuration class for tool arguments that allows arbitrary key-value pairs.
+
+`static class `
+
+`[BaseTool.ToolConfig](BaseTool.ToolConfig.html "class in com.google.adk.tools")`
+
+Configuration class for a tool definition in YAML/JSON.
 
   * ## Constructor Summary
 
@@ -77,13 +102,19 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
 Method
 
 Description
+
+`com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+
+`customMetadata()`
+
+Returns a read-only view of the tool metadata.
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FunctionDeclaration>`
 
@@ -96,6 +127,12 @@ Gets the `FunctionDeclaration` representation of this tool.
 `description()`
 
  
+
+`static [BaseTool](BaseTool.html "class in com.google.adk.tools")`
+
+`fromConfig([BaseTool.ToolConfig](BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+
+Creates a tool instance from a config.
 
 `boolean`
 
@@ -121,7 +158,13 @@ Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html 
 
 Calls a tool.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+`void`
+
+`setCustomMetadata([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") key, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") value)`
+
+Sets custom metadata to the tool associated with a key.
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -158,6 +201,18 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
 Gets the `FunctionDeclaration` representation of this tool.
 
+    * ### customMetadata
+
+public com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> customMetadata()
+
+Returns a read-only view of the tool metadata.
+
+    * ### setCustomMetadata
+
+public void setCustomMetadata([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") key, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") value)
+
+Sets custom metadata to the tool associated with a key.
+
     * ### runAsync
 
 public io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> runAsync([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)
@@ -172,9 +227,25 @@ Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html 
 
 This implementation adds the current tool's `declaration()` to the `GenerateContentConfig` within the builder. If a tool with function declarations already exists, the current tool's declaration is merged into it. Otherwise, a new tool definition with the current tool's declaration is created. The current tool itself is also added to the builder's internal list of tools. Override this method for processing the outgoing request.
 
+    * ### fromConfig
+
+public static [BaseTool](BaseTool.html "class in com.google.adk.tools") fromConfig([BaseTool.ToolConfig](BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath) throws [ConfigAgentUtils.ConfigurationException](../agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")
+
+Creates a tool instance from a config. 
+
+Subclasses should override and implement this method to do custom initialization from a config.
+
+Parameters:
+    `config` \- The config for the tool.
+    `configAbsPath` \- The absolute path to the config file that contains the tool config.
+Returns:
+    The tool instance.
+Throws:
+    `[ConfigAgentUtils.ConfigurationException](../agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")` \- if the tool cannot be created from the config.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

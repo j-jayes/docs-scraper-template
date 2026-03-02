@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/AdkWebServer.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,24 +21,22 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
-  2. Nested Class Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
+  2. Constructor Summary
+  3. Method Summary
+  4. Constructor Details
      1. AdkWebServer()
-  6. Method Details
+  5. Method Details
      1. sessionService()
      2. artifactService()
-     3. loadedAgentRegistry(AgentCompilerLoader, AgentLoadingProperties)
+     3. memoryService()
      4. objectMapper()
      5. addResourceHandlers(ResourceHandlerRegistry)
      6. addViewControllers(ViewControllerRegistry)
      7. main(String[])
+     8. start(BaseAgent...)
 
-
+Hide sidebar  Show sidebar
 
 # Class AdkWebServer
 
@@ -50,85 +49,9 @@ All Implemented Interfaces:
 
 * * *
 
-@SpringBootApplication @ConfigurationPropertiesScan @ComponentScan(basePackages={"com.google.adk.web","com.google.adk.web.config"}) public class AdkWebServer extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer
+@SpringBootApplication @ConfigurationPropertiesScan public class AdkWebServer extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
-Single-file Spring Boot application for the Agent Server. Combines configuration, DTOs, and controller logic.
-
-  * ## Nested Class Summary
-
-Nested Classes
-
-Modifier and Type
-
-Class
-
-Description
-
-`static class `
-
-`[AdkWebServer.AddSessionToEvalSetRequest](AdkWebServer.AddSessionToEvalSetRequest.html "class in com.google.adk.web")`
-
-DTO for POST /apps/{appName}/eval_sets/{evalSetId}/add-session requests.
-
-`static class `
-
-`[AdkWebServer.AgentController](AdkWebServer.AgentController.html "class in com.google.adk.web")`
-
-Spring Boot REST Controller handling agent-related API endpoints.
-
-`static class `
-
-`[AdkWebServer.AgentRunRequest](AdkWebServer.AgentRunRequest.html "class in com.google.adk.web")`
-
-Data Transfer Object (DTO) for POST /run and POST /run-sse requests.
-
-`static class `
-
-`[AdkWebServer.ApiServerSpanExporter](AdkWebServer.ApiServerSpanExporter.html "class in com.google.adk.web")`
-
-A custom SpanExporter that stores relevant span data.
-
-`static class `
-
-`[AdkWebServer.GraphResponse](AdkWebServer.GraphResponse.html "class in com.google.adk.web")`
-
-DTO for the response of GET /apps/{appName}/users/{userId}/sessions/{sessionId}/events/{eventId}/graph.
-
-`static class `
-
-`[AdkWebServer.LiveWebSocketHandler](AdkWebServer.LiveWebSocketHandler.html "class in com.google.adk.web")`
-
-WebSocket Handler for the /run_live endpoint.
-
-`static class `
-
-`[AdkWebServer.OpenTelemetryConfig](AdkWebServer.OpenTelemetryConfig.html "class in com.google.adk.web")`
-
-Configuration class for OpenTelemetry, setting up the tracer provider and span exporter.
-
-`static class `
-
-`[AdkWebServer.RunEvalRequest](AdkWebServer.RunEvalRequest.html "class in com.google.adk.web")`
-
-DTO for POST /apps/{appName}/eval_sets/{evalSetId}/run-eval requests.
-
-`static class `
-
-`[AdkWebServer.RunEvalResult](AdkWebServer.RunEvalResult.html "class in com.google.adk.web")`
-
-DTO for the response of POST /apps/{appName}/eval_sets/{evalSetId}/run-eval.
-
-`static class `
-
-`[AdkWebServer.RunnerService](AdkWebServer.RunnerService.html "class in com.google.adk.web")`
-
-Service for creating and caching Runner instances.
-
-`static class `
-
-`[AdkWebServer.WebSocketConfig](AdkWebServer.WebSocketConfig.html "class in com.google.adk.web")`
-
-Configuration class for WebSocket handling.
+Spring Boot application for the Agent Server.
 
   * ## Constructor Summary
 
@@ -170,23 +93,23 @@ Configures simple automated controllers: - Redirects the root path "/" to "/dev-
 
 Provides the singleton instance of the ArtifactService (InMemory).
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents")>`
-
-`loadedAgentRegistry([AgentCompilerLoader](AgentCompilerLoader.html "class in com.google.adk.web") loader, [AgentLoadingProperties](config/AgentLoadingProperties.html "class in com.google.adk.web.config") props)`
-
- 
-
 `static void`
 
 `main([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")[] args)`
 
 Main entry point for the Spring Boot application.
 
+`[BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory")`
+
+`memoryService()`
+
+Provides the singleton instance of the MemoryService (InMemory).
+
 `com.fasterxml.jackson.databind.ObjectMapper`
 
 `objectMapper()`
 
- 
+Configures the Jackson ObjectMapper for JSON serialization.
 
 `[BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions")`
 
@@ -194,7 +117,13 @@ Main entry point for the Spring Boot application.
 
  
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+`static void`
+
+`start([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents")... agents)`
+
+ 
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -226,13 +155,23 @@ Provides the singleton instance of the ArtifactService (InMemory). TODO: configu
 Returns:
     An instance of BaseArtifactService (currently InMemoryArtifactService).
 
-    * ### loadedAgentRegistry
+    * ### memoryService
 
-@Bean("loadedAgentRegistry") public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents")> loadedAgentRegistry([AgentCompilerLoader](AgentCompilerLoader.html "class in com.google.adk.web") loader, [AgentLoadingProperties](config/AgentLoadingProperties.html "class in com.google.adk.web.config") props)
+@Bean public [BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService()
+
+Provides the singleton instance of the MemoryService (InMemory). Will be made configurable once we have the Vertex MemoryService.
+
+Returns:
+    An instance of BaseMemoryService (currently InMemoryMemoryService).
 
     * ### objectMapper
 
 @Bean public com.fasterxml.jackson.databind.ObjectMapper objectMapper()
+
+Configures the Jackson ObjectMapper for JSON serialization. Uses the ADK standard mapper configuration.
+
+Returns:
+    Configured ObjectMapper instance
 
     * ### addResourceHandlers
 
@@ -261,9 +200,13 @@ Main entry point for the Spring Boot application.
 Parameters:
     `args` \- Command line arguments.
 
+    * ### start
+
+public static void start([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents")... agents)
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

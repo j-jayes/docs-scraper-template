@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * [Use](package-use.html)
   * Tree
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -30,6 +31,7 @@ Package Hierarchies:
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.google.adk.sessions.[ApiResponse](ApiResponse.html "class in com.google.adk.sessions") (implements java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")) 
       * com.google.adk.sessions.[HttpApiResponse](HttpApiResponse.html "class in com.google.adk.sessions")
+    * com.google.adk.sessions.[FirestoreSessionService](FirestoreSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions"))
     * com.google.adk.sessions.[GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[GetSessionConfig.Builder](GetSessionConfig.Builder.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[HttpApiClient](HttpApiClient.html "class in com.google.adk.sessions")
@@ -60,4 +62,4 @@ Package Hierarchies:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

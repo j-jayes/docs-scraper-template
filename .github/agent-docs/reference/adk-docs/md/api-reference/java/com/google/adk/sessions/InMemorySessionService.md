@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/InMemorySessionService.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,8 +21,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Constructor Summary
   3. Method Summary
@@ -29,13 +28,14 @@ Hide sidebar ❮❯ Show sidebar
      1. InMemorySessionService()
   5. Method Details
      1. createSession(String, String, ConcurrentMap, String)
-     2. getSession(String, String, String, Optional)
-     3. listSessions(String, String)
-     4. deleteSession(String, String, String)
-     5. listEvents(String, String, String)
-     6. appendEvent(Session, Event)
+     2. createSession(String, String, Map, String)
+     3. getSession(String, String, String, Optional)
+     4. listSessions(String, String)
+     5. deleteSession(String, String, String)
+     6. listEvents(String, String, String)
+     7. appendEvent(Session, Event)
 
-
+Hide sidebar  Show sidebar
 
 # Class InMemorySessionService
 
@@ -86,6 +86,12 @@ Appends an event to an in-memory session object and updates the session's state 
 
 `io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")>`
 
+`createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+
+Creates a new session with the specified parameters.
+
+`io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")>`
+
 `createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, @Nullable [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
 
 Creates a new session with the specified parameters.
@@ -114,13 +120,13 @@ Lists the events within a specific session.
 
 Lists sessions associated with a specific application and user.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
-### Methods inherited from interface com.google.adk.sessions.[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")
+### Methods inherited from interface [BaseSessionService](BaseSessionService.html#method-summary "interface in com.google.adk.sessions")
 
-`[closeSession](BaseSessionService.html#closeSession\(com.google.adk.sessions.Session\)), [createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String\))`
+`[closeSession](BaseSessionService.html#closeSession\(com.google.adk.sessions.Session\) "closeSession\(Session\)"), [createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String\) "createSession\(String, String\)")`
 
 
 
@@ -145,6 +151,24 @@ Creates a new session with the specified parameters.
 
 Specified by:
     `[createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))` in interface `[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")`
+Parameters:
+    `appName` \- The name of the application associated with the session.
+    `userId` \- The identifier for the user associated with the session.
+    `state` \- An optional map representing the initial state of the session. Can be null or empty.
+    `sessionId` \- An optional client-provided identifier for the session. If empty or null, the service should generate a unique ID.
+Returns:
+    The newly created [`Session`](Session.html "class in com.google.adk.sessions") instance.
+
+    * ### createSession
+
+public io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")> createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)
+
+Description copied from interface: `[BaseSessionService](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))`
+
+Creates a new session with the specified parameters.
+
+Specified by:
+    `[createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))` in interface `[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")`
 Parameters:
     `appName` \- The name of the application associated with the session.
     `userId` \- The identifier for the user associated with the session.
@@ -246,4 +270,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

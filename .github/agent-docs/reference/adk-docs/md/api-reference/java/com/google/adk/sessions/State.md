@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/State.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,8 +21,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
   3. Field Summary
@@ -31,6 +30,7 @@ Hide sidebar ❮❯ Show sidebar
      1. APP_PREFIX
      2. USER_PREFIX
      3. TEMP_PREFIX
+     4. REMOVED
   7. Constructor Details
      1. State(ConcurrentMap)
      2. State(ConcurrentMap, ConcurrentMap)
@@ -55,7 +55,7 @@ Hide sidebar ❮❯ Show sidebar
      18. values()
      19. hasDelta()
 
-
+Hide sidebar  Show sidebar
 
 # Class State
 
@@ -64,7 +64,7 @@ Hide sidebar ❮❯ Show sidebar
 com.google.adk.sessions.State
 
 All Implemented Interfaces:
-    `[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`, `[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+    `[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
 
 * * *
 
@@ -74,9 +74,9 @@ A [`State`](State.html "class in com.google.adk.sessions") object that also keep
 
   * ## Nested Class Summary
 
-### Nested classes/interfaces inherited from interface java.util.[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")
+### Nested classes/interfaces inherited from interface [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html#nested-class-summary "class or interface in java.util")
 
-`[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "class or interface in java.util")<[K](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html#type-param-K "class or interface in java.util"),[V](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html#type-param-V "class or interface in java.util")>`
+`[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "class or interface in java.util")<K,V>`
 
   * ## Field Summary
 
@@ -93,6 +93,12 @@ Description
 `APP_PREFIX`
 
  
+
+`static final [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")`
+
+`REMOVED`
+
+Sentinel object to mark removed entries in the delta map.
 
 `static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -246,11 +252,11 @@ Description
 
  
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
-### Methods inherited from interface java.util.concurrent.[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")
+### Methods inherited from interface [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#method-summary "class or interface in java.util.concurrent")
 
 `[compute](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#compute\(K,java.util.function.BiFunction\) "class or interface in java.util.concurrent"), [computeIfAbsent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#computeIfAbsent\(K,java.util.function.Function\) "class or interface in java.util.concurrent"), [computeIfPresent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#computeIfPresent\(K,java.util.function.BiFunction\) "class or interface in java.util.concurrent"), [forEach](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#forEach\(java.util.function.BiConsumer\) "class or interface in java.util.concurrent"), [getOrDefault](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#getOrDefault\(java.lang.Object,V\) "class or interface in java.util.concurrent"), [merge](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#merge\(K,V,java.util.function.BiFunction\) "class or interface in java.util.concurrent"), [replaceAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#replaceAll\(java.util.function.BiFunction\) "class or interface in java.util.concurrent")`
 
@@ -282,6 +288,12 @@ public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/
 See Also:
     
       * [Constant Field Values](../../../../constant-values.html#com.google.adk.sessions.State.TEMP_PREFIX)
+
+    * ### REMOVED
+
+public static final [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") REMOVED
+
+Sentinel object to mark removed entries in the delta map.
 
   * ## Constructor Details
 
@@ -442,4 +454,4 @@ public boolean hasDelta()
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

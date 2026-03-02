@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ToolContext.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -56,6 +57,12 @@ ToolContext.`[builder](../ToolContext.html#builder\(com.google.adk.agents.Invoca
 
 `[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
 
+ToolContext.Builder.`[eventId](../ToolContext.Builder.html#eventId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
+
+ 
+
+`[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
+
 ToolContext.Builder.`[functionCallId](../ToolContext.Builder.html#functionCallId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") functionCallId)`
 
  
@@ -66,9 +73,15 @@ ToolContext.`[toBuilder](../ToolContext.html#toBuilder\(\))()`
 
  
 
+`[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
+
+ToolContext.Builder.`[toolConfirmation](../ToolContext.Builder.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\))([ToolConfirmation](../../events/ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

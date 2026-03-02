@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseMemoryService.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,20 +21,18 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
      1. addSessionToMemory(Session)
      2. searchMemory(String, String, String)
 
-
+Hide sidebar  Show sidebar
 
 # Interface BaseMemoryService
 
 All Known Implementing Classes:
-    `[InMemoryMemoryService](InMemoryMemoryService.html "class in com.google.adk.memory")`
+    `[FirestoreMemoryService](FirestoreMemoryService.html "class in com.google.adk.memory"), [InMemoryMemoryService](InMemoryMemoryService.html "class in com.google.adk.memory")`
 
 * * *
 
@@ -99,4 +98,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

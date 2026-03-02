@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ReadonlyContext.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -36,6 +37,10 @@ com.google.adk.tools
  
 
 com.google.adk.tools.applicationintegrationtoolset
+
+ 
+
+com.google.adk.tools.computeruse
 
  
 
@@ -97,7 +102,7 @@ Constructs the text instruction for this agent based on the `LlmAgent.instructio
 
 LlmAgent.`[canonicalTools](../LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") context)`
 
-Convenience overload of canonicalTools that accepts a non-optional ReadonlyContext.
+Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../LlmAgent.html#tools\(\)) field.
 
 Method parameters in [com.google.adk.agents](../package-summary.html) with type arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
@@ -111,7 +116,9 @@ Description
 
 LlmAgent.`[canonicalTools](../LlmAgent.html#canonicalTools\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> context)`
 
-Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../LlmAgent.html#tools\(\)) field.
+Deprecated.
+
+Use [`LlmAgent.canonicalTools(ReadonlyContext)`](../LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\)) instead.
 
 Constructor parameters in [com.google.adk.agents](../package-summary.html) with type arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
@@ -157,6 +164,18 @@ BaseToolset.`[getTools](../../tools/BaseToolset.html#getTools\(com.google.adk.ag
 
 Return all tools in the toolset based on the provided context.
 
+`default boolean`
+
+BaseToolset.`[isToolSelected](../../tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+Checks if a tool should be selected based on a filter.
+
+`default boolean`
+
+ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+Decides if the given tool is selected.
+
 Method parameters in [com.google.adk.tools](../../tools/package-summary.html) with type arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
 Modifier and Type
@@ -167,9 +186,17 @@ Description
 
 `boolean`
 
+NamedToolPredicate.`[test](../../tools/NamedToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
+
+ 
+
+`boolean`
+
 ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
-Decides if the given tool is selected.
+Deprecated.
+
+Use [`ToolPredicate.test(BaseTool, ReadonlyContext)`](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\)) instead.
 
   * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.tools.applicationintegrationtoolset](../../tools/applicationintegrationtoolset/package-summary.html)
 
@@ -187,6 +214,22 @@ ApplicationIntegrationToolset.`[getTools](../../tools/applicationintegrationtool
 
  
 
+  * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html)
+
+Methods in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html) with parameters of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
+
+ComputerUseToolset.`[getTools](../../tools/computeruse/ComputerUseToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+ 
+
   * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.tools.mcp](../../tools/mcp/package-summary.html)
 
 Methods in [com.google.adk.tools.mcp](../../tools/mcp/package-summary.html) with parameters of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
@@ -199,6 +242,12 @@ Description
 
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
 
+McpAsyncToolset.`[getTools](../../tools/mcp/McpAsyncToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
+
 McpToolset.`[getTools](../../tools/mcp/McpToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
  
@@ -208,4 +257,4 @@ McpToolset.`[getTools](../../tools/mcp/McpToolset.html#getTools\(com.google.adk.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

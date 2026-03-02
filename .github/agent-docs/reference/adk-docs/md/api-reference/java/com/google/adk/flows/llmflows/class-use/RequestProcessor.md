@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../RequestProcessor.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -53,6 +54,12 @@ Description
 
 [`RequestProcessor`](../RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles basic information to build the LLM request.
 
+`class `
+
+`[Compaction](../Compaction.html "class in com.google.adk.flows.llmflows")`
+
+Request processor that performs event compaction.
+
 `final class `
 
 `[Contents](../Contents.html "class in com.google.adk.flows.llmflows")`
@@ -76,6 +83,26 @@ Description
 `[Instructions](../Instructions.html "class in com.google.adk.flows.llmflows")`
 
 [`RequestProcessor`](../RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles instructions and global instructions for LLM flows.
+
+`class `
+
+`[RequestConfirmationLlmRequestProcessor](../RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")`
+
+Handles tool confirmation information to build the LLM request.
+
+Fields in [com.google.adk.flows.llmflows](../package-summary.html) declared as [RequestProcessor](../RequestProcessor.html "interface in com.google.adk.flows.llmflows")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [RequestProcessor](../RequestProcessor.html "interface in com.google.adk.flows.llmflows")`
+
+CodeExecution.`[requestProcessor](../CodeExecution.html#requestProcessor)`
+
+ 
 
 Fields in [com.google.adk.flows.llmflows](../package-summary.html) with type parameters of type [RequestProcessor](../RequestProcessor.html "interface in com.google.adk.flows.llmflows")
 
@@ -128,4 +155,4 @@ Description
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

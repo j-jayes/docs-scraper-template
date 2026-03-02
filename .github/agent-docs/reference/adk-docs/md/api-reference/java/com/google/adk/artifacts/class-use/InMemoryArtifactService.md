@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../InMemoryArtifactService.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -25,4 +26,4 @@ No usage of com.google.adk.artifacts.InMemoryArtifactService
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

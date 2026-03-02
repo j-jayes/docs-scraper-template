@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Callbacks.BeforeModelCallback.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -21,14 +22,12 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
-     1. call(CallbackContext, LlmRequest)
+     1. call(CallbackContext, LlmRequest.Builder)
 
-
+Hide sidebar  Show sidebar
 
 # Interface Callbacks.BeforeModelCallback
 
@@ -54,7 +53,7 @@ Description
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../models/LlmResponse.html "class in com.google.adk.models")>`
 
-`call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+`call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)`
 
 Async callback before LLM invocation.
 
@@ -65,13 +64,13 @@ Async callback before LLM invocation.
 
     * ### call
 
-io.reactivex.rxjava3.core.Maybe<[LlmResponse](../models/LlmResponse.html "class in com.google.adk.models")> call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest)
+io.reactivex.rxjava3.core.Maybe<[LlmResponse](../models/LlmResponse.html "class in com.google.adk.models")> call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)
 
 Async callback before LLM invocation.
 
 Parameters:
     `callbackContext` \- Callback context.
-    `llmRequest` \- LLM request.
+    `llmRequestBuilder` \- LLM request builder.
 Returns:
     response override, or empty to continue.
 
@@ -80,4 +79,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

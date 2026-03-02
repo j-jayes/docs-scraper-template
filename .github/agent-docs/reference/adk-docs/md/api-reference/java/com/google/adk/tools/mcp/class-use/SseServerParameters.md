@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../SseServerParameters.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -47,6 +48,32 @@ SseServerParameters.Builder.`[build](../SseServerParameters.Builder.html#build\(
 
 Builds a new [`SseServerParameters`](../SseServerParameters.html "class in com.google.adk.tools.mcp") instance.
 
+`[SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp")`
+
+McpToolset.McpToolsetConfig.`[sseServerParams](../McpToolset.McpToolsetConfig.html#sseServerParams\(\))()`
+
+ 
+
+Methods in [com.google.adk.tools.mcp](../package-summary.html) with parameters of type [SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
+
+McpAsyncToolset.Builder.`[connectionParams](../McpAsyncToolset.Builder.html#connectionParams\(com.google.adk.tools.mcp.SseServerParameters\))([SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams)`
+
+ 
+
+`void`
+
+McpToolset.McpToolsetConfig.`[setSseServerParams](../McpToolset.McpToolsetConfig.html#setSseServerParams\(com.google.adk.tools.mcp.SseServerParameters\))([SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp") sseServerParams)`
+
+ 
+
 Constructors in [com.google.adk.tools.mcp](../package-summary.html) with parameters of type [SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp")
 
 Modifier
@@ -54,6 +81,12 @@ Modifier
 Constructor
 
 Description
+
+` `
+
+`[McpAsyncToolset](../McpAsyncToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.SseServerParameters,com.fasterxml.jackson.databind.ObjectMapper,java.util.Optional\))([SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+
+Initializes the McpAsyncToolset with SSE server parameters.
 
 ` `
 
@@ -84,4 +117,4 @@ Initializes the McpToolset with SSE server parameters, using the ObjectMapper us
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

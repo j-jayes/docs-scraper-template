@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Annotations.Schema.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -21,15 +22,14 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Optional Element Summary
   3. Element Details
      1. name
      2. description
+     3. optional
 
-
+Hide sidebar  Show sidebar
 
 # Annotation Interface Annotations.Schema
 
@@ -64,6 +64,12 @@ Description
 
  
 
+`boolean`
+
+`optional`
+
+ 
+
 
 
 
@@ -83,9 +89,16 @@ Default:
 Default:
     `""`
 
+    * ### optional
+
+boolean optional
+
+Default:
+    `false`
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

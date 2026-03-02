@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../RunConfig.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -27,11 +28,45 @@ Package
 
 Description
 
+com.google.adk.a2a.executor
+
+ 
+
 com.google.adk.agents
 
  
 
 com.google.adk.runner
+
+ 
+
+  * ## Uses of [RunConfig](../RunConfig.html "class in com.google.adk.agents") in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html)
+
+Methods in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) that return [RunConfig](../RunConfig.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`abstract [RunConfig](../RunConfig.html "class in com.google.adk.agents")`
+
+AgentExecutorConfig.`[runConfig](../../a2a/executor/AgentExecutorConfig.html#runConfig\(\))()`
+
+ 
+
+Methods in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) with parameters of type [RunConfig](../RunConfig.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`abstract [AgentExecutorConfig.Builder](../../a2a/executor/AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
+
+AgentExecutorConfig.Builder.`[runConfig](../../a2a/executor/AgentExecutorConfig.Builder.html#runConfig\(com.google.adk.agents.RunConfig\))([RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
  
 
@@ -55,7 +90,7 @@ RunConfig.Builder.`[build](../RunConfig.Builder.html#build\(\))()`
 
 InvocationContext.`[runConfig](../InvocationContext.html#runConfig\(\))()`
 
- 
+Returns the configuration for the current agent run.
 
 Methods in [com.google.adk.agents](../package-summary.html) with parameters of type [RunConfig](../RunConfig.html "class in com.google.adk.agents")
 
@@ -75,13 +110,47 @@ RunConfig.`[builder](../RunConfig.html#builder\(com.google.adk.agents.RunConfig\
 
 InvocationContext.`[create](../InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
- 
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
 
 `static [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
 
 InvocationContext.`[create](../InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
- 
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+InvocationContext.Builder.`[runConfig](../InvocationContext.Builder.html#runConfig\(com.google.adk.agents.RunConfig\))([RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
+
+Sets the configuration for the current agent run.
+
+Constructors in [com.google.adk.agents](../package-summary.html) with parameters of type [RunConfig](../RunConfig.html "class in com.google.adk.agents")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[InvocationContext](../InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,com.google.adk.plugins.Plugin,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins") pluginManager, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents")> liveRequestQueue, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, boolean endInvocation)`
+
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
+
+` `
+
+`[InvocationContext](../InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents")> liveRequestQueue, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, boolean endInvocation)`
+
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
 
   * ## Uses of [RunConfig](../RunConfig.html "class in com.google.adk.agents") in [com.google.adk.runner](../../runner/package-summary.html)
 
@@ -97,13 +166,35 @@ Description
 
 Runner.`[runAsync](../../runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
-Runs the agent in the standard mode using a provided Session object.
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use runAsync with sessionId.
+
+`io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+Runner.`[runAsync](../../runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
+
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use runAsync with sessionId.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 Runner.`[runAsync](../../runner/Runner.html#runAsync\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
-Runs the agent in the standard mode.
+See [`Runner.runAsync(String, String, Content, RunConfig, Map)`](../../runner/Runner.html#runAsync\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\)).
+
+`io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+Runner.`[runAsync](../../runner/Runner.html#runAsync\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
+
+Runs the agent with an invocation-based mode.
+
+`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+Runner.`[runAsyncImpl](../../runner/Runner.html#runAsyncImpl\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
+
+Runs the agent asynchronously using a provided Session object.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
@@ -121,11 +212,11 @@ Retrieves the session and runs the agent in live mode.
 
 Runner.`[runWithSessionId](../../runner/Runner.html#runWithSessionId\(java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
-Runs the agent asynchronously with a default user ID.
+Deprecated, for removal: This API element is subject to removal in a future version.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

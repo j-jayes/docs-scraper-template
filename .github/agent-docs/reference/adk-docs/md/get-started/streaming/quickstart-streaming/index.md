@@ -170,17 +170,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../../streaming/configuration/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -276,7 +276,7 @@ Create the following folder structure with empty files:
 
 Copy-paste the following code block into the `agent.py` file.
 
-For `model`, please double check the model ID as described earlier in the Models section.
+For `model`, please double-check the model ID as described earlier in the Models section.
     
     
     from google.adk.agents import Agent
@@ -414,7 +414,7 @@ Congratulations! You've successfully created and interacted with your first Stre
 
 ## Next steps: build custom streaming app¶
 
-The [Bidi-streaming development guide series](../../../streaming/dev-guide/part1/) gives an overview of the server and client code for a custom asynchronous web app built with ADK Streaming, enabling real-time, bidirectional audio and text communication.
+The [Gemini Live API Toolkit development guide series](../../../streaming/dev-guide/part1/) gives an overview of the server and client code for a custom asynchronous web app built with ADK Streaming, enabling real-time, bidirectional audio and text communication.
 
 Back to top  [ Previous  Build a streaming agent  ](../) [ Next  Java  ](../quickstart-streaming-java/)
 

@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.flows
 
@@ -62,4 +61,4 @@ Interface for the execution flows to run a group of agents.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/RunConfig.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,8 +21,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
   3. Constructor Summary
@@ -33,12 +32,16 @@ Hide sidebar ❮❯ Show sidebar
      2. responseModalities()
      3. saveInputBlobsAsArtifacts()
      4. streamingMode()
-     5. outputAudioTranscription()
-     6. maxLlmCalls()
-     7. builder()
-     8. builder(RunConfig)
+     5. toolExecutionMode()
+     6. outputAudioTranscription()
+     7. inputAudioTranscription()
+     8. maxLlmCalls()
+     9. autoCreateSession()
+     10. toBuilder()
+     11. builder()
+     12. builder(RunConfig)
 
-
+Hide sidebar  Show sidebar
 
 # Class RunConfig
 
@@ -74,6 +77,12 @@ Builder for [`RunConfig`](RunConfig.html "class in com.google.adk.agents").
 
 Streaming mode for the runner.
 
+`static enum `
+
+`[RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")`
+
+Tool execution mode for the runner, when they are multiple tools requested (by the models or callbacks).
+
   * ## Constructor Summary
 
 Constructors
@@ -96,6 +105,12 @@ Method
 
 Description
 
+`abstract boolean`
+
+`autoCreateSession()`
+
+ 
+
 `static [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
 `builder()`
@@ -108,13 +123,19 @@ Description
 
  
 
+`abstract com.google.genai.types.AudioTranscriptionConfig`
+
+`inputAudioTranscription()`
+
+ 
+
 `abstract int`
 
 `maxLlmCalls()`
 
  
 
-`abstract @Nullable com.google.genai.types.AudioTranscriptionConfig`
+`abstract com.google.genai.types.AudioTranscriptionConfig`
 
 `outputAudioTranscription()`
 
@@ -132,7 +153,7 @@ Description
 
  
 
-`abstract @Nullable com.google.genai.types.SpeechConfig`
+`abstract com.google.genai.types.SpeechConfig`
 
 `speechConfig()`
 
@@ -144,7 +165,19 @@ Description
 
  
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`toBuilder()`
+
+ 
+
+`abstract [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")`
+
+`toolExecutionMode()`
+
+ 
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -161,7 +194,7 @@ public RunConfig()
 
     * ### speechConfig
 
-public abstract @Nullable com.google.genai.types.SpeechConfig speechConfig()
+@Nullable public abstract com.google.genai.types.SpeechConfig speechConfig()
 
     * ### responseModalities
 
@@ -175,13 +208,29 @@ public abstract boolean saveInputBlobsAsArtifacts()
 
 public abstract [RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode()
 
+    * ### toolExecutionMode
+
+public abstract [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode()
+
     * ### outputAudioTranscription
 
-public abstract @Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription()
+@Nullable public abstract com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription()
+
+    * ### inputAudioTranscription
+
+@Nullable public abstract com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription()
 
     * ### maxLlmCalls
 
 public abstract int maxLlmCalls()
+
+    * ### autoCreateSession
+
+public abstract boolean autoCreateSession()
+
+    * ### toBuilder
+
+public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") toBuilder()
 
     * ### builder
 
@@ -196,4 +245,4 @@ public static [RunConfig.Builder](RunConfig.Builder.html "class in com.google.ad
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

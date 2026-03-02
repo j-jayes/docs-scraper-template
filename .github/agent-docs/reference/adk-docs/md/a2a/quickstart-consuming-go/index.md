@@ -170,17 +170,17 @@ A2A Protocol
               * How it works 
           * Example Interactions 
           * Next Steps 
-    * [ Bidi-streaming (live)  ](../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../streaming/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -421,7 +421,7 @@ Now that you have created an agent that's using a remote agent via an A2A server
 
 
 
-Back to top  [ Previous  Python  ](../quickstart-consuming/) [ Next  Bidi-streaming (live) in ADK  ](../../streaming/)
+Back to top  [ Previous  Python  ](../quickstart-consuming/) [ Next  Gemini Live API Toolkit in ADK  ](../../streaming/)
 
 Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

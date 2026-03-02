@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/SpeechClientInterface.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -20,15 +21,13 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
      1. recognize(RecognitionConfig, RecognitionAudio)
      2. close()
 
-
+Hide sidebar  Show sidebar
 
 # Interface SpeechClientInterface
 
@@ -101,4 +100,4 @@ Throws:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

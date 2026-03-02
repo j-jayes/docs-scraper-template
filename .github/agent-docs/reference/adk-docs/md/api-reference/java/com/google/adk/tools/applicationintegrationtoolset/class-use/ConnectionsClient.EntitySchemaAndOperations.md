@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ConnectionsClient.EntitySchemaAndOperations.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -53,4 +54,4 @@ Retrieves the JSON schema and available operations for a given entity.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

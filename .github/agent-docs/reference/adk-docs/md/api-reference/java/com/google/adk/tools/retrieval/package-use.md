@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -45,4 +46,4 @@ Base class for retrieval tools.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

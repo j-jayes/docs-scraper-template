@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * [Use](package-use.html)
   * Tree
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -28,11 +29,14 @@ Package Hierarchies:
 ## Class Hierarchy
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+    * com.google.adk.models.[ApigeeLlm.Builder](ApigeeLlm.Builder.html "class in com.google.adk.models")
     * com.google.adk.models.[BaseLlm](BaseLlm.html "class in com.google.adk.models")
+      * com.google.adk.models.[ApigeeLlm](ApigeeLlm.html "class in com.google.adk.models")
       * com.google.adk.models.[Claude](Claude.html "class in com.google.adk.models")
       * com.google.adk.models.[Gemini](Gemini.html "class in com.google.adk.models")
     * com.google.adk.models.[Gemini.Builder](Gemini.Builder.html "class in com.google.adk.models")
     * com.google.adk.models.[GeminiLlmConnection](GeminiLlmConnection.html "class in com.google.adk.models") (implements com.google.adk.models.[BaseLlmConnection](BaseLlmConnection.html "interface in com.google.adk.models"))
+    * com.google.adk.models.[GeminiUtil](GeminiUtil.html "class in com.google.adk.models")
     * com.google.adk.[JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
       * com.google.adk.models.[LlmRequest](LlmRequest.html "class in com.google.adk.models")
       * com.google.adk.models.[LlmResponse](LlmResponse.html "class in com.google.adk.models")
@@ -41,6 +45,9 @@ Package Hierarchies:
     * com.google.adk.models.[LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")
     * com.google.adk.models.[Model](Model.html "class in com.google.adk.models")
     * com.google.adk.models.[Model.Builder](Model.Builder.html "class in com.google.adk.models")
+    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
+      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
+        * com.google.adk.models.[LlmCallsLimitExceededException](LlmCallsLimitExceededException.html "class in com.google.adk.models")
     * com.google.adk.models.[VertexCredentials](VertexCredentials.html "class in com.google.adk.models")
     * com.google.adk.models.[VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")
 
@@ -55,4 +62,4 @@ Package Hierarchies:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

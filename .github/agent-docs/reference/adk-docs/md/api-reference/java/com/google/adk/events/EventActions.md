@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/EventActions.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,8 +20,6 @@ Skip navigation links
 
 
 Contents 
-
-Hide sidebar ❮❯ Show sidebar
 
   1. Description
   2. Nested Class Summary
@@ -35,35 +34,46 @@ Hide sidebar ❮❯ Show sidebar
      4. setSkipSummarization(boolean)
      5. stateDelta()
      6. setStateDelta(ConcurrentMap)
-     7. artifactDelta()
-     8. setArtifactDelta(ConcurrentMap)
-     9. transferToAgent()
-     10. setTransferToAgent(Optional)
-     11. setTransferToAgent(String)
-     12. escalate()
-     13. setEscalate(Optional)
-     14. setEscalate(boolean)
-     15. requestedAuthConfigs()
-     16. setRequestedAuthConfigs(ConcurrentMap)
-     17. endInvocation()
-     18. setEndInvocation(Optional)
-     19. setEndInvocation(boolean)
-     20. builder()
-     21. toBuilder()
-     22. equals(Object)
-     23. hashCode()
+     7. removeStateByKey(String)
+     8. artifactDelta()
+     9. setArtifactDelta(ConcurrentMap)
+     10. deletedArtifactIds()
+     11. setDeletedArtifactIds(Set)
+     12. transferToAgent()
+     13. setTransferToAgent(Optional)
+     14. setTransferToAgent(String)
+     15. escalate()
+     16. setEscalate(Optional)
+     17. setEscalate(boolean)
+     18. requestedAuthConfigs()
+     19. setRequestedAuthConfigs(ConcurrentMap)
+     20. requestedToolConfirmations()
+     21. setRequestedToolConfirmations(ConcurrentMap)
+     22. endOfAgent()
+     23. setEndOfAgent(boolean)
+     24. endInvocation()
+     25. setEndInvocation(Optional)
+     26. setEndInvocation(boolean)
+     27. compaction()
+     28. setCompaction(Optional)
+     29. builder()
+     30. toBuilder()
+     31. equals(Object)
+     32. hashCode()
 
-
+Hide sidebar  Show sidebar
 
 # Class EventActions
 
 [java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
+[com.google.adk.JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
+
 com.google.adk.events.EventActions
 
 * * *
 
-public class EventActions extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+public class EventActions extends [JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
 
 Represents the actions attached to an event.
 
@@ -97,7 +107,7 @@ Default constructor for Jackson.
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -105,7 +115,7 @@ Method
 
 Description
 
-`[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part>`
+`[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>`
 
 `artifactDelta()`
 
@@ -117,9 +127,29 @@ Description
 
  
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventCompaction](EventCompaction.html "class in com.google.adk.events")>`
+
+`compaction()`
+
+ 
+
+`[Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+
+`deletedArtifactIds()`
+
+ 
+
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")>`
 
 `endInvocation()`
+
+Deprecated.
+
+Use `endOfAgent()` instead.
+
+`boolean`
+
+`endOfAgent()`
 
  
 
@@ -141,15 +171,39 @@ Description
 
  
 
+`void`
+
+`removeStateByKey([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") key)`
+
+Removes a key from the state delta.
+
 `[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
 
 `requestedAuthConfigs()`
 
  
 
+`[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")>`
+
+`requestedToolConfirmations()`
+
+ 
+
 `void`
 
-`setArtifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part> artifactDelta)`
+`setArtifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> artifactDelta)`
+
+ 
+
+`void`
+
+`setCompaction([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventCompaction](EventCompaction.html "class in com.google.adk.events")> compaction)`
+
+ 
+
+`void`
+
+`setDeletedArtifactIds([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> deletedArtifactIds)`
 
  
 
@@ -157,11 +211,21 @@ Description
 
 `setEndInvocation(boolean endInvocation)`
 
- 
+Deprecated.
+
+Use `setEndOfAgent(boolean)` instead.
 
 `void`
 
 `setEndInvocation([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> endInvocation)`
+
+Deprecated.
+
+Use `setEndOfAgent(boolean)` instead.
+
+`void`
+
+`setEndOfAgent(boolean endOfAgent)`
 
  
 
@@ -180,6 +244,12 @@ Description
 `void`
 
 `setRequestedAuthConfigs([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> requestedAuthConfigs)`
+
+ 
+
+`void`
+
+`setRequestedToolConfirmations([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)`
 
  
 
@@ -205,7 +275,7 @@ Description
 
 `setStateDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
 
- 
+Deprecated.
 
 `void`
 
@@ -243,7 +313,11 @@ Description
 
  
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [JsonBaseModel](../JsonBaseModel.html#method-summary "class in com.google.adk")
+
+`[fromJsonNode](../JsonBaseModel.html#fromJsonNode\(com.fasterxml.jackson.databind.JsonNode,java.lang.Class\) "fromJsonNode\(JsonNode, Class\)"), [fromJsonString](../JsonBaseModel.html#fromJsonString\(java.lang.String,java.lang.Class\) "fromJsonString\(String, Class\)"), [getMapper](../JsonBaseModel.html#getMapper\(\) "getMapper\(\)"), [toJson](../JsonBaseModel.html#toJson\(\) "toJson\(\)"), [toJsonNode](../JsonBaseModel.html#toJsonNode\(java.lang.Object\) "toJsonNode\(Object\)"), [toJsonString](../JsonBaseModel.html#toJsonString\(java.lang.Object\) "toJsonString\(Object\)")`
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -282,15 +356,34 @@ public [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.b
 
     * ### setStateDelta
 
-public void setStateDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public void setStateDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)
+
+Deprecated.
+
+    * ### removeStateByKey
+
+public void removeStateByKey([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") key)
+
+Removes a key from the state delta.
+
+Parameters:
+    `key` \- The key to remove.
 
     * ### artifactDelta
 
-public [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part> artifactDelta()
+public [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> artifactDelta()
 
     * ### setArtifactDelta
 
-public void setArtifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part> artifactDelta)
+public void setArtifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> artifactDelta)
+
+    * ### deletedArtifactIds
+
+public [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> deletedArtifactIds()
+
+    * ### setDeletedArtifactIds
+
+public void setDeletedArtifactIds([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> deletedArtifactIds)
 
     * ### transferToAgent
 
@@ -324,17 +417,53 @@ public [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.b
 
 public void setRequestedAuthConfigs([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> requestedAuthConfigs)
 
+    * ### requestedToolConfirmations
+
+public [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations()
+
+    * ### setRequestedToolConfirmations
+
+public void setRequestedToolConfirmations([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)
+
+    * ### endOfAgent
+
+public boolean endOfAgent()
+
+    * ### setEndOfAgent
+
+public void setEndOfAgent(boolean endOfAgent)
+
     * ### endInvocation
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> endInvocation()
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> endInvocation()
+
+Deprecated.
+
+Use `endOfAgent()` instead.
 
     * ### setEndInvocation
 
-public void setEndInvocation([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> endInvocation)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public void setEndInvocation([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> endInvocation)
+
+Deprecated.
+
+Use `setEndOfAgent(boolean)` instead.
 
     * ### setEndInvocation
 
-public void setEndInvocation(boolean endInvocation)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public void setEndInvocation(boolean endInvocation)
+
+Deprecated.
+
+Use `setEndOfAgent(boolean)` instead.
+
+    * ### compaction
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventCompaction](EventCompaction.html "class in com.google.adk.events")> compaction()
+
+    * ### setCompaction
+
+public void setCompaction([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventCompaction](EventCompaction.html "class in com.google.adk.events")> compaction)
 
     * ### builder
 
@@ -363,4 +492,4 @@ Overrides:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -199,17 +199,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../streaming/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -642,17 +642,17 @@ The criterion returns a score between 0.0 and 1.0. Scores closer to 1.0 indicate
 
 ## per_turn_user_simulator_quality_v1¶
 
-This criterion evaluates whether a user simulator is faithful to a conversation plan.
+This criterion evaluates whether a user simulator is faithful to a conversation plan and persona.
 
 #### When To Use This Criterion?¶
 
-Use this criterion when you need to evaluate a user simulator in a multi-turn conversation. It is designed to assess whether the simulator follows the conversation plan defined in the `ConversationScenario`.
+Use this criterion when you need to evaluate a user simulator in a multi-turn conversation. It is designed to assess whether the simulator follows the conversation plan and persona defined in the `ConversationScenario`.
 
 #### Details¶
 
 This criterion determines whether the a user simulator follows a defined `ConversationScenario` in a multi-turn conversation.
 
-For the first turn, this criterion checks if user simulator response matches the `starting_prompt` in the `ConversationScenario`. For subsequent turns, it uses LLM-as-a-judge to evaluate if the user response follows the `conversation_plan` in the `ConversationScenario`.
+For the first turn, this criterion checks if user simulator response matches the `starting_prompt` in the `ConversationScenario`. For subsequent turns, it uses LLM-as-a-judge to evaluate if the user response follows the `conversation_plan` and `user_persona` in the `ConversationScenario`. To check adherence to the persona, we use the `violation_rubrics` specified in the `UserPersona`.
 
 #### How To Use This Criterion?¶
 

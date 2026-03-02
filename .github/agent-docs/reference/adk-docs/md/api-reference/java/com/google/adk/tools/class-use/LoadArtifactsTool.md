@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../LoadArtifactsTool.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -21,8 +22,35 @@ Skip navigation links
 # Uses of Class  
 com.google.adk.tools.LoadArtifactsTool
 
-No usage of com.google.adk.tools.LoadArtifactsTool 
+Packages that use [LoadArtifactsTool](../LoadArtifactsTool.html "class in com.google.adk.tools")
+
+Package
+
+Description
+
+com.google.adk.tools
+
+ 
+
+  * ## Uses of [LoadArtifactsTool](../LoadArtifactsTool.html "class in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
+
+Fields in [com.google.adk.tools](../package-summary.html) declared as [LoadArtifactsTool](../LoadArtifactsTool.html "class in com.google.adk.tools")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LoadArtifactsTool](../LoadArtifactsTool.html "class in com.google.adk.tools")`
+
+LoadArtifactsTool.`[INSTANCE](../LoadArtifactsTool.html#INSTANCE)`
+
+ 
+
+
+
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

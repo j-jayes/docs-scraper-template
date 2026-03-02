@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ListSessionsResponse.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -59,4 +60,4 @@ ListSessionsResponse.Builder.`[sessions](../ListSessionsResponse.Builder.html#se
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

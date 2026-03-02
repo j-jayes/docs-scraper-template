@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.events
 
@@ -65,13 +64,29 @@ Represents the actions attached to an event.
 
 Builder for [`EventActions`](EventActions.html "class in com.google.adk.events").
 
+[EventCompaction](EventCompaction.html "class in com.google.adk.events")
+
+The compaction of the events.
+
+[EventCompaction.Builder](EventCompaction.Builder.html "class in com.google.adk.events")
+
+Builder for [`EventCompaction`](EventCompaction.html "class in com.google.adk.events").
+
 [EventStream](EventStream.html "class in com.google.adk.events")
 
 Iterable stream of [`Event`](Event.html "class in com.google.adk.events") objects.
+
+[ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")
+
+Represents a tool confirmation configuration.
+
+[ToolConfirmation.Builder](ToolConfirmation.Builder.html "class in com.google.adk.events")
+
+Builder for [`ToolConfirmation`](ToolConfirmation.html "class in com.google.adk.events").
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

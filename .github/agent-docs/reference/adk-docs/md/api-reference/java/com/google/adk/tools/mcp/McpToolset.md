@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/McpToolset.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,13 +21,14 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
+  3. Field Summary
+  4. Constructor Summary
+  5. Method Summary
+  6. Field Details
+     1. CONFIG_TYPE
+  7. Constructor Details
      1. McpToolset(SseServerParameters, ObjectMapper, Optional)
      2. McpToolset(SseServerParameters, ObjectMapper)
      3. McpToolset(ServerParameters, ObjectMapper, Optional)
@@ -36,11 +38,14 @@ Hide sidebar ❮❯ Show sidebar
      7. McpToolset(ServerParameters, Optional)
      8. McpToolset(ServerParameters)
      9. McpToolset(McpSessionManager, ObjectMapper, Optional)
-  6. Method Details
+     10. McpToolset(StreamableHttpServerParameters, ObjectMapper, Optional)
+     11. McpToolset(StreamableHttpServerParameters)
+  8. Method Details
      1. getTools(ReadonlyContext)
      2. close()
+     3. fromConfig(BaseTool.ToolConfig, String)
 
-
+Hide sidebar  Show sidebar
 
 # Class McpToolset
 
@@ -49,7 +54,7 @@ Hide sidebar ❮❯ Show sidebar
 com.google.adk.tools.mcp.McpToolset
 
 All Implemented Interfaces:
-    `[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")`, `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")`
+    `[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools"), [AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")`
 
 * * *
 
@@ -75,21 +80,25 @@ Description
 
 `static class `
 
-`[McpToolset.McpInitializationException](McpToolset.McpInitializationException.html "class in com.google.adk.tools.mcp")`
+`[McpToolset.McpToolsetConfig](McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")`
 
-Exception thrown when there's an error during MCP session initialization.
+Configuration class for MCPToolset.
 
-`static class `
+  * ## Field Summary
 
-`[McpToolset.McpToolLoadingException](McpToolset.McpToolLoadingException.html "class in com.google.adk.tools.mcp")`
+Fields
 
-Exception thrown when there's an error during loading tools from the MCP server.
+Modifier and Type
 
-`static class `
+Field
 
-`[McpToolset.McpToolsetException](McpToolset.McpToolsetException.html "class in com.google.adk.tools.mcp")`
+Description
 
-Base exception for all errors originating from `McpToolset`.
+`protected static final [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [McpToolset.McpToolsetConfig](McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")>`
+
+`CONFIG_TYPE`
+
+ 
 
   * ## Constructor Summary
 
@@ -119,6 +128,14 @@ Initializes the McpToolset with SSE server parameters.
 
 Initializes the McpToolset with SSE server parameters, using the ObjectMapper used across the ADK.
 
+`McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams)`
+
+Initializes the McpToolset with Streamable HTTP server parameters, using the ObjectMapper used across the ADK and no tool filter.
+
+`McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+
+Initializes the McpToolset with Steamable HTTP server parameters.
+
 `McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams)`
 
 Initializes the McpToolset with local server parameters, using the ObjectMapper used across the ADK and no tool filter.
@@ -137,7 +154,7 @@ Initializes the McpToolset with local server parameters, using the ObjectMapper 
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -151,22 +168,34 @@ Description
 
 Performs cleanup and releases resources held by the toolset.
 
+`static [McpToolset](McpToolset.html "class in com.google.adk.tools.mcp")`
+
+`fromConfig([BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+
+Creates a McpToolset instance from a config.
+
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
 
 `getTools([ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Return all tools in the toolset based on the provided context.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
-### Methods inherited from interface com.google.adk.tools.[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")
+### Methods inherited from interface [BaseToolset](../BaseToolset.html#method-summary "interface in com.google.adk.tools")
 
-`[isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.util.Optional,java.util.Optional\))`
+`[isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\) "isToolSelected\(BaseTool, Object, ReadonlyContext\)"), [isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.util.Optional,java.util.Optional\) "isToolSelected\(BaseTool, Optional, Optional\)")`
 
 
 
+
+  * ## Field Details
+
+    * ### CONFIG_TYPE
+
+protected static final [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [McpToolset.McpToolsetConfig](McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")> CONFIG_TYPE
 
   * ## Constructor Details
 
@@ -261,6 +290,26 @@ Parameters:
     `objectMapper` \- An ObjectMapper instance for parsing schemas.
     `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
 
+    * ### McpToolset
+
+public McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
+
+Initializes the McpToolset with Steamable HTTP server parameters.
+
+Parameters:
+    `connectionParams` \- The Streamable HTTP connection parameters to the MCP server.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
+    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
+
+    * ### McpToolset
+
+public McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams)
+
+Initializes the McpToolset with Streamable HTTP server parameters, using the ObjectMapper used across the ADK and no tool filter.
+
+Parameters:
+    `connectionParams` \- The Streamable HTTP connection parameters to the MCP server.
+
   * ## Method Details
 
     * ### getTools
@@ -293,9 +342,23 @@ Specified by:
 Specified by:
     `[close](../BaseToolset.html#close\(\))` in interface `[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")`
 
+    * ### fromConfig
+
+public static [McpToolset](McpToolset.html "class in com.google.adk.tools.mcp") fromConfig([BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath) throws [ConfigAgentUtils.ConfigurationException](../../agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")
+
+Creates a McpToolset instance from a config.
+
+Parameters:
+    `config` \- The config for the McpToolset.
+    `configAbsPath` \- The absolute path to the config file that contains the McpToolset config.
+Returns:
+    The McpToolset instance.
+Throws:
+    `[ConfigAgentUtils.ConfigurationException](../../agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")` \- if the McpToolset cannot be created from the config.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

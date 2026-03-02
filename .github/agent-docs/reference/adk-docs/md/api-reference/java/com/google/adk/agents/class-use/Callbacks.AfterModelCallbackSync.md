@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Callbacks.AfterModelCallbackSync.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -53,4 +54,4 @@ LlmAgent.Builder.`[afterModelCallbackSync](../LlmAgent.Builder.html#afterModelCa
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

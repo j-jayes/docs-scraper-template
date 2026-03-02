@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../LlmRegistry.LlmFactory.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -53,4 +54,4 @@ Registers a factory for model names matching the given regex pattern.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

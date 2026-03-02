@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Example.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -32,6 +33,10 @@ com.google.adk.agents
  
 
 com.google.adk.examples
+
+ 
+
+com.google.adk.tools
 
  
 
@@ -95,9 +100,25 @@ BaseExampleProvider.`[getExamples](../BaseExampleProvider.html#getExamples\(java
 
  
 
+  * ## Uses of [Example](../Example.html "class in com.google.adk.examples") in [com.google.adk.tools](../../tools/package-summary.html)
+
+Methods in [com.google.adk.tools](../../tools/package-summary.html) with parameters of type [Example](../Example.html "class in com.google.adk.examples")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[ExampleTool.Builder](../../tools/ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+ExampleTool.Builder.`[addExample](../../tools/ExampleTool.Builder.html#addExample\(com.google.adk.examples.Example\))([Example](../Example.html "class in com.google.adk.examples") ex)`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

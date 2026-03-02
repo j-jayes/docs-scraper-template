@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * [Use](package-use.html)
   * Tree
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -33,11 +34,14 @@ Package Hierarchies:
       * com.google.adk.flows.llmflows.[SingleFlow](SingleFlow.html "class in com.google.adk.flows.llmflows")
         * com.google.adk.flows.llmflows.[AutoFlow](AutoFlow.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[Basic](Basic.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
+    * com.google.adk.flows.llmflows.[CodeExecution](CodeExecution.html "class in com.google.adk.flows.llmflows")
+    * com.google.adk.flows.llmflows.[Compaction](Compaction.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Contents](Contents.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Examples](Examples.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Functions](Functions.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[Identity](Identity.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Instructions](Instructions.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
+    * com.google.adk.flows.llmflows.[RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
 
@@ -52,4 +56,4 @@ Package Hierarchies:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

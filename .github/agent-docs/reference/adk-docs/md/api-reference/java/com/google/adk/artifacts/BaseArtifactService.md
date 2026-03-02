@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseArtifactService.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,23 +21,24 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
      1. saveArtifact(String, String, String, String, Part)
-     2. loadArtifact(String, String, String, String, Optional)
-     3. listArtifactKeys(String, String, String)
-     4. deleteArtifact(String, String, String, String)
-     5. listVersions(String, String, String, String)
+     2. saveAndReloadArtifact(String, String, String, String, Part)
+     3. loadArtifact(String, String, String, String)
+     4. loadArtifact(String, String, String, String, int)
+     5. loadArtifact(String, String, String, String, Optional)
+     6. listArtifactKeys(String, String, String)
+     7. deleteArtifact(String, String, String, String)
+     8. listVersions(String, String, String, String)
 
-
+Hide sidebar  Show sidebar
 
 # Interface BaseArtifactService
 
 All Known Implementing Classes:
-    `[GcsArtifactService](GcsArtifactService.html "class in com.google.adk.artifacts")`, `[InMemoryArtifactService](InMemoryArtifactService.html "class in com.google.adk.artifacts")`
+    `[GcsArtifactService](GcsArtifactService.html "class in com.google.adk.artifacts"), [InMemoryArtifactService](InMemoryArtifactService.html "class in com.google.adk.artifacts")`
 
 * * *
 
@@ -46,7 +48,7 @@ Base interface for artifact services.
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsDefault MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -72,11 +74,31 @@ Lists all the artifact filenames within a session.
 
 Lists all the versions (as revision IDs) of an artifact.
 
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+
+Loads the latest version of an artifact from the service.
+
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)`
+
+Loads a specific version of an artifact from the service.
+
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
 `loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)`
 
-Gets an artifact.
+Deprecated.
+
+Use `loadArtifact(String, String, String, String)` or `loadArtifact(String, String, String, String, int)` instead.
+
+`default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part>`
+
+`saveAndReloadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
+
+Saves an artifact and returns it with fileData if available.
 
 `io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>`
 
@@ -104,20 +126,42 @@ Parameters:
 Returns:
     the revision ID (version) of the saved artifact.
 
-    * ### loadArtifact
+    * ### saveAndReloadArtifact
 
-io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)
+default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part> saveAndReloadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)
 
-Gets an artifact.
+Saves an artifact and returns it with fileData if available. 
+
+Implementations should override this default method for efficiency, as the default performs two I/O operations (save then load).
 
 Parameters:
     `appName` \- the app name
     `userId` \- the user ID
     `sessionId` \- the session ID
     `filename` \- the filename
-    `version` \- Optional version number. If null, loads the latest version.
+    `artifact` \- the artifact to save
 Returns:
-    the artifact or empty if not found
+    the saved artifact with fileData if available.
+
+    * ### loadArtifact
+
+default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
+
+Loads the latest version of an artifact from the service.
+
+    * ### loadArtifact
+
+default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)
+
+Loads a specific version of an artifact from the service.
+
+    * ### loadArtifact
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)
+
+Deprecated.
+
+Use `loadArtifact(String, String, String, String)` or `loadArtifact(String, String, String, String, int)` instead.
 
     * ### listArtifactKeys
 
@@ -163,4 +207,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

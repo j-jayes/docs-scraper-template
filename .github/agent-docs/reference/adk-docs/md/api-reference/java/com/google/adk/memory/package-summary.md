@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.memory
 
@@ -53,6 +52,10 @@ Description
 
 Base contract for memory services.
 
+[FirestoreMemoryService](FirestoreMemoryService.html "class in com.google.adk.memory")
+
+FirestoreMemoryService is an implementation of BaseMemoryService that uses Firestore to store and retrieve session memory entries.
+
 [InMemoryMemoryService](InMemoryMemoryService.html "class in com.google.adk.memory")
 
 An in-memory memory service for prototyping purposes only.
@@ -78,4 +81,4 @@ Builder for [`SearchMemoryResponse`](SearchMemoryResponse.html "class in com.goo
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

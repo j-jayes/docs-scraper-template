@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ListEventsResponse.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -63,6 +64,12 @@ Lists the events within a specific session.
 
 `io.reactivex.rxjava3.core.Single<[ListEventsResponse](../ListEventsResponse.html "class in com.google.adk.sessions")>`
 
+FirestoreSessionService.`[listEvents](../FirestoreSessionService.html#listEvents\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+
+Lists all events for a given appName, userId, and sessionId.
+
+`io.reactivex.rxjava3.core.Single<[ListEventsResponse](../ListEventsResponse.html "class in com.google.adk.sessions")>`
+
 InMemorySessionService.`[listEvents](../InMemorySessionService.html#listEvents\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
 
  
@@ -78,4 +85,4 @@ VertexAiSessionService.`[listEvents](../VertexAiSessionService.html#listEvents\(
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

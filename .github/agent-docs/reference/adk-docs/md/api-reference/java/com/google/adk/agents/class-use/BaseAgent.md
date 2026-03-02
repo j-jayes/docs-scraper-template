@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../BaseAgent.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -27,7 +28,31 @@ Package
 
 Description
 
+com.example.a2a_basic
+
+ 
+
+com.google.adk.a2a
+
+ 
+
+com.google.adk.a2a.executor
+
+ 
+
 com.google.adk.agents
+
+ 
+
+com.google.adk.apps
+
+ 
+
+com.google.adk.maven
+
+ 
+
+com.google.adk.plugins
 
  
 
@@ -39,7 +64,77 @@ com.google.adk.tools
 
  
 
+com.google.adk.tutorials
+
+ 
+
+com.google.adk.utils
+
+ 
+
 com.google.adk.web
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.example.a2a_basic](../../../../example/a2a_basic/package-summary.html)
+
+Constructors in [com.example.a2a_basic](../../../../example/a2a_basic/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[A2AAgentRun](../../../../example/a2a_basic/A2AAgentRun.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.a2a](../../a2a/package-summary.html)
+
+Subclasses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.a2a](../../a2a/package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[RemoteA2AAgent](../../a2a/RemoteA2AAgent.html "class in com.google.adk.a2a")`
+
+Agent that communicates with a remote A2A agent via A2A client.
+
+Method parameters in [com.google.adk.a2a](../../a2a/package-summary.html) with type arguments of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[RemoteA2AAgent.Builder](../../a2a/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")`
+
+RemoteA2AAgent.Builder.`[subAgents](../../a2a/RemoteA2AAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents)`
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html)
+
+Methods in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[AgentExecutor.Builder](../../a2a/executor/AgentExecutor.Builder.html "class in com.google.adk.a2a.executor")`
+
+AgentExecutor.Builder.`[agent](../../a2a/executor/AgentExecutor.Builder.html#agent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
 
  
 
@@ -77,6 +172,20 @@ A shell agent that runs its sub-agents in parallel in isolated manner.
 
 An agent that runs its sub-agents sequentially.
 
+Fields in [com.google.adk.agents](../package-summary.html) with type parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`protected com.google.common.collect.ImmutableList<[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+
+BaseAgent.Builder.`[subAgents](../BaseAgent.Builder.html#subAgents)`
+
+ 
+
 Methods in [com.google.adk.agents](../package-summary.html) that return [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
 
 Modifier and Type
@@ -89,19 +198,25 @@ Description
 
 InvocationContext.`[agent](../InvocationContext.html#agent\(\))()`
 
+Returns the agent being invoked.
+
+`abstract [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+BaseAgent.Builder.`[build](../BaseAgent.Builder.html#build\(\))()`
+
  
 
-`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+`static [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
 
-BaseAgent.`[findAgent](../BaseAgent.html#findAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+BaseAgent.`[fromConfig](../BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\))([BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
 
-Finds an agent (this or descendant) by name.
+Creates a new agent instance from a configuration object.
 
-`@Nullable [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+`static [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
 
-BaseAgent.`[findSubAgent](../BaseAgent.html#findSubAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+ConfigAgentUtils.`[fromConfig](../ConfigAgentUtils.html#fromConfig\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configPath)`
 
-Recursively search sub agent by name.
+Load agent from a YAML config file path.
 
 `[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
 
@@ -123,6 +238,24 @@ Method
 
 Description
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+
+BaseAgent.`[findAgent](../BaseAgent.html#findAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+Finds an agent (this or descendant) by name.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+
+BaseAgent.`[findSubAgent](../BaseAgent.html#findSubAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+Recursively search sub agent by name.
+
+`static com.google.common.collect.ImmutableList<[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+
+ConfigAgentUtils.`[resolveSubAgents](../ConfigAgentUtils.html#resolveSubAgents\(java.util.List,java.lang.String\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.AgentRefConfig](../BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")> subAgentConfigs, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+
+Resolves subagent configurations into actual BaseAgent instances.
+
 `[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
 
 BaseAgent.`[subAgents](../BaseAgent.html#subAgents\(\))()`
@@ -141,19 +274,31 @@ Description
 
 InvocationContext.`[agent](../InvocationContext.html#agent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
 
- 
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.toBuilder()`](../InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.agent(BaseAgent)`](../InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+InvocationContext.Builder.`[agent](../InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
+
+Sets the agent being invoked.
 
 `static [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
 
 InvocationContext.`[create](../InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
- 
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
 
 `static [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
 
 InvocationContext.`[create](../InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
- 
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
 
 `protected void`
 
@@ -161,27 +306,9 @@ BaseAgent.`[parentAgent](../BaseAgent.html#parentAgent\(com.google.adk.agents.Ba
 
 Sets the parent agent.
 
-`[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
+`[B](../BaseAgent.Builder.html#type-param-B "type parameter in BaseAgent.Builder")`
 
-LlmAgent.Builder.`[subAgents](../LlmAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... subAgents)`
-
- 
-
-`[LoopAgent.Builder](../LoopAgent.Builder.html "class in com.google.adk.agents")`
-
-LoopAgent.Builder.`[subAgents](../LoopAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... subAgents)`
-
- 
-
-`[ParallelAgent.Builder](../ParallelAgent.Builder.html "class in com.google.adk.agents")`
-
-ParallelAgent.Builder.`[subAgents](../ParallelAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... subAgents)`
-
- 
-
-`[SequentialAgent.Builder](../SequentialAgent.Builder.html "class in com.google.adk.agents")`
-
-SequentialAgent.Builder.`[subAgents](../SequentialAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... subAgents)`
+BaseAgent.Builder.`[subAgents](../BaseAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... subAgents)`
 
  
 
@@ -193,29 +320,35 @@ Method
 
 Description
 
-`[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
+`[B](../BaseAgent.Builder.html#type-param-B "type parameter in BaseAgent.Builder")`
 
-LlmAgent.Builder.`[subAgents](../LlmAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents)`
-
- 
-
-`[LoopAgent.Builder](../LoopAgent.Builder.html "class in com.google.adk.agents")`
-
-LoopAgent.Builder.`[subAgents](../LoopAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents)`
+BaseAgent.Builder.`[subAgents](../BaseAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents)`
 
  
 
-`[ParallelAgent.Builder](../ParallelAgent.Builder.html "class in com.google.adk.agents")`
+Constructors in [com.google.adk.agents](../package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
 
-ParallelAgent.Builder.`[subAgents](../ParallelAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents)`
+Modifier
 
- 
+Constructor
 
-`[SequentialAgent.Builder](../SequentialAgent.Builder.html "class in com.google.adk.agents")`
+Description
 
-SequentialAgent.Builder.`[subAgents](../SequentialAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents)`
+` `
 
- 
+`[InvocationContext](../InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,com.google.adk.plugins.Plugin,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins") pluginManager, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents")> liveRequestQueue, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, boolean endInvocation)`
+
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
+
+` `
+
+`[InvocationContext](../InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents")> liveRequestQueue, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, boolean endInvocation)`
+
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use [`InvocationContext.builder()`](../InvocationContext.html#builder\(\)) instead.
 
 Constructor parameters in [com.google.adk.agents](../package-summary.html) with type arguments of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
 
@@ -227,9 +360,119 @@ Description
 
 ` `
 
-`[BaseAgent](../BaseAgent.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.util.List,java.util.List,java.util.List\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
+`[BaseAgent](../BaseAgent.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.util.List,java.util.List,java.util.List\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
 
 Creates a new BaseAgent.
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.apps](../../apps/package-summary.html)
+
+Methods in [com.google.adk.apps](../../apps/package-summary.html) that return [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+App.`[rootAgent](../../apps/App.html#rootAgent\(\))()`
+
+ 
+
+Methods in [com.google.adk.apps](../../apps/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[App.Builder](../../apps/App.Builder.html "class in com.google.adk.apps")`
+
+App.Builder.`[rootAgent](../../apps/App.Builder.html#rootAgent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") rootAgent)`
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.maven](../../maven/package-summary.html)
+
+Methods in [com.google.adk.maven](../../maven/package-summary.html) that return [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+AgentLoader.`[loadAgent](../../maven/AgentLoader.html#loadAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+Loads the BaseAgent instance for the specified agent name.
+
+`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+ConfigAgentLoader.`[loadAgent](../../maven/ConfigAgentLoader.html#loadAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.plugins](../../plugins/package-summary.html)
+
+Methods in [com.google.adk.plugins](../../plugins/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+LoggingPlugin.`[afterAgentCallback](../../plugins/LoggingPlugin.html#afterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+Plugin.`[afterAgentCallback](../../plugins/Plugin.html#afterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+Callback executed after an agent's primary logic has completed.
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+PluginManager.`[afterAgentCallback](../../plugins/PluginManager.html#afterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+LoggingPlugin.`[beforeAgentCallback](../../plugins/LoggingPlugin.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+Plugin.`[beforeAgentCallback](../../plugins/Plugin.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+Callback executed before an agent's primary logic is invoked.
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+PluginManager.`[beforeAgentCallback](../../plugins/PluginManager.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+PluginManager.`[runAfterAgentCallback](../../plugins/PluginManager.html#runAfterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+PluginManager.`[runBeforeAgentCallback](../../plugins/PluginManager.html#runBeforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
 
   * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.runner](../../runner/package-summary.html)
 
@@ -247,6 +490,20 @@ Runner.`[agent](../../runner/Runner.html#agent\(\))()`
 
  
 
+Methods in [com.google.adk.runner](../../runner/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[Runner.Builder](../../runner/Runner.Builder.html "class in com.google.adk.runner")`
+
+Runner.Builder.`[agent](../../runner/Runner.Builder.html#agent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
+
+ 
+
 Constructors in [com.google.adk.runner](../../runner/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
 
 Modifier
@@ -254,6 +511,24 @@ Modifier
 Constructor
 
 Description
+
+` `
+
+`[FirestoreDatabaseRunner](../../runner/FirestoreDatabaseRunner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,com.google.cloud.firestore.Firestore\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") baseAgent, com.google.cloud.firestore.Firestore firestore)`
+
+Constructor for FirestoreDatabaseRunner
+
+` `
+
+`[FirestoreDatabaseRunner](../../runner/FirestoreDatabaseRunner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.cloud.firestore.Firestore\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") baseAgent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, com.google.cloud.firestore.Firestore firestore)`
+
+Constructor for FirestoreDatabaseRunner with appName
+
+` `
+
+`[FirestoreDatabaseRunner](../../runner/FirestoreDatabaseRunner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,java.util.List,com.google.cloud.firestore.Firestore\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") baseAgent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BasePlugin](../../plugins/BasePlugin.html "class in com.google.adk.plugins")> plugins, com.google.cloud.firestore.Firestore firestore)`
+
+Constructor for FirestoreDatabaseRunner with parent runners
 
 ` `
 
@@ -269,9 +544,41 @@ Description
 
 ` `
 
+`[InMemoryRunner](../../runner/InMemoryRunner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,java.util.List\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
+
+ 
+
+` `
+
 `[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService)`
 
-Creates a new `Runner`.
+Deprecated.
+
+Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+` `
+
+`[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService)`
+
+Deprecated.
+
+Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+` `
+
+`[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
+
+Deprecated.
+
+Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+`protected `
+
+`[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins, [EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig, [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
+
+Deprecated.
+
+Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 
   * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.tools](../../tools/package-summary.html)
 
@@ -309,9 +616,31 @@ Description
 
  
 
-  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.web](../../web/package-summary.html)
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.tutorials](../../tutorials/package-summary.html)
 
-Methods in [com.google.adk.web](../../web/package-summary.html) that return types with arguments of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+Fields in [com.google.adk.tutorials](../../tutorials/package-summary.html) declared as [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+CityTimeWeather.`[ROOT_AGENT](../../tutorials/CityTimeWeather.html#ROOT_AGENT)`
+
+ 
+
+`static final [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+LiveAudioSingleAgent.`[WEATHER_AGENT](../../tutorials/LiveAudioSingleAgent.html#WEATHER_AGENT)`
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.utils](../../utils/package-summary.html)
+
+Methods in [com.google.adk.utils](../../utils/package-summary.html) that return types with arguments of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
 
 Modifier and Type
 
@@ -319,15 +648,55 @@ Method
 
 Description
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+`default [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>>`
 
-AgentCompilerLoader.`[loadAgents](../../web/AgentCompilerLoader.html#loadAgents\(\))()`
+AdkComponentProvider.`[getAgentClasses](../../utils/AdkComponentProvider.html#getAgentClasses\(\))()`
 
-Discovers, compiles, and loads agents from the configured source directory.
+Returns a list of agent classes to register.
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>>`
 
-AdkWebServer.`[loadedAgentRegistry](../../web/AdkWebServer.html#loadedAgentRegistry\(com.google.adk.web.AgentCompilerLoader,com.google.adk.web.config.AgentLoadingProperties\))([AgentCompilerLoader](../../web/AgentCompilerLoader.html "class in com.google.adk.web") loader, [AgentLoadingProperties](../../web/config/AgentLoadingProperties.html "class in com.google.adk.web.config") props)`
+CoreAdkComponentProvider.`[getAgentClasses](../../utils/CoreAdkComponentProvider.html#getAgentClasses\(\))()`
+
+Returns agent classes for [`LlmAgent`](../LlmAgent.html "class in com.google.adk.agents"), [`LoopAgent`](../LoopAgent.html "class in com.google.adk.agents"), [`ParallelAgent`](../ParallelAgent.html "class in com.google.adk.agents") and [`SequentialAgent`](../SequentialAgent.html "class in com.google.adk.agents").
+
+`static [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+
+ComponentRegistry.`[resolveAgentClass](../../utils/ComponentRegistry.html#resolveAgentClass\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentClassName)`
+
+Resolves the agent class based on the agent class name from the configuration.
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
+
+ComponentRegistry.`[resolveAgentInstance](../../utils/ComponentRegistry.html#resolveAgentInstance\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+Resolves an agent instance from the registry.
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.web](../../web/package-summary.html)
+
+Methods in [com.google.adk.web](../../web/package-summary.html) that return [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+AgentLoader.`[loadAgent](../../web/AgentLoader.html#loadAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+Loads the BaseAgent instance for the specified agent name.
+
+`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+AgentStaticLoader.`[loadAgent](../../web/AgentStaticLoader.html#loadAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+ 
+
+`[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
+
+CompiledAgentLoader.`[loadAgent](../../web/CompiledAgentLoader.html#loadAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
 
  
 
@@ -345,7 +714,13 @@ AgentGraphGenerator.`[getAgentGraphDotSource](../../web/AgentGraphGenerator.html
 
 Generates the DOT source string for the agent graph.
 
-Constructor parameters in [com.google.adk.web](../../web/package-summary.html) with type arguments of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+`static void`
+
+AdkWebServer.`[start](../../web/AdkWebServer.html#start\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... agents)`
+
+ 
+
+Constructors in [com.google.adk.web](../../web/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
 
 Modifier
 
@@ -355,13 +730,7 @@ Description
 
 ` `
 
-`[AgentController](../../web/AdkWebServer.AgentController.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,java.util.Map,com.google.adk.web.AdkWebServer.ApiServerSpanExporter,com.google.adk.web.AdkWebServer.RunnerService\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> agentRegistry, [AdkWebServer.ApiServerSpanExporter](../../web/AdkWebServer.ApiServerSpanExporter.html "class in com.google.adk.web") apiServerSpanExporter, [AdkWebServer.RunnerService](../../web/AdkWebServer.RunnerService.html "class in com.google.adk.web") runnerService)`
-
-Constructs the AgentController.
-
-` `
-
-`[RunnerService](../../web/AdkWebServer.RunnerService.html#%3Cinit%3E\(java.util.Map,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")> agentRegistry, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService)`
+`[AgentStaticLoader](../../web/AgentStaticLoader.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent...\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents")... agents)`
 
  
 
@@ -370,4 +739,4 @@ Constructs the AgentController.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

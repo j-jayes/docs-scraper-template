@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/ResponseProcessor.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,21 +21,21 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
   3. Method Summary
   4. Method Details
      1. processResponse(InvocationContext, LlmResponse)
 
-
+Hide sidebar  Show sidebar
 
 # Interface ResponseProcessor
 
 * * *
 
 public interface ResponseProcessor
+
+Interface for processing LLM responses.
 
   * ## Nested Class Summary
 
@@ -50,7 +51,7 @@ Description
 
 `[ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
- 
+Result of response processing.
 
   * ## Method Summary
 
@@ -90,4 +91,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

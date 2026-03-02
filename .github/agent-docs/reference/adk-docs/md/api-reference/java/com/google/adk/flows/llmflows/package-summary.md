@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.flows.llmflows
 
@@ -69,6 +68,14 @@ A basic flow that calls the LLM in a loop until a final response is generated.
 
 [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles basic information to build the LLM request.
 
+[CodeExecution](CodeExecution.html "class in com.google.adk.flows.llmflows")
+
+Handles Code Execution related logic.
+
+[Compaction](Compaction.html "class in com.google.adk.flows.llmflows")
+
+Request processor that performs event compaction.
+
 [Contents](Contents.html "class in com.google.adk.flows.llmflows")
 
 [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") that populates content in request for LLM flows.
@@ -89,29 +96,33 @@ Utility class for handling function calls.
 
 [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles instructions and global instructions for LLM flows.
 
+[RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")
+
+Handles tool confirmation information to build the LLM request.
+
 [RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")
 
- 
+Interface for processing LLM requests.
 
 [RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")
 
- 
+Result of request processing.
 
 [ResponseProcessor](ResponseProcessor.html "interface in com.google.adk.flows.llmflows")
 
- 
+Interface for processing LLM responses.
 
 [ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
 
- 
+Result of response processing.
 
 [SingleFlow](SingleFlow.html "class in com.google.adk.flows.llmflows")
 
-Basic LLM flow with fixed request processors and no response post-processing.
+Basic LLM flow with fixed request and response processors.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/RequestProcessor.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -20,24 +21,24 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Nested Class Summary
   3. Method Summary
   4. Method Details
      1. processRequest(InvocationContext, LlmRequest)
 
-
+Hide sidebar  Show sidebar
 
 # Interface RequestProcessor
 
 All Known Implementing Classes:
-    `[AgentTransfer](AgentTransfer.html "class in com.google.adk.flows.llmflows")`, `[Basic](Basic.html "class in com.google.adk.flows.llmflows")`, `[Contents](Contents.html "class in com.google.adk.flows.llmflows")`, `[Examples](Examples.html "class in com.google.adk.flows.llmflows")`, `[Identity](Identity.html "class in com.google.adk.flows.llmflows")`, `[Instructions](Instructions.html "class in com.google.adk.flows.llmflows")`
+    `[AgentTransfer](AgentTransfer.html "class in com.google.adk.flows.llmflows"), [Basic](Basic.html "class in com.google.adk.flows.llmflows"), [Compaction](Compaction.html "class in com.google.adk.flows.llmflows"), [Contents](Contents.html "class in com.google.adk.flows.llmflows"), [Examples](Examples.html "class in com.google.adk.flows.llmflows"), [Identity](Identity.html "class in com.google.adk.flows.llmflows"), [Instructions](Instructions.html "class in com.google.adk.flows.llmflows"), [RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")`
 
 * * *
 
 public interface RequestProcessor
+
+Interface for processing LLM requests.
 
   * ## Nested Class Summary
 
@@ -53,7 +54,7 @@ Description
 
 `[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
- 
+Result of request processing.
 
   * ## Method Summary
 
@@ -93,4 +94,4 @@ Returns:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

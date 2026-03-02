@@ -159,10 +159,10 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../)
+    * [ Gemini Live API Toolkit  ](../../)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../part1/)
         * Part 2. Sending messages  [ Part 2. Sending messages  ](./) Table of contents 
           * LiveRequestQueue and LiveRequest 
@@ -180,7 +180,7 @@ Bidi-streaming (live)
         * [ Part 4. Run configuration  ](../part4/)
         * [ Part 5. Audio, Images, and Video  ](../part5/)
       * [ Streaming Tools  ](../../streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../configuration/)
+      * [ Configuring streaming behavior  ](../../configuration/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -220,14 +220,14 @@ Table of contents
 
 
   1. [ Components  ](../../../get-started/about/)
-  2. [ Bidi-streaming (live)  ](../../)
-  3. [ Bidi-streaming development guide series  ](../part1/)
+  2. [ Gemini Live API Toolkit  ](../../)
+  3. [ Gemini Live API Toolkit development guide series  ](../part1/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/streaming/dev-guide/part2.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/dev-guide/part2.md "View Markdown source")
 
 # Part 2: Sending messages with LiveRequestQueue¶
 
-In Part 1, you learned the four-phase lifecycle of ADK Bidi-streaming applications. This part focuses on the upstream flow—how your application sends messages to the agent using `LiveRequestQueue`.
+In Part 1, you learned the four-phase lifecycle of ADK Gemini Live API Toolkit applications. This part focuses on the upstream flow—how your application sends messages to the agent using `LiveRequestQueue`.
 
 Unlike traditional APIs where different message types require different endpoints or channels, ADK provides a single unified interface through `LiveRequestQueue` and its `LiveRequest` message model. This part covers:
 
@@ -244,7 +244,7 @@ Understanding `LiveRequestQueue` is essential for building responsive streaming 
 
 The `LiveRequestQueue` is your primary interface for sending messages to the Agent in streaming conversations. Rather than managing separate channels for text, audio, and control signals, ADK provides a unified `LiveRequest` container that handles all message types through a single, elegant API:
 
-Source reference: [live_request_queue.py](https://github.com/google/adk-python/blob/29c1115959b0084ac1169748863b35323da3cf50/src/google/adk/agents/live_request_queue.py)
+Source reference: [live_request_queue.py](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/agents/live_request_queue.py)
     
     
     class LiveRequest(BaseModel):
@@ -310,21 +310,21 @@ Demo implementation: [main.py:194-199](https://github.com/google/adk-samples/blo
     live_request_queue.send_content(content)
     
 
-**Using Content and Part with ADK Bidi-streaming:**
+**Using Content and Part with ADK Gemini Live API Toolkit:**
 
   * **`Content`** (`google.genai.types.Content`): A container that represents a single message or turn in the conversation. It holds an array of `Part` objects that together compose the complete message.
 
-  * **`Part`** (`google.genai.types.Part`): An individual piece of content within a message. For ADK Bidi-streaming with Live API, you'll use:
+  * **`Part`** (`google.genai.types.Part`): An individual piece of content within a message. For ADK Gemini Live API Toolkit with Live API, you'll use:
 
   * `text`: Text content (including code) that you send to the model
 
 
 
-In practice, most messages use a single text Part for ADK Bidi-streaming. The multi-part structure is designed for scenarios like: \- Mixing text with function responses (automatically handled by ADK) \- Combining text explanations with structured data \- Future extensibility for new content types
+In practice, most messages use a single text Part for ADK Gemini Live API Toolkit. The multi-part structure is designed for scenarios like: \- Mixing text with function responses (automatically handled by ADK) \- Combining text explanations with structured data \- Future extensibility for new content types
 
 For Live API, multimodal inputs (audio/video) use different mechanisms (see `send_realtime()` below), not multi-part Content.
 
-Content and Part usage in ADK Bidi-streaming
+Content and Part Usage in ADK Gemini Live API Toolkit
 
 While the Gemini API `Part` type supports many fields (`inline_data`, `file_data`, `function_call`, `function_response`, etc.), most are either handled automatically by ADK or use different mechanisms in Live API:
 
@@ -395,11 +395,11 @@ For detailed comparison of automatic VAD vs manual activity signals, including w
 
 ### Control Signals¶
 
-The `close` signal provides graceful termination semantics for streaming sessions. It signals the system to cleanly close the model connection and end the Bidi-stream. In ADK Bidi-streaming, your application is responsible for sending the `close` signal explicitly:
+The `close` signal provides graceful termination semantics for streaming sessions. It signals the system to cleanly close the model connection and end the Bidi-stream. In ADK Gemini Live API Toolkit, your application is responsible for sending the `close` signal explicitly:
 
 **Manual closure in BIDI mode:** When using `StreamingMode.BIDI` (Bidi-streaming), your application should manually call `close()` when the session terminates or when errors occur. This practice minimizes session resource usage.
 
-**Automatic closure in SSE mode:** When using the legacy `StreamingMode.SSE` (not Bidi-streaming), ADK automatically calls `close()` on the queue when it receives a `turn_complete=True` event from the model (see [`base_llm_flow.py:781`](https://github.com/google/adk-python/blob/fd2c0f556b786417a9f6add744827b07e7a06b7d/src/google/adk/flows/llm_flows/base_llm_flow.py#L780)).
+**Automatic closure in SSE mode:** When using the legacy `StreamingMode.SSE` (not Bidi-streaming), ADK automatically calls `close()` on the queue when it receives a `turn_complete=True` event from the model (see [`base_llm_flow.py:1150`](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/flows/llm_flows/base_llm_flow.py#L1150)).
 
 See [Part 4: Understanding RunConfig](../part4/#streamingmode-bidi-or-sse) for detailed comparison and when to use each mode.
 
@@ -507,7 +507,7 @@ In this part, you learned how `LiveRequestQueue` provides a unified interface fo
 
 * * *
 
-← [Previous: Part 1: Introduction to ADK Bidi-streaming](../part1/) | [Next: Part 3: Event Handling with run_live()](../part3/) →
+← [Previous: Part 1: Introduction to ADK Gemini Live API Toolkit](../part1/) | [Next: Part 3: Event Handling with run_live()](../part3/) →
 
 Back to top  [ Previous  Part 1. Intro to streaming  ](../part1/) [ Next  Part 3. Event handling  ](../part3/)
 

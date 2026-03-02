@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../deprecated-list.html)
   * [Index](../../../index-all.html)
   * [Search](../../../search.html)
 
@@ -34,7 +35,15 @@ com.google.adk.agents
 
  
 
+com.google.adk.codeexecutors
+
+ 
+
 com.google.adk.events
+
+ 
+
+com.google.adk.examples
 
  
 
@@ -46,7 +55,15 @@ com.google.adk.sessions
 
  
 
-com.google.adk.web
+com.google.adk.tools
+
+ 
+
+com.google.adk.tools.mcp
+
+ 
+
+com.google.adk.web.dto
 
  
 
@@ -70,6 +87,16 @@ Description
 
 The base class for the types that needs JSON serialization/deserialization capability.
 
+  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.codeexecutors](codeexecutors/package-summary.html)
+
+Class
+
+Description
+
+[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.codeexecutors)
+
+The base class for the types that needs JSON serialization/deserialization capability.
+
   * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.events](events/package-summary.html)
 
 Class
@@ -77,6 +104,16 @@ Class
 Description
 
 [JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.events)
+
+The base class for the types that needs JSON serialization/deserialization capability.
+
+  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.examples](examples/package-summary.html)
+
+Class
+
+Description
+
+[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.examples)
 
 The base class for the types that needs JSON serialization/deserialization capability.
 
@@ -100,13 +137,33 @@ Description
 
 The base class for the types that needs JSON serialization/deserialization capability.
 
-  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.web](web/package-summary.html)
+  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.tools](tools/package-summary.html)
 
 Class
 
 Description
 
-[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.web)
+[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.tools)
+
+The base class for the types that needs JSON serialization/deserialization capability.
+
+  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.tools.mcp](tools/mcp/package-summary.html)
+
+Class
+
+Description
+
+[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.tools.mcp)
+
+The base class for the types that needs JSON serialization/deserialization capability.
+
+  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.web.dto](web/dto/package-summary.html)
+
+Class
+
+Description
+
+[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.web.dto)
 
 The base class for the types that needs JSON serialization/deserialization capability.
 
@@ -115,4 +172,4 @@ The base class for the types that needs JSON serialization/deserialization capab
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

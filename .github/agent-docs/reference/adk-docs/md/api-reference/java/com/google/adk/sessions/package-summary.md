@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.sessions
 
@@ -56,6 +55,10 @@ The API response contains a response to a call to the GenAI APIs.
 [BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")
 
 Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
+
+[FirestoreSessionService](FirestoreSessionService.html "class in com.google.adk.sessions")
+
+FirestoreSessionService implements session management using Google Firestore as the backend storage.
 
 [GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions")
 
@@ -119,11 +122,11 @@ A [`State`](State.html "class in com.google.adk.sessions") object that also keep
 
 [VertexAiSessionService](VertexAiSessionService.html "class in com.google.adk.sessions")
 
-TODO: Use the genai HttpApiClient and ApiResponse methods once they are public.
+Connects to the managed Vertex AI Session Service.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

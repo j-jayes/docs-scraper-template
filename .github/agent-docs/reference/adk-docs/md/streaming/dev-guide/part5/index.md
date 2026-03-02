@@ -159,10 +159,10 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../)
+    * [ Gemini Live API Toolkit  ](../../)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../part1/)
         * [ Part 2. Sending messages  ](../part2/)
         * [ Part 3. Event handling  ](../part3/)
@@ -208,7 +208,7 @@ Bidi-streaming (live)
             * Platform Compatibility 
           * Summary 
       * [ Streaming Tools  ](../../streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../configuration/)
+      * [ Configuring streaming behavior  ](../../configuration/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -276,8 +276,8 @@ Table of contents
 
 
   1. [ Components  ](../../../get-started/about/)
-  2. [ Bidi-streaming (live)  ](../../)
-  3. [ Bidi-streaming development guide series  ](../part1/)
+  2. [ Gemini Live API Toolkit  ](../../)
+  3. [ Gemini Live API Toolkit development guide series  ](../part1/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/streaming/dev-guide/part5.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/dev-guide/part5.md "View Markdown source")
 
@@ -712,7 +712,7 @@ This architecture ensures smooth, low-latency audio playback while handling netw
 
 ## How to Use Image and Video¶
 
-Both images and video in ADK Bidi-streaming are processed as JPEG frames. Rather than typical video streaming using HLS, mp4, or H.264, ADK uses a straightforward frame-by-frame image processing approach where both static images and video frames are sent as individual JPEG images.
+Both images and video in ADK Gemini Live API Toolkit are processed as JPEG frames. Rather than typical video streaming using HLS, mp4, or H.264, ADK uses a straightforward frame-by-frame image processing approach where both static images and video frames are sent as individual JPEG images.
 
 **Image/Video Specifications:**
 
@@ -1323,7 +1323,7 @@ The automatic enablement happens in `Runner.run_live()` when both conditions are
 
 Source
 
-[`runners.py:1395-1404`](https://github.com/google/adk-python/blob/fd2c0f556b786417a9f6add744827b07e7a06b7d/src/google/adk/runners.py#L1395-L1404)
+[`runners.py:1391-1400`](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/runners.py#L1391-L1400)
 
 ## Voice Configuration (Speech Config)¶
 
@@ -1944,9 +1944,9 @@ Consider disabling proactivity/affective dialog for: \- **Formal/professional co
 
 ## Summary¶
 
-In this part, you learned how to implement multimodal features in ADK Bidi-streaming applications, focusing on audio, image, and video capabilities. We covered audio specifications and format requirements, explored the differences between native audio and half-cascade architectures, examined how to send and receive audio streams through LiveRequestQueue and Events, and learned about advanced features like audio transcription, voice activity detection, and proactive/affective dialog. You now understand how to build natural voice-enabled AI experiences with proper audio handling, implement video streaming for visual context, and configure model-specific features based on platform capabilities. With this comprehensive understanding of ADK's multimodal streaming features, you're equipped to build production-ready applications that handle text, audio, image, and video seamlessly—creating rich, interactive AI experiences across diverse use cases.
+In this part, you learned how to implement multimodal features in ADK Gemini Live API Toolkit applications, focusing on audio, image, and video capabilities. We covered audio specifications and format requirements, explored the differences between native audio and half-cascade architectures, examined how to send and receive audio streams through LiveRequestQueue and Events, and learned about advanced features like audio transcription, voice activity detection, and proactive/affective dialog. You now understand how to build natural voice-enabled AI experiences with proper audio handling, implement video streaming for visual context, and configure model-specific features based on platform capabilities. With this comprehensive understanding of ADK's multimodal streaming features, you're equipped to build production-ready applications that handle text, audio, image, and video seamlessly—creating rich, interactive AI experiences across diverse use cases.
 
-**Congratulations!** You've completed the ADK Bidi-streaming Developer Guide. You now have a comprehensive understanding of how to build production-ready real-time streaming AI applications with Google's Agent Development Kit.
+**Congratulations!** You've completed the ADK Gemini Live API Toolkit Developer Guide. You now have a comprehensive understanding of how to build production-ready real-time streaming AI applications with Google's Agent Development Kit.
 
 ← [Previous: Part 4: Understanding RunConfig](../part4/)
 

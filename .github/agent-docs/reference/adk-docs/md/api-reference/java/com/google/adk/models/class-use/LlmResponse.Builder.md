@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../LlmResponse.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -42,6 +43,18 @@ Method
 
 Description
 
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[avgLogprobs](../LlmResponse.Builder.html#avgLogprobs\(java.lang.Double\))([Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[avgLogprobs](../LlmResponse.Builder.html#avgLogprobs\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs)`
+
+ 
+
 `static [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
 LlmResponse.`[builder](../LlmResponse.html#builder\(\))()`
@@ -51,6 +64,12 @@ LlmResponse.`[builder](../LlmResponse.html#builder\(\))()`
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
 LlmResponse.Builder.`[content](../LlmResponse.Builder.html#content\(com.google.genai.types.Content\))(com.google.genai.types.Content content)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[content](../LlmResponse.Builder.html#content\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)`
 
  
 
@@ -80,6 +99,18 @@ LlmResponse.Builder.`[errorMessage](../LlmResponse.Builder.html#errorMessage\(ja
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
+LlmResponse.Builder.`[finishReason](../LlmResponse.Builder.html#finishReason\(com.google.genai.types.FinishReason\))(com.google.genai.types.FinishReason finishReason)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[finishReason](../LlmResponse.Builder.html#finishReason\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
 LlmResponse.Builder.`[groundingMetadata](../LlmResponse.Builder.html#groundingMetadata\(com.google.genai.types.GroundingMetadata\))(com.google.genai.types.GroundingMetadata groundingMetadata)`
 
  
@@ -99,6 +130,18 @@ LlmResponse.Builder.`[interrupted](../LlmResponse.Builder.html#interrupted\(java
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
 LlmResponse.Builder.`[interrupted](../LlmResponse.Builder.html#interrupted\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> interrupted)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[modelVersion](../LlmResponse.Builder.html#modelVersion\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[modelVersion](../LlmResponse.Builder.html#modelVersion\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion)`
 
  
 
@@ -155,4 +198,4 @@ LlmResponse.Builder.`[usageMetadata](../LlmResponse.Builder.html#usageMetadata\(
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

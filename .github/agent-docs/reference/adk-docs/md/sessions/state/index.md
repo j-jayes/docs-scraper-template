@@ -134,7 +134,7 @@ Sessions
           * Accessing Session State in Agent Instructions 
             * Using {key} Templating 
             * Important Considerations 
-            * Bypassing State Injection with InstructionProvider 
+            * Using InstructionProvider for Full Control 
           * How State is Updated: Recommended Methods 
           * ⚠️ A Warning About Direct State Modification 
           * Best Practices for State Design Recap 
@@ -169,17 +169,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../streaming/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -210,7 +210,7 @@ Table of contents
     * Accessing Session State in Agent Instructions 
       * Using {key} Templating 
       * Important Considerations 
-      * Bypassing State Injection with InstructionProvider 
+      * Using InstructionProvider for Full Control 
     * How State is Updated: Recommended Methods 
     * ⚠️ A Warning About Direct State Modification 
     * Best Practices for State Design Recap 
@@ -390,15 +390,19 @@ PythonTypeScriptGo
 
   * Key Existence: Ensure that the key you reference in the instruction string exists in the session.state. If the key is missing, the agent will throw an error. To use a key that may or may not be present, you can include a question mark (?) after the key (e.g. {topic?}).
   * Data Types: The value associated with the key should be a string or a type that can be easily converted to a string.
-  * Escaping: If you need to use literal curly braces in your instruction (e.g., for JSON formatting), you'll need to escape them.
+  * Literal Curly Braces: The `{key}` syntax matches any valid Python identifier inside single curly braces. If you need literal curly braces in your instruction, such as for JSON formatting or templating syntax, use an `InstructionProvider` function instead of a string (see below).
 
 
 
-#### Bypassing State Injection with `InstructionProvider`¶
+f-strings and double braces
 
-In some cases, you might want to use `{{` and `}}` literally in your instructions without triggering the state injection mechanism. For example, you might be writing instructions for an agent that helps with a templating language that uses the same syntax.
+Some ADK examples use Python f-strings in instructions, such as `f"Topic: {{initial_topic}}"`. The `{{` and `}}` in those examples are **Python f-string escaping** , not ADK syntax. At runtime, Python converts `{{initial_topic}}` to `{initial_topic}`, which ADK then treats as a normal state variable placeholder. If you are not using f-strings, use single braces `{key}` directly.
 
-To achieve this, you can provide a function to the `instruction` parameter instead of a string. This function is called an `InstructionProvider`. When you use an `InstructionProvider`, the ADK will not attempt to inject state, and your instruction string will be passed to the model as-is.
+#### Using `InstructionProvider` for Full Control¶
+
+In some cases, you may need full control over the instruction string — for example, when your instructions contain literal curly braces (e.g., JSON examples, templating syntax) that would otherwise be interpreted as state variable placeholders.
+
+To achieve this, provide a function to the `instruction` parameter instead of a string. This function is called an `InstructionProvider`. When you use an `InstructionProvider`, the ADK will **not** attempt to inject state variables, and the returned string will be passed to the model as-is.
 
 The `InstructionProvider` function receives a `ReadonlyContext` object, which you can use to access session state or other contextual information if you need to build the instruction dynamically.
 
@@ -410,9 +414,8 @@ PythonTypeScriptGo
     
     # This is an InstructionProvider
     def my_instruction_provider(context: ReadonlyContext) -> str:
-        # You can optionally use the context to build the instruction
-        # For this example, we'll return a static string with literal braces.
-        return "This is an instruction with {{literal_braces}} that will not be replaced."
+        # No state injection occurs — curly braces are treated as literal text.
+        return 'Format your output as JSON: {"city": "<name>", "population": <number>}'
     
     agent = LlmAgent(
         model="gemini-2.0-flash",
@@ -426,9 +429,8 @@ PythonTypeScriptGo
     
     // This is an InstructionProvider
     function myInstructionProvider(context: ReadonlyContext): string {
-        // You can optionally use the context to build the instruction
-        // For this example, we'll return a static string with literal braces.
-        return "This is an instruction with {{literal_braces}} that will not be replaced.";
+        // No state injection occurs — curly braces are treated as literal text.
+        return 'Format your output as JSON: {"city": "<name>", "population": <number>}';
     }
     
     const agent = new LlmAgent({
@@ -448,7 +450,7 @@ PythonTypeScriptGo
     }
     
 
-If you want to both use an `InstructionProvider` _and_ inject state into your instructions, you can use the `inject_session_state` utility function.
+If you want to both use an `InstructionProvider` _and_ inject state into your instructions, you can use the `inject_session_state` utility function. Only `{key}` placeholders matching valid state variable names will be replaced; other text (including curly braces that don't match valid identifiers) will be left as-is.
 
 PythonGo
     
@@ -458,8 +460,9 @@ PythonGo
     from google.adk.utils import instructions_utils
     
     async def my_dynamic_instruction_provider(context: ReadonlyContext) -> str:
-        template = "This is a {adjective} instruction with {{literal_braces}}."
-        # This will inject the 'adjective' state variable but leave the literal braces.
+        template = "This is a {adjective} instruction. Use JSON like: {\"key\": \"value\"}."
+        # This will inject the 'adjective' state variable.
+        # The JSON braces are left alone because their content is not a valid identifier.
         return await instructions_utils.inject_session_state(template, context)
     
     agent = LlmAgent(

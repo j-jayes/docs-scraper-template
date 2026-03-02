@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.web
 
@@ -47,7 +46,23 @@ Description
 
  
 
-  * Classes
+[com.google.adk.web.controller](controller/package-summary.html)
+
+ 
+
+[com.google.adk.web.dto](dto/package-summary.html)
+
+ 
+
+[com.google.adk.web.service](service/package-summary.html)
+
+ 
+
+[com.google.adk.web.websocket](websocket/package-summary.html)
+
+ 
+
+  * All Classes and InterfacesInterfacesClasses
 
 Class
 
@@ -55,63 +70,27 @@ Description
 
 [AdkWebServer](AdkWebServer.html "class in com.google.adk.web")
 
-Single-file Spring Boot application for the Agent Server.
-
-[AdkWebServer.AddSessionToEvalSetRequest](AdkWebServer.AddSessionToEvalSetRequest.html "class in com.google.adk.web")
-
-DTO for POST /apps/{appName}/eval_sets/{evalSetId}/add-session requests.
-
-[AdkWebServer.AgentController](AdkWebServer.AgentController.html "class in com.google.adk.web")
-
-Spring Boot REST Controller handling agent-related API endpoints.
-
-[AdkWebServer.AgentRunRequest](AdkWebServer.AgentRunRequest.html "class in com.google.adk.web")
-
-Data Transfer Object (DTO) for POST /run and POST /run-sse requests.
-
-[AdkWebServer.ApiServerSpanExporter](AdkWebServer.ApiServerSpanExporter.html "class in com.google.adk.web")
-
-A custom SpanExporter that stores relevant span data.
-
-[AdkWebServer.GraphResponse](AdkWebServer.GraphResponse.html "class in com.google.adk.web")
-
-DTO for the response of GET /apps/{appName}/users/{userId}/sessions/{sessionId}/events/{eventId}/graph.
-
-[AdkWebServer.LiveWebSocketHandler](AdkWebServer.LiveWebSocketHandler.html "class in com.google.adk.web")
-
-WebSocket Handler for the /run_live endpoint.
-
-[AdkWebServer.OpenTelemetryConfig](AdkWebServer.OpenTelemetryConfig.html "class in com.google.adk.web")
-
-Configuration class for OpenTelemetry, setting up the tracer provider and span exporter.
-
-[AdkWebServer.RunEvalRequest](AdkWebServer.RunEvalRequest.html "class in com.google.adk.web")
-
-DTO for POST /apps/{appName}/eval_sets/{evalSetId}/run-eval requests.
-
-[AdkWebServer.RunEvalResult](AdkWebServer.RunEvalResult.html "class in com.google.adk.web")
-
-DTO for the response of POST /apps/{appName}/eval_sets/{evalSetId}/run-eval.
-
-[AdkWebServer.RunnerService](AdkWebServer.RunnerService.html "class in com.google.adk.web")
-
-Service for creating and caching Runner instances.
-
-[AdkWebServer.WebSocketConfig](AdkWebServer.WebSocketConfig.html "class in com.google.adk.web")
-
-Configuration class for WebSocket handling.
-
-[AgentCompilerLoader](AgentCompilerLoader.html "class in com.google.adk.web")
-
-Dynamically compiles and loads ADK [`BaseAgent`](../agents/BaseAgent.html "class in com.google.adk.agents") implementations from source files.
+Spring Boot application for the Agent Server.
 
 [AgentGraphGenerator](AgentGraphGenerator.html "class in com.google.adk.web")
 
 Utility class to generate Graphviz DOT representations of Agent structures.
+
+[AgentLoader](AgentLoader.html "interface in com.google.adk.web")
+
+Interface for loading agents to the ADK Web Server.
+
+[AgentStaticLoader](AgentStaticLoader.html "class in com.google.adk.web")
+
+Static Agent Loader for programmatically provided agents.
+
+[CompiledAgentLoader](CompiledAgentLoader.html "class in com.google.adk.web")
+
+CompiledAgentLoader implementation for the dev environment.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

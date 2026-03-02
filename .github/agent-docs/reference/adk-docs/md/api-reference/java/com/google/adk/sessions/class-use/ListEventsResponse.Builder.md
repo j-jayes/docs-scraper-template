@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ListEventsResponse.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -65,4 +66,4 @@ ListEventsResponse.Builder.`[nextPageToken](../ListEventsResponse.Builder.html#n
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

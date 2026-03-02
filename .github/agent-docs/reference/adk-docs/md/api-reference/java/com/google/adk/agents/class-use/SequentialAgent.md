@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../SequentialAgent.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -47,9 +48,15 @@ SequentialAgent.Builder.`[build](../SequentialAgent.Builder.html#build\(\))()`
 
  
 
+`static [SequentialAgent](../SequentialAgent.html "class in com.google.adk.agents")`
+
+SequentialAgent.`[fromConfig](../SequentialAgent.html#fromConfig\(com.google.adk.agents.SequentialAgentConfig,java.lang.String\))([SequentialAgentConfig](../SequentialAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+
+Creates a SequentialAgent from configuration.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

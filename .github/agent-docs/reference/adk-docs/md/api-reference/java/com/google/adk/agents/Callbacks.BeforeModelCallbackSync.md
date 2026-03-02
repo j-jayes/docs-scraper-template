@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Callbacks.BeforeModelCallbackSync.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -21,14 +22,12 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
-     1. call(CallbackContext, LlmRequest)
+     1. call(CallbackContext, LlmRequest.Builder)
 
-
+Hide sidebar  Show sidebar
 
 # Interface Callbacks.BeforeModelCallbackSync
 
@@ -56,7 +55,7 @@ Description
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../models/LlmResponse.html "class in com.google.adk.models")>`
 
-`call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+`call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)`
 
  
 
@@ -67,11 +66,11 @@ Description
 
     * ### call
 
-[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../models/LlmResponse.html "class in com.google.adk.models")> call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest)
+[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../models/LlmResponse.html "class in com.google.adk.models")> call([CallbackContext](CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

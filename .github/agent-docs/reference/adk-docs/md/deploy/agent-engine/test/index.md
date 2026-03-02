@@ -169,17 +169,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../../streaming/configuration/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -357,7 +357,7 @@ Google Cloud ProjectVertex AI express mode
          curl \
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json" \
-         https://$(LOCATION_ID)-aiplatform.googleapis.com/v1/projects/$(PROJECT_ID)/locations/$(LOCATION_ID)/reasoningEngines/$(RESOURCE_ID):query?alt=sse -d '{
+         https://$(LOCATION_ID)-aiplatform.googleapis.com/v1/projects/$(PROJECT_ID)/locations/$(LOCATION_ID)/reasoningEngines/$(RESOURCE_ID):streamQuery?alt=sse -d '{
          "class_method": "async_stream_query",
          "input": {
              "user_id": "u_123",
@@ -370,7 +370,7 @@ Google Cloud ProjectVertex AI express mode
          curl \
          -H "x-goog-api-key:YOUR-EXPRESS-MODE-API-KEY" \
          -H "Content-Type: application/json" \
-         https://aiplatform.googleapis.com/v1/reasoningEngines/$(RESOURCE_ID):query?alt=sse -d '{
+         https://aiplatform.googleapis.com/v1/reasoningEngines/$(RESOURCE_ID):streamQuery?alt=sse -d '{
          "class_method": "async_stream_query",
          "input": {
              "user_id": "u_123",

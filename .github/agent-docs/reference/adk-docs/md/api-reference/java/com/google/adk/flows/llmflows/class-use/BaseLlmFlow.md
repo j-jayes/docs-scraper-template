@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../BaseLlmFlow.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -71,11 +72,11 @@ LLM flow with automatic agent transfer support.
 
 `[SingleFlow](../SingleFlow.html "class in com.google.adk.flows.llmflows")`
 
-Basic LLM flow with fixed request processors and no response post-processing.
+Basic LLM flow with fixed request and response processors.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../LlmAgent.IncludeContents.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -62,6 +63,12 @@ LlmAgent.`[includeContents](../LlmAgent.html#includeContents\(\))()`
 
  
 
+`[LlmAgent.IncludeContents](../LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")`
+
+LlmAgentConfig.`[includeContents](../LlmAgentConfig.html#includeContents\(\))()`
+
+ 
+
 `static [LlmAgent.IncludeContents](../LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")`
 
 LlmAgent.IncludeContents.`[valueOf](../LlmAgent.IncludeContents.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
@@ -88,9 +95,15 @@ LlmAgent.Builder.`[includeContents](../LlmAgent.Builder.html#includeContents\(co
 
  
 
+`void`
+
+LlmAgentConfig.`[setIncludeContents](../LlmAgentConfig.html#setIncludeContents\(com.google.adk.agents.LlmAgent.IncludeContents\))([LlmAgent.IncludeContents](../LlmAgent.IncludeContents.html "enum class in com.google.adk.agents") includeContents)`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

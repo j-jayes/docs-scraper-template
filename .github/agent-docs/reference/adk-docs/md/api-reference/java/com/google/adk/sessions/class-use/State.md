@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../State.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -72,4 +73,4 @@ Session.Builder.`[state](../Session.Builder.html#state\(com.google.adk.sessions.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

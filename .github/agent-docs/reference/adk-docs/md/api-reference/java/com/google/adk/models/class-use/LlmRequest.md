@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../LlmRequest.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -27,10 +28,6 @@ Package
 
 Description
 
-com.google.adk
-
- 
-
 com.google.adk.agents
 
  
@@ -47,21 +44,17 @@ com.google.adk.models.langchain4j
 
  
 
-  * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk](../../package-summary.html)
+com.google.adk.models.springai
 
-Methods in [com.google.adk](../../package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+ 
 
-Modifier and Type
+com.google.adk.plugins.recordings
 
-Method
+ 
 
-Description
+com.google.adk.telemetry
 
-`static void`
-
-Telemetry.`[traceCallLlm](../../Telemetry.html#traceCallLlm\(com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
-
-Traces a call to the LLM.
+ 
 
   * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.agents](../../agents/package-summary.html)
 
@@ -75,13 +68,13 @@ Description
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-Callbacks.BeforeModelCallback.`[call](../../agents/Callbacks.BeforeModelCallback.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+Callbacks.OnModelErrorCallback.`[call](../../agents/Callbacks.OnModelErrorCallback.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest,java.lang.Exception\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
-Async callback before LLM invocation.
+Async callback when model call fails.
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-Callbacks.BeforeModelCallbackSync.`[call](../../agents/Callbacks.BeforeModelCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+Callbacks.OnModelErrorCallbackSync.`[call](../../agents/Callbacks.OnModelErrorCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest,java.lang.Exception\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
  
 
@@ -99,7 +92,7 @@ Description
 
 RequestProcessor.RequestProcessingResult.`[updatedRequest](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html#updatedRequest\(\))()`
 
- 
+Updated LLM request.
 
 Methods in [com.google.adk.flows.llmflows](../../flows/llmflows/package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
 
@@ -113,19 +106,13 @@ Description
 
 RequestProcessor.RequestProcessingResult.`[create](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html#create\(com.google.adk.models.LlmRequest,java.lang.Iterable\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") updatedRequest, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
 
- 
+Creates a new [`RequestProcessor.RequestProcessingResult`](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows").
 
-`protected io.reactivex.rxjava3.core.Single<[ResponseProcessor.ResponseProcessingResult](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
 Post-processes the LLM response after receiving it from the LLM.
-
-`protected io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
-
-BaseLlmFlow.`[preprocess](../../flows/llmflows/BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
-
-Pre-processes the LLM request before sending it to the LLM.
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
@@ -136,6 +123,12 @@ AgentTransfer.`[processRequest](../../flows/llmflows/AgentTransfer.html#processR
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
 Basic.`[processRequest](../../flows/llmflows/Basic.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
+
+ 
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
+Compaction.`[processRequest](../../flows/llmflows/Compaction.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
 
  
 
@@ -165,9 +158,29 @@ Instructions.`[processRequest](../../flows/llmflows/Instructions.html#processReq
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
+RequestConfirmationLlmRequestProcessor.`[processRequest](../../flows/llmflows/RequestConfirmationLlmRequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
 RequestProcessor.`[processRequest](../../flows/llmflows/RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
 
 Process the LLM request as part of the pre-processing stage.
+
+Method parameters in [com.google.adk.flows.llmflows](../../flows/llmflows/package-summary.html) with type arguments of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+BaseLlmFlow.`[preprocess](../../flows/llmflows/BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,java.util.concurrent.atomic.AtomicReference\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [AtomicReference](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html "class or interface in java.util.concurrent.atomic")<[LlmRequest](../LlmRequest.html "class in com.google.adk.models")> llmRequestRef)`
+
+Pre-processes the LLM request before sending it to the LLM.
 
   * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.models](../package-summary.html)
 
@@ -185,6 +198,30 @@ LlmRequest.Builder.`[build](../LlmRequest.Builder.html#build\(\))()`
 
  
 
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[prepareGenenerateContentRequest](../GeminiUtil.html#prepareGenenerateContentRequest\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean sanitize)`
+
+Prepares an [`LlmRequest`](../LlmRequest.html "class in com.google.adk.models") for the GenerateContent API.
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[prepareGenenerateContentRequest](../GeminiUtil.html#prepareGenenerateContentRequest\(com.google.adk.models.LlmRequest,boolean,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean sanitize, boolean stripThoughts)`
+
+Prepares an [`LlmRequest`](../LlmRequest.html "class in com.google.adk.models") for the GenerateContent API.
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[removeClientFunctionCallId](../GeminiUtil.html#removeClientFunctionCallId\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Removes client-side function call IDs from the request.
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[sanitizeRequestForGeminiApi](../GeminiUtil.html#sanitizeRequestForGeminiApi\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Sanitizes the request to ensure it is compatible with the Gemini API backend.
+
 Methods in [com.google.adk.models](../package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
 
 Modifier and Type
@@ -192,6 +229,12 @@ Modifier and Type
 Method
 
 Description
+
+`[BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
+
+ApigeeLlm.`[connect](../ApigeeLlm.html#connect\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
 
 `abstract [BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
 
@@ -208,6 +251,12 @@ Claude.`[connect](../Claude.html#connect\(com.google.adk.models.LlmRequest\))([L
 `[BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
 
 Gemini.`[connect](../Gemini.html#connect\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+ApigeeLlm.`[generateContent](../ApigeeLlm.html#generateContent\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
 
  
 
@@ -228,6 +277,30 @@ Claude.`[generateContent](../Claude.html#generateContent\(com.google.adk.models.
 Gemini.`[generateContent](../Gemini.html#generateContent\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
 
  
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[prepareGenenerateContentRequest](../GeminiUtil.html#prepareGenenerateContentRequest\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean sanitize)`
+
+Prepares an [`LlmRequest`](../LlmRequest.html "class in com.google.adk.models") for the GenerateContent API.
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[prepareGenenerateContentRequest](../GeminiUtil.html#prepareGenenerateContentRequest\(com.google.adk.models.LlmRequest,boolean,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean sanitize, boolean stripThoughts)`
+
+Prepares an [`LlmRequest`](../LlmRequest.html "class in com.google.adk.models") for the GenerateContent API.
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[removeClientFunctionCallId](../GeminiUtil.html#removeClientFunctionCallId\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Removes client-side function call IDs from the request.
+
+`static [LlmRequest](../LlmRequest.html "class in com.google.adk.models")`
+
+GeminiUtil.`[sanitizeRequestForGeminiApi](../GeminiUtil.html#sanitizeRequestForGeminiApi\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Sanitizes the request to ensure it is compatible with the Gemini API backend.
 
   * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.models.langchain4j](../langchain4j/package-summary.html)
 
@@ -251,9 +324,89 @@ LangChain4j.`[generateContent](../langchain4j/LangChain4j.html#generateContent\(
 
  
 
+  * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.models.springai](../springai/package-summary.html)
+
+Methods in [com.google.adk.models.springai](../springai/package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
+
+SpringAI.`[connect](../springai/SpringAI.html#connect\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+SpringAI.`[generateContent](../springai/SpringAI.html#generateContent\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
+
+ 
+
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConverter.ToolMetadata](../springai/ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")>`
+
+MessageConverter.`[getToolRegistry](../springai/MessageConverter.html#getToolRegistry\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Gets tool registry from ADK tools for internal tracking.
+
+`org.springframework.ai.chat.prompt.Prompt`
+
+MessageConverter.`[toLlmPrompt](../springai/MessageConverter.html#toLlmPrompt\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+Converts an ADK LlmRequest to a Spring AI Prompt.
+
+  * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.plugins.recordings](../../plugins/recordings/package-summary.html)
+
+Methods in [com.google.adk.plugins.recordings](../../plugins/recordings/package-summary.html) that return types with arguments of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmRequest](../LlmRequest.html "class in com.google.adk.models")>`
+
+LlmRecording.`[llmRequest](../../plugins/recordings/LlmRecording.html#llmRequest\(\))()`
+
+The LLM request.
+
+Methods in [com.google.adk.plugins.recordings](../../plugins/recordings/package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`abstract [LlmRecording.Builder](../../plugins/recordings/LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
+
+LlmRecording.Builder.`[llmRequest](../../plugins/recordings/LlmRecording.Builder.html#llmRequest\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+  * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
+
+Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static void`
+
+Tracing.`[traceCallLlm](../../telemetry/Tracing.html#traceCallLlm\(com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
+
+Traces a call to the LLM.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

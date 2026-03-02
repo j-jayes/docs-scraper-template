@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ListArtifactsResponse.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -78,4 +79,4 @@ Lists filenames of stored artifacts for the session.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

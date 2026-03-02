@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Event.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -19,8 +20,6 @@ Skip navigation links
 
 
 Contents 
-
-Hide sidebar ❮❯ Show sidebar
 
   1. Description
   2. Nested Class Summary
@@ -44,30 +43,39 @@ Hide sidebar ❮❯ Show sidebar
      16. turnComplete()
      17. setTurnComplete(Optional)
      18. errorCode()
-     19. setErrorCode(Optional)
-     20. errorMessage()
-     21. setErrorMessage(Optional)
-     22. interrupted()
-     23. setInterrupted(Optional)
-     24. branch()
-     25. branch(String)
-     26. branch(Optional)
-     27. groundingMetadata()
-     28. setGroundingMetadata(Optional)
-     29. timestamp()
-     30. setTimestamp(long)
-     31. functionCalls()
-     32. functionResponses()
-     33. finalResponse()
-     34. stringifyContent()
-     35. builder()
-     36. fromJson(String)
-     37. toBuilder()
-     38. equals(Object)
-     39. toString()
-     40. hashCode()
+     19. finishReason()
+     20. setErrorCode(Optional)
+     21. setFinishReason(Optional)
+     22. errorMessage()
+     23. setErrorMessage(Optional)
+     24. usageMetadata()
+     25. setUsageMetadata(Optional)
+     26. avgLogprobs()
+     27. setAvgLogprobs(Optional)
+     28. interrupted()
+     29. setInterrupted(Optional)
+     30. branch()
+     31. branch(String)
+     32. branch(Optional)
+     33. groundingMetadata()
+     34. setGroundingMetadata(Optional)
+     35. modelVersion()
+     36. setModelVersion(Optional)
+     37. timestamp()
+     38. setTimestamp(long)
+     39. functionCalls()
+     40. functionResponses()
+     41. hasTrailingCodeExecutionResult()
+     42. finalResponse()
+     43. stringifyContent()
+     44. builder()
+     45. fromJson(String)
+     46. toBuilder()
+     47. equals(Object)
+     48. toString()
+     49. hashCode()
 
-
+Hide sidebar  Show sidebar
 
 # Class Event
 
@@ -120,6 +128,12 @@ Description
 `author()`
 
 The author of the event, it could be the name of the agent or "user" literal.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")>`
+
+`avgLogprobs()`
+
+ 
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
 
@@ -175,6 +189,12 @@ Sets the branch for this event.
 
 Returns true if this is a final response.
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason>`
+
+`finishReason()`
+
+ 
+
 `static [Event](Event.html "class in com.google.adk.events")`
 
 `fromJson([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") json)`
@@ -211,6 +231,12 @@ The grounding metadata of the event.
 
  
 
+`final boolean`
+
+`hasTrailingCodeExecutionResult()`
+
+Returns whether the event has a trailing code execution result.
+
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `id()`
@@ -235,6 +261,12 @@ Id of the invocation that this event belongs to.
 
 Set of ids of the long running function calls.
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+
+`modelVersion()`
+
+The model version used to generate the response.
+
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")>`
 
 `partial()`
@@ -255,6 +287,12 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
+`setAvgLogprobs([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs)`
+
+ 
+
+`void`
+
 `setContent([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)`
 
  
@@ -268,6 +306,12 @@ partial is true for incomplete chunks from the LLM streaming response.
 `void`
 
 `setErrorMessage([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> errorMessage)`
+
+ 
+
+`void`
+
+`setFinishReason([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)`
 
  
 
@@ -303,6 +347,12 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
+`setModelVersion([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion)`
+
+ 
+
+`void`
+
 `setPartial([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> partial)`
 
  
@@ -316,6 +366,12 @@ partial is true for incomplete chunks from the LLM streaming response.
 `void`
 
 `setTurnComplete([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> turnComplete)`
+
+ 
+
+`void`
+
+`setUsageMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata> usageMetadata)`
 
  
 
@@ -349,11 +405,17 @@ Creates a builder pre-filled with this event's values.
 
  
 
-### Methods inherited from class com.google.adk.[JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata>`
 
-`[fromJsonNode](../JsonBaseModel.html#fromJsonNode\(com.fasterxml.jackson.databind.JsonNode,java.lang.Class\)), [fromJsonString](../JsonBaseModel.html#fromJsonString\(java.lang.String,java.lang.Class\)), [getMapper](../JsonBaseModel.html#getMapper\(\)), [toJson](../JsonBaseModel.html#toJson\(\)), [toJsonNode](../JsonBaseModel.html#toJsonNode\(java.lang.Object\)), [toJsonString](../JsonBaseModel.html#toJsonString\(java.lang.Object\))`
+`usageMetadata()`
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+ 
+
+### Methods inherited from class [JsonBaseModel](../JsonBaseModel.html#method-summary "class in com.google.adk")
+
+`[fromJsonNode](../JsonBaseModel.html#fromJsonNode\(com.fasterxml.jackson.databind.JsonNode,java.lang.Class\) "fromJsonNode\(JsonNode, Class\)"), [fromJsonString](../JsonBaseModel.html#fromJsonString\(java.lang.String,java.lang.Class\) "fromJsonString\(String, Class\)"), [getMapper](../JsonBaseModel.html#getMapper\(\) "getMapper\(\)"), [toJson](../JsonBaseModel.html#toJson\(\) "toJson\(\)"), [toJsonNode](../JsonBaseModel.html#toJsonNode\(java.lang.Object\) "toJsonNode\(Object\)"), [toJsonString](../JsonBaseModel.html#toJsonString\(java.lang.Object\) "toJsonString\(Object\)")`
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -444,9 +506,17 @@ public void setTurnComplete([Optional](https://docs.oracle.com/en/java/javase/17
 
 public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> errorCode()
 
+    * ### finishReason
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason()
+
     * ### setErrorCode
 
 public void setErrorCode([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> errorCode)
+
+    * ### setFinishReason
+
+public void setFinishReason([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)
 
     * ### errorMessage
 
@@ -455,6 +525,22 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
     * ### setErrorMessage
 
 public void setErrorMessage([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> errorMessage)
+
+    * ### usageMetadata
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata> usageMetadata()
+
+    * ### setUsageMetadata
+
+public void setUsageMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata> usageMetadata)
+
+    * ### avgLogprobs
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs()
+
+    * ### setAvgLogprobs
+
+public void setAvgLogprobs([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs)
 
     * ### interrupted
 
@@ -495,6 +581,16 @@ The grounding metadata of the event.
 
 public void setGroundingMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GroundingMetadata> groundingMetadata)
 
+    * ### modelVersion
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion()
+
+The model version used to generate the response.
+
+    * ### setModelVersion
+
+public void setModelVersion([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion)
+
     * ### timestamp
 
 public long timestamp()
@@ -516,6 +612,12 @@ Returns all function calls from this event.
 public final com.google.common.collect.ImmutableList<com.google.genai.types.FunctionResponse> functionResponses()
 
 Returns all function responses from this event.
+
+    * ### hasTrailingCodeExecutionResult
+
+public final boolean hasTrailingCodeExecutionResult()
+
+Returns whether the event has a trailing code execution result.
 
     * ### finalResponse
 
@@ -576,4 +678,4 @@ Overrides:
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

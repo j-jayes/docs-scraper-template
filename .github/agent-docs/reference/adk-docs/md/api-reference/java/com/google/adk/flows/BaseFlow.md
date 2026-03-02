@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseFlow.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,20 +21,18 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
      1. run(InvocationContext)
      2. runLive(InvocationContext)
 
-
+Hide sidebar  Show sidebar
 
 # Interface BaseFlow
 
 All Known Implementing Classes:
-    `[AutoFlow](llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows")`, `[BaseLlmFlow](llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")`, `[SingleFlow](llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")`
+    `[AutoFlow](llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows"), [BaseLlmFlow](llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows"), [SingleFlow](llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")`
 
 * * *
 
@@ -88,4 +87,4 @@ default io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class i
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

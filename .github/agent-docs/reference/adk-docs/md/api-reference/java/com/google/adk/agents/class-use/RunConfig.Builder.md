@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../RunConfig.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -56,6 +57,18 @@ RunConfig.`[builder](../RunConfig.html#builder\(com.google.adk.agents.RunConfig\
 
 `abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
+RunConfig.Builder.`[setAutoCreateSession](../RunConfig.Builder.html#setAutoCreateSession\(boolean\))(boolean autoCreateSession)`
+
+ 
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[setInputAudioTranscription](../RunConfig.Builder.html#setInputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\))(com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)`
+
+ 
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
 RunConfig.Builder.`[setMaxLlmCalls](../RunConfig.Builder.html#setMaxLlmCalls\(int\))(int maxLlmCalls)`
 
  
@@ -90,9 +103,21 @@ RunConfig.Builder.`[setStreamingMode](../RunConfig.Builder.html#setStreamingMode
 
  
 
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[setToolExecutionMode](../RunConfig.Builder.html#setToolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\))([RunConfig.ToolExecutionMode](../RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)`
+
+ 
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.`[toBuilder](../RunConfig.html#toBuilder\(\))()`
+
+ 
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

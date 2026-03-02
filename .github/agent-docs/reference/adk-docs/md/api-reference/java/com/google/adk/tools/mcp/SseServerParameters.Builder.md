@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/SseServerParameters.Builder.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -21,8 +22,6 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Constructor Summary
   3. Method Summary
@@ -30,12 +29,13 @@ Hide sidebar ❮❯ Show sidebar
      1. Builder()
   5. Method Details
      1. url(String)
-     2. headers(Map)
-     3. timeout(Duration)
-     4. sseReadTimeout(Duration)
-     5. build()
+     2. sseEndpoint(String)
+     3. headers(Map)
+     4. timeout(Duration)
+     5. sseReadTimeout(Duration)
+     6. build()
 
-
+Hide sidebar  Show sidebar
 
 # Class SseServerParameters.Builder
 
@@ -88,6 +88,12 @@ Sets the headers for the SSE connection request.
 
 `abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
+`sseEndpoint([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sseEndpoint)`
+
+Sets the endpoint to connect to on the SSE server.
+
+`abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
+
 `sseReadTimeout([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)`
 
 Sets the timeout for reading data from the SSE stream.
@@ -104,7 +110,7 @@ Sets the timeout for the initial connection attempt.
 
 Sets the URL of the SSE server.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -125,6 +131,12 @@ public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "
 
 Sets the URL of the SSE server.
 
+    * ### sseEndpoint
+
+public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp") sseEndpoint([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sseEndpoint)
+
+Sets the endpoint to connect to on the SSE server.
+
     * ### headers
 
 public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp") headers(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> headers)
@@ -133,13 +145,13 @@ Sets the headers for the SSE connection request.
 
     * ### timeout
 
-public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp") timeout([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout)
+public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp") timeout(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout)
 
 Sets the timeout for the initial connection attempt.
 
     * ### sseReadTimeout
 
-public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp") sseReadTimeout([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)
+public abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp") sseReadTimeout(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)
 
 Sets the timeout for reading data from the SSE stream.
 
@@ -154,4 +166,4 @@ Builds a new [`SseServerParameters`](SseServerParameters.html "class in com.goog
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

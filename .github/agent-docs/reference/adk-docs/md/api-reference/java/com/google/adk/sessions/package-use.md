@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -26,6 +27,10 @@ Package
 
 Description
 
+com.google.adk.a2a.executor
+
+ 
+
 com.google.adk.agents
 
  
@@ -42,9 +47,35 @@ com.google.adk.sessions
 
  
 
+com.google.adk.summarizer
+
+ 
+
 com.google.adk.web
 
  
+
+com.google.adk.web.controller
+
+ 
+
+com.google.adk.web.service
+
+ 
+
+com.google.adk.web.websocket
+
+ 
+
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+
+Class
+
+Description
+
+[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.a2a.executor)
+
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
 
   * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
 
@@ -146,6 +177,20 @@ Represents a general error that occurred during session management operations.
 
 A [`State`](State.html "class in com.google.adk.sessions") object that also keeps track of the changes to the state.
 
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.summarizer](../summarizer/package-summary.html)
+
+Class
+
+Description
+
+[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.summarizer)
+
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
+
+[Session](class-use/Session.html#com.google.adk.summarizer)
+
+A [`Session`](Session.html "class in com.google.adk.sessions") object that encapsulates the [`State`](State.html "class in com.google.adk.sessions") and [`Event`](../events/Event.html "class in com.google.adk.events")s of a session.
+
   * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.web](../web/package-summary.html)
 
 Class
@@ -156,13 +201,43 @@ Description
 
 Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
 
-[Session](class-use/Session.html#com.google.adk.web)
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.web.controller](../web/controller/package-summary.html)
+
+Class
+
+Description
+
+[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.web.controller)
+
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
+
+[Session](class-use/Session.html#com.google.adk.web.controller)
 
 A [`Session`](Session.html "class in com.google.adk.sessions") object that encapsulates the [`State`](State.html "class in com.google.adk.sessions") and [`Event`](../events/Event.html "class in com.google.adk.events")s of a session.
+
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.web.service](../web/service/package-summary.html)
+
+Class
+
+Description
+
+[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.web.service)
+
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
+
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.web.websocket](../web/websocket/package-summary.html)
+
+Class
+
+Description
+
+[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.web.websocket)
+
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

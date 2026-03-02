@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../SseServerParameters.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
 
@@ -56,6 +57,12 @@ Sets the headers for the SSE connection request.
 
 `abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
+SseServerParameters.Builder.`[sseEndpoint](../SseServerParameters.Builder.html#sseEndpoint\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sseEndpoint)`
+
+Sets the endpoint to connect to on the SSE server.
+
+`abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
+
 SseServerParameters.Builder.`[sseReadTimeout](../SseServerParameters.Builder.html#sseReadTimeout\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)`
 
 Sets the timeout for reading data from the SSE stream.
@@ -77,4 +84,4 @@ Sets the URL of the SSE server.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

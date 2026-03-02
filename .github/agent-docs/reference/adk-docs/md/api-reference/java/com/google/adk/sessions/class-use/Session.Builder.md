@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../Session.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -101,4 +102,4 @@ Session.Builder.`[userId](../Session.Builder.html#userId\(java.lang.String\))([S
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -159,17 +159,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../streaming/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -208,6 +208,7 @@ Table of contents
       * Tool usage (plugin lifecycle) 
       * State Management 
       * Agent lifecycle & Generic Events 
+      * Human-in-the-Loop (HITL) Events 
       * GCS Offloading Examples (Multimodal & Large Text) 
   * Advanced analysis queries 
     * 7\. AI-Powered Root Cause Analysis (Agent Ops) 
@@ -226,11 +227,11 @@ Supported in ADKPython v1.21.0Preview
 
 Version Requirement
 
-Use ADK Python version 1.21.0 or higher to make full use of the features described in this document.
+Use ADK Python version 1.26.0 or higher to make full use of the features described in this document, including auto-schema-upgrade, tool provenance tracking, and HITL event tracing.
 
 The BigQuery Agent Analytics Plugin significantly enhances the Agent Development Kit (ADK) by providing a robust solution for in-depth agent behavior analysis. Using the ADK Plugin architecture and the **BigQuery Storage Write API** , it captures and logs critical operational events directly into a Google BigQuery table, empowering you with advanced capabilities for debugging, real-time monitoring, and comprehensive offline performance evaluation.
 
-Version 1.21.0 introduces **Hybrid Multimodal Logging** , allowing you to log large payloads (images, audio, blobs) by offloading them to Google Cloud Storage (GCS) while keeping a structured reference (`ObjectRef`) in BigQuery.
+Version 1.26.0 adds **Auto Schema Upgrade** (safely add new columns to existing tables), **Tool Provenance** tracking (LOCAL, MCP, SUB_AGENT, A2A, TRANSFER_AGENT), and **HITL Event Tracing** for human-in-the-loop interactions.
 
 Preview release
 
@@ -246,6 +247,8 @@ This feature uses **BigQuery Storage Write API** , which is a paid service. For 
   * **High-volume analysis and debugging:** Logging operations are performed asynchronously using the Storage Write API to allow high throughput and low latency.
   * **Multimodal Analysis** : Log and analyze text, images, and other modalities. Large files are offloaded to GCS, making them accessible to BigQuery ML via Object Tables.
   * **Distributed Tracing** : Built-in support for OpenTelemetry-style tracing (`trace_id`, `span_id`) to visualize agent execution flows.
+  * **Tool Provenance** : Track the origin of each tool call (local function, MCP server, sub-agent, A2A remote agent, or transfer agent).
+  * **Human-in-the-Loop (HITL) Tracing** : Dedicated event types for credential requests, confirmation prompts, and user input requests.
 
 
 
@@ -320,7 +323,7 @@ my_bq_agent/agent.py
     bq_logging_plugin = BigQueryAgentAnalyticsPlugin(
         project_id=PROJECT_ID,
         dataset_id=DATASET_ID,
-        table_id="agent_events_v2", # default table name is agent_events_v2
+        table_id="agent_events", # default table name is agent_events
         config=bq_config,
         location=LOCATION
     )
@@ -354,7 +357,7 @@ Test the plugin by running the agent and making a few requests through the chat 
     
     
     SELECT timestamp, event_type, content
-    FROM `your-gcp-project-id.your-big-query-dataset-id.agent_events_v2`
+    FROM `your-gcp-project-id.your-big-query-dataset-id.agent_events`
     ORDER BY timestamp DESC
     LIMIT 20;
     
@@ -374,7 +377,7 @@ The plugin supports **OpenTelemetry** for distributed tracing. OpenTelemetry is 
 You can customize the plugin using `BigQueryLoggerConfig`.
 
   * **`enabled`** (`bool`, default: `True`): To disable the plugin from logging agent data to the BigQuery table, set this parameter to False.
-  * **`table_id`** (`str`, default: `"agent_events_v2"`): The BigQuery table ID within the dataset. Can also be overridden by the `table_id` parameter on the `BigQueryAgentAnalyticsPlugin` constructor, which takes precedence.
+  * **`table_id`** (`str`, default: `"agent_events"`): The BigQuery table ID within the dataset. Can also be overridden by the `table_id` parameter on the `BigQueryAgentAnalyticsPlugin` constructor, which takes precedence.
   * **`clustering_fields`** (`List[str]`, default: `["event_type", "agent", "user_id"]`): The fields used to cluster the BigQuery table when it is automatically created.
   * **`gcs_bucket_name`** (`Optional[str]`, default: `None`): The name of the GCS bucket to offload large content (images, blobs, large text) to. If not provided, large content may be truncated or replaced with placeholders.
   * **`connection_id`** (`Optional[str]`, default: `None`): The BigQuery connection ID (e.g., `us.my-connection`) to use as the authorizer for `ObjectRef` columns. Required for using `ObjectRef` with BigQuery ML.
@@ -388,8 +391,9 @@ You can customize the plugin using `BigQueryLoggerConfig`.
   * **`log_multi_modal_content`** (`bool`, default: `True`): Whether to log detailed content parts (including GCS references).
   * **`queue_max_size`** (`int`, default: `10000`): The maximum number of events to hold in the in-memory queue before dropping new events.
   * **`retry_config`** (`RetryConfig`, default: `RetryConfig()`): Configuration for retrying failed BigQuery writes (attributes: `max_retries`, `initial_delay`, `multiplier`, `max_delay`).
-  * **`log_session_metadata`** (`bool`, default: `True`): If True, logs metadata from the `session` object (e.g., `session.metadata`) into the `attributes` column.
+  * **`log_session_metadata`** (`bool`, default: `True`): If True, logs session information into the `attributes` column, including `session_id`, `app_name`, `user_id`, and the session `state` dictionary (e.g., custom state like gchat thread-id, customer_id).
   * **`custom_tags`** (`Dict[str, Any]`, default: `{}`): A dictionary of static tags (e.g., `{"env": "prod", "version": "1.0"}`) to be included in the `attributes` column for every event.
+  * **`auto_schema_upgrade`** (`bool`, default: `True`): When enabled, the plugin automatically adds new columns to an existing table when the plugin schema evolves. Only additive changes are made (columns are never dropped or altered). A version label (`adk_schema_version`) on the table ensures the diff runs at most once per schema version. Safe to leave enabled.
 
 
 
@@ -430,6 +434,7 @@ The following code sample shows how to define a configuration for the BigQuery A
         max_content_length=500, # Truncate content to 500 chars
         content_formatter=redact_dollar_amounts, # Redact the dollar amounts in the logging content
         queue_max_size=10000, # Max events to hold in memory
+        auto_schema_upgrade=True, # Automatically add new columns to existing tables
         # retry_config=RetryConfig(max_retries=3), # Optional: Configure retries
     )
     
@@ -440,12 +445,12 @@ The following code sample shows how to define a configuration for the BigQuery A
 
 ### Schema Reference¶
 
-The events table (`agent_events_v2`) uses a flexible schema. The following table provides a comprehensive reference with example values.
+The events table (`agent_events`) uses a flexible schema. The following table provides a comprehensive reference with example values.
 
 Field Name | Type | Mode | Description | Example Value  
 ---|---|---|---|---  
-**timestamp** | `TIMESTAMP` | `REQUIRED` | UTC timestamp of event creation. Acts as the primary ordering key and often the daily partitioning key. Precision is microsecond. | `2026-02-03 20:52:17 UTC`  
-**event_type** | `STRING` | `NULLABLE` | The canonical event category. Standard values include `LLM_REQUEST`, `LLM_RESPONSE`, `LLM_ERROR`, `TOOL_STARTING`, `TOOL_COMPLETED`, `TOOL_ERROR`, `AGENT_STARTING`, `AGENT_COMPLETED`, `STATE_DELTA`. Used for high-level filtering. | `LLM_REQUEST`  
+**timestamp** | `TIMESTAMP` | `REQUIRED` | UTC timestamp of event creation. Acts as the primary ordering key and the daily partitioning key. Precision is microsecond. | `2026-02-03 20:52:17 UTC`  
+**event_type** | `STRING` | `NULLABLE` | The canonical event category. Standard values include `LLM_REQUEST`, `LLM_RESPONSE`, `LLM_ERROR`, `TOOL_STARTING`, `TOOL_COMPLETED`, `TOOL_ERROR`, `AGENT_STARTING`, `AGENT_COMPLETED`, `STATE_DELTA`, `INVOCATION_STARTING`, `INVOCATION_COMPLETED`, `USER_MESSAGE_RECEIVED`, and HITL events (see HITL events). Used for high-level filtering. | `LLM_REQUEST`  
 **agent** | `STRING` | `NULLABLE` | The name of the agent responsible for this event. Defined during agent initialization or via the `root_agent_name` context. | `my_bq_agent`  
 **session_id** | `STRING` | `NULLABLE` | A persistent identifier for the entire conversation thread. Stays constant across multiple turns and sub-agent calls. | `04275a01-1649-4a30-b6a7-5b443c69a7bc`  
 **invocation_id** | `STRING` | `NULLABLE` | The unique identifier for a single execution turn or request cycle. Corresponds to `trace_id` in many contexts. | `e-b55b2000-68c6-4e8b-b3b3-ffb454a92e40`  
@@ -454,7 +459,7 @@ Field Name | Type | Mode | Description | Example Value
 **span_id** | `STRING` | `NULLABLE` | The **OpenTelemetry** Span ID (16-char hex). Uniquely identifies this specific atomic operation. | `69867a836cd94798be2759d8e0d70215`  
 **parent_span_id** | `STRING` | `NULLABLE` | The Span ID of the immediate caller. Used to reconstruct the parent-child execution tree (DAG). | `ef5843fe40764b4b8afec44e78044205`  
 **content** | `JSON` | `NULLABLE` | The primary event payload. Structure is polymorphic based on `event_type`. | `{"system_prompt": "You are...", "prompt": [{"role": "user", "content": "hello"}], "response": "Hi", "usage": {"total": 15}}`  
-**attributes** | `JSON` | `NULLABLE` | Metadata/Enrichment (usage stats, model info, custom tags). | `{"model": "gemini-2.5-flash", "usage_metadata": {"total_token_count": 15}, "state_delta": {"key": "val"}, "session_metadata": {"key": "val"}}`  
+**attributes** | `JSON` | `NULLABLE` | Metadata/Enrichment (usage stats, model info, tool provenance, custom tags). | `{"model": "gemini-2.5-flash", "usage_metadata": {"total_token_count": 15}, "session_metadata": {"session_id": "...", "app_name": "...", "user_id": "...", "state": {}}, "custom_tags": {"env": "prod"}}`  
 **latency_ms** | `JSON` | `NULLABLE` | Performance metrics. Standard keys are `total_ms` (wall-clock duration) and `time_to_first_token_ms` (streaming latency). | `{"total_ms": 1250, "time_to_first_token_ms": 450}`  
 **status** | `STRING` | `NULLABLE` | High-level outcome. Values: `OK` (success) or `ERROR` (failure). | `OK`  
 **error_message** | `STRING` | `NULLABLE` | Human-readable exception message or stack trace fragment. Populated only when `status` is `ERROR`. | `Error 404: Dataset not found`  
@@ -466,7 +471,7 @@ The plugin automatically creates the table if it does not exist. However, for pr
 **Recommended DDL:**
     
     
-    CREATE TABLE `your-gcp-project-id.adk_agent_logs.agent_events_v2`
+    CREATE TABLE `your-gcp-project-id.adk_agent_logs.agent_events`
     (
       timestamp TIMESTAMP NOT NULL OPTIONS(description="The UTC time at which the event was logged."),
       event_type STRING OPTIONS(description="Indicates the type of event being logged (e.g., 'LLM_REQUEST', 'TOOL_COMPLETED')."),
@@ -536,6 +541,7 @@ Captures the prompt sent to the model, including conversation history and system
       "attributes": {
         "root_agent_name": "my_bq_agent",
         "model": "gemini-2.5-flash",
+        "tools": ["list_dataset_ids", "execute_sql"],
         "llm_config": {
           "temperature": 0.5,
           "top_p": 0.9
@@ -595,8 +601,17 @@ Logged when an LLM call fails with an exception. The error message is captured a
 
 #### Tool usage (plugin lifecycle)¶
 
-These events track the execution of tools by the agent.
+These events track the execution of tools by the agent. Each tool event includes a `tool_origin` field that classifies the tool's provenance:
 
+Tool Origin | Description  
+---|---  
+`LOCAL` | `FunctionTool` instances (local Python functions)  
+`MCP` | Model Context Protocol tools (`McpTool` instances)  
+`SUB_AGENT` | `AgentTool` instances (sub-agents)  
+`A2A` | Remote Agent-to-Agent instances (`RemoteA2aAgent`)  
+`TRANSFER_AGENT` | `TransferToAgentTool` instances  
+`UNKNOWN` | Unclassified tools  
+  
 **4\. TOOL_STARTING**
 
 Logged when an agent begins executing a tool.
@@ -608,7 +623,8 @@ Logged when an agent begins executing a tool.
         "tool": "list_dataset_ids",
         "args": {
           "project_id": "bigquery-public-data"
-        }
+        },
+        "tool_origin": "LOCAL"
       }
     }
     
@@ -625,7 +641,8 @@ Logged when a tool execution finishes.
         "result": [
           "austin_311",
           "austin_bikeshare"
-        ]
+        ],
+        "tool_origin": "LOCAL"
       },
       "latency_ms": {
         "total_ms": 467
@@ -635,7 +652,7 @@ Logged when a tool execution finishes.
 
 **6\. TOOL_ERROR**
 
-Logged when a tool execution fails with an exception. Captures the tool name, arguments, and error message.
+Logged when a tool execution fails with an exception. Captures the tool name, arguments, tool origin, and error message.
     
     
     {
@@ -644,7 +661,8 @@ Logged when a tool execution fails with an exception. Captures the tool name, ar
         "tool": "list_dataset_ids",
         "args": {
           "project_id": "nonexistent-project"
-        }
+        },
+        "tool_origin": "LOCAL"
       },
       "error_message": "Error 404: Dataset not found",
       "latency_ms": {
@@ -717,6 +735,69 @@ Tracks changes to the agent's internal state (e.g., token cache updates).
     
     {"text_summary": "Help me book a flight."}  
   
+#### Human-in-the-Loop (HITL) Events¶
+
+The plugin automatically detects calls to ADK's synthetic HITL tools and emits dedicated event types for them. These events are logged **in addition to** the normal `TOOL_STARTING` / `TOOL_COMPLETED` events.
+
+The following HITL tool names are recognized:
+
+  * `adk_request_credential` — Request for user credentials (e.g., OAuth tokens)
+  * `adk_request_confirmation` — Request for user confirmation before proceeding
+  * `adk_request_input` — Request for free-form user input
+
+**Event Type** | **Trigger** | **Content (JSON) Structure**  
+---|---|---  
+      
+    
+    HITL_CREDENTIAL_REQUEST
+
+| Agent calls `adk_request_credential` | 
+    
+    
+    {"tool": "adk_request_credential", "args": {...}}  
+      
+    
+    HITL_CREDENTIAL_REQUEST_COMPLETED
+
+| User provides credential response | 
+    
+    
+    {"tool": "adk_request_credential", "result": {...}}  
+      
+    
+    HITL_CONFIRMATION_REQUEST
+
+| Agent calls `adk_request_confirmation` | 
+    
+    
+    {"tool": "adk_request_confirmation", "args": {...}}  
+      
+    
+    HITL_CONFIRMATION_REQUEST_COMPLETED
+
+| User provides confirmation response | 
+    
+    
+    {"tool": "adk_request_confirmation", "result": {...}}  
+      
+    
+    HITL_INPUT_REQUEST
+
+| Agent calls `adk_request_input` | 
+    
+    
+    {"tool": "adk_request_input", "args": {...}}  
+      
+    
+    HITL_INPUT_REQUEST_COMPLETED
+
+| User provides input response | 
+    
+    
+    {"tool": "adk_request_input", "result": {...}}  
+  
+HITL request events are detected from `function_call` parts in `on_event_callback`. HITL completion events are detected from `function_response` parts in both `on_event_callback` and `on_user_message_callback`.
+
 #### GCS Offloading Examples (Multimodal & Large Text)¶
 
 When `gcs_bucket_name` is configured, large text and multimodal content (images, audio, etc.) are automatically offloaded to GCS. The `content` column will contain a summary or placeholder, while `content_parts` contains the `object_ref` pointing to the GCS URI.
@@ -774,7 +855,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
       part.object_ref.uri AS gcs_uri,
       -- Generate a signed URL to read the content directly (requires connection_id configuration)
       STRING(OBJ.GET_ACCESS_URL(part.object_ref, 'r').access_urls.read_url) AS signed_url
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`,
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`,
     UNNEST(content_parts) AS part
     WHERE part.storage_mode = 'GCS_REFERENCE'
     ORDER BY timestamp DESC
@@ -787,7 +868,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
     
     
     SELECT timestamp, event_type, agent, JSON_VALUE(content, '$.response') as summary
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
     WHERE trace_id = 'your-trace-id'
     ORDER BY timestamp ASC;
     
@@ -797,7 +878,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
     
     SELECT
       AVG(CAST(JSON_VALUE(content, '$.usage.total') AS INT64)) as avg_tokens
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
     WHERE event_type = 'LLM_RESPONSE';
     
 
@@ -808,7 +889,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
       timestamp,
       part.mime_type,
       part.object_ref.uri as gcs_uri
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`,
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`,
     UNNEST(content_parts) as part
     WHERE part.mime_type LIKE 'image/%'
     ORDER BY timestamp DESC;
@@ -826,7 +907,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
         ('Describe this image briefly. What company logo?', parts.object_ref)
       ) AS generated_result
     FROM
-      `your-gcp-project-id.your-dataset-id.agent_events_v2` logs,
+      `your-gcp-project-id.your-dataset-id.agent_events` logs,
       UNNEST(logs.content_parts) AS parts
     WHERE
       parts.mime_type LIKE 'image/%'
@@ -840,7 +921,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
     SELECT
       event_type,
       AVG(CAST(JSON_VALUE(latency_ms, '$.total_ms') AS INT64)) as avg_latency_ms
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
     WHERE event_type IN ('LLM_RESPONSE', 'TOOL_COMPLETED')
     GROUP BY event_type;
     
@@ -860,7 +941,7 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
         JSON_VALUE(content, '$.tool'),
         'LLM_CALL'
       ) as operation
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
     WHERE trace_id = 'your-trace-id'
       AND event_type IN ('LLM_RESPONSE', 'TOOL_COMPLETED')
     ORDER BY timestamp ASC;
@@ -876,8 +957,37 @@ When `gcs_bucket_name` is configured, large text and multimodal content (images,
       error_message,
       JSON_VALUE(content, '$.tool') as tool_name,
       CAST(JSON_VALUE(latency_ms, '$.total_ms') AS INT64) as latency_ms
-    FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
     WHERE event_type IN ('LLM_ERROR', 'TOOL_ERROR')
+    ORDER BY timestamp DESC
+    LIMIT 20;
+    
+
+**Tool Provenance Analysis**
+    
+    
+    SELECT
+      JSON_VALUE(content, '$.tool_origin') as tool_origin,
+      JSON_VALUE(content, '$.tool') as tool_name,
+      COUNT(*) as call_count,
+      AVG(CAST(JSON_VALUE(latency_ms, '$.total_ms') AS INT64)) as avg_latency_ms
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
+    WHERE event_type = 'TOOL_COMPLETED'
+    GROUP BY tool_origin, tool_name
+    ORDER BY call_count DESC;
+    
+
+**HITL Interaction Analysis**
+    
+    
+    SELECT
+      timestamp,
+      event_type,
+      session_id,
+      JSON_VALUE(content, '$.tool') as hitl_tool,
+      content
+    FROM `your-gcp-project-id.your-dataset-id.agent_events`
+    WHERE event_type LIKE 'HITL_%'
     ORDER BY timestamp DESC
     LIMIT 20;
     
@@ -891,7 +1001,7 @@ Automatically analyze failed sessions to determine the root cause of errors usin
     -- Find a recent failed session
     SET failed_session_id = (
         SELECT session_id
-        FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+        FROM `your-gcp-project-id.your-dataset-id.agent_events`
         WHERE error_message IS NOT NULL
         ORDER BY timestamp DESC
         LIMIT 1
@@ -902,7 +1012,7 @@ Automatically analyze failed sessions to determine the root cause of errors usin
         SELECT
             session_id,
             STRING_AGG(CONCAT(event_type, ': ', COALESCE(TO_JSON_STRING(content), '')), '\n' ORDER BY timestamp) as full_history
-        FROM `your-gcp-project-id.your-dataset-id.agent_events_v2`
+        FROM `your-gcp-project-id.your-dataset-id.agent_events`
         WHERE session_id = failed_session_id
         GROUP BY session_id
     )

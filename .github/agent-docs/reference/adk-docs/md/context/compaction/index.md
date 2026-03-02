@@ -163,17 +163,17 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
-    * [ Bidi-streaming (live)  ](../../streaming/)
+    * [ Gemini Live API Toolkit  ](../../streaming/)
 
-Bidi-streaming (live) 
-      * Bidi-streaming development guide series  Bidi-streaming development guide series 
+Gemini Live API Toolkit 
+      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
         * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
         * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
         * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
         * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
         * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
       * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring Bidi-streaming behavior  ](../../streaming/configuration/)
+      * [ Configuring streaming behavior  ](../../streaming/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -242,7 +242,7 @@ Once configured, the ADK `Runner` handles the compaction process in the backgrou
 
 If you set `compaction_interval` to 3 and `overlap_size` to 1, the event data is compressed upon completion of events 3, 6, 9, and so on. The overlap setting increases size of the second summary compression, and each summary afterwards, as shown in Figure 1.
 
-**Figure 1.** Ilustration of event compaction configuration with a interval of 3 and overlap of 1.
+**Figure 1.** Illustration of event compaction configuration with an interval of 3 and overlap of 1.
 
 With this example configuration, the context compression tasks happen as follows:
 

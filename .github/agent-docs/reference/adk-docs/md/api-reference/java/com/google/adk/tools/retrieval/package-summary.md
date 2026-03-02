@@ -8,6 +8,7 @@ Skip navigation links
   * Package
   * [Use](package-use.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -19,13 +20,11 @@ Skip navigation links
 
 Contents
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Related Packages
   3. Classes and Interfaces
 
-
+Hide sidebar  Show sidebar
 
 # Package com.google.adk.tools.retrieval
 
@@ -44,6 +43,10 @@ Description
  
 
 [com.google.adk.tools.applicationintegrationtoolset](../applicationintegrationtoolset/package-summary.html)
+
+ 
+
+[com.google.adk.tools.computeruse](../computeruse/package-summary.html)
 
  
 
@@ -70,4 +73,4 @@ A retrieval tool that fetches context from Vertex AI RAG.
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

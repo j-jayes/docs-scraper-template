@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../EventActions.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -80,6 +81,12 @@ Description
 ` `
 
 `[CallbackContext](../../agents/CallbackContext.html#%3Cinit%3E\(com.google.adk.agents.InvocationContext,com.google.adk.events.EventActions\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [EventActions](../EventActions.html "class in com.google.adk.events") eventActions)`
+
+Initializes callback context.
+
+` `
+
+`[CallbackContext](../../agents/CallbackContext.html#%3Cinit%3E\(com.google.adk.agents.InvocationContext,com.google.adk.events.EventActions,java.lang.String\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [EventActions](../EventActions.html "class in com.google.adk.events") eventActions, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
 
 Initializes callback context.
 
@@ -172,4 +179,4 @@ ToolContext.`[setActions](../../tools/ToolContext.html#setActions\(com.google.ad
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

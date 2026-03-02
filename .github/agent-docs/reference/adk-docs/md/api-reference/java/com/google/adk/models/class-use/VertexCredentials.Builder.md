@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../VertexCredentials.Builder.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -89,4 +90,4 @@ VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setPro
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/BaseExampleProvider.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,14 +21,12 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
      1. getExamples(String)
 
-
+Hide sidebar  Show sidebar
 
 # Interface BaseExampleProvider
 
@@ -67,4 +66,4 @@ Description
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

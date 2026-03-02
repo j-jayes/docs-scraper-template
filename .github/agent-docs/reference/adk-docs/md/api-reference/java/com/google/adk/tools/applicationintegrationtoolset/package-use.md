@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -48,9 +49,13 @@ Represents details of a connection.
 
 Represents the schema and available operations for an entity.
 
+[CredentialsHelper](class-use/CredentialsHelper.html#com.google.adk.tools.applicationintegrationtoolset)
+
+This interface provides a method to convert a service account JSON string to a Google Credentials object.
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

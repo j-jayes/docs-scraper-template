@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/LoadArtifactsTool.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
 
@@ -20,20 +21,22 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Nested Class Summary
+  3. Field Summary
+  4. Constructor Summary
+  5. Method Summary
+  6. Field Details
+     1. INSTANCE
+  7. Constructor Details
      1. LoadArtifactsTool()
-  5. Method Details
+  8. Method Details
      1. declaration()
      2. runAsync(Map, ToolContext)
      3. processLlmRequest(LlmRequest.Builder, ToolContext)
      4. appendArtifactsToLlmRequest(LlmRequest.Builder, ToolContext)
 
-
+Hide sidebar  Show sidebar
 
 # Class LoadArtifactsTool
 
@@ -49,7 +52,39 @@ public final class LoadArtifactsTool extends [BaseTool](BaseTool.html "class in 
 
 A tool that loads artifacts and adds them to the session. 
 
-This tool informs the model about available artifacts and provides their content when requested by the model through a function call.
+This tool informs the model about available artifacts and provides their content when requested by the model through a function call. 
+
+The declaration of this tool is consistent with the Python version. Refer to: https://github.com/google/adk-python/blob/main/src/google/adk/tools/load_artifacts_tool.py 
+
+Usage example in an LlmAgent: 
+    
+    
+    LlmAgent agent = LlmAgent.builder()
+        .addTool(LoadArtifactsTool.INSTANCE)
+        .build();
+    
+
+  * ## Nested Class Summary
+
+### Nested classes/interfaces inherited from class [BaseTool](BaseTool.html#nested-class-summary "class in com.google.adk.tools")
+
+`[BaseTool.ToolArgsConfig](BaseTool.ToolArgsConfig.html "class in com.google.adk.tools"), [BaseTool.ToolConfig](BaseTool.ToolConfig.html "class in com.google.adk.tools")`
+
+  * ## Field Summary
+
+Fields
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools")`
+
+`INSTANCE`
+
+ 
 
   * ## Constructor Summary
 
@@ -97,16 +132,22 @@ Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html 
 
 Calls a tool.
 
-### Methods inherited from class com.google.adk.tools.[BaseTool](BaseTool.html "class in com.google.adk.tools")
+### Methods inherited from class [BaseTool](BaseTool.html#method-summary "class in com.google.adk.tools")
 
-`[description](BaseTool.html#description\(\)), [longRunning](BaseTool.html#longRunning\(\)), [name](BaseTool.html#name\(\))`
+`[customMetadata](BaseTool.html#customMetadata\(\) "customMetadata\(\)"), [description](BaseTool.html#description\(\) "description\(\)"), [fromConfig](BaseTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\) "fromConfig\(BaseTool.ToolConfig, String\)"), [longRunning](BaseTool.html#longRunning\(\) "longRunning\(\)"), [name](BaseTool.html#name\(\) "name\(\)"), [setCustomMetadata](BaseTool.html#setCustomMetadata\(java.lang.String,java.lang.Object\) "setCustomMetadata\(String, Object\)")`
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
 
 
+
+  * ## Field Details
+
+    * ### INSTANCE
+
+public static final [LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools") INSTANCE
 
   * ## Constructor Details
 
@@ -160,4 +201,4 @@ public io.reactivex.rxjava3.core.Completable appendArtifactsToLlmRequest([LlmReq
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

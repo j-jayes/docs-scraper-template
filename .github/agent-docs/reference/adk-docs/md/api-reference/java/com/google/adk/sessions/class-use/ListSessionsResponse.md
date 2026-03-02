@@ -8,6 +8,7 @@ Skip navigation links
   * [Class](../ListSessionsResponse.html)
   * Use
   * [Tree](../package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -63,6 +64,12 @@ Lists sessions associated with a specific application and user.
 
 `io.reactivex.rxjava3.core.Single<[ListSessionsResponse](../ListSessionsResponse.html "class in com.google.adk.sessions")>`
 
+FirestoreSessionService.`[listSessions](../FirestoreSessionService.html#listSessions\(java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId)`
+
+Lists all sessions for a given appName and userId.
+
+`io.reactivex.rxjava3.core.Single<[ListSessionsResponse](../ListSessionsResponse.html "class in com.google.adk.sessions")>`
+
 InMemorySessionService.`[listSessions](../InMemorySessionService.html#listSessions\(java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId)`
 
  
@@ -78,4 +85,4 @@ VertexAiSessionService.`[listSessions](../VertexAiSessionService.html#listSessio
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

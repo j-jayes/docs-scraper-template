@@ -8,6 +8,7 @@ Skip navigation links
   * [Package](package-summary.html)
   * Use
   * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
 
@@ -56,27 +57,27 @@ A basic flow that calls the LLM in a loop until a final response is generated.
 
 [RequestProcessor](class-use/RequestProcessor.html#com.google.adk.flows.llmflows)
 
- 
+Interface for processing LLM requests.
 
 [RequestProcessor.RequestProcessingResult](class-use/RequestProcessor.RequestProcessingResult.html#com.google.adk.flows.llmflows)
 
- 
+Result of request processing.
 
 [ResponseProcessor](class-use/ResponseProcessor.html#com.google.adk.flows.llmflows)
 
- 
+Interface for processing LLM responses.
 
 [ResponseProcessor.ResponseProcessingResult](class-use/ResponseProcessor.ResponseProcessingResult.html#com.google.adk.flows.llmflows)
 
- 
+Result of response processing.
 
 [SingleFlow](class-use/SingleFlow.html#com.google.adk.flows.llmflows)
 
-Basic LLM flow with fixed request processors and no response post-processing.
+Basic LLM flow with fixed request and response processors.
 
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.
