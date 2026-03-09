@@ -30,12 +30,11 @@ Contents
      3. VertexAiSessionService(String, String, Optional, Optional)
   5. Method Details
      1. createSession(String, String, ConcurrentMap, String)
-     2. createSession(String, String, Map, String)
-     3. listSessions(String, String)
-     4. listEvents(String, String, String)
-     5. getSession(String, String, String, Optional)
-     6. deleteSession(String, String, String)
-     7. appendEvent(Session, Event)
+     2. listSessions(String, String)
+     3. listEvents(String, String, String)
+     4. getSession(String, String, String, Optional)
+     5. deleteSession(String, String, String)
+     6. appendEvent(Session, Event)
 
 Hide sidebar  Show sidebar
 
@@ -93,12 +92,6 @@ Appends an event to an in-memory session object and updates the session's state 
 `io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")>`
 
 `createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
-
-Creates a new session with the specified parameters.
-
-`io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")>`
-
-`createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
 
 Creates a new session with the specified parameters.
 
@@ -169,24 +162,6 @@ Creates a new session with the specified parameters.
 
 Specified by:
     `[createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))` in interface `[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")`
-Parameters:
-    `appName` \- The name of the application associated with the session.
-    `userId` \- The identifier for the user associated with the session.
-    `state` \- An optional map representing the initial state of the session. Can be null or empty.
-    `sessionId` \- An optional client-provided identifier for the session. If empty or null, the service should generate a unique ID.
-Returns:
-    The newly created [`Session`](Session.html "class in com.google.adk.sessions") instance.
-
-    * ### createSession
-
-public io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")> createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)
-
-Description copied from interface: `[BaseSessionService](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))`
-
-Creates a new session with the specified parameters.
-
-Specified by:
-    `[createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))` in interface `[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")`
 Parameters:
     `appName` \- The name of the application associated with the session.
     `userId` \- The identifier for the user associated with the session.

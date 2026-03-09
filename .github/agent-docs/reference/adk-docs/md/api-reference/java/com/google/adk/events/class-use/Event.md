@@ -28,15 +28,15 @@ Package
 
 Description
 
+com.google.adk
+
+ 
+
 com.google.adk.a2a
 
  
 
 com.google.adk.a2a.converters
-
- 
-
-com.google.adk.a2a.executor
 
  
 
@@ -72,13 +72,25 @@ com.google.adk.summarizer
 
  
 
-com.google.adk.telemetry
-
- 
-
 com.google.adk.web.controller
 
  
+
+  * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk](../../package-summary.html)
+
+Methods in [com.google.adk](../../package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static void`
+
+Telemetry.`[traceToolResponse](../../Telemetry.html#traceToolResponse\(com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.events.Event\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [Event](../Event.html "class in com.google.adk.events") functionResponseEvent)`
+
+Traces tool response event.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.a2a](../../a2a/package-summary.html)
 
@@ -89,6 +101,12 @@ Modifier and Type
 Method
 
 Description
+
+`io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Event](../Event.html "class in com.google.adk.events")>>`
+
+A2ASendMessageExecutor.AgentExecutionStrategy.`[execute](../../a2a/A2ASendMessageExecutor.AgentExecutionStrategy.html#execute\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content userContent, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId)`
+
+ 
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
 
@@ -124,38 +142,6 @@ ConversationPreprocessor.PreparedInput.`[userEvent](../../a2a/converters/Convers
 
 The concrete event that supplied [`ConversationPreprocessor.PreparedInput.userContent`](../../a2a/converters/ConversationPreprocessor.PreparedInput.html#userContent), for callers needing metadata.
 
-Methods in [com.google.adk.a2a.converters](../../a2a/converters/package-summary.html) that return [Event](../Event.html "class in com.google.adk.events")
-
-Modifier and Type
-
-Method
-
-Description
-
-`static [Event](../Event.html "class in com.google.adk.events")`
-
-ResponseConverter.`[messageToEvent](../../a2a/converters/ResponseConverter.html#messageToEvent\(io.a2a.spec.Message,com.google.adk.agents.InvocationContext\))(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
-
-Converts an A2A message back to ADK events.
-
-`static [Event](../Event.html "class in com.google.adk.events")`
-
-ResponseConverter.`[messageToEvent](../../a2a/converters/ResponseConverter.html#messageToEvent\(io.a2a.spec.Message,com.google.adk.agents.InvocationContext,boolean\))(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, boolean isPending)`
-
-Converts an A2A message back to ADK events.
-
-`static [Event](../Event.html "class in com.google.adk.events")`
-
-ResponseConverter.`[messageToFailedEvent](../../a2a/converters/ResponseConverter.html#messageToFailedEvent\(io.a2a.spec.Message,com.google.adk.agents.InvocationContext\))(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
-
-Converts an A2A message for a failed task to ADK event filling in the error message.
-
-`static [Event](../Event.html "class in com.google.adk.events")`
-
-ResponseConverter.`[taskToEvent](../../a2a/converters/ResponseConverter.html#taskToEvent\(io.a2a.spec.Task,com.google.adk.agents.InvocationContext\))(io.a2a.spec.Task task, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
-
-Converts an A2A `Task` to an ADK [`Event`](../Event.html "class in com.google.adk.events").
-
 Methods in [com.google.adk.a2a.converters](../../a2a/converters/package-summary.html) that return types with arguments of type [Event](../Event.html "class in com.google.adk.events")
 
 Modifier and Type
@@ -163,12 +149,6 @@ Modifier and Type
 Method
 
 Description
-
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Event](../Event.html "class in com.google.adk.events")>`
-
-ResponseConverter.`[clientEventToEvent](../../a2a/converters/ResponseConverter.html#clientEventToEvent\(io.a2a.client.ClientEvent,com.google.adk.agents.InvocationContext\))(io.a2a.client.ClientEvent event, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
-
-Converts a A2A `ClientEvent` to an ADK [`Event`](../Event.html "class in com.google.adk.events"), based on the event type.
 
 `static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Event](../Event.html "class in com.google.adk.events")>`
 
@@ -201,6 +181,12 @@ Modifier and Type
 Method
 
 Description
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message>`
+
+EventConverter.`[convertEventToA2AMessage](../../a2a/converters/EventConverter.html#convertEventToA2AMessage\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
+
+ 
 
 `static io.a2a.spec.Message`
 
@@ -241,22 +227,6 @@ Description
 `[PreparedInput](../../a2a/converters/ConversationPreprocessor.PreparedInput.html#%3Cinit%3E\(com.google.common.collect.ImmutableList,java.util.Optional,java.util.Optional\))(com.google.common.collect.ImmutableList<[Event](../Event.html "class in com.google.adk.events")> historyEvents, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> userEvent)`
 
 Creates a new instance.
-
-  * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html)
-
-Methods in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
-
-Modifier and Type
-
-Method
-
-Description
-
-`io.reactivex.rxjava3.core.Maybe<io.a2a.spec.TaskArtifactUpdateEvent>`
-
-Callbacks.AfterEventCallback.`[call](../../a2a/executor/Callbacks.AfterEventCallback.html#call\(io.a2a.server.agentexecution.RequestContext,io.a2a.spec.TaskArtifactUpdateEvent,com.google.adk.events.Event\))(io.a2a.server.agentexecution.RequestContext ctx, io.a2a.spec.TaskArtifactUpdateEvent processedEvent, [Event](../Event.html "class in com.google.adk.events") event)`
-
-Callback which will be called after an ADK event is successfully converted to an A2A event.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.agents](../../agents/package-summary.html)
 
@@ -345,6 +315,20 @@ Not supported for ParallelAgent.
 SequentialAgent.`[runLiveImpl](../../agents/SequentialAgent.html#runLiveImpl\(com.google.adk.agents.InvocationContext\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
 Runs sub-agents sequentially in live mode.
+
+Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`boolean`
+
+InvocationContext.`[shouldPauseInvocation](../../agents/InvocationContext.html#shouldPauseInvocation\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
+
+Returns whether to pause the invocation right after this [event].
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.events](../package-summary.html)
 
@@ -489,12 +473,6 @@ Handles function calls in a live/streaming context with tool confirmations, supp
 BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
 Post-processes the LLM response after receiving it from the LLM.
-
-`protected io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
-
-BaseLlmFlow.`[preprocess](../../flows/llmflows/BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,java.util.concurrent.atomic.AtomicReference\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [AtomicReference](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html "class or interface in java.util.concurrent.atomic")<[LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models")> llmRequestRef)`
-
-Pre-processes the LLM request before sending it to the LLM.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
 
@@ -694,12 +672,6 @@ Runner.`[runAsync](../../runner/Runner.html#runAsync\(java.lang.String,java.lang
 
 Runs the agent with an invocation-based mode.
 
-`protected io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
-
-Runner.`[runAsyncImpl](../../runner/Runner.html#runAsyncImpl\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
-
-Runs the agent asynchronously using a provided Session object.
-
 `io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
 
 Runner.`[runLive](../../runner/Runner.html#runLive\(com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
@@ -716,7 +688,7 @@ Retrieves the session and runs the agent in live mode.
 
 Runner.`[runWithSessionId](../../runner/Runner.html#runWithSessionId\(java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
 
-Deprecated, for removal: This API element is subject to removal in a future version.
+Runs the agent asynchronously with a default user ID.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.sessions](../../sessions/package-summary.html)
 
@@ -857,22 +829,6 @@ Compact a list of events into a single event.
 LlmEventSummarizer.`[summarizeEvents](../../summarizer/LlmEventSummarizer.html#summarizeEvents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
 
  
-
-  * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
-
-Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
-
-Modifier and Type
-
-Method
-
-Description
-
-`static void`
-
-Tracing.`[traceToolResponse](../../telemetry/Tracing.html#traceToolResponse\(java.lang.String,com.google.adk.events.Event\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [Event](../Event.html "class in com.google.adk.events") functionResponseEvent)`
-
-Traces tool response event.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.web.controller](../../web/controller/package-summary.html)
 

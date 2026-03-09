@@ -30,8 +30,8 @@ Contents
   6. Constructor Details
      1. ReadonlyContext(InvocationContext)
   7. Method Details
-     1. userContent()
-     2. invocationContext()
+     1. invocationContext()
+     2. userContent()
      3. invocationId()
      4. branch()
      5. agentName()
@@ -170,17 +170,17 @@ public ReadonlyContext([InvocationContext](InvocationContext.html "class in com.
 
   * ## Method Details
 
-    * ### userContent
-
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent()
-
-Returns the user content that initiated this invocation.
-
     * ### invocationContext
 
 public [InvocationContext](InvocationContext.html "class in com.google.adk.agents") invocationContext()
 
 Returns the invocation context.
+
+    * ### userContent
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent()
+
+Returns the user content that initiated this invocation.
 
     * ### invocationId
 

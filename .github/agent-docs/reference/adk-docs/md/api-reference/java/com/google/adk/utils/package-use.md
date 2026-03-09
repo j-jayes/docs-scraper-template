@@ -51,10 +51,6 @@ Class
 
 Description
 
-[AdkComponentProvider](class-use/AdkComponentProvider.html#com.google.adk.utils)
-
-Service provider interface for ADK components to be registered in [`ComponentRegistry`](ComponentRegistry.html "class in com.google.adk.utils").
-
 [ComponentRegistry](class-use/ComponentRegistry.html#com.google.adk.utils)
 
 A registry for storing and retrieving ADK instances by name.

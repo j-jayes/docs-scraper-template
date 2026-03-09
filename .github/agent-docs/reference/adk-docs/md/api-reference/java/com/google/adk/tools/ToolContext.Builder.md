@@ -28,8 +28,7 @@ Contents
      1. actions(EventActions)
      2. functionCallId(String)
      3. toolConfirmation(ToolConfirmation)
-     4. eventId(String)
-     5. build()
+     4. build()
 
 Hide sidebar  Show sidebar
 
@@ -72,12 +71,6 @@ Description
 
 `[ToolContext.Builder](ToolContext.Builder.html "class in com.google.adk.tools")`
 
-`eventId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
-
- 
-
-`[ToolContext.Builder](ToolContext.Builder.html "class in com.google.adk.tools")`
-
 `functionCallId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") functionCallId)`
 
  
@@ -108,10 +101,6 @@ Description
     * ### toolConfirmation
 
 @CanIgnoreReturnValue public [ToolContext.Builder](ToolContext.Builder.html "class in com.google.adk.tools") toolConfirmation([ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)
-
-    * ### eventId
-
-@CanIgnoreReturnValue public [ToolContext.Builder](ToolContext.Builder.html "class in com.google.adk.tools") eventId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)
 
     * ### build
 

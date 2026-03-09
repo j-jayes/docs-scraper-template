@@ -43,7 +43,7 @@ Immutable value that surfaces the results of preprocessing.
 
 [EventConverter.AggregationMode](class-use/EventConverter.AggregationMode.html#com.google.adk.a2a.converters)
 
-Aggregation mode for converting events to A2A messages.
+ 
 
 [ResponseConverter.MessageSendResult](class-use/ResponseConverter.MessageSendResult.html#com.google.adk.a2a.converters)
 

@@ -8,6 +8,7 @@ Skip navigation links
   * Class
   * [Use](class-use/Telemetry.html)
   * [Tree](package-tree.html)
+  * [Deprecated](../../../deprecated-list.html)
   * [Index](../../../index-all.html)
   * [Search](../../../search.html)
 
@@ -20,18 +21,18 @@ Skip navigation links
 
 Contents 
 
-Hide sidebar ❮❯ Show sidebar
-
   1. Description
   2. Method Summary
   3. Method Details
-     1. traceToolCall(Map)
-     2. traceToolResponse(InvocationContext, String, Event)
-     3. traceCallLlm(InvocationContext, String, LlmRequest, LlmResponse)
-     4. traceSendData(InvocationContext, String, List)
-     5. getTracer()
+     1. setTracerForTesting(Tracer)
+     2. traceToolCall(Map)
+     3. traceToolResponse(InvocationContext, String, Event)
+     4. traceCallLlm(InvocationContext, String, LlmRequest, LlmResponse)
+     5. traceSendData(InvocationContext, String, List)
+     6. getTracer()
+     7. traceFlowable(Context, Span, Supplier)
 
-
+Hide sidebar  Show sidebar
 
 # Class Telemetry
 
@@ -63,9 +64,21 @@ Gets the tracer.
 
 `static void`
 
+`setTracerForTesting(io.opentelemetry.api.trace.Tracer tracer)`
+
+Sets the OpenTelemetry instance to be used for tracing.
+
+`static void`
+
 `traceCallLlm([InvocationContext](agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
 Traces a call to the LLM.
+
+`static <T> io.reactivex.rxjava3.core.Flowable<T>`
+
+`traceFlowable(io.opentelemetry.context.Context spanContext, io.opentelemetry.api.trace.Span span, [Supplier](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html "class or interface in java.util.function")<io.reactivex.rxjava3.core.Flowable<T>> flowableSupplier)`
+
+Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle.
 
 `static void`
 
@@ -85,7 +98,7 @@ Traces tool call arguments.
 
 Traces tool response event.
 
-### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
 
@@ -93,6 +106,12 @@ Traces tool response event.
 
 
   * ## Method Details
+
+    * ### setTracerForTesting
+
+public static void setTracerForTesting(io.opentelemetry.api.trace.Tracer tracer)
+
+Sets the OpenTelemetry instance to be used for tracing. This is for testing purposes only.
 
     * ### traceToolCall
 
@@ -146,9 +165,30 @@ Gets the tracer.
 Returns:
     The tracer.
 
+    * ### traceFlowable
+
+public static <T> io.reactivex.rxjava3.core.Flowable<T> traceFlowable(io.opentelemetry.context.Context spanContext, io.opentelemetry.api.trace.Span span, [Supplier](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html "class or interface in java.util.function")<io.reactivex.rxjava3.core.Flowable<T>> flowableSupplier)
+
+Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle. 
+
+This helper manages the OpenTelemetry Scope lifecycle for RxJava Flowables to ensure proper context propagation across async boundaries. The scope remains active from when the Flowable is returned through all operators until stream completion (onComplete, onError, or cancel). 
+
+**Why not try-with-resources?** RxJava Flowables execute lazily - operators run at subscription time, not at chain construction time. Using try-with-resources would close the scope before the Flowable subscribes, causing Context.current() to return ROOT in nested operations and breaking parent-child span relationships (fragmenting traces). 
+
+The scope is properly closed via doFinally when the stream terminates, ensuring no resource leaks regardless of completion mode (success, error, or cancellation).
+
+Type Parameters:
+    `T` \- The type of items emitted by the Flowable
+Parameters:
+    `spanContext` \- The context containing the span to activate
+    `span` \- The span to end when the stream completes
+    `flowableSupplier` \- Supplier that creates the Flowable to execute with active scope
+Returns:
+    Flowable with OpenTelemetry scope lifecycle management
+
 
 
 
 * * *
 
-Copyright (C) 2025\. All rights reserved.
+Copyright (C) 1980\. All rights reserved.

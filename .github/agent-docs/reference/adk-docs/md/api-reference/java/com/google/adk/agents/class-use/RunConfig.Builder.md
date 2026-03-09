@@ -57,12 +57,6 @@ RunConfig.`[builder](../RunConfig.html#builder\(com.google.adk.agents.RunConfig\
 
 `abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
-RunConfig.Builder.`[setAutoCreateSession](../RunConfig.Builder.html#setAutoCreateSession\(boolean\))(boolean autoCreateSession)`
-
- 
-
-`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
-
 RunConfig.Builder.`[setInputAudioTranscription](../RunConfig.Builder.html#setInputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\))(com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)`
 
  

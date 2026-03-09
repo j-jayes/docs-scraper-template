@@ -28,15 +28,7 @@ Package
 
 Description
 
-com.google.adk.a2a.executor
-
- 
-
 com.google.adk.agents
-
- 
-
-com.google.adk.apps
 
  
 
@@ -44,27 +36,21 @@ com.google.adk.plugins
 
  
 
-com.google.adk.runner
+  * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.agents](../../agents/package-summary.html)
 
- 
-
-  * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html)
-
-Method parameters in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) with type arguments of type [Plugin](../Plugin.html "interface in com.google.adk.plugins")
+Classes in [com.google.adk.agents](../../agents/package-summary.html) that implement [Plugin](../Plugin.html "interface in com.google.adk.plugins")
 
 Modifier and Type
 
-Method
+Class
 
 Description
 
-`[AgentExecutor.Builder](../../a2a/executor/AgentExecutor.Builder.html "class in com.google.adk.a2a.executor")`
+`class `
 
-AgentExecutor.Builder.`[plugins](../../a2a/executor/AgentExecutor.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
+`[CallbackPlugin](../../agents/CallbackPlugin.html "class in com.google.adk.agents")`
 
- 
-
-  * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.agents](../../agents/package-summary.html)
+A plugin that wraps callbacks and exposes them as a plugin.
 
 Methods in [com.google.adk.agents](../../agents/package-summary.html) that return [Plugin](../Plugin.html "interface in com.google.adk.plugins")
 
@@ -73,6 +59,12 @@ Modifier and Type
 Method
 
 Description
+
+`[Plugin](../Plugin.html "interface in com.google.adk.plugins")`
+
+BaseAgent.`[getPlugin](../../agents/BaseAgent.html#getPlugin\(\))()`
+
+ 
 
 `[Plugin](../Plugin.html "interface in com.google.adk.plugins")`
 
@@ -110,36 +102,6 @@ Deprecated, for removal: This API element is subject to removal in a future vers
 
 Use [`InvocationContext.builder()`](../../agents/InvocationContext.html#builder\(\)) instead.
 
-  * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.apps](../../apps/package-summary.html)
-
-Methods in [com.google.adk.apps](../../apps/package-summary.html) that return types with arguments of type [Plugin](../Plugin.html "interface in com.google.adk.plugins")
-
-Modifier and Type
-
-Method
-
-Description
-
-`com.google.common.collect.ImmutableList<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")>`
-
-App.`[plugins](../../apps/App.html#plugins\(\))()`
-
- 
-
-Method parameters in [com.google.adk.apps](../../apps/package-summary.html) with type arguments of type [Plugin](../Plugin.html "interface in com.google.adk.plugins")
-
-Modifier and Type
-
-Method
-
-Description
-
-`[App.Builder](../../apps/App.Builder.html "class in com.google.adk.apps")`
-
-App.Builder.`[plugins](../../apps/App.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
-
- 
-
   * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.plugins](../package-summary.html)
 
 Classes in [com.google.adk.plugins](../package-summary.html) that implement [Plugin](../Plugin.html "interface in com.google.adk.plugins")
@@ -155,18 +117,6 @@ Description
 `[BasePlugin](../BasePlugin.html "class in com.google.adk.plugins")`
 
 Base class for creating plugins.
-
-`class `
-
-`[ContextFilterPlugin](../ContextFilterPlugin.html "class in com.google.adk.plugins")`
-
-A plugin that filters the LLM request `Content` list to reduce its size, for example to adhere to context window limits.
-
-`class `
-
-`[GlobalInstructionPlugin](../GlobalInstructionPlugin.html "class in com.google.adk.plugins")`
-
-Plugin that provides global instructions functionality at the App level.
 
 `class `
 
@@ -227,52 +177,6 @@ Description
 `[PluginManager](../PluginManager.html#%3Cinit%3E\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
 
  
-
-  * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.runner](../../runner/package-summary.html)
-
-Method parameters in [com.google.adk.runner](../../runner/package-summary.html) with type arguments of type [Plugin](../Plugin.html "interface in com.google.adk.plugins")
-
-Modifier and Type
-
-Method
-
-Description
-
-`[Runner.Builder](../../runner/Runner.Builder.html "class in com.google.adk.runner")`
-
-Runner.Builder.`[plugins](../../runner/Runner.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
-
- 
-
-Constructor parameters in [com.google.adk.runner](../../runner/package-summary.html) with type arguments of type [Plugin](../Plugin.html "interface in com.google.adk.plugins")
-
-Modifier
-
-Constructor
-
-Description
-
-` `
-
-`[InMemoryRunner](../../runner/InMemoryRunner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,java.util.List\))([BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
-
- 
-
-` `
-
-`[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List\))([BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
-
-Deprecated.
-
-Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
-
-`protected `
-
-`[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig\))([BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins, [EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig, [ContextCacheConfig](../../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
-
-Deprecated.
-
-Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 
 
 

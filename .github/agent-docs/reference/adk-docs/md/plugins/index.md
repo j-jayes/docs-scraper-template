@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
+      * [ LiteRT-LM  ](../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../integrations/)
 
 Tools and Integrations 
@@ -270,7 +271,7 @@ This section explains how to define Plugin classes and register them as part of 
 
 Start by extending the `BasePlugin` class and add one or more `callback` methods, as shown in the following code example:
 
-PythonTypescript
+PythonTypescriptJava
 
 count_plugin.py
     
@@ -308,7 +309,7 @@ count_plugin.py
 count_plugin.ts
     
     
-    import { BaseAgent, BasePlugin, CallbackContext } from "@google/adk";
+    import { BaseAgent, BasePlugin, Context } from "@google/adk";
     import type { LlmRequest, LlmResponse } from "@google/adk";
     import type { Content } from "@google/genai";
     
@@ -330,7 +331,7 @@ count_plugin.ts
          */
         async beforeAgentCallback(
             agent: BaseAgent,
-            callbackContext: CallbackContext
+            context: Context
         ): Promise<Content | undefined> {
             this.agentCount++;
             console.log(`[Plugin] Agent run count: ${this.agentCount}`);
@@ -341,7 +342,7 @@ count_plugin.ts
          * Count LLM requests.
          */
         async beforeModelCallback(
-            callbackContext: CallbackContext,
+            context: Context,
             llmRequest: LlmRequest
         ): Promise<LlmResponse | undefined> {
             this.llmRequestCount++;
@@ -351,13 +352,53 @@ count_plugin.ts
     }
     
 
+CountInvocationPlugin.java
+    
+    
+    import com.google.adk.agents.BaseAgent;
+    import com.google.adk.agents.CallbackContext;
+    import com.google.adk.models.LlmRequest;
+    import com.google.adk.models.LlmResponse;
+    import com.google.adk.plugins.BasePlugin;
+    import com.google.genai.types.Content;
+    import io.reactivex.rxjava3.core.Maybe;
+    
+    /** A custom plugin that counts agent and tool invocations. */
+    public class CountInvocationPlugin extends BasePlugin {
+      public int agentCount = 0;
+      public int toolCount = 0;
+      public int llmRequestCount = 0;
+    
+      public CountInvocationPlugin() {
+        super("count_invocation");
+      }
+    
+      /** Count agent runs. */
+      @Override
+      public Maybe<Content> beforeAgentCallback(BaseAgent agent, CallbackContext callbackContext) {
+        agentCount++;
+        System.out.println("[Plugin] Agent run count: " + agentCount);
+        return Maybe.empty();
+      }
+    
+      /** Count LLM requests. */
+      @Override
+      public Maybe<LlmResponse> beforeModelCallback(
+          CallbackContext callbackContext, LlmRequest.Builder llmRequest) {
+        llmRequestCount++;
+        System.out.println("[Plugin] LLM request count: " + llmRequestCount);
+        return Maybe.empty();
+      }
+    }
+    
+
 This example code implements callbacks for `before_agent_callback` and `before_model_callback` to count execution of these tasks during the lifecycle of the agent.
 
 ### Register Plugin class¶
 
 Integrate your Plugin class by registering it during your agent initialization as part of your `Runner` class, using the `plugins` parameter. You can specify multiple Plugins with this parameter. The following code example shows how to register the `CountInvocationPlugin` plugin defined in the previous section with a simple ADK agent.
 
-PythonTypescript
+PythonTypescriptJava
     
     
     from google.adk.runners import InMemoryRunner
@@ -370,45 +411,45 @@ PythonTypescript
     from .count_plugin import CountInvocationPlugin
     
     async def hello_world(tool_context: ToolContext, query: str):
-    print(f'Hello world: query is [{query}]')
+        print(f'Hello world: query is [{query}]')
     
-    root_agent = Agent(
-        model='gemini-2.0-flash',
-        name='hello_world',
-        description='Prints hello world with user query.',
-        instruction="""Use hello_world tool to print hello world and user query.
-        """,
-        tools=[hello_world],
-    )
+        root_agent = Agent(
+            model='gemini-2.0-flash',
+            name='hello_world',
+            description='Prints hello world with user query.',
+            instruction="""Use hello_world tool to print hello world and user query.
+            """,
+            tools=[hello_world],
+        )
     
     async def main():
-    """Main entry point for the agent."""
-    prompt = 'hello world'
-    runner = InMemoryRunner(
-        agent=root_agent,
-        app_name='test_app_with_plugin',
+        """Main entry point for the agent."""
+        prompt = 'hello world'
+        runner = InMemoryRunner(
+            agent=root_agent,
+            app_name='test_app_with_plugin',
     
-        # Add your plugin here. You can add multiple plugins.
-        plugins=[CountInvocationPlugin()],
-    )
-    
-    # The rest is the same as starting a regular ADK runner.
-    session = await runner.session_service.create_session(
-        user_id='user',
-        app_name='test_app_with_plugin',
-    )
-    
-    async for event in runner.run_async(
-        user_id='user',
-        session_id=session.id,
-        new_message=types.Content(
-            role='user', parts=[types.Part.from_text(text=prompt)]
+            # Add your plugin here. You can add multiple plugins.
+            plugins=[CountInvocationPlugin()],
         )
-    ):
-        print(f'** Got event from {event.author}')
+    
+        # The rest is the same as starting a regular ADK runner.
+        session = await runner.session_service.create_session(
+            user_id='user',
+            app_name='test_app_with_plugin',
+        )
+    
+        async for event in runner.run_async(
+            user_id='user',
+            session_id=session.id,
+            new_message=types.Content(
+                role='user', parts=[types.Part.from_text(text=prompt)]
+            )
+        ):
+            print(f'** Got event from {event.author}')
     
     if __name__ == "__main__":
-    asyncio.run(main())
+        asyncio.run(main())
     
     
     
@@ -482,12 +523,80 @@ PythonTypescript
     
     main();
     
+    
+    
+    import com.google.adk.agents.LlmAgent;
+    import com.google.adk.runner.InMemoryRunner;
+    import com.google.adk.sessions.Session;
+    import com.google.adk.tools.Annotations.Schema;
+    import com.google.adk.tools.FunctionTool;
+    import com.google.genai.types.Content;
+    import com.google.genai.types.Part;
+    import java.util.Collections;
+    import java.util.List;
+    import java.util.Map;
+    
+    // Import the plugin.
+    // import com.example.CountInvocationPlugin;
+    
+    public class Main {
+    
+      public static class HelloTool {
+        @Schema(name = "hello_world", description = "Prints hello world with user query.")
+        public static Map<String, Object> helloWorld(
+            @Schema(name = "query", description = "The query string to print.") String query) {
+          String output = "Hello world: query is [" + query + "]";
+          System.out.println(output);
+          return Map.of("result", output);
+        }
+      }
+    
+      public static void main(String[] args) {
+        LlmAgent rootAgent = LlmAgent.builder()
+            .model("gemini-2.0-flash")
+            .name("hello_world")
+            .description("Prints hello world with user query.")
+            .instruction("Use hello_world tool to print hello world and user query.")
+            .tools(FunctionTool.create(HelloTool.class, "helloWorld"))
+            .build();
+    
+        // Add your plugin here. You can add multiple plugins.
+        InMemoryRunner runner = new InMemoryRunner(
+            rootAgent,
+            "test_app_with_plugin",
+            Collections.singletonList(new CountInvocationPlugin())
+        );
+    
+        // The rest is the same as starting a regular ADK runner.
+        Session session = runner.sessionService().createSession(
+            "test_app_with_plugin",
+            "user"
+        ).blockingGet();
+    
+        String prompt = "hello world";
+        Content newContent = Content.builder()
+            .role("user")
+            .parts(List.of(Part.builder().text(prompt).build()))
+            .build();
+    
+        runner.runAsync(
+            "user",
+            session.id(),
+            newContent
+        ).blockingForEach(event -> {
+             if (event.author() != null) {
+                System.out.println("** Got event from " + event.author());
+            }
+        });
+      }
+    }
+    
 
 ### Run the agent with the Plugin¶
 
 Run the plugin as you typically would. The following shows how to run the command line:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     python3 -m path.to.main.py
@@ -495,6 +604,10 @@ PythonTypescript
     
     
     npx ts-node path.to.main.ts
+    
+    
+    
+    ./mvnw -q clean compile exec:java -Dexec.mainClass="com.example.Main"
     
 
 The output of this previously described agent should look similar to the following:
@@ -572,7 +685,7 @@ _A User Message c_ allback (`on_user_message_callback`) happens when a user send
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     async def on_user_message_callback(
@@ -591,6 +704,15 @@ PythonTypescript
       // Your implementation here
     }
     
+    
+    
+    @Override
+    public Maybe<Content> onUserMessageCallback(
+      InvocationContext invocationContext, Content userMessage) {
+      // Your implementation here
+      return Maybe.empty();
+    }
+    
 
 ### Runner start callbacks¶
 
@@ -604,7 +726,7 @@ A _Runner start_ callback (`before_run_callback`) happens when the `Runner` obje
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     async def before_run_callback(
@@ -615,6 +737,14 @@ PythonTypescript
     
     async beforeRunCallback(invocationContext: InvocationContext): Promise<Content | undefined> {
       // Your implementation here
+    }
+    
+    
+    
+    @Override
+    public Maybe<Content> beforeRunCallback(InvocationContext invocationContext) {
+      // Your implementation here
+      return Maybe.empty();
     }
     
 
@@ -654,7 +784,7 @@ The on error callback for Model objects is only supported by the Plugins feature
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     async def on_model_error_callback(
@@ -668,11 +798,20 @@ PythonTypescript
     
     
     async onModelErrorCallback(
-        callbackContext: CallbackContext,
+        context: Context,
         llmRequest: LlmRequest,
         error: Error
     ): Promise<LlmResponse | undefined> {
         // Your implementation here
+    }
+    
+    
+    
+    @Override
+    public Maybe<LlmResponse> onModelErrorCallback(
+      CallbackContext callbackContext, LlmRequest.Builder llmRequest, Throwable error) {
+      // Your implementation here
+      return Maybe.empty();
     }
     
 
@@ -702,7 +841,7 @@ The on error callback for Tool objects is only supported by the Plugins feature 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     async def on_tool_error_callback(
@@ -719,10 +858,19 @@ PythonTypescript
     async onToolErrorCallback(
         tool: BaseTool,
         toolArgs: { [key: string]: any },
-        toolContext: ToolContext,
+        context: Context,
         error: Error
     ): Promise<{ [key:string]: any } | undefined> {
         // Your implementation here
+    }
+    
+    
+    
+    @Override
+    public Maybe<Map<String, Object>> onToolErrorCallback(
+      BaseTool tool, Map<String, Object> toolArgs, ToolContext toolContext, Throwable error) {
+      // Your implementation here
+      return Maybe.empty();
     }
     
 
@@ -738,7 +886,7 @@ An _Event callback_ (`on_event_callback`) happens when an agent produces outputs
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     async def on_event_callback(
@@ -754,6 +902,14 @@ PythonTypescript
         // Your implementation here
     }
     
+    
+    
+    @Override
+    public Maybe<Event> onEventCallback(InvocationContext invocationContext, Event event) {
+      // Your implementation here
+      return Maybe.empty();
+    }
+    
 
 ### Runner end callbacks¶
 
@@ -767,7 +923,7 @@ The _Runner end_ callback **(`after_run_callback`)** happens when the agent has 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescript
+PythonTypescriptJava
     
     
     async def after_run_callback(
@@ -778,6 +934,14 @@ PythonTypescript
     
     async afterRunCallback(invocationContext: InvocationContext): Promise<void> {
         // Your implementation here
+    }
+    
+    
+    
+    @Override
+    public Completable afterRunCallback(InvocationContext invocationContext) {
+      // Your implementation here
+      return Completable.complete();
     }
     
 

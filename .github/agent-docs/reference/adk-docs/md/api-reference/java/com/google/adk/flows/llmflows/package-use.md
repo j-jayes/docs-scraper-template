@@ -35,6 +35,10 @@ com.google.adk.flows.llmflows
 
  
 
+com.google.adk.runner
+
+ 
+
   * Classes in [com.google.adk.flows.llmflows](package-summary.html) used by [com.google.adk.agents](../../agents/package-summary.html)
 
 Class
@@ -44,6 +48,10 @@ Description
 [BaseLlmFlow](class-use/BaseLlmFlow.html#com.google.adk.agents)
 
 A basic flow that calls the LLM in a loop until a final response is generated.
+
+[ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.agents)
+
+An app contains Resumability configuration for the agents.
 
   * Classes in [com.google.adk.flows.llmflows](package-summary.html) used by [com.google.adk.flows.llmflows](package-summary.html)
 
@@ -74,6 +82,16 @@ Result of response processing.
 [SingleFlow](class-use/SingleFlow.html#com.google.adk.flows.llmflows)
 
 Basic LLM flow with fixed request and response processors.
+
+  * Classes in [com.google.adk.flows.llmflows](package-summary.html) used by [com.google.adk.runner](../../runner/package-summary.html)
+
+Class
+
+Description
+
+[ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.runner)
+
+An app contains Resumability configuration for the agents.
 
 
 

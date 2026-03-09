@@ -43,6 +43,12 @@ Method
 
 Description
 
+`[CallbackPlugin.Builder](../CallbackPlugin.Builder.html "class in com.google.adk.agents")`
+
+CallbackPlugin.Builder.`[addBeforeModelCallbackSync](../CallbackPlugin.Builder.html#addBeforeModelCallbackSync\(com.google.adk.agents.Callbacks.BeforeModelCallbackSync\))([Callbacks.BeforeModelCallbackSync](../Callbacks.BeforeModelCallbackSync.html "interface in com.google.adk.agents") callback)`
+
+ 
+
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
 LlmAgent.Builder.`[beforeModelCallbackSync](../LlmAgent.Builder.html#beforeModelCallbackSync\(com.google.adk.agents.Callbacks.BeforeModelCallbackSync\))([Callbacks.BeforeModelCallbackSync](../Callbacks.BeforeModelCallbackSync.html "interface in com.google.adk.agents") beforeModelCallbackSync)`

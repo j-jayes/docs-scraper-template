@@ -27,7 +27,7 @@ Package
 
 Description
 
-com.google.adk.a2a.executor
+com.google.adk.a2a
 
  
 
@@ -67,15 +67,15 @@ com.google.adk.web.websocket
 
  
 
-  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.a2a](../a2a/package-summary.html)
 
 Class
 
 Description
 
-[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.a2a.executor)
+[InMemorySessionService](class-use/InMemorySessionService.html#com.google.adk.a2a)
 
-Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
+An in-memory implementation of [`BaseSessionService`](BaseSessionService.html "interface in com.google.adk.sessions") assuming [`Session`](Session.html "class in com.google.adk.sessions") objects are mutable regarding their state map, events list, and last update time.
 
   * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
 

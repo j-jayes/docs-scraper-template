@@ -30,12 +30,10 @@ Contents
      1. prepareGenenerateContentRequest(LlmRequest, boolean)
      2. prepareGenenerateContentRequest(LlmRequest, boolean, boolean)
      3. sanitizeRequestForGeminiApi(LlmRequest)
-     4. removeClientFunctionCallId(LlmRequest)
-     5. getPart0FromLlmResponse(LlmResponse)
-     6. getTextFromLlmResponse(LlmResponse)
-     7. shouldEmitAccumulatedText(LlmResponse)
-     8. stripThoughts(List)
-     9. toGenerateContentResponseUsageMetadata(UsageMetadata)
+     4. getPart0FromLlmResponse(LlmResponse)
+     5. getTextFromLlmResponse(LlmResponse)
+     6. shouldEmitAccumulatedText(LlmResponse)
+     7. stripThoughts(List)
 
 Hide sidebar  Show sidebar
 
@@ -103,12 +101,6 @@ Prepares an [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") for
 
 `static [LlmRequest](LlmRequest.html "class in com.google.adk.models")`
 
-`removeClientFunctionCallId([LlmRequest](LlmRequest.html "class in com.google.adk.models") llmRequest)`
-
-Removes client-side function call IDs from the request.
-
-`static [LlmRequest](LlmRequest.html "class in com.google.adk.models")`
-
 `sanitizeRequestForGeminiApi([LlmRequest](LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
 Sanitizes the request to ensure it is compatible with the Gemini API backend.
@@ -119,17 +111,11 @@ Sanitizes the request to ensure it is compatible with the Gemini API backend.
 
 Determines if accumulated text should be emitted based on the current LlmResponse.
 
-`static com.google.common.collect.ImmutableList<com.google.genai.types.Content>`
+`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content>`
 
 `stripThoughts([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> originalContents)`
 
 Removes any `Part` that contains only a `thought` from the content list.
-
-`static com.google.genai.types.GenerateContentResponseUsageMetadata`
-
-`toGenerateContentResponseUsageMetadata(com.google.genai.types.UsageMetadata usageMetadata)`
-
- 
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -170,7 +156,7 @@ public static [LlmRequest](LlmRequest.html "class in com.google.adk.models") pre
 
 Prepares an [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") for the GenerateContent API. 
 
-This method can optionally sanitize the request and ensures that the last content part is from the user to prompt a model response. It also strips out any parts marked as "thoughts" and removes client-side function call IDs as some LLM APIs reject requests with client-side function call IDs.
+This method can optionally sanitize the request and ensures that the last content part is from the user to prompt a model response. It also strips out any parts marked as "thoughts".
 
 Parameters:
     `llmRequest` \- The original [`LlmRequest`](LlmRequest.html "class in com.google.adk.models").
@@ -188,19 +174,6 @@ Parameters:
     `llmRequest` \- The request to sanitize.
 Returns:
     The sanitized request.
-
-    * ### removeClientFunctionCallId
-
-public static [LlmRequest](LlmRequest.html "class in com.google.adk.models") removeClientFunctionCallId([LlmRequest](LlmRequest.html "class in com.google.adk.models") llmRequest)
-
-Removes client-side function call IDs from the request. 
-
-Client-side function call IDs are internal to the ADK and should not be sent to the model. This method iterates through the contents and parts, removing the ID from any `FunctionCall` or `FunctionResponse` parts.
-
-Parameters:
-    `llmRequest` \- The request to process.
-Returns:
-    A new [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") with function call IDs removed.
 
     * ### getPart0FromLlmResponse
 
@@ -237,13 +210,9 @@ Returns:
 
     * ### stripThoughts
 
-public static com.google.common.collect.ImmutableList<com.google.genai.types.Content> stripThoughts([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> originalContents)
+public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> stripThoughts([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> originalContents)
 
 Removes any `Part` that contains only a `thought` from the content list.
-
-    * ### toGenerateContentResponseUsageMetadata
-
-public static com.google.genai.types.GenerateContentResponseUsageMetadata toGenerateContentResponseUsageMetadata(com.google.genai.types.UsageMetadata usageMetadata)
 
 
 

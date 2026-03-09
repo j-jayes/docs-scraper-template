@@ -36,10 +36,6 @@ com.google.adk.tools
 
  
 
-com.google.adk.tools.computeruse
-
- 
-
   * ## Uses of [FunctionTool](../FunctionTool.html "class in com.google.adk.tools") in [com.example](../../../../example/package-summary.html)
 
 Fields in [com.example](../../../../example/package-summary.html) declared as [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")
@@ -120,12 +116,6 @@ FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Class,java.lang.St
 
 `static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
 
-FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Class,java.lang.String,boolean,boolean\))([Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<?> cls, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation, boolean isLongRunning)`
-
- 
-
-`static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
-
 FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func)`
 
  
@@ -133,12 +123,6 @@ FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Object,java.lang.r
 `static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
 
 FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method,boolean\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation)`
-
- 
-
-`static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
-
-FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method,boolean,boolean\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation, boolean isLongRunning)`
 
  
 
@@ -156,12 +140,6 @@ FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Object,java.lang.S
 
 `static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
 
-FunctionTool.`[create](../FunctionTool.html#create\(java.lang.Object,java.lang.String,boolean,boolean\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation, boolean isLongRunning)`
-
- 
-
-`static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
-
 FunctionTool.`[create](../FunctionTool.html#create\(java.lang.reflect.Method\))([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func)`
 
  
@@ -169,12 +147,6 @@ FunctionTool.`[create](../FunctionTool.html#create\(java.lang.reflect.Method\))(
 `static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
 
 FunctionTool.`[create](../FunctionTool.html#create\(java.lang.reflect.Method,boolean\))([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation)`
-
- 
-
-`static [FunctionTool](../FunctionTool.html "class in com.google.adk.tools")`
-
-FunctionTool.`[create](../FunctionTool.html#create\(java.lang.reflect.Method,boolean,boolean\))([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation, boolean isLongRunning)`
 
  
 
@@ -191,22 +163,6 @@ Description
 LongRunningFunctionTool.`[create](../LongRunningFunctionTool.html#create\(com.google.adk.tools.FunctionTool\))([FunctionTool](../FunctionTool.html "class in com.google.adk.tools") tool)`
 
 Creates a LongRunningFunctionTool from a FunctionTool.
-
-  * ## Uses of [FunctionTool](../FunctionTool.html "class in com.google.adk.tools") in [com.google.adk.tools.computeruse](../computeruse/package-summary.html)
-
-Subclasses of [FunctionTool](../FunctionTool.html "class in com.google.adk.tools") in [com.google.adk.tools.computeruse](../computeruse/package-summary.html)
-
-Modifier and Type
-
-Class
-
-Description
-
-`class `
-
-`[ComputerUseTool](../computeruse/ComputerUseTool.html "class in com.google.adk.tools.computeruse")`
-
-A tool that wraps computer control functions for use with LLMs.
 
 
 

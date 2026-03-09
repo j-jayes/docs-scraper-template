@@ -47,7 +47,7 @@ com.google.adk.tools.GoogleSearchTool
 
 public final class GoogleSearchTool extends [BaseTool](BaseTool.html "class in com.google.adk.tools")
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search. 
+A built-in tool that is automatically invoked by Gemini 2 models to retrieve search results from Google Search. 
 
 This tool operates internally within the model and does not require or perform local code execution. 
 

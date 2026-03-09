@@ -42,14 +42,6 @@ Description
 
  
 
-[com.google.adk.a2a.common](../common/package-summary.html)
-
- 
-
-[com.google.adk.a2a.executor](../executor/package-summary.html)
-
- 
-
   * All Classes and InterfacesClassesEnum ClassesRecord Classes
 
 Class
@@ -70,7 +62,7 @@ Converter for ADK Events to A2A Messages.
 
 [EventConverter.AggregationMode](EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")
 
-Aggregation mode for converting events to A2A messages.
+ 
 
 [PartConverter](PartConverter.html "class in com.google.adk.a2a.converters")
 

@@ -31,7 +31,7 @@ Hide sidebar  Show sidebar
 # Interface EventCompactor
 
 All Known Implementing Classes:
-    `[SlidingWindowEventCompactor](SlidingWindowEventCompactor.html "class in com.google.adk.summarizer"), [TailRetentionEventCompactor](TailRetentionEventCompactor.html "class in com.google.adk.summarizer")`
+    `[SlidingWindowEventCompactor](SlidingWindowEventCompactor.html "class in com.google.adk.summarizer")`
 
 * * *
 

@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
+      * [ LiteRT-LM  ](../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../integrations/)
 
 Tools and Integrations 
@@ -711,6 +712,8 @@ These core concepts work together to provide a flexible system for managing bina
 
 The primary way you interact with artifacts within your agent's logic (specifically within callbacks or tools) is through methods provided by the `CallbackContext` and `ToolContext` objects. These methods abstract away the underlying storage details managed by the `ArtifactService`.
 
+_(Note: In TypeScript,`CallbackContext` and `ToolContext` are unified into a single `Context` type.)_
+
 ### Prerequisite: Configuring the `ArtifactService`¶
 
 Before you can use any artifact methods via the context objects, you **must** provide an instance of a `BaseArtifactService` implementation (like `InMemoryArtifactService` or `GcsArtifactService`) when initializing your `Runner`.
@@ -850,7 +853,7 @@ In Java, you would instantiate a `BaseArtifactService` implementation and then e
 
 ### Accessing Methods¶
 
-The artifact interaction methods are available directly on instances of `CallbackContext` (passed to agent and model callbacks) and `ToolContext` (passed to tool callbacks). Remember that `ToolContext` inherits from `CallbackContext`.
+The artifact interaction methods are available directly on instances of `CallbackContext` (passed to agent and model callbacks) and `ToolContext` (passed to tool callbacks) in Python, Go, and Java and available on the unified `Context` in TypeScript.
 
 #### Saving Artifacts¶
 
@@ -889,9 +892,9 @@ PythonTypescriptGoJava
         
         import type { Part } from '@google/genai';
         import { createPartFromBase64 } from '@google/genai';
-        import { CallbackContext } from '@google/adk';
+        import { Context } from '@google/adk';
         
-        async function saveGeneratedReport(context: CallbackContext, reportBytes: Uint8Array): Promise<void> {
+        async function saveGeneratedReport(context: Context, reportBytes: Uint8Array): Promise<void> {
             /**Saves generated PDF report bytes as an artifact.*/
             const reportArtifact: Part = createPartFromBase64(reportBytes.toString('base64'), "application/pdf");
         
@@ -1029,9 +1032,9 @@ PythonTypescriptGoJava
         #   await process_latest_report_py(callback_context)
         
         
-        import { CallbackContext } from '@google/adk';
+        import { Context } from '@google/adk';
         
-        async function processLatestReport(context: CallbackContext): Promise<void> {
+        async function processLatestReport(context: Context): Promise<void> {
             /**Loads the latest report artifact and processes its data.*/
             const filename = "generated_report.pdf";
             try {
@@ -1214,12 +1217,12 @@ PythonTypescriptGoJava
         # list_files_tool = FunctionTool(func=list_user_files_py)
         
         
-        import { ToolContext } from '@google/adk';
+        import { Context } from '@google/adk';
         
-        async function listUserFiles(toolContext: ToolContext): Promise<string> {
+        async function listUserFiles(context: Context): Promise<string> {
             /**Tool to list available artifacts for the user.*/
             try {
-                const availableFiles = await toolContext.listArtifacts();
+                const availableFiles = await context.listArtifacts();
                 if (!availableFiles || availableFiles.length === 0) {
                     return "You have no saved artifacts.";
                 } else {

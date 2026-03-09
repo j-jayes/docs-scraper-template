@@ -29,12 +29,12 @@ Contents
      1. Builder()
   5. Method Details
      1. name(String)
-     2. agentCard(AgentCard)
+     2. agentCardOrSource(Object)
      3. description(String)
-     4. subAgents(List)
-     5. beforeAgentCallback(List)
-     6. afterAgentCallback(List)
-     7. a2aClient(Client)
+     4. a2aClient(A2AClient)
+     5. subAgents(List)
+     6. beforeAgentCallback(List)
+     7. afterAgentCallback(List)
      8. build()
 
 Hide sidebar  Show sidebar
@@ -78,7 +78,7 @@ Description
 
 `[RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")`
 
-`a2aClient(io.a2a.client.Client a2aClient)`
+`a2aClient(@Nullable [A2AClient](A2AClient.html "class in com.google.adk.a2a") a2aClient)`
 
  
 
@@ -90,7 +90,7 @@ Description
 
 `[RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")`
 
-`agentCard(io.a2a.spec.AgentCard agentCard)`
+`agentCardOrSource([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") agentCardOrSource)`
 
  
 
@@ -143,13 +143,17 @@ public Builder()
 
 @CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") name([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
 
-    * ### agentCard
+    * ### agentCardOrSource
 
-@CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") agentCard(io.a2a.spec.AgentCard agentCard)
+@CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") agentCardOrSource([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") agentCardOrSource)
 
     * ### description
 
 @CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") description([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
+
+    * ### a2aClient
+
+@CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") a2aClient(@Nullable [A2AClient](A2AClient.html "class in com.google.adk.a2a") a2aClient)
 
     * ### subAgents
 
@@ -162,10 +166,6 @@ public Builder()
     * ### afterAgentCallback
 
 @CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") afterAgentCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../agents/Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)
-
-    * ### a2aClient
-
-@CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a") a2aClient(io.a2a.client.Client a2aClient)
 
     * ### build
 

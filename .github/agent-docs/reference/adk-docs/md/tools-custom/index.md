@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
+      * [ LiteRT-LM  ](../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../integrations/)
 
 Tools and Integrations 
@@ -414,7 +415,7 @@ PythonTypeScriptGoJava
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import { LlmAgent, FunctionTool, InMemoryRunner, isFinalResponse, stringifyContent } from "@google/adk";
+    import { LlmAgent, FunctionTool, InMemoryRunner, isFinalResponse, stringifyContent } from '@google/adk';
     import { z } from "zod";
     import { Content, createUserContent } from "@google/genai";
     
@@ -906,31 +907,31 @@ PythonTypeScriptGoJava
     
     
     
-    import { ToolContext } from "@google/adk";
+    import { Context } from '@google/adk';
     
     // Updates a user-specific preference.
     export function updateUserThemePreference(
       value: string,
-      toolContext: ToolContext
+      context: Context
     ): Record<string, any> {
       const userPrefsKey = "user:preferences";
     
       // Get current preferences or initialize if none exist
-      const preferences = toolContext.state.get(userPrefsKey, {}) as Record<string, any>;
+      const preferences = context.state.get(userPrefsKey, {}) as Record<string, any>;
       preferences["theme"] = value;
     
       // Write the updated dictionary back to the state
-      toolContext.state.set(userPrefsKey, preferences);
+      context.state.set(userPrefsKey, preferences);
       console.log(
-        `Tool: Updated user preference ${userPrefsKey} to ${JSON.stringify(toolContext.state.get(userPrefsKey))}`
+        `Tool: Updated user preference ${userPrefsKey} to ${JSON.stringify(context.state.get(userPrefsKey))}`
       );
     
       return {
         status: "success",
-        updated_preference: toolContext.state.get(userPrefsKey),
+        updated_preference: context.state.get(userPrefsKey),
       };
       // When the LLM calls updateUserThemePreference("dark"):
-      // The toolContext.state will be updated, and the change will be part of the
+      // The context.state will be updated, and the change will be part of the
       // resulting tool response event's actions.stateDelta.
     }
     
@@ -1110,21 +1111,21 @@ PythonTypeScriptGoJava
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import { LlmAgent, FunctionTool, ToolContext, InMemoryRunner, isFinalResponse, stringifyContent } from "@google/adk";
+    import { LlmAgent, FunctionTool, Context, InMemoryRunner, isFinalResponse, stringifyContent } from '@google/adk';
     import { z } from "zod";
     import { Content, createUserContent } from "@google/genai";
     
     function checkAndTransfer(
       params: { query: string },
-      toolContext?: ToolContext
+      context?: Context
     ): Record<string, any> {
-      if (!toolContext) {
+      if (!context) {
         // This should not happen in a normal ADK flow where the tool is called by an agent.
-        throw new Error("ToolContext is required to transfer agents.");
+        throw new Error("Context is required to transfer agents.");
       }
       if (params.query.toLowerCase().includes("urgent")) {
         console.log("Tool: Urgent query detected, transferring to support_agent.");
-        toolContext.actions.transferToAgent = "support_agent";
+        context.actions.transferToAgent = "support_agent";
         return { status: "success", message: "Transferring to support agent." };
       }
     
@@ -1573,24 +1574,24 @@ PythonTypeScriptGoJava
     
     
     import { Part } from "@google/genai";
-    import { ToolContext } from "@google/adk";
+    import { Context } from '@google/adk';
     
     // Analyzes a document using context from memory.
     export async function processDocument(
       params: { documentName: string; analysisQuery: string },
-      toolContext?: ToolContext
+      context?: Context
     ): Promise<Record<string, any>> {
-      if (!toolContext) {
-        throw new Error("ToolContext is required for this tool.");
+      if (!context) {
+        throw new Error("Context is required for this tool.");
       }
     
       // 1. List all available artifacts
-      const artifacts = await toolContext.listArtifacts();
+      const artifacts = await context.listArtifacts();
       console.log(`Listing all available artifacts: ${artifacts}`);
     
       // 2. Load an artifact
       console.log(`Tool: Attempting to load artifact: ${params.documentName}`);
-      const documentPart = await toolContext.loadArtifact(params.documentName);
+      const documentPart = await context.loadArtifact(params.documentName);
       if (!documentPart) {
         console.log(`Tool: Document '${params.documentName}' not found.`);
         return {
@@ -1606,7 +1607,7 @@ PythonTypeScriptGoJava
     
       // 3. Search memory for related context
       console.log(`Tool: Searching memory for context related to '${params.analysisQuery}'`);
-      const memory_results = await toolContext.searchMemory(params.analysisQuery);
+      const memory_results = await context.searchMemory(params.analysisQuery);
       console.log(`Tool: Found ${memory_results.memories.length} relevant memories.`);
       const context_from_memory = memory_results.memories
         .map((m) => m.content.parts[0].text)
@@ -1622,7 +1623,7 @@ PythonTypeScriptGoJava
       // 5. Save the analysis result as a new artifact
       const analysisPart: Part = { text: analysisResult };
       const newArtifactName = `analysis_${params.documentName}`;
-      await toolContext.saveArtifact(newArtifactName, analysisPart);
+      await context.saveArtifact(newArtifactName, analysisPart);
       console.log(`Tool: Saved analysis result to '${newArtifactName}'.`);
     
       return {
@@ -2109,16 +2110,16 @@ PythonTypeScript
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import { LlmAgent, FunctionTool, ToolContext, BaseToolset, InMemoryRunner, isFinalResponse, BaseTool, stringifyContent } from "@google/adk";
+    import { LlmAgent, FunctionTool, Context, BaseToolset, InMemoryRunner, isFinalResponse, BaseTool, stringifyContent } from '@google/adk';
     import { z } from "zod";
     import { Content, createUserContent } from "@google/genai";
     
-    function addNumbers(params: { a: number; b: number }, toolContext?: ToolContext): Record<string, any> {
-      if (!toolContext) {
-        throw new Error("ToolContext is required for this tool.");
+    function addNumbers(params: { a: number; b: number }, context?: Context): Record<string, any> {
+      if (!context) {
+        throw new Error("Context is required for this tool.");
       }
       const result = params.a + params.b;
-      toolContext.state.set("last_math_result", result);
+      context.state.set("last_math_result", result);
       return { result: result };
     }
     

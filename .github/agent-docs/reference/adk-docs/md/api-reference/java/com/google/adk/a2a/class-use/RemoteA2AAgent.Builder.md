@@ -45,7 +45,7 @@ Description
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")`
 
-RemoteA2AAgent.Builder.`[a2aClient](../RemoteA2AAgent.Builder.html#a2aClient\(io.a2a.client.Client\))(io.a2a.client.Client a2aClient)`
+RemoteA2AAgent.Builder.`[a2aClient](../RemoteA2AAgent.Builder.html#a2aClient\(com.google.adk.a2a.A2AClient\))(@Nullable [A2AClient](../A2AClient.html "class in com.google.adk.a2a") a2aClient)`
 
  
 
@@ -57,7 +57,7 @@ RemoteA2AAgent.Builder.`[afterAgentCallback](../RemoteA2AAgent.Builder.html#afte
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")`
 
-RemoteA2AAgent.Builder.`[agentCard](../RemoteA2AAgent.Builder.html#agentCard\(io.a2a.spec.AgentCard\))(io.a2a.spec.AgentCard agentCard)`
+RemoteA2AAgent.Builder.`[agentCardOrSource](../RemoteA2AAgent.Builder.html#agentCardOrSource\(java.lang.Object\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") agentCardOrSource)`
 
  
 

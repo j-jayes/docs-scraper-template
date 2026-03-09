@@ -49,17 +49,16 @@ Contents
      17. session()
      18. userContent()
      19. runConfig()
-     20. callbackContextData()
-     21. endInvocation()
-     22. setEndInvocation(boolean)
-     23. appName()
-     24. userId()
-     25. newInvocationContextId()
-     26. incrementLlmCallsCount()
-     27. eventsCompactionConfig()
-     28. contextCacheConfig()
-     29. equals(Object)
-     30. hashCode()
+     20. endInvocation()
+     21. setEndInvocation(boolean)
+     22. appName()
+     23. userId()
+     24. newInvocationContextId()
+     25. incrementLlmCallsCount()
+     26. isResumable()
+     27. shouldPauseInvocation(Event)
+     28. equals(Object)
+     29. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -175,25 +174,15 @@ Returns the branch ID for the current invocation, if one is set.
 
 `branch([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
 
-Sets the [branch] ID for the current invocation.
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use `toBuilder()` and [`InvocationContext.Builder.branch(String)`](InvocationContext.Builder.html#branch\(java.lang.String\)) instead.
 
 `static [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
 `builder()`
 
 Returns a new [`InvocationContext.Builder`](InvocationContext.Builder.html "class in com.google.adk.agents") for creating [`InvocationContext`](InvocationContext.html "class in com.google.adk.agents") instances.
-
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
-
-`callbackContextData()`
-
-Returns a map for storing temporary context data that can be shared between different parts of the invocation (e.g., before/on/after model callbacks).
-
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")>`
-
-`contextCacheConfig()`
-
-Returns the context cache configuration for the current agent run.
 
 `static [InvocationContext](InvocationContext.html "class in com.google.adk.agents")`
 
@@ -231,12 +220,6 @@ Returns whether this invocation should be ended, e.g., due to reaching a termina
 
  
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")>`
-
-`eventsCompactionConfig()`
-
-Returns the events compaction configuration for the current agent run.
-
 `int`
 
 `hashCode()`
@@ -254,6 +237,12 @@ Increments the count of LLM calls made during this invocation and throws an exce
 `invocationId()`
 
 Returns the unique ID for this invocation.
+
+`boolean`
+
+`isResumable()`
+
+Returns whether the current invocation is resumable.
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")>`
 
@@ -302,6 +291,12 @@ Returns the session service for managing session state.
 `setEndInvocation(boolean endInvocation)`
 
 Sets whether this invocation should be ended.
+
+`boolean`
+
+`shouldPauseInvocation([Event](../events/Event.html "class in com.google.adk.events") event)`
+
+Returns whether to pause the invocation right after this [event].
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -434,7 +429,11 @@ Returns the unique ID for this invocation.
 
     * ### branch
 
-public void branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang")([forRemoval](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval\(\) "class or interface in java.lang")=true) public void branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)
+
+Deprecated, for removal: This API element is subject to removal in a future version.
+
+Use `toBuilder()` and [`InvocationContext.Builder.branch(String)`](InvocationContext.Builder.html#branch\(java.lang.String\)) instead.
 
 Sets the [branch] ID for the current invocation. A branch represents a fork in the conversation history.
 
@@ -478,12 +477,6 @@ public [RunConfig](RunConfig.html "class in com.google.adk.agents") runConfig()
 
 Returns the configuration for the current agent run.
 
-    * ### callbackContextData
-
-public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData()
-
-Returns a map for storing temporary context data that can be shared between different parts of the invocation (e.g., before/on/after model callbacks).
-
     * ### endInvocation
 
 public boolean endInvocation()
@@ -523,17 +516,17 @@ Increments the count of LLM calls made during this invocation and throws an exce
 Throws:
     `[LlmCallsLimitExceededException](../models/LlmCallsLimitExceededException.html "class in com.google.adk.models")` \- if the call limit is exceeded
 
-    * ### eventsCompactionConfig
+    * ### isResumable
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")> eventsCompactionConfig()
+public boolean isResumable()
 
-Returns the events compaction configuration for the current agent run.
+Returns whether the current invocation is resumable.
 
-    * ### contextCacheConfig
+    * ### shouldPauseInvocation
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")> contextCacheConfig()
+public boolean shouldPauseInvocation([Event](../events/Event.html "class in com.google.adk.events") event)
 
-Returns the context cache configuration for the current agent run.
+Returns whether to pause the invocation right after this [event].
 
     * ### equals
 

@@ -97,20 +97,6 @@ RemoteA2AAgent.Builder.`[beforeAgentCallback](../../a2a/RemoteA2AAgent.Builder.h
 
   * ## Uses of [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents") in [com.google.adk.agents](../package-summary.html)
 
-Fields in [com.google.adk.agents](../package-summary.html) with type parameters of type [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")
-
-Modifier and Type
-
-Field
-
-Description
-
-`protected com.google.common.collect.ImmutableList<[Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
-
-BaseAgent.Builder.`[beforeAgentCallback](../BaseAgent.Builder.html#beforeAgentCallback)`
-
- 
-
 Methods in [com.google.adk.agents](../package-summary.html) that return types with arguments of type [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")
 
 Modifier and Type
@@ -119,7 +105,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>>`
 
 BaseAgent.`[beforeAgentCallback](../BaseAgent.html#beforeAgentCallback\(\))()`
 
@@ -127,13 +113,13 @@ BaseAgent.`[beforeAgentCallback](../BaseAgent.html#beforeAgentCallback\(\))()`
 
 `com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
 
-BaseAgent.`[canonicalBeforeAgentCallbacks](../BaseAgent.html#canonicalBeforeAgentCallbacks\(\))()`
+CallbackPlugin.`[getBeforeAgentCallback](../CallbackPlugin.html#getBeforeAgentCallback\(\))()`
 
-The resolved beforeAgentCallback field as a list.
+ 
 
-`static com.google.common.collect.ImmutableList<[Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
+`static @Nullable com.google.common.collect.ImmutableList<[Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
 
-CallbackUtil.`[getBeforeAgentCallbacks](../CallbackUtil.html#getBeforeAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.BeforeAgentCallbackBase> beforeAgentCallbacks)`
+CallbackUtil.`[getBeforeAgentCallbacks](../CallbackUtil.html#getBeforeAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.BeforeAgentCallbackBase> beforeAgentCallback)`
 
 Normalizes before-agent callbacks.
 
@@ -144,6 +130,12 @@ Modifier and Type
 Method
 
 Description
+
+`[CallbackPlugin.Builder](../CallbackPlugin.Builder.html "class in com.google.adk.agents")`
+
+CallbackPlugin.Builder.`[addBeforeAgentCallback](../CallbackPlugin.Builder.html#addBeforeAgentCallback\(com.google.adk.agents.Callbacks.BeforeAgentCallback\))([Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents") callback)`
+
+ 
 
 `[B](../BaseAgent.Builder.html#type-param-B "type parameter in BaseAgent.Builder")`
 

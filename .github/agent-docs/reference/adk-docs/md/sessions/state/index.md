@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
+      * [ LiteRT-LM  ](../../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../../integrations/)
 
 Tools and Integrations 
@@ -963,6 +964,8 @@ PythonTypeScriptGoJava
 
 **3\. Via`CallbackContext` or `ToolContext` (Recommended for Callbacks and Tools)**
 
+_(Note: In TypeScript, this is done via the unified`Context` type.)_
+
 Modifying state within agent callbacks (e.g., `on_before_agent_call`, `on_after_agent_call`) or tool functions is best done using the `state` attribute of the `CallbackContext` or `ToolContext` provided to your function.
 
   * `callback_context.state['my_key'] = my_value`
@@ -998,10 +1001,10 @@ PythonTypeScriptGoJava
     
     
     // In an agent callback or tool function
-    import { CallbackContext } from "@google/adk"; // or ToolContext
+    import { Context } from "@google/adk";
     
     function myCallbackOrToolFunction(
-        context: CallbackContext, // Or ToolContext
+        context: Context,
         // ... other parameters ...
     ) {
         // Update existing state

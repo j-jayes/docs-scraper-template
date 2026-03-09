@@ -49,10 +49,6 @@ com.google.adk.tools
 
  
 
-com.google.adk.tools.computeruse
-
- 
-
 com.google.adk.tools.retrieval
 
  
@@ -168,18 +164,6 @@ Modifier and Type
 Method
 
 Description
-
-`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
-
-ContextFilterPlugin.`[beforeModelCallback](../../plugins/ContextFilterPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
-
-Filters the LLM request context by trimming recent turns and applying any custom filter.
-
-`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
-
-GlobalInstructionPlugin.`[beforeModelCallback](../../plugins/GlobalInstructionPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
-
- 
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
@@ -304,22 +288,6 @@ UrlContextTool.`[processLlmRequest](../../tools/UrlContextTool.html#processLlmRe
 VertexAiSearchTool.`[processLlmRequest](../../tools/VertexAiSearchTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
-
-  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html)
-
-Methods in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
-
-Modifier and Type
-
-Method
-
-Description
-
-`io.reactivex.rxjava3.core.Completable`
-
-ComputerUseToolset.`[processLlmRequest](../../tools/computeruse/ComputerUseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
-
-Adds computer use configuration to the LLM request.
 
   * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.tools.retrieval](../../tools/retrieval/package-summary.html)
 

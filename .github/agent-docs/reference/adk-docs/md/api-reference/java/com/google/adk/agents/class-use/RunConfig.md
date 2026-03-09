@@ -28,7 +28,7 @@ Package
 
 Description
 
-com.google.adk.a2a.executor
+com.google.adk.a2a
 
  
 
@@ -40,23 +40,9 @@ com.google.adk.runner
 
  
 
-  * ## Uses of [RunConfig](../RunConfig.html "class in com.google.adk.agents") in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html)
+  * ## Uses of [RunConfig](../RunConfig.html "class in com.google.adk.agents") in [com.google.adk.a2a](../../a2a/package-summary.html)
 
-Methods in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) that return [RunConfig](../RunConfig.html "class in com.google.adk.agents")
-
-Modifier and Type
-
-Method
-
-Description
-
-`abstract [RunConfig](../RunConfig.html "class in com.google.adk.agents")`
-
-AgentExecutorConfig.`[runConfig](../../a2a/executor/AgentExecutorConfig.html#runConfig\(\))()`
-
- 
-
-Methods in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html) with parameters of type [RunConfig](../RunConfig.html "class in com.google.adk.agents")
+Methods in [com.google.adk.a2a](../../a2a/package-summary.html) with parameters of type [RunConfig](../RunConfig.html "class in com.google.adk.agents")
 
 Modifier and Type
 
@@ -64,9 +50,9 @@ Method
 
 Description
 
-`abstract [AgentExecutorConfig.Builder](../../a2a/executor/AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
+`io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Event](../../events/Event.html "class in com.google.adk.events")>>`
 
-AgentExecutorConfig.Builder.`[runConfig](../../a2a/executor/AgentExecutorConfig.Builder.html#runConfig\(com.google.adk.agents.RunConfig\))([RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
+A2ASendMessageExecutor.AgentExecutionStrategy.`[execute](../../a2a/A2ASendMessageExecutor.AgentExecutionStrategy.html#execute\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content userContent, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId)`
 
  
 
@@ -190,12 +176,6 @@ Runner.`[runAsync](../../runner/Runner.html#runAsync\(java.lang.String,java.lang
 
 Runs the agent with an invocation-based mode.
 
-`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
-
-Runner.`[runAsyncImpl](../../runner/Runner.html#runAsyncImpl\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
-
-Runs the agent asynchronously using a provided Session object.
-
 `io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 Runner.`[runLive](../../runner/Runner.html#runLive\(com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
@@ -212,7 +192,7 @@ Retrieves the session and runs the agent in live mode.
 
 Runner.`[runWithSessionId](../../runner/Runner.html#runWithSessionId\(java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, com.google.genai.types.Content newMessage, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
-Deprecated, for removal: This API element is subject to removal in a future version.
+Runs the agent asynchronously with a default user ID.
 
 
 

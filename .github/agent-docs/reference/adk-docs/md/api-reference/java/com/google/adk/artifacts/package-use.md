@@ -27,10 +27,6 @@ Package
 
 Description
 
-com.google.adk.a2a.executor
-
- 
-
 com.google.adk.agents
 
  
@@ -54,16 +50,6 @@ com.google.adk.web.controller
 com.google.adk.web.service
 
  
-
-  * Classes in [com.google.adk.artifacts](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
-
-Class
-
-Description
-
-[BaseArtifactService](class-use/BaseArtifactService.html#com.google.adk.a2a.executor)
-
-Base interface for artifact services.
 
   * Classes in [com.google.adk.artifacts](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
 

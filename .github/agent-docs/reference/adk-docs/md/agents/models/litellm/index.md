@@ -64,6 +64,7 @@ Models for Agents
       * LiteLLM  [ LiteLLM  ](./) Table of contents 
         * Setup 
         * Example implementation 
+      * [ LiteRT-LM  ](../litert-lm/)
     * [ Tools and Integrations  ](../../../integrations/)
 
 Tools and Integrations 
@@ -280,7 +281,7 @@ When using ADK agents with LiteLLM on Windows, you might encounter a `UnicodeDec
     )
     
 
-Back to top  [ Previous  vLLM  ](../vllm/) [ Next  Tools and Integrations for Agents  ](../../../integrations/)
+Back to top  [ Previous  vLLM  ](../vllm/) [ Next  LiteRT-LM  ](../litert-lm/)
 
 Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

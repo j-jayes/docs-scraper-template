@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 1.25.0.
+This page contains the auto-generated command-line reference for ADK 1.26.0.
 
   * adk
 
@@ -702,7 +702,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'1.25.0'`
+`'1.26.0'`
 
 \--a2a¶
     
@@ -907,7 +907,7 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'1.25.0'`
+`'1.26.0'`
 
 \--session_service_uri <session_service_uri>¶
     

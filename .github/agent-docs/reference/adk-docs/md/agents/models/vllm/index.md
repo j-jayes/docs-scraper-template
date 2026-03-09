@@ -64,6 +64,7 @@ Models for Agents
         * Setup 
         * Integration Example 
       * [ LiteLLM  ](../litellm/)
+      * [ LiteRT-LM  ](../litert-lm/)
     * [ Tools and Integrations  ](../../../integrations/)
 
 Tools and Integrations 

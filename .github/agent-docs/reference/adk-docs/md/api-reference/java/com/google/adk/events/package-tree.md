@@ -30,13 +30,13 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.google.adk.events.[Event.Builder](Event.Builder.html "class in com.google.adk.events")
+    * com.google.adk.events.[EventActions](EventActions.html "class in com.google.adk.events")
     * com.google.adk.events.[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")
     * com.google.adk.events.[EventCompaction](EventCompaction.html "class in com.google.adk.events")
     * com.google.adk.events.[EventCompaction.Builder](EventCompaction.Builder.html "class in com.google.adk.events")
     * com.google.adk.events.[EventStream](EventStream.html "class in com.google.adk.events") (implements java.lang.[Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<T>)
     * com.google.adk.[JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
       * com.google.adk.events.[Event](Event.html "class in com.google.adk.events")
-      * com.google.adk.events.[EventActions](EventActions.html "class in com.google.adk.events")
       * com.google.adk.events.[ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")
     * com.google.adk.events.[ToolConfirmation.Builder](ToolConfirmation.Builder.html "class in com.google.adk.events")
 

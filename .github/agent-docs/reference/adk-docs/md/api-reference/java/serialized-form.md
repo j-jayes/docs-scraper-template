@@ -19,6 +19,10 @@ Skip navigation links
 
   * ## Package [com.google.adk.a2a](com/google/adk/a2a/package-summary.html)
 
+    * ### Exception Class [com.google.adk.a2a.RemoteA2AAgent.A2AClientError](com/google/adk/a2a/RemoteA2AAgent.A2AClientError.html "class in com.google.adk.a2a")
+
+class A2AClientError extends [RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")
+
     * ### Exception Class [com.google.adk.a2a.RemoteA2AAgent.AgentCardResolutionError](com/google/adk/a2a/RemoteA2AAgent.AgentCardResolutionError.html "class in com.google.adk.a2a")
 
 class AgentCardResolutionError extends [RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")
@@ -26,12 +30,6 @@ class AgentCardResolutionError extends [RuntimeException](https://docs.oracle.co
     * ### Exception Class [com.google.adk.a2a.RemoteA2AAgent.TypeError](com/google/adk/a2a/RemoteA2AAgent.TypeError.html "class in com.google.adk.a2a")
 
 class TypeError extends [RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")
-
-  * ## Package [com.google.adk.a2a.common](com/google/adk/a2a/common/package-summary.html)
-
-    * ### Exception Class [com.google.adk.a2a.common.A2AClientError](com/google/adk/a2a/common/A2AClientError.html "class in com.google.adk.a2a.common")
-
-class A2AClientError extends [RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")
 
   * ## Package [com.google.adk.agents](com/google/adk/agents/package-summary.html)
 

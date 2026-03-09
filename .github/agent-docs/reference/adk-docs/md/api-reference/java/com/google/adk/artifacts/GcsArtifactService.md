@@ -32,7 +32,6 @@ Contents
      3. listArtifactKeys(String, String, String)
      4. deleteArtifact(String, String, String, String)
      5. listVersions(String, String, String, String)
-     6. saveAndReloadArtifact(String, String, String, String, Part)
 
 Hide sidebar  Show sidebar
 
@@ -97,12 +96,6 @@ Lists all available versions for a given artifact.
 
 Loads an artifact from GCS.
 
-`io.reactivex.rxjava3.core.Single<com.google.genai.types.Part>`
-
-`saveAndReloadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
-
-Saves an artifact and returns it with fileData if available.
-
 `io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>`
 
 `saveArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
@@ -112,10 +105,6 @@ Saves an artifact to GCS and assigns a new version.
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
-
-### Methods inherited from interface [BaseArtifactService](BaseArtifactService.html#method-summary "interface in com.google.adk.artifacts")
-
-`[loadArtifact](BaseArtifactService.html#loadArtifact\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\) "loadArtifact\(String, String, String, String\)"), [loadArtifact](BaseArtifactService.html#loadArtifact\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int\) "loadArtifact\(String, String, String, String, int\)")`
 
 
 
@@ -214,27 +203,6 @@ Parameters:
     `filename` \- Artifact filename.
 Returns:
     Single with sorted list of version numbers.
-
-    * ### saveAndReloadArtifact
-
-public io.reactivex.rxjava3.core.Single<com.google.genai.types.Part> saveAndReloadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)
-
-Description copied from interface: `[BaseArtifactService](BaseArtifactService.html#saveAndReloadArtifact\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.google.genai.types.Part\))`
-
-Saves an artifact and returns it with fileData if available. 
-
-Implementations should override this default method for efficiency, as the default performs two I/O operations (save then load).
-
-Specified by:
-    `[saveAndReloadArtifact](BaseArtifactService.html#saveAndReloadArtifact\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.google.genai.types.Part\))` in interface `[BaseArtifactService](BaseArtifactService.html "interface in com.google.adk.artifacts")`
-Parameters:
-    `appName` \- the app name
-    `userId` \- the user ID
-    `sessionId` \- the session ID
-    `filename` \- the filename
-    `artifact` \- the artifact to save
-Returns:
-    the saved artifact with fileData if available.
 
 
 

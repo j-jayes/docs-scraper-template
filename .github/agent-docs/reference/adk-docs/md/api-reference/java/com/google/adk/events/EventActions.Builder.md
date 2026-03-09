@@ -31,16 +31,14 @@ Contents
      1. skipSummarization(boolean)
      2. stateDelta(ConcurrentMap)
      3. artifactDelta(ConcurrentMap)
-     4. deletedArtifactIds(Set)
-     5. transferToAgent(String)
-     6. escalate(boolean)
-     7. requestedAuthConfigs(ConcurrentMap)
-     8. requestedToolConfirmations(ConcurrentMap)
-     9. endOfAgent(boolean)
-     10. endInvocation(boolean)
-     11. compaction(EventCompaction)
-     12. merge(EventActions)
-     13. build()
+     4. transferToAgent(String)
+     5. escalate(boolean)
+     6. requestedAuthConfigs(ConcurrentMap)
+     7. requestedToolConfirmations(ConcurrentMap)
+     8. endInvocation(boolean)
+     9. compaction(EventCompaction)
+     10. merge(EventActions)
+     11. build()
 
 Hide sidebar  Show sidebar
 
@@ -73,7 +71,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete MethodsDeprecated Methods
+All MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -83,7 +81,7 @@ Description
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
-`artifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> value)`
+`artifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part> value)`
 
  
 
@@ -101,21 +99,7 @@ Description
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
-`deletedArtifactIds([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
-
- 
-
-`[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
-
 `endInvocation(boolean endInvocation)`
-
-Deprecated.
-
-Use `endOfAgent(boolean)` instead.
-
-`[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
-
-`endOfAgent(boolean endOfAgent)`
 
  
 
@@ -186,11 +170,7 @@ public Builder()
 
     * ### artifactDelta
 
-@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") artifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> value)
-
-    * ### deletedArtifactIds
-
-@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") deletedArtifactIds([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") artifactDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part> value)
 
     * ### transferToAgent
 
@@ -208,17 +188,9 @@ public Builder()
 
 @CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") requestedToolConfirmations([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")> value)
 
-    * ### endOfAgent
-
-@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") endOfAgent(boolean endOfAgent)
-
     * ### endInvocation
 
-@CanIgnoreReturnValue [@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") endInvocation(boolean endInvocation)
-
-Deprecated.
-
-Use `endOfAgent(boolean)` instead.
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") endInvocation(boolean endInvocation)
 
     * ### compaction
 

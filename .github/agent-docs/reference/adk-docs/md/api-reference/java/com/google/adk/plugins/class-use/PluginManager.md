@@ -28,9 +28,29 @@ Package
 
 Description
 
+com.google.adk.agents
+
+ 
+
 com.google.adk.runner
 
  
+
+  * ## Uses of [PluginManager](../PluginManager.html "class in com.google.adk.plugins") in [com.google.adk.agents](../../agents/package-summary.html)
+
+Subclasses of [PluginManager](../PluginManager.html "class in com.google.adk.plugins") in [com.google.adk.agents](../../agents/package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[CallbackPlugin](../../agents/CallbackPlugin.html "class in com.google.adk.agents")`
+
+A plugin that wraps callbacks and exposes them as a plugin.
 
   * ## Uses of [PluginManager](../PluginManager.html "class in com.google.adk.plugins") in [com.google.adk.runner](../../runner/package-summary.html)
 

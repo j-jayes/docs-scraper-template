@@ -47,7 +47,7 @@ Description
 
 `[EventConverter.AggregationMode](../EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")`
 
-Aggregation mode for converting events to A2A messages.
+ 
 
 Methods in [com.google.adk.a2a.converters](../package-summary.html) that return [EventConverter.AggregationMode](../EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")
 

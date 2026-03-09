@@ -47,23 +47,11 @@ Description
 
  
 
-[com.google.adk.a2a.common](com/google/adk/a2a/common/package-summary.html)
-
- 
-
 [com.google.adk.a2a.converters](com/google/adk/a2a/converters/package-summary.html)
 
  
 
-[com.google.adk.a2a.executor](com/google/adk/a2a/executor/package-summary.html)
-
- 
-
 [com.google.adk.agents](com/google/adk/agents/package-summary.html)
-
- 
-
-[com.google.adk.apps](com/google/adk/apps/package-summary.html)
 
  
 
@@ -147,6 +135,10 @@ Description
 
  
 
+[com.google.adk.samples.a2a_remote](com/google/adk/samples/a2a_remote/package-summary.html)
+
+ 
+
 [com.google.adk.sessions](com/google/adk/sessions/package-summary.html)
 
  
@@ -155,19 +147,11 @@ Description
 
  
 
-[com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
-
- 
-
 [com.google.adk.tools](com/google/adk/tools/package-summary.html)
 
  
 
 [com.google.adk.tools.applicationintegrationtoolset](com/google/adk/tools/applicationintegrationtoolset/package-summary.html)
-
- 
-
-[com.google.adk.tools.computeruse](com/google/adk/tools/computeruse/package-summary.html)
 
  
 
@@ -208,6 +192,18 @@ Description
  
 
 [com.google.adk.web.websocket](com/google/adk/web/websocket/package-summary.html)
+
+ 
+
+[com.google.adk.webservice](com/google/adk/webservice/package-summary.html)
+
+ 
+
+[remote_prime_agent](remote_prime_agent/package-summary.html)
+
+ 
+
+[src.main.java.com.google.adk.samples.a2a_remote](src/main/java/com/google/adk/samples/a2a_remote/package-summary.html)
 
  
 

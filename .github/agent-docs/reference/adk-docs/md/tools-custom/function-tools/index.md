@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
+      * [ LiteRT-LM  ](../../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../../integrations/)
 
 Tools and Integrations 
@@ -535,12 +536,7 @@ This tool retrieves the mocked value of a stock price.
      * limitations under the License.
      */
     import {Content, Part, createUserContent} from '@google/genai';
-    import {
-      stringifyContent,
-      FunctionTool,
-      InMemoryRunner,
-      LlmAgent,
-    } from '@google/adk';
+    import { stringifyContent, FunctionTool, InMemoryRunner, LlmAgent } from '@google/adk';
     import {z} from 'zod';
     
     // Define the function to get the stock price
@@ -1315,15 +1311,7 @@ PythonTypeScriptGoJava
      * limitations under the License.
      */
     
-    import {
-      LlmAgent,
-      Runner,
-      FunctionTool,
-      LongRunningFunctionTool,
-      InMemorySessionService,
-      Event,
-      stringifyContent,
-    } from "@google/adk";
+    import { LlmAgent, Runner, FunctionTool, LongRunningFunctionTool, InMemorySessionService, Event, stringifyContent } from '@google/adk';
     import {z} from "zod";
     import {Content, FunctionCall, FunctionResponse, createUserContent} from "@google/genai";
     
@@ -2077,11 +2065,7 @@ PythonTypeScriptGoJava
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import {
-      AgentTool,
-      InMemoryRunner,
-      LlmAgent,
-    } from '@google/adk';
+    import { AgentTool, InMemoryRunner, LlmAgent } from '@google/adk';
     import {Part, createUserContent} from '@google/genai';
     
     /**

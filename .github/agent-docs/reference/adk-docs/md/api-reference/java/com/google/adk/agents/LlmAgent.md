@@ -23,11 +23,12 @@ Contents
 
   1. Description
   2. Nested Class Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
+  3. Field Summary
+  4. Constructor Summary
+  5. Method Summary
+  6. Constructor Details
      1. LlmAgent(LlmAgent.Builder)
-  6. Method Details
+  7. Method Details
      1. builder()
      2. determineLlmFlow()
      3. runAsyncImpl(InvocationContext)
@@ -54,22 +55,13 @@ Contents
      24. afterModelCallback()
      25. beforeToolCallback()
      26. afterToolCallback()
-     27. onModelErrorCallback()
-     28. onToolErrorCallback()
-     29. canonicalBeforeModelCallbacks()
-     30. canonicalAfterModelCallbacks()
-     31. canonicalOnModelErrorCallbacks()
-     32. canonicalBeforeToolCallbacks()
-     33. canonicalAfterToolCallbacks()
-     34. canonicalOnToolErrorCallbacks()
-     35. inputSchema()
-     36. outputSchema()
-     37. executor()
-     38. outputKey()
-     39. codeExecutor()
-     40. resolvedModel()
-     41. fromConfig(LlmAgentConfig, String)
-     42. close()
+     27. inputSchema()
+     28. outputSchema()
+     29. executor()
+     30. outputKey()
+     31. codeExecutor()
+     32. resolvedModel()
+     33. fromConfig(LlmAgentConfig, String)
 
 Hide sidebar  Show sidebar
 
@@ -109,6 +101,12 @@ Builder for [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents").
 
 Enum to define if contents of previous events should be included in requests to the underlying LLM.
 
+  * ## Field Summary
+
+### Fields inherited from class [BaseAgent](BaseAgent.html#field-summary "class in com.google.adk.agents")
+
+`[callbackPlugin](BaseAgent.html#callbackPlugin)`
+
   * ## Constructor Summary
 
 Constructors
@@ -127,7 +125,7 @@ Description
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
+All MethodsStatic MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -135,25 +133,25 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterModelCallback](Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterModelCallback](Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")>>`
 
 `afterModelCallback()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>>`
 
 `afterToolCallback()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>>`
 
 `beforeModelCallback()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>>`
 
 `beforeToolCallback()`
 
@@ -164,30 +162,6 @@ Description
 `builder()`
 
 Returns a [`LlmAgent.Builder`](LlmAgent.Builder.html "class in com.google.adk.agents") for [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents").
-
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterModelCallback](Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")>`
-
-`canonicalAfterModelCallbacks()`
-
-The resolved afterModelCallback field as a list.
-
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>`
-
-`canonicalAfterToolCallbacks()`
-
-The resolved afterToolCallback field as a list.
-
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
-
-`canonicalBeforeModelCallbacks()`
-
-The resolved beforeModelCallback field as a list.
-
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>`
-
-`canonicalBeforeToolCallbacks()`
-
-The resolved beforeToolCallback field as a list.
 
 `io.reactivex.rxjava3.core.Single<[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")>>`
 
@@ -201,45 +175,25 @@ Constructs the text global instruction for this agent based on the `globalInstru
 
 Constructs the text instruction for this agent based on the `instruction` field.
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")>`
-
-`canonicalOnModelErrorCallbacks()`
-
-The resolved onModelErrorCallback field as a list.
-
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")>`
-
-`canonicalOnToolErrorCallbacks()`
-
-The resolved onToolErrorCallback field as a list.
-
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")>`
 
 `canonicalTools()`
 
-Constructs the list of tools for this agent based on the `tools()` field.
+Overload of canonicalTools that defaults to an empty context.
 
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")>`
 
 `canonicalTools([ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents") context)`
 
-Constructs the list of tools for this agent based on the `tools()` field.
+Convenience overload of canonicalTools that accepts a non-optional ReadonlyContext.
 
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")>`
 
 `canonicalTools([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")> context)`
 
-Deprecated.
+Constructs the list of tools for this agent based on the `tools()` field.
 
-Use `canonicalTools(ReadonlyContext)` instead.
-
-`io.reactivex.rxjava3.core.Completable`
-
-`close()`
-
-Closes all sub-agents.
-
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseCodeExecutor](../codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors")>`
+`[BaseCodeExecutor](../codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors")`
 
 `codeExecutor()`
 
@@ -323,18 +277,6 @@ Creates an LlmAgent from configuration with full subagent support.
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")>`
-
-`onModelErrorCallback()`
-
- 
-
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")>`
-
-`onToolErrorCallback()`
-
- 
-
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
 
 `outputKey()`
@@ -391,7 +333,7 @@ Agent-specific synchronous logic.
 
 ### Methods inherited from class [BaseAgent](BaseAgent.html#method-summary "class in com.google.adk.agents")
 
-`[afterAgentCallback](BaseAgent.html#afterAgentCallback\(\) "afterAgentCallback\(\)"), [beforeAgentCallback](BaseAgent.html#beforeAgentCallback\(\) "beforeAgentCallback\(\)"), [canonicalAfterAgentCallbacks](BaseAgent.html#canonicalAfterAgentCallbacks\(\) "canonicalAfterAgentCallbacks\(\)"), [canonicalBeforeAgentCallbacks](BaseAgent.html#canonicalBeforeAgentCallbacks\(\) "canonicalBeforeAgentCallbacks\(\)"), [description](BaseAgent.html#description\(\) "description\(\)"), [findAgent](BaseAgent.html#findAgent\(java.lang.String\) "findAgent\(String\)"), [findSubAgent](BaseAgent.html#findSubAgent\(java.lang.String\) "findSubAgent\(String\)"), [fromConfig](BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\) "fromConfig\(BaseAgentConfig, String\)"), [name](BaseAgent.html#name\(\) "name\(\)"), [parentAgent](BaseAgent.html#parentAgent\(\) "parentAgent\(\)"), [parentAgent](BaseAgent.html#parentAgent\(com.google.adk.agents.BaseAgent\) "parentAgent\(BaseAgent\)"), [rootAgent](BaseAgent.html#rootAgent\(\) "rootAgent\(\)"), [runAsync](BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\) "runAsync\(InvocationContext\)"), [runLive](BaseAgent.html#runLive\(com.google.adk.agents.InvocationContext\) "runLive\(InvocationContext\)"), [subAgents](BaseAgent.html#subAgents\(\) "subAgents\(\)")`
+`[afterAgentCallback](BaseAgent.html#afterAgentCallback\(\) "afterAgentCallback\(\)"), [beforeAgentCallback](BaseAgent.html#beforeAgentCallback\(\) "beforeAgentCallback\(\)"), [description](BaseAgent.html#description\(\) "description\(\)"), [findAgent](BaseAgent.html#findAgent\(java.lang.String\) "findAgent\(String\)"), [findSubAgent](BaseAgent.html#findSubAgent\(java.lang.String\) "findSubAgent\(String\)"), [fromConfig](BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\) "fromConfig\(BaseAgentConfig, String\)"), [getPlugin](BaseAgent.html#getPlugin\(\) "getPlugin\(\)"), [name](BaseAgent.html#name\(\) "name\(\)"), [parentAgent](BaseAgent.html#parentAgent\(\) "parentAgent\(\)"), [parentAgent](BaseAgent.html#parentAgent\(com.google.adk.agents.BaseAgent\) "parentAgent\(BaseAgent\)"), [rootAgent](BaseAgent.html#rootAgent\(\) "rootAgent\(\)"), [runAsync](BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\) "runAsync\(InvocationContext\)"), [runLive](BaseAgent.html#runLive\(com.google.adk.agents.InvocationContext\) "runLive\(InvocationContext\)"), [subAgents](BaseAgent.html#subAgents\(\) "subAgents\(\)")`
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -476,31 +418,28 @@ Returns:
 
     * ### canonicalTools
 
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> canonicalTools([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")> context)
+public io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> canonicalTools([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")> context)
 
-Deprecated.
+Constructs the list of tools for this agent based on the `tools()` field. 
 
-Use `canonicalTools(ReadonlyContext)` instead.
-
-    * ### canonicalTools
-
-public io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> canonicalTools()
-
-Constructs the list of tools for this agent based on the `tools()` field.
-
-Returns:
-    The resolved list of tools as a `Single` wrapped list of [`BaseTool`](../tools/BaseTool.html "class in com.google.adk.tools").
-
-    * ### canonicalTools
-
-public io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> canonicalTools(@Nullable [ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents") context)
-
-Constructs the list of tools for this agent based on the `tools()` field.
+This method is only for use by Agent Development Kit.
 
 Parameters:
     `context` \- The context to retrieve the session state.
 Returns:
     The resolved list of tools as a `Single` wrapped list of [`BaseTool`](../tools/BaseTool.html "class in com.google.adk.tools").
+
+    * ### canonicalTools
+
+public io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> canonicalTools()
+
+Overload of canonicalTools that defaults to an empty context.
+
+    * ### canonicalTools
+
+public io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> canonicalTools([ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents") context)
+
+Convenience overload of canonicalTools that accepts a non-optional ReadonlyContext.
 
     * ### instruction
 
@@ -556,75 +495,19 @@ public boolean disallowTransferToPeers()
 
     * ### beforeModelCallback
 
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")> beforeModelCallback()
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>> beforeModelCallback()
 
     * ### afterModelCallback
 
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterModelCallback](Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")> afterModelCallback()
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterModelCallback](Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")>> afterModelCallback()
 
     * ### beforeToolCallback
 
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")> beforeToolCallback()
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>> beforeToolCallback()
 
     * ### afterToolCallback
 
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")> afterToolCallback()
-
-    * ### onModelErrorCallback
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")> onModelErrorCallback()
-
-    * ### onToolErrorCallback
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")> onToolErrorCallback()
-
-    * ### canonicalBeforeModelCallbacks
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")> canonicalBeforeModelCallbacks()
-
-The resolved beforeModelCallback field as a list. 
-
-This method is only for use by Agent Development Kit.
-
-    * ### canonicalAfterModelCallbacks
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterModelCallback](Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")> canonicalAfterModelCallbacks()
-
-The resolved afterModelCallback field as a list. 
-
-This method is only for use by Agent Development Kit.
-
-    * ### canonicalOnModelErrorCallbacks
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")> canonicalOnModelErrorCallbacks()
-
-The resolved onModelErrorCallback field as a list. 
-
-This method is only for use by Agent Development Kit.
-
-    * ### canonicalBeforeToolCallbacks
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")> canonicalBeforeToolCallbacks()
-
-The resolved beforeToolCallback field as a list. 
-
-This method is only for use by Agent Development Kit.
-
-    * ### canonicalAfterToolCallbacks
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")> canonicalAfterToolCallbacks()
-
-The resolved afterToolCallback field as a list. 
-
-This method is only for use by Agent Development Kit.
-
-    * ### canonicalOnToolErrorCallbacks
-
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")> canonicalOnToolErrorCallbacks()
-
-The resolved onToolErrorCallback field as a list. 
-
-This method is only for use by Agent Development Kit.
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>> afterToolCallback()
 
     * ### inputSchema
 
@@ -644,7 +527,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### codeExecutor
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseCodeExecutor](../codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors")> codeExecutor()
+@Nullable public [BaseCodeExecutor](../codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors") codeExecutor()
 
     * ### resolvedModel
 
@@ -663,19 +546,6 @@ Returns:
     the configured LlmAgent
 Throws:
     `[ConfigAgentUtils.ConfigurationException](ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")` \- if the configuration is invalid
-
-    * ### close
-
-public io.reactivex.rxjava3.core.Completable close()
-
-Description copied from class: `[BaseAgent](BaseAgent.html#close\(\))`
-
-Closes all sub-agents.
-
-Overrides:
-    `[close](BaseAgent.html#close\(\))` in class `[BaseAgent](BaseAgent.html "class in com.google.adk.agents")`
-Returns:
-    a `Completable` that completes when all sub-agents are closed.
 
 
 

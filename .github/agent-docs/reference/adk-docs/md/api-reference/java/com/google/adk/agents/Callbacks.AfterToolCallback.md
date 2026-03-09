@@ -41,8 +41,6 @@ Functional Interface:
 
 [@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface Callbacks.AfterToolCallback
 
-Async callback interface for actions to be performed after a tool has been invoked.
-
   * ## Method Summary
 
 All MethodsInstance MethodsAbstract Methods

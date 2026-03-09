@@ -42,27 +42,35 @@ Description
 
  
 
-[com.google.adk.a2a.common](common/package-summary.html)
-
- 
-
 [com.google.adk.a2a.converters](converters/package-summary.html)
 
  
 
-[com.google.adk.a2a.executor](executor/package-summary.html)
-
- 
-
-  * All Classes and InterfacesClassesException Classes
+  * All Classes and InterfacesInterfacesClassesException Classes
 
 Class
 
 Description
 
+[A2AClient](A2AClient.html "class in com.google.adk.a2a")
+
+A thin HTTP client for interacting with an A2A-compliant agent endpoint.
+
+[A2ASendMessageExecutor](A2ASendMessageExecutor.html "class in com.google.adk.a2a")
+
+Shared SendMessage execution between HTTP service and other integrations.
+
+[A2ASendMessageExecutor.AgentExecutionStrategy](A2ASendMessageExecutor.AgentExecutionStrategy.html "interface in com.google.adk.a2a")
+
+ 
+
 [RemoteA2AAgent](RemoteA2AAgent.html "class in com.google.adk.a2a")
 
 Agent that communicates with a remote A2A agent via A2A client.
+
+[RemoteA2AAgent.A2AClientError](RemoteA2AAgent.A2AClientError.html "class in com.google.adk.a2a")
+
+Exception thrown when the A2A client encounters an error.
 
 [RemoteA2AAgent.AgentCardResolutionError](RemoteA2AAgent.AgentCardResolutionError.html "class in com.google.adk.a2a")
 

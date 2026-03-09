@@ -26,8 +26,7 @@ Contents
   3. Method Details
      1. getTools(ReadonlyContext)
      2. close()
-     3. isToolSelected(BaseTool, Object, ReadonlyContext)
-     4. isToolSelected(BaseTool, Optional, Optional)
+     3. isToolSelected(BaseTool, Optional, Optional)
 
 Hide sidebar  Show sidebar
 
@@ -37,7 +36,7 @@ All Superinterfaces:
     `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")`
 
 All Known Implementing Classes:
-    `[ApplicationIntegrationToolset](applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset"), [ComputerUseToolset](computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse"), [McpAsyncToolset](mcp/McpAsyncToolset.html "class in com.google.adk.tools.mcp"), [McpToolset](mcp/McpToolset.html "class in com.google.adk.tools.mcp")`
+    `[ApplicationIntegrationToolset](applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset"), [McpAsyncToolset](mcp/McpAsyncToolset.html "class in com.google.adk.tools.mcp"), [McpToolset](mcp/McpToolset.html "class in com.google.adk.tools.mcp")`
 
 * * *
 
@@ -47,7 +46,7 @@ Base interface for toolsets.
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract MethodsDefault MethodsDeprecated Methods
+All MethodsInstance MethodsAbstract MethodsDefault Methods
 
 Modifier and Type
 
@@ -69,17 +68,9 @@ Return all tools in the toolset based on the provided context.
 
 `default boolean`
 
-`isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
-
-Checks if a tool should be selected based on a filter.
-
-`default boolean`
-
 `isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
-Deprecated.
-
-Use `isToolSelected(BaseTool, Object, ReadonlyContext)` instead.
+Helper method to be used by implementers that returns true if the given tool is in the provided list of tools of if testing against the given ToolPredicate returns true (otherwise false).
 
 
 
@@ -112,22 +103,16 @@ Throws:
 
     * ### isToolSelected
 
-default boolean isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, @Nullable [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)
+default boolean isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)
 
-Checks if a tool should be selected based on a filter.
+Helper method to be used by implementers that returns true if the given tool is in the provided list of tools of if testing against the given ToolPredicate returns true (otherwise false).
 
 Parameters:
     `tool` \- The tool to check.
-    `toolFilter` \- A ToolPredicate, a List of tool names, or null.
-    `readonlyContext` \- The context for checking the tool, or null.
-
-    * ### isToolSelected
-
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") default boolean isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)
-
-Deprecated.
-
-Use `isToolSelected(BaseTool, Object, ReadonlyContext)` instead.
+    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
+    `readonlyContext` \- The current context.
+Returns:
+    true if the tool is selected.
 
 
 

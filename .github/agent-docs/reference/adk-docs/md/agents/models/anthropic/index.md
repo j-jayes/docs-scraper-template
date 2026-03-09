@@ -65,6 +65,7 @@ Models for Agents
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
       * [ LiteLLM  ](../litellm/)
+      * [ LiteRT-LM  ](../litert-lm/)
     * [ Tools and Integrations  ](../../../integrations/)
 
 Tools and Integrations 
@@ -226,7 +227,7 @@ The following code examples show a basic implementation for using Anthropic mode
           .build();
     
       Claude claudeModel = new Claude(
-          "claude-3-7-sonnet-latest", anthropicClient
+          "claude-sonnet-4-6", anthropicClient
       );
     
       return LlmAgent.builder()
@@ -260,7 +261,7 @@ Instantiate `com.google.adk.models.Claude`, providing the desired Claude model n
     
     public class DirectAnthropicAgent {
     
-      private static final String CLAUDE_MODEL_ID = "claude-3-7-sonnet-latest"; // Or your preferred Claude model
+      private static final String CLAUDE_MODEL_ID = "claude-sonnet-4-6"; // Or your preferred Claude model
     
       public static LlmAgent createAgent() {
     

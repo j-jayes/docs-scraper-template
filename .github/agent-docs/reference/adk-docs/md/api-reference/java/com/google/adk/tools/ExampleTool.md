@@ -65,7 +65,7 @@ Description
 
 `[ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-Builder for [`ExampleTool`](ExampleTool.html "class in com.google.adk.tools").
+ 
 
 ### Nested classes/interfaces inherited from class [BaseTool](BaseTool.html#nested-class-summary "class in com.google.adk.tools")
 

@@ -79,17 +79,17 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](../Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](../Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>>`
 
 LlmAgent.`[afterToolCallback](../LlmAgent.html#afterToolCallback\(\))()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterToolCallback](../Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>`
+`com.google.common.collect.ImmutableList<? extends [Callbacks.AfterToolCallback](../Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")>`
 
-LlmAgent.`[canonicalAfterToolCallbacks](../LlmAgent.html#canonicalAfterToolCallbacks\(\))()`
+CallbackPlugin.`[getAfterToolCallback](../CallbackPlugin.html#getAfterToolCallback\(\))()`
 
-The resolved afterToolCallback field as a list.
+ 
 
 Methods in [com.google.adk.agents](../package-summary.html) with parameters of type [Callbacks.AfterToolCallback](../Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")
 
@@ -98,6 +98,12 @@ Modifier and Type
 Method
 
 Description
+
+`[CallbackPlugin.Builder](../CallbackPlugin.Builder.html "class in com.google.adk.agents")`
+
+CallbackPlugin.Builder.`[addAfterToolCallback](../CallbackPlugin.Builder.html#addAfterToolCallback\(com.google.adk.agents.Callbacks.AfterToolCallback\))([Callbacks.AfterToolCallback](../Callbacks.AfterToolCallback.html "interface in com.google.adk.agents") callback)`
+
+ 
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 

@@ -28,14 +28,15 @@ Contents
   4. Constructor Details
      1. Builder()
   5. Method Details
-     1. app(App)
-     2. agent(BaseAgent)
-     3. appName(String)
-     4. artifactService(BaseArtifactService)
-     5. sessionService(BaseSessionService)
-     6. memoryService(BaseMemoryService)
-     7. plugins(List)
-     8. build()
+     1. agent(BaseAgent)
+     2. appName(String)
+     3. artifactService(BaseArtifactService)
+     4. sessionService(BaseSessionService)
+     5. memoryService(BaseMemoryService)
+     6. plugins(List)
+     7. resumabilityConfig(ResumabilityConfig)
+     8. eventsCompactionConfig(EventsCompactionConfig)
+     9. build()
 
 Hide sidebar  Show sidebar
 
@@ -84,12 +85,6 @@ Description
 
 `[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
 
-`app([App](../apps/App.html "class in com.google.adk.apps") app)`
-
- 
-
-`[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
-
 `appName([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName)`
 
  
@@ -108,13 +103,25 @@ Description
 
 `[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
 
+`eventsCompactionConfig([EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
+
+ 
+
+`[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
+
 `memoryService([BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService)`
 
  
 
 `[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
 
-`plugins([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
+`plugins([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BasePlugin](../plugins/BasePlugin.html "class in com.google.adk.plugins")> plugins)`
+
+ 
+
+`[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
+
+`resumabilityConfig([ResumabilityConfig](../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)`
 
  
 
@@ -139,10 +146,6 @@ public Builder()
 
   * ## Method Details
 
-    * ### app
-
-@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") app([App](../apps/App.html "class in com.google.adk.apps") app)
-
     * ### agent
 
 @CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") agent([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent)
@@ -165,7 +168,15 @@ public Builder()
 
     * ### plugins
 
-@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") plugins([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)
+@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") plugins([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BasePlugin](../plugins/BasePlugin.html "class in com.google.adk.plugins")> plugins)
+
+    * ### resumabilityConfig
+
+@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") resumabilityConfig([ResumabilityConfig](../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)
+
+    * ### eventsCompactionConfig
+
+@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") eventsCompactionConfig([EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)
 
     * ### build
 

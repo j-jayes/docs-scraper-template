@@ -41,8 +41,6 @@ Functional Interface:
 
 [@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface Callbacks.BeforeAgentCallback
 
-Async callback interface for actions to be performed before an agent starts running.
-
   * ## Method Summary
 
 All MethodsInstance MethodsAbstract Methods

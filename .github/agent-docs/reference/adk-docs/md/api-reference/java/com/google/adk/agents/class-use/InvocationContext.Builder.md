@@ -77,27 +77,9 @@ Returns a new [`InvocationContext.Builder`](../InvocationContext.Builder.html "c
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[callbackContextData](../InvocationContext.Builder.html#callbackContextData\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData)`
-
-Sets the callback context data for the invocation.
-
-`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-InvocationContext.Builder.`[contextCacheConfig](../InvocationContext.Builder.html#contextCacheConfig\(com.google.adk.agents.ContextCacheConfig\))([ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
-
-Sets the context cache configuration for the current agent run.
-
-`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
-
 InvocationContext.Builder.`[endInvocation](../InvocationContext.Builder.html#endInvocation\(boolean\))(boolean endInvocation)`
 
 Sets whether this invocation should be ended.
-
-`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-InvocationContext.Builder.`[eventsCompactionConfig](../InvocationContext.Builder.html#eventsCompactionConfig\(com.google.adk.summarizer.EventsCompactionConfig\))([EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
-
-Sets the events compaction configuration for the current agent run.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -130,6 +112,12 @@ Sets the memory service for accessing agent memory.
 InvocationContext.Builder.`[pluginManager](../InvocationContext.Builder.html#pluginManager\(com.google.adk.plugins.Plugin\))([Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins") pluginManager)`
 
 Sets the plugin manager for accessing tools and plugins.
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+InvocationContext.Builder.`[resumabilityConfig](../InvocationContext.Builder.html#resumabilityConfig\(com.google.adk.flows.llmflows.ResumabilityConfig\))([ResumabilityConfig](../../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)`
+
+Sets the resumability configuration for the current agent run.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 

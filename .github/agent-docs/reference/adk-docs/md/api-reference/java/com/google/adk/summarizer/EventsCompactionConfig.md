@@ -25,19 +25,14 @@ Contents
   2. Constructor Summary
   3. Method Summary
   4. Constructor Details
-     1. EventsCompactionConfig(int, int)
-     2. EventsCompactionConfig(int, int, BaseEventSummarizer)
-     3. EventsCompactionConfig(Integer, Integer, BaseEventSummarizer, Integer, Integer)
+     1. EventsCompactionConfig(int, int, BaseEventSummarizer)
   5. Method Details
-     1. hasSlidingWindowCompactionConfig()
-     2. toString()
-     3. hashCode()
-     4. equals(Object)
-     5. compactionInterval()
-     6. overlapSize()
-     7. summarizer()
-     8. tokenThreshold()
-     9. eventRetentionSize()
+     1. toString()
+     2. hashCode()
+     3. equals(Object)
+     4. compactionInterval()
+     5. overlapSize()
+     6. summarizer()
 
 Hide sidebar  Show sidebar
 
@@ -53,12 +48,10 @@ Record Components:
     `compactionInterval` \- The number of **new** user-initiated invocations that, once fully represented in the session's events, will trigger a compaction.
     `overlapSize` \- The number of preceding invocations to include from the end of the last compacted range. This creates an overlap between consecutive compacted summaries, maintaining context.
     `summarizer` \- An event summarizer to use for compaction.
-    `tokenThreshold` \- The number of tokens above which compaction will be triggered. If null, no token limit will be enforced. It will trigger compaction within the invocation.
-    `eventRetentionSize` \- The maximum number of events to retain and preserve from compaction. If null, no event retention limit will be enforced.
 
 * * *
 
-public record EventsCompactionConfig(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, @Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize) extends [Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
+public record EventsCompactionConfig(int compactionInterval, int overlapSize, [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer) extends [Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
 
 Configuration for event compaction.
 
@@ -70,15 +63,7 @@ Constructor
 
 Description
 
-`EventsCompactionConfig(int compactionInterval, int overlapSize)`
-
- 
-
 `EventsCompactionConfig(int compactionInterval, int overlapSize, [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
-
- 
-
-`EventsCompactionConfig([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
 
 Creates an instance of a `EventsCompactionConfig` record class.
 
@@ -92,7 +77,7 @@ Method
 
 Description
 
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
+`int`
 
 `compactionInterval()`
 
@@ -104,25 +89,13 @@ Returns the value of the `compactionInterval` record component.
 
 Indicates whether some other object is "equal to" this one.
 
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
-
-`eventRetentionSize()`
-
-Returns the value of the `eventRetentionSize` record component.
-
 `final int`
 
 `hashCode()`
 
 Returns a hash code value for this object.
 
-`boolean`
-
-`hasSlidingWindowCompactionConfig()`
-
- 
-
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
+`int`
 
 `overlapSize()`
 
@@ -133,12 +106,6 @@ Returns the value of the `overlapSize` record component.
 `summarizer()`
 
 Returns the value of the `summarizer` record component.
-
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
-
-`tokenThreshold()`
-
-Returns the value of the `tokenThreshold` record component.
 
 `final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -157,15 +124,7 @@ Returns a string representation of this record class.
 
     * ### EventsCompactionConfig
 
-public EventsCompactionConfig(int compactionInterval, int overlapSize)
-
-    * ### EventsCompactionConfig
-
-public EventsCompactionConfig(int compactionInterval, int overlapSize, @Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)
-
-    * ### EventsCompactionConfig
-
-public EventsCompactionConfig(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, @Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)
+public EventsCompactionConfig(int compactionInterval, int overlapSize, [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)
 
 Creates an instance of a `EventsCompactionConfig` record class.
 
@@ -173,14 +132,8 @@ Parameters:
     `compactionInterval` \- the value for the `compactionInterval` record component
     `overlapSize` \- the value for the `overlapSize` record component
     `summarizer` \- the value for the `summarizer` record component
-    `tokenThreshold` \- the value for the `tokenThreshold` record component
-    `eventRetentionSize` \- the value for the `eventRetentionSize` record component
 
   * ## Method Details
-
-    * ### hasSlidingWindowCompactionConfig
-
-public boolean hasSlidingWindowCompactionConfig()
 
     * ### toString
 
@@ -208,7 +161,7 @@ Returns:
 
 public final boolean equals([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") o)
 
-Indicates whether some other object is "equal to" this one. The objects are equal if the other object is of the same class and if all the record components are equal. All components in this record class are compared with [`Objects::equals(Object,Object)`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Objects.html#equals\(java.lang.Object,java.lang.Object\) "class or interface in java.util").
+Indicates whether some other object is "equal to" this one. The objects are equal if the other object is of the same class and if all the record components are equal. Reference components are compared with [`Objects::equals(Object,Object)`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Objects.html#equals\(java.lang.Object,java.lang.Object\) "class or interface in java.util"); primitive components are compared with the `compare` method from their corresponding wrapper classes.
 
 Specified by:
     `[equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#equals\(java.lang.Object\) "class or interface in java.lang")` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")`
@@ -219,7 +172,7 @@ Returns:
 
     * ### compactionInterval
 
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval()
+public int compactionInterval()
 
 Returns the value of the `compactionInterval` record component.
 
@@ -228,7 +181,7 @@ Returns:
 
     * ### overlapSize
 
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize()
+public int overlapSize()
 
 Returns the value of the `overlapSize` record component.
 
@@ -237,30 +190,12 @@ Returns:
 
     * ### summarizer
 
-@Nullable public [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer()
+public [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer()
 
 Returns the value of the `summarizer` record component.
 
 Returns:
     the value of the `summarizer` record component
-
-    * ### tokenThreshold
-
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold()
-
-Returns the value of the `tokenThreshold` record component.
-
-Returns:
-    the value of the `tokenThreshold` record component
-
-    * ### eventRetentionSize
-
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize()
-
-Returns the value of the `eventRetentionSize` record component.
-
-Returns:
-    the value of the `eventRetentionSize` record component
 
 
 

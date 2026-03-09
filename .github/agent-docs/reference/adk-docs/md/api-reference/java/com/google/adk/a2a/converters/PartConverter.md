@@ -32,12 +32,9 @@ Contents
      5. A2A_DATA_PART_METADATA_TYPE_CODE_EXECUTION_RESULT
      6. A2A_DATA_PART_METADATA_TYPE_EXECUTABLE_CODE
   5. Method Details
-     1. toTextPart(Part)
-     2. toGenaiPart(Part)
-     3. toGenaiParts(List)
-     4. convertGenaiPartToA2aPart(Part)
-     5. messageToContent(Message)
-     6. fromGenaiPart(Part)
+     1. toGenaiPart(Part)
+     2. convertGenaiPartToA2aPart(Part)
+     3. fromGenaiPart(Part)
 
 Hide sidebar  Show sidebar
 
@@ -123,29 +120,11 @@ Convert a Google GenAI Part to an A2A Part.
 
 Convert a GenAI part into the A2A JSON representation.
 
-`static com.google.genai.types.Content`
-
-`messageToContent(io.a2a.spec.Message message)`
-
-Converts an A2A Message to a Google GenAI Content object.
-
 `static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Part>`
 
 `toGenaiPart(io.a2a.spec.Part<?> a2aPart)`
 
 Convert an A2A JSON part into a Google GenAI part representation.
-
-`static com.google.common.collect.ImmutableList<com.google.genai.types.Part>`
-
-`toGenaiParts([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<io.a2a.spec.Part<?>> a2aParts)`
-
- 
-
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.TextPart>`
-
-`toTextPart(io.a2a.spec.Part<?> part)`
-
- 
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -206,19 +185,11 @@ See Also:
 
   * ## Method Details
 
-    * ### toTextPart
-
-public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.TextPart> toTextPart(io.a2a.spec.Part<?> part)
-
     * ### toGenaiPart
 
 public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Part> toGenaiPart(io.a2a.spec.Part<?> a2aPart)
 
 Convert an A2A JSON part into a Google GenAI part representation.
-
-    * ### toGenaiParts
-
-public static com.google.common.collect.ImmutableList<com.google.genai.types.Part> toGenaiParts([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<io.a2a.spec.Part<?>> a2aParts)
 
     * ### convertGenaiPartToA2aPart
 
@@ -230,17 +201,6 @@ Parameters:
     `part` \- The GenAI part to convert.
 Returns:
     Optional containing the converted A2A Part, or empty if conversion fails.
-
-    * ### messageToContent
-
-public static com.google.genai.types.Content messageToContent(io.a2a.spec.Message message)
-
-Converts an A2A Message to a Google GenAI Content object.
-
-Parameters:
-    `message` \- The A2A Message to convert.
-Returns:
-    The converted Google GenAI Content object.
 
     * ### fromGenaiPart
 

@@ -57,12 +57,6 @@ ToolContext.`[builder](../ToolContext.html#builder\(com.google.adk.agents.Invoca
 
 `[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
 
-ToolContext.Builder.`[eventId](../ToolContext.Builder.html#eventId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
-
- 
-
-`[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
-
 ToolContext.Builder.`[functionCallId](../ToolContext.Builder.html#functionCallId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") functionCallId)`
 
  

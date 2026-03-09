@@ -68,10 +68,6 @@ An LLM-based event summarizer for sliding window compaction.
 
 This class performs events compaction in a sliding window fashion based on the [`EventsCompactionConfig`](EventsCompactionConfig.html "class in com.google.adk.summarizer").
 
-[TailRetentionEventCompactor](TailRetentionEventCompactor.html "class in com.google.adk.summarizer")
-
-This class performs event compaction by retaining the tail of the event stream.
-
 
 
 

@@ -41,8 +41,6 @@ Functional Interface:
 
 [@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface Callbacks.AfterAgentCallback
 
-Async callback interface for actions to be performed after an agent has finished running.
-
   * ## Method Summary
 
 All MethodsInstance MethodsAbstract Methods

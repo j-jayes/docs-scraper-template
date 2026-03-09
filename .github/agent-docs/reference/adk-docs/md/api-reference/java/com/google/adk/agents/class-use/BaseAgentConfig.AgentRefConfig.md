@@ -43,7 +43,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<[BaseAgentConfig.AgentRefConfig](../BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.AgentRefConfig](../BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")>`
 
 BaseAgentConfig.`[subAgents](../BaseAgentConfig.html#subAgents\(\))()`
 

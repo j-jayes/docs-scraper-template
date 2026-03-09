@@ -140,11 +140,17 @@ public ActiveStreamingTool()
 
 Returns the active task of this streaming tool.
 
+Returns:
+    The active task.
+
     * ### task
 
 public void task(@Nullable io.reactivex.rxjava3.disposables.Disposable task)
 
 Sets the active task of this streaming tool.
+
+Parameters:
+    `task` \- The new active task.
 
     * ### stream
 
@@ -152,11 +158,17 @@ Sets the active task of this streaming tool.
 
 Returns the active stream of this streaming tool.
 
+Returns:
+    The active stream.
+
     * ### stream
 
 public void stream(@Nullable [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") stream)
 
 Sets the active stream of this streaming tool.
+
+Parameters:
+    `stream` \- The new active stream.
 
 
 

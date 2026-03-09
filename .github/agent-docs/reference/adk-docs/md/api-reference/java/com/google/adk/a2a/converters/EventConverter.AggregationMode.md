@@ -53,12 +53,6 @@ Enclosing class:
 
 public static enum EventConverter.AggregationMode extends [Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html "class or interface in java.lang")<[EventConverter.AggregationMode](EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")>
 
-Aggregation mode for converting events to A2A messages. 
-
-AS_IS: Parts are aggregated as-is. 
-
-EXTERNAL_HANDOFF: Parts are aggregated as-is, except for function responses, which are converted to text parts with the function name and response map.
-
   * ## Nested Class Summary
 
 ### Nested classes/interfaces inherited from class [Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html#nested-class-summary "class or interface in java.lang")

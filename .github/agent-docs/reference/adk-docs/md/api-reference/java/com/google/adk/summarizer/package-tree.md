@@ -31,7 +31,6 @@ Package Hierarchies:
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.google.adk.summarizer.[LlmEventSummarizer](LlmEventSummarizer.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer"))
     * com.google.adk.summarizer.[SlidingWindowEventCompactor](SlidingWindowEventCompactor.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[EventCompactor](EventCompactor.html "interface in com.google.adk.summarizer"))
-    * com.google.adk.summarizer.[TailRetentionEventCompactor](TailRetentionEventCompactor.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[EventCompactor](EventCompactor.html "interface in com.google.adk.summarizer"))
 
 
 

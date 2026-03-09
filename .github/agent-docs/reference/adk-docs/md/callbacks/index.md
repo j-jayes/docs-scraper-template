@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
+      * [ LiteRT-LM  ](../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../integrations/)
 
 Tools and Integrations 
@@ -265,15 +266,7 @@ PythonTypescriptGoJava
     
     
     
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      CallbackContext,
-      LlmRequest,
-      LlmResponse,
-      Event,
-      isFinalResponse,
-    } from "@google/adk";
+    import { LlmAgent, InMemoryRunner, Context, LlmRequest, LlmResponse, Event, isFinalResponse } from '@google/adk';
     import { createUserContent } from "@google/genai";
     import type { Content } from "@google/genai";
     
@@ -288,7 +281,7 @@ PythonTypescriptGoJava
       context,
       request,
     }: {
-      context: CallbackContext;
+      context: Context;
       request: LlmRequest;
     }): LlmResponse | undefined {
       console.log(
@@ -567,12 +560,7 @@ PythonTypescriptGoJava
      * limitations under the License.
      */
     
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      CallbackContext,
-      isFinalResponse,
-    } from "@google/adk";
+    import { LlmAgent, InMemoryRunner, Context, isFinalResponse } from '@google/adk';
     import { createUserContent } from "@google/genai";
     
     const MODEL_NAME = "gemini-2.5-flash";
@@ -586,7 +574,7 @@ PythonTypescriptGoJava
       context,
       request,
     }: {
-      context: CallbackContext;
+      context: Context;
       request: any;
     }): any | undefined {
       console.log(`[Callback] Before model call for agent: ${context.agentName}`);

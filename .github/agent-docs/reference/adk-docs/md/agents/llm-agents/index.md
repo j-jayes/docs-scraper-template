@@ -73,6 +73,7 @@ Models for Agents
       * [ Ollama  ](../models/ollama/)
       * [ vLLM  ](../models/vllm/)
       * [ LiteLLM  ](../models/litellm/)
+      * [ LiteRT-LM  ](../models/litert-lm/)
     * [ Tools and Integrations  ](../../integrations/)
 
 Tools and Integrations 

@@ -40,10 +40,6 @@ com.google.adk.tools.applicationintegrationtoolset
 
  
 
-com.google.adk.tools.computeruse
-
- 
-
 com.google.adk.tools.mcp
 
  
@@ -102,7 +98,7 @@ Constructs the text instruction for this agent based on the `LlmAgent.instructio
 
 LlmAgent.`[canonicalTools](../LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") context)`
 
-Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../LlmAgent.html#tools\(\)) field.
+Convenience overload of canonicalTools that accepts a non-optional ReadonlyContext.
 
 Method parameters in [com.google.adk.agents](../package-summary.html) with type arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
@@ -116,9 +112,7 @@ Description
 
 LlmAgent.`[canonicalTools](../LlmAgent.html#canonicalTools\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> context)`
 
-Deprecated.
-
-Use [`LlmAgent.canonicalTools(ReadonlyContext)`](../LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\)) instead.
+Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../LlmAgent.html#tools\(\)) field.
 
 Constructor parameters in [com.google.adk.agents](../package-summary.html) with type arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
@@ -164,18 +158,6 @@ BaseToolset.`[getTools](../../tools/BaseToolset.html#getTools\(com.google.adk.ag
 
 Return all tools in the toolset based on the provided context.
 
-`default boolean`
-
-BaseToolset.`[isToolSelected](../../tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
-
-Checks if a tool should be selected based on a filter.
-
-`default boolean`
-
-ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
-
-Decides if the given tool is selected.
-
 Method parameters in [com.google.adk.tools](../../tools/package-summary.html) with type arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
 Modifier and Type
@@ -194,9 +176,7 @@ NamedToolPredicate.`[test](../../tools/NamedToolPredicate.html#test\(com.google.
 
 ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
-Deprecated.
-
-Use [`ToolPredicate.test(BaseTool, ReadonlyContext)`](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\)) instead.
+Decides if the given tool is selected.
 
   * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.tools.applicationintegrationtoolset](../../tools/applicationintegrationtoolset/package-summary.html)
 
@@ -211,22 +191,6 @@ Description
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
 
 ApplicationIntegrationToolset.`[getTools](../../tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))(@Nullable [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
-
- 
-
-  * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html)
-
-Methods in [com.google.adk.tools.computeruse](../../tools/computeruse/package-summary.html) with parameters of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
-
-Modifier and Type
-
-Method
-
-Description
-
-`io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
-
-ComputerUseToolset.`[getTools](../../tools/computeruse/ComputerUseToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
  
 

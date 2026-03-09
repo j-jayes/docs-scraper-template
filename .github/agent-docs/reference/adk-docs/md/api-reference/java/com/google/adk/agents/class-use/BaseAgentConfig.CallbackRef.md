@@ -43,7 +43,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
 
 BaseAgentConfig.`[afterAgentCallbacks](../BaseAgentConfig.html#afterAgentCallbacks\(\))()`
 
@@ -61,7 +61,7 @@ LlmAgentConfig.`[afterToolCallbacks](../LlmAgentConfig.html#afterToolCallbacks\(
 
  
 
-`com.google.common.collect.ImmutableList<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
 
 BaseAgentConfig.`[beforeAgentCallbacks](../BaseAgentConfig.html#beforeAgentCallbacks\(\))()`
 

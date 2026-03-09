@@ -47,7 +47,7 @@ com.google.adk.tools.UrlContextTool
 
 public final class UrlContextTool extends [BaseTool](BaseTool.html "class in com.google.adk.tools")
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs. 
+A built-in tool that is automatically invoked by Gemini 2 models to retrieve information from the given URLs. 
 
 This tool operates internally within the model and does not require or perform local code execution. 
 

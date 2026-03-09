@@ -77,7 +77,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>>`
 
 `codeBlockDelimiters()`
 
@@ -95,7 +95,7 @@ The number of attempts to retry on consecutive code execution errors.
 
 Executes code and return the code execution result.
 
-`com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
 
 `executionResultDelimiters()`
 
@@ -156,11 +156,9 @@ Default to 2.
 
     * ### codeBlockDelimiters
 
-public com.google.common.collect.ImmutableList<com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> codeBlockDelimiters()
+public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> codeBlockDelimiters()
 
 The list of the enclosing delimiters to identify the code blocks. 
-
-Each inner list contains a pair of start and end delimiters. This supports multiple pairs of delimiters. 
 
 For example, the delimiter ('```python\n', '\n```') can be used to identify code blocks with the following format: 
 
@@ -172,7 +170,7 @@ print("hello")
 
     * ### executionResultDelimiters
 
-public com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> executionResultDelimiters()
+public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> executionResultDelimiters()
 
 The delimiters to format the code execution result.
 
@@ -180,9 +178,7 @@ The delimiters to format the code execution result.
 
 public abstract [CodeExecutionUtils.CodeExecutionResult](CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors") executeCode([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [CodeExecutionUtils.CodeExecutionInput](CodeExecutionUtils.CodeExecutionInput.html "class in com.google.adk.codeexecutors") codeExecutionInput)
 
-Executes code and return the code execution result. 
-
-This method may perform blocking operations.
+Executes code and return the code execution result.
 
 Parameters:
     `invocationContext` \- The invocation context of the code execution.

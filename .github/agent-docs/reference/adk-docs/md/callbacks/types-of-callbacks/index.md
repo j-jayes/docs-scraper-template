@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
+      * [ LiteRT-LM  ](../../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../../integrations/)
 
 Tools and Integrations 
@@ -401,12 +402,7 @@ PythonTypescriptGoJava
      * limitations under the License.
      */
     
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      CallbackContext,
-      isFinalResponse,
-    } from "@google/adk";
+    import { LlmAgent, InMemoryRunner, Context, isFinalResponse } from '@google/adk';
     import { Content, createUserContent } from "@google/genai";
     
     const MODEL_NAME = "gemini-2.5-flash";
@@ -418,16 +414,16 @@ PythonTypescriptGoJava
     
     // --- 1. Define the Callback Function ---
     function checkIfAgentShouldRun(
-      callbackContext: CallbackContext
+      context: Context
     ): Content | undefined {
       /**
        * Logs entry and checks 'skip_llm_agent' in session state.
        * If True, returns Content to skip the agent's execution.
        * If False or not present, returns undefined to allow execution.
        */
-      const agentName = callbackContext.agentName;
-      const invocationId = callbackContext.invocationId;
-      const currentState = callbackContext.state;
+      const agentName = context.agentName;
+      const invocationId = context.invocationId;
+      const currentState = context.state;
     
       console.log(`\n[Callback] Entering agent: ${agentName} (Inv: ${invocationId})`);
       console.log(`[Callback] Current State:`, currentState);
@@ -902,12 +898,7 @@ PythonTypescriptGoJava
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import {
-      LlmAgent,
-      CallbackContext,
-      isFinalResponse,
-      InMemoryRunner,
-    } from "@google/adk";
+    import { LlmAgent, Context, isFinalResponse, InMemoryRunner } from '@google/adk';
     import { createUserContent } from "@google/genai";
     
     const MODEL_NAME = "gemini-2.5-flash";
@@ -922,7 +913,7 @@ PythonTypescriptGoJava
      * If True, returns new Content to *replace* the agent's original output.
      * If False or not present, returns void, allowing the agent's original output to be used.
      */
-    function modifyOutputAfterAgent(context: CallbackContext): any {
+    function modifyOutputAfterAgent(context: Context): any {
       const agentName = context.agentName;
       const invocationId = context.invocationId;
       const currentState = context.state;
@@ -1421,12 +1412,7 @@ PythonTypescriptGoJava
      * limitations under the License.
      */
     
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      CallbackContext,
-      isFinalResponse,
-    } from "@google/adk";
+    import { LlmAgent, InMemoryRunner, Context, isFinalResponse } from '@google/adk';
     import { createUserContent } from "@google/genai";
     
     const MODEL_NAME = "gemini-2.5-flash";
@@ -1440,7 +1426,7 @@ PythonTypescriptGoJava
       context,
       request,
     }: {
-      context: CallbackContext;
+      context: Context;
       request: any;
     }): any | undefined {
       console.log(`[Callback] Before model call for agent: ${context.agentName}`);
@@ -1926,12 +1912,7 @@ PythonTypescriptGoJava
      * limitations under the License.
      */
     
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      CallbackContext,
-      isFinalResponse,
-    } from "@google/adk";
+    import { LlmAgent, InMemoryRunner, Context, isFinalResponse } from '@google/adk';
     import { createUserContent } from "@google/genai";
     
     const MODEL_NAME = "gemini-2.5-flash";
@@ -1945,7 +1926,7 @@ PythonTypescriptGoJava
       context,
       response,
     }: {
-      context: CallbackContext;
+      context: Context;
       response: any;
     }): any | undefined {
       console.log(
@@ -2437,14 +2418,7 @@ PythonTypescriptGoJava
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      FunctionTool,
-      ToolContext,
-      isFinalResponse,
-      BaseTool,
-    } from '@google/adk';
+    import { LlmAgent, InMemoryRunner, FunctionTool, Context, isFinalResponse, BaseTool } from '@google/adk';
     import { createUserContent } from "@google/genai";
     import { z } from 'zod';
     
@@ -2486,7 +2460,7 @@ PythonTypescriptGoJava
     }: {
       tool: BaseTool;
       args: Record<string, any>;
-      context: ToolContext;
+      context: Context;
     }) {
       const agentName = context.agentName;
       const toolName = tool.name;
@@ -2921,14 +2895,7 @@ PythonTypescriptGoJava
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    import {
-      LlmAgent,
-      InMemoryRunner,
-      FunctionTool,
-      isFinalResponse,
-      ToolContext,
-      BaseTool,
-    } from "@google/adk";
+    import { LlmAgent, InMemoryRunner, FunctionTool, isFinalResponse, Context, BaseTool } from '@google/adk';
     import { createUserContent } from "@google/genai";
     import { z } from "zod";
     
@@ -2973,7 +2940,7 @@ PythonTypescriptGoJava
     }: {
       tool: BaseTool;
       args: Record<string, any>;
-      context: ToolContext;
+      context: Context;
       response: Record<string, any>;
     }) {
       const agentName = context.agentName;

@@ -22,22 +22,21 @@ Skip navigation links
 Contents 
 
   1. Description
-  2. Field Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
+  2. Constructor Summary
+  3. Method Summary
+  4. Constructor Details
      1. PluginManager(List)
      2. PluginManager()
-  6. Method Details
-     1. registerPlugin(Plugin)
-     2. getPlugin(String)
-     3. runOnUserMessageCallback(InvocationContext, Content)
-     4. onUserMessageCallback(InvocationContext, Content)
-     5. runBeforeRunCallback(InvocationContext)
-     6. beforeRunCallback(InvocationContext)
-     7. runAfterRunCallback(InvocationContext)
-     8. afterRunCallback(InvocationContext)
-     9. close()
+  5. Method Details
+     1. getName()
+     2. registerPlugin(Plugin)
+     3. getPlugin(String)
+     4. runOnUserMessageCallback(InvocationContext, Content)
+     5. onUserMessageCallback(InvocationContext, Content)
+     6. runBeforeRunCallback(InvocationContext)
+     7. beforeRunCallback(InvocationContext)
+     8. runAfterRunCallback(InvocationContext)
+     9. afterRunCallback(InvocationContext)
      10. runOnEventCallback(InvocationContext, Event)
      11. onEventCallback(InvocationContext, Event)
      12. runBeforeAgentCallback(BaseAgent, CallbackContext)
@@ -63,26 +62,21 @@ Hide sidebar  Show sidebar
 
 [java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
-[com.google.adk.plugins.BasePlugin](BasePlugin.html "class in com.google.adk.plugins")
-
 com.google.adk.plugins.PluginManager
 
 All Implemented Interfaces:
     `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 
+Direct Known Subclasses:
+    `[CallbackPlugin](../agents/CallbackPlugin.html "class in com.google.adk.agents")`
+
 * * *
 
-public class PluginManager extends [BasePlugin](BasePlugin.html "class in com.google.adk.plugins")
+public class PluginManager extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements [Plugin](Plugin.html "interface in com.google.adk.plugins")
 
 Manages the registration and execution of plugins. 
 
 The PluginManager is an internal class that orchestrates the invocation of plugin callbacks at key points in the SDK's execution lifecycle.
-
-  * ## Field Summary
-
-### Fields inherited from class [BasePlugin](BasePlugin.html#field-summary "class in com.google.adk.plugins")
-
-`[name](BasePlugin.html#name)`
 
   * ## Constructor Summary
 
@@ -158,11 +152,11 @@ Callback executed before the ADK runner runs.
 
 Callback executed before a tool is called.
 
-`io.reactivex.rxjava3.core.Completable`
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
-`close()`
+`getName()`
 
-Method executed when the runner is closed.
+ 
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Plugin](Plugin.html "interface in com.google.adk.plugins")>`
 
@@ -272,10 +266,6 @@ Registers a new plugin.
 
  
 
-### Methods inherited from class [BasePlugin](BasePlugin.html#method-summary "class in com.google.adk.plugins")
-
-`[getName](BasePlugin.html#getName\(\) "getName\(\)")`
-
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
@@ -294,6 +284,13 @@ public PluginManager([List](https://docs.oracle.com/en/java/javase/17/docs/api/j
 public PluginManager()
 
   * ## Method Details
+
+    * ### getName
+
+public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") getName()
+
+Specified by:
+    `[getName](Plugin.html#getName\(\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 
     * ### registerPlugin
 
@@ -329,6 +326,8 @@ Description copied from interface: `[Plugin](Plugin.html#onUserMessageCallback\(
 
 Callback executed when a user message is received before an invocation starts.
 
+Specified by:
+    `[onUserMessageCallback](Plugin.html#onUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `invocationContext` \- The context for the entire invocation.
     `userMessage` \- The message content input by user.
@@ -347,6 +346,8 @@ Description copied from interface: `[Plugin](Plugin.html#beforeRunCallback\(com.
 
 Callback executed before the ADK runner runs.
 
+Specified by:
+    `[beforeRunCallback](Plugin.html#beforeRunCallback\(com.google.adk.agents.InvocationContext\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `invocationContext` \- The context for the entire invocation.
 Returns:
@@ -364,18 +365,10 @@ Description copied from interface: `[Plugin](Plugin.html#afterRunCallback\(com.g
 
 Callback executed after an ADK runner run has completed.
 
+Specified by:
+    `[afterRunCallback](Plugin.html#afterRunCallback\(com.google.adk.agents.InvocationContext\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `invocationContext` \- The context for the entire invocation.
-
-    * ### close
-
-public io.reactivex.rxjava3.core.Completable close()
-
-Description copied from interface: `[Plugin](Plugin.html#close\(\))`
-
-Method executed when the runner is closed. 
-
-This method is used for cleanup tasks such as closing network connections or releasing resources.
 
     * ### runOnEventCallback
 
@@ -389,6 +382,8 @@ Description copied from interface: `[Plugin](Plugin.html#onEventCallback\(com.go
 
 Callback executed after an event is yielded from runner.
 
+Specified by:
+    `[onEventCallback](Plugin.html#onEventCallback\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `invocationContext` \- The context for the entire invocation.
     `event` \- The event raised by the runner.
@@ -407,6 +402,8 @@ Description copied from interface: `[Plugin](Plugin.html#beforeAgentCallback\(co
 
 Callback executed before an agent's primary logic is invoked.
 
+Specified by:
+    `[beforeAgentCallback](Plugin.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `agent` \- The agent that is about to run.
     `callbackContext` \- The context for the agent invocation.
@@ -425,6 +422,8 @@ Description copied from interface: `[Plugin](Plugin.html#afterAgentCallback\(com
 
 Callback executed after an agent's primary logic has completed.
 
+Specified by:
+    `[afterAgentCallback](Plugin.html#afterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `agent` \- The agent that has just run.
     `callbackContext` \- The context for the agent invocation.
@@ -443,6 +442,8 @@ Description copied from interface: `[Plugin](Plugin.html#beforeModelCallback\(co
 
 Callback executed before a request is sent to the model.
 
+Specified by:
+    `[beforeModelCallback](Plugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `callbackContext` \- The context for the current agent call.
     `llmRequest` \- The mutable request builder, allowing modification of the request before it is sent to the model.
@@ -461,6 +462,8 @@ Description copied from interface: `[Plugin](Plugin.html#afterModelCallback\(com
 
 Callback executed after a response is received from the model.
 
+Specified by:
+    `[afterModelCallback](Plugin.html#afterModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `callbackContext` \- The context for the current agent call.
     `llmResponse` \- The response object received from the model.
@@ -479,6 +482,8 @@ Description copied from interface: `[Plugin](Plugin.html#onModelErrorCallback\(c
 
 Callback executed when a model call encounters an error.
 
+Specified by:
+    `[onModelErrorCallback](Plugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `callbackContext` \- The context for the current agent call.
     `llmRequest` \- The mutable request builder for the request that failed.
@@ -498,6 +503,8 @@ Description copied from interface: `[Plugin](Plugin.html#beforeToolCallback\(com
 
 Callback executed before a tool is called.
 
+Specified by:
+    `[beforeToolCallback](Plugin.html#beforeToolCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `tool` \- The tool instance that is about to be executed.
     `toolArgs` \- The dictionary of arguments to be used for invoking the tool.
@@ -517,6 +524,8 @@ Description copied from interface: `[Plugin](Plugin.html#afterToolCallback\(com.
 
 Callback executed after a tool has been called.
 
+Specified by:
+    `[afterToolCallback](Plugin.html#afterToolCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.util.Map\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `tool` \- The tool instance that has just been executed.
     `toolArgs` \- The original arguments that were passed to the tool.
@@ -537,6 +546,8 @@ Description copied from interface: `[Plugin](Plugin.html#onToolErrorCallback\(co
 
 Callback executed when a tool call encounters an error.
 
+Specified by:
+    `[onToolErrorCallback](Plugin.html#onToolErrorCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.lang.Throwable\))` in interface `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 Parameters:
     `tool` \- The tool instance that encountered an error.
     `toolArgs` \- The arguments that were passed to the tool.

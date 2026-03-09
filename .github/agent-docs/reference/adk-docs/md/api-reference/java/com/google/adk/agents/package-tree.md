@@ -47,6 +47,7 @@ Package Hierarchies:
       * com.google.adk.agents.[SequentialAgentConfig](SequentialAgentConfig.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgentConfig.AgentRefConfig](BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgentConfig.CallbackRef](BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")
+    * com.google.adk.agents.[CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks](Callbacks.html "class in com.google.adk.agents")
     * com.google.adk.agents.[CallbackUtil](CallbackUtil.html "class in com.google.adk.agents")
     * com.google.adk.agents.[ConfigAgentUtils](ConfigAgentUtils.html "class in com.google.adk.agents")
@@ -56,6 +57,8 @@ Package Hierarchies:
       * com.google.adk.agents.[LiveRequest](LiveRequest.html "class in com.google.adk.agents")
     * com.google.adk.agents.[LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents")
     * com.google.adk.agents.[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")
+    * com.google.adk.plugins.[PluginManager](../plugins/PluginManager.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")) 
+      * com.google.adk.agents.[CallbackPlugin](CallbackPlugin.html "class in com.google.adk.agents")
     * com.google.adk.agents.[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")
       * com.google.adk.agents.[CallbackContext](CallbackContext.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig](RunConfig.html "class in com.google.adk.agents")
@@ -86,12 +89,6 @@ Package Hierarchies:
   * com.google.adk.agents.Callbacks.BeforeToolCallbackBase 
     * com.google.adk.agents.[Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.BeforeToolCallbackSync](Callbacks.BeforeToolCallbackSync.html "interface in com.google.adk.agents")
-  * com.google.adk.agents.Callbacks.OnModelErrorCallbackBase 
-    * com.google.adk.agents.[Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")
-    * com.google.adk.agents.[Callbacks.OnModelErrorCallbackSync](Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents")
-  * com.google.adk.agents.Callbacks.OnToolErrorCallbackBase 
-    * com.google.adk.agents.[Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")
-    * com.google.adk.agents.[Callbacks.OnToolErrorCallbackSync](Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents")
   * com.google.adk.agents.[Instruction](Instruction.html "interface in com.google.adk.agents")
 
 
@@ -110,7 +107,6 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
-      * com.google.adk.agents.[ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")
       * com.google.adk.agents.[Instruction.Provider](Instruction.Provider.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](Instruction.html "interface in com.google.adk.agents"))
       * com.google.adk.agents.[Instruction.Static](Instruction.Static.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](Instruction.html "interface in com.google.adk.agents"))
 

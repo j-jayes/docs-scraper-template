@@ -30,12 +30,9 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.google.adk.plugins.[BasePlugin](BasePlugin.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](Plugin.html "interface in com.google.adk.plugins")) 
-      * com.google.adk.plugins.[ContextFilterPlugin](ContextFilterPlugin.html "class in com.google.adk.plugins")
-      * com.google.adk.plugins.[GlobalInstructionPlugin](GlobalInstructionPlugin.html "class in com.google.adk.plugins")
       * com.google.adk.plugins.[LoggingPlugin](LoggingPlugin.html "class in com.google.adk.plugins")
-      * com.google.adk.plugins.[PluginManager](PluginManager.html "class in com.google.adk.plugins")
       * com.google.adk.plugins.[ReplayPlugin](ReplayPlugin.html "class in com.google.adk.plugins")
-    * com.google.adk.plugins.[ContextFilterPlugin.Builder](ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
+    * com.google.adk.plugins.[PluginManager](PluginManager.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](Plugin.html "interface in com.google.adk.plugins"))
     * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
       * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
         * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang")

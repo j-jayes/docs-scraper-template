@@ -40,10 +40,8 @@ Contents
      13. userContent(Content)
      14. runConfig(RunConfig)
      15. endInvocation(boolean)
-     16. eventsCompactionConfig(EventsCompactionConfig)
-     17. contextCacheConfig(ContextCacheConfig)
-     18. callbackContextData(Map)
-     19. build()
+     16. resumabilityConfig(ResumabilityConfig)
+     17. build()
 
 Hide sidebar  Show sidebar
 
@@ -106,27 +104,9 @@ Builds the [`InvocationContext`](InvocationContext.html "class in com.google.adk
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`callbackContextData([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData)`
-
-Sets the callback context data for the invocation.
-
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-`contextCacheConfig([ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
-
-Sets the context cache configuration for the current agent run.
-
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
 `endInvocation(boolean endInvocation)`
 
 Sets whether this invocation should be ended.
-
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-`eventsCompactionConfig([EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
-
-Sets the events compaction configuration for the current agent run.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -159,6 +139,12 @@ Sets the memory service for accessing agent memory.
 `pluginManager([Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins") pluginManager)`
 
 Sets the plugin manager for accessing tools and plugins.
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+`resumabilityConfig([ResumabilityConfig](../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)`
+
+Sets the resumability configuration for the current agent run.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -372,36 +358,14 @@ Parameters:
 Returns:
     this builder instance for chaining.
 
-    * ### eventsCompactionConfig
+    * ### resumabilityConfig
 
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") eventsCompactionConfig(@Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") resumabilityConfig([ResumabilityConfig](../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)
 
-Sets the events compaction configuration for the current agent run.
-
-Parameters:
-    `eventsCompactionConfig` \- the events compaction configuration.
-Returns:
-    this builder instance for chaining.
-
-    * ### contextCacheConfig
-
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") contextCacheConfig(@Nullable [ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)
-
-Sets the context cache configuration for the current agent run.
+Sets the resumability configuration for the current agent run.
 
 Parameters:
-    `contextCacheConfig` \- the context cache configuration.
-Returns:
-    this builder instance for chaining.
-
-    * ### callbackContextData
-
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") callbackContextData([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData)
-
-Sets the callback context data for the invocation.
-
-Parameters:
-    `callbackContextData` \- the callback context data.
+    `resumabilityConfig` \- the resumability configuration.
 Returns:
     this builder instance for chaining.
 

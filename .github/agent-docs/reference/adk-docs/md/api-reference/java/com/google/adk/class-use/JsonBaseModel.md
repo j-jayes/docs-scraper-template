@@ -178,12 +178,6 @@ Represents an event in a session.
 
 `class `
 
-`[EventActions](../events/EventActions.html "class in com.google.adk.events")`
-
-Represents the actions attached to an event.
-
-`class `
-
 `[ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events")`
 
 Represents a tool confirmation configuration.

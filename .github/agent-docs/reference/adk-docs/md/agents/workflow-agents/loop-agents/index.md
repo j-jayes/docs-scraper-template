@@ -65,6 +65,7 @@ Models for Agents
       * [ Ollama  ](../../models/ollama/)
       * [ vLLM  ](../../models/vllm/)
       * [ LiteLLM  ](../../models/litellm/)
+      * [ LiteRT-LM  ](../../models/litert-lm/)
     * [ Tools and Integrations  ](../../../integrations/)
 
 Tools and Integrations 
@@ -409,10 +410,10 @@ PythonTypescriptGoJava
         name: 'exit_loop',
         description: 'Call this function ONLY when the critique indicates no further changes are needed, signaling the iterative process should end.',
         parameters: z.object({}),
-        execute: (input, toolContext) => {
-            if (toolContext) {
-                console.log(`  [Tool Call] exit_loop triggered by ${toolContext.agentName} with input: ${input}`);
-                toolContext.actions.escalate = true;
+        execute: (input, context) => {
+            if (context) {
+                console.log(`  [Tool Call] exit_loop triggered by ${context.agentName} with input: ${input}`);
+                context.actions.escalate = true;
             }
             return {};
         },
