@@ -46,27 +46,34 @@ Contents
      15. maxSteps(int)
      16. disallowTransferToParent(boolean)
      17. disallowTransferToPeers(boolean)
-     18. beforeModelCallback(Callbacks.BeforeModelCallback)
-     19. beforeModelCallback(List)
-     20. beforeModelCallbackSync(Callbacks.BeforeModelCallbackSync)
-     21. afterModelCallback(Callbacks.AfterModelCallback)
-     22. afterModelCallback(List)
-     23. afterModelCallbackSync(Callbacks.AfterModelCallbackSync)
-     24. beforeAgentCallbackSync(Callbacks.BeforeAgentCallbackSync)
-     25. afterAgentCallbackSync(Callbacks.AfterAgentCallbackSync)
-     26. beforeToolCallback(Callbacks.BeforeToolCallback)
-     27. beforeToolCallback(List)
-     28. beforeToolCallbackSync(Callbacks.BeforeToolCallbackSync)
-     29. afterToolCallback(Callbacks.AfterToolCallback)
-     30. afterToolCallback(List)
-     31. afterToolCallbackSync(Callbacks.AfterToolCallbackSync)
-     32. inputSchema(Schema)
-     33. outputSchema(Schema)
-     34. executor(Executor)
-     35. outputKey(String)
-     36. codeExecutor(BaseCodeExecutor)
-     37. validate()
-     38. build()
+     18. clearBeforeModelCallbacks()
+     19. beforeModelCallback(Callbacks.BeforeModelCallback)
+     20. beforeModelCallback(List)
+     21. beforeModelCallbackSync(Callbacks.BeforeModelCallbackSync)
+     22. afterModelCallback(Callbacks.AfterModelCallback)
+     23. afterModelCallback(List)
+     24. afterModelCallbackSync(Callbacks.AfterModelCallbackSync)
+     25. onModelErrorCallback(Callbacks.OnModelErrorCallback)
+     26. onModelErrorCallback(List)
+     27. onModelErrorCallbackSync(Callbacks.OnModelErrorCallbackSync)
+     28. beforeAgentCallbackSync(Callbacks.BeforeAgentCallbackSync)
+     29. afterAgentCallbackSync(Callbacks.AfterAgentCallbackSync)
+     30. beforeToolCallback(Callbacks.BeforeToolCallback)
+     31. beforeToolCallback(List)
+     32. beforeToolCallbackSync(Callbacks.BeforeToolCallbackSync)
+     33. afterToolCallback(Callbacks.AfterToolCallback)
+     34. afterToolCallback(List)
+     35. afterToolCallbackSync(Callbacks.AfterToolCallbackSync)
+     36. onToolErrorCallback(Callbacks.OnToolErrorCallback)
+     37. onToolErrorCallback(List)
+     38. onToolErrorCallbackSync(Callbacks.OnToolErrorCallbackSync)
+     39. inputSchema(Schema)
+     40. outputSchema(Schema)
+     41. executor(Executor)
+     42. outputKey(String)
+     43. codeExecutor(BaseCodeExecutor)
+     44. validate()
+     45. build()
 
 Hide sidebar  Show sidebar
 
@@ -91,7 +98,7 @@ Builder for [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents").
 
 ### Fields inherited from class [BaseAgent.Builder](BaseAgent.Builder.html#field-summary "class in com.google.adk.agents")
 
-`[callbackPluginBuilder](BaseAgent.Builder.html#callbackPluginBuilder), [description](BaseAgent.Builder.html#description), [name](BaseAgent.Builder.html#name), [subAgents](BaseAgent.Builder.html#subAgents)`
+`[afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback), [description](BaseAgent.Builder.html#description), [name](BaseAgent.Builder.html#name), [subAgents](BaseAgent.Builder.html#subAgents)`
 
   * ## Constructor Summary
 
@@ -129,7 +136,7 @@ Description
 
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-`afterModelCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.AfterModelCallbackBase> afterModelCallback)`
+`afterModelCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterModelCallbackBase> afterModelCallbacks)`
 
  
 
@@ -147,7 +154,7 @@ Description
 
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-`afterToolCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.AfterToolCallbackBase> afterToolCallbacks)`
+`afterToolCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterToolCallbackBase> afterToolCallbacks)`
 
  
 
@@ -171,7 +178,7 @@ Description
 
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-`beforeModelCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.BeforeModelCallbackBase> beforeModelCallback)`
+`beforeModelCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.BeforeModelCallbackBase> beforeModelCallbacks)`
 
  
 
@@ -202,6 +209,12 @@ Description
 `[LlmAgent](LlmAgent.html "class in com.google.adk.agents")`
 
 `build()`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
+`clearBeforeModelCallbacks()`
 
  
 
@@ -309,6 +322,42 @@ Description
 
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
+`onModelErrorCallback([Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents") onModelErrorCallback)`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
+`onModelErrorCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.OnModelErrorCallbackBase> onModelErrorCallbacks)`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
+`onModelErrorCallbackSync([Callbacks.OnModelErrorCallbackSync](Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents") onModelErrorCallbackSync)`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
+`onToolErrorCallback([Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents") onToolErrorCallback)`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
+`onToolErrorCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.OnToolErrorCallbackBase> onToolErrorCallbacks)`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
+`onToolErrorCallbackSync([Callbacks.OnToolErrorCallbackSync](Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents") onToolErrorCallbackSync)`
+
+ 
+
+`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
+
 `outputKey([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") outputKey)`
 
  
@@ -345,7 +394,7 @@ Description
 
 ### Methods inherited from class [BaseAgent.Builder](BaseAgent.Builder.html#method-summary "class in com.google.adk.agents")
 
-`[afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\) "afterAgentCallback\(Callbacks.AfterAgentCallback\)"), [afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback\(java.util.List\) "afterAgentCallback\(List\)"), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback\(com.google.adk.agents.Callbacks.BeforeAgentCallback\) "beforeAgentCallback\(Callbacks.BeforeAgentCallback\)"), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback\(java.util.List\) "beforeAgentCallback\(List\)"), [callbackPluginBuilder](BaseAgent.Builder.html#callbackPluginBuilder\(\) "callbackPluginBuilder\(\)"), [description](BaseAgent.Builder.html#description\(java.lang.String\) "description\(String\)"), [name](BaseAgent.Builder.html#name\(java.lang.String\) "name\(String\)"), [self](BaseAgent.Builder.html#self\(\) "self\(\)"), [subAgents](BaseAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\) "subAgents\(BaseAgent...\)"), [subAgents](BaseAgent.Builder.html#subAgents\(java.util.List\) "subAgents\(List\)")`
+`[afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\) "afterAgentCallback\(Callbacks.AfterAgentCallback\)"), [afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback\(java.util.List\) "afterAgentCallback\(List\)"), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback\(com.google.adk.agents.Callbacks.BeforeAgentCallback\) "beforeAgentCallback\(Callbacks.BeforeAgentCallback\)"), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback\(java.util.List\) "beforeAgentCallback\(List\)"), [description](BaseAgent.Builder.html#description\(java.lang.String\) "description\(String\)"), [name](BaseAgent.Builder.html#name\(java.lang.String\) "name\(String\)"), [self](BaseAgent.Builder.html#self\(\) "self\(\)"), [subAgents](BaseAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\) "subAgents\(BaseAgent...\)"), [subAgents](BaseAgent.Builder.html#subAgents\(java.util.List\) "subAgents\(List\)")`
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -430,13 +479,17 @@ public Builder()
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") disallowTransferToPeers(boolean disallowTransferToPeers)
 
+    * ### clearBeforeModelCallbacks
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") clearBeforeModelCallbacks()
+
     * ### beforeModelCallback
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") beforeModelCallback([Callbacks.BeforeModelCallback](Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents") beforeModelCallback)
 
     * ### beforeModelCallback
 
-@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") beforeModelCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.BeforeModelCallbackBase> beforeModelCallback)
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") beforeModelCallback(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.BeforeModelCallbackBase> beforeModelCallbacks)
 
     * ### beforeModelCallbackSync
 
@@ -448,11 +501,23 @@ public Builder()
 
     * ### afterModelCallback
 
-@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") afterModelCallback([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.AfterModelCallbackBase> afterModelCallback)
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") afterModelCallback(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterModelCallbackBase> afterModelCallbacks)
 
     * ### afterModelCallbackSync
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") afterModelCallbackSync([Callbacks.AfterModelCallbackSync](Callbacks.AfterModelCallbackSync.html "interface in com.google.adk.agents") afterModelCallbackSync)
+
+    * ### onModelErrorCallback
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") onModelErrorCallback([Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents") onModelErrorCallback)
+
+    * ### onModelErrorCallback
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") onModelErrorCallback(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.OnModelErrorCallbackBase> onModelErrorCallbacks)
+
+    * ### onModelErrorCallbackSync
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") onModelErrorCallbackSync([Callbacks.OnModelErrorCallbackSync](Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents") onModelErrorCallbackSync)
 
     * ### beforeAgentCallbackSync
 
@@ -480,11 +545,23 @@ public Builder()
 
     * ### afterToolCallback
 
-@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") afterToolCallback(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.AfterToolCallbackBase> afterToolCallbacks)
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") afterToolCallback(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterToolCallbackBase> afterToolCallbacks)
 
     * ### afterToolCallbackSync
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") afterToolCallbackSync([Callbacks.AfterToolCallbackSync](Callbacks.AfterToolCallbackSync.html "interface in com.google.adk.agents") afterToolCallbackSync)
+
+    * ### onToolErrorCallback
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") onToolErrorCallback([Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents") onToolErrorCallback)
+
+    * ### onToolErrorCallback
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") onToolErrorCallback(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.OnToolErrorCallbackBase> onToolErrorCallbacks)
+
+    * ### onToolErrorCallbackSync
+
+@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") onToolErrorCallbackSync([Callbacks.OnToolErrorCallbackSync](Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents") onToolErrorCallbackSync)
 
     * ### inputSchema
 

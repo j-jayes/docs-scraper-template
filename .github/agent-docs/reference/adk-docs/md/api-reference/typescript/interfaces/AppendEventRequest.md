@@ -22,7 +22,7 @@ event: [Event](Event.html);
 session: [Session](Session.html);  
 }
 
-  * Defined in [core/src/sessions/base_session_service.ts:75](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L75)
+  * Defined in [sessions/base_session_service.ts:77](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L77)
 
 
 
@@ -34,7 +34,7 @@ event: [Event](Event.html)
 
 The event to append.
 
-  * Defined in [core/src/sessions/base_session_service.ts:79](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L79)
+  * Defined in [sessions/base_session_service.ts:81](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L81)
 
 
 
@@ -44,7 +44,7 @@ session: [Session](Session.html)
 
 The session to append the event to.
 
-  * Defined in [core/src/sessions/base_session_service.ts:77](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L77)
+  * Defined in [sessions/base_session_service.ts:79](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L79)
 
 
 

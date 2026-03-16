@@ -216,7 +216,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
 
-In the Agent Development Kit (ADK), "context" refers to the crucial bundle of information available to your agent and its tools during specific operations. Think of it as the necessary background knowledge and resources needed to handle a current task or conversation turn effectively.
+In the Agent Development Kit (ADK), _context_ refers to the crucial bundle of information available to your agent and its tools during specific operations. Think of it as the necessary background knowledge and resources needed to handle a current task or conversation turn effectively.
 
 Agents often need more than just the latest user message to perform well. Context is essential because it enables:
 
@@ -236,30 +236,28 @@ The central piece holding all this information together for a single, complete u
 PythonTypeScriptGoJava
     
     
-    # Conceptual Pseudocode: How the framework provides context (Internal Logic)
+    # How the framework provides context
+    from google.adk import Runner
     
-    # runner = Runner(agent=my_root_agent, session_service=..., artifact_service=...)
-    # user_message = types.Content(...)
-    # session = session_service.get_session(...) # Or create new
+    # 1. You initialize a Runner with your agent and services
+    runner = Runner(
+        app_name="my_app",
+        agent=my_root_agent,
+        session_service=my_session_service,
+        artifact_service=my_artifact_service,
+    )
     
-    # --- Inside runner.run_async(...) ---
-    # 1. Framework creates the main context for this specific run
-    # invocation_context = InvocationContext(
-    #     invocation_id="unique-id-for-this-run",
-    #     session=session,
-    #     user_content=user_message,
-    #     agent=my_root_agent, # The starting agent
-    #     session_service=session_service,
-    #     artifact_service=artifact_service,
-    #     memory_service=memory_service,
-    #     # ... other necessary fields ...
-    # )
-    #
-    # 2. Framework calls the agent's run method, passing the context implicitly
-    #    (The agent's method signature will receive it, e.g., runAsyncImpl(InvocationContext invocationContext))
-    # await my_root_agent.run_async(invocation_context)
-    #   --- End Internal Logic ---
-    #
+    # 2. You call run_async with the user input
+    # Note: run_async is an asynchronous generator yielding Events.
+    # The framework internally creates an InvocationContext and passes it
+    # implicitly to your agent code, callbacks, and tools.
+    async for event in runner.run_async(
+        user_id="user123",
+        session_id="session456",
+        new_message=user_message
+    ):
+        print(event.stringify_content())
+    
     # As a developer, you work with the context objects provided in method arguments.
     
     
@@ -336,7 +334,7 @@ PythonTypeScriptGoJava
     
     
     
-    /* Conceptual Pseudocode: How the framework provides context (Internal Logic) */
+    /* How the framework provides context */
     InMemoryRunner runner = new InMemoryRunner(agent);
     Session session = runner
         .sessionService()
@@ -346,15 +344,15 @@ PythonTypeScriptGoJava
     try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
       while (true) {
         System.out.print("\nYou > ");
+        String userInput = scanner.nextLine();
+        if ("quit".equalsIgnoreCase(userInput)) {
+          break;
+        }
+        Content userMsg = Content.fromParts(Part.fromText(userInput));
+        Flowable<Event> events = runner.runAsync(session.userId(), session.id(), userMsg);
+        System.out.print("\nAgent > ");
+        events.blockingForEach(event -> System.out.print(event.stringifyContent()));
       }
-      String userInput = scanner.nextLine();
-      if ("quit".equalsIgnoreCase(userInput)) {
-        break;
-      }
-      Content userMsg = Content.fromParts(Part.fromText(userInput));
-      Flowable<Event> events = runner.runAsync(session.userId(), session.id(), userMsg);
-      System.out.print("\nAgent > ");
-      events.blockingForEach(event -> System.out.print(event.stringifyContent()));
     }
     
 
@@ -371,7 +369,7 @@ While `InvocationContext` acts as the comprehensive internal container, ADK prov
 
 PythonTypeScriptGoJava
     
-    # Pseudocode: Agent implementation receiving InvocationContext
+    # Agent implementation receiving InvocationContext
     from google.adk.agents import BaseAgent
     from google.adk.agents.invocation_context import InvocationContext
     from google.adk.events import Event
@@ -423,60 +421,24 @@ PythonTypeScriptGoJava
     }
     
     
-    // Pseudocode: Agent implementation receiving InvocationContext
+    // Example: Agent implementation receiving InvocationContext
     import com.google.adk.agents.BaseAgent;
     import com.google.adk.agents.InvocationContext;
+    import com.google.adk.events.Event;
+    import io.reactivex.rxjava3.core.Flowable;
     
-        LlmAgent root_agent =
-            LlmAgent.builder()
-                .model("gemini-***")
-                .name("sample_agent")
-                .description("Answers user questions.")
-                .instruction(
-                    """
-                    provide instruction for the agent here.
-                    """
-                )
-                .tools(sampleTool)
-                .outputKey("YOUR_KEY")
-                .build();
-    
-        ConcurrentMap<String, Object> initialState = new ConcurrentHashMap<>();
-        initialState.put("YOUR_KEY", "");
-    
-        InMemoryRunner runner = new InMemoryRunner(agent);
-        Session session =
-              runner
-                  .sessionService()
-                  .createSession(runner.appName(), USER_ID, initialState, SESSION_ID )
-                  .blockingGet();
-    
-       try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
-            while (true) {
-              System.out.print("\nYou > ");
-              String userInput = scanner.nextLine();
-    
-              if ("quit".equalsIgnoreCase(userInput)) {
-                break;
-              }
-    
-              Content userMsg = Content.fromParts(Part.fromText(userInput));
-              Flowable<Event> events =
-                      runner.runAsync(session.userId(), session.id(), userMsg);
-    
-              System.out.print("\nAgent > ");
-              events.blockingForEach(event ->
-                      System.out.print(event.stringifyContent()));
-          }
-    
+    public class MyAgent extends BaseAgent {
+        @Override
         protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
             // Direct access example
-            String agentName = invocationContext.agent.name
-            String sessionId = invocationContext.session.id
-            String invocationId = invocationContext.invocationId
-            System.out.println("Agent " + agent_name + " running in session " + session_id + " for invocation " + invocationId)
-            // ... agent logic using ctx ...
+            String agentName = invocationContext.agent().name();
+            String sessionId = invocationContext.session().id();
+            String invocationId = invocationContext.invocationId();
+            System.out.println("Agent " + agentName + " running in session " + sessionId + " for invocation " + invocationId);
+            // ... agent logic using invocationContext ...
+            return Flowable.empty();
         }
+    }
     
 
   2. **`ReadonlyContext`**
@@ -487,13 +449,14 @@ PythonTypeScriptGoJava
 
 PythonTypeScriptGoJava
     
-    # Pseudocode: Instruction provider receiving ReadonlyContext
+    # Example: Instruction provider receiving ReadonlyContext
     from google.adk.agents.readonly_context import ReadonlyContext
     
     def my_instruction_provider(context: ReadonlyContext) -> str:
         # Read-only access example
-        user_tier = context.state().get("user_tier", "standard") # Can read state
-        # context.state['new_key'] = 'value' # This would typically cause an error or be ineffective
+        # The state property provides a read-only MappingProxyType view of the state
+        user_tier = context.state.get("user_tier", "standard")
+        # context.state['new_key'] = 'value' # TypeError: 'mappingproxy' object does not support item assignment
         return f"Process the request for a {user_tier} user."
     
     
@@ -523,14 +486,15 @@ PythonTypeScriptGoJava
     }
     
     
-    // Pseudocode: Instruction provider receiving ReadonlyContext
+    // Example: Instruction provider receiving ReadonlyContext
     import com.google.adk.agents.ReadonlyContext;
     
-    public String myInstructionProvider(ReadonlyContext context){
+    public String myInstructionProvider(ReadonlyContext context) {
         // Read-only access example
-        String userTier = context.state().get("user_tier", "standard");
-        context.state().put('new_key', 'value'); //This would typically cause an error
-        return "Process the request for a " + userTier + " user."
+        // state() returns an unmodifiable view of the session state
+        String userTier = (String) context.state().getOrDefault("user_tier", "standard");
+        // context.state().put("new_key", "value"); // UnsupportedOperationException
+        return "Process the request for a " + userTier + " user.";
     }
     
 
@@ -547,20 +511,20 @@ _(Note: In TypeScript,`CallbackContext` and `ToolContext` are unified into a sin
 
 PythonTypeScriptGoJava
     
-    # Pseudocode: Callback receiving CallbackContext
-    from google.adk.agents.callback_context import CallbackContext
+    # Example: Callback receiving Context (CallbackContext is unified into Context)
+    from google.adk.agents.context import Context
     from google.adk.models import LlmRequest
     from google.genai import types
     from typing import Optional
     
-    def my_before_model_cb(callback_context: CallbackContext, request: LlmRequest) -> Optional[types.Content]:
+    def my_before_model_cb(context: Context, request: LlmRequest) -> Optional[types.Content]:
         # Read/Write state example
-        call_count = callback_context.state.get("model_calls", 0)
-        callback_context.state["model_calls"] = call_count + 1 # Modify state
+        call_count = context.state.get("model_calls", 0)
+        context.state["model_calls"] = call_count + 1 # Modify state (tracks delta)
     
         # Optionally load an artifact
-        # config_part = callback_context.load_artifact("model_config.json")
-        print(f"Preparing model call #{call_count + 1} for invocation {callback_context.invocation_id}")
+        # config_part = context.load_artifact("model_config.json")
+        print(f"Preparing model call #{call_count + 1} for invocation {context.invocation_id}")
         return None # Allow model call to proceed
     
     
@@ -604,20 +568,20 @@ PythonTypeScriptGoJava
     }
     
     
-    // Pseudocode: Callback receiving CallbackContext
+    // Example: Callback receiving CallbackContext
     import com.google.adk.agents.CallbackContext;
     import com.google.adk.models.LlmRequest;
-    import com.google.genai.types.Content;
-    import java.util.Optional;
+    import com.google.adk.models.LlmResponse;
+    import io.reactivex.rxjava3.core.Maybe;
     
-    public Maybe<LlmResponse> myBeforeModelCb(CallbackContext callbackContext, LlmRequest request){
+    public Maybe<LlmResponse> myBeforeModelCb(CallbackContext callbackContext, LlmRequest request) {
         // Read/Write state example
-        callCount = callbackContext.state().get("model_calls", 0)
-        callbackContext.state().put("model_calls") = callCount + 1 # Modify state
+        int callCount = (int) callbackContext.state().getOrDefault("model_calls", 0);
+        callbackContext.state().put("model_calls", callCount + 1); // Modify state (tracks delta)
     
         // Optionally load an artifact
         // Maybe<Part> configPart = callbackContext.loadArtifact("model_config.json");
-        System.out.println("Preparing model call " + callCount + 1);
+        System.out.println("Preparing model call " + (callCount + 1) + " for invocation " + callbackContext.invocationId());
         return Maybe.empty(); // Allow model call to proceed
     }
     
@@ -635,7 +599,7 @@ PythonTypeScriptGoJava
 
 PythonTypeScriptGoJava
     
-    # Pseudocode: Tool function receiving ToolContext
+    # Example: Tool function receiving ToolContext
     from google.adk.tools import ToolContext
     from typing import Dict, Any
     
@@ -713,24 +677,23 @@ PythonTypeScriptGoJava
     }
     
     
-    // Pseudocode: Tool function receiving ToolContext
+    // Example: Tool function receiving ToolContext
     import com.google.adk.tools.ToolContext;
-    import java.util.HashMap;
     import java.util.Map;
     
     // Assume this function is wrapped by a FunctionTool
-    public Map<String, Object> searchExternalApi(String query, ToolContext toolContext){
-        String apiKey = toolContext.state.get("api_key");
-        if(apiKey.isEmpty()){
+    public Map<String, Object> searchExternalApi(String query, ToolContext toolContext) {
+        String apiKey = (String) toolContext.state().getOrDefault("api_key", "");
+        if (apiKey.isEmpty()) {
             // Define required auth config
             // authConfig = AuthConfig(...);
-            // toolContext.requestCredential(authConfig); # Request credentials
+            // toolContext.requestCredential(authConfig); // Request credentials
             // Use the 'actions' property to signal the auth request has been made
-            ...
             return Map.of("status", "Auth Required");
+        }
     
         // Use the API key...
-        System.out.println("Tool executing for query " + query + " using API key. ");
+        System.out.println("Tool executing for query " + query + " using API key.");
     
         // Optionally list artifacts
         // Single<List<String>> availableFiles = toolContext.listArtifacts();
@@ -756,7 +719,7 @@ You'll frequently need to read information stored within the context.
 
 PythonTypeScriptGoJava
         
-        # Pseudocode: In a Tool function
+        # Example: In a Tool function
         from google.adk.tools import ToolContext
         
         def my_tool(tool_context: ToolContext, **kwargs):
@@ -769,11 +732,11 @@ PythonTypeScriptGoJava
             print(f"Using API endpoint: {api_endpoint}")
             # ... rest of tool logic ...
         
-        # Pseudocode: In a Callback function
-        from google.adk.agents.callback_context import CallbackContext
+        # Example: In a Callback function
+        from google.adk.agents.context import Context
         
-        def my_callback(callback_context: CallbackContext, **kwargs):
-            last_tool_result = callback_context.state.get("temp:last_api_result") # Read temporary state
+        def my_callback(context: Context, **kwargs):
+            last_tool_result = context.state.get("temp:last_api_result") # Read temporary state
             if last_tool_result:
                 print(f"Found temporary result from last tool: {last_tool_result}")
             # ... callback logic ...
@@ -851,38 +814,38 @@ PythonTypeScriptGoJava
         }
         
         
-        // Pseudocode: In a Tool function
+        // Example: In a Tool function
         import com.google.adk.tools.ToolContext;
         
-        public void myTool(ToolContext toolContext){
-           String userPref = toolContext.state().get("user_display_preference");
-           String apiEndpoint = toolContext.state().get("app:api_endpoint"); // Read app-level state
-           if(userPref.equals("dark_mode")){
+        public void myTool(ToolContext toolContext) {
+            String userPref = (String) toolContext.state().getOrDefault("user_display_preference", "default_mode");
+            String apiEndpoint = (String) toolContext.state().get("app:api_endpoint"); // Read app-level state
+        
+            if ("dark_mode".equals(userPref)) {
                 // ... apply dark mode logic ...
-                pass
             }
-           System.out.println("Using API endpoint: " + api_endpoint);
-           // ... rest of tool logic ...
+            System.out.println("Using API endpoint: " + apiEndpoint);
+            // ... rest of tool logic ...
         }
         
-        
-        // Pseudocode: In a Callback function
+        // Example: In a Callback function
         import com.google.adk.agents.CallbackContext;
         
-            public void myCallback(CallbackContext callbackContext){
-                String lastToolResult = (String) callbackContext.state().get("temp:last_api_result"); // Read temporary state
-            }
-            if(!(lastToolResult.isEmpty())){
+        public void myCallback(CallbackContext callbackContext) {
+            String lastToolResult = (String) callbackContext.state().get("temp:last_api_result"); // Read temporary state
+        
+            if (lastToolResult != null && !lastToolResult.isEmpty()) {
                 System.out.println("Found temporary result from last tool: " + lastToolResult);
             }
             // ... callback logic ...
+        }
         
 
   * **Getting Current Identifiers:** Useful for logging or custom logic based on the current operation.
 
 PythonTypeScriptGoJava
         
-        # Pseudocode: In any context (ToolContext shown)
+        # Example: In any context (ToolContext shown)
         from google.adk.tools import ToolContext
         
         def log_tool_usage(tool_context: ToolContext, **kwargs):
@@ -923,32 +886,32 @@ PythonTypeScriptGoJava
         }
         
         
-        // Pseudocode: In any context (ToolContext shown)
-         import com.google.adk.tools.ToolContext;
+        // Example: In any context (ToolContext shown)
+        import com.google.adk.tools.ToolContext;
         
-         public void logToolUsage(ToolContext toolContext){
-                    String agentName = toolContext.agentName;
-                    String invId = toolContext.invocationId;
-                    String functionCallId = toolContext.functionCallId().get(); // Specific to ToolContext
-                    System.out.println("Log: Invocation= " + invId &+ " Agent= " + agentName);
-                }
+        public void logToolUsage(ToolContext toolContext) {
+            String agentName = toolContext.agentName();
+            String invId = toolContext.invocationId();
+            String functionCallId = toolContext.functionCallId().orElse("N/A"); // Specific to ToolContext
+            System.out.println("Log: Invocation= " + invId + " Agent= " + agentName + " FunctionCallID= " + functionCallId);
+        }
         
 
   * **Accessing the Initial User Input:** Refer back to the message that started the current invocation.
 
 PythonTypeScriptGoJava
         
-        # Pseudocode: In a Callback
-        from google.adk.agents.callback_context import CallbackContext
+        # Example: In a Callback
+        from google.adk.agents.context import Context
         
-        def check_initial_intent(callback_context: CallbackContext, **kwargs):
+        def check_initial_intent(context: Context, **kwargs):
             initial_text = "N/A"
-            if callback_context.user_content and callback_context.user_content.parts:
-                initial_text = callback_context.user_content.parts[0].text or "Non-text input"
+            if context.user_content and context.user_content.parts:
+                initial_text = context.user_content.parts[0].text or "Non-text input"
         
             print(f"This invocation started with user input: '{initial_text}'")
         
-        # Pseudocode: In an Agent's _run_async_impl
+        # Example: In an Agent's _run_async_impl
         # async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
         #     if ctx.user_content and ctx.user_content.parts:
         #         initial_text = ctx.user_content.parts[0].text
@@ -987,15 +950,16 @@ PythonTypeScriptGoJava
         }
         
         
-        // Pseudocode: In a Callback
+        // Example: In a Callback
         import com.google.adk.agents.CallbackContext;
+        import com.google.genai.types.Content;
         
-        public void checkInitialIntent(CallbackContext callbackContext){
+        public void checkInitialIntent(CallbackContext callbackContext) {
             String initialText = "N/A";
-            if((!(callbackContext.userContent().isEmpty())) && (!(callbackContext.userContent().parts.isEmpty()))){
-                initialText = cbx.userContent().get().parts().get().get(0).text().get();
-                ...
-                System.out.println("This invocation started with user input: " + initialText)
+            if (callbackContext.userContent().isPresent() && callbackContext.userContent().get().parts() != null && !callbackContext.userContent().get().parts().get().isEmpty()) {
+                initialText = callbackContext.userContent().get().parts().get().get(0).text().orElse("Non-text input");
+                // ...
+                System.out.println("This invocation started with user input: " + initialText);
             }
         }
         
@@ -1013,7 +977,7 @@ State is crucial for memory and data flow. When you modify state using `Callback
 
 PythonTypeScriptGoJava
         
-        # Pseudocode: Tool 1 - Fetches user ID
+        # Example: Tool 1 - Fetches user ID
         from google.adk.tools import ToolContext
         import uuid
         
@@ -1023,7 +987,7 @@ PythonTypeScriptGoJava
             tool_context.state["temp:current_user_id"] = user_id
             return {"profile_status": "ID generated"}
         
-        # Pseudocode: Tool 2 - Uses user ID from state
+        # Example: Tool 2 - Uses user ID from state
         def get_user_orders(tool_context: ToolContext) -> dict:
             user_id = tool_context.state.get("temp:current_user_id")
             if not user_id:
@@ -1096,25 +1060,26 @@ PythonTypeScriptGoJava
         }
         
         
-        // Pseudocode: Tool 1 - Fetches user ID
+        // Example: Tool 1 - Fetches user ID
         import com.google.adk.tools.ToolContext;
+        import java.util.Map;
         import java.util.UUID;
         
-        public Map<String, String> getUserProfile(ToolContext toolContext){
+        public Map<String, String> getUserProfile(ToolContext toolContext) {
             String userId = UUID.randomUUID().toString();
             // Save the ID to state for the next tool
-            toolContext.state().put("temp:current_user_id", user_id);
+            toolContext.state().put("temp:current_user_id", userId);
             return Map.of("profile_status", "ID generated");
         }
         
-        // Pseudocode: Tool 2 - Uses user ID from state
-        public  Map<String, String> getUserOrders(ToolContext toolContext){
-            String userId = toolContext.state().get("temp:current_user_id");
-            if(userId.isEmpty()){
+        // Example: Tool 2 - Uses user ID from state
+        public Map<String, String> getUserOrders(ToolContext toolContext) {
+            String userId = (String) toolContext.state().get("temp:current_user_id");
+            if (userId == null || userId.isEmpty()) {
                 return Map.of("error", "User ID not found in state");
             }
             System.out.println("Fetching orders for user id: " + userId);
-             // ... logic to fetch orders using user_id ...
+            // ... logic to fetch orders using userId ...
             return Map.of("orders", "order123");
         }
         
@@ -1123,8 +1088,8 @@ PythonTypeScriptGoJava
 
 PythonTypeScriptGoJava
         
-        # Pseudocode: Tool or Callback identifies a preference
-        from google.adk.tools import ToolContext # Or CallbackContext
+        # Example: Tool or Callback identifies a preference
+        from google.adk.tools import ToolContext # Or Context
         
         def set_user_preference(tool_context: ToolContext, preference: str, value: str) -> dict:
             # Use 'user:' prefix for user-level state (if using a persistent SessionService)
@@ -1169,10 +1134,10 @@ PythonTypeScriptGoJava
         }
         
         
-        // Pseudocode: Tool or Callback identifies a preference
+        // Example: Tool or Callback identifies a preference
         import com.google.adk.tools.ToolContext; // Or CallbackContext
         
-        public Map<String, String> setUserPreference(ToolContext toolContext, String preference, String value){
+        public Map<String, String> setUserPreference(ToolContext toolContext, String preference, String value) {
             // Use 'user:' prefix for user-level state (if using a persistent SessionService)
             String stateKey = "user:" + preference;
             toolContext.state().put(stateKey, value);
@@ -1196,15 +1161,15 @@ Use artifacts to handle files or large data blobs associated with the session. C
 
 PythonTypeScriptGoJava
            
-           # Pseudocode: In a callback or initial tool
-           from google.adk.agents.callback_context import CallbackContext # Or ToolContext
+           # Example: In a callback or initial tool
+           from google.adk.agents.context import Context # Or ToolContext
            from google.genai import types
            
-           def save_document_reference(context: CallbackContext, file_path: str) -> None:
+           def save_document_reference(context: Context, file_path: str) -> None:
                # Assume file_path is something like "gs://my-bucket/docs/report.pdf" or "/local/path/to/report.pdf"
                try:
                    # Create a Part containing the path/URI text
-                   artifact_part = types.Part(text=file_path)
+                   artifact_part = types.Part.from_text(file_path)
                    version = context.save_artifact("document_to_summarize.txt", artifact_part)
                    print(f"Saved document reference '{file_path}' as artifact version {version}")
                    # Store the filename in state if needed by other tools
@@ -1215,7 +1180,7 @@ PythonTypeScriptGoJava
                    print(f"Unexpected error saving artifact reference: {e}")
            
            # Example usage:
-           # save_document_reference(callback_context, "gs://my-bucket/docs/report.pdf")
+           # save_document_reference(context, "gs://my-bucket/docs/report.pdf")
            
            
            // Pseudocode: In a callback or initial tool
@@ -1268,22 +1233,22 @@ PythonTypeScriptGoJava
            }
            
            
-           // Pseudocode: In a callback or initial tool
+           // Example: In a callback or initial tool
            import com.google.adk.agents.CallbackContext;
            import com.google.genai.types.Content;
            import com.google.genai.types.Part;
+           import java.util.Optional;
            
-           
-           pubic void saveDocumentReference(CallbackContext context, String filePath){
+           public void saveDocumentReference(CallbackContext context, String filePath) {
                // Assume file_path is something like "gs://my-bucket/docs/report.pdf" or "/local/path/to/report.pdf"
-               try{
+               try {
                    // Create a Part containing the path/URI text
-                   Part artifactPart = types.Part(filePath)
-                   Optional<Integer> version = context.saveArtifact("document_to_summarize.txt", artifactPart)
-                   System.out.println("Saved document reference" + filePath + " as artifact version " + version);
+                   Part artifactPart = Part.fromText(filePath);
+                   Optional<Integer> version = context.saveArtifact("document_to_summarize.txt", artifactPart);
+                   System.out.println("Saved document reference" + filePath + " as artifact version " + version.orElse(-1));
                    // Store the filename in state if needed by other tools
                    context.state().put("temp:doc_artifact_name", "document_to_summarize.txt");
-               } catch(Exception e){
+               } catch (Exception e) {
                    System.out.println("Unexpected error saving artifact reference: " + e);
                }
            }
@@ -1296,7 +1261,7 @@ PythonTypeScriptGoJava
 
 PythonTypeScriptGoJava
            
-           # Pseudocode: In the Summarizer tool function
+           # Example: In the Summarizer tool function
            from google.adk.tools import ToolContext
            from google.genai import types
            # Assume libraries like google.cloud.storage or built-in open are available
@@ -1321,10 +1286,6 @@ PythonTypeScriptGoJava
                    document_content = ""
                    if file_path.startswith("gs://"):
                        # Example: Use GCS client library to download/read
-                       # from google.cloud import storage
-                       # client = storage.Client()
-                       # blob = storage.Blob.from_string(file_path, client=client)
-                       # document_content = blob.download_as_text() # Or bytes depending on format
                        pass # Replace with actual GCS reading logic
                    elif file_path.startswith("/"):
                         # Example: Use local file system
@@ -1346,8 +1307,6 @@ PythonTypeScriptGoJava
                     return {"error": f"Artifact service error: {e}"}
                except FileNotFoundError:
                     return {"error": f"Local file not found: {file_path}"}
-               # except Exception as e: # Catch specific exceptions for GCS etc.
-               #      return {"error": f"Error reading document {file_path}: {e}"}
            
            
            // Pseudocode: In the Summarizer tool function
@@ -1441,51 +1400,52 @@ PythonTypeScriptGoJava
            }
            
            
-           // Pseudocode: In the Summarizer tool function
+           // Example: In the Summarizer tool function
            import com.google.adk.tools.ToolContext;
            import com.google.genai.types.Content;
            import com.google.genai.types.Part;
+           import java.util.Map;
+           import java.util.Optional;
+           import java.io.FileNotFoundException;
            
-           public Map<String, String> summarizeDocumentTool(ToolContext toolContext){
-               String artifactName = toolContext.state().get("temp:doc_artifact_name");
-               if(artifactName.isEmpty()){
+           public Map<String, String> summarizeDocumentTool(ToolContext toolContext) {
+               String artifactName = (String) toolContext.state().get("temp:doc_artifact_name");
+               if (artifactName == null || artifactName.isEmpty()) {
                    return Map.of("error", "Document artifact name not found in state.");
                }
-               try{
+               try {
                    // 1. Load the artifact part containing the path/URI
-                   Maybe<Part> artifactPart = toolContext.loadArtifact(artifactName);
-                   if((artifactPart == null) || (artifactPart.text().isEmpty())){
+                   Optional<Part> artifactPart = toolContext.loadArtifact(artifactName);
+                   if (!artifactPart.isPresent() || !artifactPart.get().text().isPresent() || artifactPart.get().text().get().isEmpty()) {
                        return Map.of("error", "Could not load artifact or artifact has no text path: " + artifactName);
                    }
-                   filePath = artifactPart.text();
+                   String filePath = artifactPart.get().text().get();
                    System.out.println("Loaded document reference: " + filePath);
            
                    // 2. Read the actual document content (outside ADK context)
                    String documentContent = "";
-                   if(filePath.startsWith("gs://")){
+                   if (filePath.startsWith("gs://")) {
                        // Example: Use GCS client library to download/read into documentContent
-                       pass; // Replace with actual GCS reading logic
-                   } else if(){
+                       // Replace with actual GCS reading logic
+                   } else if (filePath.startsWith("/")) {
                        // Example: Use local file system to download/read into documentContent
-                   } else{
+                   } else {
                        return Map.of("error", "Unsupported file path scheme: " + filePath);
                    }
            
                    // 3. Summarize the content
-                   if(documentContent.isEmpty()){
+                   if (documentContent.isEmpty()) {
                        return Map.of("error", "Failed to read document content.");
                    }
            
                    // summary = summarizeText(documentContent) // Call your summarization logic
-                   summary = "Summary of content from " + filePath; // Placeholder
+                   String summary = "Summary of content from " + filePath; // Placeholder
            
                    return Map.of("summary", summary);
-               } catch(IllegalArgumentException e){
-                   return Map.of("error", "Artifact service error " + filePath + e);
-               } catch(FileNotFoundException e){
-                   return Map.of("error", "Local file not found " + filePath + e);
-               } catch(Exception e){
-                   return Map.of("error", "Error reading document " + filePath + e);
+               } catch (IllegalArgumentException e) {
+                   return Map.of("error", "Artifact service error " + e);
+               } catch (Exception e) {
+                   return Map.of("error", "Error reading document " + e);
                }
            }
            
@@ -1494,7 +1454,7 @@ PythonTypeScriptGoJava
 
 PythonTypeScriptGoJava
         
-        # Pseudocode: In a tool function
+        # Example: In a tool function
         from google.adk.tools import ToolContext
         
         def check_available_docs(tool_context: ToolContext) -> dict:
@@ -1539,15 +1499,18 @@ PythonTypeScriptGoJava
         }
         
         
-        // Pseudocode: In a tool function
+        // Example: In a tool function
         import com.google.adk.tools.ToolContext;
+        import io.reactivex.rxjava3.core.Single;
+        import java.util.List;
+        import java.util.Map;
         
-        public Map<String, String> checkAvailableDocs(ToolContext toolContext){
-            try{
+        public Map<String, Object> checkAvailableDocs(ToolContext toolContext) {
+            try {
                 Single<List<String>> artifactKeys = toolContext.listArtifacts();
-                System.out.println("Available artifacts" + artifactKeys.tostring());
-                return Map.of("availableDocs", "artifactKeys");
-            } catch(IllegalArgumentException e){
+                System.out.println("Available artifacts: " + artifactKeys.blockingGet().toString());
+                return Map.of("availableDocs", artifactKeys.blockingGet());
+            } catch (IllegalArgumentException e) {
                 return Map.of("error", "Artifact service error: " + e);
             }
         }
@@ -1558,14 +1521,14 @@ PythonTypeScriptGoJava
 
 ### Handling Tool Authentication¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Java v0.2.0
 
 Securely manage API keys or other credentials needed by tools.
 
-PythonTypeScript
+PythonTypeScriptJava
     
     
-    # Pseudocode: Tool requiring auth
+    # Example: Tool requiring auth
     from google.adk.tools import ToolContext
     from google.adk.auth import AuthConfig # Assume appropriate AuthConfig is defined
     
@@ -1673,19 +1636,71 @@ PythonTypeScript
       }
     }
     
+    
+    
+    // Example: Tool requiring auth
+    import com.google.adk.tools.ToolContext;
+    import java.util.Map;
+    
+    // Note: AuthConfig, requestCredential, and getAuthResponse are not yet 
+    // fully implemented in the Java ADK public API. 
+    // This example relies on external auth population into the session state.
+    
+    public class SecureApiTool {
+      private static final String AUTH_STATE_KEY = "user:my_api_credential";
+    
+      public Map<String, String> callSecureApi(ToolContext context, String requestData) {
+        // 1. Check if credential already exists in state
+        Object credential = context.state().get(AUTH_STATE_KEY);
+    
+        if (credential == null) {
+          // 2. If not, request it
+          System.out.println("Credential not found, requesting...");
+          try {
+            // context.requestCredential(MY_API_AUTH_CONFIG); // Not yet implemented in Java ADK
+            // The framework handles yielding the event. The tool execution stops here for this turn.
+            return Map.of("status", "Authentication required. Please provide credentials.");
+          } catch (Exception e) {
+            return Map.of("error", "Auth or credential request error: " + e.getMessage());
+          }
+        }
+    
+        // 3. If credential exists (might be from a previous turn after request)
+        //    or if this is a subsequent call after auth flow completed externally
+        try {
+          // Optionally, re-validate/retrieve if needed, or use directly
+          // String apiKey = context.getAuthResponse(MY_API_AUTH_CONFIG).getApiKey();
+          String apiKey = credential.toString(); // Simplified for example
+    
+          // Store it back in state for future calls within the session
+          context.state().put(AUTH_STATE_KEY, apiKey);
+    
+          System.out.println("Using retrieved credential to call API with data: " + requestData);
+          // ... Make the actual API call using apiKey ...
+          String apiResult = "API result for " + requestData;
+    
+          return Map.of("result", apiResult);
+        } catch (Exception e) {
+          // Handle errors retrieving/using the credential
+          System.err.println("Error using credential: " + e.getMessage());
+          return Map.of("error", "Failed to use credential");
+        }
+      }
+    }
+    
 
 _Remember:`request_credential` pauses the tool and signals the need for authentication. The user/system provides credentials, and on a subsequent call, `get_auth_response` (or checking state again) allows the tool to proceed._ The `tool_context.function_call_id` is used implicitly by the framework to link the request and response.
 
 ### Leveraging Memory¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Java v0.2.0
 
 Access relevant information from the past or external sources.
 
-PythonTypeScript
+PythonTypeScriptJava
     
     
-    # Pseudocode: Tool using memory search
+    # Example: Tool using memory search
     from google.adk.tools import ToolContext
     
     def find_related_info(tool_context: ToolContext, topic: str) -> dict:
@@ -1724,17 +1739,42 @@ PythonTypeScript
       }
     }
     
+    
+    
+    // Example: Tool using memory search
+    import com.google.adk.tools.ToolContext;
+    import com.google.adk.memory.SearchMemoryResponse;
+    import io.reactivex.rxjava3.core.Single;
+    import java.util.Map;
+    
+    public class MemorySearchTool {
+      public Single<Map<String, String>> findRelatedInfo(ToolContext context, String topic) {
+        return context.searchMemory("Information about " + topic)
+            .map(searchResults -> {
+              if (searchResults != null && searchResults.results() != null && !searchResults.results().isEmpty()) {
+                System.out.println("Found " + searchResults.results().size() + " memory results for '" + topic + "'");
+                // Process searchResults.results
+                String topResultText = searchResults.results().get(0).text();
+                return Map.of("memory_snippet", topResultText);
+              } else {
+                return Map.of("message", "No relevant memories found.");
+              }
+            })
+            .onErrorReturnItem(Map.of("error", "Memory service error"));
+      }
+    }
+    
 
 ### Advanced: Direct `InvocationContext` Usage¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Java v0.2.0
 
 While most interactions happen via `CallbackContext` or `ToolContext`, sometimes the agent's core logic (`_run_async_impl`/`_run_live_impl`) needs direct access.
 
-PythonTypeScript
+PythonTypeScriptJava
     
     
-    # Pseudocode: Inside agent's _run_async_impl
+    # Example: Inside agent's _run_async_impl
     from google.adk.agents import BaseAgent
     from google.adk.agents.invocation_context import InvocationContext
     from google.adk.events import Event
@@ -1789,6 +1829,48 @@ PythonTypeScript
       }
     }
     
+    
+    
+    // Example: Inside agent's runAsyncImpl
+    import com.google.adk.agents.BaseAgent;
+    import com.google.adk.agents.InvocationContext;
+    import com.google.adk.events.Event;
+    import com.google.genai.types.Content;
+    import com.google.genai.types.Part;
+    import io.reactivex.rxjava3.core.Flowable;
+    import java.util.List;
+    
+    public class MyControllingAgent extends BaseAgent {
+    
+      @Override
+      protected Flowable<Event> runAsyncImpl(InvocationContext ctx) {
+        // Example: Check if a specific service is available
+        if (ctx.memoryService() == null) {
+          System.out.println("Memory service is not available for this invocation.");
+          // Potentially change agent behavior
+        }
+    
+        // Example: Early termination based on some condition
+        Boolean criticalError = (Boolean) ctx.session().state().getOrDefault("critical_error_flag", false);
+        if (criticalError != null && criticalError) {
+          System.out.println("Critical error detected, ending invocation.");
+          ctx.setEndInvocation(true); // Signal framework to stop processing
+    
+          Event errorEvent = Event.builder()
+              .author(name())
+              .invocationId(ctx.invocationId())
+              .content(Content.builder().parts(List.of(Part.builder().text("Stopping due to critical error.").build())).build())
+              .build();
+    
+          return Flowable.just(errorEvent); // Stop this agent's execution
+        }
+    
+        // ... Normal agent processing ...
+        // return Flowable.just(normalEvent);
+        return Flowable.empty();
+      }
+    }
+    
 
 Setting `ctx.end_invocation = True` is a way to gracefully stop the entire request-response cycle from within the agent or its callbacks/tools (via their respective context objects which also have access to modify the underlying `InvocationContext`'s flag).
 
@@ -1806,7 +1888,7 @@ By understanding and effectively using these context objects, you can build more
 
 Back to top  [ Previous  Technical Overview  ](../get-started/about/) [ Next  Context caching  ](caching/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

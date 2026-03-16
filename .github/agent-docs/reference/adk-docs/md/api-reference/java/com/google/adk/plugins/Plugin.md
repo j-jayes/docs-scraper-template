@@ -29,21 +29,22 @@ Contents
      3. beforeRunCallback(InvocationContext)
      4. onEventCallback(InvocationContext, Event)
      5. afterRunCallback(InvocationContext)
-     6. beforeAgentCallback(BaseAgent, CallbackContext)
-     7. afterAgentCallback(BaseAgent, CallbackContext)
-     8. beforeModelCallback(CallbackContext, LlmRequest.Builder)
-     9. afterModelCallback(CallbackContext, LlmResponse)
-     10. onModelErrorCallback(CallbackContext, LlmRequest.Builder, Throwable)
-     11. beforeToolCallback(BaseTool, Map, ToolContext)
-     12. afterToolCallback(BaseTool, Map, ToolContext, Map)
-     13. onToolErrorCallback(BaseTool, Map, ToolContext, Throwable)
+     6. close()
+     7. beforeAgentCallback(BaseAgent, CallbackContext)
+     8. afterAgentCallback(BaseAgent, CallbackContext)
+     9. beforeModelCallback(CallbackContext, LlmRequest.Builder)
+     10. afterModelCallback(CallbackContext, LlmResponse)
+     11. onModelErrorCallback(CallbackContext, LlmRequest.Builder, Throwable)
+     12. beforeToolCallback(BaseTool, Map, ToolContext)
+     13. afterToolCallback(BaseTool, Map, ToolContext, Map)
+     14. onToolErrorCallback(BaseTool, Map, ToolContext, Throwable)
 
 Hide sidebar  Show sidebar
 
 # Interface Plugin
 
 All Known Implementing Classes:
-    `[BasePlugin](BasePlugin.html "class in com.google.adk.plugins"), [CallbackPlugin](../agents/CallbackPlugin.html "class in com.google.adk.agents"), [LoggingPlugin](LoggingPlugin.html "class in com.google.adk.plugins"), [PluginManager](PluginManager.html "class in com.google.adk.plugins"), [ReplayPlugin](ReplayPlugin.html "class in com.google.adk.plugins")`
+    `[BasePlugin](BasePlugin.html "class in com.google.adk.plugins"), [ContextFilterPlugin](ContextFilterPlugin.html "class in com.google.adk.plugins"), [GlobalInstructionPlugin](GlobalInstructionPlugin.html "class in com.google.adk.plugins"), [LoggingPlugin](LoggingPlugin.html "class in com.google.adk.plugins"), [PluginManager](PluginManager.html "class in com.google.adk.plugins"), [ReplayPlugin](ReplayPlugin.html "class in com.google.adk.plugins")`
 
 * * *
 
@@ -112,6 +113,12 @@ Callback executed before the ADK runner runs.
 `beforeToolCallback([BaseTool](../tools/BaseTool.html "class in com.google.adk.tools") tool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolArgs, [ToolContext](../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
 
 Callback executed before a tool is called.
+
+`default io.reactivex.rxjava3.core.Completable`
+
+`close()`
+
+Method executed when the runner is closed.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -195,6 +202,14 @@ Callback executed after an ADK runner run has completed.
 
 Parameters:
     `invocationContext` \- The context for the entire invocation.
+
+    * ### close
+
+default io.reactivex.rxjava3.core.Completable close()
+
+Method executed when the runner is closed. 
+
+This method is used for cleanup tasks such as closing network connections or releasing resources.
 
     * ### beforeAgentCallback
 

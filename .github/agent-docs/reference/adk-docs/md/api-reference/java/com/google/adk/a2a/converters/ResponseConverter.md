@@ -22,13 +22,14 @@ Skip navigation links
 Contents 
 
   1. Description
-  2. Nested Class Summary
-  3. Method Summary
-  4. Method Details
-     1. sendMessageResponseToEvents(SendMessageResponse, String, String)
-     2. eventsToMessage(List, String, String)
-     3. eventToMessage(Event, String)
-     4. messageToEvents(Message, String, String)
+  2. Method Summary
+  3. Method Details
+     1. clientEventToEvent(ClientEvent, InvocationContext)
+     2. artifactToEvent(Artifact, InvocationContext)
+     3. messageToFailedEvent(Message, InvocationContext)
+     4. messageToEvent(Message, InvocationContext)
+     5. messageToEvent(Message, InvocationContext, boolean)
+     6. taskToEvent(Task, InvocationContext)
 
 Hide sidebar  Show sidebar
 
@@ -42,25 +43,7 @@ com.google.adk.a2a.converters.ResponseConverter
 
 public final class ResponseConverter extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
-Utility for converting ADK events to A2A spec messages (and back). 
-
-**EXPERIMENTAL:** Subject to change, rename, or removal in any future patch release. Do not use in production code.
-
-  * ## Nested Class Summary
-
-Nested Classes
-
-Modifier and Type
-
-Class
-
-Description
-
-`static final record `
-
-`[ResponseConverter.MessageSendResult](ResponseConverter.MessageSendResult.html "class in com.google.adk.a2a.converters")`
-
-Simple REST-friendly wrapper to carry either a message result or a task result.
+Utility for converting ADK events to A2A spec messages (and back).
 
   * ## Method Summary
 
@@ -72,29 +55,41 @@ Method
 
 Description
 
-`static io.a2a.spec.Message`
+`static [Event](../../events/Event.html "class in com.google.adk.events")`
 
-`eventsToMessage([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") contextId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") taskId)`
+`artifactToEvent(io.a2a.spec.Artifact artifact, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
-Converts a list of ADK events into a single aggregated A2A message.
+Converts an artifact to an ADK event.
 
-`static io.a2a.spec.Message`
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-`eventToMessage([Event](../../events/Event.html "class in com.google.adk.events") event, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") contextId)`
+`clientEventToEvent(io.a2a.client.ClientEvent event, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
-Converts a single ADK event into an A2A message.
+Converts a A2A `ClientEvent` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"), based on the event type.
 
-`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")>`
+`static [Event](../../events/Event.html "class in com.google.adk.events")`
 
-`messageToEvents(io.a2a.spec.Message message, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+`messageToEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
 Converts an A2A message back to ADK events.
 
-`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")>`
+`static [Event](../../events/Event.html "class in com.google.adk.events")`
 
-`sendMessageResponseToEvents(io.a2a.spec.SendMessageResponse response, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+`messageToEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, boolean isPending)`
 
-Converts a `SendMessageResponse` containing a `Message` result into ADK events.
+Converts an A2A message back to ADK events.
+
+`static [Event](../../events/Event.html "class in com.google.adk.events")`
+
+`messageToFailedEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
+
+Converts an A2A message for a failed task to ADK event filling in the error message.
+
+`static [Event](../../events/Event.html "class in com.google.adk.events")`
+
+`taskToEvent(io.a2a.spec.Task task, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
+
+Converts an A2A `Task` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events").
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -105,31 +100,44 @@ Converts a `SendMessageResponse` containing a `Message` result into ADK events.
 
   * ## Method Details
 
-    * ### sendMessageResponseToEvents
+    * ### clientEventToEvent
 
-public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> sendMessageResponseToEvents(io.a2a.spec.SendMessageResponse response, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)
+public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> clientEventToEvent(io.a2a.client.ClientEvent event, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Converts a `SendMessageResponse` containing a `Message` result into ADK events. 
+Converts a A2A `ClientEvent` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"), based on the event type. Returns an empty optional if the event should be ignored (e.g. if the event is not a final update for TaskArtifactUpdateEvent or if the message is empty for TaskStatusUpdateEvent).
 
-Non-message results are ignored in the message-only integration and logged for awareness.
+Throws:
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if the event type is not supported.
 
-    * ### eventsToMessage
+    * ### artifactToEvent
 
-public static io.a2a.spec.Message eventsToMessage([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") contextId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") taskId)
+public static [Event](../../events/Event.html "class in com.google.adk.events") artifactToEvent(io.a2a.spec.Artifact artifact, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Converts a list of ADK events into a single aggregated A2A message.
+Converts an artifact to an ADK event.
 
-    * ### eventToMessage
+    * ### messageToFailedEvent
 
-public static io.a2a.spec.Message eventToMessage([Event](../../events/Event.html "class in com.google.adk.events") event, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") contextId)
+public static [Event](../../events/Event.html "class in com.google.adk.events") messageToFailedEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Converts a single ADK event into an A2A message.
+Converts an A2A message for a failed task to ADK event filling in the error message.
 
-    * ### messageToEvents
+    * ### messageToEvent
 
-public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> messageToEvents(io.a2a.spec.Message message, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)
+public static [Event](../../events/Event.html "class in com.google.adk.events") messageToEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
 Converts an A2A message back to ADK events.
+
+    * ### messageToEvent
+
+public static [Event](../../events/Event.html "class in com.google.adk.events") messageToEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, boolean isPending)
+
+Converts an A2A message back to ADK events. For streaming task in pending state it sets the thought field to true, to mark them as thought updates.
+
+    * ### taskToEvent
+
+public static [Event](../../events/Event.html "class in com.google.adk.events") taskToEvent(io.a2a.spec.Task task, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
+
+Converts an A2A `Task` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"). If the artifacts are present, the last artifact is used. If not, the status message is used. If not, the last history message is used. If none of these are present, an empty event is returned.
 
 
 

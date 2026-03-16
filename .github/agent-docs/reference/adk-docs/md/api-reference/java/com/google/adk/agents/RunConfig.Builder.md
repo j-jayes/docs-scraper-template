@@ -36,7 +36,8 @@ Contents
      6. setOutputAudioTranscription(AudioTranscriptionConfig)
      7. setInputAudioTranscription(AudioTranscriptionConfig)
      8. setMaxLlmCalls(int)
-     9. build()
+     9. setAutoCreateSession(boolean)
+     10. build()
 
 Hide sidebar  Show sidebar
 
@@ -80,6 +81,12 @@ Description
 `[RunConfig](RunConfig.html "class in com.google.adk.agents")`
 
 `build()`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`setAutoCreateSession(boolean autoCreateSession)`
 
  
 
@@ -177,6 +184,10 @@ public Builder()
     * ### setMaxLlmCalls
 
 @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setMaxLlmCalls(int maxLlmCalls)
+
+    * ### setAutoCreateSession
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setAutoCreateSession(boolean autoCreateSession)
 
     * ### build
 

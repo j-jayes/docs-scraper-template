@@ -18,10 +18,10 @@ Preparing search index...
 Represents the response from a memory search.
 
 interface SearchMemoryResponse {  
-memories: MemoryEntry[];  
+memories: [MemoryEntry](MemoryEntry.html)[];  
 }
 
-  * Defined in [core/src/memory/base_memory_service.ts:14](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L14)
+  * Defined in [memory/base_memory_service.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L14)
 
 
 
@@ -29,11 +29,11 @@ memories: MemoryEntry[];
 
 ### memories
 
-memories: MemoryEntry[]
+memories: [MemoryEntry](MemoryEntry.html)[]
 
 A list of memory entries that are related to the search query.
 
-  * Defined in [core/src/memory/base_memory_service.ts:18](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L18)
+  * Defined in [memory/base_memory_service.ts:18](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L18)
 
 
 

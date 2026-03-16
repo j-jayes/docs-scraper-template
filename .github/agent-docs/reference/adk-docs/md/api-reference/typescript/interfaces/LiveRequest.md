@@ -25,7 +25,7 @@ close?: boolean;
 content?: Content;  
 }
 
-  * Defined in [core/src/agents/live_request_queue.ts:12](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L12)
+  * Defined in [agents/live_request_queue.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L12)
 
 
 
@@ -37,7 +37,7 @@ activityEnd?: ActivityEnd
 
 If set, signal the end of user activity to the model.
 
-  * Defined in [core/src/agents/live_request_queue.ts:20](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L20)
+  * Defined in [agents/live_request_queue.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L20)
 
 
 
@@ -47,7 +47,7 @@ activityStart?: ActivityStart
 
 If set, signal the start of user activity to the model.
 
-  * Defined in [core/src/agents/live_request_queue.ts:18](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L18)
+  * Defined in [agents/live_request_queue.ts:18](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L18)
 
 
 
@@ -57,7 +57,7 @@ blob?: Blob_2
 
 If set, send the blob to the model in realtime mode.
 
-  * Defined in [core/src/agents/live_request_queue.ts:16](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L16)
+  * Defined in [agents/live_request_queue.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L16)
 
 
 
@@ -67,7 +67,7 @@ close?: boolean
 
 If set, close the queue.
 
-  * Defined in [core/src/agents/live_request_queue.ts:22](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L22)
+  * Defined in [agents/live_request_queue.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L22)
 
 
 
@@ -77,7 +77,7 @@ content?: Content
 
 If set, send the content to the model in turn-by-turn mode.
 
-  * Defined in [core/src/agents/live_request_queue.ts:14](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L14)
+  * Defined in [agents/live_request_queue.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L14)
 
 
 

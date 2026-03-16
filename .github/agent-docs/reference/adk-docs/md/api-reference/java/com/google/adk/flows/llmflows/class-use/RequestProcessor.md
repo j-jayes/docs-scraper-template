@@ -54,6 +54,12 @@ Description
 
 [`RequestProcessor`](../RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles basic information to build the LLM request.
 
+`class `
+
+`[Compaction](../Compaction.html "class in com.google.adk.flows.llmflows")`
+
+Request processor that performs event compaction.
+
 `final class `
 
 `[Contents](../Contents.html "class in com.google.adk.flows.llmflows")`

@@ -33,47 +33,49 @@ Contents
      6. author()
      7. setAuthor(String)
      8. content()
-     9. setContent(Optional)
+     9. setContent(Content)
      10. actions()
      11. setActions(EventActions)
      12. longRunningToolIds()
-     13. setLongRunningToolIds(Optional)
+     13. setLongRunningToolIds(Set)
      14. partial()
-     15. setPartial(Optional)
+     15. setPartial(Boolean)
      16. turnComplete()
-     17. setTurnComplete(Optional)
+     17. setTurnComplete(Boolean)
      18. errorCode()
      19. finishReason()
-     20. setErrorCode(Optional)
+     20. setErrorCode(FinishReason)
      21. setFinishReason(Optional)
-     22. errorMessage()
-     23. setErrorMessage(Optional)
-     24. usageMetadata()
-     25. setUsageMetadata(Optional)
-     26. avgLogprobs()
-     27. setAvgLogprobs(Optional)
-     28. interrupted()
-     29. setInterrupted(Optional)
-     30. branch()
-     31. branch(String)
-     32. branch(Optional)
+     22. setFinishReason(FinishReason)
+     23. errorMessage()
+     24. setErrorMessage(String)
+     25. usageMetadata()
+     26. setUsageMetadata(GenerateContentResponseUsageMetadata)
+     27. avgLogprobs()
+     28. setAvgLogprobs(Double)
+     29. interrupted()
+     30. setInterrupted(Boolean)
+     31. branch()
+     32. branch(String)
      33. groundingMetadata()
-     34. setGroundingMetadata(Optional)
-     35. modelVersion()
-     36. setModelVersion(Optional)
-     37. timestamp()
-     38. setTimestamp(long)
-     39. functionCalls()
-     40. functionResponses()
-     41. hasTrailingCodeExecutionResult()
-     42. finalResponse()
-     43. stringifyContent()
-     44. builder()
-     45. fromJson(String)
-     46. toBuilder()
-     47. equals(Object)
-     48. toString()
-     49. hashCode()
+     34. setGroundingMetadata(GroundingMetadata)
+     35. customMetadata()
+     36. setCustomMetadata(List)
+     37. modelVersion()
+     38. setModelVersion(String)
+     39. timestamp()
+     40. setTimestamp(long)
+     41. functionCalls()
+     42. functionResponses()
+     43. hasTrailingCodeExecutionResult()
+     44. finalResponse()
+     45. stringifyContent()
+     46. builder()
+     47. fromJson(String)
+     48. toBuilder()
+     49. equals(Object)
+     50. toString()
+     51. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -109,7 +111,7 @@ Builder for [`Event`](Event.html "class in com.google.adk.events").
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -147,12 +149,6 @@ The branch of the event.
 
 Sets the branch for this event.
 
-`void`
-
-`branch([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch)`
-
- 
-
 `static [Event.Builder](Event.Builder.html "class in com.google.adk.events")`
 
 `builder()`
@@ -164,6 +160,12 @@ Sets the branch for this event.
 `content()`
 
  
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata>>`
+
+`customMetadata()`
+
+The custom metadata of the event.
 
 `boolean`
 
@@ -287,25 +289,37 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
-`setAvgLogprobs([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs)`
+`setAvgLogprobs([Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
 
  
 
 `void`
 
-`setContent([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)`
+`setContent(com.google.genai.types.Content content)`
 
  
 
 `void`
 
-`setErrorCode([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> errorCode)`
+`setCustomMetadata([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
 
  
 
 `void`
 
-`setErrorMessage([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> errorMessage)`
+`setErrorCode(com.google.genai.types.FinishReason errorCode)`
+
+ 
+
+`void`
+
+`setErrorMessage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
+
+ 
+
+`void`
+
+`setFinishReason(com.google.genai.types.FinishReason finishReason)`
 
  
 
@@ -313,11 +327,11 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `setFinishReason([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)`
 
- 
+Deprecated.
 
 `void`
 
-`setGroundingMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GroundingMetadata> groundingMetadata)`
+`setGroundingMetadata(com.google.genai.types.GroundingMetadata groundingMetadata)`
 
  
 
@@ -329,7 +343,7 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
-`setInterrupted([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> interrupted)`
+`setInterrupted([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)`
 
  
 
@@ -341,19 +355,19 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
-`setLongRunningToolIds([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> longRunningToolIds)`
+`setLongRunningToolIds([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> longRunningToolIds)`
 
  
 
 `void`
 
-`setModelVersion([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion)`
+`setModelVersion([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
 
  
 
 `void`
 
-`setPartial([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> partial)`
+`setPartial([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
 
  
 
@@ -365,13 +379,13 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
-`setTurnComplete([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> turnComplete)`
+`setTurnComplete([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)`
 
  
 
 `void`
 
-`setUsageMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata> usageMetadata)`
+`setUsageMetadata(com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)`
 
  
 
@@ -464,7 +478,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setContent
 
-public void setContent([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)
+public void setContent(@Nullable com.google.genai.types.Content content)
 
     * ### actions
 
@@ -482,7 +496,7 @@ Set of ids of the long running function calls. Agent client will know from this 
 
     * ### setLongRunningToolIds
 
-public void setLongRunningToolIds([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> longRunningToolIds)
+public void setLongRunningToolIds(@Nullable [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> longRunningToolIds)
 
     * ### partial
 
@@ -492,7 +506,7 @@ partial is true for incomplete chunks from the LLM streaming response. The last 
 
     * ### setPartial
 
-public void setPartial([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> partial)
+public void setPartial(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)
 
     * ### turnComplete
 
@@ -500,7 +514,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setTurnComplete
 
-public void setTurnComplete([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> turnComplete)
+public void setTurnComplete(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)
 
     * ### errorCode
 
@@ -512,11 +526,17 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setErrorCode
 
-public void setErrorCode([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> errorCode)
+public void setErrorCode(@Nullable com.google.genai.types.FinishReason errorCode)
 
     * ### setFinishReason
 
-public void setFinishReason([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public void setFinishReason([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)
+
+Deprecated.
+
+    * ### setFinishReason
+
+public void setFinishReason(@Nullable com.google.genai.types.FinishReason finishReason)
 
     * ### errorMessage
 
@@ -524,7 +544,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setErrorMessage
 
-public void setErrorMessage([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> errorMessage)
+public void setErrorMessage(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)
 
     * ### usageMetadata
 
@@ -532,7 +552,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setUsageMetadata
 
-public void setUsageMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata> usageMetadata)
+public void setUsageMetadata(@Nullable com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)
 
     * ### avgLogprobs
 
@@ -540,7 +560,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setAvgLogprobs
 
-public void setAvgLogprobs([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs)
+public void setAvgLogprobs(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)
 
     * ### interrupted
 
@@ -548,7 +568,7 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
     * ### setInterrupted
 
-public void setInterrupted([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> interrupted)
+public void setInterrupted(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)
 
     * ### branch
 
@@ -567,10 +587,6 @@ Format: agentA.agentB.agentC — shows hierarchy of nested agents.
 Parameters:
     `branch` \- Branch identifier.
 
-    * ### branch
-
-public void branch([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch)
-
     * ### groundingMetadata
 
 public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GroundingMetadata> groundingMetadata()
@@ -579,7 +595,17 @@ The grounding metadata of the event.
 
     * ### setGroundingMetadata
 
-public void setGroundingMetadata([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GroundingMetadata> groundingMetadata)
+public void setGroundingMetadata(@Nullable com.google.genai.types.GroundingMetadata groundingMetadata)
+
+    * ### customMetadata
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata>> customMetadata()
+
+The custom metadata of the event.
+
+    * ### setCustomMetadata
+
+public void setCustomMetadata(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)
 
     * ### modelVersion
 
@@ -589,7 +615,7 @@ The model version used to generate the response.
 
     * ### setModelVersion
 
-public void setModelVersion([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion)
+public void setModelVersion(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)
 
     * ### timestamp
 

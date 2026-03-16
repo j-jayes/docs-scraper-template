@@ -225,7 +225,7 @@ For example, if you want to set voice config, you can leverage speech_config.
 
 Back to top  [ Previous  Streaming Tools  ](../streaming-tools/) [ Next  Grounding agents with data  ](../../grounding/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

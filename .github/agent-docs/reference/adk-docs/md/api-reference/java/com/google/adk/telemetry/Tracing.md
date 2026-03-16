@@ -29,13 +29,13 @@ Contents
      2. traceAgentInvocation(Span, String, String, InvocationContext)
      3. traceToolCall(String, String, String, Map)
      4. traceToolResponse(String, Event)
-     5. traceCallLlm(InvocationContext, String, LlmRequest, LlmResponse)
+     5. traceCallLlm(Span, InvocationContext, String, LlmRequest, LlmResponse)
      6. traceSendData(InvocationContext, String, List)
      7. getTracer()
      8. traceFlowable(Context, Span, Supplier)
      9. trace(String)
-     10. trace(String, Context)
-     11. traceAgent(String, String, String, InvocationContext)
+     10. traceAgent(String, String, String, InvocationContext)
+     11. withContext(Context)
 
 Hide sidebar  Show sidebar
 
@@ -60,6 +60,12 @@ Modifier and Type
 Class
 
 Description
+
+`static final class `
+
+`[Tracing.ContextTransformer](Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<[T](Tracing.ContextTransformer.html#type-param-T "type parameter in Tracing.ContextTransformer")>`
+
+A transformer that re-activates a given context for the duration of the stream's subscription.
 
 `static final class `
 
@@ -97,12 +103,6 @@ Returns a transformer that traces the execution of an RxJava stream.
 
 `static <T> [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
 
-`trace([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") spanName, io.opentelemetry.context.Context parentContext)`
-
-Returns a transformer that traces the execution of an RxJava stream with an explicit parent context.
-
-`static <T> [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
-
 `traceAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentDescription, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
 Returns a transformer that traces an agent invocation.
@@ -115,7 +115,7 @@ Sets span attributes immediately available on agent invocation according to OTEL
 
 `static void`
 
-`traceCallLlm([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+`traceCallLlm(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
 Traces a call to the LLM.
 
@@ -142,6 +142,12 @@ Traces tool call arguments.
 `traceToolResponse([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)`
 
 Traces tool response event.
+
+`static <T> [Tracing.ContextTransformer](Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T>`
+
+`withContext(io.opentelemetry.context.Context context)`
+
+Returns a transformer that re-activates a given context for the duration of the stream's subscription.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -191,7 +197,7 @@ Parameters:
 
     * ### traceCallLlm
 
-public static void traceCallLlm([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse)
+public static void traceCallLlm(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse)
 
 Traces a call to the LLM.
 
@@ -255,20 +261,6 @@ Parameters:
 Returns:
     A TracerProvider that can be used with .compose().
 
-    * ### trace
-
-public static <T> [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> trace([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") spanName, io.opentelemetry.context.Context parentContext)
-
-Returns a transformer that traces the execution of an RxJava stream with an explicit parent context.
-
-Type Parameters:
-    `T` \- The type of the stream.
-Parameters:
-    `spanName` \- The name of the span to create.
-    `parentContext` \- The explicit parent context for the span.
-Returns:
-    A TracerProvider that can be used with .compose().
-
     * ### traceAgent
 
 public static <T> [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> traceAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentDescription, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
@@ -284,6 +276,19 @@ Parameters:
     `invocationContext` \- The invocation context.
 Returns:
     A TracerProvider configured for agent invocation.
+
+    * ### withContext
+
+public static <T> [Tracing.ContextTransformer](Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T> withContext(io.opentelemetry.context.Context context)
+
+Returns a transformer that re-activates a given context for the duration of the stream's subscription.
+
+Type Parameters:
+    `T` \- The type of the stream.
+Parameters:
+    `context` \- The context to re-activate.
+Returns:
+    A transformer that re-activates the context.
 
 
 

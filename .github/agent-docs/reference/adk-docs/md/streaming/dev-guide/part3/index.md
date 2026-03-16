@@ -1834,7 +1834,7 @@ In this part, you mastered event handling in ADK Gemini Live API Toolkit's strea
 
 Back to top  [ Previous  Part 2. Sending messages  ](../part2/) [ Next  Part 4. Run configuration  ](../part4/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

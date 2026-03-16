@@ -28,13 +28,10 @@ Contents
   4. Constructor Details
      1. Builder()
   5. Method Details
-     1. setProject(Optional)
-     2. setProject(String)
-     3. setLocation(Optional)
-     4. setLocation(String)
-     5. setCredentials(Optional)
-     6. setCredentials(GoogleCredentials)
-     7. build()
+     1. setProject(String)
+     2. setLocation(String)
+     3. setCredentials(GoogleCredentials)
+     4. build()
 
 Hide sidebar  Show sidebar
 
@@ -89,31 +86,13 @@ Description
 
 `abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-`setCredentials([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.auth.oauth2.GoogleCredentials> value)`
-
- 
-
-`abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
-
 `setLocation([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
 `abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-`setLocation([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
-
- 
-
-`abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
-
 `setProject([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
-
- 
-
-`abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
-
-`setProject([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
 
  
 
@@ -134,23 +113,11 @@ public Builder()
 
     * ### setProject
 
-public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setProject([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)
-
-    * ### setProject
-
 public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setProject(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
 
     * ### setLocation
 
-public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setLocation([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)
-
-    * ### setLocation
-
 public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setLocation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
-
-    * ### setCredentials
-
-public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setCredentials([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.auth.oauth2.GoogleCredentials> value)
 
     * ### setCredentials
 

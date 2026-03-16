@@ -48,6 +48,10 @@ com.google.adk.agents
 
  
 
+com.google.adk.samples.a2aagent.agent
+
+ 
+
 com.google.adk.tools
 
  
@@ -151,6 +155,22 @@ LlmAgent.Builder.`[build](../LlmAgent.Builder.html#build\(\))()`
 LlmAgent.`[fromConfig](../LlmAgent.html#fromConfig\(com.google.adk.agents.LlmAgentConfig,java.lang.String\))([LlmAgentConfig](../LlmAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
 
 Creates an LlmAgent from configuration with full subagent support.
+
+  * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.google.adk.samples.a2aagent.agent](../../samples/a2aagent/agent/package-summary.html)
+
+Fields in [com.google.adk.samples.a2aagent.agent](../../samples/a2aagent/agent/package-summary.html) declared as [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+Agent.`[ROOT_AGENT](../../samples/a2aagent/agent/Agent.html#ROOT_AGENT)`
+
+ 
 
   * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.google.adk.tools](../../tools/package-summary.html)
 

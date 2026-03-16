@@ -22,6 +22,7 @@ enableAffectiveDialog?: boolean;
 inputAudioTranscription?: AudioTranscriptionConfig;  
 maxLlmCalls?: number;  
 outputAudioTranscription?: AudioTranscriptionConfig;  
+pauseOnToolCalls?: boolean;  
 proactivity?: ProactivityConfig;  
 realtimeInputConfig?: RealtimeInputConfig;  
 responseModalities?: Modality[];  
@@ -31,7 +32,7 @@ streamingMode?: [StreamingMode](../enums/StreamingMode.html);
 supportCfc?: boolean;  
 }
 
-  * Defined in [core/src/agents/run_config.ts:23](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L23)
+  * Defined in [agents/run_config.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L29)
 
 
 
@@ -43,7 +44,7 @@ enableAffectiveDialog?: boolean
 
 If enabled, the model will detect emotions and adapt its responses accordingly.
 
-  * Defined in [core/src/agents/run_config.ts:68](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L68)
+  * Defined in [agents/run_config.ts:74](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L74)
 
 
 
@@ -53,7 +54,7 @@ inputAudioTranscription?: AudioTranscriptionConfig
 
 Input transcription for live agents with audio input from user.
 
-  * Defined in [core/src/agents/run_config.ts:62](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L62)
+  * Defined in [agents/run_config.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L68)
 
 
 
@@ -70,7 +71,7 @@ Valid Values:
 
 
 
-  * Defined in [core/src/agents/run_config.ts:89](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L89)
+  * Defined in [agents/run_config.ts:95](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L95)
 
 
 
@@ -80,7 +81,17 @@ outputAudioTranscription?: AudioTranscriptionConfig
 
 Output audio transcription config.
 
-  * Defined in [core/src/agents/run_config.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L57)
+  * Defined in [agents/run_config.ts:63](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L63)
+
+
+
+### `Optional`pauseOnToolCalls
+
+pauseOnToolCalls?: boolean
+
+If true, the agent loop will suspend on ANY tool call, allowing the client to intercept and execute tools (Client-Side Tool Execution).
+
+  * Defined in [agents/run_config.ts:101](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L101)
 
 
 
@@ -90,7 +101,7 @@ proactivity?: ProactivityConfig
 
 Configures the proactivity of the model. This allows the model to respond proactively to the input and to ignore irrelevant input.
 
-  * Defined in [core/src/agents/run_config.ts:74](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L74)
+  * Defined in [agents/run_config.ts:80](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L80)
 
 
 
@@ -100,7 +111,7 @@ realtimeInputConfig?: RealtimeInputConfig
 
 Realtime input config for live agents with audio input from user.
 
-  * Defined in [core/src/agents/run_config.ts:79](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L79)
+  * Defined in [agents/run_config.ts:85](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L85)
 
 
 
@@ -110,7 +121,7 @@ responseModalities?: Modality[]
 
 The output modalities. If not set, it's default to AUDIO.
 
-  * Defined in [core/src/agents/run_config.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L32)
+  * Defined in [agents/run_config.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L38)
 
 
 
@@ -120,7 +131,7 @@ saveInputBlobsAsArtifacts?: boolean
 
 Whether or not to save the input blobs as artifacts.
 
-  * Defined in [core/src/agents/run_config.ts:37](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L37)
+  * Defined in [agents/run_config.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L43)
 
 
 
@@ -130,7 +141,7 @@ speechConfig?: SpeechConfig
 
 Speech configuration for the live agent.
 
-  * Defined in [core/src/agents/run_config.ts:27](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L27)
+  * Defined in [agents/run_config.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L33)
 
 
 
@@ -140,7 +151,7 @@ streamingMode?: [StreamingMode](../enums/StreamingMode.html)
 
 Streaming mode, None or StreamingMode.SSE or StreamingMode.BIDI.
 
-  * Defined in [core/src/agents/run_config.ts:52](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L52)
+  * Defined in [agents/run_config.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L58)
 
 
 
@@ -152,13 +163,13 @@ Whether to support CFC (Compositional Function Calling). Only applicable for Str
 
 WARNING: This feature is **experimental** and its API or behavior may change in future releases.
 
-  * Defined in [core/src/agents/run_config.ts:47](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/run_config.ts#L47)
+  * Defined in [agents/run_config.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L53)
 
 
 
 Properties
 
-enableAffectiveDialoginputAudioTranscriptionmaxLlmCallsoutputAudioTranscriptionproactivityrealtimeInputConfigresponseModalitiessaveInputBlobsAsArtifactsspeechConfigstreamingModesupportCfc
+enableAffectiveDialoginputAudioTranscriptionmaxLlmCallsoutputAudioTranscriptionpauseOnToolCallsproactivityrealtimeInputConfigresponseModalitiessaveInputBlobsAsArtifactsspeechConfigstreamingModesupportCfc
 
 [ADK for TypeScript: API Reference](../index.html)
 

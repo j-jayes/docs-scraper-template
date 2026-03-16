@@ -22,7 +22,7 @@ appName: string;
 userId: string;  
 }
 
-  * Defined in [core/src/sessions/base_session_service.ts:53](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L53)
+  * Defined in [sessions/base_session_service.ts:55](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L55)
 
 
 
@@ -34,7 +34,7 @@ appName: string
 
 The name of the application.
 
-  * Defined in [core/src/sessions/base_session_service.ts:55](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L55)
+  * Defined in [sessions/base_session_service.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L57)
 
 
 
@@ -44,7 +44,7 @@ userId: string
 
 The ID of the user.
 
-  * Defined in [core/src/sessions/base_session_service.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L57)
+  * Defined in [sessions/base_session_service.ts:59](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L59)
 
 
 

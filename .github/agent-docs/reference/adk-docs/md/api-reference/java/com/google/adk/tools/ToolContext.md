@@ -174,7 +174,7 @@ Searches the memory of the current user.
 
 ### Methods inherited from class [CallbackContext](../agents/CallbackContext.html#method-summary "class in com.google.adk.agents")
 
-`[eventActions](../agents/CallbackContext.html#eventActions\(\) "eventActions\(\)"), [listArtifacts](../agents/CallbackContext.html#listArtifacts\(\) "listArtifacts\(\)"), [loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String,java.util.Optional\) "loadArtifact\(String, Optional\)"), [saveArtifact](../agents/CallbackContext.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\) "saveArtifact\(String, Part\)"), [state](../agents/CallbackContext.html#state\(\) "state\(\)")`
+`[eventActions](../agents/CallbackContext.html#eventActions\(\) "eventActions\(\)"), [eventId](../agents/CallbackContext.html#eventId\(\) "eventId\(\)"), [listArtifacts](../agents/CallbackContext.html#listArtifacts\(\) "listArtifacts\(\)"), [loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String\) "loadArtifact\(String\)"), [loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String,int\) "loadArtifact\(String, int\)"), [saveArtifact](../agents/CallbackContext.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\) "saveArtifact\(String, Part\)"), [state](../agents/CallbackContext.html#state\(\) "state\(\)")`
 
 ### Methods inherited from class [ReadonlyContext](../agents/ReadonlyContext.html#method-summary "class in com.google.adk.agents")
 

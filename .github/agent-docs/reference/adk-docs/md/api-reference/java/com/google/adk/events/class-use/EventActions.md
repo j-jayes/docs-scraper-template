@@ -84,6 +84,12 @@ Description
 
 Initializes callback context.
 
+` `
+
+`[CallbackContext](../../agents/CallbackContext.html#%3Cinit%3E\(com.google.adk.agents.InvocationContext,com.google.adk.events.EventActions,java.lang.String\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [EventActions](../EventActions.html "class in com.google.adk.events") eventActions, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
+
+Initializes callback context.
+
   * ## Uses of [EventActions](../EventActions.html "class in com.google.adk.events") in [com.google.adk.events](../package-summary.html)
 
 Methods in [com.google.adk.events](../package-summary.html) that return [EventActions](../EventActions.html "class in com.google.adk.events")

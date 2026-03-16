@@ -79,6 +79,10 @@ A structure that contains a file name and its content.
 
 Builder for [`CodeExecutionUtils.File`](CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors").
 
+[ContainerCodeExecutor](class-use/ContainerCodeExecutor.html#com.google.adk.codeexecutors)
+
+A code executor that uses a custom container to execute code.
+
 
 
 

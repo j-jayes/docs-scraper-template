@@ -51,6 +51,12 @@ Session.Builder.`[appName](../Session.Builder.html#appName\(java.lang.String\))(
 
 `static [Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
+Session.`[builder](../Session.html#builder\(com.google.adk.sessions.SessionKey\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+Creates a new [`Session.Builder`](../Session.Builder.html "class in com.google.adk.sessions") with the given session key.
+
+`static [Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
+
 Session.`[builder](../Session.html#builder\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)`
 
  
@@ -78,6 +84,12 @@ Session.Builder.`[lastUpdateTime](../Session.Builder.html#lastUpdateTime\(java.t
 Session.Builder.`[lastUpdateTimeSeconds](../Session.Builder.html#lastUpdateTimeSeconds\(double\))(double seconds)`
 
  
+
+`[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
+
+Session.Builder.`[sessionKey](../Session.Builder.html#sessionKey\(com.google.adk.sessions.SessionKey\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+Sets the session key.
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 

@@ -51,6 +51,12 @@ Runner.Builder.`[agent](../Runner.Builder.html#agent\(com.google.adk.agents.Base
 
 `[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
 
+Runner.Builder.`[app](../Runner.Builder.html#app\(com.google.adk.apps.App\))([App](../../apps/App.html "class in com.google.adk.apps") app)`
+
+ 
+
+`[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
+
 Runner.Builder.`[appName](../Runner.Builder.html#appName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName)`
 
  
@@ -69,25 +75,19 @@ Runner.`[builder](../Runner.html#builder\(\))()`
 
 `[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
 
-Runner.Builder.`[eventsCompactionConfig](../Runner.Builder.html#eventsCompactionConfig\(com.google.adk.summarizer.EventsCompactionConfig\))([EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
-
- 
-
-`[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
-
 Runner.Builder.`[memoryService](../Runner.Builder.html#memoryService\(com.google.adk.memory.BaseMemoryService\))([BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService)`
 
  
 
 `[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
 
-Runner.Builder.`[plugins](../Runner.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BasePlugin](../../plugins/BasePlugin.html "class in com.google.adk.plugins")> plugins)`
+Runner.Builder.`[plugins](../Runner.Builder.html#plugins\(com.google.adk.plugins.Plugin...\))([Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")... plugins)`
 
  
 
 `[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
 
-Runner.Builder.`[resumabilityConfig](../Runner.Builder.html#resumabilityConfig\(com.google.adk.flows.llmflows.ResumabilityConfig\))([ResumabilityConfig](../../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)`
+Runner.Builder.`[plugins](../Runner.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
 
  
 

@@ -27,15 +27,15 @@ Package
 
 Description
 
-com.google.adk
-
- 
-
-com.google.adk.a2a
+com.google.adk.a2a.agent
 
  
 
 com.google.adk.a2a.converters
+
+ 
+
+com.google.adk.a2a.executor
 
  
 
@@ -71,6 +71,10 @@ com.google.adk.summarizer
 
  
 
+com.google.adk.telemetry
+
+ 
+
 com.google.adk.tools
 
  
@@ -79,23 +83,13 @@ com.google.adk.web.controller
 
  
 
-  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk](../package-summary.html)
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.a2a.agent](../a2a/agent/package-summary.html)
 
 Class
 
 Description
 
-[Event](class-use/Event.html#com.google.adk)
-
-Represents an event in a session.
-
-  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.a2a](../a2a/package-summary.html)
-
-Class
-
-Description
-
-[Event](class-use/Event.html#com.google.adk.a2a)
+[Event](class-use/Event.html#com.google.adk.a2a.agent)
 
 Represents an event in a session.
 
@@ -106,6 +100,16 @@ Class
 Description
 
 [Event](class-use/Event.html#com.google.adk.a2a.converters)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.a2a.executor)
 
 Represents an event in a session.
 
@@ -218,6 +222,16 @@ Class
 Description
 
 [Event](class-use/Event.html#com.google.adk.summarizer)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.telemetry](../telemetry/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.telemetry)
 
 Represents an event in a session.
 

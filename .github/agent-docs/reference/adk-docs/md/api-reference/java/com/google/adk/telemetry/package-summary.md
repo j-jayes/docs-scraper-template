@@ -52,6 +52,10 @@ Description
 
 Utility class for capturing and reporting telemetry data within the ADK.
 
+[Tracing.ContextTransformer](Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T>
+
+A transformer that re-activates a given context for the duration of the stream's subscription.
+
 [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>
 
 A transformer that manages an OpenTelemetry span and scope for RxJava streams.

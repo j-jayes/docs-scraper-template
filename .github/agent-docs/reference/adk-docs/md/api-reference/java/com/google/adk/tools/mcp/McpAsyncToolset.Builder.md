@@ -31,8 +31,8 @@ Contents
      1. connectionParams(ServerParameters)
      2. connectionParams(SseServerParameters)
      3. objectMapper(ObjectMapper)
-     4. toolFilter(Optional)
-     5. toolFilter(List)
+     4. toolFilter(List)
+     5. toolFilter(ToolPredicate)
      6. build()
 
 Hide sidebar  Show sidebar
@@ -100,13 +100,13 @@ Description
 
 `[McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-`toolFilter([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
+`toolFilter([ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
  
 
 `[McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-`toolFilter([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`toolFilter([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
 
  
 
@@ -139,11 +139,11 @@ public Builder()
 
     * ### toolFilter
 
-@CanIgnoreReturnValue public [McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp") toolFilter([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
+@CanIgnoreReturnValue public [McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp") toolFilter([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)
 
     * ### toolFilter
 
-@CanIgnoreReturnValue public [McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp") toolFilter([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)
+@CanIgnoreReturnValue public [McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp") toolFilter(@Nullable [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)
 
     * ### build
 

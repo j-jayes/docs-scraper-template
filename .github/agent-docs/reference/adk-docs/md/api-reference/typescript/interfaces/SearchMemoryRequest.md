@@ -23,7 +23,7 @@ query: string;
 userId: string;  
 }
 
-  * Defined in [core/src/memory/base_memory_service.ts:24](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L24)
+  * Defined in [memory/base_memory_service.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L24)
 
 
 
@@ -33,7 +33,7 @@ userId: string;
 
 appName: string
 
-  * Defined in [core/src/memory/base_memory_service.ts:25](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L25)
+  * Defined in [memory/base_memory_service.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L25)
 
 
 
@@ -41,7 +41,7 @@ appName: string
 
 query: string
 
-  * Defined in [core/src/memory/base_memory_service.ts:27](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L27)
+  * Defined in [memory/base_memory_service.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L27)
 
 
 
@@ -49,7 +49,7 @@ query: string
 
 userId: string
 
-  * Defined in [core/src/memory/base_memory_service.ts:26](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L26)
+  * Defined in [memory/base_memory_service.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L26)
 
 
 

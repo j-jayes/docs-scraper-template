@@ -43,9 +43,7 @@ All Implemented Interfaces:
 
 public class AgentExecutor extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements io.a2a.server.agentexecution.AgentExecutor
 
-Implementation of the A2A AgentExecutor interface that uses ADK to execute agent tasks. 
-
-**EXPERIMENTAL:** Subject to change, rename, or removal in any future patch release. Do not use in production code.
+Implementation of the A2A AgentExecutor interface that uses ADK to execute agent tasks.
 
   * ## Nested Class Summary
 

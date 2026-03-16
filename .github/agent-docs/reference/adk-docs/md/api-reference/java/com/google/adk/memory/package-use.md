@@ -27,6 +27,10 @@ Package
 
 Description
 
+com.google.adk.a2a.executor
+
+ 
+
 com.google.adk.agents
 
  
@@ -50,6 +54,16 @@ com.google.adk.web
 com.google.adk.web.service
 
  
+
+  * Classes in [com.google.adk.memory](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+
+Class
+
+Description
+
+[BaseMemoryService](class-use/BaseMemoryService.html#com.google.adk.a2a.executor)
+
+Base contract for memory services.
 
   * Classes in [com.google.adk.memory](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
 

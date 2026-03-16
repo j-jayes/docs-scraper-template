@@ -431,7 +431,7 @@ Now that you understand the "why" of A2A, let's dive into the "how."
 
 Back to top  [ Previous  ADK with Agent2Agent (A2A) Protocol  ](../) [ Next  Python  ](../quickstart-exposing/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

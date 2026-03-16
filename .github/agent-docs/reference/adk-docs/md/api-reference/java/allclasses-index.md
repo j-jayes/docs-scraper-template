@@ -31,33 +31,21 @@ Provides local roll logic plus a remote A2A agent for the demo.
 
 Main class to demonstrate running the A2A agent with sequential inputs.
 
-[A2AClient](com/google/adk/a2a/A2AClient.html "class in com.google.adk.a2a")
+[A2AClientError](com/google/adk/a2a/common/A2AClientError.html "class in com.google.adk.a2a.common")
 
-A thin HTTP client for interacting with an A2A-compliant agent endpoint.
+Exception thrown when the A2A client encounters an error.
 
-[A2ARemoteApplication](com/google/adk/webservice/A2ARemoteApplication.html "class in com.google.adk.webservice")
+[A2ADataPartMetadataType](com/google/adk/a2a/converters/A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
 
-Entry point for the standalone Spring Boot A2A service.
+Enum for the type of A2A DataPart metadata.
 
-[A2ARemoteConfiguration](com/google/adk/webservice/A2ARemoteConfiguration.html "class in com.google.adk.webservice")
+[A2AMetadata](com/google/adk/a2a/common/A2AMetadata.html "class in com.google.adk.a2a.common")
 
-Registers the transport-only A2A webservice stack.
+Constants and utilities for A2A metadata keys.
 
-[A2ARemoteController](com/google/adk/webservice/A2ARemoteController.html "class in com.google.adk.webservice")
+[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
 
-REST controller exposing an A2A-compliant JSON-RPC endpoint backed by a local ADK runner.
-
-[A2ARemoteService](com/google/adk/webservice/A2ARemoteService.html "class in com.google.adk.webservice")
-
-Core service that bridges the A2A JSON-RPC sendMessage API to a local ADK runner.
-
-[A2ASendMessageExecutor](com/google/adk/a2a/A2ASendMessageExecutor.html "class in com.google.adk.a2a")
-
-Shared SendMessage execution between HTTP service and other integrations.
-
-[A2ASendMessageExecutor.AgentExecutionStrategy](com/google/adk/a2a/A2ASendMessageExecutor.AgentExecutionStrategy.html "interface in com.google.adk.a2a")
-
- 
+Enum for A2A custom metadata keys.
 
 [AbstractMcpTool<T>](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
 
@@ -67,9 +55,17 @@ Base class for MCP tools.
 
 Manages streaming tool related resources during invocation.
 
+[AdditionalAdkComponentProvider](com/google/adk/utils/AdditionalAdkComponentProvider.html "class in com.google.adk.utils")
+
+Provides ADK components that are part of core.
+
 [AddSessionToEvalSetRequest](com/google/adk/web/dto/AddSessionToEvalSetRequest.html "class in com.google.adk.web.dto")
 
 DTO for POST /apps/{appName}/eval_sets/{evalSetId}/add-session requests.
+
+[AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils")
+
+Service provider interface for ADK components to be registered in [`ComponentRegistry`](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils").
 
 [AdkWebCorsConfig](com/google/adk/web/config/AdkWebCorsConfig.html "class in com.google.adk.web.config")
 
@@ -83,9 +79,41 @@ Properties for configuring CORS in ADK Web.
 
 Spring Boot application for the Agent Server.
 
+[Agent](com/google/adk/samples/a2aagent/agent/Agent.html "class in com.google.adk.samples.a2aagent.agent")
+
+Agent that can check whether numbers are prime.
+
+[AgentCardProducer](com/google/adk/samples/a2aagent/AgentCardProducer.html "class in com.google.adk.samples.a2aagent")
+
+Produces the `AgentCard` from the bundled JSON resources.
+
 [AgentController](com/google/adk/web/controller/AgentController.html "class in com.google.adk.web.controller")
 
 Spring Boot REST Controller handling agent-related API endpoints.
+
+[AgentExecutor](com/google/adk/a2a/executor/AgentExecutor.html "class in com.google.adk.a2a.executor")
+
+Implementation of the A2A AgentExecutor interface that uses ADK to execute agent tasks.
+
+[AgentExecutor.Builder](com/google/adk/a2a/executor/AgentExecutor.Builder.html "class in com.google.adk.a2a.executor")
+
+Builder for [`AgentExecutor`](com/google/adk/a2a/executor/AgentExecutor.html "class in com.google.adk.a2a.executor").
+
+[AgentExecutorConfig](com/google/adk/a2a/executor/AgentExecutorConfig.html "class in com.google.adk.a2a.executor")
+
+Configuration for the [`AgentExecutor`](com/google/adk/a2a/executor/AgentExecutor.html "class in com.google.adk.a2a.executor").
+
+[AgentExecutorConfig.Builder](com/google/adk/a2a/executor/AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")
+
+Builder for [`AgentExecutorConfig`](com/google/adk/a2a/executor/AgentExecutorConfig.html "class in com.google.adk.a2a.executor").
+
+[AgentExecutorConfig.OutputMode](com/google/adk/a2a/executor/AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor")
+
+Output mode for the agent executor.
+
+[AgentExecutorProducer](com/google/adk/samples/a2aagent/AgentExecutorProducer.html "class in com.google.adk.samples.a2aagent")
+
+Produces the `AgentExecutor` instance that handles agent interactions.
 
 [AgentGraphGenerator](com/google/adk/web/AgentGraphGenerator.html "class in com.google.adk.web")
 
@@ -147,6 +175,14 @@ The API response contains a response to a call to the GenAI APIs.
 
 A custom SpanExporter that stores relevant span data.
 
+[App](com/google/adk/apps/App.html "class in com.google.adk.apps")
+
+Represents an LLM-backed agentic application.
+
+[App.Builder](com/google/adk/apps/App.Builder.html "class in com.google.adk.apps")
+
+Builder for [`App`](com/google/adk/apps/App.html "class in com.google.adk.apps").
+
 [ApplicationIntegrationToolset](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset")
 
 Application Integration Toolset
@@ -186,6 +222,10 @@ Base interface for artifact services.
 [BaseCodeExecutor](com/google/adk/codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
 
 Abstract base class for all code executors.
+
+[BaseComputer](com/google/adk/tools/computeruse/BaseComputer.html "interface in com.google.adk.tools.computeruse")
+
+Defines an interface for computer environments.
 
 [BaseEventSummarizer](com/google/adk/summarizer/BaseEventSummarizer.html "interface in com.google.adk.summarizer")
 
@@ -259,13 +299,9 @@ A code executor that uses the Model's built-in code executor.
 
 The context of various callbacks for an agent invocation.
 
-[CallbackPlugin](com/google/adk/agents/CallbackPlugin.html "class in com.google.adk.agents")
+[Callbacks](com/google/adk/a2a/executor/Callbacks.html "class in com.google.adk.a2a.executor")
 
-A plugin that wraps callbacks and exposes them as a plugin.
-
-[CallbackPlugin.Builder](com/google/adk/agents/CallbackPlugin.Builder.html "class in com.google.adk.agents")
-
-Builder for [`CallbackPlugin`](com/google/adk/agents/CallbackPlugin.html "class in com.google.adk.agents").
+Functional interfaces for agent executor lifecycle callbacks.
 
 [Callbacks](com/google/adk/agents/Callbacks.html "class in com.google.adk.agents")
 
@@ -273,11 +309,19 @@ Functional interfaces for agent lifecycle callbacks.
 
 [Callbacks.AfterAgentCallback](com/google/adk/agents/Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
 [Callbacks.AfterAgentCallbackSync](com/google/adk/agents/Callbacks.AfterAgentCallbackSync.html "interface in com.google.adk.agents")
 
 Helper interface to allow for sync afterAgentCallback.
+
+[Callbacks.AfterEventCallback](com/google/adk/a2a/executor/Callbacks.AfterEventCallback.html "interface in com.google.adk.a2a.executor")
+
+Async callback interface for actions to be performed after an event is processed.
+
+[Callbacks.AfterExecuteCallback](com/google/adk/a2a/executor/Callbacks.AfterExecuteCallback.html "interface in com.google.adk.a2a.executor")
+
+Async callback interface for actions to be performed after an execution is completed or failed.
 
 [Callbacks.AfterModelCallback](com/google/adk/agents/Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")
 
@@ -289,7 +333,7 @@ Helper interface to allow for sync afterModelCallback.
 
 [Callbacks.AfterToolCallback](com/google/adk/agents/Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed after a tool has been invoked.
 
 [Callbacks.AfterToolCallbackSync](com/google/adk/agents/Callbacks.AfterToolCallbackSync.html "interface in com.google.adk.agents")
 
@@ -297,11 +341,15 @@ Helper interface to allow for sync afterToolCallback.
 
 [Callbacks.BeforeAgentCallback](com/google/adk/agents/Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
 [Callbacks.BeforeAgentCallbackSync](com/google/adk/agents/Callbacks.BeforeAgentCallbackSync.html "interface in com.google.adk.agents")
 
 Helper interface to allow for sync beforeAgentCallback.
+
+[Callbacks.BeforeExecuteCallback](com/google/adk/a2a/executor/Callbacks.BeforeExecuteCallback.html "interface in com.google.adk.a2a.executor")
+
+Async callback interface for actions to be performed before an execution is started.
 
 [Callbacks.BeforeModelCallback](com/google/adk/agents/Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")
 
@@ -313,11 +361,27 @@ Helper interface to allow for sync beforeModelCallback.
 
 [Callbacks.BeforeToolCallback](com/google/adk/agents/Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed before a tool is invoked.
 
 [Callbacks.BeforeToolCallbackSync](com/google/adk/agents/Callbacks.BeforeToolCallbackSync.html "interface in com.google.adk.agents")
 
 Helper interface to allow for sync beforeToolCallback.
+
+[Callbacks.OnModelErrorCallback](com/google/adk/agents/Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")
+
+Async callback interface for handling errors that occur during an LLM model call.
+
+[Callbacks.OnModelErrorCallbackSync](com/google/adk/agents/Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents")
+
+Helper interface to allow for sync onModelErrorCallback.
+
+[Callbacks.OnToolErrorCallback](com/google/adk/agents/Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")
+
+Async callback interface for handling errors that occur during a tool invocation.
+
+[Callbacks.OnToolErrorCallbackSync](com/google/adk/agents/Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents")
+
+Helper interface to allow for sync onToolErrorCallback.
 
 [CallbackUtil](com/google/adk/agents/CallbackUtil.html "class in com.google.adk.agents")
 
@@ -371,6 +435,10 @@ The persistent context used to configure the code executor.
 
 Frequently used code snippets for collections.
 
+[Compaction](com/google/adk/flows/llmflows/Compaction.html "class in com.google.adk.flows.llmflows")
+
+Request processor that performs event compaction.
+
 [CompiledAgentLoader](com/google/adk/web/CompiledAgentLoader.html "class in com.google.adk.web")
 
 CompiledAgentLoader implementation for the dev environment.
@@ -378,6 +446,26 @@ CompiledAgentLoader implementation for the dev environment.
 [ComponentRegistry](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils")
 
 A registry for storing and retrieving ADK instances by name.
+
+[ComputerEnvironment](com/google/adk/tools/computeruse/ComputerEnvironment.html "enum class in com.google.adk.tools.computeruse")
+
+Enum for computer environments.
+
+[ComputerState](com/google/adk/tools/computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")
+
+Represents the current state of the computer environment.
+
+[ComputerState.Builder](com/google/adk/tools/computeruse/ComputerState.Builder.html "class in com.google.adk.tools.computeruse")
+
+Builder for [`ComputerState`](com/google/adk/tools/computeruse/ComputerState.html "class in com.google.adk.tools.computeruse").
+
+[ComputerUseTool](com/google/adk/tools/computeruse/ComputerUseTool.html "class in com.google.adk.tools.computeruse")
+
+A tool that wraps computer control functions for use with LLMs.
+
+[ComputerUseToolset](com/google/adk/tools/computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse")
+
+A toolset that provides computer use capabilities.
 
 [ConfigAgentLoader](com/google/adk/maven/ConfigAgentLoader.html "class in com.google.adk.maven")
 
@@ -423,17 +511,25 @@ A code executor that uses a custom container to execute code.
 
 [`RequestProcessor`](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows") that populates content in request for LLM flows.
 
-[ConversationPreprocessor](com/google/adk/a2a/converters/ConversationPreprocessor.html "class in com.google.adk.a2a.converters")
+[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
 
-Preprocesses a batch of ADK events prior to invoking a remote A2A agent.
+Configuration for context caching across all agents in an app.
 
-[ConversationPreprocessor.PreparedInput](com/google/adk/a2a/converters/ConversationPreprocessor.PreparedInput.html "class in com.google.adk.a2a.converters")
+[ContextFilterPlugin](com/google/adk/plugins/ContextFilterPlugin.html "class in com.google.adk.plugins")
 
-Immutable value that surfaces the results of preprocessing.
+A plugin that filters the LLM request `Content` list to reduce its size, for example to adhere to context window limits.
+
+[ContextFilterPlugin.Builder](com/google/adk/plugins/ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
+
+Builder for [`ContextFilterPlugin`](com/google/adk/plugins/ContextFilterPlugin.html "class in com.google.adk.plugins").
 
 [ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
 
 Utility class for converting between different representations of MCP tools.
+
+[CoreAdkComponentProvider](com/google/adk/utils/CoreAdkComponentProvider.html "class in com.google.adk.utils")
+
+Provides ADK components that are part of core.
 
 [CoreCallbacks](com/example/CoreCallbacks.html "class in com.example")
 
@@ -499,13 +595,13 @@ Base interface for compacting events.
 
 Converter for ADK Events to A2A Messages.
 
-[EventConverter.AggregationMode](com/google/adk/a2a/converters/EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")
-
- 
-
 [EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
 
 Configuration for event compaction.
+
+[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
+
+Builder for [`EventsCompactionConfig`](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer").
 
 [EventStream](com/google/adk/events/EventStream.html "class in com.google.adk.events")
 
@@ -529,7 +625,7 @@ A tool that injects (few-shot) examples into the outgoing LLM request as system 
 
 [ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
 
- 
+Builder for [`ExampleTool`](com/google/adk/tools/ExampleTool.html "class in com.google.adk.tools").
 
 [ExampleUtils](com/google/adk/examples/ExampleUtils.html "class in com.google.adk.examples")
 
@@ -591,6 +687,10 @@ Manages a persistent, bidirectional connection to the Gemini model via WebSocket
 
 Request / Response utilities for [`Gemini`](com/google/adk/models/Gemini.html "class in com.google.adk.models").
 
+[GenAiFieldMissingException](com/google/adk/a2a/common/GenAiFieldMissingException.html "class in com.google.adk.a2a.common")
+
+Exception thrown when the the genai class has an empty field.
+
 [GetSessionConfig](com/google/adk/sessions/GetSessionConfig.html "class in com.google.adk.sessions")
 
 Configuration for getting a session.
@@ -598,6 +698,10 @@ Configuration for getting a session.
 [GetSessionConfig.Builder](com/google/adk/sessions/GetSessionConfig.Builder.html "class in com.google.adk.sessions")
 
 Builder for [`GetSessionConfig`](com/google/adk/sessions/GetSessionConfig.html "class in com.google.adk.sessions").
+
+[GlobalInstructionPlugin](com/google/adk/plugins/GlobalInstructionPlugin.html "class in com.google.adk.plugins")
+
+Plugin that provides global instructions functionality at the App level.
 
 [GoogleCredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/GoogleCredentialsHelper.html "class in com.google.adk.tools.applicationintegrationtoolset")
 
@@ -613,7 +717,7 @@ A tool that wraps a sub-agent that only uses google_search tool.
 
 [GoogleSearchTool](com/google/adk/tools/GoogleSearchTool.html "class in com.google.adk.tools")
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search.
 
 [GraphController](com/google/adk/web/controller/GraphController.html "class in com.google.adk.web.controller")
 
@@ -1000,29 +1104,21 @@ Builder for Recordings.
 
 Utility class for loading recordings from YAML files.
 
-[RemoteA2AAgent](com/google/adk/a2a/RemoteA2AAgent.html "class in com.google.adk.a2a")
+[RemoteA2AAgent](com/google/adk/a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent")
 
-Agent that communicates with a remote A2A agent via A2A client.
+Agent that communicates with a remote A2A agent via an A2A client.
 
-[RemoteA2AAgent.A2AClientError](com/google/adk/a2a/RemoteA2AAgent.A2AClientError.html "class in com.google.adk.a2a")
-
-Exception thrown when the A2A client encounters an error.
-
-[RemoteA2AAgent.AgentCardResolutionError](com/google/adk/a2a/RemoteA2AAgent.AgentCardResolutionError.html "class in com.google.adk.a2a")
+[RemoteA2AAgent.AgentCardResolutionError](com/google/adk/a2a/agent/RemoteA2AAgent.AgentCardResolutionError.html "class in com.google.adk.a2a.agent")
 
 Exception thrown when the agent card cannot be resolved.
 
-[RemoteA2AAgent.Builder](com/google/adk/a2a/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")
+[RemoteA2AAgent.Builder](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
 
-Builder for [`RemoteA2AAgent`](com/google/adk/a2a/RemoteA2AAgent.html "class in com.google.adk.a2a").
+Builder for [`RemoteA2AAgent`](com/google/adk/a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent").
 
-[RemoteA2AAgent.TypeError](com/google/adk/a2a/RemoteA2AAgent.TypeError.html "class in com.google.adk.a2a")
+[RemoteA2AAgent.TypeError](com/google/adk/a2a/agent/RemoteA2AAgent.TypeError.html "class in com.google.adk.a2a.agent")
 
 Exception thrown when a type error occurs.
-
-[RemoteA2AApplication](com/google/adk/samples/a2a_remote/RemoteA2AApplication.html "class in com.google.adk.samples.a2a_remote")
-
-Spring Boot entry point that wires the shared A2A webservice with the prime demo agent.
 
 [ReplayConfigError](com/google/adk/plugins/ReplayConfigError.html "class in com.google.adk.plugins")
 
@@ -1040,10 +1136,6 @@ Exception raised when replay verification fails.
 
 Handles tool confirmation information to build the LLM request.
 
-[RequestConverter](com/google/adk/a2a/converters/RequestConverter.html "class in com.google.adk.a2a.converters")
-
-rfe Converter for A2A Messages to ADK Events.
-
 [RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows")
 
 Interface for processing LLM requests.
@@ -1056,10 +1148,6 @@ Result of request processing.
 
 Utility for converting ADK events to A2A spec messages (and back).
 
-[ResponseConverter.MessageSendResult](com/google/adk/a2a/converters/ResponseConverter.MessageSendResult.html "class in com.google.adk.a2a.converters")
-
-Simple REST-friendly wrapper to carry either a message result or a task result.
-
 [ResponseProcessor](com/google/adk/flows/llmflows/ResponseProcessor.html "interface in com.google.adk.flows.llmflows")
 
 Interface for processing LLM responses.
@@ -1067,10 +1155,6 @@ Interface for processing LLM responses.
 [ResponseProcessor.ResponseProcessingResult](com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
 
 Result of response processing.
-
-[ResumabilityConfig](com/google/adk/flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows")
-
-An app contains Resumability configuration for the agents.
 
 [RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
 
@@ -1147,6 +1231,10 @@ Controller handling session-related API endpoints.
 [SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions")
 
 Represents a general error that occurred during session management operations.
+
+[SessionKey](com/google/adk/sessions/SessionKey.html "class in com.google.adk.sessions")
+
+Key for a session, composed of appName, userId and session id.
 
 [SessionNotFoundException](com/google/adk/sessions/SessionNotFoundException.html "class in com.google.adk.sessions")
 
@@ -1228,6 +1316,10 @@ Parameters for establishing a MCP Server-Sent Events (SSE) connection.
 
 Builder for [`SseServerParameters`](com/google/adk/tools/mcp/SseServerParameters.html "class in com.google.adk.tools.mcp").
 
+[StartupConfig](com/google/adk/samples/a2aagent/StartupConfig.html "class in com.google.adk.samples.a2aagent")
+
+Configuration applied on startup, such as Jackson module registrations.
+
 [State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
 
 A [`State`](com/google/adk/sessions/State.html "class in com.google.adk.sessions") object that also keeps track of the changes to the state.
@@ -1260,9 +1352,9 @@ Builder for [`StreamableHttpServerParameters`](com/google/adk/tools/mcp/Streamab
 
 Aggregates streaming responses from Spring AI models.
 
-[Telemetry](com/google/adk/Telemetry.html "class in com.google.adk")
+[TailRetentionEventCompactor](com/google/adk/summarizer/TailRetentionEventCompactor.html "class in com.google.adk.summarizer")
 
-Utility class for capturing and reporting telemetry data within the ADK.
+This class performs event compaction by retaining the tail of the event stream.
 
 [ToolConfirmation](com/google/adk/events/ToolConfirmation.html "class in com.google.adk.events")
 
@@ -1300,9 +1392,21 @@ Paired tool call and response for replay.
 
 Builder for ToolRecording.
 
+[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+
+Utility class for capturing and reporting telemetry data within the ADK.
+
+[Tracing.ContextTransformer<T>](com/google/adk/telemetry/Tracing.ContextTransformer.html "class in com.google.adk.telemetry")
+
+A transformer that re-activates a given context for the duration of the stream's subscription.
+
+[Tracing.TracerProvider<T>](com/google/adk/telemetry/Tracing.TracerProvider.html "class in com.google.adk.telemetry")
+
+A transformer that manages an OpenTelemetry span and scope for RxJava streams.
+
 [UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools")
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve information from the given URLs.
+A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs.
 
 [Version](com/google/adk/Version.html "class in com.google.adk")
 

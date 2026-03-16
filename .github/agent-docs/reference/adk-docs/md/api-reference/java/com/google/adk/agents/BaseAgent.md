@@ -23,31 +23,29 @@ Contents
 
   1. Description
   2. Nested Class Summary
-  3. Field Summary
-  4. Constructor Summary
-  5. Method Summary
-  6. Field Details
-     1. callbackPlugin
-  7. Constructor Details
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
      1. BaseAgent(String, String, List, List, List)
-     2. BaseAgent(String, String, List, CallbackPlugin)
-  8. Method Details
-     1. name()
-     2. description()
-     3. parentAgent()
-     4. parentAgent(BaseAgent)
-     5. rootAgent()
-     6. findAgent(String)
-     7. findSubAgent(String)
-     8. subAgents()
-     9. beforeAgentCallback()
-     10. afterAgentCallback()
-     11. getPlugin()
-     12. runAsync(InvocationContext)
-     13. runLive(InvocationContext)
-     14. runAsyncImpl(InvocationContext)
-     15. runLiveImpl(InvocationContext)
-     16. fromConfig(BaseAgentConfig, String)
+  6. Method Details
+     1. close()
+     2. name()
+     3. description()
+     4. parentAgent()
+     5. parentAgent(BaseAgent)
+     6. rootAgent()
+     7. findAgent(String)
+     8. findSubAgent(String)
+     9. subAgents()
+     10. beforeAgentCallback()
+     11. afterAgentCallback()
+     12. canonicalBeforeAgentCallbacks()
+     13. canonicalAfterAgentCallbacks()
+     14. runAsync(InvocationContext)
+     15. runLive(InvocationContext)
+     16. runAsyncImpl(InvocationContext)
+     17. runLiveImpl(InvocationContext)
+     18. fromConfig(BaseAgentConfig, String)
 
 Hide sidebar  Show sidebar
 
@@ -58,7 +56,7 @@ Hide sidebar  Show sidebar
 com.google.adk.agents.BaseAgent
 
 Direct Known Subclasses:
-    `[LlmAgent](LlmAgent.html "class in com.google.adk.agents"), [LoopAgent](LoopAgent.html "class in com.google.adk.agents"), [ParallelAgent](ParallelAgent.html "class in com.google.adk.agents"), [RemoteA2AAgent](../a2a/RemoteA2AAgent.html "class in com.google.adk.a2a"), [SequentialAgent](SequentialAgent.html "class in com.google.adk.agents")`
+    `[LlmAgent](LlmAgent.html "class in com.google.adk.agents"), [LoopAgent](LoopAgent.html "class in com.google.adk.agents"), [ParallelAgent](ParallelAgent.html "class in com.google.adk.agents"), [RemoteA2AAgent](../a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent"), [SequentialAgent](SequentialAgent.html "class in com.google.adk.agents")`
 
 * * *
 
@@ -82,41 +80,15 @@ Description
 
 Base Builder for all agents.
 
-  * ## Field Summary
-
-Fields
-
-Modifier and Type
-
-Field
-
-Description
-
-`protected final [CallbackPlugin](CallbackPlugin.html "class in com.google.adk.agents")`
-
-`callbackPlugin`
-
- 
-
   * ## Constructor Summary
 
 Constructors
-
-Modifier
 
 Constructor
 
 Description
 
-`protected `
-
-`BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, [CallbackPlugin](CallbackPlugin.html "class in com.google.adk.agents") callbackPlugin)`
-
-Creates a new BaseAgent.
-
-` `
-
-`BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
+`BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
 
 Creates a new BaseAgent.
 
@@ -130,17 +102,35 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>>`
+`com.google.common.collect.ImmutableList<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
 
 `afterAgentCallback()`
 
  
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>>`
+`com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
 
 `beforeAgentCallback()`
 
  
+
+`com.google.common.collect.ImmutableList<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
+
+`canonicalAfterAgentCallbacks()`
+
+The resolved afterAgentCallback field as a list.
+
+`com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
+
+`canonicalBeforeAgentCallbacks()`
+
+The resolved beforeAgentCallback field as a list.
+
+`io.reactivex.rxjava3.core.Completable`
+
+`close()`
+
+Closes all sub-agents.
 
 `final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -148,13 +138,13 @@ Description
 
 Gets the one-line description of the agent's capability.
 
-`[BaseAgent](BaseAgent.html "class in com.google.adk.agents")`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](BaseAgent.html "class in com.google.adk.agents")>`
 
 `findAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
 
 Finds an agent (this or descendant) by name.
 
-`@Nullable [BaseAgent](BaseAgent.html "class in com.google.adk.agents")`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](BaseAgent.html "class in com.google.adk.agents")>`
 
 `findSubAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
 
@@ -165,12 +155,6 @@ Recursively search sub agent by name.
 `fromConfig([BaseAgentConfig](BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
 
 Creates a new agent instance from a configuration object.
-
-`[Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")`
-
-`getPlugin()`
-
- 
 
 `final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -233,17 +217,11 @@ Agent-specific synchronous logic.
 
 
 
-  * ## Field Details
-
-    * ### callbackPlugin
-
-protected final [CallbackPlugin](CallbackPlugin.html "class in com.google.adk.agents") callbackPlugin
-
   * ## Constructor Details
 
     * ### BaseAgent
 
-public BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)
+public BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)
 
 Creates a new BaseAgent.
 
@@ -254,19 +232,16 @@ Parameters:
     `beforeAgentCallback` \- Callbacks before agent execution. Invoked in order until one doesn't return null.
     `afterAgentCallback` \- Callbacks after agent execution. Invoked in order until one doesn't return null.
 
-    * ### BaseAgent
-
-protected BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, [CallbackPlugin](CallbackPlugin.html "class in com.google.adk.agents") callbackPlugin)
-
-Creates a new BaseAgent.
-
-Parameters:
-    `name` \- Unique agent name. Cannot be "user" (reserved).
-    `description` \- Agent purpose.
-    `subAgents` \- Agents managed by this agent.
-    `callbackPlugin` \- The callback plugin for this agent.
-
   * ## Method Details
+
+    * ### close
+
+public io.reactivex.rxjava3.core.Completable close()
+
+Closes all sub-agents.
+
+Returns:
+    a `Completable` that completes when all sub-agents are closed.
 
     * ### name
 
@@ -315,18 +290,21 @@ Returns:
 
     * ### findAgent
 
-public [BaseAgent](BaseAgent.html "class in com.google.adk.agents") findAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](BaseAgent.html "class in com.google.adk.agents")> findAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
 
 Finds an agent (this or descendant) by name.
 
 Returns:
-    the agent or descendant with the given name, or `null` if not found.
+    an [`Optional`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util") containing the agent or descendant with the given name, or [`Optional.empty()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html#empty\(\) "class or interface in java.util") if not found.
 
     * ### findSubAgent
 
-public @Nullable [BaseAgent](BaseAgent.html "class in com.google.adk.agents") findSubAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseAgent](BaseAgent.html "class in com.google.adk.agents")> findSubAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
 
 Recursively search sub agent by name.
+
+Returns:
+    an [`Optional`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util") containing the sub agent with the given name, or [`Optional.empty()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html#empty\(\) "class or interface in java.util") if not found.
 
     * ### subAgents
 
@@ -334,15 +312,27 @@ public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/
 
     * ### beforeAgentCallback
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>> beforeAgentCallback()
+public com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback()
 
     * ### afterAgentCallback
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>> afterAgentCallback()
+public com.google.common.collect.ImmutableList<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback()
 
-    * ### getPlugin
+    * ### canonicalBeforeAgentCallbacks
 
-public [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins") getPlugin()
+public com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> canonicalBeforeAgentCallbacks()
+
+The resolved beforeAgentCallback field as a list. 
+
+This method is only for use by Agent Development Kit.
+
+    * ### canonicalAfterAgentCallbacks
+
+public com.google.common.collect.ImmutableList<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> canonicalAfterAgentCallbacks()
+
+The resolved afterAgentCallback field as a list. 
+
+This method is only for use by Agent Development Kit.
 
     * ### runAsync
 

@@ -67,6 +67,10 @@ com.google.adk.tools.applicationintegrationtoolset
 
  
 
+com.google.adk.tools.computeruse
+
+ 
+
 com.google.adk.tools.mcp
 
  
@@ -225,13 +229,17 @@ Configuration class for tool arguments that allows arbitrary key-value pairs.
 
 Configuration class for a tool definition in YAML/JSON.
 
+[BuiltInCodeExecutionTool](class-use/BuiltInCodeExecutionTool.html#com.google.adk.tools)
+
+A built-in code execution tool that is automatically invoked by Gemini 2 models.
+
 [ExampleTool](class-use/ExampleTool.html#com.google.adk.tools)
 
 A tool that injects (few-shot) examples into the outgoing LLM request as system instructions.
 
 [ExampleTool.Builder](class-use/ExampleTool.Builder.html#com.google.adk.tools)
 
- 
+Builder for [`ExampleTool`](ExampleTool.html "class in com.google.adk.tools").
 
 [FunctionTool](class-use/FunctionTool.html#com.google.adk.tools)
 
@@ -247,7 +255,7 @@ A tool that wraps a sub-agent that only uses google_search tool.
 
 [GoogleSearchTool](class-use/GoogleSearchTool.html#com.google.adk.tools)
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search.
 
 [LoadArtifactsTool](class-use/LoadArtifactsTool.html#com.google.adk.tools)
 
@@ -275,7 +283,7 @@ Functional interface to decide whether a tool should be exposed to the LLM based
 
 [UrlContextTool](class-use/UrlContextTool.html#com.google.adk.tools)
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve information from the given URLs.
+A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs.
 
 [VertexAiSearchAgentTool](class-use/VertexAiSearchAgentTool.html#com.google.adk.tools)
 
@@ -307,6 +315,32 @@ Base interface for toolsets.
 
 ToolContext object provides a structured context for executing tools or functions.
 
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.tools.computeruse](computeruse/package-summary.html)
+
+Class
+
+Description
+
+[Annotations.Schema](class-use/Annotations.Schema.html#com.google.adk.tools.computeruse)
+
+The annotation for binding the 'Schema' input.
+
+[BaseTool](class-use/BaseTool.html#com.google.adk.tools.computeruse)
+
+The base class for all ADK tools.
+
+[BaseToolset](class-use/BaseToolset.html#com.google.adk.tools.computeruse)
+
+Base interface for toolsets.
+
+[FunctionTool](class-use/FunctionTool.html#com.google.adk.tools.computeruse)
+
+FunctionTool implements a customized function calling tool.
+
+[ToolContext](class-use/ToolContext.html#com.google.adk.tools.computeruse)
+
+ToolContext object provides a structured context for executing tools or functions.
+
   * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.tools.mcp](mcp/package-summary.html)
 
 Class
@@ -328,6 +362,10 @@ Base interface for toolsets.
 [ToolContext](class-use/ToolContext.html#com.google.adk.tools.mcp)
 
 ToolContext object provides a structured context for executing tools or functions.
+
+[ToolPredicate](class-use/ToolPredicate.html#com.google.adk.tools.mcp)
+
+Functional interface to decide whether a tool should be exposed to the LLM based on the current context.
 
   * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.tools.retrieval](retrieval/package-summary.html)
 

@@ -24,9 +24,12 @@ Package Hierarchies:
   * [com.example.helloworld](com/example/helloworld/package-tree.html), 
   * [com.example.mcpfilesystem](com/example/mcpfilesystem/package-tree.html), 
   * [com.google.adk](com/google/adk/package-tree.html), 
-  * [com.google.adk.a2a](com/google/adk/a2a/package-tree.html), 
+  * [com.google.adk.a2a.agent](com/google/adk/a2a/agent/package-tree.html), 
+  * [com.google.adk.a2a.common](com/google/adk/a2a/common/package-tree.html), 
   * [com.google.adk.a2a.converters](com/google/adk/a2a/converters/package-tree.html), 
+  * [com.google.adk.a2a.executor](com/google/adk/a2a/executor/package-tree.html), 
   * [com.google.adk.agents](com/google/adk/agents/package-tree.html), 
+  * [com.google.adk.apps](com/google/adk/apps/package-tree.html), 
   * [com.google.adk.artifacts](com/google/adk/artifacts/package-tree.html), 
   * [com.google.adk.codeexecutors](com/google/adk/codeexecutors/package-tree.html), 
   * [com.google.adk.events](com/google/adk/events/package-tree.html), 
@@ -47,11 +50,14 @@ Package Hierarchies:
   * [com.google.adk.plugins](com/google/adk/plugins/package-tree.html), 
   * [com.google.adk.plugins.recordings](com/google/adk/plugins/recordings/package-tree.html), 
   * [com.google.adk.runner](com/google/adk/runner/package-tree.html), 
-  * [com.google.adk.samples.a2a_remote](com/google/adk/samples/a2a_remote/package-tree.html), 
+  * [com.google.adk.samples.a2aagent](com/google/adk/samples/a2aagent/package-tree.html), 
+  * [com.google.adk.samples.a2aagent.agent](com/google/adk/samples/a2aagent/agent/package-tree.html), 
   * [com.google.adk.sessions](com/google/adk/sessions/package-tree.html), 
   * [com.google.adk.summarizer](com/google/adk/summarizer/package-tree.html), 
+  * [com.google.adk.telemetry](com/google/adk/telemetry/package-tree.html), 
   * [com.google.adk.tools](com/google/adk/tools/package-tree.html), 
   * [com.google.adk.tools.applicationintegrationtoolset](com/google/adk/tools/applicationintegrationtoolset/package-tree.html), 
+  * [com.google.adk.tools.computeruse](com/google/adk/tools/computeruse/package-tree.html), 
   * [com.google.adk.tools.mcp](com/google/adk/tools/mcp/package-tree.html), 
   * [com.google.adk.tools.retrieval](com/google/adk/tools/retrieval/package-tree.html), 
   * [com.google.adk.tutorials](com/google/adk/tutorials/package-tree.html), 
@@ -61,10 +67,7 @@ Package Hierarchies:
   * [com.google.adk.web.controller](com/google/adk/web/controller/package-tree.html), 
   * [com.google.adk.web.dto](com/google/adk/web/dto/package-tree.html), 
   * [com.google.adk.web.service](com/google/adk/web/service/package-tree.html), 
-  * [com.google.adk.web.websocket](com/google/adk/web/websocket/package-tree.html), 
-  * [com.google.adk.webservice](com/google/adk/webservice/package-tree.html), 
-  * [remote_prime_agent](remote_prime_agent/package-tree.html), 
-  * [src.main.java.com.google.adk.samples.a2a_remote](src/main/java/com/google/adk/samples/a2a_remote/package-tree.html)
+  * [com.google.adk.web.websocket](com/google/adk/web/websocket/package-tree.html)
 
 
 
@@ -73,12 +76,7 @@ Package Hierarchies:
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.example.a2a_basic.[A2AAgent](com/example/a2a_basic/A2AAgent.html "class in com.example.a2a_basic")
     * com.example.a2a_basic.[A2AAgentRun](com/example/a2a_basic/A2AAgentRun.html "class in com.example.a2a_basic")
-    * com.google.adk.a2a.[A2AClient](com/google/adk/a2a/A2AClient.html "class in com.google.adk.a2a")
-    * com.google.adk.webservice.[A2ARemoteApplication](com/google/adk/webservice/A2ARemoteApplication.html "class in com.google.adk.webservice")
-    * com.google.adk.webservice.[A2ARemoteConfiguration](com/google/adk/webservice/A2ARemoteConfiguration.html "class in com.google.adk.webservice")
-    * com.google.adk.webservice.[A2ARemoteController](com/google/adk/webservice/A2ARemoteController.html "class in com.google.adk.webservice")
-    * com.google.adk.webservice.[A2ARemoteService](com/google/adk/webservice/A2ARemoteService.html "class in com.google.adk.webservice")
-    * com.google.adk.a2a.[A2ASendMessageExecutor](com/google/adk/a2a/A2ASendMessageExecutor.html "class in com.google.adk.a2a")
+    * com.google.adk.a2a.common.[A2AMetadata](com/google/adk/a2a/common/A2AMetadata.html "class in com.google.adk.a2a.common")
     * org.apache.maven.plugin.AbstractMojo (implements org.apache.maven.plugin.ContextEnabled, org.apache.maven.plugin.Mojo) 
       * com.google.adk.google_adk_maven_plugin.[HelpMojo](com/google/adk/google_adk_maven_plugin/HelpMojo.html "class in com.google.adk.google_adk_maven_plugin")
       * com.google.adk.maven.[WebMojo](com/google/adk/maven/WebMojo.html "class in com.google.adk.maven")
@@ -86,10 +84,18 @@ Package Hierarchies:
       * org.springframework.web.socket.handler.TextWebSocketHandler 
         * com.google.adk.web.websocket.[LiveWebSocketHandler](com/google/adk/web/websocket/LiveWebSocketHandler.html "class in com.google.adk.web.websocket")
     * com.google.adk.agents.[ActiveStreamingTool](com/google/adk/agents/ActiveStreamingTool.html "class in com.google.adk.agents")
+    * com.google.adk.utils.[AdditionalAdkComponentProvider](com/google/adk/utils/AdditionalAdkComponentProvider.html "class in com.google.adk.utils") (implements com.google.adk.utils.[AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils"))
     * com.google.adk.web.dto.[AddSessionToEvalSetRequest](com/google/adk/web/dto/AddSessionToEvalSetRequest.html "class in com.google.adk.web.dto")
     * com.google.adk.web.config.[AdkWebCorsConfig](com/google/adk/web/config/AdkWebCorsConfig.html "class in com.google.adk.web.config")
     * com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web") (implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer)
+    * com.google.adk.samples.a2aagent.agent.[Agent](com/google/adk/samples/a2aagent/agent/Agent.html "class in com.google.adk.samples.a2aagent.agent")
+    * com.google.adk.samples.a2aagent.[AgentCardProducer](com/google/adk/samples/a2aagent/AgentCardProducer.html "class in com.google.adk.samples.a2aagent")
     * com.google.adk.web.controller.[AgentController](com/google/adk/web/controller/AgentController.html "class in com.google.adk.web.controller")
+    * com.google.adk.a2a.executor.[AgentExecutor](com/google/adk/a2a/executor/AgentExecutor.html "class in com.google.adk.a2a.executor") (implements io.a2a.server.agentexecution.AgentExecutor)
+    * com.google.adk.a2a.executor.[AgentExecutor.Builder](com/google/adk/a2a/executor/AgentExecutor.Builder.html "class in com.google.adk.a2a.executor")
+    * com.google.adk.a2a.executor.[AgentExecutorConfig](com/google/adk/a2a/executor/AgentExecutorConfig.html "class in com.google.adk.a2a.executor")
+    * com.google.adk.a2a.executor.[AgentExecutorConfig.Builder](com/google/adk/a2a/executor/AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")
+    * com.google.adk.samples.a2aagent.[AgentExecutorProducer](com/google/adk/samples/a2aagent/AgentExecutorProducer.html "class in com.google.adk.samples.a2aagent")
     * com.google.adk.web.[AgentGraphGenerator](com/google/adk/web/AgentGraphGenerator.html "class in com.google.adk.web")
     * com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
     * com.google.adk.web.dto.[AgentRunRequest](com/google/adk/web/dto/AgentRunRequest.html "class in com.google.adk.web.dto")
@@ -101,13 +107,15 @@ Package Hierarchies:
     * com.google.adk.sessions.[ApiResponse](com/google/adk/sessions/ApiResponse.html "class in com.google.adk.sessions") (implements java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")) 
       * com.google.adk.sessions.[HttpApiResponse](com/google/adk/sessions/HttpApiResponse.html "class in com.google.adk.sessions")
     * com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service") (implements io.opentelemetry.sdk.trace.export.SpanExporter)
+    * com.google.adk.apps.[App](com/google/adk/apps/App.html "class in com.google.adk.apps")
+    * com.google.adk.apps.[App.Builder](com/google/adk/apps/App.Builder.html "class in com.google.adk.apps")
     * com.google.adk.tools.applicationintegrationtoolset.[ApplicationIntegrationToolset](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset") (implements com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools"))
     * com.google.adk.web.controller.[ArtifactController](com/google/adk/web/controller/ArtifactController.html "class in com.google.adk.web.controller")
     * com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LoopAgent](com/google/adk/agents/LoopAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[ParallelAgent](com/google/adk/agents/ParallelAgent.html "class in com.google.adk.agents")
-      * com.google.adk.a2a.[RemoteA2AAgent](com/google/adk/a2a/RemoteA2AAgent.html "class in com.google.adk.a2a")
+      * com.google.adk.a2a.agent.[RemoteA2AAgent](com/google/adk/a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent")
       * com.google.adk.agents.[SequentialAgent](com/google/adk/agents/SequentialAgent.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")<B>
       * com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
@@ -131,7 +139,10 @@ Package Hierarchies:
       * com.google.adk.flows.llmflows.[SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
         * com.google.adk.flows.llmflows.[AutoFlow](com/google/adk/flows/llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.plugins.[BasePlugin](com/google/adk/plugins/BasePlugin.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](com/google/adk/plugins/Plugin.html "interface in com.google.adk.plugins")) 
+      * com.google.adk.plugins.[ContextFilterPlugin](com/google/adk/plugins/ContextFilterPlugin.html "class in com.google.adk.plugins")
+      * com.google.adk.plugins.[GlobalInstructionPlugin](com/google/adk/plugins/GlobalInstructionPlugin.html "class in com.google.adk.plugins")
       * com.google.adk.plugins.[LoggingPlugin](com/google/adk/plugins/LoggingPlugin.html "class in com.google.adk.plugins")
+      * com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
       * com.google.adk.plugins.[ReplayPlugin](com/google/adk/plugins/ReplayPlugin.html "class in com.google.adk.plugins")
     * com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")<T>
@@ -145,6 +156,7 @@ Package Hierarchies:
       * com.google.adk.tools.[BuiltInCodeExecutionTool](com/google/adk/tools/BuiltInCodeExecutionTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[ExampleTool](com/google/adk/tools/ExampleTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[FunctionTool](com/google/adk/tools/FunctionTool.html "class in com.google.adk.tools")
+        * com.google.adk.tools.computeruse.[ComputerUseTool](com/google/adk/tools/computeruse/ComputerUseTool.html "class in com.google.adk.tools.computeruse")
         * com.google.adk.tools.[LoadMemoryTool](com/google/adk/tools/LoadMemoryTool.html "class in com.google.adk.tools")
         * com.google.adk.tools.[LongRunningFunctionTool](com/google/adk/tools/LongRunningFunctionTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[GoogleMapsTool](com/google/adk/tools/GoogleMapsTool.html "class in com.google.adk.tools")
@@ -154,7 +166,7 @@ Package Hierarchies:
       * com.google.adk.tools.[UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
     * com.google.adk.flows.llmflows.[Basic](com/google/adk/flows/llmflows/Basic.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
-    * com.google.adk.agents.[CallbackPlugin.Builder](com/google/adk/agents/CallbackPlugin.Builder.html "class in com.google.adk.agents")
+    * com.google.adk.a2a.executor.[Callbacks](com/google/adk/a2a/executor/Callbacks.html "class in com.google.adk.a2a.executor")
     * com.google.adk.agents.[Callbacks](com/google/adk/agents/Callbacks.html "class in com.google.adk.agents")
     * com.google.adk.agents.[CallbackUtil](com/google/adk/agents/CallbackUtil.html "class in com.google.adk.agents")
     * com.google.adk.tutorials.[CityTimeWeather](com/google/adk/tutorials/CityTimeWeather.html "class in com.google.adk.tutorials")
@@ -165,9 +177,13 @@ Package Hierarchies:
     * com.google.adk.codeexecutors.[CodeExecutionUtils.File.Builder](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")
     * com.google.adk.codeexecutors.[CodeExecutorContext](com/google/adk/codeexecutors/CodeExecutorContext.html "class in com.google.adk.codeexecutors")
     * com.google.adk.utils.[CollectionUtils](com/google/adk/utils/CollectionUtils.html "class in com.google.adk.utils")
+    * com.google.adk.flows.llmflows.[Compaction](com/google/adk/flows/llmflows/Compaction.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.web.[CompiledAgentLoader](com/google/adk/web/CompiledAgentLoader.html "class in com.google.adk.web") (implements com.google.adk.web.[AgentLoader](com/google/adk/web/AgentLoader.html "interface in com.google.adk.web"))
     * com.google.adk.utils.[ComponentRegistry](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils")
       * com.example.[CustomDemoRegistry](com/example/CustomDemoRegistry.html "class in com.example")
+    * com.google.adk.tools.computeruse.[ComputerState](com/google/adk/tools/computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")
+    * com.google.adk.tools.computeruse.[ComputerState.Builder](com/google/adk/tools/computeruse/ComputerState.Builder.html "class in com.google.adk.tools.computeruse")
+    * com.google.adk.tools.computeruse.[ComputerUseToolset](com/google/adk/tools/computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse") (implements com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools"))
     * com.google.adk.maven.[ConfigAgentLoader](com/google/adk/maven/ConfigAgentLoader.html "class in com.google.adk.maven") (implements com.google.adk.web.[AgentLoader](com/google/adk/web/AgentLoader.html "interface in com.google.adk.web"))
     * com.google.adk.agents.[ConfigAgentUtils](com/google/adk/agents/ConfigAgentUtils.html "class in com.google.adk.agents")
     * com.google.adk.models.springai.[ConfigMapper](com/google/adk/models/springai/ConfigMapper.html "class in com.google.adk.models.springai")
@@ -177,9 +193,9 @@ Package Hierarchies:
     * com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.EntitySchemaAndOperations](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.EntitySchemaAndOperations.html "class in com.google.adk.tools.applicationintegrationtoolset")
     * com.google.adk.utils.[Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils")
     * com.google.adk.flows.llmflows.[Contents](com/google/adk/flows/llmflows/Contents.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
-    * com.google.adk.a2a.converters.[ConversationPreprocessor](com/google/adk/a2a/converters/ConversationPreprocessor.html "class in com.google.adk.a2a.converters")
-    * com.google.adk.a2a.converters.[ConversationPreprocessor.PreparedInput](com/google/adk/a2a/converters/ConversationPreprocessor.PreparedInput.html "class in com.google.adk.a2a.converters")
+    * com.google.adk.plugins.[ContextFilterPlugin.Builder](com/google/adk/plugins/ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
     * com.google.adk.tools.mcp.[ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
+    * com.google.adk.utils.[CoreAdkComponentProvider](com/google/adk/utils/CoreAdkComponentProvider.html "class in com.google.adk.utils") (implements com.google.adk.utils.[AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils"))
     * com.example.[CoreCallbacks](com/example/CoreCallbacks.html "class in com.example")
     * com.example.[CustomDieTool](com/example/CustomDieTool.html "class in com.example")
     * com.google.adk.web.controller.[DebugController](com/google/adk/web/controller/DebugController.html "class in com.google.adk.web.controller")
@@ -187,11 +203,11 @@ Package Hierarchies:
     * com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     * com.google.adk.web.controller.[EvaluationController](com/google/adk/web/controller/EvaluationController.html "class in com.google.adk.web.controller")
     * com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
-    * com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
     * com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
     * com.google.adk.events.[EventCompaction](com/google/adk/events/EventCompaction.html "class in com.google.adk.events")
     * com.google.adk.events.[EventCompaction.Builder](com/google/adk/events/EventCompaction.Builder.html "class in com.google.adk.events")
     * com.google.adk.a2a.converters.[EventConverter](com/google/adk/a2a/converters/EventConverter.html "class in com.google.adk.a2a.converters")
+    * com.google.adk.summarizer.[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
     * com.google.adk.events.[EventStream](com/google/adk/events/EventStream.html "class in com.google.adk.events") (implements java.lang.[Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<T>)
     * com.google.adk.examples.[Example.Builder](com/google/adk/examples/Example.Builder.html "class in com.google.adk.examples")
     * com.google.adk.flows.llmflows.[Examples](com/google/adk/flows/llmflows/Examples.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
@@ -236,6 +252,7 @@ Package Hierarchies:
       * com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors")
       * com.google.adk.codeexecutors.[CodeExecutionUtils.File](com/google/adk/codeexecutors/CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")
       * com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
+      * com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
       * com.google.adk.examples.[Example](com/google/adk/examples/Example.html "class in com.google.adk.examples")
       * com.google.adk.agents.[LiveRequest](com/google/adk/agents/LiveRequest.html "class in com.google.adk.agents")
       * com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
@@ -243,6 +260,7 @@ Package Hierarchies:
       * com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
       * com.google.adk.web.dto.[RunEvalResult](com/google/adk/web/dto/RunEvalResult.html "class in com.google.adk.web.dto")
       * com.google.adk.sessions.[Session](com/google/adk/sessions/Session.html "class in com.google.adk.sessions")
+      * com.google.adk.sessions.[SessionKey](com/google/adk/sessions/SessionKey.html "class in com.google.adk.sessions")
       * com.google.adk.events.[ToolConfirmation](com/google/adk/events/ToolConfirmation.html "class in com.google.adk.events")
     * com.example.[LifeAgent](com/example/LifeAgent.html "class in com.example")
     * com.google.adk.artifacts.[ListArtifactsResponse](com/google/adk/artifacts/ListArtifactsResponse.html "class in com.google.adk.artifacts")
@@ -278,8 +296,6 @@ Package Hierarchies:
     * com.google.adk.web.config.[OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config")
     * com.google.adk.utils.[Pairs](com/google/adk/utils/Pairs.html "class in com.google.adk.utils")
     * com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
-    * com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](com/google/adk/plugins/Plugin.html "interface in com.google.adk.plugins")) 
-      * com.google.adk.agents.[CallbackPlugin](com/google/adk/agents/CallbackPlugin.html "class in com.google.adk.agents")
     * com.google.adk.agents.[ReadonlyContext](com/google/adk/agents/ReadonlyContext.html "class in com.google.adk.agents")
       * com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
         * com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
@@ -288,10 +304,8 @@ Package Hierarchies:
     * com.google.adk.plugins.recordings.[Recordings](com/google/adk/plugins/recordings/Recordings.html "class in com.google.adk.plugins.recordings")
     * com.google.adk.plugins.recordings.[Recordings.Builder](com/google/adk/plugins/recordings/Recordings.Builder.html "class in com.google.adk.plugins.recordings")
     * com.google.adk.plugins.recordings.[RecordingsLoader](com/google/adk/plugins/recordings/RecordingsLoader.html "class in com.google.adk.plugins.recordings")
-    * com.google.adk.a2a.[RemoteA2AAgent.Builder](com/google/adk/a2a/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a")
-    * com.google.adk.samples.a2a_remote.[RemoteA2AApplication](com/google/adk/samples/a2a_remote/RemoteA2AApplication.html "class in com.google.adk.samples.a2a_remote")
+    * com.google.adk.a2a.agent.[RemoteA2AAgent.Builder](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
     * com.google.adk.flows.llmflows.[RequestConfirmationLlmRequestProcessor](com/google/adk/flows/llmflows/RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
-    * com.google.adk.a2a.converters.[RequestConverter](com/google/adk/a2a/converters/RequestConverter.html "class in com.google.adk.a2a.converters")
     * com.google.adk.flows.llmflows.[RequestProcessor.RequestProcessingResult](com/google/adk/flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.a2a.converters.[ResponseConverter](com/google/adk/a2a/converters/ResponseConverter.html "class in com.google.adk.a2a.converters")
     * com.google.adk.flows.llmflows.[ResponseProcessor.ResponseProcessingResult](com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
@@ -322,6 +336,7 @@ Package Hierarchies:
     * com.google.adk.models.springai.properties.[SpringAIProperties.Validation](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html "class in com.google.adk.models.springai.properties")
     * com.google.adk.tools.mcp.[SseServerParameters](com/google/adk/tools/mcp/SseServerParameters.html "class in com.google.adk.tools.mcp")
     * com.google.adk.tools.mcp.[SseServerParameters.Builder](com/google/adk/tools/mcp/SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")
+    * com.google.adk.samples.a2aagent.[StartupConfig](com/google/adk/samples/a2aagent/StartupConfig.html "class in com.google.adk.samples.a2aagent")
     * com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions") (implements java.util.concurrent.[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<K,V>)
     * com.google.adk.tools.mcp.[StdioConnectionParameters](com/google/adk/tools/mcp/StdioConnectionParameters.html "class in com.google.adk.tools.mcp")
     * com.google.adk.tools.mcp.[StdioConnectionParameters.Builder](com/google/adk/tools/mcp/StdioConnectionParameters.Builder.html "class in com.google.adk.tools.mcp")
@@ -330,21 +345,22 @@ Package Hierarchies:
     * com.google.adk.tools.mcp.[StreamableHttpServerParameters](com/google/adk/tools/mcp/StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp")
     * com.google.adk.tools.mcp.[StreamableHttpServerParameters.Builder](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")
     * com.google.adk.models.springai.[StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai")
-    * com.google.adk.[Telemetry](com/google/adk/Telemetry.html "class in com.google.adk")
+    * com.google.adk.summarizer.[TailRetentionEventCompactor](com/google/adk/summarizer/TailRetentionEventCompactor.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[EventCompactor](com/google/adk/summarizer/EventCompactor.html "interface in com.google.adk.summarizer"))
     * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
       * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
         * com.google.adk.agents.[ConfigAgentUtils.ConfigurationException](com/google/adk/agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")
         * com.google.adk.models.[LlmCallsLimitExceededException](com/google/adk/models/LlmCallsLimitExceededException.html "class in com.google.adk.models")
         * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang")
+          * com.google.adk.a2a.common.[A2AClientError](com/google/adk/a2a/common/A2AClientError.html "class in com.google.adk.a2a.common")
+          * com.google.adk.a2a.common.[GenAiFieldMissingException](com/google/adk/a2a/common/GenAiFieldMissingException.html "class in com.google.adk.a2a.common")
           * com.google.adk.tools.mcp.[McpToolException](com/google/adk/tools/mcp/McpToolException.html "class in com.google.adk.tools.mcp")
             * com.google.adk.tools.mcp.[McpToolException.McpToolDeclarationException](com/google/adk/tools/mcp/McpToolException.McpToolDeclarationException.html "class in com.google.adk.tools.mcp")
           * com.google.adk.tools.mcp.[McpToolsetException](com/google/adk/tools/mcp/McpToolsetException.html "class in com.google.adk.tools.mcp")
             * com.google.adk.tools.mcp.[McpToolsetException.McpInitializationException](com/google/adk/tools/mcp/McpToolsetException.McpInitializationException.html "class in com.google.adk.tools.mcp")
             * com.google.adk.tools.mcp.[McpToolsetException.McpToolLoadingException](com/google/adk/tools/mcp/McpToolsetException.McpToolLoadingException.html "class in com.google.adk.tools.mcp")
           * com.google.adk.models.springai.[MessageConversionException](com/google/adk/models/springai/MessageConversionException.html "class in com.google.adk.models.springai")
-          * com.google.adk.a2a.[RemoteA2AAgent.A2AClientError](com/google/adk/a2a/RemoteA2AAgent.A2AClientError.html "class in com.google.adk.a2a")
-          * com.google.adk.a2a.[RemoteA2AAgent.AgentCardResolutionError](com/google/adk/a2a/RemoteA2AAgent.AgentCardResolutionError.html "class in com.google.adk.a2a")
-          * com.google.adk.a2a.[RemoteA2AAgent.TypeError](com/google/adk/a2a/RemoteA2AAgent.TypeError.html "class in com.google.adk.a2a")
+          * com.google.adk.a2a.agent.[RemoteA2AAgent.AgentCardResolutionError](com/google/adk/a2a/agent/RemoteA2AAgent.AgentCardResolutionError.html "class in com.google.adk.a2a.agent")
+          * com.google.adk.a2a.agent.[RemoteA2AAgent.TypeError](com/google/adk/a2a/agent/RemoteA2AAgent.TypeError.html "class in com.google.adk.a2a.agent")
           * com.google.adk.plugins.[ReplayConfigError](com/google/adk/plugins/ReplayConfigError.html "class in com.google.adk.plugins")
           * com.google.adk.plugins.[ReplayVerificationError](com/google/adk/plugins/ReplayVerificationError.html "class in com.google.adk.plugins")
           * com.google.adk.sessions.[SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions")
@@ -355,6 +371,9 @@ Package Hierarchies:
     * com.google.adk.models.springai.[ToolConverter.ToolMetadata](com/google/adk/models/springai/ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")
     * com.google.adk.plugins.recordings.[ToolRecording](com/google/adk/plugins/recordings/ToolRecording.html "class in com.google.adk.plugins.recordings")
     * com.google.adk.plugins.recordings.[ToolRecording.Builder](com/google/adk/plugins/recordings/ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")
+    * com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+    * com.google.adk.telemetry.[Tracing.ContextTransformer](com/google/adk/telemetry/Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T> (implements io.reactivex.rxjava3.core.CompletableTransformer, io.reactivex.rxjava3.core.FlowableTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.MaybeTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.SingleTransformer<Upstream, Downstream>)
+    * com.google.adk.telemetry.[Tracing.TracerProvider](com/google/adk/telemetry/Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> (implements io.reactivex.rxjava3.core.CompletableTransformer, io.reactivex.rxjava3.core.FlowableTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.MaybeTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.SingleTransformer<Upstream, Downstream>)
     * com.google.adk.[Version](com/google/adk/Version.html "class in com.google.adk")
     * com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
     * com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions"))
@@ -367,13 +386,14 @@ Package Hierarchies:
 
 ## Interface Hierarchy
 
-  * com.google.adk.a2a.[A2ASendMessageExecutor.AgentExecutionStrategy](com/google/adk/a2a/A2ASendMessageExecutor.AgentExecutionStrategy.html "interface in com.google.adk.a2a")
+  * com.google.adk.utils.[AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils")
   * com.google.adk.maven.[AgentLoader](com/google/adk/maven/AgentLoader.html "interface in com.google.adk.maven")
   * com.google.adk.web.[AgentLoader](com/google/adk/web/AgentLoader.html "interface in com.google.adk.web")
   * java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")
     * com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools")
     * com.google.adk.flows.llmflows.audio.[SpeechClientInterface](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html "interface in com.google.adk.flows.llmflows.audio")
   * com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")
+  * com.google.adk.tools.computeruse.[BaseComputer](com/google/adk/tools/computeruse/BaseComputer.html "interface in com.google.adk.tools.computeruse")
   * com.google.adk.summarizer.[BaseEventSummarizer](com/google/adk/summarizer/BaseEventSummarizer.html "interface in com.google.adk.summarizer")
   * com.google.adk.examples.[BaseExampleProvider](com/google/adk/examples/BaseExampleProvider.html "interface in com.google.adk.examples")
   * com.google.adk.flows.[BaseFlow](com/google/adk/flows/BaseFlow.html "interface in com.google.adk.flows")
@@ -383,6 +403,10 @@ Package Hierarchies:
   * com.google.adk.agents.Callbacks.AfterAgentCallbackBase 
     * com.google.adk.agents.[Callbacks.AfterAgentCallback](com/google/adk/agents/Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.AfterAgentCallbackSync](com/google/adk/agents/Callbacks.AfterAgentCallbackSync.html "interface in com.google.adk.agents")
+  * com.google.adk.a2a.executor.Callbacks.AfterEventCallbackBase 
+    * com.google.adk.a2a.executor.[Callbacks.AfterEventCallback](com/google/adk/a2a/executor/Callbacks.AfterEventCallback.html "interface in com.google.adk.a2a.executor")
+  * com.google.adk.a2a.executor.Callbacks.AfterExecuteCallbackBase 
+    * com.google.adk.a2a.executor.[Callbacks.AfterExecuteCallback](com/google/adk/a2a/executor/Callbacks.AfterExecuteCallback.html "interface in com.google.adk.a2a.executor")
   * com.google.adk.agents.Callbacks.AfterModelCallbackBase 
     * com.google.adk.agents.[Callbacks.AfterModelCallback](com/google/adk/agents/Callbacks.AfterModelCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.AfterModelCallbackSync](com/google/adk/agents/Callbacks.AfterModelCallbackSync.html "interface in com.google.adk.agents")
@@ -392,12 +416,20 @@ Package Hierarchies:
   * com.google.adk.agents.Callbacks.BeforeAgentCallbackBase 
     * com.google.adk.agents.[Callbacks.BeforeAgentCallback](com/google/adk/agents/Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.BeforeAgentCallbackSync](com/google/adk/agents/Callbacks.BeforeAgentCallbackSync.html "interface in com.google.adk.agents")
+  * com.google.adk.a2a.executor.Callbacks.BeforeExecuteCallbackBase 
+    * com.google.adk.a2a.executor.[Callbacks.BeforeExecuteCallback](com/google/adk/a2a/executor/Callbacks.BeforeExecuteCallback.html "interface in com.google.adk.a2a.executor")
   * com.google.adk.agents.Callbacks.BeforeModelCallbackBase 
     * com.google.adk.agents.[Callbacks.BeforeModelCallback](com/google/adk/agents/Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.BeforeModelCallbackSync](com/google/adk/agents/Callbacks.BeforeModelCallbackSync.html "interface in com.google.adk.agents")
   * com.google.adk.agents.Callbacks.BeforeToolCallbackBase 
     * com.google.adk.agents.[Callbacks.BeforeToolCallback](com/google/adk/agents/Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.BeforeToolCallbackSync](com/google/adk/agents/Callbacks.BeforeToolCallbackSync.html "interface in com.google.adk.agents")
+  * com.google.adk.agents.Callbacks.OnModelErrorCallbackBase 
+    * com.google.adk.agents.[Callbacks.OnModelErrorCallback](com/google/adk/agents/Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")
+    * com.google.adk.agents.[Callbacks.OnModelErrorCallbackSync](com/google/adk/agents/Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents")
+  * com.google.adk.agents.Callbacks.OnToolErrorCallbackBase 
+    * com.google.adk.agents.[Callbacks.OnToolErrorCallback](com/google/adk/agents/Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")
+    * com.google.adk.agents.[Callbacks.OnToolErrorCallbackSync](com/google/adk/agents/Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents")
   * com.google.adk.tools.applicationintegrationtoolset.[CredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset")
   * com.google.adk.summarizer.[EventCompactor](com/google/adk/summarizer/EventCompactor.html "interface in com.google.adk.summarizer")
   * com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents")
@@ -420,7 +452,10 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * java.lang.[Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html "class or interface in java.lang")<E> (implements java.lang.[Comparable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html "class or interface in java.lang")<T>, java.lang.constant.[Constable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html "class or interface in java.lang.constant"), java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
-      * com.google.adk.a2a.converters.[EventConverter.AggregationMode](com/google/adk/a2a/converters/EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")
+      * com.google.adk.a2a.converters.[A2ADataPartMetadataType](com/google/adk/a2a/converters/A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
+      * com.google.adk.a2a.common.[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
+      * com.google.adk.a2a.executor.[AgentExecutorConfig.OutputMode](com/google/adk/a2a/executor/AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor")
+      * com.google.adk.tools.computeruse.[ComputerEnvironment](com/google/adk/tools/computeruse/ComputerEnvironment.html "enum class in com.google.adk.tools.computeruse")
       * com.google.adk.agents.[LlmAgent.IncludeContents](com/google/adk/agents/LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.StreamingMode](com/google/adk/agents/RunConfig.StreamingMode.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
@@ -434,12 +469,11 @@ Package Hierarchies:
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
       * com.google.adk.web.config.[AdkWebCorsProperties](com/google/adk/web/config/AdkWebCorsProperties.html "class in com.google.adk.web.config")
+      * com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
       * com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
       * com.google.adk.agents.[Instruction.Provider](com/google/adk/agents/Instruction.Provider.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents"))
       * com.google.adk.agents.[Instruction.Static](com/google/adk/agents/Instruction.Static.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents"))
       * com.google.adk.tools.[LoadMemoryResponse](com/google/adk/tools/LoadMemoryResponse.html "class in com.google.adk.tools")
-      * com.google.adk.a2a.converters.[ResponseConverter.MessageSendResult](com/google/adk/a2a/converters/ResponseConverter.MessageSendResult.html "class in com.google.adk.a2a.converters")
-      * com.google.adk.flows.llmflows.[ResumabilityConfig](com/google/adk/flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows")
 
 
 

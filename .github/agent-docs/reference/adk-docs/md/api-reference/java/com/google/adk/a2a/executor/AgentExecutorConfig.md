@@ -29,11 +29,12 @@ Contents
      1. AgentExecutorConfig()
   6. Method Details
      1. runConfig()
-     2. beforeExecuteCallback()
-     3. afterExecuteCallback()
-     4. afterEventCallback()
-     5. toBuilder()
-     6. builder()
+     2. outputMode()
+     3. beforeExecuteCallback()
+     4. afterExecuteCallback()
+     5. afterEventCallback()
+     6. toBuilder()
+     7. builder()
 
 Hide sidebar  Show sidebar
 
@@ -64,6 +65,12 @@ Description
 `[AgentExecutorConfig.Builder](AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
 
 Builder for [`AgentExecutorConfig`](AgentExecutorConfig.html "class in com.google.adk.a2a.executor").
+
+`static enum `
+
+`[AgentExecutorConfig.OutputMode](AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor")`
+
+Output mode for the agent executor.
 
   * ## Constructor Summary
 
@@ -111,6 +118,12 @@ Description
 
  
 
+`abstract [AgentExecutorConfig.OutputMode](AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor")`
+
+`outputMode()`
+
+ 
+
 `abstract [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents")`
 
 `runConfig()`
@@ -141,6 +154,10 @@ public AgentExecutorConfig()
     * ### runConfig
 
 public abstract [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig()
+
+    * ### outputMode
+
+public abstract [AgentExecutorConfig.OutputMode](AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor") outputMode()
 
     * ### beforeExecuteCallback
 

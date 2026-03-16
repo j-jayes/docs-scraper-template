@@ -24,7 +24,7 @@ sessionId: string;
 userId: string;  
 }
 
-  * Defined in [core/src/sessions/base_session_service.ts:39](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L39)
+  * Defined in [sessions/base_session_service.ts:41](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L41)
 
 
 
@@ -36,7 +36,7 @@ appName: string
 
 The name of the application.
 
-  * Defined in [core/src/sessions/base_session_service.ts:41](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L41)
+  * Defined in [sessions/base_session_service.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L43)
 
 
 
@@ -46,7 +46,7 @@ config?: [GetSessionConfig](GetSessionConfig.html)
 
 The configurations for getting the session.
 
-  * Defined in [core/src/sessions/base_session_service.ts:47](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L47)
+  * Defined in [sessions/base_session_service.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L49)
 
 
 
@@ -56,7 +56,7 @@ sessionId: string
 
 The ID of the session.
 
-  * Defined in [core/src/sessions/base_session_service.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L45)
+  * Defined in [sessions/base_session_service.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L47)
 
 
 
@@ -66,7 +66,7 @@ userId: string
 
 The ID of the user.
 
-  * Defined in [core/src/sessions/base_session_service.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L43)
+  * Defined in [sessions/base_session_service.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L45)
 
 
 

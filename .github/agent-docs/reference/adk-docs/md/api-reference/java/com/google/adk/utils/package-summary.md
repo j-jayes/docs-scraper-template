@@ -42,11 +42,19 @@ Description
 
  
 
-  * Classes
+  * All Classes and InterfacesInterfacesClasses
 
 Class
 
 Description
+
+[AdditionalAdkComponentProvider](AdditionalAdkComponentProvider.html "class in com.google.adk.utils")
+
+Provides ADK components that are part of core.
+
+[AdkComponentProvider](AdkComponentProvider.html "interface in com.google.adk.utils")
+
+Service provider interface for ADK components to be registered in [`ComponentRegistry`](ComponentRegistry.html "class in com.google.adk.utils").
 
 [ApiFutureUtils](ApiFutureUtils.html "class in com.google.adk.utils")
 
@@ -63,6 +71,10 @@ A registry for storing and retrieving ADK instances by name.
 [Constants](Constants.html "class in com.google.adk.utils")
 
 Constants used across Firestore session service tests.
+
+[CoreAdkComponentProvider](CoreAdkComponentProvider.html "class in com.google.adk.utils")
+
+Provides ADK components that are part of core.
 
 [FirestoreProperties](FirestoreProperties.html "class in com.google.adk.utils")
 

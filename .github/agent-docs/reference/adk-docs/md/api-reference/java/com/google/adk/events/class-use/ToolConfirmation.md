@@ -60,7 +60,7 @@ Method
 
 Description
 
-`[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
 
 EventActions.`[requestedToolConfirmations](../EventActions.html#requestedToolConfirmations\(\))()`
 
@@ -76,13 +76,13 @@ Description
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#requestedToolConfirmations\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> value)`
+EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#requestedToolConfirmations\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> value)`
 
  
 
 `void`
 
-EventActions.`[setRequestedToolConfirmations](../EventActions.html#setRequestedToolConfirmations\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)`
+EventActions.`[setRequestedToolConfirmations](../EventActions.html#setRequestedToolConfirmations\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)`
 
  
 

@@ -25,7 +25,7 @@ Contents
   2. Field Summary
   3. Method Summary
   4. Field Details
-     1. OBJECT_MAPPER
+     1. objectMapper
 
 Hide sidebar  Show sidebar
 
@@ -55,7 +55,7 @@ Description
 
 `static final com.fasterxml.jackson.databind.ObjectMapper`
 
-`OBJECT_MAPPER`
+`objectMapper`
 
  
 
@@ -70,9 +70,9 @@ Description
 
   * ## Field Details
 
-    * ### OBJECT_MAPPER
+    * ### objectMapper
 
-public static final com.fasterxml.jackson.databind.ObjectMapper OBJECT_MAPPER
+public static final com.fasterxml.jackson.databind.ObjectMapper objectMapper
 
 
 

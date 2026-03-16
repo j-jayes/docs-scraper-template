@@ -210,7 +210,7 @@ Table of contents
 
 # Apps: workflow management class¶
 
-Supported in ADKPython v1.14.0
+Supported in ADKPython v1.14.0Java v0.1.0
 
 The **_App_** class is a top-level container for an entire Agent Development Kit (ADK) agent workflow. It is designed to manage the lifecycle, configuration, and state for a collection of agents grouped by a **_root agent_**. The **App** class separates the concerns of an agent workflow's overall operational infrastructure from individual agents' task-oriented reasoning. 
 
@@ -244,6 +244,8 @@ The **_App_** class is used as the primary container of your agent workflow and 
 
 Create a **_root agent_** for your workflow by creating a subclass from the **_Agent_** base class. Then define an **_App_** object and configure it with the **_root agent_** object and optional features, as shown in the following sample code:
 
+PythonJava
+
 agent.py
     
     
@@ -265,6 +267,29 @@ agent.py
     )
     
 
+AgentConfiguration.java
+    
+    
+    import com.google.adk.agents.LlmAgent;
+    import com.google.adk.apps.App;
+    
+    LlmAgent rootAgent = LlmAgent.builder()
+        .model("gemini-2.5-flash")
+        .name("greeter_agent")
+        .description("An agent that provides a friendly greeting.")
+        .instruction("Reply with Hello, World!")
+        .build();
+    
+    App app = App.builder()
+        .name("agents")
+        .rootAgent(rootAgent)
+        // Optionally include App-level features:
+        // .plugins(plugins)
+        // .contextCacheConfig(contextCacheConfig)
+        // .eventsCompactionConfig(eventsCompactionConfig)
+        .build();
+    
+
 Recommended: Use `app` variable name
 
 In your agent project code, set your **_App_** object to the variable name `app` so it is compatible with the ADK command line interface runner tools. 
@@ -272,6 +297,8 @@ In your agent project code, set your **_App_** object to the variable name `app`
 ### Run your App agent¶
 
 You can use the **_Runner_** class to run your agent workflow using the `app` parameter, as shown in the following code sample:
+
+PythonJava
 
 main.py
     
@@ -296,14 +323,46 @@ main.py
         asyncio.run(main())
     
 
+AppMain.java
+    
+    
+    import com.google.adk.agents.Content;
+    import com.google.adk.runner.Runner;
+    
+    public class AppMain {
+    
+      public static void main(String[] args) throws Exception {
+        // Set a Runner using the application object
+    
+        App app = ...;
+    
+        Runner runner = Runner.builder()
+            .app(app) // Use the 'app' object defined previously
+            .build();
+    
+        runner.runAsync("user", "session-1", Content.fromParts(Part.fromText("Hello there!")))
+            .filter(event -> event.finalResponse() && event.content().isPresent())
+            .blockingSubscribe(event -> System.out.println("Response: " + event.stringifyContent()));
+      }
+    }
+    
+
 Version requirement for `Runner.run_debug()`
 
 The `Runner.run_debug()` command requires ADK Python v1.18.0 or higher. You can also use `Runner.run()`, which requires more setup code. For more details, see the 
+
+PythonJava
 
 Run your App agent with the `main.py` code using the following command:
     
     
     python main.py
+    
+
+Run your App agent with the `AppMain.java` code using your build tool (e.g. Gradle `application` plugin):
+    
+    
+    ./gradlew run
     
 
 ## Next steps¶
@@ -312,7 +371,7 @@ For a more complete sample code implementation, see the [Hello World App](https:
 
 Back to top  [ Previous  Events  ](../events/) [ Next  Plugins  ](../plugins/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

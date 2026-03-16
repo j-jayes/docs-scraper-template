@@ -56,6 +56,18 @@ Description
 
 Base class for creating plugins.
 
+[ContextFilterPlugin](ContextFilterPlugin.html "class in com.google.adk.plugins")
+
+A plugin that filters the LLM request `Content` list to reduce its size, for example to adhere to context window limits.
+
+[ContextFilterPlugin.Builder](ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
+
+Builder for [`ContextFilterPlugin`](ContextFilterPlugin.html "class in com.google.adk.plugins").
+
+[GlobalInstructionPlugin](GlobalInstructionPlugin.html "class in com.google.adk.plugins")
+
+Plugin that provides global instructions functionality at the App level.
+
 [LoggingPlugin](LoggingPlugin.html "class in com.google.adk.plugins")
 
 A plugin that logs important information at each callback point.

@@ -60,6 +60,10 @@ Base interface for compacting events.
 
 Configuration for event compaction.
 
+[EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
+
+Builder for [`EventsCompactionConfig`](EventsCompactionConfig.html "class in com.google.adk.summarizer").
+
 [LlmEventSummarizer](LlmEventSummarizer.html "class in com.google.adk.summarizer")
 
 An LLM-based event summarizer for sliding window compaction.
@@ -67,6 +71,10 @@ An LLM-based event summarizer for sliding window compaction.
 [SlidingWindowEventCompactor](SlidingWindowEventCompactor.html "class in com.google.adk.summarizer")
 
 This class performs events compaction in a sliding window fashion based on the [`EventsCompactionConfig`](EventsCompactionConfig.html "class in com.google.adk.summarizer").
+
+[TailRetentionEventCompactor](TailRetentionEventCompactor.html "class in com.google.adk.summarizer")
+
+This class performs event compaction by retaining the tail of the event stream.
 
 
 

@@ -44,7 +44,9 @@ All Implemented Interfaces:
 
 public class EventStream extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](Event.html "class in com.google.adk.events")>
 
-Iterable stream of [`Event`](Event.html "class in com.google.adk.events") objects.
+Iterable stream of [`Event`](Event.html "class in com.google.adk.events") objects. 
+
+NOTE: This class is not thread-safe. Concurrent iteration from multiple threads should be avoided or externally synchronized.
 
   * ## Constructor Summary
 

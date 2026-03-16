@@ -46,6 +46,10 @@ Description
 
  
 
+[com.google.adk.tools.computeruse](../computeruse/package-summary.html)
+
+ 
+
 [com.google.adk.tools.retrieval](../retrieval/package-summary.html)
 
  

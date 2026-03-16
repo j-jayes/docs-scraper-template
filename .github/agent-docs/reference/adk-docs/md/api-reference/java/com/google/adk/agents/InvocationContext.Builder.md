@@ -29,19 +29,18 @@ Contents
      2. artifactService(BaseArtifactService)
      3. memoryService(BaseMemoryService)
      4. pluginManager(Plugin)
-     5. liveRequestQueue(Optional)
-     6. liveRequestQueue(LiveRequestQueue)
-     7. branch(Optional)
-     8. branch(String)
-     9. invocationId(String)
-     10. agent(BaseAgent)
-     11. session(Session)
-     12. userContent(Optional)
-     13. userContent(Content)
-     14. runConfig(RunConfig)
-     15. endInvocation(boolean)
-     16. resumabilityConfig(ResumabilityConfig)
-     17. build()
+     5. liveRequestQueue(LiveRequestQueue)
+     6. branch(String)
+     7. invocationId(String)
+     8. agent(BaseAgent)
+     9. session(Session)
+     10. userContent(Content)
+     11. runConfig(RunConfig)
+     12. endInvocation(boolean)
+     13. eventsCompactionConfig(EventsCompactionConfig)
+     14. contextCacheConfig(ContextCacheConfig)
+     15. callbackContextData(Map)
+     16. build()
 
 Hide sidebar  Show sidebar
 
@@ -62,7 +61,7 @@ Builder for [`InvocationContext`](InvocationContext.html "class in com.google.ad
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete MethodsDeprecated Methods
+All MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -88,14 +87,6 @@ Sets the artifact service for persisting artifacts.
 
 Sets the branch ID for the invocation.
 
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-`branch([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `branch(String)` instead.
-
 `[InvocationContext](InvocationContext.html "class in com.google.adk.agents")`
 
 `build()`
@@ -104,9 +95,27 @@ Builds the [`InvocationContext`](InvocationContext.html "class in com.google.adk
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
+`callbackContextData([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData)`
+
+Sets the callback context data for the invocation.
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+`contextCacheConfig([ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
+
+Sets the context cache configuration for the current agent run.
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
 `endInvocation(boolean endInvocation)`
 
 Sets whether this invocation should be ended.
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+`eventsCompactionConfig([EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
+
+Sets the events compaction configuration for the current agent run.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -122,14 +131,6 @@ Sets the queue for managing live requests.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`liveRequestQueue([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")> liveRequestQueue)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `liveRequestQueue(LiveRequestQueue)` instead.
-
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
 `memoryService([BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService)`
 
 Sets the memory service for accessing agent memory.
@@ -139,12 +140,6 @@ Sets the memory service for accessing agent memory.
 `pluginManager([Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins") pluginManager)`
 
 Sets the plugin manager for accessing tools and plugins.
-
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-`resumabilityConfig([ResumabilityConfig](../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)`
-
-Sets the resumability configuration for the current agent run.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -167,12 +162,6 @@ Sets the session service for managing session state.
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
 `userContent(com.google.genai.types.Content userContent)`
-
-Sets the user content that triggered this invocation.
-
-`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
-
-`userContent([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent)`
 
 Sets the user content that triggered this invocation.
 
@@ -231,21 +220,6 @@ Returns:
 
     * ### liveRequestQueue
 
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang")([forRemoval](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval\(\) "class or interface in java.lang")=true) @CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") liveRequestQueue([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")> liveRequestQueue)
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `liveRequestQueue(LiveRequestQueue)` instead.
-
-Sets the queue for managing live requests.
-
-Parameters:
-    `liveRequestQueue` \- the queue for managing live requests.
-Returns:
-    this builder instance for chaining.
-
-    * ### liveRequestQueue
-
 @CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") liveRequestQueue(@Nullable [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)
 
 Sets the queue for managing live requests.
@@ -257,22 +231,7 @@ Returns:
 
     * ### branch
 
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang")([forRemoval](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval\(\) "class or interface in java.lang")=true) @CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") branch([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> branch)
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `branch(String)` instead.
-
-Sets the branch ID for the invocation.
-
-Parameters:
-    `branch` \- the branch ID for the invocation.
-Returns:
-    this builder instance for chaining.
-
-    * ### branch
-
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") branch([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)
 
 Sets the branch ID for the invocation.
 
@@ -316,18 +275,7 @@ Returns:
 
     * ### userContent
 
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") userContent([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> userContent)
-
-Sets the user content that triggered this invocation.
-
-Parameters:
-    `userContent` \- the user content that triggered this invocation.
-Returns:
-    this builder instance for chaining.
-
-    * ### userContent
-
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") userContent(com.google.genai.types.Content userContent)
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") userContent(@Nullable com.google.genai.types.Content userContent)
 
 Sets the user content that triggered this invocation.
 
@@ -358,14 +306,36 @@ Parameters:
 Returns:
     this builder instance for chaining.
 
-    * ### resumabilityConfig
+    * ### eventsCompactionConfig
 
-@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") resumabilityConfig([ResumabilityConfig](../flows/llmflows/ResumabilityConfig.html "class in com.google.adk.flows.llmflows") resumabilityConfig)
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") eventsCompactionConfig(@Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)
 
-Sets the resumability configuration for the current agent run.
+Sets the events compaction configuration for the current agent run.
 
 Parameters:
-    `resumabilityConfig` \- the resumability configuration.
+    `eventsCompactionConfig` \- the events compaction configuration.
+Returns:
+    this builder instance for chaining.
+
+    * ### contextCacheConfig
+
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") contextCacheConfig(@Nullable [ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)
+
+Sets the context cache configuration for the current agent run.
+
+Parameters:
+    `contextCacheConfig` \- the context cache configuration.
+Returns:
+    this builder instance for chaining.
+
+    * ### callbackContextData
+
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") callbackContextData([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData)
+
+Sets the callback context data for the invocation.
+
+Parameters:
+    `callbackContextData` \- the callback context data.
 Returns:
     this builder instance for chaining.
 

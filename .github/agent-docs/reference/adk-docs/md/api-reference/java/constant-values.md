@@ -38,9 +38,29 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"0.8.0"`
+`"0.9.0"`
 
 
+
+  * com.google.adk.a2a.converters.[EventConverter](com/google/adk/a2a/converters/EventConverter.html "class in com.google.adk.a2a.converters")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[ADK_CONTEXT_ID_KEY](com/google/adk/a2a/converters/EventConverter.html#ADK_CONTEXT_ID_KEY)`
+
+`"adk_context_id"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[ADK_TASK_ID_KEY](com/google/adk/a2a/converters/EventConverter.html#ADK_TASK_ID_KEY)`
+
+`"adk_task_id"`
 
   * com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
 
@@ -54,37 +74,91 @@ Value
 
 `[A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY)`
 
-`"is_long_running"`
+`"adk_is_long_running"`
 
 `public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
-`[A2A_DATA_PART_METADATA_TYPE_CODE_EXECUTION_RESULT](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_TYPE_CODE_EXECUTION_RESULT)`
+`[A2A_DATA_PART_METADATA_IS_PARTIAL_KEY](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_IS_PARTIAL_KEY)`
 
-`"code_execution_result"`
-
-`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`[A2A_DATA_PART_METADATA_TYPE_EXECUTABLE_CODE](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_TYPE_EXECUTABLE_CODE)`
-
-`"executable_code"`
-
-`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`[A2A_DATA_PART_METADATA_TYPE_FUNCTION_CALL](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_TYPE_FUNCTION_CALL)`
-
-`"function_call"`
-
-`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`[A2A_DATA_PART_METADATA_TYPE_FUNCTION_RESPONSE](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_TYPE_FUNCTION_RESPONSE)`
-
-`"function_response"`
+`"adk_partial"`
 
 `public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `[A2A_DATA_PART_METADATA_TYPE_KEY](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_TYPE_KEY)`
 
-`"type"`
+`"adk_type"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[ARGS_KEY](com/google/adk/a2a/converters/PartConverter.html#ARGS_KEY)`
+
+`"args"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[CODE_KEY](com/google/adk/a2a/converters/PartConverter.html#CODE_KEY)`
+
+`"code"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[ID_KEY](com/google/adk/a2a/converters/PartConverter.html#ID_KEY)`
+
+`"id"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[LANGUAGE_KEY](com/google/adk/a2a/converters/PartConverter.html#LANGUAGE_KEY)`
+
+`"language"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[NAME_KEY](com/google/adk/a2a/converters/PartConverter.html#NAME_KEY)`
+
+`"name"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[OUTCOME_KEY](com/google/adk/a2a/converters/PartConverter.html#OUTCOME_KEY)`
+
+`"outcome"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[OUTPUT_KEY](com/google/adk/a2a/converters/PartConverter.html#OUTPUT_KEY)`
+
+`"output"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[PARTIAL_ARGS_KEY](com/google/adk/a2a/converters/PartConverter.html#PARTIAL_ARGS_KEY)`
+
+`"partialArgs"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[PARTS_KEY](com/google/adk/a2a/converters/PartConverter.html#PARTS_KEY)`
+
+`"parts"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[RESPONSE_KEY](com/google/adk/a2a/converters/PartConverter.html#RESPONSE_KEY)`
+
+`"response"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[SCHEDULING_KEY](com/google/adk/a2a/converters/PartConverter.html#SCHEDULING_KEY)`
+
+`"scheduling"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[WILL_CONTINUE_KEY](com/google/adk/a2a/converters/PartConverter.html#WILL_CONTINUE_KEY)`
+
+`"willContinue"`
 
 
 

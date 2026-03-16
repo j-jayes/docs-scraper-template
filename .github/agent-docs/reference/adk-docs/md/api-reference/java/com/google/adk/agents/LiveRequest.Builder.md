@@ -29,12 +29,9 @@ Contents
      1. Builder()
   5. Method Details
      1. content(Content)
-     2. content(Optional)
-     3. blob(Blob)
-     4. blob(Optional)
-     5. close(Boolean)
-     6. close(Optional)
-     7. build()
+     2. blob(Blob)
+     3. close(Boolean)
+     4. build()
 
 Hide sidebar  Show sidebar
 
@@ -81,12 +78,6 @@ Description
 
  
 
-`abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents")`
-
-`blob([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Blob> blob)`
-
- 
-
 `final [LiveRequest](LiveRequest.html "class in com.google.adk.agents")`
 
 `build()`
@@ -101,19 +92,7 @@ Description
 
 `abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents")`
 
-`close([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> close)`
-
- 
-
-`abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents")`
-
 `content(com.google.genai.types.Content content)`
-
- 
-
-`abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents")`
-
-`content([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)`
 
  
 
@@ -136,25 +115,13 @@ public Builder()
 
 public abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents") content(@Nullable com.google.genai.types.Content content)
 
-    * ### content
-
-public abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents") content([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)
-
     * ### blob
 
 public abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents") blob(@Nullable com.google.genai.types.Blob blob)
 
-    * ### blob
-
-public abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents") blob([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Blob> blob)
-
     * ### close
 
 public abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents") close(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") close)
-
-    * ### close
-
-public abstract [LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents") close([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> close)
 
     * ### build
 

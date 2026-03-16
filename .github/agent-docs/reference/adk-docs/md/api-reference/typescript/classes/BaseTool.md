@@ -22,11 +22,13 @@ The base class for all tools.
   * BaseTool
     * [MCPTool](MCPTool.html)
     * [AgentTool](AgentTool.html)
+    * [ExitLoopTool](ExitLoopTool.html)
     * [FunctionTool](FunctionTool.html)
+    * [GoogleSearchTool](GoogleSearchTool.html)
 
 
 
-  * Defined in [core/src/tools/base_tool.ts:42](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L42)
+  * Defined in [tools/base_tool.ts:62](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L62)
 
 
 
@@ -46,18 +48,28 @@ The parameters for `BaseTool`.
 
 #### Returns [BaseTool]()
 
-    * Defined in [core/src/tools/base_tool.ts:52](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L52)
+    * Defined in [tools/base_tool.ts:75](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L75)
 
 
 
 
 ## Properties
 
+### `Readonly`[BASE_TOOL_SIGNATURE_SYMBOL]
+
+"[BASE_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK base tool class.
+
+  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+
+
+
 ### `Readonly`description
 
 description: string
 
-  * Defined in [core/src/tools/base_tool.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L44)
+  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -65,7 +77,7 @@ description: string
 
 isLongRunning: boolean
 
-  * Defined in [core/src/tools/base_tool.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L45)
+  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -73,7 +85,7 @@ isLongRunning: boolean
 
 name: string
 
-  * Defined in [core/src/tools/base_tool.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L43)
+  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -81,13 +93,13 @@ name: string
 
 ### apiVariant
 
-  * get apiVariant(): GoogleLLMVariant
+  * get apiVariant(): [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 The Google API LLM variant to use.
 
-#### Returns GoogleLLMVariant
+#### Returns [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
-    * Defined in [core/src/tools/base_tool.ts:125](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L125)
+    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -109,7 +121,7 @@ NOTE
 
 The FunctionDeclaration of this tool, or undefined if it doesn't need to be added to LlmRequest.config.
 
-    * Defined in [core/src/tools/base_tool.ts:71](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L71)
+    * Defined in [tools/base_tool.ts:94](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L94)
 
 
 
@@ -133,7 +145,7 @@ The request to process the LLM request.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/tools/base_tool.ts:97](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L97)
+    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -159,7 +171,7 @@ The request to run the tool.
 
 A promise that resolves to the tool response.
 
-    * Defined in [core/src/tools/base_tool.ts:86](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L86)
+    * Defined in [tools/base_tool.ts:109](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L109)
 
 
 
@@ -170,7 +182,7 @@ constructor
 
 Properties
 
-descriptionisLongRunningname
+[BASE_TOOL_SIGNATURE_SYMBOL]descriptionisLongRunningname
 
 Accessors
 

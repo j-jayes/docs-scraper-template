@@ -22,7 +22,7 @@ afterTimestamp?: number;
 numRecentEvents?: number;  
 }
 
-  * Defined in [core/src/sessions/base_session_service.ts:15](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L15)
+  * Defined in [sessions/base_session_service.ts:17](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L17)
 
 
 
@@ -34,7 +34,7 @@ afterTimestamp?: number
 
 Retrieve events after this timestamp.
 
-  * Defined in [core/src/sessions/base_session_service.ts:19](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L19)
+  * Defined in [sessions/base_session_service.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L21)
 
 
 
@@ -44,7 +44,7 @@ numRecentEvents?: number
 
 The number of recent events to retrieve.
 
-  * Defined in [core/src/sessions/base_session_service.ts:17](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L17)
+  * Defined in [sessions/base_session_service.ts:19](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L19)
 
 
 

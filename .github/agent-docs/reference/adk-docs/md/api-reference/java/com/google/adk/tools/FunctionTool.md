@@ -28,20 +28,26 @@ Contents
   5. Constructor Details
      1. FunctionTool(Object, Method, boolean)
      2. FunctionTool(Object, Method, boolean, boolean)
+     3. FunctionTool(Object, Method, boolean, ObjectMapper)
+     4. FunctionTool(Object, Method, boolean, boolean, ObjectMapper)
   6. Method Details
      1. create(Object, Method)
      2. create(Object, Method, boolean)
-     3. create(Method)
-     4. create(Method, boolean)
-     5. create(Class, String)
-     6. create(Class, String, boolean)
-     7. create(Object, String)
-     8. create(Object, String, boolean)
-     9. declaration()
-     10. func()
-     11. isStreaming()
-     12. runAsync(Map, ToolContext)
-     13. callLive(Map, ToolContext, InvocationContext)
+     3. create(Object, Method, boolean, boolean)
+     4. create(Method)
+     5. create(Method, boolean)
+     6. create(Method, boolean, boolean)
+     7. create(Class, String)
+     8. create(Class, String, boolean)
+     9. create(Class, String, boolean, boolean)
+     10. create(Object, String)
+     11. create(Object, String, boolean)
+     12. create(Object, String, boolean, boolean)
+     13. declaration()
+     14. func()
+     15. isStreaming()
+     16. runAsync(Map, ToolContext)
+     17. callLive(Map, ToolContext, InvocationContext)
 
 Hide sidebar  Show sidebar
 
@@ -54,7 +60,7 @@ Hide sidebar  Show sidebar
 com.google.adk.tools.FunctionTool
 
 Direct Known Subclasses:
-    `[LoadMemoryTool](LoadMemoryTool.html "class in com.google.adk.tools"), [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
+    `[ComputerUseTool](computeruse/ComputerUseTool.html "class in com.google.adk.tools.computeruse"), [LoadMemoryTool](LoadMemoryTool.html "class in com.google.adk.tools"), [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
 
 * * *
 
@@ -90,6 +96,18 @@ Description
 
  
 
+`protected `
+
+`FunctionTool([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean isLongRunning, boolean requireConfirmation, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+ 
+
+`protected `
+
+`FunctionTool([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean isLongRunning, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+ 
+
   * ## Method Summary
 
 All MethodsStatic MethodsInstance MethodsConcrete Methods
@@ -120,6 +138,12 @@ Description
 
 `static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
 
+`create([Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<?> cls, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation, boolean isLongRunning)`
+
+ 
+
+`static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
+
 `create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func)`
 
  
@@ -127,6 +151,12 @@ Description
 `static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
 
 `create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation)`
+
+ 
+
+`static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
+
+`create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation, boolean isLongRunning)`
 
  
 
@@ -144,6 +174,12 @@ Description
 
 `static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
 
+`create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation, boolean isLongRunning)`
+
+ 
+
+`static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
+
 `create([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func)`
 
  
@@ -151,6 +187,12 @@ Description
 `static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
 
 `create([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation)`
+
+ 
+
+`static [FunctionTool](FunctionTool.html "class in com.google.adk.tools")`
+
+`create([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation, boolean isLongRunning)`
 
  
 
@@ -199,6 +241,14 @@ protected FunctionTool(@Nullable [Object](https://docs.oracle.com/en/java/javase
 
 protected FunctionTool(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean isLongRunning, boolean requireConfirmation)
 
+    * ### FunctionTool
+
+protected FunctionTool(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean isLongRunning, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+
+    * ### FunctionTool
+
+protected FunctionTool(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean isLongRunning, boolean requireConfirmation, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+
   * ## Method Details
 
     * ### create
@@ -211,11 +261,19 @@ public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") 
 
     * ### create
 
+public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation, boolean isLongRunning)
+
+    * ### create
+
 public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func)
 
     * ### create
 
 public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation)
+
+    * ### create
+
+public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, boolean requireConfirmation, boolean isLongRunning)
 
     * ### create
 
@@ -227,11 +285,19 @@ public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") 
 
     * ### create
 
+public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<?> cls, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation, boolean isLongRunning)
+
+    * ### create
+
 public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName)
 
     * ### create
 
 public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation)
+
+    * ### create
+
+public static [FunctionTool](FunctionTool.html "class in com.google.adk.tools") create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation, boolean isLongRunning)
 
     * ### declaration
 

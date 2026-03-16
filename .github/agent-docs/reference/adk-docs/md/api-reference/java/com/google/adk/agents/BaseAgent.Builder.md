@@ -30,21 +30,21 @@ Contents
      1. name
      2. description
      3. subAgents
-     4. callbackPluginBuilder
+     4. beforeAgentCallback
+     5. afterAgentCallback
   6. Constructor Details
      1. Builder()
   7. Method Details
-     1. callbackPluginBuilder()
-     2. self()
-     3. name(String)
-     4. description(String)
-     5. subAgents(List)
-     6. subAgents(BaseAgent...)
-     7. beforeAgentCallback(Callbacks.BeforeAgentCallback)
-     8. beforeAgentCallback(List)
-     9. afterAgentCallback(Callbacks.AfterAgentCallback)
-     10. afterAgentCallback(List)
-     11. build()
+     1. self()
+     2. name(String)
+     3. description(String)
+     4. subAgents(List)
+     5. subAgents(BaseAgent...)
+     6. beforeAgentCallback(Callbacks.BeforeAgentCallback)
+     7. beforeAgentCallback(List)
+     8. afterAgentCallback(Callbacks.AfterAgentCallback)
+     9. afterAgentCallback(List)
+     10. build()
 
 Hide sidebar  Show sidebar
 
@@ -79,9 +79,15 @@ Field
 
 Description
 
-`protected final [CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in com.google.adk.agents")`
+`protected com.google.common.collect.ImmutableList<[Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
 
-`callbackPluginBuilder`
+`afterAgentCallback`
+
+ 
+
+`protected com.google.common.collect.ImmutableList<[Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
+
+`beforeAgentCallback`
 
  
 
@@ -155,12 +161,6 @@ Description
 
  
 
-`protected [CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in com.google.adk.agents")`
-
-`callbackPluginBuilder()`
-
- 
-
 `B`
 
 `description([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
@@ -212,9 +212,13 @@ protected [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/
 
 protected com.google.common.collect.ImmutableList<[BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents
 
-    * ### callbackPluginBuilder
+    * ### beforeAgentCallback
 
-protected final [CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in com.google.adk.agents") callbackPluginBuilder
+protected com.google.common.collect.ImmutableList<[Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback
+
+    * ### afterAgentCallback
+
+protected com.google.common.collect.ImmutableList<[Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback
 
   * ## Constructor Details
 
@@ -223,10 +227,6 @@ protected final [CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in c
 public Builder()
 
   * ## Method Details
-
-    * ### callbackPluginBuilder
-
-protected [CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in com.google.adk.agents") callbackPluginBuilder()
 
     * ### self
 

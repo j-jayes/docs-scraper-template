@@ -178,6 +178,12 @@ Represents an event in a session.
 
 `class `
 
+`[EventActions](../events/EventActions.html "class in com.google.adk.events")`
+
+Represents the actions attached to an event.
+
+`class `
+
 `[ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events")`
 
 Represents a tool confirmation configuration.
@@ -235,6 +241,12 @@ Description
 `[Session](../sessions/Session.html "class in com.google.adk.sessions")`
 
 A [`Session`](../sessions/Session.html "class in com.google.adk.sessions") object that encapsulates the [`State`](../sessions/State.html "class in com.google.adk.sessions") and [`Event`](../events/Event.html "class in com.google.adk.events")s of a session.
+
+`final class `
+
+`[SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions")`
+
+Key for a session, composed of appName, userId and session id.
 
   * ## Uses of [JsonBaseModel](../JsonBaseModel.html "class in com.google.adk") in [com.google.adk.tools](../tools/package-summary.html)
 

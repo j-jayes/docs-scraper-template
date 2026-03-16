@@ -313,7 +313,7 @@ To inject a value from the session state, enclose the key of the desired state v
 
 **Example:**
 
-PythonTypeScriptGo
+PythonTypeScriptGoJava
     
     
     from google.adk.agents import LlmAgent
@@ -386,6 +386,20 @@ PythonTypeScriptGo
             log.Fatalf("Failed to create runner: %v", err)
         }
     
+    
+    
+    import com.google.adk.agents.LlmAgent;
+    
+    LlmAgent storyGenerator = LlmAgent.builder()
+        .name("StoryGenerator")
+        .model("gemini-2.5-flash")
+        .instruction("Write a short story about a cat, focusing on the theme: " + topic)
+        .build();
+    
+    // Assuming session.state().put("topic", "friendship"), the LLM
+    // will receive the following instruction:
+    // "Write a short story about a cat, focusing on the theme: friendship."
+    
 
 #### Important Considerations¶
 
@@ -407,7 +421,7 @@ To achieve this, provide a function to the `instruction` parameter instead of a 
 
 The `InstructionProvider` function receives a `ReadonlyContext` object, which you can use to access session state or other contextual information if you need to build the instruction dynamically.
 
-PythonTypeScriptGo
+PythonTypeScriptGoJava
     
     
     from google.adk.agents import LlmAgent
@@ -450,10 +464,31 @@ PythonTypeScriptGo
         return "This is an instruction with {{literal_braces}} that will not be replaced.", nil
     }
     
+    
+    
+    import com.google.adk.agents.Instruction;
+    import com.google.adk.agents.LlmAgent;
+    import com.google.adk.agents.ReadonlyContext;
+    import io.reactivex.rxjava3.core.Single;
+    
+    // This is an Instruction.Provider
+    Instruction.Provider myInstructionProvider = new Instruction.Provider(
+        (ReadonlyContext context) -> {
+            // No state injection occurs — curly braces are treated as literal text.
+            return Single.just("Format your output as JSON: {\"city\": \"<name>\", \"population\": <number>}");
+        }
+    );
+    
+    LlmAgent agent = LlmAgent.builder()
+        .model("gemini-2.5-flash")
+        .name("template_helper_agent")
+        .instruction(myInstructionProvider)
+        .build();
+    
 
 If you want to both use an `InstructionProvider` _and_ inject state into your instructions, you can use the `inject_session_state` utility function. Only `{key}` placeholders matching valid state variable names will be replaced; other text (including curly braces that don't match valid identifiers) will be left as-is.
 
-PythonGo
+PythonGoJava
     
     
     from google.adk.agents import LlmAgent
@@ -481,6 +516,29 @@ PythonGo
         // This will inject the 'adjective' state variable but leave the literal braces.
         return instructionutil.InjectSessionState(ctx, template)
     }
+    
+    
+    
+    import com.google.adk.agents.Instruction;
+    import com.google.adk.agents.LlmAgent;
+    import com.google.adk.agents.ReadonlyContext;
+    import com.google.adk.utils.InstructionUtils;
+    import io.reactivex.rxjava3.core.Single;
+    
+    Instruction.Provider myDynamicInstructionProvider = new Instruction.Provider(
+        (ReadonlyContext context) -> {
+            String template = "This is a " + adjective + " instruction. Use JSON like: {\"key\": \"value\"}.";
+            // This will inject the 'adjective' state variable.
+            // The JSON braces are left alone because their content is not a valid identifier.
+            return InstructionUtils.injectSessionState(context.invocationContext(), template);
+        }
+    );
+    
+    LlmAgent agent = LlmAgent.builder()
+        .model("gemini-2.5-flash")
+        .name("dynamic_template_helper_agent")
+        .instruction(myDynamicInstructionProvider)
+        .build();
     
 
 **Benefits of Direct Injection**
@@ -678,7 +736,7 @@ PythonTypeScriptGoJava
         LlmAgent greetingAgent =
             LlmAgent.builder()
                 .name("Greeter")
-                .model("gemini-2.0-flash")
+                .model("gemini-2.5-flash")
                 .instruction("Generate a short, friendly greeting.")
                 .description("Greeting agent")
                 .outputKey("last_greeting") // Save response to state['last_greeting']
@@ -690,7 +748,11 @@ PythonTypeScriptGoJava
         String sessionId = "session1";
     
         InMemorySessionService sessionService = new InMemorySessionService();
-        Runner runner = new Runner(greetingAgent, appName, null, sessionService); // artifactService can be null if not used
+        Runner runner = Runner.builder()
+          .agent(greetingAgent)
+          .appName(appName)
+          .sessionService(sessionService)
+          .build();
     
         Session session =
             sessionService.createSession(appName, userId, null, sessionId).blockingGet();
@@ -1157,7 +1219,7 @@ State modifications _within_ callbacks or tools using `CallbackContext.state` or
 
 Back to top  [ Previous  Migrate sessions  ](../session/migrate/) [ Next  Memory  ](../memory/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

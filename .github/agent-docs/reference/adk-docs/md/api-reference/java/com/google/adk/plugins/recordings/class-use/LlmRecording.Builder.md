@@ -57,7 +57,7 @@ LlmRecording.Builder.`[llmRequest](../LlmRecording.Builder.html#llmRequest\(com.
 
 `abstract [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-LlmRecording.Builder.`[llmResponse](../LlmRecording.Builder.html#llmResponse\(com.google.adk.models.LlmResponse\))([LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+LlmRecording.Builder.`[llmResponses](../LlmRecording.Builder.html#llmResponses\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)`
 
  
 

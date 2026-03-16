@@ -180,7 +180,7 @@ public Builder()
 
     * ### build
 
-@CanIgnoreReturnValue public [AgentExecutor](AgentExecutor.html "class in com.google.adk.a2a.executor") build()
+public [AgentExecutor](AgentExecutor.html "class in com.google.adk.a2a.executor") build()
 
 
 

@@ -29,9 +29,8 @@ Contents
      1. Builder()
   5. Method Details
      1. screenshot(byte[])
-     2. url(Optional)
-     3. url(String)
-     4. build()
+     2. url(String)
+     3. build()
 
 Hide sidebar  Show sidebar
 
@@ -86,13 +85,7 @@ Description
 
 `[ComputerState.Builder](ComputerState.Builder.html "class in com.google.adk.tools.computeruse")`
 
-`url([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
-
- 
-
-`[ComputerState.Builder](ComputerState.Builder.html "class in com.google.adk.tools.computeruse")`
-
-`url([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> url)`
+`url(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
 
  
 
@@ -117,11 +110,7 @@ public Builder()
 
     * ### url
 
-@CanIgnoreReturnValue public [ComputerState.Builder](ComputerState.Builder.html "class in com.google.adk.tools.computeruse") url([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> url)
-
-    * ### url
-
-@CanIgnoreReturnValue public [ComputerState.Builder](ComputerState.Builder.html "class in com.google.adk.tools.computeruse") url([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)
+@CanIgnoreReturnValue public [ComputerState.Builder](ComputerState.Builder.html "class in com.google.adk.tools.computeruse") url(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)
 
     * ### build
 

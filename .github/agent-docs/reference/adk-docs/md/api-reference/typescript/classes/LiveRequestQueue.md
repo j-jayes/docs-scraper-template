@@ -17,7 +17,7 @@ Preparing search index...
 
 Queue used to send LiveRequest in a live (bidirectional streaming) way.
 
-  * Defined in [core/src/agents/live_request_queue.ts:31](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L31)
+  * Defined in [agents/live_request_queue.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L31)
 
 
 
@@ -42,7 +42,7 @@ Implements the async iterator protocol.
 
 #### Returns AsyncGenerator<[LiveRequest](../interfaces/LiveRequest.html), void, undefined>
 
-    * Defined in [core/src/agents/live_request_queue.ts:132](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L132)
+    * Defined in [agents/live_request_queue.ts:131](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L131)
 
 
 
@@ -55,7 +55,7 @@ Sends a close signal to the queue.
 
 #### Returns void
 
-    * Defined in [core/src/agents/live_request_queue.ts:75](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L75)
+    * Defined in [agents/live_request_queue.ts:75](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L75)
 
 
 
@@ -70,7 +70,7 @@ Retrieves a request from the queue. If the queue is empty, it will wait until a 
 
 A promise that resolves with the next available request.
 
-    * Defined in [core/src/agents/live_request_queue.ts:60](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L60)
+    * Defined in [agents/live_request_queue.ts:60](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L60)
 
 
 
@@ -89,7 +89,7 @@ The request to send.
 
 #### Returns void
 
-    * Defined in [core/src/agents/live_request_queue.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L43)
+    * Defined in [agents/live_request_queue.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L43)
 
 
 
@@ -102,7 +102,7 @@ Sends an activity end signal to mark the end of user input.
 
 #### Returns void
 
-    * Defined in [core/src/agents/live_request_queue.ts:124](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L124)
+    * Defined in [agents/live_request_queue.ts:124](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L124)
 
 
 
@@ -115,7 +115,7 @@ Sends an activity start signal to mark the beginning of user input.
 
 #### Returns void
 
-    * Defined in [core/src/agents/live_request_queue.ts:117](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L117)
+    * Defined in [agents/live_request_queue.ts:117](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L117)
 
 
 
@@ -134,7 +134,7 @@ The content to send.
 
 #### Returns void
 
-    * Defined in [core/src/agents/live_request_queue.ts:102](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L102)
+    * Defined in [agents/live_request_queue.ts:102](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L102)
 
 
 
@@ -153,7 +153,7 @@ The blob to send.
 
 #### Returns void
 
-    * Defined in [core/src/agents/live_request_queue.ts:110](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/live_request_queue.ts#L110)
+    * Defined in [agents/live_request_queue.ts:110](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/live_request_queue.ts#L110)
 
 
 

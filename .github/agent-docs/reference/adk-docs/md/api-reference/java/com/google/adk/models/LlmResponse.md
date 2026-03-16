@@ -27,19 +27,20 @@ Contents
   4. Method Details
      1. content()
      2. groundingMetadata()
-     3. partial()
-     4. turnComplete()
-     5. errorCode()
-     6. finishReason()
-     7. avgLogprobs()
-     8. errorMessage()
-     9. interrupted()
-     10. usageMetadata()
-     11. modelVersion()
-     12. toBuilder()
-     13. builder()
-     14. create(List)
-     15. create(GenerateContentResponse)
+     3. customMetadata()
+     4. partial()
+     5. turnComplete()
+     6. errorCode()
+     7. finishReason()
+     8. avgLogprobs()
+     9. errorMessage()
+     10. interrupted()
+     11. usageMetadata()
+     12. modelVersion()
+     13. toBuilder()
+     14. builder()
+     15. create(List)
+     16. create(GenerateContentResponse)
 
 Hide sidebar  Show sidebar
 
@@ -112,6 +113,12 @@ Returns the content of the first candidate in the response, if available.
 `create([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Candidate> candidates)`
 
  
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata>>`
+
+`customMetadata()`
+
+Returns the custom metadata of the response, if available.
 
 `abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason>`
 
@@ -203,6 +210,15 @@ Returns the grounding metadata of the first candidate in the response, if availa
 
 Returns:
     An [`Optional`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util") containing `GroundingMetadata` or empty.
+
+    * ### customMetadata
+
+public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata>> customMetadata()
+
+Returns the custom metadata of the response, if available.
+
+Returns:
+    An [`Optional`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util") containing a list of `CustomMetadata` or empty.
 
     * ### partial
 

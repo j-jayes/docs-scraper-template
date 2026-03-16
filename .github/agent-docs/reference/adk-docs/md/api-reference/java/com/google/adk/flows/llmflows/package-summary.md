@@ -46,7 +46,7 @@ Description
 
  
 
-  * All Classes and InterfacesInterfacesClassesRecord Classes
+  * All Classes and InterfacesInterfacesClasses
 
 Class
 
@@ -71,6 +71,10 @@ A basic flow that calls the LLM in a loop until a final response is generated.
 [CodeExecution](CodeExecution.html "class in com.google.adk.flows.llmflows")
 
 Handles Code Execution related logic.
+
+[Compaction](Compaction.html "class in com.google.adk.flows.llmflows")
+
+Request processor that performs event compaction.
 
 [Contents](Contents.html "class in com.google.adk.flows.llmflows")
 
@@ -111,10 +115,6 @@ Interface for processing LLM responses.
 [ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
 
 Result of response processing.
-
-[ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.flows.llmflows")
-
-An app contains Resumability configuration for the agents.
 
 [SingleFlow](SingleFlow.html "class in com.google.adk.flows.llmflows")
 

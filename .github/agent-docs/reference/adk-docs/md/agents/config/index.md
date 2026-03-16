@@ -56,6 +56,7 @@ Workflow agents
           * Setup 
           * Build an agent 
           * Run the agent 
+          * Run programmatically 
         * Example configs 
           * Built-in tool example 
           * Custom tool example 
@@ -210,6 +211,7 @@ Table of contents
     * Setup 
     * Build an agent 
     * Run the agent 
+    * Run programmatically 
   * Example configs 
     * Built-in tool example 
     * Custom tool example 
@@ -227,7 +229,7 @@ Table of contents
 
 # Build agents with Agent Config¶
 
-Supported in ADKPython v1.11.0Experimental
+Supported in ADKPython v1.11.0Java v0.3.0Experimental
 
 The ADK Agent Config feature lets you build an ADK workflow without writing code. An Agent Config uses a YAML format text file with a brief description of the agent, allowing just about anyone to assemble and run an ADK agent. The following is a simple example of a basic Agent Config definition:
     
@@ -336,6 +338,39 @@ To run your Agent Config-defined agent:
 
 For more information on the ways to run your agent, see the _Run Your Agent_ topic in the [Quickstart](/adk-docs/get-started/quickstart/#run-your-agent). For more information about the ADK command line options, see the [ADK CLI reference](/adk-docs/api-reference/cli/).
 
+### Run programmatically¶
+
+You can also bypass the CLI and dynamically load and execute a configuration-based agent directly in your code. The utility loads the configuration and instantiates the proper agent class (such as `LlmAgent`) transparently as a `BaseAgent` subclass.
+
+PythonJava
+    
+    
+    import asyncio
+    from google.adk.agents import config_agent_utils
+    from google.adk.agents import Runner
+    
+    async def main():
+        # Load the agent directly from the YAML config file
+        agent = config_agent_utils.from_config("my_agent/root_agent.yaml")
+        # ...
+    
+    if __name__ == "__main__":
+        asyncio.run(main())
+    
+    
+    
+    import com.google.adk.agents.BaseAgent;
+    import com.google.adk.agents.ConfigAgentUtils;
+    
+    public class AgentApp {
+        public static void main(String[] args) throws Exception {
+            // Load the agent directly from the YAML config file
+            BaseAgent agent = ConfigAgentUtils.fromConfig("my_agent/root_agent.yaml");
+            // ...
+        }
+    }
+    
+
 ## Example configs¶
 
 This section shows examples of Agent Config files to get you started building agents. For additional and more complete examples, see the ADK [samples repository](https://github.com/search?q=repo%3Agoogle%2Fadk-python+path%3A%2F%5Econtributing%5C%2Fsamples%5C%2F%2F+root_agent.yaml&type=code).
@@ -412,7 +447,7 @@ You can deploy Agent Config agents with [Cloud Run](/adk-docs/deploy/cloud-run/)
 The Agent Config feature is experimental and includes the following limitations:
 
   * **Model support:** Only Gemini models are currently supported. Integration with third-party models is in progress.
-  * **Programming language:** The Agent Config feature currently supports only Python code for tools and other functionality requiring programming code.
+  * **Programming language:** The Agent Config feature currently supports Python and Java code for tools and other functionality requiring programming code.
   * **ADK Tool support:** The following ADK tools are supported by the Agent Config feature, but _not all tools are fully supported_ :
     * `google_search`
     * `load_artifacts`
@@ -437,7 +472,7 @@ For ideas on how and what to build with ADK Agent Configs, see the yaml-based ag
 
 Back to top  [ Previous  Multi-agent systems  ](../multi-agents/) [ Next  AI Models for ADK agents  ](../models/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

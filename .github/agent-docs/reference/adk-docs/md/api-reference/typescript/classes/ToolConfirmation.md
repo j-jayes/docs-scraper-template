@@ -17,7 +17,7 @@ Preparing search index...
 
 Represents a tool confirmation configuration. (Experimental, subject to change)
 
-  * Defined in [core/src/tools/tool_confirmation.ts:11](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/tool_confirmation.ts#L11)
+  * Defined in [tools/tool_confirmation.ts:11](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/tool_confirmation.ts#L11)
 
 
 
@@ -41,7 +41,7 @@ payload?: unknown;
 
 #### Returns [ToolConfirmation]()
 
-    * Defined in [core/src/tools/tool_confirmation.ts:24](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/tool_confirmation.ts#L24)
+    * Defined in [tools/tool_confirmation.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/tool_confirmation.ts#L24)
 
 
 
@@ -52,9 +52,9 @@ payload?: unknown;
 
 confirmed: boolean
 
-Whether the tool excution is confirmed.
+Whether the tool execution is confirmed.
 
-  * Defined in [core/src/tools/tool_confirmation.ts:16](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/tool_confirmation.ts#L16)
+  * Defined in [tools/tool_confirmation.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/tool_confirmation.ts#L16)
 
 
 
@@ -64,7 +64,7 @@ hint: string
 
 The hint text for why the input is needed.
 
-  * Defined in [core/src/tools/tool_confirmation.ts:13](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/tool_confirmation.ts#L13)
+  * Defined in [tools/tool_confirmation.ts:13](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/tool_confirmation.ts#L13)
 
 
 
@@ -74,7 +74,7 @@ payload?: unknown
 
 The custom data payload needed from the user to continue the flow. It should be JSON serializable.
 
-  * Defined in [core/src/tools/tool_confirmation.ts:22](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/tool_confirmation.ts#L22)
+  * Defined in [tools/tool_confirmation.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/tool_confirmation.ts#L22)
 
 
 

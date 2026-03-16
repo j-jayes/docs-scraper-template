@@ -32,6 +32,10 @@ com.google.adk.tools
 
  
 
+com.google.adk.tools.mcp
+
+ 
+
   * ## Uses of [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
 
 Classes in [com.google.adk.tools](../package-summary.html) that implement [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools")
@@ -45,6 +49,22 @@ Description
 `class `
 
 `[NamedToolPredicate](../NamedToolPredicate.html "class in com.google.adk.tools")`
+
+ 
+
+  * ## Uses of [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") in [com.google.adk.tools.mcp](../mcp/package-summary.html)
+
+Methods in [com.google.adk.tools.mcp](../mcp/package-summary.html) with parameters of type [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[McpAsyncToolset.Builder](../mcp/McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
+
+McpAsyncToolset.Builder.`[toolFilter](../mcp/McpAsyncToolset.Builder.html#toolFilter\(com.google.adk.tools.ToolPredicate\))([ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
  
 

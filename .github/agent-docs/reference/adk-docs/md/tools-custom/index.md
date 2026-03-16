@@ -2217,7 +2217,7 @@ Toolsets offer a powerful way to organize, manage, and dynamically provide colle
 
 Back to top  [ Previous  Tools and Integrations for Agents  ](../integrations/) [ Next  Overview  ](function-tools/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

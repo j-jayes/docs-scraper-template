@@ -682,7 +682,7 @@ The criterion returns a score between 0.0 and 1.0, representing the fraction of 
 
 Back to top  [ Previous  Why Evaluate Agents  ](../) [ Next  User Simulation  ](../user-sim/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

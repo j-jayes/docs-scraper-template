@@ -242,7 +242,7 @@ Follow the instructions for [deploying your agent to Cloud Run](cloud-run/#deplo
 
 Back to top  [ Previous  Event Loop  ](../runtime/event-loop/) [ Next  Deploy to Vertex AI Agent Engine  ](agent-engine/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

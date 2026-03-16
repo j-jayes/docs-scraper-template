@@ -280,7 +280,7 @@ With this configuration, every API call from your agent will be routed through A
 
 Back to top  [ Previous  Vertex AI hosted  ](../vertex/) [ Next  Ollama  ](../ollama/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

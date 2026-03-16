@@ -29,10 +29,11 @@ Contents
      1. Builder()
   5. Method Details
      1. runConfig(RunConfig)
-     2. beforeExecuteCallback(Callbacks.BeforeExecuteCallback)
-     3. afterExecuteCallback(Callbacks.AfterExecuteCallback)
-     4. afterEventCallback(Callbacks.AfterEventCallback)
-     5. build()
+     2. outputMode(AgentExecutorConfig.OutputMode)
+     3. beforeExecuteCallback(Callbacks.BeforeExecuteCallback)
+     4. afterExecuteCallback(Callbacks.AfterExecuteCallback)
+     5. afterEventCallback(Callbacks.AfterEventCallback)
+     6. build()
 
 Hide sidebar  Show sidebar
 
@@ -99,6 +100,12 @@ Description
 
 `abstract [AgentExecutorConfig.Builder](AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
 
+`outputMode([AgentExecutorConfig.OutputMode](AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor") outputMode)`
+
+ 
+
+`abstract [AgentExecutorConfig.Builder](AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
+
 `runConfig([RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
 
  
@@ -121,6 +128,10 @@ public Builder()
     * ### runConfig
 
 @CanIgnoreReturnValue public abstract [AgentExecutorConfig.Builder](AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor") runConfig([RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)
+
+    * ### outputMode
+
+@CanIgnoreReturnValue public abstract [AgentExecutorConfig.Builder](AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor") outputMode([AgentExecutorConfig.OutputMode](AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor") outputMode)
 
     * ### beforeExecuteCallback
 

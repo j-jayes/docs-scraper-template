@@ -29,7 +29,7 @@ Contents
      1. LlmRecording()
   6. Method Details
      1. llmRequest()
-     2. llmResponse()
+     2. llmResponses()
      3. builder()
 
 Hide sidebar  Show sidebar
@@ -96,11 +96,11 @@ Description
 
 The LLM request.
 
-`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")>`
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")>>`
 
-`llmResponse()`
+`llmResponses()`
 
-The LLM response.
+The LLM responses.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -123,11 +123,11 @@ public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/ja
 
 The LLM request.
 
-    * ### llmResponse
+    * ### llmResponses
 
-public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")> llmResponse()
+public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")>> llmResponses()
 
-The LLM response.
+The LLM responses.
 
     * ### builder
 

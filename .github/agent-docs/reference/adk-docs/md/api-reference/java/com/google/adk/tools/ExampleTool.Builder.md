@@ -49,6 +49,8 @@ Enclosing class:
 
 public static final class ExampleTool.Builder extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
+Builder for [`ExampleTool`](ExampleTool.html "class in com.google.adk.tools").
+
   * ## Constructor Summary
 
 Constructors

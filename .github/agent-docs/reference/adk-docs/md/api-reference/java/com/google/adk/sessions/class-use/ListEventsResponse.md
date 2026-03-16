@@ -56,6 +56,12 @@ Method
 
 Description
 
+`default io.reactivex.rxjava3.core.Single<[ListEventsResponse](../ListEventsResponse.html "class in com.google.adk.sessions")>`
+
+BaseSessionService.`[listEvents](../BaseSessionService.html#listEvents\(com.google.adk.sessions.SessionKey\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+Lists the events within a specific session.
+
 `io.reactivex.rxjava3.core.Single<[ListEventsResponse](../ListEventsResponse.html "class in com.google.adk.sessions")>`
 
 BaseSessionService.`[listEvents](../BaseSessionService.html#listEvents\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`

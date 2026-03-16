@@ -1953,7 +1953,7 @@ In this part, you learned how to implement multimodal features in ADK Gemini Liv
 
 Back to top  [ Previous  Part 4. Run configuration  ](../part4/) [ Next  Streaming Tools  ](../../streaming-tools/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

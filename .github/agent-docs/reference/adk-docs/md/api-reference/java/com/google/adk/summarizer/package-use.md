@@ -27,6 +27,14 @@ Package
 
 Description
 
+com.google.adk.agents
+
+ 
+
+com.google.adk.apps
+
+ 
+
 com.google.adk.runner
 
  
@@ -34,6 +42,26 @@ com.google.adk.runner
 com.google.adk.summarizer
 
  
+
+  * Classes in [com.google.adk.summarizer](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
+
+Class
+
+Description
+
+[EventsCompactionConfig](class-use/EventsCompactionConfig.html#com.google.adk.agents)
+
+Configuration for event compaction.
+
+  * Classes in [com.google.adk.summarizer](package-summary.html) used by [com.google.adk.apps](../apps/package-summary.html)
+
+Class
+
+Description
+
+[EventsCompactionConfig](class-use/EventsCompactionConfig.html#com.google.adk.apps)
+
+Configuration for event compaction.
 
   * Classes in [com.google.adk.summarizer](package-summary.html) used by [com.google.adk.runner](../runner/package-summary.html)
 
@@ -62,6 +90,10 @@ Base interface for compacting events.
 [EventsCompactionConfig](class-use/EventsCompactionConfig.html#com.google.adk.summarizer)
 
 Configuration for event compaction.
+
+[EventsCompactionConfig.Builder](class-use/EventsCompactionConfig.Builder.html#com.google.adk.summarizer)
+
+Builder for [`EventsCompactionConfig`](EventsCompactionConfig.html "class in com.google.adk.summarizer").
 
 
 

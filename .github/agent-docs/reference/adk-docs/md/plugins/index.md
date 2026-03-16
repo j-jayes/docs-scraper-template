@@ -956,7 +956,7 @@ Check out these resources for developing and applying Plugins to your ADK projec
 
 Back to top  [ Previous  Apps: workflow management class  ](../apps/) [ Next  Model Context Protocol (MCP)  ](../mcp/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

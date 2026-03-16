@@ -1524,6 +1524,8 @@
       
         
       
+        
+      
     
     
     
@@ -1758,6 +1760,34 @@
     
   
     LiteLLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/models/litert-lm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LiteRT-LM
   
 
     
@@ -5554,6 +5584,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#automatically-created-views-1270" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatically Created Views (1.27.0+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event-types" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5766,7 +5807,7 @@
 <p>Use ADK Python version 1.26.0 or higher to make full use of the features described in this document, including auto-schema-upgrade, tool provenance tracking, and HITL event tracing.</p>
 </div>
 <p>The BigQuery Agent Analytics Plugin significantly enhances the Agent Development Kit (ADK) by providing a robust solution for in-depth agent behavior analysis. Using the ADK Plugin architecture and the <strong>BigQuery Storage Write API</strong>, it captures and logs critical operational events directly into a Google BigQuery table, empowering you with advanced capabilities for debugging, real-time monitoring, and comprehensive offline performance evaluation.</p>
-<p>Version 1.26.0 adds <strong>Auto Schema Upgrade</strong> (safely add new columns to existing tables), <strong>Tool Provenance</strong> tracking (LOCAL, MCP, SUB_AGENT, A2A, TRANSFER_AGENT), and <strong>HITL Event Tracing</strong> for human-in-the-loop interactions.</p>
+<p>Version 1.26.0 adds <strong>Auto Schema Upgrade</strong> (safely add new columns to existing tables), <strong>Tool Provenance</strong> tracking (LOCAL, MCP, SUB_AGENT, A2A, TRANSFER_AGENT), and <strong>HITL Event Tracing</strong> for human-in-the-loop interactions. Version 1.27.0 adds <strong>Automatic View Creation</strong> (generate flat, query-friendly event views).</p>
 <div class="admonition example">
 <p class="admonition-title">Preview release</p>
 <p>The BigQuery Agent Analytics Plugin is in Preview release. For more
@@ -5790,6 +5831,7 @@ For information on costs, see the
 <li><strong>Distributed Tracing</strong>: Built-in support for OpenTelemetry-style tracing (<code>trace_id</code>, <code>span_id</code>) to visualize agent execution flows.</li>
 <li><strong>Tool Provenance</strong>: Track the origin of each tool call (local function, MCP server, sub-agent, A2A remote agent, or transfer agent).</li>
 <li><strong>Human-in-the-Loop (HITL) Tracing</strong>: Dedicated event types for credential requests, confirmation prompts, and user input requests.</li>
+<li><strong>Queryable Event Views</strong>: Automatically create flat, per-event-type BigQuery views (e.g., <code>v_llm_request</code>, <code>v_tool_completed</code>) to simplify downstream analytics by unnesting JSON payload data.</li>
 </ul>
 <p>The agent event data recorded varies based on the ADK event type. For more
 information, see <a href="#event-types">Event types and payloads</a>.</p>
@@ -5931,6 +5973,7 @@ been processed, you can view the data for them in the <a href="https://console.c
 <li><strong><code>log_session_metadata</code></strong> (<code>bool</code>, default: <code>True</code>): If True, logs session information into the <code>attributes</code> column, including <code>session_id</code>, <code>app_name</code>, <code>user_id</code>, and the session <code>state</code> dictionary (e.g., custom state like gchat thread-id, customer_id).</li>
 <li><strong><code>custom_tags</code></strong> (<code>Dict[str, Any]</code>, default: <code>{}</code>): A dictionary of static tags (e.g., <code>{"env": "prod", "version": "1.0"}</code>) to be included in the <code>attributes</code> column for every event.</li>
 <li><strong><code>auto_schema_upgrade</code></strong> (<code>bool</code>, default: <code>True</code>): When enabled, the plugin automatically adds new columns to an existing table when the plugin schema evolves. Only additive changes are made (columns are never dropped or altered). A version label (<code>adk_schema_version</code>) on the table ensures the diff runs at most once per schema version. Safe to leave enabled.</li>
+<li><strong><code>create_views</code></strong> (<code>bool</code>, default: <code>True</code>): Added in 1.27.0. When enabled, automatically generates per-event-type BigQuery views that unnest structured JSON data (such as <code>content</code> or <code>attributes</code>) into flat, typed columns, significantly simplifying SQL queries.</li>
 </ul>
 <p>The following code sample shows how to define a configuration for the
 BigQuery Agent Analytics plugin:</p>
@@ -5969,10 +6012,11 @@ BigQuery Agent Analytics plugin:</p>
 </span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>    <span class="n">content_formatter</span><span class="o">=</span><span class="n">redact_dollar_amounts</span><span class="p">,</span> <span class="c1"># Redact the dollar amounts in the logging content</span>
 </span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="n">queue_max_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="c1"># Max events to hold in memory</span>
 </span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="n">auto_schema_upgrade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Automatically add new columns to existing tables</span>
-</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="c1"># retry_config=RetryConfig(max_retries=3), # Optional: Configure retries</span>
-</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="p">)</span>
-</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>
-</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="n">plugin</span> <span class="o">=</span> <span class="n">BigQueryAgentAnalyticsPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="n">create_views</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Automatically create per-event-type views</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    <span class="c1"># retry_config=RetryConfig(max_retries=3), # Optional: Configure retries</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="p">)</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="n">plugin</span> <span class="o">=</span> <span class="n">BigQueryAgentAnalyticsPlugin</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="schema-and-production-setup">Schema and production setup<a class="headerlink" href="#schema-and-production-setup" title="Permanent link">&para;</a></h2>
 <h3 id="schema-reference">Schema Reference<a class="headerlink" href="#schema-reference" title="Permanent link">&para;</a></h3>
@@ -6140,6 +6184,45 @@ production, we recommend creating the table manually using the following DDL, wh
 </span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="k">timestamp</span><span class="p">)</span>
 </span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="k">CLUSTER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">event_type</span><span class="p">,</span><span class="w"> </span><span class="n">agent</span><span class="p">,</span><span class="w"> </span><span class="n">user_id</span><span class="p">;</span>
 </span></code></pre></div>
+<h3 id="automatically-created-views-1270">Automatically Created Views (1.27.0+)<a class="headerlink" href="#automatically-created-views-1270" title="Permanent link">&para;</a></h3>
+<p>When <code>create_views=True</code> (the default in 1.27.0 and higher), the plugin automatically generates views for each event type that unnest common JSON structures into flat, typed columns. This significantly simplifies SQL, eliminating the need to write complex <code>JSON_VALUE</code> or <code>JSON_QUERY</code> functions explicitly.</p>
+<p>For example, the view <code>v_llm_request</code> includes the following schema:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>(Common Columns)</strong></td>
+<td style="text-align: left;"><code>VARIES</code></td>
+<td style="text-align: left;">Includes standard metadata: <code>timestamp</code>, <code>event_type</code>, <code>agent</code>, <code>session_id</code>, <code>invocation_id</code>, <code>user_id</code>, <code>trace_id</code>, <code>span_id</code>, <code>parent_span_id</code>, <code>status</code>, <code>error_message</code>, <code>is_truncated</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>model</strong></td>
+<td style="text-align: left;"><code>STRING</code></td>
+<td style="text-align: left;">The name of the LLM model used for the request.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>request_content</strong></td>
+<td style="text-align: left;"><code>JSON</code></td>
+<td style="text-align: left;">The raw LLM request payload.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>llm_config</strong></td>
+<td style="text-align: left;"><code>JSON</code></td>
+<td style="text-align: left;">The configuration parameters passed to the LLM (temperature, top_p, etc.).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>tools</strong></td>
+<td style="text-align: left;"><code>JSON</code></td>
+<td style="text-align: left;">Array of tools available during the request.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="event-types">Event types and payloads<a class="headerlink" href="#event-types" title="Permanent link">&para;</a></h3>
 <p>The <code>content</code> column now contains a <strong>JSON</strong> object specific to the <code>event_type</code>.
 The <code>content_parts</code> column provides a structured view of the content, especially useful for images or offloaded data.</p>
@@ -6649,7 +6732,7 @@ to analyze your agent logs using natural language. Use this tool to answer quest
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright Google 2026&nbsp;&nbsp;|&nbsp;&nbsp;<a href="//policies.google.com/terms">Terms</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="//policies.google.com/privacy">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#__consent">Manage cookies</a>
+      Copyright Google 2026&nbsp;&nbsp;|&nbsp;&nbsp;<a href="//github.com/google/adk-docs/blob/main/LICENSE">License</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="//policies.google.com/privacy">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#__consent">Manage cookies</a>
     </div>
   
   

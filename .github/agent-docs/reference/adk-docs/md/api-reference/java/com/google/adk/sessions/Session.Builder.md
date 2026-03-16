@@ -27,16 +27,18 @@ Contents
   3. Method Summary
   4. Constructor Details
      1. Builder(String)
+     2. Builder(SessionKey)
   5. Method Details
      1. id(String)
-     2. state(State)
-     3. state(ConcurrentMap)
-     4. appName(String)
-     5. userId(String)
-     6. events(List)
-     7. lastUpdateTime(Instant)
-     8. lastUpdateTimeSeconds(double)
-     9. build()
+     2. sessionKey(SessionKey)
+     3. state(State)
+     4. state(ConcurrentMap)
+     5. appName(String)
+     6. userId(String)
+     7. events(List)
+     8. lastUpdateTime(Instant)
+     9. lastUpdateTimeSeconds(double)
+     10. build()
 
 Hide sidebar  Show sidebar
 
@@ -62,6 +64,10 @@ Constructors
 Constructor
 
 Description
+
+`Builder([SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.sessions") with the given session key.
 
 `Builder([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)`
 
@@ -115,6 +121,12 @@ Description
 
 `[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
 
+`sessionKey([SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+Sets the session key.
+
+`[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
+
 `state([State](State.html "class in com.google.adk.sessions") state)`
 
  
@@ -144,11 +156,23 @@ Description
 
 public Builder([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)
 
+    * ### Builder
+
+public Builder([SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey)
+
+Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.sessions") with the given session key.
+
   * ## Method Details
 
     * ### id
 
 @CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") id([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)
+
+    * ### sessionKey
+
+@CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") sessionKey([SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey)
+
+Sets the session key.
 
     * ### state
 

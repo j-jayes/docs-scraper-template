@@ -23,11 +23,14 @@ Contents
 
   1. Description
   2. Nested Class Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
+  3. Field Summary
+  4. Constructor Summary
+  5. Method Summary
+  6. Field Details
+     1. INSTANCE
+  7. Constructor Details
      1. BuiltInCodeExecutionTool()
-  6. Method Details
+  8. Method Details
      1. processLlmRequest(LlmRequest.Builder, ToolContext)
 
 Hide sidebar  Show sidebar
@@ -53,6 +56,22 @@ This tool operates internally within the model and does not require or perform l
 ### Nested classes/interfaces inherited from class [BaseTool](BaseTool.html#nested-class-summary "class in com.google.adk.tools")
 
 `[BaseTool.ToolArgsConfig](BaseTool.ToolArgsConfig.html "class in com.google.adk.tools"), [BaseTool.ToolConfig](BaseTool.ToolConfig.html "class in com.google.adk.tools")`
+
+  * ## Field Summary
+
+Fields
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [BuiltInCodeExecutionTool](BuiltInCodeExecutionTool.html "class in com.google.adk.tools")`
+
+`INSTANCE`
+
+ 
 
   * ## Constructor Summary
 
@@ -92,6 +111,12 @@ Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html 
 
 
 
+
+  * ## Field Details
+
+    * ### INSTANCE
+
+public static final [BuiltInCodeExecutionTool](BuiltInCodeExecutionTool.html "class in com.google.adk.tools") INSTANCE
 
   * ## Constructor Details
 

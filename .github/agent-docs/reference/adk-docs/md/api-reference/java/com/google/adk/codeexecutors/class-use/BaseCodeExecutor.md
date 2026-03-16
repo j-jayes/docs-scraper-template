@@ -38,7 +38,7 @@ com.google.adk.codeexecutors
 
   * ## Uses of [BaseCodeExecutor](../BaseCodeExecutor.html "class in com.google.adk.codeexecutors") in [com.google.adk.agents](../../agents/package-summary.html)
 
-Methods in [com.google.adk.agents](../../agents/package-summary.html) that return [BaseCodeExecutor](../BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
+Methods in [com.google.adk.agents](../../agents/package-summary.html) that return types with arguments of type [BaseCodeExecutor](../BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
 
 Modifier and Type
 
@@ -46,7 +46,7 @@ Method
 
 Description
 
-`[BaseCodeExecutor](../BaseCodeExecutor.html "class in com.google.adk.codeexecutors")`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseCodeExecutor](../BaseCodeExecutor.html "class in com.google.adk.codeexecutors")>`
 
 LlmAgent.`[codeExecutor](../../agents/LlmAgent.html#codeExecutor\(\))()`
 

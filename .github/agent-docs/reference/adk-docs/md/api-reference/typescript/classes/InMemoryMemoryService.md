@@ -25,7 +25,7 @@ Uses keyword matching instead of semantic search.
 
 
 
-  * Defined in [core/src/memory/in_memory_memory_service.ts:18](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/in_memory_memory_service.ts#L18)
+  * Defined in [memory/in_memory_memory_service.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/in_memory_memory_service.ts#L22)
 
 
 
@@ -60,7 +60,7 @@ A promise that resolves when the session is added to the memory.
 
 Implementation of [BaseMemoryService](../interfaces/BaseMemoryService.html).[addSessionToMemory](../interfaces/BaseMemoryService.html#addsessiontomemory)
 
-    * Defined in [core/src/memory/in_memory_memory_service.ts:23](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/in_memory_memory_service.ts#L23)
+    * Defined in [memory/in_memory_memory_service.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/in_memory_memory_service.ts#L28)
 
 
 
@@ -81,7 +81,7 @@ A promise that resolves to SearchMemoryResponse containing the matching memories
 
 Implementation of [BaseMemoryService](../interfaces/BaseMemoryService.html).[searchMemory](../interfaces/BaseMemoryService.html#searchmemory)
 
-    * Defined in [core/src/memory/in_memory_memory_service.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/in_memory_memory_service.ts#L32)
+    * Defined in [memory/in_memory_memory_service.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/in_memory_memory_service.ts#L38)
 
 
 

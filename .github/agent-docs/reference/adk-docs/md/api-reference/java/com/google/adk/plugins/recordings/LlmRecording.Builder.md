@@ -29,7 +29,7 @@ Contents
      1. Builder()
   5. Method Details
      1. llmRequest(LlmRequest)
-     2. llmResponse(LlmResponse)
+     2. llmResponses(List)
      3. build()
 
 Hide sidebar  Show sidebar
@@ -85,7 +85,7 @@ Description
 
 `abstract [LlmRecording.Builder](LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`llmResponse([LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+`llmResponses([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)`
 
  
 
@@ -108,9 +108,9 @@ public Builder()
 
 public abstract [LlmRecording.Builder](LlmRecording.Builder.html "class in com.google.adk.plugins.recordings") llmRequest(@Nullable [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)
 
-    * ### llmResponse
+    * ### llmResponses
 
-public abstract [LlmRecording.Builder](LlmRecording.Builder.html "class in com.google.adk.plugins.recordings") llmResponse(@Nullable [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)
+public abstract [LlmRecording.Builder](LlmRecording.Builder.html "class in com.google.adk.plugins.recordings") llmResponses(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)
 
     * ### build
 

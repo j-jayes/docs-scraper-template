@@ -53,6 +53,10 @@ Configuration for the [`AgentExecutor`](AgentExecutor.html "class in com.google.
 
 Builder for [`AgentExecutorConfig`](AgentExecutorConfig.html "class in com.google.adk.a2a.executor").
 
+[AgentExecutorConfig.OutputMode](class-use/AgentExecutorConfig.OutputMode.html#com.google.adk.a2a.executor)
+
+Output mode for the agent executor.
+
 [Callbacks.AfterEventCallback](class-use/Callbacks.AfterEventCallback.html#com.google.adk.a2a.executor)
 
 Async callback interface for actions to be performed after an event is processed.

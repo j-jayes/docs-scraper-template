@@ -56,6 +56,12 @@ Method
 
 Description
 
+`default io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](../ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
+
+BaseArtifactService.`[listArtifactKeys](../BaseArtifactService.html#listArtifactKeys\(com.google.adk.sessions.SessionKey\))([SessionKey](../../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+ 
+
 `io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](../ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
 
 BaseArtifactService.`[listArtifactKeys](../BaseArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`

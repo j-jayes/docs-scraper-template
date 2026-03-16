@@ -43,12 +43,6 @@ Method
 
 Description
 
-`[CallbackPlugin.Builder](../CallbackPlugin.Builder.html "class in com.google.adk.agents")`
-
-CallbackPlugin.Builder.`[addAfterToolCallbackSync](../CallbackPlugin.Builder.html#addAfterToolCallbackSync\(com.google.adk.agents.Callbacks.AfterToolCallbackSync\))([Callbacks.AfterToolCallbackSync](../Callbacks.AfterToolCallbackSync.html "interface in com.google.adk.agents") callback)`
-
- 
-
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
 LlmAgent.Builder.`[afterToolCallbackSync](../LlmAgent.Builder.html#afterToolCallbackSync\(com.google.adk.agents.Callbacks.AfterToolCallbackSync\))([Callbacks.AfterToolCallbackSync](../Callbacks.AfterToolCallbackSync.html "interface in com.google.adk.agents") afterToolCallbackSync)`

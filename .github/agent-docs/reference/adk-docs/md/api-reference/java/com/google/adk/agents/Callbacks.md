@@ -53,7 +53,7 @@ Description
 
 `[Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")`
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
 `static interface `
 
@@ -77,7 +77,7 @@ Helper interface to allow for sync afterModelCallback.
 
 `[Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")`
 
- 
+Async callback interface for actions to be performed after a tool has been invoked.
 
 `static interface `
 
@@ -89,7 +89,7 @@ Helper interface to allow for sync afterToolCallback.
 
 `[Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")`
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
 `static interface `
 
@@ -113,13 +113,37 @@ Helper interface to allow for sync beforeModelCallback.
 
 `[Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")`
 
- 
+Async callback interface for actions to be performed before a tool is invoked.
 
 `static interface `
 
 `[Callbacks.BeforeToolCallbackSync](Callbacks.BeforeToolCallbackSync.html "interface in com.google.adk.agents")`
 
 Helper interface to allow for sync beforeToolCallback.
+
+`static interface `
+
+`[Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")`
+
+Async callback interface for handling errors that occur during an LLM model call.
+
+`static interface `
+
+`[Callbacks.OnModelErrorCallbackSync](Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents")`
+
+Helper interface to allow for sync onModelErrorCallback.
+
+`static interface `
+
+`[Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")`
+
+Async callback interface for handling errors that occur during a tool invocation.
+
+`static interface `
+
+`[Callbacks.OnToolErrorCallbackSync](Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents")`
+
+Helper interface to allow for sync onToolErrorCallback.
 
   * ## Method Summary
 

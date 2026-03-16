@@ -113,7 +113,9 @@ public [CodeExecutionUtils.CodeExecutionResult](CodeExecutionUtils.CodeExecution
 
 Description copied from class: `[BaseCodeExecutor](BaseCodeExecutor.html#executeCode\(com.google.adk.agents.InvocationContext,com.google.adk.codeexecutors.CodeExecutionUtils.CodeExecutionInput\))`
 
-Executes code and return the code execution result.
+Executes code and return the code execution result. 
+
+This method may perform blocking operations.
 
 Specified by:
     `[executeCode](BaseCodeExecutor.html#executeCode\(com.google.adk.agents.InvocationContext,com.google.adk.codeexecutors.CodeExecutionUtils.CodeExecutionInput\))` in class `[BaseCodeExecutor](BaseCodeExecutor.html "class in com.google.adk.codeexecutors")`

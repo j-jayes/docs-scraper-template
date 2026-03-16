@@ -56,6 +56,10 @@ com.google.adk.tools.applicationintegrationtoolset
 
  
 
+com.google.adk.tools.computeruse
+
+ 
+
 com.google.adk.tools.mcp
 
  
@@ -82,17 +86,11 @@ Description
 
 LlmAgent.`[canonicalTools](../../agents/LlmAgent.html#canonicalTools\(\))()`
 
-Overload of canonicalTools that defaults to an empty context.
+Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../../agents/LlmAgent.html#tools\(\)) field.
 
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
 
 LlmAgent.`[canonicalTools](../../agents/LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") context)`
-
-Convenience overload of canonicalTools that accepts a non-optional ReadonlyContext.
-
-`io.reactivex.rxjava3.core.Flowable<[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
-
-LlmAgent.`[canonicalTools](../../agents/LlmAgent.html#canonicalTools\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents")> context)`
 
 Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../../agents/LlmAgent.html#tools\(\)) field.
 
@@ -131,6 +129,18 @@ Async callback before tool runs.
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
 
 Callbacks.BeforeToolCallbackSync.`[call](../../agents/Callbacks.BeforeToolCallbackSync.html#call\(com.google.adk.agents.InvocationContext,com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [BaseTool](../BaseTool.html "class in com.google.adk.tools") baseTool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> input, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
+
+Callbacks.OnToolErrorCallback.`[call](../../agents/Callbacks.OnToolErrorCallback.html#call\(com.google.adk.agents.InvocationContext,com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.lang.Exception\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [BaseTool](../BaseTool.html "class in com.google.adk.tools") baseTool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> input, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
+
+Async callback when tool call fails.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
+
+Callbacks.OnToolErrorCallbackSync.`[call](../../agents/Callbacks.OnToolErrorCallbackSync.html#call\(com.google.adk.agents.InvocationContext,com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.lang.Exception\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [BaseTool](../BaseTool.html "class in com.google.adk.tools") baseTool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> input, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
  
 
@@ -296,24 +306,6 @@ PluginManager.`[onToolErrorCallback](../../plugins/PluginManager.html#onToolErro
 
  
 
-`io.reactivex.rxjava3.core.Maybe<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
-
-PluginManager.`[runAfterToolCallback](../../plugins/PluginManager.html#runAfterToolCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.util.Map\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolArgs, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> result)`
-
- 
-
-`io.reactivex.rxjava3.core.Maybe<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
-
-PluginManager.`[runBeforeToolCallback](../../plugins/PluginManager.html#runBeforeToolCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolArgs, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
-
- 
-
-`io.reactivex.rxjava3.core.Maybe<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
-
-PluginManager.`[runOnToolErrorCallback](../../plugins/PluginManager.html#runOnToolErrorCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.lang.Throwable\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolArgs, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
-
- 
-
   * ## Uses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
 
 Subclasses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.tools](../package-summary.html)
@@ -364,7 +356,7 @@ A tool that wraps a sub-agent that only uses google_search tool.
 
 `[GoogleSearchTool](../GoogleSearchTool.html "class in com.google.adk.tools")`
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search.
 
 `final class `
 
@@ -388,7 +380,7 @@ A function tool that returns the result asynchronously.
 
 `[UrlContextTool](../UrlContextTool.html "class in com.google.adk.tools")`
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve information from the given URLs.
+A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs.
 
 `class `
 
@@ -446,9 +438,9 @@ Description
 
 `default boolean`
 
-BaseToolset.`[isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.util.Optional,java.util.Optional\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
+BaseToolset.`[isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, [ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
-Helper method to be used by implementers that returns true if the given tool is in the provided list of tools of if testing against the given ToolPredicate returns true (otherwise false).
+Checks if a tool should be selected based on a filter.
 
 `boolean`
 
@@ -456,11 +448,19 @@ NamedToolPredicate.`[test](../NamedToolPredicate.html#test\(com.google.adk.tools
 
  
 
+`default boolean`
+
+ToolPredicate.`[test](../ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+Decides if the given tool is selected.
+
 `boolean`
 
 ToolPredicate.`[test](../ToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
-Decides if the given tool is selected.
+Deprecated.
+
+Use [`ToolPredicate.test(BaseTool, ReadonlyContext)`](../ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\)) instead.
 
   * ## Uses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.tools.applicationintegrationtoolset](../applicationintegrationtoolset/package-summary.html)
 
@@ -489,6 +489,36 @@ Description
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
 
 ApplicationIntegrationToolset.`[getTools](../applicationintegrationtoolset/ApplicationIntegrationToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))(@Nullable [ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+ 
+
+  * ## Uses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.tools.computeruse](../computeruse/package-summary.html)
+
+Subclasses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.tools.computeruse](../computeruse/package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[ComputerUseTool](../computeruse/ComputerUseTool.html "class in com.google.adk.tools.computeruse")`
+
+A tool that wraps computer control functions for use with LLMs.
+
+Methods in [com.google.adk.tools.computeruse](../computeruse/package-summary.html) that return types with arguments of type [BaseTool](../BaseTool.html "class in com.google.adk.tools")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Flowable<[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
+
+ComputerUseToolset.`[getTools](../computeruse/ComputerUseToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
  
 
@@ -585,6 +615,36 @@ Modifier and Type
 Method
 
 Description
+
+`default [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseTool](../BaseTool.html "class in com.google.adk.tools")>>`
+
+AdkComponentProvider.`[getToolClasses](../../utils/AdkComponentProvider.html#getToolClasses\(\))()`
+
+Returns a list of tool classes to register.
+
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseTool](../BaseTool.html "class in com.google.adk.tools")>>`
+
+CoreAdkComponentProvider.`[getToolClasses](../../utils/CoreAdkComponentProvider.html#getToolClasses\(\))()`
+
+Returns tool classes for [`AgentTool`](../AgentTool.html "class in com.google.adk.tools"), [`LongRunningFunctionTool`](../LongRunningFunctionTool.html "class in com.google.adk.tools") and [`ExampleTool`](../ExampleTool.html "class in com.google.adk.tools").
+
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
+
+AdditionalAdkComponentProvider.`[getToolInstances](../../utils/AdditionalAdkComponentProvider.html#getToolInstances\(\))()`
+
+Returns tool instances for [`GoogleSearchTool`](../GoogleSearchTool.html "class in com.google.adk.tools") and [`GoogleMapsTool`](../GoogleMapsTool.html "class in com.google.adk.tools").
+
+`default [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
+
+AdkComponentProvider.`[getToolInstances](../../utils/AdkComponentProvider.html#getToolInstances\(\))()`
+
+Returns a map of tool instances to register, with tool name as key.
+
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
+
+CoreAdkComponentProvider.`[getToolInstances](../../utils/CoreAdkComponentProvider.html#getToolInstances\(\))()`
+
+Returns tool instances for [`LoadArtifactsTool`](../LoadArtifactsTool.html "class in com.google.adk.tools"), [`ExitLoopTool`](../ExitLoopTool.html "class in com.google.adk.tools") and [`UrlContextTool`](../UrlContextTool.html "class in com.google.adk.tools").
 
 `static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseTool](../BaseTool.html "class in com.google.adk.tools")>>`
 

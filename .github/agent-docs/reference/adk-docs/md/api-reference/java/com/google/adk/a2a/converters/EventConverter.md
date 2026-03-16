@@ -22,12 +22,17 @@ Skip navigation links
 Contents 
 
   1. Description
-  2. Nested Class Summary
+  2. Field Summary
   3. Method Summary
-  4. Method Details
-     1. convertEventToA2AMessage(Event)
-     2. convertEventsToA2AMessage(InvocationContext)
-     3. convertEventsToA2AMessage(InvocationContext, EventConverter.AggregationMode)
+  4. Field Details
+     1. ADK_TASK_ID_KEY
+     2. ADK_CONTEXT_ID_KEY
+  5. Method Details
+     1. taskId(Event)
+     2. contextId(Event)
+     3. findUserFunctionCall(List)
+     4. contentToParts(Optional, boolean)
+     5. messagePartsFromContext(InvocationContext)
 
 Hide sidebar  Show sidebar
 
@@ -41,23 +46,27 @@ com.google.adk.a2a.converters.EventConverter
 
 public final class EventConverter extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
-Converter for ADK Events to A2A Messages. 
+Converter for ADK Events to A2A Messages.
 
-**EXPERIMENTAL:** Subject to change, rename, or removal in any future patch release. Do not use in production code.
+  * ## Field Summary
 
-  * ## Nested Class Summary
-
-Nested Classes
+Fields
 
 Modifier and Type
 
-Class
+Field
 
 Description
 
-`static enum `
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
-`[EventConverter.AggregationMode](EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")`
+`ADK_CONTEXT_ID_KEY`
+
+ 
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`ADK_TASK_ID_KEY`
 
  
 
@@ -71,23 +80,35 @@ Method
 
 Description
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message>`
+`static com.google.common.collect.ImmutableList<io.a2a.spec.Part<?>>`
 
-`convertEventsToA2AMessage([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
+`contentToParts([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content, boolean isPartial)`
 
- 
+Converts a GenAI Content object to a list of A2A Parts.
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message>`
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
-`convertEventsToA2AMessage([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [EventConverter.AggregationMode](EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters") mode)`
+`contextId([Event](../../events/Event.html "class in com.google.adk.events") event)`
 
- 
+Returns the context ID from the event.
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message>`
+`static @Nullable [Event](../../events/Event.html "class in com.google.adk.events")`
 
-`convertEventToA2AMessage([Event](../../events/Event.html "class in com.google.adk.events") event)`
+`findUserFunctionCall([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
 
- 
+Returns the last user function call event from the list of events.
+
+`static com.google.common.collect.ImmutableList<io.a2a.spec.Part<?>>`
+
+`messagePartsFromContext([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
+
+Returns the parts from the context events that should be sent to the agent.
+
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`taskId([Event](../../events/Event.html "class in com.google.adk.events") event)`
+
+Returns the task ID from the event.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -96,19 +117,87 @@ Description
 
 
 
+  * ## Field Details
+
+    * ### ADK_TASK_ID_KEY
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") ADK_TASK_ID_KEY
+
+See Also:
+    
+      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.EventConverter.ADK_TASK_ID_KEY)
+
+    * ### ADK_CONTEXT_ID_KEY
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") ADK_CONTEXT_ID_KEY
+
+See Also:
+    
+      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.EventConverter.ADK_CONTEXT_ID_KEY)
+
   * ## Method Details
 
-    * ### convertEventToA2AMessage
+    * ### taskId
 
-public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message> convertEventToA2AMessage([Event](../../events/Event.html "class in com.google.adk.events") event)
+public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") taskId([Event](../../events/Event.html "class in com.google.adk.events") event)
 
-    * ### convertEventsToA2AMessage
+Returns the task ID from the event. 
 
-public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message> convertEventsToA2AMessage([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
+Task ID is stored in the event's custom metadata with the key `ADK_TASK_ID_KEY`.
 
-    * ### convertEventsToA2AMessage
+Parameters:
+    `event` \- The event to get the task ID from.
+Returns:
+    The task ID, or an empty string if not found.
 
-public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<io.a2a.spec.Message> convertEventsToA2AMessage([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [EventConverter.AggregationMode](EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters") mode)
+    * ### contextId
+
+public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") contextId([Event](../../events/Event.html "class in com.google.adk.events") event)
+
+Returns the context ID from the event. 
+
+Context ID is stored in the event's custom metadata with the key `ADK_CONTEXT_ID_KEY`.
+
+Parameters:
+    `event` \- The event to get the context ID from.
+Returns:
+    The context ID, or an empty string if not found.
+
+    * ### findUserFunctionCall
+
+public static @Nullable [Event](../../events/Event.html "class in com.google.adk.events") findUserFunctionCall([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)
+
+Returns the last user function call event from the list of events.
+
+Parameters:
+    `events` \- The list of events to find the user function call event from.
+Returns:
+    The user function call event, or null if not found.
+
+    * ### contentToParts
+
+public static com.google.common.collect.ImmutableList<io.a2a.spec.Part<?>> contentToParts([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content, boolean isPartial)
+
+Converts a GenAI Content object to a list of A2A Parts.
+
+Parameters:
+    `content` \- The GenAI Content object to convert.
+    `isPartial` \- Whether the content is partial.
+Returns:
+    A list of A2A Parts.
+
+    * ### messagePartsFromContext
+
+public static com.google.common.collect.ImmutableList<io.a2a.spec.Part<?>> messagePartsFromContext([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
+
+Returns the parts from the context events that should be sent to the agent. 
+
+All session events from the previous remote agent response (or the beginning of the session in case of the first agent invocation) are included into the A2A message. Events from other agents are presented as user messages and rephased as if a user was telling what happened in the session up to the point.
+
+Parameters:
+    `context` \- The invocation context to get the parts from.
+Returns:
+    A list of A2A Parts.
 
 
 

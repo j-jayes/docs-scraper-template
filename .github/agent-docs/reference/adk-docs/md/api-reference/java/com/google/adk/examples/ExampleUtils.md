@@ -69,7 +69,7 @@ Builds a formatted few-shot example string for the given query.
 
 public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") buildExampleSi([BaseExampleProvider](BaseExampleProvider.html "interface in com.google.adk.examples") exampleProvider, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query)
 
-Builds a formatted few-shot example string for the given query.
+Builds a formatted few-shot example string for the given query. The string can be used for system instructions (i.e., the method name means "Build Example System Instructions").
 
 Parameters:
     `exampleProvider` \- Source of examples.

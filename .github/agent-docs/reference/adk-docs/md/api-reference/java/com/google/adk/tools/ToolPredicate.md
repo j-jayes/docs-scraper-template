@@ -25,6 +25,7 @@ Contents
   2. Method Summary
   3. Method Details
      1. test(BaseTool, Optional)
+     2. test(BaseTool, ReadonlyContext)
 
 Hide sidebar  Show sidebar
 
@@ -44,7 +45,7 @@ Functional interface to decide whether a tool should be exposed to the LLM based
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsDefault MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -52,11 +53,19 @@ Method
 
 Description
 
+`default boolean`
+
+`test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+Decides if the given tool is selected.
+
 `boolean`
 
 `test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
-Decides if the given tool is selected.
+Deprecated.
+
+Use `test(BaseTool, ReadonlyContext)` instead.
 
 
 
@@ -65,7 +74,23 @@ Decides if the given tool is selected.
 
     * ### test
 
-boolean test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") boolean test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)
+
+Deprecated.
+
+Use `test(BaseTool, ReadonlyContext)` instead.
+
+Decides if the given tool is selected.
+
+Parameters:
+    `tool` \- The tool to check.
+    `readonlyContext` \- The current context.
+Returns:
+    true if the tool should be selected, false otherwise.
+
+    * ### test
+
+default boolean test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, @Nullable [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)
 
 Decides if the given tool is selected.
 

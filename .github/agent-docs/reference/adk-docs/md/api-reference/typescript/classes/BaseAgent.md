@@ -27,7 +27,7 @@ Base class for all agents in Agent Development Kit.
 
 
 
-  * Defined in [core/src/agents/base_agent.ts:37](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L37)
+  * Defined in [agents/base_agent.ts:74](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L74)
 
 
 
@@ -35,24 +35,34 @@ Base class for all agents in Agent Development Kit.
 
 ### constructor
 
-  * new BaseAgent(config: BaseAgentConfig): [BaseAgent]()
+  * new BaseAgent(config: [BaseAgentConfig](../interfaces/BaseAgentConfig.html)): [BaseAgent]()
 
 #### Parameters
 
-    * config: BaseAgentConfig
+    * config: [BaseAgentConfig](../interfaces/BaseAgentConfig.html)
 
 #### Returns [BaseAgent]()
 
-    * Defined in [core/src/agents/base_agent.ts:104](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L104)
+    * Defined in [agents/base_agent.ts:149](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L149)
 
 
 
 
 ## Properties
 
+### `Readonly`[BASE_AGENT_SIGNATURE_SYMBOL]
+
+"[BASE_AGENT_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK agent classes.
+
+  * Defined in [agents/base_agent.ts:78](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L78)
+
+
+
 ### `Readonly`afterAgentCallback
 
-afterAgentCallback: SingleAgentCallback[]
+afterAgentCallback: [SingleAgentCallback](../types/SingleAgentCallback.html)[]
 
 Callback or list of callbacks to be invoked after the agent run.
 
@@ -66,13 +76,13 @@ MUST be named 'callbackContext' (enforced).
 
 Content: The content to return to the user. When the content is present, the provided content will be used as agent response and appended to event history as agent response.
 
-  * Defined in [core/src/agents/base_agent.ts:102](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L102)
+  * Defined in [agents/base_agent.ts:147](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L147)
 
 
 
 ### `Readonly`beforeAgentCallback
 
-beforeAgentCallback: SingleAgentCallback[]
+beforeAgentCallback: [SingleAgentCallback](../types/SingleAgentCallback.html)[]
 
 Callback or list of callbacks to be invoked before the agent run.
 
@@ -86,7 +96,7 @@ MUST be named 'callbackContext' (enforced).
 
 Content: The content to return to the user. When the content is present, the agent run will be skipped and the provided content will be returned to user.
 
-  * Defined in [core/src/agents/base_agent.ts:88](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L88)
+  * Defined in [agents/base_agent.ts:133](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L133)
 
 
 
@@ -98,7 +108,7 @@ Description about the agent's capability.
 
 The model uses this to determine whether to delegate control to the agent. One-line description is enough and preferred.
 
-  * Defined in [core/src/agents/base_agent.ts:51](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L51)
+  * Defined in [agents/base_agent.ts:93](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L93)
 
 
 
@@ -108,7 +118,7 @@ name: string
 
 The agent's name. Agent name must be a JS identifier and unique within the agent tree. Agent name cannot be "user", since it's reserved for end-user's input.
 
-  * Defined in [core/src/agents/base_agent.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L43)
+  * Defined in [agents/base_agent.ts:85](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L85)
 
 
 
@@ -124,17 +134,7 @@ If you want to add one agent twice as sub-agent, consider to create two agent in
 
 The parent agent is the agent that created this agent.
 
-  * Defined in [core/src/agents/base_agent.ts:69](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L69)
-
-
-
-### `Readonly`rootAgent
-
-rootAgent: [BaseAgent]()
-
-Root agent of this agent.
-
-  * Defined in [core/src/agents/base_agent.ts:56](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L56)
+  * Defined in [agents/base_agent.ts:114](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L114)
 
 
 
@@ -144,7 +144,22 @@ subAgents: [BaseAgent]()[]
 
 The sub-agents of this agent.
 
-  * Defined in [core/src/agents/base_agent.ts:74](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L74)
+  * Defined in [agents/base_agent.ts:119](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L119)
+
+
+
+## Accessors
+
+### rootAgent
+
+  * get rootAgent(): [BaseAgent]()
+
+Root agent of this agent. Computed dynamically by traversing up the parent chain.
+
+#### Returns [BaseAgent]()
+
+    * Defined in [agents/base_agent.ts:99](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L99)
+
 
 
 
@@ -166,7 +181,7 @@ The invocation context of the parent agent.
 
 The invocation context for this agent.
 
-    * Defined in [core/src/agents/base_agent.ts:237](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L237)
+    * Defined in [agents/base_agent.ts:297](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L297)
 
 
 
@@ -187,7 +202,7 @@ The name of the agent to find.
 
 The agent with the given name, or undefined if not found.
 
-    * Defined in [core/src/agents/base_agent.ts:206](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L206)
+    * Defined in [agents/base_agent.ts:266](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L266)
 
 
 
@@ -208,7 +223,7 @@ The name of the agent to find.
 
 The agent with the given name, or undefined if not found.
 
-    * Defined in [core/src/agents/base_agent.ts:220](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L220)
+    * Defined in [agents/base_agent.ts:280](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L280)
 
 
 
@@ -231,7 +246,7 @@ The invocation context of the agent.
 
 The event to return to the user, or undefined if no event is generated.
 
-    * Defined in [core/src/agents/base_agent.ts:294](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L294)
+    * Defined in [agents/base_agent.ts:356](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L356)
 
 
 
@@ -254,7 +269,7 @@ The invocation context of the agent.
 
 The event to return to the user, or undefined if no event is generated.
 
-    * Defined in [core/src/agents/base_agent.ts:252](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L252)
+    * Defined in [agents/base_agent.ts:313](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L313)
 
 
 
@@ -279,7 +294,7 @@ An AsyncGenerator that yields the events generated by the agent.
 
 The events generated by the agent.
 
-    * Defined in [core/src/agents/base_agent.ts:125](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L125)
+    * Defined in [agents/base_agent.ts:169](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L169)
 
 
 
@@ -304,7 +319,7 @@ An AsyncGenerator that yields the events generated by the agent.
 
 The events generated by the agent.
 
-    * Defined in [core/src/agents/base_agent.ts:187](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L187)
+    * Defined in [agents/base_agent.ts:245](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L245)
 
 
 
@@ -329,7 +344,7 @@ An AsyncGenerator that yields the events generated by the agent.
 
 The events generated by the agent.
 
-    * Defined in [core/src/agents/base_agent.ts:168](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L168)
+    * Defined in [agents/base_agent.ts:219](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L219)
 
 
 
@@ -354,7 +369,7 @@ An AsyncGenerator that yields the events generated by the agent.
 
 The events generated by the agent.
 
-    * Defined in [core/src/agents/base_agent.ts:197](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/base_agent.ts#L197)
+    * Defined in [agents/base_agent.ts:256](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L256)
 
 
 
@@ -365,7 +380,11 @@ constructor
 
 Properties
 
-afterAgentCallbackbeforeAgentCallbackdescriptionnameparentAgentrootAgentsubAgents
+[BASE_AGENT_SIGNATURE_SYMBOL]afterAgentCallbackbeforeAgentCallbackdescriptionnameparentAgentsubAgents
+
+Accessors
+
+rootAgent
 
 Methods
 

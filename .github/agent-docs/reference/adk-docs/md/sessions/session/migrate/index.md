@@ -62,6 +62,7 @@ Models for Agents
       * [ Ollama  ](../../../agents/models/ollama/)
       * [ vLLM  ](../../../agents/models/vllm/)
       * [ LiteLLM  ](../../../agents/models/litellm/)
+      * [ LiteRT-LM  ](../../../agents/models/litert-lm/)
     * [ Tools and Integrations  ](../../../integrations/)
 
 Tools and Integrations 
@@ -237,7 +238,7 @@ After running the migration, update your `DatabaseSessionService` configuration 
 
 Back to top  [ Previous  Rewind sessions  ](../rewind/) [ Next  State  ](../../state/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

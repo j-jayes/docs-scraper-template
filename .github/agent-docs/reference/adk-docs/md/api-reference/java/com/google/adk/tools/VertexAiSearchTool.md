@@ -102,7 +102,7 @@ Description
 
  
 
-`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.VertexAISearchDataStoreSpec>>`
+`abstract com.google.common.collect.ImmutableList<com.google.genai.types.VertexAISearchDataStoreSpec>`
 
 `dataStoreSpecs()`
 
@@ -163,7 +163,7 @@ public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/ja
 
     * ### dataStoreSpecs
 
-public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.VertexAISearchDataStoreSpec>> dataStoreSpecs()
+public abstract com.google.common.collect.ImmutableList<com.google.genai.types.VertexAISearchDataStoreSpec> dataStoreSpecs()
 
     * ### searchEngineId
 

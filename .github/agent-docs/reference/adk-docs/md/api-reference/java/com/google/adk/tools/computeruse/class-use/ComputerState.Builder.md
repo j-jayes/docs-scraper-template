@@ -57,13 +57,7 @@ ComputerState.Builder.`[screenshot](../ComputerState.Builder.html#screenshot\(by
 
 `[ComputerState.Builder](../ComputerState.Builder.html "class in com.google.adk.tools.computeruse")`
 
-ComputerState.Builder.`[url](../ComputerState.Builder.html#url\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
-
- 
-
-`[ComputerState.Builder](../ComputerState.Builder.html "class in com.google.adk.tools.computeruse")`
-
-ComputerState.Builder.`[url](../ComputerState.Builder.html#url\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> url)`
+ComputerState.Builder.`[url](../ComputerState.Builder.html#url\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
 
  
 

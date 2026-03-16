@@ -31,9 +31,10 @@ Contents
      1. name(String)
      2. rootAgent(BaseAgent)
      3. plugins(List)
-     4. eventsCompactionConfig(EventsCompactionConfig)
-     5. contextCacheConfig(ContextCacheConfig)
-     6. build()
+     4. plugins(Plugin...)
+     5. eventsCompactionConfig(EventsCompactionConfig)
+     6. contextCacheConfig(ContextCacheConfig)
+     7. build()
 
 Hide sidebar  Show sidebar
 
@@ -100,6 +101,12 @@ Description
 
 `[App.Builder](App.Builder.html "class in com.google.adk.apps")`
 
+`plugins([Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")... plugins)`
+
+ 
+
+`[App.Builder](App.Builder.html "class in com.google.adk.apps")`
+
 `plugins([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
 
  
@@ -136,6 +143,10 @@ public Builder()
     * ### plugins
 
 @CanIgnoreReturnValue public [App.Builder](App.Builder.html "class in com.google.adk.apps") plugins([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)
+
+    * ### plugins
+
+@CanIgnoreReturnValue public [App.Builder](App.Builder.html "class in com.google.adk.apps") plugins([Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")... plugins)
 
     * ### eventsCompactionConfig
 

@@ -29,12 +29,15 @@ Contents
      1. eventActions
   6. Constructor Details
      1. CallbackContext(InvocationContext, EventActions)
+     2. CallbackContext(InvocationContext, EventActions, String)
   7. Method Details
      1. state()
      2. eventActions()
-     3. listArtifacts()
-     4. loadArtifact(String, Optional)
-     5. saveArtifact(String, Part)
+     3. eventId()
+     4. listArtifacts()
+     5. loadArtifact(String)
+     6. loadArtifact(String, int)
+     7. saveArtifact(String, Part)
 
 Hide sidebar  Show sidebar
 
@@ -87,6 +90,10 @@ Description
 
 Initializes callback context.
 
+`CallbackContext([InvocationContext](InvocationContext.html "class in com.google.adk.agents") invocationContext, [EventActions](../events/EventActions.html "class in com.google.adk.events") eventActions, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
+
+Initializes callback context.
+
   * ## Method Summary
 
 All MethodsInstance MethodsConcrete Methods
@@ -103,6 +110,12 @@ Description
 
 Returns the EventActions associated with this context.
 
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`eventId()`
+
+Returns the ID of the event associated with this context.
+
 `io.reactivex.rxjava3.core.Single<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>>`
 
 `listArtifacts()`
@@ -111,9 +124,15 @@ Lists the filenames of the artifacts attached to the current session.
 
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
-`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)`
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
 
-Loads an artifact from the artifact service associated with the current session.
+Loads the latest version of an artifact from the service.
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)`
+
+Loads a specific version of an artifact from the service.
 
 `io.reactivex.rxjava3.core.Completable`
 
@@ -156,6 +175,17 @@ Parameters:
     `invocationContext` \- Current invocation context.
     `eventActions` \- Callback event actions.
 
+    * ### CallbackContext
+
+public CallbackContext([InvocationContext](InvocationContext.html "class in com.google.adk.agents") invocationContext, [EventActions](../events/EventActions.html "class in com.google.adk.events") eventActions, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)
+
+Initializes callback context.
+
+Parameters:
+    `invocationContext` \- Current invocation context.
+    `eventActions` \- Callback event actions.
+    `eventId` \- The ID of the event associated with this context.
+
   * ## Method Details
 
     * ### state
@@ -173,6 +203,12 @@ public [EventActions](../events/EventActions.html "class in com.google.adk.event
 
 Returns the EventActions associated with this context.
 
+    * ### eventId
+
+public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId()
+
+Returns the ID of the event associated with this context.
+
     * ### listArtifacts
 
 public io.reactivex.rxjava3.core.Single<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> listArtifacts()
@@ -184,17 +220,15 @@ Returns:
 
     * ### loadArtifact
 
-public io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)
+public io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
 
-Loads an artifact from the artifact service associated with the current session.
+Loads the latest version of an artifact from the service.
 
-Parameters:
-    `filename` \- Artifact file name.
-    `version` \- Artifact version (optional).
-Returns:
-    loaded part, or empty if not found.
-Throws:
-    `[IllegalStateException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html "class or interface in java.lang")` \- if the artifact service is not initialized.
+    * ### loadArtifact
+
+public io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)
+
+Loads a specific version of an artifact from the service.
 
     * ### saveArtifact
 

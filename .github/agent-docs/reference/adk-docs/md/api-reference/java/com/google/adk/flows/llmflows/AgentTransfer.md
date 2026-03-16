@@ -30,7 +30,6 @@ Contents
   6. Method Details
      1. processRequest(InvocationContext, LlmRequest)
      2. transferToAgent(String, ToolContext)
-     3. legacyTransferToAgent(String, ToolContext)
 
 Hide sidebar  Show sidebar
 
@@ -76,12 +75,6 @@ Modifier and Type
 Method
 
 Description
-
-`static void`
-
-`legacyTransferToAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
-
-Backwards compatible transferToAgent that uses camel-case naming instead of the ADK's snake_case convention.
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
@@ -129,14 +122,6 @@ Returns:
     * ### transferToAgent
 
 public static void transferToAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)
-
-    * ### legacyTransferToAgent
-
-public static void legacyTransferToAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)
-
-Backwards compatible transferToAgent that uses camel-case naming instead of the ADK's snake_case convention. 
-
-It exists only to support users who already use literal "transferToAgent" function call to instruct ADK to transfer the question to another agent.
 
 
 

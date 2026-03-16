@@ -58,7 +58,7 @@ CodeExecutionUtils.CodeExecutionInput.Builder.`[code](../CodeExecutionUtils.Code
 
 `abstract [CodeExecutionUtils.CodeExecutionInput.Builder](../CodeExecutionUtils.CodeExecutionInput.Builder.html "class in com.google.adk.codeexecutors")`
 
-CodeExecutionUtils.CodeExecutionInput.Builder.`[executionId](../CodeExecutionUtils.CodeExecutionInput.Builder.html#executionId\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> executionId)`
+CodeExecutionUtils.CodeExecutionInput.Builder.`[executionId](../CodeExecutionUtils.CodeExecutionInput.Builder.html#executionId\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") executionId)`
 
  
 

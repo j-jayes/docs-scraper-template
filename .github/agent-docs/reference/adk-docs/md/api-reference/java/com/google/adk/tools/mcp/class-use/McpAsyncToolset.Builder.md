@@ -63,13 +63,13 @@ McpAsyncToolset.Builder.`[objectMapper](../McpAsyncToolset.Builder.html#objectMa
 
 `[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
+McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(com.google.adk.tools.ToolPredicate\))([ToolPredicate](../../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
  
 
 `[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
 
  
 

@@ -23,8 +23,9 @@ interface Event {
 actions: [EventActions](EventActions.html);  
 author?: string;  
 branch?: string;  
+citationMetadata?: CitationMetadata;  
 content?: Content;  
-customMetadata?: { [key: string]: any };  
+customMetadata?: { [key: string]: unknown };  
 errorCode?: string;  
 errorMessage?: string;  
 finishReason?: FinishReason;  
@@ -49,7 +50,7 @@ usageMetadata?: GenerateContentResponseUsageMetadata;
 
 
 
-  * Defined in [core/src/events/event.ts:19](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L19)
+  * Defined in [events/event.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L20)
 
 
 
@@ -61,7 +62,7 @@ actions: [EventActions](EventActions.html)
 
 The actions taken by the agent.
 
-  * Defined in [core/src/events/event.ts:41](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L41)
+  * Defined in [events/event.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L42)
 
 
 
@@ -71,7 +72,7 @@ author?: string
 
 "user" or the name of the agent, indicating who appended the event to the session.
 
-  * Defined in [core/src/events/event.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L36)
+  * Defined in [events/event.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L37)
 
 
 
@@ -83,7 +84,19 @@ The branch of the event. The format is like agent_1.agent_2.agent_3, where agent
 
 Branch is used when multiple sub-agent shouldn't see their peer agents' conversation history.
 
-  * Defined in [core/src/events/event.ts:58](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L58)
+  * Defined in [events/event.ts:59](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L59)
+
+
+
+### `Optional`citationMetadata
+
+citationMetadata?: CitationMetadata
+
+The citation metadata of the response.
+
+Inherited from [LlmResponse](LlmResponse.html).[citationMetadata](LlmResponse.html#citationmetadata)
+
+  * Defined in [models/llm_response.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L36)
 
 
 
@@ -95,19 +108,19 @@ The content of the response.
 
 Inherited from [LlmResponse](LlmResponse.html).[content](LlmResponse.html#content)
 
-  * Defined in [core/src/models/llm_response.ts:17](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L17)
+  * Defined in [models/llm_response.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L26)
 
 
 
 ### `Optional`customMetadata
 
-customMetadata?: { [key: string]: any }
+customMetadata?: { [key: string]: unknown }
 
 The custom metadata of the LlmResponse. An optional key-value pair to label an LlmResponse. NOTE: the entire object must be JSON serializable.
 
 Inherited from [LlmResponse](LlmResponse.html).[customMetadata](LlmResponse.html#custommetadata)
 
-  * Defined in [core/src/models/llm_response.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L57)
+  * Defined in [models/llm_response.ts:71](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L71)
 
 
 
@@ -119,7 +132,7 @@ Error code if the response is an error. Code varies by model.
 
 Inherited from [LlmResponse](LlmResponse.html).[errorCode](LlmResponse.html#errorcode)
 
-  * Defined in [core/src/models/llm_response.ts:39](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L39)
+  * Defined in [models/llm_response.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L53)
 
 
 
@@ -131,7 +144,7 @@ Error message if the response is an error.
 
 Inherited from [LlmResponse](LlmResponse.html).[errorMessage](LlmResponse.html#errormessage)
 
-  * Defined in [core/src/models/llm_response.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L44)
+  * Defined in [models/llm_response.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L58)
 
 
 
@@ -143,7 +156,7 @@ The finish reason of the response.
 
 Inherited from [LlmResponse](LlmResponse.html).[finishReason](LlmResponse.html#finishreason)
 
-  * Defined in [core/src/models/llm_response.ts:67](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L67)
+  * Defined in [models/llm_response.ts:81](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L81)
 
 
 
@@ -155,7 +168,7 @@ The grounding metadata of the response.
 
 Inherited from [LlmResponse](LlmResponse.html).[groundingMetadata](LlmResponse.html#groundingmetadata)
 
-  * Defined in [core/src/models/llm_response.ts:22](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L22)
+  * Defined in [models/llm_response.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L31)
 
 
 
@@ -165,7 +178,7 @@ id: string
 
 The unique identifier of the event. Do not assign the ID. It will be assigned by the session.
 
-  * Defined in [core/src/events/event.ts:24](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L24)
+  * Defined in [events/event.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L25)
 
 
 
@@ -177,7 +190,7 @@ Audio transcription of user input.
 
 Inherited from [LlmResponse](LlmResponse.html).[inputTranscription](LlmResponse.html#inputtranscription)
 
-  * Defined in [core/src/models/llm_response.ts:77](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L77)
+  * Defined in [models/llm_response.ts:91](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L91)
 
 
 
@@ -189,7 +202,7 @@ Flag indicating that LLM was interrupted when generating the content. Usually it
 
 Inherited from [LlmResponse](LlmResponse.html).[interrupted](LlmResponse.html#interrupted)
 
-  * Defined in [core/src/models/llm_response.ts:50](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L50)
+  * Defined in [models/llm_response.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L64)
 
 
 
@@ -199,7 +212,7 @@ invocationId: string
 
 The invocation ID of the event. Should be non-empty before appending to a session.
 
-  * Defined in [core/src/events/event.ts:30](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L30)
+  * Defined in [events/event.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L31)
 
 
 
@@ -211,7 +224,7 @@ The session resumption update of the LlmResponse
 
 Inherited from [LlmResponse](LlmResponse.html).[liveSessionResumptionUpdate](LlmResponse.html#livesessionresumptionupdate)
 
-  * Defined in [core/src/models/llm_response.ts:72](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L72)
+  * Defined in [models/llm_response.ts:86](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L86)
 
 
 
@@ -221,7 +234,7 @@ longRunningToolIds?: string[]
 
 Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. Only valid for function call event
 
-  * Defined in [core/src/events/event.ts:48](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L48)
+  * Defined in [events/event.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L49)
 
 
 
@@ -233,7 +246,7 @@ Audio transcription of model output.
 
 Inherited from [LlmResponse](LlmResponse.html).[outputTranscription](LlmResponse.html#outputtranscription)
 
-  * Defined in [core/src/models/llm_response.ts:82](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L82)
+  * Defined in [models/llm_response.ts:96](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L96)
 
 
 
@@ -245,7 +258,7 @@ Indicates whether the text content is part of a unfinished text stream. Only use
 
 Inherited from [LlmResponse](LlmResponse.html).[partial](LlmResponse.html#partial)
 
-  * Defined in [core/src/models/llm_response.ts:28](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L28)
+  * Defined in [models/llm_response.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L42)
 
 
 
@@ -255,7 +268,7 @@ timestamp: number
 
 The timestamp of the event.
 
-  * Defined in [core/src/events/event.ts:63](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L63)
+  * Defined in [events/event.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L64)
 
 
 
@@ -267,7 +280,7 @@ Indicates whether the response from the model is complete. Only used for streami
 
 Inherited from [LlmResponse](LlmResponse.html).[turnComplete](LlmResponse.html#turncomplete)
 
-  * Defined in [core/src/models/llm_response.ts:34](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L34)
+  * Defined in [models/llm_response.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L48)
 
 
 
@@ -279,13 +292,13 @@ The usage metadata of the LlmResponse.
 
 Inherited from [LlmResponse](LlmResponse.html).[usageMetadata](LlmResponse.html#usagemetadata)
 
-  * Defined in [core/src/models/llm_response.ts:62](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L62)
+  * Defined in [models/llm_response.ts:76](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L76)
 
 
 
 Properties
 
-actionsauthorbranchcontentcustomMetadataerrorCodeerrorMessagefinishReasongroundingMetadataidinputTranscriptioninterruptedinvocationIdliveSessionResumptionUpdatelongRunningToolIdsoutputTranscriptionpartialtimestampturnCompleteusageMetadata
+actionsauthorbranchcitationMetadatacontentcustomMetadataerrorCodeerrorMessagefinishReasongroundingMetadataidinputTranscriptioninterruptedinvocationIdliveSessionResumptionUpdatelongRunningToolIdsoutputTranscriptionpartialtimestampturnCompleteusageMetadata
 
 [ADK for TypeScript: API Reference](../index.html)
 

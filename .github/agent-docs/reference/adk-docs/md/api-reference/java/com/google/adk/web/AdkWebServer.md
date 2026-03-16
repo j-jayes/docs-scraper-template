@@ -31,10 +31,11 @@ Contents
      2. artifactService()
      3. memoryService()
      4. objectMapper()
-     5. addResourceHandlers(ResourceHandlerRegistry)
-     6. addViewControllers(ViewControllerRegistry)
-     7. main(String[])
-     8. start(BaseAgent...)
+     5. mappingJackson2HttpMessageConverter(ObjectMapper)
+     6. addResourceHandlers(ResourceHandlerRegistry)
+     7. addViewControllers(ViewControllerRegistry)
+     8. main(String[])
+     9. start(BaseAgent...)
 
 Hide sidebar  Show sidebar
 
@@ -99,6 +100,12 @@ Provides the singleton instance of the ArtifactService (InMemory).
 
 Main entry point for the Spring Boot application.
 
+`org.springframework.http.converter.json.MappingJackson2HttpMessageConverter`
+
+`mappingJackson2HttpMessageConverter(com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+Configures the message converter to use the custom ADK ObjectMapper.
+
 `[BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory")`
 
 `memoryService()`
@@ -129,7 +136,7 @@ Configures the Jackson ObjectMapper for JSON serialization.
 
 ### Methods inherited from interface org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
-`addArgumentResolvers, addCorsMappings, addErrorResponseInterceptors, addFormatters, addInterceptors, addReturnValueHandlers, configureAsyncSupport, configureContentNegotiation, configureDefaultServletHandling, configureHandlerExceptionResolvers, configureMessageConverters, configurePathMatch, configureViewResolvers, extendHandlerExceptionResolvers, extendMessageConverters, getMessageCodesResolver, getValidator`
+`addArgumentResolvers, addCorsMappings, addErrorResponseInterceptors, addFormatters, addInterceptors, addReturnValueHandlers, configureApiVersioning, configureAsyncSupport, configureContentNegotiation, configureDefaultServletHandling, configureHandlerExceptionResolvers, configureMessageConverters, configureMessageConverters, configurePathMatch, configureViewResolvers, extendHandlerExceptionResolvers, extendMessageConverters, getMessageCodesResolver, getValidator`
 
 
 
@@ -166,12 +173,23 @@ Returns:
 
     * ### objectMapper
 
-@Bean public com.fasterxml.jackson.databind.ObjectMapper objectMapper()
+@Bean @Primary public com.fasterxml.jackson.databind.ObjectMapper objectMapper()
 
 Configures the Jackson ObjectMapper for JSON serialization. Uses the ADK standard mapper configuration.
 
 Returns:
     Configured ObjectMapper instance
+
+    * ### mappingJackson2HttpMessageConverter
+
+@Bean public org.springframework.http.converter.json.MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+
+Configures the message converter to use the custom ADK ObjectMapper. This ensures that Spring Web uses the correct JSON serialization settings (like omitting absent optional fields) and prevents double-serialization issues, particularly for Server-Sent Events (SSE).
+
+Parameters:
+    `objectMapper` \- The primary ObjectMapper configured for the ADK.
+Returns:
+    A configured MappingJackson2HttpMessageConverter.
 
     * ### addResourceHandlers
 

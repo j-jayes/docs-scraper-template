@@ -21,8 +21,7 @@ Skip navigation links
 Contents
 
   1. Description
-  2. Related Packages
-  3. Classes and Interfaces
+  2. Classes and Interfaces
 
 Hide sidebar  Show sidebar
 
@@ -32,25 +31,7 @@ Hide sidebar  Show sidebar
 
 package com.google.adk.a2a.common
 
-  * Related Packages
-
-Package
-
-Description
-
-[com.google.adk.a2a](../package-summary.html)
-
- 
-
-[com.google.adk.a2a.converters](../converters/package-summary.html)
-
- 
-
-[com.google.adk.a2a.executor](../executor/package-summary.html)
-
- 
-
-  * Exception Classes
+  * All Classes and InterfacesClassesEnum ClassesException Classes
 
 Class
 
@@ -59,6 +40,18 @@ Description
 [A2AClientError](A2AClientError.html "class in com.google.adk.a2a.common")
 
 Exception thrown when the A2A client encounters an error.
+
+[A2AMetadata](A2AMetadata.html "class in com.google.adk.a2a.common")
+
+Constants and utilities for A2A metadata keys.
+
+[A2AMetadata.Key](A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
+
+Enum for A2A custom metadata keys.
+
+[GenAiFieldMissingException](GenAiFieldMissingException.html "class in com.google.adk.a2a.common")
+
+Exception thrown when the the genai class has an empty field.
 
 
 

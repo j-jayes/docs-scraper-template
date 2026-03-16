@@ -69,6 +69,12 @@ AgentExecutorConfig.`[builder](../AgentExecutorConfig.html#builder\(\))()`
 
 `abstract [AgentExecutorConfig.Builder](../AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
 
+AgentExecutorConfig.Builder.`[outputMode](../AgentExecutorConfig.Builder.html#outputMode\(com.google.adk.a2a.executor.AgentExecutorConfig.OutputMode\))([AgentExecutorConfig.OutputMode](../AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor") outputMode)`
+
+ 
+
+`abstract [AgentExecutorConfig.Builder](../AgentExecutorConfig.Builder.html "class in com.google.adk.a2a.executor")`
+
 AgentExecutorConfig.Builder.`[runConfig](../AgentExecutorConfig.Builder.html#runConfig\(com.google.adk.agents.RunConfig\))([RunConfig](../../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
 
  

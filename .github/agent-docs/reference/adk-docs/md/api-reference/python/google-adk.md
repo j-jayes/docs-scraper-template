@@ -120,6 +120,11 @@ Show JSON schema
                    "title": "Sub Agents",
                    "type": "array"
                 },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
+                },
                 "before_agent_callback": {
                    "default": null,
                    "title": "Before Agent Callback",
@@ -156,6 +161,8 @@ Fields:
   * `parent_agent (google.adk.agents.base_agent.BaseAgent | None)`
 
   * `sub_agents (list[google.adk.agents.base_agent.BaseAgent])`
+
+  * `version (str)`
 
 
 
@@ -262,6 +269,13 @@ Validated by:
 
 
 
+
+_field _version _: str_ _ = ''_¶
+    
+
+The agent’s version.
+
+Version of the agent being invoked. Used to identify the Agent involved in telemetry.
 
 config_type¶
     
@@ -655,6 +669,23 @@ Returns:
     
 
 The loaded credential, or None if not found.
+
+render_ui_widget(_ui_widget_)¶
+    
+
+Adds a UI widget to the current event’s actions for the UI to render.
+
+UI widgets provide rendering payload/metadata that the UI Host uses to display rich interactive components (e.g., MCP App iframes) alongside agent responses.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**ui_widget** – A `UiWidget` instance.
 
 request_confirmation(_*_ , _hint =None_, _payload =None_)¶
     
@@ -1350,6 +1381,11 @@ Show JSON schema
                    },
                    "title": "Sub Agents",
                    "type": "array"
+                },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
                 },
                 "before_agent_callback": {
                    "default": null,
@@ -2136,6 +2172,21 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Rewindbeforeinvocationid"
+                },
+                "renderUiWidgets": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/UiWidget"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Renderuiwidgets"
                 }
              },
              "title": "EventActions",
@@ -2733,6 +2784,37 @@ Show JSON schema
                 }
              },
              "title": "GenerateContentResponseUsageMetadata",
+             "type": "object"
+          },
+          "GetSessionConfig": {
+             "description": "The configuration of getting a session.",
+             "properties": {
+                "num_recent_events": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Num Recent Events"
+                },
+                "after_timestamp": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "After Timestamp"
+                }
+             },
+             "title": "GetSessionConfig",
              "type": "object"
           },
           "GoogleTypeDate": {
@@ -5027,6 +5109,17 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Custom Metadata"
+                },
+                "get_session_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GetSessionConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
                 }
              },
              "title": "RunConfig",
@@ -5595,6 +5688,31 @@ Show JSON schema
              ],
              "title": "TurnCoverage",
              "type": "string"
+          },
+          "UiWidget": {
+             "additionalProperties": false,
+             "description": "Rendering metadata for a UI widget associated with an event.\n\nWhen present on an Event.actions, the UI renders the widget using the\nspecified provider's renderer component.",
+             "properties": {
+                "id": {
+                   "title": "Id",
+                   "type": "string"
+                },
+                "provider": {
+                   "title": "Provider",
+                   "type": "string"
+                },
+                "payload": {
+                   "additionalProperties": true,
+                   "title": "Payload",
+                   "type": "object"
+                }
+             },
+             "required": [
+                "id",
+                "provider"
+             ],
+             "title": "UiWidget",
+             "type": "object"
           },
           "VideoMetadata": {
              "additionalProperties": false,
@@ -7055,6 +7173,11 @@ Show JSON schema
              "title": "Sub Agents",
              "type": "array"
           },
+          "version": {
+             "default": "",
+             "title": "Version",
+             "type": "string"
+          },
           "before_agent_callback": {
              "default": null,
              "title": "Before Agent Callback",
@@ -7166,7 +7289,13 @@ Show JSON schema
           },
           "output_schema": {
              "anyOf": [
-                {},
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
                 {
                    "type": "null"
                 }
@@ -7263,6 +7392,11 @@ Show JSON schema
                    },
                    "title": "Sub Agents",
                    "type": "array"
+                },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
                 },
                 "before_agent_callback": {
                    "default": null,
@@ -8423,6 +8557,364 @@ Show JSON schema
              "title": "PartialArg",
              "type": "object"
           },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The value should be validated against any (one or more) of the subschemas in the list.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value of the data.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The description of the data.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the element of primitive type with enum format. Examples: 1. We can define direction as : {type:STRING, format:enum, enum:[\"EAST\", NORTH\", \"SOUTH\", \"WEST\"]} 2. We can define apartment number as : {type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of the object. Will only populated when the object is the root.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. Supported formats: for NUMBER type: \"float\", \"double\" for INTEGER type: \"int32\", \"int64\" for STRING type: \"email\", \"byte\", etc",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. SCHEMA FIELDS FOR TYPE ARRAY Schema of the elements of Type.ARRAY."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Maximum number of the elements for Type.ARRAY.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Maximum length of the Type.STRING",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Maximum number of the properties for Type.OBJECT.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Maximum value of the Type.INTEGER and Type.NUMBER",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Minimum number of the elements for Type.ARRAY.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. SCHEMA FIELDS FOR TYPE STRING Minimum length of the Type.STRING",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Minimum number of the properties for Type.OBJECT.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. SCHEMA FIELDS FOR TYPE INTEGER and NUMBER Minimum value of the Type.INTEGER and Type.NUMBER",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value may be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Pattern of the Type.STRING to restrict a string to a regular expression.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. SCHEMA FIELDS FOR TYPE OBJECT Properties of Type.OBJECT.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The order of the properties. Not a standard field in open api spec. Only used to support the order of the properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Required properties of Type.OBJECT.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The title of the Schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The type of the data."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "The type of the data.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Metadata describes the input video content.",
@@ -8513,7 +9005,7 @@ Fields:
 
   * `output_key (Optional[str])`
 
-  * `output_schema (Optional[type[BaseModel]])`
+  * `output_schema (Optional[SchemaType])`
 
   * `planner (Optional[BasePlanner])`
 
@@ -8886,10 +9378,26 @@ Validated by:
 
 
 
-_field _output_schema _: Optional[type[BaseModel]]__ = None_¶
+_field _output_schema _: Optional[SchemaType]__ = None_¶
     
 
 The output schema when agent replies.
+
+Supports all schema types that the underlying Google GenAI API supports:
+    
+
+  * type[BaseModel]: e.g., MySchema
+
+  * list[type[BaseModel]]: e.g., list[MySchema]
+
+  * list[primitive]: e.g., list[str], list[int]
+
+  * dict: Raw dict schemas
+
+  * Schema: Google’s Schema type
+
+
+
 
 Note
 
@@ -9159,6 +9667,11 @@ Show JSON schema
              "title": "Sub Agents",
              "type": "array"
           },
+          "version": {
+             "default": "",
+             "title": "Version",
+             "type": "string"
+          },
           "before_agent_callback": {
              "default": null,
              "title": "Before Agent Callback",
@@ -9213,6 +9726,11 @@ Show JSON schema
                    },
                    "title": "Sub Agents",
                    "type": "array"
+                },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
                 },
                 "before_agent_callback": {
                    "default": null,
@@ -9333,6 +9851,11 @@ Show JSON schema
              "title": "Sub Agents",
              "type": "array"
           },
+          "version": {
+             "default": "",
+             "title": "Version",
+             "type": "string"
+          },
           "before_agent_callback": {
              "default": null,
              "title": "Before Agent Callback",
@@ -9375,6 +9898,11 @@ Show JSON schema
                    },
                    "title": "Sub Agents",
                    "type": "array"
+                },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
                 },
                 "before_agent_callback": {
                    "default": null,
@@ -9587,6 +10115,17 @@ Show JSON schema
              ],
              "default": null,
              "title": "Custom Metadata"
+          },
+          "get_session_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/GetSessionConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
           }
        },
        "$defs": {
@@ -9720,6 +10259,37 @@ Show JSON schema
              ],
              "title": "EndSensitivity",
              "type": "string"
+          },
+          "GetSessionConfig": {
+             "description": "The configuration of getting a session.",
+             "properties": {
+                "num_recent_events": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Num Recent Events"
+                },
+                "after_timestamp": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "After Timestamp"
+                }
+             },
+             "title": "GetSessionConfig",
+             "type": "object"
           },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
@@ -10087,6 +10657,8 @@ Fields:
 
   * `enable_affective_dialog (bool | None)`
 
+  * `get_session_config (google.adk.sessions.base_session_service.GetSessionConfig | None)`
+
   * `input_audio_transcription (google.genai.types.AudioTranscriptionConfig | None)`
 
   * `max_llm_calls (int)`
@@ -10157,6 +10729,32 @@ _field _enable_affective_dialog _: Optional[bool]__ = None_¶
     
 
 If enabled, the model will detect emotions and adapt its responses accordingly.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
+_field _get_session_config _: Optional[GetSessionConfig]__ = None_¶
+    
+
+Configuration for controlling which events are fetched when loading a session.
+
+When set, the Runner will pass this configuration to the session service’s `get_session` method, allowing the caller to limit the events returned (e.g. via `num_recent_events` or `after_timestamp`). This is especially useful in combination with `EventsCompactionConfig` to avoid loading the full event history on every invocation.
+
+Example:
+    
+    
+    from google.adk.agents.run_config import RunConfig
+    from google.adk.sessions.base_session_service import GetSessionConfig
+    
+    run_config = RunConfig(
+        get_session_config=GetSessionConfig(num_recent_events=50),
+    )
+    
 
 Validated by:
     
@@ -10468,6 +11066,11 @@ Show JSON schema
              "title": "Sub Agents",
              "type": "array"
           },
+          "version": {
+             "default": "",
+             "title": "Version",
+             "type": "string"
+          },
           "before_agent_callback": {
              "default": null,
              "title": "Before Agent Callback",
@@ -10510,6 +11113,11 @@ Show JSON schema
                    },
                    "title": "Sub Agents",
                    "type": "array"
+                },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
                 },
                 "before_agent_callback": {
                    "default": null,
@@ -10745,7 +11353,7 @@ Parameters:
 
   * **filename** – The filename of the artifact.
 
-  * **artifact** – The artifact to save. If the artifact consists of file_data, the artifact service assumes its content has been uploaded separately, and this method will associate the file_data with the artifact if necessary.
+  * **artifact** – The artifact to save. Accepts a `types.Part` instance or a plain dictionary (camelCase or snake_case keys) which will be normalized via `ensure_part`. If the artifact consists of `file_data`, the artifact service assumes its content has been uploaded separately, and this method will associate the `file_data` with the artifact if necessary.
 
   * **session_id** – The session ID. If None, the artifact is user-scoped.
 
@@ -11104,7 +11712,7 @@ Parameters:
 
   * **filename** – The filename of the artifact.
 
-  * **artifact** – The artifact to save. If the artifact consists of file_data, the artifact service assumes its content has been uploaded separately, and this method will associate the file_data with the artifact if necessary.
+  * **artifact** – The artifact to save. Accepts a `types.Part` instance or a plain dictionary (camelCase or snake_case keys) which will be normalized via `ensure_part`. If the artifact consists of `file_data`, the artifact service assumes its content has been uploaded separately, and this method will associate the `file_data` with the artifact if necessary.
 
   * **session_id** – The session ID. If None, the artifact is user-scoped.
 
@@ -12219,7 +12827,7 @@ Parameters:
 
   * **filename** – The filename of the artifact.
 
-  * **artifact** – The artifact to save. If the artifact consists of file_data, the artifact service assumes its content has been uploaded separately, and this method will associate the file_data with the artifact if necessary.
+  * **artifact** – The artifact to save. Accepts a `types.Part` instance or a plain dictionary (camelCase or snake_case keys) which will be normalized via `ensure_part`. If the artifact consists of `file_data`, the artifact service assumes its content has been uploaded separately, and this method will associate the `file_data` with the artifact if necessary.
 
   * **session_id** – The session ID. If None, the artifact is user-scoped.
 
@@ -12319,6 +12927,11 @@ Show JSON schema
                    },
                    "title": "Sub Agents",
                    "type": "array"
+                },
+                "version": {
+                   "default": "",
+                   "title": "Version",
+                   "type": "string"
                 },
                 "before_agent_callback": {
                    "default": null,
@@ -14105,6 +14718,21 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Rewindbeforeinvocationid"
+                },
+                "renderUiWidgets": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/UiWidget"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Renderuiwidgets"
                 }
              },
              "title": "EventActions",
@@ -16965,6 +17593,31 @@ Show JSON schema
              "title": "Transcription",
              "type": "object"
           },
+          "UiWidget": {
+             "additionalProperties": false,
+             "description": "Rendering metadata for a UI widget associated with an event.\n\nWhen present on an Event.actions, the UI renders the widget using the\nspecified provider's renderer component.",
+             "properties": {
+                "id": {
+                   "title": "Id",
+                   "type": "string"
+                },
+                "provider": {
+                   "title": "Provider",
+                   "type": "string"
+                },
+                "payload": {
+                   "additionalProperties": true,
+                   "title": "Payload",
+                   "type": "object"
+                }
+             },
+             "required": [
+                "id",
+                "provider"
+             ],
+             "title": "UiWidget",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Metadata describes the input video content.",
@@ -17081,6 +17734,11 @@ The timestamp of the event.
 
 _static _new_id()¶
     
+
+Return type:
+    
+
+`str`
 
 get_function_calls()¶
     
@@ -17255,6 +17913,21 @@ Show JSON schema
              ],
              "default": null,
              "title": "Rewindbeforeinvocationid"
+          },
+          "renderUiWidgets": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/UiWidget"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Renderuiwidgets"
           }
        },
        "$defs": {
@@ -19133,6 +19806,31 @@ Show JSON schema
              "title": "ToolConfirmation",
              "type": "object"
           },
+          "UiWidget": {
+             "additionalProperties": false,
+             "description": "Rendering metadata for a UI widget associated with an event.\n\nWhen present on an Event.actions, the UI renders the widget using the\nspecified provider's renderer component.",
+             "properties": {
+                "id": {
+                   "title": "Id",
+                   "type": "string"
+                },
+                "provider": {
+                   "title": "Provider",
+                   "type": "string"
+                },
+                "payload": {
+                   "additionalProperties": true,
+                   "title": "Payload",
+                   "type": "object"
+                }
+             },
+             "required": [
+                "id",
+                "provider"
+             ],
+             "title": "UiWidget",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Metadata describes the input video content.",
@@ -19198,6 +19896,8 @@ Fields:
 
   * `escalate (bool | None)`
 
+  * `render_ui_widgets (list[google.adk.events.ui_widget.UiWidget] | None)`
+
   * `requested_auth_configs (dict[str, google.adk.auth.auth_tool.AuthConfig])`
 
   * `requested_tool_confirmations (dict[str, google.adk.tools.tool_confirmation.ToolConfirmation])`
@@ -19237,6 +19937,11 @@ _field _escalate _: Optional[bool]__ = None_¶
     
 
 The agent is escalating to a higher level agent.
+
+_field _render_ui_widgets _: Optional[list[UiWidget]]__ = None_ _(alias 'renderUiWidgets')_¶
+    
+
+List of UI widgets to be rendered by the UI.
 
 _field _requested_auth_configs _: dict[str, AuthConfig]__[Optional]__(alias 'requestedAuthConfigs')_¶
     
@@ -23455,7 +24160,7 @@ resumability_config _: `Optional`[`ResumabilityConfig`]__ = None_¶
 
 The resumability config for the application.
 
-_async _rewind_async(_*_ , _user_id_ , _session_id_ , _rewind_before_invocation_id_)¶
+_async _rewind_async(_*_ , _user_id_ , _session_id_ , _rewind_before_invocation_id_ , _run_config =None_)¶
     
 
 Rewinds the session to before the specified invocation.
@@ -24842,6 +25547,21 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Rewindbeforeinvocationid"
+                },
+                "renderUiWidgets": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/UiWidget"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Renderuiwidgets"
                 }
              },
              "title": "EventActions",
@@ -27702,6 +28422,31 @@ Show JSON schema
              "title": "Transcription",
              "type": "object"
           },
+          "UiWidget": {
+             "additionalProperties": false,
+             "description": "Rendering metadata for a UI widget associated with an event.\n\nWhen present on an Event.actions, the UI renders the widget using the\nspecified provider's renderer component.",
+             "properties": {
+                "id": {
+                   "title": "Id",
+                   "type": "string"
+                },
+                "provider": {
+                   "title": "Provider",
+                   "type": "string"
+                },
+                "payload": {
+                   "additionalProperties": true,
+                   "title": "Payload",
+                   "type": "object"
+                }
+             },
+             "required": [
+                "id",
+                "provider"
+             ],
+             "title": "UiWidget",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Metadata describes the input video content.",
@@ -28046,7 +28791,7 @@ Parameters:
 
 
 
-google.adk.telemetry.trace_tool_call(_tool_ , _args_ , _function_response_event_)¶
+google.adk.telemetry.trace_tool_call(_tool_ , _args_ , _function_response_event_ , _error =None_)¶
     
 
 Traces tool call.
@@ -28059,6 +28804,8 @@ Parameters:
   * **args** – The arguments to the tool call.
 
   * **function_response_event** – The event with the function response details.
+
+  * **error** – The exception raised during tool execution, if any.
 
 
 
@@ -34090,6 +34837,23 @@ Raises:
 
 **ValueError** – If mcp_tool or mcp_session_manager is None.
 
+_property _mcp_app_resource_uri _: str | None_¶
+    
+
+Returns the MCP App UI resource URI if this tool has one.
+
+MCP Apps declare a UI resource via meta.ui.resourceUri in the tool definition. This property extracts that URI, supporting both the nested format ({“ui”: {“resourceUri”: “ui://…”}}) and the flat format ({“ui/resourceUri”: “ui://…”}).
+
+Returns:
+    
+
+//` resource URI string, or None if not present.
+
+Return type:
+    
+
+The `ui
+
 _property _raw_mcp_tool _: Tool_¶
     
 
@@ -34127,6 +34891,11 @@ Returns:
     
 
 The result of running the tool.
+
+_property _visibility _: List[str]_¶
+    
+
+Returns the visibility if this MCP tool meta has one.
 
 _class _google.adk.tools.mcp_tool.McpToolset(_*_ , _connection_params_ , _tool_filter=None_ , _tool_name_prefix=None_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_, _auth_scheme=None_ , _auth_credential=None_ , _require_confirmation=False_ , _header_provider=None_ , _progress_callback=None_ , _use_mcp_resources=False_)¶
     
@@ -34697,7 +35466,7 @@ Raises:
 
 # google.adk.tools.openapi_tool module¶
 
-_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _credential_key =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_)¶
+_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _credential_key =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_, _preserve_property_names =False_)¶
     
 
 Bases: `BaseToolset`
@@ -34766,6 +35535,8 @@ Parameters:
   * **ssl_verify** – SSL certificate verification option for all tools. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
 
   * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
+  * **preserve_property_names** – If True, preserve the original property names from the OpenAPI spec instead of converting them to snake_case. This is useful when calling APIs that expect camelCase or other non-snake_case parameter names in the request. Defaults to False for backward compatibility.
 
 
 

@@ -69,6 +69,12 @@ App.Builder.`[name](../App.Builder.html#name\(java.lang.String\))([String](https
 
 `[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
 
+App.Builder.`[plugins](../App.Builder.html#plugins\(com.google.adk.plugins.Plugin...\))([Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")... plugins)`
+
+ 
+
+`[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
+
 App.Builder.`[plugins](../App.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
 
  

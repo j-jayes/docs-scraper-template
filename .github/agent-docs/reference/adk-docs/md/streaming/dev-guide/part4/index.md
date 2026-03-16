@@ -1348,7 +1348,7 @@ In this part, you learned how RunConfig enables sophisticated control over ADK G
 
 Back to top  [ Previous  Part 3. Event handling  ](../part3/) [ Next  Part 5. Audio, Images, and Video  ](../part5/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

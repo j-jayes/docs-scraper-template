@@ -1134,7 +1134,7 @@ Send a prompt to your agent. Replace `capital_agent` with your app name and adju
 
 Back to top  [ Previous  Test deployed agents  ](../agent-engine/test/) [ Next  GKE  ](../gke/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

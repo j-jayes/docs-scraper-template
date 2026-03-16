@@ -18,8 +18,9 @@ Preparing search index...
 LLM response class that provides the first candidate response from the model if available. Otherwise, returns error code and message.
 
 interface LlmResponse {  
+citationMetadata?: CitationMetadata;  
 content?: Content;  
-customMetadata?: { [key: string]: any };  
+customMetadata?: { [key: string]: unknown };  
 errorCode?: string;  
 errorMessage?: string;  
 finishReason?: FinishReason;  
@@ -40,11 +41,21 @@ usageMetadata?: GenerateContentResponseUsageMetadata;
 
 
 
-  * Defined in [core/src/models/llm_response.ts:13](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L13)
+  * Defined in [models/llm_response.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L22)
 
 
 
 ## Properties
+
+### `Optional`citationMetadata
+
+citationMetadata?: CitationMetadata
+
+The citation metadata of the response.
+
+  * Defined in [models/llm_response.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L36)
+
+
 
 ### `Optional`content
 
@@ -52,17 +63,17 @@ content?: Content
 
 The content of the response.
 
-  * Defined in [core/src/models/llm_response.ts:17](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L17)
+  * Defined in [models/llm_response.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L26)
 
 
 
 ### `Optional`customMetadata
 
-customMetadata?: { [key: string]: any }
+customMetadata?: { [key: string]: unknown }
 
 The custom metadata of the LlmResponse. An optional key-value pair to label an LlmResponse. NOTE: the entire object must be JSON serializable.
 
-  * Defined in [core/src/models/llm_response.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L57)
+  * Defined in [models/llm_response.ts:71](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L71)
 
 
 
@@ -72,7 +83,7 @@ errorCode?: string
 
 Error code if the response is an error. Code varies by model.
 
-  * Defined in [core/src/models/llm_response.ts:39](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L39)
+  * Defined in [models/llm_response.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L53)
 
 
 
@@ -82,7 +93,7 @@ errorMessage?: string
 
 Error message if the response is an error.
 
-  * Defined in [core/src/models/llm_response.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L44)
+  * Defined in [models/llm_response.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L58)
 
 
 
@@ -92,7 +103,7 @@ finishReason?: FinishReason
 
 The finish reason of the response.
 
-  * Defined in [core/src/models/llm_response.ts:67](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L67)
+  * Defined in [models/llm_response.ts:81](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L81)
 
 
 
@@ -102,7 +113,7 @@ groundingMetadata?: GroundingMetadata
 
 The grounding metadata of the response.
 
-  * Defined in [core/src/models/llm_response.ts:22](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L22)
+  * Defined in [models/llm_response.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L31)
 
 
 
@@ -112,7 +123,7 @@ inputTranscription?: Transcription
 
 Audio transcription of user input.
 
-  * Defined in [core/src/models/llm_response.ts:77](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L77)
+  * Defined in [models/llm_response.ts:91](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L91)
 
 
 
@@ -122,7 +133,7 @@ interrupted?: boolean
 
 Flag indicating that LLM was interrupted when generating the content. Usually it's due to user interruption during a bidi streaming.
 
-  * Defined in [core/src/models/llm_response.ts:50](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L50)
+  * Defined in [models/llm_response.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L64)
 
 
 
@@ -132,7 +143,7 @@ liveSessionResumptionUpdate?: LiveServerSessionResumptionUpdate
 
 The session resumption update of the LlmResponse
 
-  * Defined in [core/src/models/llm_response.ts:72](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L72)
+  * Defined in [models/llm_response.ts:86](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L86)
 
 
 
@@ -142,7 +153,7 @@ outputTranscription?: Transcription
 
 Audio transcription of model output.
 
-  * Defined in [core/src/models/llm_response.ts:82](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L82)
+  * Defined in [models/llm_response.ts:96](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L96)
 
 
 
@@ -152,7 +163,7 @@ partial?: boolean
 
 Indicates whether the text content is part of a unfinished text stream. Only used for streaming mode and when the content is plain text.
 
-  * Defined in [core/src/models/llm_response.ts:28](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L28)
+  * Defined in [models/llm_response.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L42)
 
 
 
@@ -162,7 +173,7 @@ turnComplete?: boolean
 
 Indicates whether the response from the model is complete. Only used for streaming mode.
 
-  * Defined in [core/src/models/llm_response.ts:34](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L34)
+  * Defined in [models/llm_response.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L48)
 
 
 
@@ -172,13 +183,13 @@ usageMetadata?: GenerateContentResponseUsageMetadata
 
 The usage metadata of the LlmResponse.
 
-  * Defined in [core/src/models/llm_response.ts:62](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_response.ts#L62)
+  * Defined in [models/llm_response.ts:76](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_response.ts#L76)
 
 
 
 Properties
 
-contentcustomMetadataerrorCodeerrorMessagefinishReasongroundingMetadatainputTranscriptioninterruptedliveSessionResumptionUpdateoutputTranscriptionpartialturnCompleteusageMetadata
+citationMetadatacontentcustomMetadataerrorCodeerrorMessagefinishReasongroundingMetadatainputTranscriptioninterruptedliveSessionResumptionUpdateoutputTranscriptionpartialturnCompleteusageMetadata
 
 [ADK for TypeScript: API Reference](../index.html)
 

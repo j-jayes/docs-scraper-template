@@ -31,7 +31,7 @@ Contents
   5. Method Details
      1. code(String)
      2. inputFiles(List)
-     3. executionId(Optional)
+     3. executionId(String)
      4. build()
 
 Hide sidebar  Show sidebar
@@ -87,7 +87,7 @@ Description
 
 `abstract [CodeExecutionUtils.CodeExecutionInput.Builder](CodeExecutionUtils.CodeExecutionInput.Builder.html "class in com.google.adk.codeexecutors")`
 
-`executionId([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> executionId)`
+`executionId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") executionId)`
 
  
 
@@ -122,7 +122,7 @@ public abstract [CodeExecutionUtils.CodeExecutionInput.Builder](CodeExecutionUti
 
     * ### executionId
 
-public abstract [CodeExecutionUtils.CodeExecutionInput.Builder](CodeExecutionUtils.CodeExecutionInput.Builder.html "class in com.google.adk.codeexecutors") executionId([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> executionId)
+public abstract [CodeExecutionUtils.CodeExecutionInput.Builder](CodeExecutionUtils.CodeExecutionInput.Builder.html "class in com.google.adk.codeexecutors") executionId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") executionId)
 
     * ### build
 

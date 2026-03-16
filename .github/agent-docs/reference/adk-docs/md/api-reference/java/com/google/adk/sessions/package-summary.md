@@ -108,6 +108,10 @@ Builder for [`Session`](Session.html "class in com.google.adk.sessions").
 
 Represents a general error that occurred during session management operations.
 
+[SessionKey](SessionKey.html "class in com.google.adk.sessions")
+
+Key for a session, composed of appName, userId and session id.
+
 [SessionNotFoundException](SessionNotFoundException.html "class in com.google.adk.sessions")
 
 Indicates that a requested session could not be found.

@@ -21,7 +21,28 @@ Skip navigation links
 # Uses of Package  
 com.google.adk.a2a.common
 
-No usage of com.google.adk.a2a.common 
+Packages that use [com.google.adk.a2a.common](package-summary.html)
+
+Package
+
+Description
+
+com.google.adk.a2a.common
+
+ 
+
+  * Classes in [com.google.adk.a2a.common](package-summary.html) used by [com.google.adk.a2a.common](package-summary.html)
+
+Class
+
+Description
+
+[A2AMetadata.Key](class-use/A2AMetadata.Key.html#com.google.adk.a2a.common)
+
+Enum for A2A custom metadata keys.
+
+
+
 
 * * *
 

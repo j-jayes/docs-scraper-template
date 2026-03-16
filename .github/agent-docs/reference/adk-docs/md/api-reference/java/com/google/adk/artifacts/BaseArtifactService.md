@@ -25,10 +25,20 @@ Contents
   2. Method Summary
   3. Method Details
      1. saveArtifact(String, String, String, String, Part)
-     2. loadArtifact(String, String, String, String, Optional)
-     3. listArtifactKeys(String, String, String)
-     4. deleteArtifact(String, String, String, String)
-     5. listVersions(String, String, String, String)
+     2. saveArtifact(SessionKey, String, Part)
+     3. saveAndReloadArtifact(String, String, String, String, Part)
+     4. saveAndReloadArtifact(SessionKey, String, Part)
+     5. loadArtifact(String, String, String, String)
+     6. loadArtifact(SessionKey, String)
+     7. loadArtifact(String, String, String, String, int)
+     8. loadArtifact(SessionKey, String, int)
+     9. loadArtifact(String, String, String, String, Integer)
+     10. listArtifactKeys(String, String, String)
+     11. listArtifactKeys(SessionKey)
+     12. deleteArtifact(String, String, String, String)
+     13. deleteArtifact(SessionKey, String)
+     14. listVersions(String, String, String, String)
+     15. listVersions(SessionKey, String)
 
 Hide sidebar  Show sidebar
 
@@ -45,7 +55,7 @@ Base interface for artifact services.
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsDefault Methods
 
 Modifier and Type
 
@@ -53,11 +63,23 @@ Method
 
 Description
 
+`default io.reactivex.rxjava3.core.Completable`
+
+`deleteArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+
+ 
+
 `io.reactivex.rxjava3.core.Completable`
 
 `deleteArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
 
 Deletes an artifact.
+
+`default io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
+
+`listArtifactKeys([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+ 
 
 `io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
 
@@ -65,17 +87,65 @@ Deletes an artifact.
 
 Lists all the artifact filenames within a session.
 
+`default io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>>`
+
+`listVersions([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+
+ 
+
 `io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>>`
 
 `listVersions([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
 
 Lists all the versions (as revision IDs) of an artifact.
 
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+
+Loads the latest version of an artifact from the service.
+
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)`
+
+ 
+
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+
+Loads the latest version of an artifact from the service.
+
+`default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
+
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)`
+
+Loads a specific version of an artifact from the service.
+
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
-`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)`
+`loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") version)`
 
-Gets an artifact.
+ 
+
+`default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part>`
+
+`saveAndReloadArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
+
+Saves an artifact and returns it with fileData if available.
+
+`default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part>`
+
+`saveAndReloadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
+
+Saves an artifact and returns it with fileData if available.
+
+`default io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>`
+
+`saveArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
+
+Saves an artifact.
 
 `io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>`
 
@@ -103,20 +173,60 @@ Parameters:
 Returns:
     the revision ID (version) of the saved artifact.
 
-    * ### loadArtifact
+    * ### saveArtifact
 
-io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> version)
+default io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> saveArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)
 
-Gets an artifact.
+Saves an artifact.
+
+    * ### saveAndReloadArtifact
+
+default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part> saveAndReloadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)
+
+Saves an artifact and returns it with fileData if available. 
+
+Implementations should override this default method for efficiency, as the default performs two I/O operations (save then load).
 
 Parameters:
     `appName` \- the app name
     `userId` \- the user ID
     `sessionId` \- the session ID
     `filename` \- the filename
-    `version` \- Optional version number. If null, loads the latest version.
+    `artifact` \- the artifact to save
 Returns:
-    the artifact or empty if not found
+    the saved artifact with fileData if available.
+
+    * ### saveAndReloadArtifact
+
+default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part> saveAndReloadArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)
+
+Saves an artifact and returns it with fileData if available.
+
+    * ### loadArtifact
+
+default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
+
+Loads the latest version of an artifact from the service.
+
+    * ### loadArtifact
+
+default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
+
+Loads the latest version of an artifact from the service.
+
+    * ### loadArtifact
+
+default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)
+
+Loads a specific version of an artifact from the service.
+
+    * ### loadArtifact
+
+default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)
+
+    * ### loadArtifact
+
+io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part> loadArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") version)
 
     * ### listArtifactKeys
 
@@ -131,6 +241,10 @@ Parameters:
 Returns:
     the list artifact response containing filenames
 
+    * ### listArtifactKeys
+
+default io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](ListArtifactsResponse.html "class in com.google.adk.artifacts")> listArtifactKeys([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey)
+
     * ### deleteArtifact
 
 io.reactivex.rxjava3.core.Completable deleteArtifact([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
@@ -142,6 +256,10 @@ Parameters:
     `userId` \- the user ID
     `sessionId` \- the session ID
     `filename` \- the filename
+
+    * ### deleteArtifact
+
+default io.reactivex.rxjava3.core.Completable deleteArtifact([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
 
     * ### listVersions
 
@@ -156,6 +274,10 @@ Parameters:
     `filename` \- the artifact filename
 Returns:
     A list of integer version numbers.
+
+    * ### listVersions
+
+default io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>> listVersions([SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)
 
 
 

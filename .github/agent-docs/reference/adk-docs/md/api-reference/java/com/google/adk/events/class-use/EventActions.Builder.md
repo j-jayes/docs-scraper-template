@@ -45,7 +45,7 @@ Description
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[artifactDelta](../EventActions.Builder.html#artifactDelta\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), com.google.genai.types.Part> value)`
+EventActions.Builder.`[artifactDelta](../EventActions.Builder.html#artifactDelta\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> value)`
 
  
 
@@ -57,13 +57,27 @@ EventActions.`[builder](../EventActions.html#builder\(\))()`
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[compaction](../EventActions.Builder.html#compaction\(com.google.adk.events.EventCompaction\))([EventCompaction](../EventCompaction.html "class in com.google.adk.events") value)`
+EventActions.Builder.`[compaction](../EventActions.Builder.html#compaction\(com.google.adk.events.EventCompaction\))(@Nullable [EventCompaction](../EventCompaction.html "class in com.google.adk.events") value)`
+
+ 
+
+`[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
+
+EventActions.Builder.`[deletedArtifactIds](../EventActions.Builder.html#deletedArtifactIds\(java.util.Set\))([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
 
  
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
 EventActions.Builder.`[endInvocation](../EventActions.Builder.html#endInvocation\(boolean\))(boolean endInvocation)`
+
+Deprecated.
+
+Use [`EventActions.Builder.endOfAgent(boolean)`](../EventActions.Builder.html#endOfAgent\(boolean\)) instead.
+
+`[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
+
+EventActions.Builder.`[endOfAgent](../EventActions.Builder.html#endOfAgent\(boolean\))(boolean endOfAgent)`
 
  
 
@@ -87,7 +101,7 @@ EventActions.Builder.`[requestedAuthConfigs](../EventActions.Builder.html#reques
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#requestedToolConfirmations\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> value)`
+EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#requestedToolConfirmations\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> value)`
 
  
 
@@ -111,7 +125,7 @@ EventActions.`[toBuilder](../EventActions.html#toBuilder\(\))()`
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[transferToAgent](../EventActions.Builder.html#transferToAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentId)`
+EventActions.Builder.`[transferToAgent](../EventActions.Builder.html#transferToAgent\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentId)`
 
  
 

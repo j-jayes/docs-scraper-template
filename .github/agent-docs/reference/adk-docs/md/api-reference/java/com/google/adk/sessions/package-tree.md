@@ -38,6 +38,7 @@ Package Hierarchies:
     * com.google.adk.sessions.[InMemorySessionService](InMemorySessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions"))
     * com.google.adk.[JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
       * com.google.adk.sessions.[Session](Session.html "class in com.google.adk.sessions")
+      * com.google.adk.sessions.[SessionKey](SessionKey.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[ListEventsResponse](ListEventsResponse.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[ListEventsResponse.Builder](ListEventsResponse.Builder.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[ListSessionsResponse](ListSessionsResponse.html "class in com.google.adk.sessions")

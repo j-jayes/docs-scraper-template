@@ -30,41 +30,13 @@ Element
 
 Description
 
-[com.google.adk.agents.InvocationContext(BaseSessionService, BaseArtifactService, BaseMemoryService, Plugin, Optional<LiveRequestQueue>, Optional<String>, String, BaseAgent, Session, Optional<Content>, RunConfig, boolean)](com/google/adk/agents/InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,com.google.adk.plugins.Plugin,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))
-
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
-
-[com.google.adk.agents.InvocationContext(BaseSessionService, BaseArtifactService, BaseMemoryService, Optional<LiveRequestQueue>, Optional<String>, String, BaseAgent, Session, Optional<Content>, RunConfig, boolean)](com/google/adk/agents/InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))
-
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
-
 [com.google.adk.agents.InvocationContext.agent(BaseAgent)](com/google/adk/agents/InvocationContext.html#agent\(com.google.adk.agents.BaseAgent\))
 
 Use [`InvocationContext.toBuilder()`](com/google/adk/agents/InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.agent(BaseAgent)`](com/google/adk/agents/InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
 
-[com.google.adk.agents.InvocationContext.branch(String)](com/google/adk/agents/InvocationContext.html#branch\(java.lang.String\))
-
-Use [`InvocationContext.toBuilder()`](com/google/adk/agents/InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.branch(String)`](com/google/adk/agents/InvocationContext.Builder.html#branch\(java.lang.String\)) instead.
-
-[com.google.adk.agents.InvocationContext.Builder.branch(Optional<String>)](com/google/adk/agents/InvocationContext.Builder.html#branch\(java.util.Optional\))
-
-Use [`InvocationContext.Builder.branch(String)`](com/google/adk/agents/InvocationContext.Builder.html#branch\(java.lang.String\)) instead.
-
-[com.google.adk.agents.InvocationContext.Builder.liveRequestQueue(Optional<LiveRequestQueue>)](com/google/adk/agents/InvocationContext.Builder.html#liveRequestQueue\(java.util.Optional\))
-
-Use [`InvocationContext.Builder.liveRequestQueue(LiveRequestQueue)`](com/google/adk/agents/InvocationContext.Builder.html#liveRequestQueue\(com.google.adk.agents.LiveRequestQueue\)) instead.
-
 [com.google.adk.agents.InvocationContext.copyOf(InvocationContext)](com/google/adk/agents/InvocationContext.html#copyOf\(com.google.adk.agents.InvocationContext\))
 
 Use `other.toBuilder().build()` instead.
-
-[com.google.adk.agents.InvocationContext.create(BaseSessionService, BaseArtifactService, BaseAgent, Session, LiveRequestQueue, RunConfig)](com/google/adk/agents/InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))
-
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
-
-[com.google.adk.agents.InvocationContext.create(BaseSessionService, BaseArtifactService, String, BaseAgent, Session, Content, RunConfig)](com/google/adk/agents/InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
-
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
 
 [com.google.adk.runner.Runner.runAsync(Session, Content, RunConfig)](com/google/adk/runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
 
@@ -73,6 +45,8 @@ Use runAsync with sessionId.
 [com.google.adk.runner.Runner.runAsync(Session, Content, RunConfig, Map<String, Object>)](com/google/adk/runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))
 
 Use runAsync with sessionId.
+
+[com.google.adk.runner.Runner.runWithSessionId(String, Content, RunConfig)](com/google/adk/runner/Runner.html#runWithSessionId\(java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
 
 
 
@@ -86,29 +60,25 @@ Description
 
 Use [`InvocationContext.toBuilder()`](com/google/adk/agents/InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.agent(BaseAgent)`](com/google/adk/agents/InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
 
-[com.google.adk.agents.InvocationContext.branch(String)](com/google/adk/agents/InvocationContext.html#branch\(java.lang.String\))
-
-Use [`InvocationContext.toBuilder()`](com/google/adk/agents/InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.branch(String)`](com/google/adk/agents/InvocationContext.Builder.html#branch\(java.lang.String\)) instead.
-
-[com.google.adk.agents.InvocationContext.Builder.branch(Optional<String>)](com/google/adk/agents/InvocationContext.Builder.html#branch\(java.util.Optional\))
-
-Use [`InvocationContext.Builder.branch(String)`](com/google/adk/agents/InvocationContext.Builder.html#branch\(java.lang.String\)) instead.
-
-[com.google.adk.agents.InvocationContext.Builder.liveRequestQueue(Optional<LiveRequestQueue>)](com/google/adk/agents/InvocationContext.Builder.html#liveRequestQueue\(java.util.Optional\))
-
-Use [`InvocationContext.Builder.liveRequestQueue(LiveRequestQueue)`](com/google/adk/agents/InvocationContext.Builder.html#liveRequestQueue\(com.google.adk.agents.LiveRequestQueue\)) instead.
-
 [com.google.adk.agents.InvocationContext.copyOf(InvocationContext)](com/google/adk/agents/InvocationContext.html#copyOf\(com.google.adk.agents.InvocationContext\))
 
 Use `other.toBuilder().build()` instead.
 
-[com.google.adk.agents.InvocationContext.create(BaseSessionService, BaseArtifactService, BaseAgent, Session, LiveRequestQueue, RunConfig)](com/google/adk/agents/InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))
+[com.google.adk.events.Event.setFinishReason(Optional<FinishReason>)](com/google/adk/events/Event.html#setFinishReason\(java.util.Optional\))
 
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
+[com.google.adk.events.EventActions.Builder.endInvocation(boolean)](com/google/adk/events/EventActions.Builder.html#endInvocation\(boolean\))
 
-[com.google.adk.agents.InvocationContext.create(BaseSessionService, BaseArtifactService, String, BaseAgent, Session, Content, RunConfig)](com/google/adk/agents/InvocationContext.html#create\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
+Use [`EventActions.Builder.endOfAgent(boolean)`](com/google/adk/events/EventActions.Builder.html#endOfAgent\(boolean\)) instead.
 
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
+[com.google.adk.events.EventActions.endInvocation()](com/google/adk/events/EventActions.html#endInvocation\(\))
+
+Use [`EventActions.endOfAgent()`](com/google/adk/events/EventActions.html#endOfAgent\(\)) instead.
+
+[com.google.adk.events.EventActions.setEndInvocation(boolean)](com/google/adk/events/EventActions.html#setEndInvocation\(boolean\))
+
+Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.html#setEndOfAgent\(boolean\)) instead.
+
+[com.google.adk.events.EventActions.setStateDelta(ConcurrentMap<String, Object>)](com/google/adk/events/EventActions.html#setStateDelta\(java.util.concurrent.ConcurrentMap\))
 
 [com.google.adk.runner.Runner.runAsync(Session, Content, RunConfig)](com/google/adk/runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
 
@@ -118,6 +88,16 @@ Use runAsync with sessionId.
 
 Use runAsync with sessionId.
 
+[com.google.adk.runner.Runner.runWithSessionId(String, Content, RunConfig)](com/google/adk/runner/Runner.html#runWithSessionId\(java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
+
+[com.google.adk.sessions.BaseSessionService.createSession(String, String, ConcurrentMap<String, Object>, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))
+
+Use [`BaseSessionService.createSession(String, String, Map, String)`](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) instead.
+
+[com.google.adk.tools.ToolPredicate.test(BaseTool, Optional<ReadonlyContext>)](com/google/adk/tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))
+
+Use [`ToolPredicate.test(BaseTool, ReadonlyContext)`](com/google/adk/tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\)) instead.
+
 
 
   * Deprecated Constructors
@@ -126,13 +106,9 @@ Constructor
 
 Description
 
-[com.google.adk.agents.InvocationContext(BaseSessionService, BaseArtifactService, BaseMemoryService, Plugin, Optional<LiveRequestQueue>, Optional<String>, String, BaseAgent, Session, Optional<Content>, RunConfig, boolean)](com/google/adk/agents/InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,com.google.adk.plugins.Plugin,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))
+[com.google.adk.codeexecutors.ContainerCodeExecutor(String, String, String)](com/google/adk/codeexecutors/ContainerCodeExecutor.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.lang.String\))
 
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
-
-[com.google.adk.agents.InvocationContext(BaseSessionService, BaseArtifactService, BaseMemoryService, Optional<LiveRequestQueue>, Optional<String>, String, BaseAgent, Session, Optional<Content>, RunConfig, boolean)](com/google/adk/agents/InvocationContext.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.artifacts.BaseArtifactService,com.google.adk.memory.BaseMemoryService,java.util.Optional,java.util.Optional,java.lang.String,com.google.adk.agents.BaseAgent,com.google.adk.sessions.Session,java.util.Optional,com.google.adk.agents.RunConfig,boolean\))
-
-Use [`InvocationContext.builder()`](com/google/adk/agents/InvocationContext.html#builder\(\)) instead.
+Use one of the static factory methods instead.
 
 [com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService\))
 
@@ -142,15 +118,11 @@ Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.g
 
 Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 
-[com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<BasePlugin>)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List\))
+[com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<? extends Plugin>)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List\))
 
 Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 
-[com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<BasePlugin>, ResumabilityConfig)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.flows.llmflows.ResumabilityConfig\))
-
-Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
-
-[com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<BasePlugin>, ResumabilityConfig, EventsCompactionConfig)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.flows.llmflows.ResumabilityConfig,com.google.adk.summarizer.EventsCompactionConfig\))
+[com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<? extends Plugin>, EventsCompactionConfig, ContextCacheConfig)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig\))
 
 Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 

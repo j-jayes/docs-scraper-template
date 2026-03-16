@@ -49,12 +49,6 @@ LlmResponse.Builder.`[avgLogprobs](../LlmResponse.Builder.html#avgLogprobs\(java
 
  
 
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
-LlmResponse.Builder.`[avgLogprobs](../LlmResponse.Builder.html#avgLogprobs\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> avgLogprobs)`
-
- 
-
 `static [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
 LlmResponse.`[builder](../LlmResponse.html#builder\(\))()`
@@ -69,7 +63,7 @@ LlmResponse.Builder.`[content](../LlmResponse.Builder.html#content\(com.google.g
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[content](../LlmResponse.Builder.html#content\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Content> content)`
+LlmResponse.Builder.`[customMetadata](../LlmResponse.Builder.html#customMetadata\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
 
  
 
@@ -81,19 +75,7 @@ LlmResponse.Builder.`[errorCode](../LlmResponse.Builder.html#errorCode\(com.goog
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[errorCode](../LlmResponse.Builder.html#errorCode\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> errorCode)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
 LlmResponse.Builder.`[errorMessage](../LlmResponse.Builder.html#errorMessage\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
-LlmResponse.Builder.`[errorMessage](../LlmResponse.Builder.html#errorMessage\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> errorMessage)`
 
  
 
@@ -105,19 +87,7 @@ LlmResponse.Builder.`[finishReason](../LlmResponse.Builder.html#finishReason\(co
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[finishReason](../LlmResponse.Builder.html#finishReason\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.FinishReason> finishReason)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
 LlmResponse.Builder.`[groundingMetadata](../LlmResponse.Builder.html#groundingMetadata\(com.google.genai.types.GroundingMetadata\))(com.google.genai.types.GroundingMetadata groundingMetadata)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
-LlmResponse.Builder.`[groundingMetadata](../LlmResponse.Builder.html#groundingMetadata\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GroundingMetadata> groundingMetadata)`
 
  
 
@@ -129,31 +99,13 @@ LlmResponse.Builder.`[interrupted](../LlmResponse.Builder.html#interrupted\(java
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[interrupted](../LlmResponse.Builder.html#interrupted\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> interrupted)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
 LlmResponse.Builder.`[modelVersion](../LlmResponse.Builder.html#modelVersion\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
 
  
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[modelVersion](../LlmResponse.Builder.html#modelVersion\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> modelVersion)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
 LlmResponse.Builder.`[partial](../LlmResponse.Builder.html#partial\(java.lang.Boolean\))([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
-LlmResponse.Builder.`[partial](../LlmResponse.Builder.html#partial\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> partial)`
 
  
 
@@ -177,19 +129,7 @@ LlmResponse.Builder.`[turnComplete](../LlmResponse.Builder.html#turnComplete\(ja
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[turnComplete](../LlmResponse.Builder.html#turnComplete\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> turnComplete)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
 LlmResponse.Builder.`[usageMetadata](../LlmResponse.Builder.html#usageMetadata\(com.google.genai.types.GenerateContentResponseUsageMetadata\))(com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)`
-
- 
-
-`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
-
-LlmResponse.Builder.`[usageMetadata](../LlmResponse.Builder.html#usageMetadata\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentResponseUsageMetadata> usageMetadata)`
 
  
 

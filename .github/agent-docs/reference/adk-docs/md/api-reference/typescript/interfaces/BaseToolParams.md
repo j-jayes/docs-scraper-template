@@ -23,7 +23,7 @@ isLongRunning?: boolean;
 name: string;  
 }
 
-  * Defined in [core/src/tools/base_tool.ts:33](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L33)
+  * Defined in [tools/base_tool.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L33)
 
 
 
@@ -33,7 +33,7 @@ name: string;
 
 description: string
 
-  * Defined in [core/src/tools/base_tool.ts:35](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L35)
+  * Defined in [tools/base_tool.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L35)
 
 
 
@@ -41,7 +41,7 @@ description: string
 
 isLongRunning?: boolean
 
-  * Defined in [core/src/tools/base_tool.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L36)
+  * Defined in [tools/base_tool.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L36)
 
 
 
@@ -49,7 +49,7 @@ isLongRunning?: boolean
 
 name: string
 
-  * Defined in [core/src/tools/base_tool.ts:34](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L34)
+  * Defined in [tools/base_tool.ts:34](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L34)
 
 
 

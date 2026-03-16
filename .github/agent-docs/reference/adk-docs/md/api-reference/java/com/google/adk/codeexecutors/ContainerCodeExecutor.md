@@ -25,11 +25,15 @@ Contents
   2. Constructor Summary
   3. Method Summary
   4. Constructor Details
-     1. ContainerCodeExecutor(Optional, Optional, Optional)
+     1. ContainerCodeExecutor(String, String, String)
   5. Method Details
-     1. stateful()
-     2. optimizeDataFile()
-     3. executeCode(InvocationContext, CodeExecutionUtils.CodeExecutionInput)
+     1. fromImage(String, String)
+     2. fromImage(String)
+     3. fromDockerPath(String, String)
+     4. fromDockerPath(String)
+     5. stateful()
+     6. optimizeDataFile()
+     7. executeCode(InvocationContext, CodeExecutionUtils.CodeExecutionInput)
 
 Hide sidebar  Show sidebar
 
@@ -57,13 +61,15 @@ Constructor
 
 Description
 
-`ContainerCodeExecutor([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> baseUrl, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> image, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> dockerPath)`
+`ContainerCodeExecutor([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") baseUrl, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") image, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dockerPath)`
 
-Initializes the ContainerCodeExecutor.
+Deprecated.
+
+Use one of the static factory methods instead.
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -76,6 +82,30 @@ Description
 `executeCode([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [CodeExecutionUtils.CodeExecutionInput](CodeExecutionUtils.CodeExecutionInput.html "class in com.google.adk.codeexecutors") codeExecutionInput)`
 
 Executes code and return the code execution result.
+
+`static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`fromDockerPath([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dockerPath)`
+
+Creates a ContainerCodeExecutor from a Dockerfile path.
+
+`static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`fromDockerPath([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") baseUrl, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dockerPath)`
+
+Creates a ContainerCodeExecutor from a Dockerfile path.
+
+`static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`fromImage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") image)`
+
+Creates a ContainerCodeExecutor from an image.
+
+`static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`fromImage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") baseUrl, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") image)`
+
+Creates a ContainerCodeExecutor from an image.
 
 `boolean`
 
@@ -108,16 +138,53 @@ Whether the code executor is stateful.
 
     * ### ContainerCodeExecutor
 
-public ContainerCodeExecutor([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> baseUrl, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> image, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> dockerPath)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") public ContainerCodeExecutor([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") baseUrl, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") image, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dockerPath)
 
-Initializes the ContainerCodeExecutor.
+Deprecated.
 
-Parameters:
-    `baseUrl` \- Optional. The base url of the user hosted Docker client.
-    `image` \- The tag of the predefined image or custom image to run on the container. Either dockerPath or image must be set.
-    `dockerPath` \- The path to the directory containing the Dockerfile. If set, build the image from the dockerfile path instead of using the predefined image. Either dockerPath or image must be set.
+Use one of the static factory methods instead.
+
+Initializes the ContainerCodeExecutor. Either dockerPath or image must be set.
 
   * ## Method Details
+
+    * ### fromImage
+
+public static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") fromImage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") baseUrl, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") image)
+
+Creates a ContainerCodeExecutor from an image.
+
+Parameters:
+    `baseUrl` \- The base url of the user hosted Docker client.
+    `image` \- The tag of the predefined image or custom image to run on the container.
+
+    * ### fromImage
+
+public static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") fromImage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") image)
+
+Creates a ContainerCodeExecutor from an image.
+
+Parameters:
+    `image` \- The tag of the predefined image or custom image to run on the container.
+
+    * ### fromDockerPath
+
+public static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") fromDockerPath([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") baseUrl, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dockerPath)
+
+Creates a ContainerCodeExecutor from a Dockerfile path.
+
+Parameters:
+    `baseUrl` \- The base url of the user hosted Docker client.
+    `dockerPath` \- The path to the directory containing the Dockerfile.
+
+    * ### fromDockerPath
+
+public static [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") fromDockerPath([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dockerPath)
+
+Creates a ContainerCodeExecutor from a Dockerfile path.
+
+Parameters:
+    `dockerPath` \- The path to the directory containing the Dockerfile.
 
     * ### stateful
 
@@ -149,7 +216,9 @@ public [CodeExecutionUtils.CodeExecutionResult](CodeExecutionUtils.CodeExecution
 
 Description copied from class: `[BaseCodeExecutor](BaseCodeExecutor.html#executeCode\(com.google.adk.agents.InvocationContext,com.google.adk.codeexecutors.CodeExecutionUtils.CodeExecutionInput\))`
 
-Executes code and return the code execution result.
+Executes code and return the code execution result. 
+
+This method may perform blocking operations.
 
 Specified by:
     `[executeCode](BaseCodeExecutor.html#executeCode\(com.google.adk.agents.InvocationContext,com.google.adk.codeexecutors.CodeExecutionUtils.CodeExecutionInput\))` in class `[BaseCodeExecutor](BaseCodeExecutor.html "class in com.google.adk.codeexecutors")`

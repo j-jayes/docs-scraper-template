@@ -79,17 +79,17 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](../Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](../Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>`
 
 LlmAgent.`[beforeToolCallback](../LlmAgent.html#beforeToolCallback\(\))()`
 
  
 
-`com.google.common.collect.ImmutableList<? extends [Callbacks.BeforeToolCallback](../Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeToolCallback](../Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")>`
 
-CallbackPlugin.`[getBeforeToolCallback](../CallbackPlugin.html#getBeforeToolCallback\(\))()`
+LlmAgent.`[canonicalBeforeToolCallbacks](../LlmAgent.html#canonicalBeforeToolCallbacks\(\))()`
 
- 
+The resolved beforeToolCallback field as a list.
 
 Methods in [com.google.adk.agents](../package-summary.html) with parameters of type [Callbacks.BeforeToolCallback](../Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")
 
@@ -98,12 +98,6 @@ Modifier and Type
 Method
 
 Description
-
-`[CallbackPlugin.Builder](../CallbackPlugin.Builder.html "class in com.google.adk.agents")`
-
-CallbackPlugin.Builder.`[addBeforeToolCallback](../CallbackPlugin.Builder.html#addBeforeToolCallback\(com.google.adk.agents.Callbacks.BeforeToolCallback\))([Callbacks.BeforeToolCallback](../Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents") callback)`
-
- 
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 

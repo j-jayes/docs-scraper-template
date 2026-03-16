@@ -4,7 +4,7 @@ Skip to content
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
 
-Gemini Live API Toolkit in ADK 
+ADK Gemini Live API Toolkit 
 
 Initializing search 
 
@@ -198,13 +198,13 @@ API Reference
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/streaming/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/index.md "View Markdown source")
 
-# Gemini Live API Toolkit in ADK¶
+# ADK Gemini Live API Toolkit¶
 
 Supported in ADKPython v0.5.0Experimental
 
-Bidirectional (Bidi) streaming (live) in ADK adds the low-latency bidirectional voice and video interaction capability of [Gemini Live API](https://ai.google.dev/gemini-api/docs/live) to AI agents.
+Gemini Live API Toolkit in ADK adds the low-latency bidirectional voice and video interaction capability of [Gemini Live API](https://ai.google.dev/gemini-api/docs/live) to AI agents.
 
-With bidi-streaming, or live, mode, you can provide end users with the experience of natural, human-like voice conversations, including the ability for the user to interrupt the agent's responses with voice commands. Agents with streaming can process text, audio, and video inputs, and they can provide text and audio output.
+With ADK Gemini Live API Toolkit, you can provide end users with the experience of natural, human-like voice conversations, including the ability for the user to interrupt the agent's responses with voice commands. Agents with streaming can process text, audio, and video inputs, and they can provide text and audio output.
 
   * **Quickstart (Gemini Live API Toolkit)**
 
@@ -217,7 +217,7 @@ In this quickstart, you'll build a simple agent and use streaming in ADK to impl
 
 * * *
 
-A production-ready reference implementation showcasing ADK bidirectional streaming with multimodal support (text, audio, image). This FastAPI-based demo demonstrates real-time WebSocket communication, automatic transcription, tool calling with Google Search, and complete streaming lifecycle management. This demo is extensively referenced throughout the development guide series.
+A production-ready reference implementation showcasing ADK Gemini Live API Toolkit with multimodal support (text, audio, image). This FastAPI-based demo demonstrates real-time WebSocket communication, automatic transcription, tool calling with Google Search, and complete streaming lifecycle management. This demo is extensively referenced throughout the development guide series.
 
     * [ADK Gemini Live API Toolkit Demo](https://github.com/google/adk-samples/tree/main/python/agents/bidi-demo)
   * **Blog post: ADK Gemini Live API Toolkit Visual Guide**
@@ -264,7 +264,7 @@ This article demonstrates how to use Claude Code Skills to accelerate ADK develo
 
 Back to top  [ Previous  Go  ](../a2a/quickstart-consuming-go/) [ Next  Part 1. Intro to streaming  ](dev-guide/part1/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

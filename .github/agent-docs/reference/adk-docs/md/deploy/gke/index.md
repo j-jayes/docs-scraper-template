@@ -924,7 +924,7 @@ You can also delete the project if you no longer need it. This will delete all r
 
 Back to top  [ Previous  Cloud Run  ](../cloud-run/) [ Next  Observability for agents  ](../../observability/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

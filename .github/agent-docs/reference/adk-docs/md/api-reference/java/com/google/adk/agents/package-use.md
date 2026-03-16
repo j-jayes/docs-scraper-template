@@ -43,11 +43,7 @@ com.example.mcpfilesystem
 
  
 
-com.google.adk
-
- 
-
-com.google.adk.a2a
+com.google.adk.a2a.agent
 
  
 
@@ -55,7 +51,15 @@ com.google.adk.a2a.converters
 
  
 
+com.google.adk.a2a.executor
+
+ 
+
 com.google.adk.agents
+
+ 
+
+com.google.adk.apps
 
  
 
@@ -83,7 +87,11 @@ com.google.adk.runner
 
  
 
-com.google.adk.samples.a2a_remote
+com.google.adk.samples.a2aagent.agent
+
+ 
+
+com.google.adk.telemetry
 
  
 
@@ -92,6 +100,10 @@ com.google.adk.tools
  
 
 com.google.adk.tools.applicationintegrationtoolset
+
+ 
+
+com.google.adk.tools.computeruse
 
  
 
@@ -111,10 +123,6 @@ com.google.adk.web
 
  
 
-com.google.adk.webservice
-
- 
-
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.example](../../../example/package-summary.html)
 
 Class
@@ -123,7 +131,7 @@ Description
 
 [Callbacks.AfterAgentCallback](class-use/Callbacks.AfterAgentCallback.html#com.example)
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
 [Callbacks.AfterModelCallback](class-use/Callbacks.AfterModelCallback.html#com.example)
 
@@ -131,11 +139,11 @@ Description
 
 [Callbacks.AfterToolCallback](class-use/Callbacks.AfterToolCallback.html#com.example)
 
- 
+Async callback interface for actions to be performed after a tool has been invoked.
 
 [Callbacks.BeforeAgentCallback](class-use/Callbacks.BeforeAgentCallback.html#com.example)
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
 [Callbacks.BeforeModelCallback](class-use/Callbacks.BeforeModelCallback.html#com.example)
 
@@ -143,7 +151,7 @@ Description
 
 [Callbacks.BeforeToolCallback](class-use/Callbacks.BeforeToolCallback.html#com.example)
 
- 
+Async callback interface for actions to be performed before a tool is invoked.
 
 [LlmAgent](class-use/LlmAgent.html#com.example)
 
@@ -183,41 +191,27 @@ Description
 
 The LLM-based agent.
 
-  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk](../package-summary.html)
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.a2a.agent](../a2a/agent/package-summary.html)
 
 Class
 
 Description
 
-[InvocationContext](class-use/InvocationContext.html#com.google.adk)
-
-The context for an agent invocation.
-
-  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.a2a](../a2a/package-summary.html)
-
-Class
-
-Description
-
-[BaseAgent](class-use/BaseAgent.html#com.google.adk.a2a)
+[BaseAgent](class-use/BaseAgent.html#com.google.adk.a2a.agent)
 
 Base class for all agents.
 
-[Callbacks.AfterAgentCallback](class-use/Callbacks.AfterAgentCallback.html#com.google.adk.a2a)
+[Callbacks.AfterAgentCallback](class-use/Callbacks.AfterAgentCallback.html#com.google.adk.a2a.agent)
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
-[Callbacks.BeforeAgentCallback](class-use/Callbacks.BeforeAgentCallback.html#com.google.adk.a2a)
+[Callbacks.BeforeAgentCallback](class-use/Callbacks.BeforeAgentCallback.html#com.google.adk.a2a.agent)
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
-[InvocationContext](class-use/InvocationContext.html#com.google.adk.a2a)
+[InvocationContext](class-use/InvocationContext.html#com.google.adk.a2a.agent)
 
 The context for an agent invocation.
-
-[RunConfig](class-use/RunConfig.html#com.google.adk.a2a)
-
-Configuration to modify an agent's LLM's underlying behavior.
 
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.a2a.converters](../a2a/converters/package-summary.html)
 
@@ -228,6 +222,20 @@ Description
 [InvocationContext](class-use/InvocationContext.html#com.google.adk.a2a.converters)
 
 The context for an agent invocation.
+
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
+
+Class
+
+Description
+
+[BaseAgent](class-use/BaseAgent.html#com.google.adk.a2a.executor)
+
+Base class for all agents.
+
+[RunConfig](class-use/RunConfig.html#com.google.adk.a2a.executor)
+
+Configuration to modify an agent's LLM's underlying behavior.
 
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.agents](package-summary.html)
 
@@ -263,17 +271,9 @@ Reference to a callback stored in the ComponentRegistry.
 
 The context of various callbacks for an agent invocation.
 
-[CallbackPlugin](class-use/CallbackPlugin.html#com.google.adk.agents)
-
-A plugin that wraps callbacks and exposes them as a plugin.
-
-[CallbackPlugin.Builder](class-use/CallbackPlugin.Builder.html#com.google.adk.agents)
-
-Builder for [`CallbackPlugin`](CallbackPlugin.html "class in com.google.adk.agents").
-
 [Callbacks.AfterAgentCallback](class-use/Callbacks.AfterAgentCallback.html#com.google.adk.agents)
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
 [Callbacks.AfterAgentCallbackSync](class-use/Callbacks.AfterAgentCallbackSync.html#com.google.adk.agents)
 
@@ -289,7 +289,7 @@ Helper interface to allow for sync afterModelCallback.
 
 [Callbacks.AfterToolCallback](class-use/Callbacks.AfterToolCallback.html#com.google.adk.agents)
 
- 
+Async callback interface for actions to be performed after a tool has been invoked.
 
 [Callbacks.AfterToolCallbackSync](class-use/Callbacks.AfterToolCallbackSync.html#com.google.adk.agents)
 
@@ -297,7 +297,7 @@ Helper interface to allow for sync afterToolCallback.
 
 [Callbacks.BeforeAgentCallback](class-use/Callbacks.BeforeAgentCallback.html#com.google.adk.agents)
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
 [Callbacks.BeforeAgentCallbackSync](class-use/Callbacks.BeforeAgentCallbackSync.html#com.google.adk.agents)
 
@@ -313,15 +313,35 @@ Helper interface to allow for sync beforeModelCallback.
 
 [Callbacks.BeforeToolCallback](class-use/Callbacks.BeforeToolCallback.html#com.google.adk.agents)
 
- 
+Async callback interface for actions to be performed before a tool is invoked.
 
 [Callbacks.BeforeToolCallbackSync](class-use/Callbacks.BeforeToolCallbackSync.html#com.google.adk.agents)
 
 Helper interface to allow for sync beforeToolCallback.
 
+[Callbacks.OnModelErrorCallback](class-use/Callbacks.OnModelErrorCallback.html#com.google.adk.agents)
+
+Async callback interface for handling errors that occur during an LLM model call.
+
+[Callbacks.OnModelErrorCallbackSync](class-use/Callbacks.OnModelErrorCallbackSync.html#com.google.adk.agents)
+
+Helper interface to allow for sync onModelErrorCallback.
+
+[Callbacks.OnToolErrorCallback](class-use/Callbacks.OnToolErrorCallback.html#com.google.adk.agents)
+
+Async callback interface for handling errors that occur during a tool invocation.
+
+[Callbacks.OnToolErrorCallbackSync](class-use/Callbacks.OnToolErrorCallbackSync.html#com.google.adk.agents)
+
+Helper interface to allow for sync onToolErrorCallback.
+
 [ConfigAgentUtils.ConfigurationException](class-use/ConfigAgentUtils.ConfigurationException.html#com.google.adk.agents)
 
 Exception thrown when configuration is invalid.
+
+[ContextCacheConfig](class-use/ContextCacheConfig.html#com.google.adk.agents)
+
+Configuration for context caching across all agents in an app.
 
 [Instruction](class-use/Instruction.html#com.google.adk.agents)
 
@@ -419,6 +439,20 @@ Builder for [`SequentialAgent`](SequentialAgent.html "class in com.google.adk.ag
 
 Configuration for SequentialAgent.
 
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.apps](../apps/package-summary.html)
+
+Class
+
+Description
+
+[BaseAgent](class-use/BaseAgent.html#com.google.adk.apps)
+
+Base class for all agents.
+
+[ContextCacheConfig](class-use/ContextCacheConfig.html#com.google.adk.apps)
+
+Configuration for context caching across all agents in an app.
+
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.codeexecutors](../codeexecutors/package-summary.html)
 
 Class
@@ -487,6 +521,10 @@ Description
 
 Base class for all agents.
 
+[ContextCacheConfig](class-use/ContextCacheConfig.html#com.google.adk.runner)
+
+Configuration for context caching across all agents in an app.
+
 [LiveRequestQueue](class-use/LiveRequestQueue.html#com.google.adk.runner)
 
 A queue of live requests to be sent to the model.
@@ -495,15 +533,25 @@ A queue of live requests to be sent to the model.
 
 Configuration to modify an agent's LLM's underlying behavior.
 
-  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.samples.a2a_remote](../samples/a2a_remote/package-summary.html)
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.samples.a2aagent.agent](../samples/a2aagent/agent/package-summary.html)
 
 Class
 
 Description
 
-[BaseAgent](class-use/BaseAgent.html#com.google.adk.samples.a2a_remote)
+[LlmAgent](class-use/LlmAgent.html#com.google.adk.samples.a2aagent.agent)
 
-Base class for all agents.
+The LLM-based agent.
+
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.telemetry](../telemetry/package-summary.html)
+
+Class
+
+Description
+
+[InvocationContext](class-use/InvocationContext.html#com.google.adk.telemetry)
+
+The context for an agent invocation.
 
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.tools](../tools/package-summary.html)
 
@@ -545,6 +593,16 @@ Description
 
 Provides read-only access to the context of an agent run.
 
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.tools.computeruse](../tools/computeruse/package-summary.html)
+
+Class
+
+Description
+
+[ReadonlyContext](class-use/ReadonlyContext.html#com.google.adk.tools.computeruse)
+
+Provides read-only access to the context of an agent run.
+
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.tools.mcp](../tools/mcp/package-summary.html)
 
 Class
@@ -581,7 +639,7 @@ Base class for all agents.
 
 [Callbacks.AfterAgentCallback](class-use/Callbacks.AfterAgentCallback.html#com.google.adk.utils)
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
 [Callbacks.AfterModelCallback](class-use/Callbacks.AfterModelCallback.html#com.google.adk.utils)
 
@@ -589,11 +647,11 @@ Base class for all agents.
 
 [Callbacks.AfterToolCallback](class-use/Callbacks.AfterToolCallback.html#com.google.adk.utils)
 
- 
+Async callback interface for actions to be performed after a tool has been invoked.
 
 [Callbacks.BeforeAgentCallback](class-use/Callbacks.BeforeAgentCallback.html#com.google.adk.utils)
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
 [Callbacks.BeforeModelCallback](class-use/Callbacks.BeforeModelCallback.html#com.google.adk.utils)
 
@@ -601,7 +659,7 @@ Base class for all agents.
 
 [Callbacks.BeforeToolCallback](class-use/Callbacks.BeforeToolCallback.html#com.google.adk.utils)
 
- 
+Async callback interface for actions to be performed before a tool is invoked.
 
 [InvocationContext](class-use/InvocationContext.html#com.google.adk.utils)
 
@@ -614,16 +672,6 @@ Class
 Description
 
 [BaseAgent](class-use/BaseAgent.html#com.google.adk.web)
-
-Base class for all agents.
-
-  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.webservice](../webservice/package-summary.html)
-
-Class
-
-Description
-
-[BaseAgent](class-use/BaseAgent.html#com.google.adk.webservice)
 
 Base class for all agents.
 

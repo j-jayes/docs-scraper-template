@@ -51,6 +51,12 @@ Configures the span created by this transformer.
 
 `[Tracing.TracerProvider](../Tracing.TracerProvider.html "class in com.google.adk.telemetry")<[T](../Tracing.TracerProvider.html#type-param-T "type parameter in Tracing.TracerProvider")>`
 
+Tracing.TracerProvider.`[onSuccess](../Tracing.TracerProvider.html#onSuccess\(java.util.function.BiConsumer\))([BiConsumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/BiConsumer.html "class or interface in java.util.function")<io.opentelemetry.api.trace.Span, [T](../Tracing.TracerProvider.html#type-param-T "type parameter in Tracing.TracerProvider")> consumer)`
+
+Registers a callback to be executed with the span and the result item when the stream emits a success value.
+
+`[Tracing.TracerProvider](../Tracing.TracerProvider.html "class in com.google.adk.telemetry")<[T](../Tracing.TracerProvider.html#type-param-T "type parameter in Tracing.TracerProvider")>`
+
 Tracing.TracerProvider.`[setParent](../Tracing.TracerProvider.html#setParent\(io.opentelemetry.context.Context\))(io.opentelemetry.context.Context parentContext)`
 
 Sets an explicit parent context for the span created by this transformer.
@@ -60,12 +66,6 @@ Sets an explicit parent context for the span created by this transformer.
 Tracing.`[trace](../Tracing.html#trace\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") spanName)`
 
 Returns a transformer that traces the execution of an RxJava stream.
-
-`static <T> [Tracing.TracerProvider](../Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
-
-Tracing.`[trace](../Tracing.html#trace\(java.lang.String,io.opentelemetry.context.Context\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") spanName, io.opentelemetry.context.Context parentContext)`
-
-Returns a transformer that traces the execution of an RxJava stream with an explicit parent context.
 
 `static <T> [Tracing.TracerProvider](../Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
 

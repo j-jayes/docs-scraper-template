@@ -421,7 +421,7 @@ This detailed output allows you to diagnose a wide range of issues, from incorre
 
 Back to top  [ Previous  Observability for agents  ](../) [ Next  Why Evaluate Agents  ](../../evaluate/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

@@ -23,13 +23,8 @@ Contents
 
   1. Description
   2. Nested Class Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
-     1. McpAsyncToolset(SseServerParameters, ObjectMapper, Optional)
-     2. McpAsyncToolset(ServerParameters, ObjectMapper, Optional)
-     3. McpAsyncToolset(McpSessionManager, ObjectMapper, Optional)
-  6. Method Details
+  3. Method Summary
+  4. Method Details
      1. getTools(ReadonlyContext)
      2. close()
 
@@ -72,26 +67,6 @@ Description
 
 Builder for McpAsyncToolset
 
-  * ## Constructor Summary
-
-Constructors
-
-Constructor
-
-Description
-
-`McpAsyncToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
-
-Initializes the McpAsyncToolset with a provided McpSessionManager.
-
-`McpAsyncToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
-
-Initializes the McpAsyncToolset with SSE server parameters.
-
-`McpAsyncToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
-
-Initializes the McpAsyncToolset with local server parameters.
-
   * ## Method Summary
 
 All MethodsInstance MethodsConcrete Methods
@@ -120,45 +95,10 @@ Return all tools in the toolset based on the provided context.
 
 ### Methods inherited from interface [BaseToolset](../BaseToolset.html#method-summary "interface in com.google.adk.tools")
 
-`[isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.util.Optional,java.util.Optional\) "isToolSelected\(BaseTool, Optional, Optional\)")`
+`[isToolSelected](../BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\) "isToolSelected\(BaseTool, Object, ReadonlyContext\)")`
 
 
 
-
-  * ## Constructor Details
-
-    * ### McpAsyncToolset
-
-public McpAsyncToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
-
-Initializes the McpAsyncToolset with SSE server parameters.
-
-Parameters:
-    `connectionParams` \- The SSE connection parameters to the MCP server.
-    `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
-
-    * ### McpAsyncToolset
-
-public McpAsyncToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
-
-Initializes the McpAsyncToolset with local server parameters.
-
-Parameters:
-    `connectionParams` \- The local server connection parameters to the MCP server.
-    `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
-
-    * ### McpAsyncToolset
-
-public McpAsyncToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
-
-Initializes the McpAsyncToolset with a provided McpSessionManager.
-
-Parameters:
-    `mcpSessionManager` \- The session manager for MCP connections.
-    `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
 
   * ## Method Details
 

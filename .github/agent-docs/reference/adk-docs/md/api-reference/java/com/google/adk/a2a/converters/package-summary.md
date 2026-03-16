@@ -21,8 +21,7 @@ Skip navigation links
 Contents
 
   1. Description
-  2. Related Packages
-  3. Classes and Interfaces
+  2. Classes and Interfaces
 
 Hide sidebar  Show sidebar
 
@@ -32,53 +31,27 @@ Hide sidebar  Show sidebar
 
 package com.google.adk.a2a.converters
 
-  * Related Packages
-
-Package
-
-Description
-
-[com.google.adk.a2a](../package-summary.html)
-
- 
-
-  * All Classes and InterfacesClassesEnum ClassesRecord Classes
+  * All Classes and InterfacesClassesEnum Classes
 
 Class
 
 Description
 
-[ConversationPreprocessor](ConversationPreprocessor.html "class in com.google.adk.a2a.converters")
+[A2ADataPartMetadataType](A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
 
-Preprocesses a batch of ADK events prior to invoking a remote A2A agent.
-
-[ConversationPreprocessor.PreparedInput](ConversationPreprocessor.PreparedInput.html "class in com.google.adk.a2a.converters")
-
-Immutable value that surfaces the results of preprocessing.
+Enum for the type of A2A DataPart metadata.
 
 [EventConverter](EventConverter.html "class in com.google.adk.a2a.converters")
 
 Converter for ADK Events to A2A Messages.
 
-[EventConverter.AggregationMode](EventConverter.AggregationMode.html "enum class in com.google.adk.a2a.converters")
-
- 
-
 [PartConverter](PartConverter.html "class in com.google.adk.a2a.converters")
 
 Utility class for converting between Google GenAI Parts and A2A DataParts.
 
-[RequestConverter](RequestConverter.html "class in com.google.adk.a2a.converters")
-
-rfe Converter for A2A Messages to ADK Events.
-
 [ResponseConverter](ResponseConverter.html "class in com.google.adk.a2a.converters")
 
 Utility for converting ADK events to A2A spec messages (and back).
-
-[ResponseConverter.MessageSendResult](ResponseConverter.MessageSendResult.html "class in com.google.adk.a2a.converters")
-
-Simple REST-friendly wrapper to carry either a message result or a task result.
 
 
 

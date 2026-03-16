@@ -76,21 +76,13 @@ Reference to a callback stored in the ComponentRegistry.
 
 The context of various callbacks for an agent invocation.
 
-[CallbackPlugin](CallbackPlugin.html "class in com.google.adk.agents")
-
-A plugin that wraps callbacks and exposes them as a plugin.
-
-[CallbackPlugin.Builder](CallbackPlugin.Builder.html "class in com.google.adk.agents")
-
-Builder for [`CallbackPlugin`](CallbackPlugin.html "class in com.google.adk.agents").
-
 [Callbacks](Callbacks.html "class in com.google.adk.agents")
 
 Functional interfaces for agent lifecycle callbacks.
 
 [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed after an agent has finished running.
 
 [Callbacks.AfterAgentCallbackSync](Callbacks.AfterAgentCallbackSync.html "interface in com.google.adk.agents")
 
@@ -106,7 +98,7 @@ Helper interface to allow for sync afterModelCallback.
 
 [Callbacks.AfterToolCallback](Callbacks.AfterToolCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed after a tool has been invoked.
 
 [Callbacks.AfterToolCallbackSync](Callbacks.AfterToolCallbackSync.html "interface in com.google.adk.agents")
 
@@ -114,7 +106,7 @@ Helper interface to allow for sync afterToolCallback.
 
 [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed before an agent starts running.
 
 [Callbacks.BeforeAgentCallbackSync](Callbacks.BeforeAgentCallbackSync.html "interface in com.google.adk.agents")
 
@@ -130,11 +122,27 @@ Helper interface to allow for sync beforeModelCallback.
 
 [Callbacks.BeforeToolCallback](Callbacks.BeforeToolCallback.html "interface in com.google.adk.agents")
 
- 
+Async callback interface for actions to be performed before a tool is invoked.
 
 [Callbacks.BeforeToolCallbackSync](Callbacks.BeforeToolCallbackSync.html "interface in com.google.adk.agents")
 
 Helper interface to allow for sync beforeToolCallback.
+
+[Callbacks.OnModelErrorCallback](Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")
+
+Async callback interface for handling errors that occur during an LLM model call.
+
+[Callbacks.OnModelErrorCallbackSync](Callbacks.OnModelErrorCallbackSync.html "interface in com.google.adk.agents")
+
+Helper interface to allow for sync onModelErrorCallback.
+
+[Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")
+
+Async callback interface for handling errors that occur during a tool invocation.
+
+[Callbacks.OnToolErrorCallbackSync](Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents")
+
+Helper interface to allow for sync onToolErrorCallback.
 
 [CallbackUtil](CallbackUtil.html "class in com.google.adk.agents")
 
@@ -147,6 +155,10 @@ Utility class for loading agent configurations from YAML files.
 [ConfigAgentUtils.ConfigurationException](ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")
 
 Exception thrown when configuration is invalid.
+
+[ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")
+
+Configuration for context caching across all agents in an app.
 
 [Instruction](Instruction.html "interface in com.google.adk.agents")
 

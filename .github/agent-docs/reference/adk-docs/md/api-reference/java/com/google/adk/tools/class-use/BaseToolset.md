@@ -36,6 +36,10 @@ com.google.adk.tools.applicationintegrationtoolset
 
  
 
+com.google.adk.tools.computeruse
+
+ 
+
 com.google.adk.tools.mcp
 
  
@@ -76,6 +80,22 @@ Description
 
 Application Integration Toolset
 
+  * ## Uses of [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools") in [com.google.adk.tools.computeruse](../computeruse/package-summary.html)
+
+Classes in [com.google.adk.tools.computeruse](../computeruse/package-summary.html) that implement [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[ComputerUseToolset](../computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse")`
+
+A toolset that provides computer use capabilities.
+
   * ## Uses of [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools") in [com.google.adk.tools.mcp](../mcp/package-summary.html)
 
 Classes in [com.google.adk.tools.mcp](../mcp/package-summary.html) that implement [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")
@@ -107,6 +127,18 @@ Modifier and Type
 Method
 
 Description
+
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
+
+AdditionalAdkComponentProvider.`[getToolsetClasses](../../utils/AdditionalAdkComponentProvider.html#getToolsetClasses\(\))()`
+
+Returns toolset classes for [`McpToolset`](../mcp/McpToolset.html "class in com.google.adk.tools.mcp").
+
+`default [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
+
+AdkComponentProvider.`[getToolsetClasses](../../utils/AdkComponentProvider.html#getToolsetClasses\(\))()`
+
+Returns a list of toolset classes to register.
 
 `static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
 

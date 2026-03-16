@@ -211,7 +211,7 @@ Table of contents
 
 # Context caching with Gemini¶
 
-Supported in ADKPython v1.15.0
+Supported in ADKPython v1.15.0Java v0.1.0
 
 When working with agents to complete tasks, you may want to reuse extended instructions or large sets of data across multiple agent requests to a generative AI model. Resending this data for each agent request is slow, inefficient, and can be expensive. Using context caching features in generative AI models can significantly speed up responses and lower the number of tokens sent to the model for each request.
 
@@ -220,6 +220,8 @@ The ADK Context Caching feature allows you to cache request data with generative
 ## Configure context caching¶
 
 You configure the context caching feature at the ADK `App` object level, which wraps your agent. Use the `ContextCacheConfig` class to configure these settings, as shown in the following code sample:
+
+PythonJava
     
     
     from google.adk import Agent
@@ -240,6 +242,24 @@ You configure the context caching feature at the ADK `App` object level, which w
             cache_intervals=5,  # Refresh after 5 uses
         ),
     )
+    
+    
+    
+    import com.google.adk.agents.BaseAgent;
+    import com.google.adk.agents.ContextCacheConfig;
+    import com.google.adk.apps.App;
+    import java.time.Duration;
+    
+    // Create the app with context caching configuration
+    App app = App.builder()
+                 .name("my-caching-agent-app")
+                 .rootAgent(rootAgent)
+                 .contextCacheConfig(
+                     new ContextCacheConfig(
+                         5, /* cache_intervals (max invocations) */
+                         Duration.ofMinutes(10), /* ttl */
+                         2048 /* min_tokens */))
+                 .build();
     
 
 ## Configuration settings¶
@@ -268,7 +288,7 @@ If your use case requires that you provide instructions that are used throughout
 
 Back to top  [ Previous  Context  ](../) [ Next  Context compression  ](../compaction/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

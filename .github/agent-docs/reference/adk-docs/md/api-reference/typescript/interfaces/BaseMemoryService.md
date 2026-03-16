@@ -30,7 +30,7 @@ searchMemory(request: [SearchMemoryRequest](SearchMemoryRequest.html)): Promise<
 
 
 
-  * Defined in [core/src/memory/base_memory_service.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L36)
+  * Defined in [memory/base_memory_service.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L36)
 
 
 
@@ -52,7 +52,7 @@ The session to add to the memory.
 
 A promise that resolves when the session is added to the memory.
 
-    * Defined in [core/src/memory/base_memory_service.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L43)
+    * Defined in [memory/base_memory_service.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L43)
 
 
 
@@ -73,7 +73,7 @@ The request to search memory.
 
 A promise that resolves to SearchMemoryResponse containing the matching memories.
 
-    * Defined in [core/src/memory/base_memory_service.ts:54](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/memory/base_memory_service.ts#L54)
+    * Defined in [memory/base_memory_service.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L52)
 
 
 

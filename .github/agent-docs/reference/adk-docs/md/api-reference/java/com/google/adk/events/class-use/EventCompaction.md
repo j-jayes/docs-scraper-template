@@ -72,21 +72,13 @@ Description
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[compaction](../EventActions.Builder.html#compaction\(com.google.adk.events.EventCompaction\))([EventCompaction](../EventCompaction.html "class in com.google.adk.events") value)`
+EventActions.Builder.`[compaction](../EventActions.Builder.html#compaction\(com.google.adk.events.EventCompaction\))(@Nullable [EventCompaction](../EventCompaction.html "class in com.google.adk.events") value)`
 
  
 
-Method parameters in [com.google.adk.events](../package-summary.html) with type arguments of type [EventCompaction](../EventCompaction.html "class in com.google.adk.events")
-
-Modifier and Type
-
-Method
-
-Description
-
 `void`
 
-EventActions.`[setCompaction](../EventActions.html#setCompaction\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventCompaction](../EventCompaction.html "class in com.google.adk.events")> compaction)`
+EventActions.`[setCompaction](../EventActions.html#setCompaction\(com.google.adk.events.EventCompaction\))(@Nullable [EventCompaction](../EventCompaction.html "class in com.google.adk.events") compaction)`
 
  
 

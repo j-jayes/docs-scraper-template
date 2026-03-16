@@ -507,7 +507,7 @@ You can use the [LiteLLM](https://docs.litellm.ai/) library to access open model
 
 Back to top  [ Previous  Claude  ](../anthropic/) [ Next  Apigee AI Gateway  ](../apigee/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

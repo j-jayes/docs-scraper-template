@@ -296,7 +296,7 @@ Instantiate `com.google.adk.models.Claude`, providing the desired Claude model n
 
 Back to top  [ Previous  Gemini  ](../google-gemini/) [ Next  Vertex AI hosted  ](../vertex/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

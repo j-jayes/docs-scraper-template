@@ -45,9 +45,15 @@ Description
 
 `static [ResponseProcessor.ResponseProcessingResult](../ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
-ResponseProcessor.ResponseProcessingResult.`[create](../ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable,java.util.Optional\))([LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../../events/Event.html "class in com.google.adk.events")> events, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> transferToAgent)`
+ResponseProcessor.ResponseProcessingResult.`[create](../ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable\))([LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../../events/Event.html "class in com.google.adk.events")> events)`
 
-Creates a new [`ResponseProcessor.ResponseProcessingResult`](../ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows").
+ 
+
+`static [ResponseProcessor.ResponseProcessingResult](../ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")`
+
+ResponseProcessor.ResponseProcessingResult.`[create](../ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable,java.lang.String\))([LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../../events/Event.html "class in com.google.adk.events")> events, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") transferToAgent)`
+
+ 
 
 Methods in [com.google.adk.flows.llmflows](../package-summary.html) that return types with arguments of type [ResponseProcessor.ResponseProcessingResult](../ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
 

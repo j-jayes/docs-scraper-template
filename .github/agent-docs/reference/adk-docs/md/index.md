@@ -203,6 +203,10 @@ Table of contents
 
 Agent Development Kit (ADK) is a flexible and modular framework for **developing and deploying AI agents**. While optimized for Gemini and the Google ecosystem, ADK is **model-agnostic** , **deployment-agnostic** , and is built for **compatibility with other frameworks**. ADK was designed to make agent development feel more like software development, to make it easier for developers to create, deploy, and orchestrate agentic architectures that range from simple tasks to complex workflows.
 
+News: ADK Python Skills released!
+
+ADK Python development [Agent Skills](https://agentskills.io/) allow you to code ADK agents quickly and more effectively with AI-powered development environments. For more details, check out the [Coding with AI](/adk-docs/tutorials/coding-with-ai/#adk-skills), ADK Skills docs.
+
 Get started:
 
 PythonTypeScriptGoJava
@@ -301,7 +305,7 @@ Learn how to building powerful and trustworthy agents by implementing security a
 
 Back to top  [ Next  Get started  ](get-started/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

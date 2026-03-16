@@ -38,11 +38,11 @@ Package
 
 Description
 
-[com.google.adk.a2a](a2a/package-summary.html)
+[com.google.adk.agents](agents/package-summary.html)
 
  
 
-[com.google.adk.agents](agents/package-summary.html)
+[com.google.adk.apps](apps/package-summary.html)
 
  
 
@@ -98,6 +98,10 @@ Description
 
  
 
+[com.google.adk.telemetry](telemetry/package-summary.html)
+
+ 
+
 [com.google.adk.tools](tools/package-summary.html)
 
  
@@ -114,10 +118,6 @@ Description
 
  
 
-[com.google.adk.webservice](webservice/package-summary.html)
-
- 
-
   * Classes
 
 Class
@@ -131,10 +131,6 @@ The base class for the types that needs JSON serialization/deserialization capab
 [SchemaUtils](SchemaUtils.html "class in com.google.adk")
 
 Utility class for validating schemas.
-
-[Telemetry](Telemetry.html "class in com.google.adk")
-
-Utility class for capturing and reporting telemetry data within the ADK.
 
 [Version](Version.html "class in com.google.adk")
 

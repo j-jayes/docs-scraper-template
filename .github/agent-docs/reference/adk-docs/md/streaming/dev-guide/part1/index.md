@@ -424,7 +424,7 @@ An agent can provide clients with a secure, interactive, and data-rich way to ma
 
 ## 1.2 Gemini Live API and Vertex AI Live API¶
 
-ADK's Bidi-streaming capabilities are powered by Live API technology, available through two platforms: **[Gemini Live API](https://ai.google.dev/gemini-api/docs/live)** (via Google AI Studio) and **[Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)** (via Google Cloud). Both provide real-time, low-latency streaming conversations with Gemini models, but serve different development and deployment needs.
+ADK Gemini Live API Toolkit capabilities are powered by Live API technology, available through two platforms: **[Gemini Live API](https://ai.google.dev/gemini-api/docs/live)** (via Google AI Studio) and **[Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)** (via Google Cloud). Both provide real-time, low-latency streaming conversations with Gemini models, but serve different development and deployment needs.
 
 Throughout this guide, we use **"Live API"** to refer to both platforms collectively, specifying "Gemini Live API" or "Vertex AI Live API" only when discussing platform-specific features or differences.
 
@@ -1279,9 +1279,9 @@ In this introduction, you learned how ADK transforms complex real-time streaming
 
 [Next: Part 2: Sending Messages with LiveRequestQueue](../part2/) →
 
-Back to top  [ Previous  Gemini Live API Toolkit in ADK  ](../../) [ Next  Part 2. Sending messages  ](../part2/)
+Back to top  [ Previous  ADK Gemini Live API Toolkit  ](../../) [ Next  Part 2. Sending messages  ](../part2/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

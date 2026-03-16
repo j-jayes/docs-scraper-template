@@ -23,7 +23,7 @@ interface ListSessionsResponse {
 sessions: [Session](Session.html)[];  
 }
 
-  * Defined in [core/src/sessions/base_session_service.ts:87](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L87)
+  * Defined in [sessions/base_session_service.ts:89](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L89)
 
 
 
@@ -35,7 +35,7 @@ sessions: [Session](Session.html)[]
 
 A list of sessions.
 
-  * Defined in [core/src/sessions/base_session_service.ts:89](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/sessions/base_session_service.ts#L89)
+  * Defined in [sessions/base_session_service.ts:91](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L91)
 
 
 

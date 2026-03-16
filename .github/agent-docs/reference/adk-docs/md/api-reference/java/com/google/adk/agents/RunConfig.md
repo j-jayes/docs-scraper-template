@@ -36,9 +36,10 @@ Contents
      6. outputAudioTranscription()
      7. inputAudioTranscription()
      8. maxLlmCalls()
-     9. toBuilder()
-     10. builder()
-     11. builder(RunConfig)
+     9. autoCreateSession()
+     10. toBuilder()
+     11. builder()
+     12. builder(RunConfig)
 
 Hide sidebar  Show sidebar
 
@@ -103,6 +104,12 @@ Modifier and Type
 Method
 
 Description
+
+`abstract boolean`
+
+`autoCreateSession()`
+
+ 
 
 `static [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
@@ -216,6 +223,10 @@ public abstract [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "
     * ### maxLlmCalls
 
 public abstract int maxLlmCalls()
+
+    * ### autoCreateSession
+
+public abstract boolean autoCreateSession()
 
     * ### toBuilder
 

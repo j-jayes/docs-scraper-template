@@ -347,7 +347,7 @@ By applying these patterns and best practices, you can effectively use callbacks
 
 Back to top  [ Previous  Types of callbacks  ](../types-of-callbacks/) [ Next  Artifacts  ](../../artifacts/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

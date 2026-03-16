@@ -30,6 +30,7 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.google.adk.telemetry.[Tracing](Tracing.html "class in com.google.adk.telemetry")
+    * com.google.adk.telemetry.[Tracing.ContextTransformer](Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T> (implements io.reactivex.rxjava3.core.CompletableTransformer, io.reactivex.rxjava3.core.FlowableTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.MaybeTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.SingleTransformer<Upstream, Downstream>)
     * com.google.adk.telemetry.[Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> (implements io.reactivex.rxjava3.core.CompletableTransformer, io.reactivex.rxjava3.core.FlowableTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.MaybeTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.SingleTransformer<Upstream, Downstream>)
 
 

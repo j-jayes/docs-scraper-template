@@ -924,7 +924,7 @@ Understanding these behaviors helps you write more robust ADK applications and d
 
 Back to top  [ Previous  Runtime Config  ](../runconfig/) [ Next  Deploying Your Agent  ](../../deploy/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

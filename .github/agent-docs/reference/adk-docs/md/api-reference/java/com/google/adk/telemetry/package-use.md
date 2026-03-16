@@ -37,6 +37,10 @@ Class
 
 Description
 
+[Tracing.ContextTransformer](class-use/Tracing.ContextTransformer.html#com.google.adk.telemetry)
+
+A transformer that re-activates a given context for the duration of the stream's subscription.
+
 [Tracing.TracerProvider](class-use/Tracing.TracerProvider.html#com.google.adk.telemetry)
 
 A transformer that manages an OpenTelemetry span and scope for RxJava streams.

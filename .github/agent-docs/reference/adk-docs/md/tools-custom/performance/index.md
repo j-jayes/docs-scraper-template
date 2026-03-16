@@ -371,7 +371,7 @@ For more information on building Tools for agents and function calling, see [Fun
 
 Back to top  [ Previous  Overview  ](../function-tools/) [ Next  Action confirmations  ](../confirmation/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

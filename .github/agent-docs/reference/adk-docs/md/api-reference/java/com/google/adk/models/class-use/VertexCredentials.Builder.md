@@ -57,31 +57,13 @@ VertexCredentials.Builder.`[setCredentials](../VertexCredentials.Builder.html#se
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setCredentials](../VertexCredentials.Builder.html#setCredentials\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.auth.oauth2.GoogleCredentials> value)`
-
- 
-
-`abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
-
 VertexCredentials.Builder.`[setLocation](../VertexCredentials.Builder.html#setLocation\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setLocation](../VertexCredentials.Builder.html#setLocation\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
-
- 
-
-`abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
-
 VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setProject\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
-
- 
-
-`abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
-
-VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setProject\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
 
  
 

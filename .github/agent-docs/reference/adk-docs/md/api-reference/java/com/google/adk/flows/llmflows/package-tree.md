@@ -35,6 +35,7 @@ Package Hierarchies:
         * com.google.adk.flows.llmflows.[AutoFlow](AutoFlow.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[Basic](Basic.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[CodeExecution](CodeExecution.html "class in com.google.adk.flows.llmflows")
+    * com.google.adk.flows.llmflows.[Compaction](Compaction.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Contents](Contents.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Examples](Examples.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Functions](Functions.html "class in com.google.adk.flows.llmflows")
@@ -50,14 +51,6 @@ Package Hierarchies:
 
   * com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")
   * com.google.adk.flows.llmflows.[ResponseProcessor](ResponseProcessor.html "interface in com.google.adk.flows.llmflows")
-
-
-
-## Record Class Hierarchy
-
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
-      * com.google.adk.flows.llmflows.[ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.flows.llmflows")
 
 
 

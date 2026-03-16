@@ -27,11 +27,15 @@ Package
 
 Description
 
-com.google.adk.a2a
+com.google.adk.a2a.executor
 
  
 
 com.google.adk.agents
+
+ 
+
+com.google.adk.artifacts
 
  
 
@@ -67,15 +71,15 @@ com.google.adk.web.websocket
 
  
 
-  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.a2a](../a2a/package-summary.html)
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
 
 Class
 
 Description
 
-[InMemorySessionService](class-use/InMemorySessionService.html#com.google.adk.a2a)
+[BaseSessionService](class-use/BaseSessionService.html#com.google.adk.a2a.executor)
 
-An in-memory implementation of [`BaseSessionService`](BaseSessionService.html "interface in com.google.adk.sessions") assuming [`Session`](Session.html "class in com.google.adk.sessions") objects are mutable regarding their state map, events list, and last update time.
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s.
 
   * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
 
@@ -94,6 +98,16 @@ A [`Session`](Session.html "class in com.google.adk.sessions") object that encap
 [State](class-use/State.html#com.google.adk.agents)
 
 A [`State`](State.html "class in com.google.adk.sessions") object that also keeps track of the changes to the state.
+
+  * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.artifacts](../artifacts/package-summary.html)
+
+Class
+
+Description
+
+[SessionKey](class-use/SessionKey.html#com.google.adk.artifacts)
+
+Key for a session, composed of appName, userId and session id.
 
   * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.memory](../memory/package-summary.html)
 
@@ -118,6 +132,10 @@ Defines the contract for managing [`Session`](Session.html "class in com.google.
 [Session](class-use/Session.html#com.google.adk.runner)
 
 A [`Session`](Session.html "class in com.google.adk.sessions") object that encapsulates the [`State`](State.html "class in com.google.adk.sessions") and [`Event`](../events/Event.html "class in com.google.adk.events")s of a session.
+
+[SessionKey](class-use/SessionKey.html#com.google.adk.runner)
+
+Key for a session, composed of appName, userId and session id.
 
   * Classes in [com.google.adk.sessions](package-summary.html) used by [com.google.adk.sessions](package-summary.html)
 
@@ -172,6 +190,10 @@ Builder for [`Session`](Session.html "class in com.google.adk.sessions").
 [SessionException](class-use/SessionException.html#com.google.adk.sessions)
 
 Represents a general error that occurred during session management operations.
+
+[SessionKey](class-use/SessionKey.html#com.google.adk.sessions)
+
+Key for a session, composed of appName, userId and session id.
 
 [State](class-use/State.html#com.google.adk.sessions)
 

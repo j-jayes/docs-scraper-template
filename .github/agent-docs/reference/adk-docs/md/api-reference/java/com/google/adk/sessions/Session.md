@@ -26,16 +26,18 @@ Contents
   3. Method Summary
   4. Method Details
      1. builder(String)
-     2. id()
-     3. state()
-     4. events()
-     5. appName()
-     6. userId()
-     7. lastUpdateTime(Instant)
-     8. lastUpdateTime()
-     9. getLastUpdateTimeAsDouble()
-     10. toString()
-     11. fromJson(String)
+     2. builder(SessionKey)
+     3. sessionKey()
+     4. id()
+     5. state()
+     6. events()
+     7. appName()
+     8. userId()
+     9. lastUpdateTime(Instant)
+     10. lastUpdateTime()
+     11. getLastUpdateTimeAsDouble()
+     12. toString()
+     13. fromJson(String)
 
 Hide sidebar  Show sidebar
 
@@ -87,6 +89,12 @@ Description
 
 `static [Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
 
+`builder([SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey)`
+
+Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.sessions") with the given session key.
+
+`static [Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
+
 `builder([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)`
 
  
@@ -127,6 +135,12 @@ Description
 
  
 
+`[SessionKey](SessionKey.html "class in com.google.adk.sessions")`
+
+`sessionKey()`
+
+Returns the session key.
+
 `[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
 
 `state()`
@@ -161,6 +175,18 @@ Description
     * ### builder
 
 public static [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") builder([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)
+
+    * ### builder
+
+public static [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") builder([SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey)
+
+Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.sessions") with the given session key.
+
+    * ### sessionKey
+
+public [SessionKey](SessionKey.html "class in com.google.adk.sessions") sessionKey()
+
+Returns the session key.
 
     * ### id
 

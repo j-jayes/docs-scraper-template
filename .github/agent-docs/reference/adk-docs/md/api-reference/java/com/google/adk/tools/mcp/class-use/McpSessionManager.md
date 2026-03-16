@@ -76,12 +76,6 @@ Creates a new McpAsyncTool
 
 ` `
 
-`[McpAsyncToolset](../McpAsyncToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,java.util.Optional\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
-
-Initializes the McpAsyncToolset with a provided McpSessionManager.
-
-` `
-
 `[McpTool](../McpTool.html#%3Cinit%3E\(io.modelcontextprotocol.spec.McpSchema.Tool,io.modelcontextprotocol.client.McpSyncClient,com.google.adk.tools.mcp.McpSessionManager\))(io.modelcontextprotocol.spec.McpSchema.Tool mcpTool, io.modelcontextprotocol.client.McpSyncClient mcpSession, [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager)`
 
 Creates a new McpTool with the default ObjectMapper.

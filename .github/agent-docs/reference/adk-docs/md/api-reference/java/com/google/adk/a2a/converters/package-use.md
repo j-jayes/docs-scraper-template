@@ -37,17 +37,9 @@ Class
 
 Description
 
-[ConversationPreprocessor.PreparedInput](class-use/ConversationPreprocessor.PreparedInput.html#com.google.adk.a2a.converters)
+[A2ADataPartMetadataType](class-use/A2ADataPartMetadataType.html#com.google.adk.a2a.converters)
 
-Immutable value that surfaces the results of preprocessing.
-
-[EventConverter.AggregationMode](class-use/EventConverter.AggregationMode.html#com.google.adk.a2a.converters)
-
- 
-
-[ResponseConverter.MessageSendResult](class-use/ResponseConverter.MessageSendResult.html#com.google.adk.a2a.converters)
-
-Simple REST-friendly wrapper to carry either a message result or a task result.
+Enum for the type of A2A DataPart metadata.
 
 
 

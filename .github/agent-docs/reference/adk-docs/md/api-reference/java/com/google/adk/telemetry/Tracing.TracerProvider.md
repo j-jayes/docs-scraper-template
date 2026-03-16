@@ -27,10 +27,11 @@ Contents
   3. Method Details
      1. configure(Consumer)
      2. setParent(Context)
-     3. apply(Flowable)
-     4. apply(Single)
-     5. apply(Maybe)
-     6. apply(Completable)
+     3. onSuccess(BiConsumer)
+     4. apply(Flowable)
+     5. apply(Single)
+     6. apply(Maybe)
+     7. apply(Completable)
 
 Hide sidebar  Show sidebar
 
@@ -97,6 +98,12 @@ Configures the span created by this transformer.
 
 `[Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
 
+`onSuccess([BiConsumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/BiConsumer.html "class or interface in java.util.function")<io.opentelemetry.api.trace.Span, T> consumer)`
+
+Registers a callback to be executed with the span and the result item when the stream emits a success value.
+
+`[Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
+
 `setParent(io.opentelemetry.context.Context parentContext)`
 
 Sets an explicit parent context for the span created by this transformer.
@@ -121,6 +128,12 @@ Configures the span created by this transformer.
 @CanIgnoreReturnValue public [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> setParent(io.opentelemetry.context.Context parentContext)
 
 Sets an explicit parent context for the span created by this transformer.
+
+    * ### onSuccess
+
+@CanIgnoreReturnValue public [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> onSuccess([BiConsumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/BiConsumer.html "class or interface in java.util.function")<io.opentelemetry.api.trace.Span, T> consumer)
+
+Registers a callback to be executed with the span and the result item when the stream emits a success value.
 
     * ### apply
 

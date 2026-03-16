@@ -19,7 +19,7 @@ The base class for all tools.
 
 #### Type Parameters
 
-  * TParameters extends ToolInputParameters = undefined
+  * TParameters extends [ToolInputParameters](../types/ToolInputParameters.html) = undefined
 
 
 
@@ -31,7 +31,7 @@ The base class for all tools.
 
 
 
-  * Defined in [core/src/tools/function_tool.ts:69](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/function_tool.ts#L69)
+  * Defined in [tools/function_tool.ts:95](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L95)
 
 
 
@@ -39,19 +39,19 @@ The base class for all tools.
 
 ### constructor
 
-  * new FunctionTool<TParameters extends ToolInputParameters = undefined>(  
-options: ToolOptions<TParameters>,  
+  * new FunctionTool<TParameters extends [ToolInputParameters](../types/ToolInputParameters.html) = undefined>(  
+options: [ToolOptions](../types/ToolOptions.html)<TParameters>,  
 ): [FunctionTool]()<TParameters>
 
 The constructor acts as the user-friendly factory.
 
 #### Type Parameters
 
-    * TParameters extends ToolInputParameters = undefined
+    * TParameters extends [ToolInputParameters](../types/ToolInputParameters.html) = undefined
 
 #### Parameters
 
-    * options: ToolOptions<TParameters>
+    * options: [ToolOptions](../types/ToolOptions.html)<TParameters>
 
 The configuration for the tool.
 
@@ -59,12 +59,34 @@ The configuration for the tool.
 
 Overrides [BaseTool](BaseTool.html).[constructor](BaseTool.html#constructor)
 
-    * Defined in [core/src/tools/function_tool.ts:81](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/function_tool.ts#L81)
+    * Defined in [tools/function_tool.ts:110](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L110)
 
 
 
 
 ## Properties
+
+### `Readonly`[BASE_TOOL_SIGNATURE_SYMBOL]
+
+"[BASE_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK base tool class.
+
+Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool.html#base_tool_signature_symbol)
+
+  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+
+
+
+### `Readonly`[FUNCTION_TOOL_SIGNATURE_SYMBOL]
+
+"[FUNCTION_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK function tool class.
+
+  * Defined in [tools/function_tool.ts:99](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L99)
+
+
 
 ### `Readonly`description
 
@@ -72,7 +94,7 @@ description: string
 
 Inherited from [BaseTool](BaseTool.html).[description](BaseTool.html#description)
 
-  * Defined in [core/src/tools/base_tool.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L44)
+  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -82,7 +104,7 @@ isLongRunning: boolean
 
 Inherited from [BaseTool](BaseTool.html).[isLongRunning](BaseTool.html#islongrunning)
 
-  * Defined in [core/src/tools/base_tool.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L45)
+  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -92,7 +114,7 @@ name: string
 
 Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
-  * Defined in [core/src/tools/base_tool.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L43)
+  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -100,15 +122,15 @@ Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
 ### apiVariant
 
-  * get apiVariant(): GoogleLLMVariant
+  * get apiVariant(): [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 The Google API LLM variant to use.
 
-#### Returns GoogleLLMVariant
+#### Returns [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 Inherited from BaseTool.apiVariant
 
-    * Defined in [core/src/tools/base_tool.ts:125](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L125)
+    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -125,7 +147,7 @@ Provide a schema for the function.
 
 Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclaration)
 
-    * Defined in [core/src/tools/function_tool.ts:100](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/function_tool.ts#L100)
+    * Defined in [tools/function_tool.ts:129](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L129)
 
 
 
@@ -151,7 +173,7 @@ The request to process the LLM request.
 
 Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_tool.ts:97](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L97)
+    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -170,7 +192,7 @@ Logic for running the tool.
 
 Overrides [BaseTool](BaseTool.html).[runAsync](BaseTool.html#runasync)
 
-    * Defined in [core/src/tools/function_tool.ts:111](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/function_tool.ts#L111)
+    * Defined in [tools/function_tool.ts:140](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L140)
 
 
 
@@ -181,7 +203,7 @@ constructor
 
 Properties
 
-descriptionisLongRunningname
+[BASE_TOOL_SIGNATURE_SYMBOL][FUNCTION_TOOL_SIGNATURE_SYMBOL]descriptionisLongRunningname
 
 Accessors
 
