@@ -13,6 +13,16 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](..)
+  * [ Build Agents ](../get-started/)
+  * [ Run Agents ](../runtime/)
+  * [ Components ](../get-started/about/)
+  * [ Integrations ](../integrations/)
+  * [ Reference ](./)
+  * [ ADK 2.0 ](../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
@@ -160,6 +170,7 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
+      * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
 Gemini Live API Toolkit 
@@ -176,8 +187,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../release-notes/)
     * [ API Reference  ](./)
 
 API Reference 
@@ -190,10 +203,22 @@ API Reference
       * [ REST API  ](rest/)
     * [ Community Resources  ](../community/)
     * [ Contributing Guide  ](../contributing-guide/)
+    * [ Release Notes  ](../release-notes/)
+  * [ ADK 2.0  ](../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../workflows/graph-routes/)
+      * [ Data handling  ](../workflows/data-handling/)
+      * [ Human input  ](../workflows/human-input/)
+    * [ Collaborative agents  ](../workflows/collaboration/)
+    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
-  1. [ Reference  ](../release-notes/)
+  1. [ Reference  ](./)
   2. [ API Reference  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/api-reference/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/api-reference/index.md "View Markdown source")
@@ -280,7 +305,7 @@ Explore the REST API for the ADK web server. This reference provides details on 
 
 
 
-Back to top  [ Previous  Release Notes  ](../release-notes/) [ Next  Python ADK  ](python/)
+Back to top  [ Previous  Tools and Integrations for Agents  ](../integrations/) [ Next  Python ADK  ](python/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

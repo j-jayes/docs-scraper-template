@@ -13,6 +13,16 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../../..)
+  * [ Build Agents ](../../../get-started/)
+  * [ Run Agents ](../../../runtime/)
+  * [ Components ](../../../get-started/about/)
+  * [ Integrations ](../../../integrations/)
+  * [ Reference ](../../../api-reference/)
+  * [ ADK 2.0 ](../../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../../..)
@@ -171,6 +181,7 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+      * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
 Gemini Live API Toolkit 
@@ -187,8 +198,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../../release-notes/)
     * [ API Reference  ](../../../api-reference/)
 
 API Reference 
@@ -201,6 +214,18 @@ API Reference
       * [ REST API  ](../../../api-reference/rest/)
     * [ Community Resources  ](../../../community/)
     * [ Contributing Guide  ](../../../contributing-guide/)
+    * [ Release Notes  ](../../../release-notes/)
+  * [ ADK 2.0  ](../../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../../workflows/graph-routes/)
+      * [ Data handling  ](../../../workflows/data-handling/)
+      * [ Human input  ](../../../workflows/human-input/)
+    * [ Collaborative agents  ](../../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../../workflows/dynamic/)
 
 
 
@@ -425,24 +450,50 @@ There are two ways you can set retry options:
 **Option 1:** Set retry options on the Agent as a part of generate_content_config.
 
 You would use this option if you are instantiating this model adapter by yourself.
+
+PythonJava
          
          root_agent = Agent(
              model='gemini-2.5-flash',
-             ...
+             # ...
              generate_content_config=types.GenerateContentConfig(
-                 ...
+                 # ...
                  http_options=types.HttpOptions(
-                     ...
+                     # ...
                      retry_options=types.HttpRetryOptions(initial_delay=1, attempts=2),
-                     ...
+                     # ...
                  ),
-                 ...
+                 # ...
              )
+         
+         
+         import com.google.adk.agents.LlmAgent;
+         import com.google.genai.types.GenerateContentConfig;
+         import com.google.genai.types.HttpOptions;
+         import com.google.genai.types.HttpRetryOptions;
+         
+         // ...
+         
+         LlmAgent rootAgent = LlmAgent.builder()
+             .model("gemini-2.5-flash")
+             // ...
+             .generateContentConfig(GenerateContentConfig.builder()
+                 // ...
+                 .httpOptions(HttpOptions.builder()
+                     // ...
+                     .retryOptions(HttpRetryOptions.builder().initialDelay(1.0).attempts(2).build())
+                     // ...
+                     .build())
+                 // ...
+                 .build())
+             .build();
          
 
 **Option 2:** Retry options on this model adapter.
 
 You would use this option if you were instantiating the instance of adapter by yourself.
+
+PythonJava
          
          from google.genai import types
          
@@ -453,6 +504,26 @@ You would use this option if you were instantiating the instance of adapter by y
              retry_options=types.HttpRetryOptions(initial_delay=1, attempts=2),
              )
          )
+         
+         
+         import com.google.adk.agents.LlmAgent;
+         import com.google.adk.models.Gemini;
+         import com.google.genai.Client;
+         import com.google.genai.types.HttpOptions;
+         import com.google.genai.types.HttpRetryOptions;
+         
+         // ...
+         
+         LlmAgent agent = LlmAgent.builder()
+             .model(Gemini.builder()
+                 .modelName("gemini-2.5-flash")
+                 .apiClient(Client.builder()
+                     .httpOptions(HttpOptions.builder()
+                         .retryOptions(HttpRetryOptions.builder().initialDelay(1.0).attempts(2).build())
+                         .build())
+                     .build())
+                 .build())
+             .build();
          
 
 
@@ -465,6 +536,8 @@ Supported in ADKPython v1.21.0
 The Gemini [Interactions API](https://ai.google.dev/gemini-api/docs/interactions) is an alternative to the **_generateContent_** inference API, which provides stateful conversation capabilities, allowing you to chain interactions using a `previous_interaction_id` instead of sending the full conversation history with each request. Using this feature can be more efficient for long conversations.
 
 You can enable the Interactions API by setting the `use_interactions_api=True` parameter in the Gemini model configuration, as shown in the following code snippet:
+
+PythonJava
     
     
     from google.adk.agents.llm_agent import Agent
@@ -483,23 +556,49 @@ You can enable the Interactions API by setting the `use_interactions_api=True` p
         ],
     )
     
+    
+    
+    import com.google.adk.agents.LlmAgent;
+    import com.google.adk.models.Gemini;
+    import com.google.adk.tools.GoogleSearchTool;
+    
+    // Note: Interactions API support in Java ADK is currently under development.
+    LlmAgent rootAgent = LlmAgent.builder()
+        .model(Gemini.builder()
+            .modelName("gemini-2.5-flash")
+            .build())
+        .name("interactions_test_agent")
+        .tools(
+            GoogleSearchTool.INSTANCE, // Search tool
+            getCurrentWeather // Custom function tool
+        )
+        .build();
+    
 
 For a complete code sample, see the [Interactions API sample](https://github.com/google/adk-python/tree/main/contributing/samples/interactions_api).
 
 ### Known limitations¶
 
 The Interactions API **does not** support mixing custom function calling tools with built-in tools, such as the [Google Search](/adk-docs/tools/built-in-tools/#google-search), tool, within the same agent. You can work around this limitation by configuring the the built-in tool to operate as a custom tool using the `bypass_multi_tools_limit` parameter:
+
+PythonJava
     
     
     # Use bypass_multi_tools_limit=True to convert google_search to a function tool
     GoogleSearchTool(bypass_multi_tools_limit=True)
+    
+    
+    
+    // Note: bypassMultiToolsLimit is Python-specific.
+    // In Java, simply use the tool instance.
+    GoogleSearchTool.INSTANCE;
     
 
 In this example, this option converts the built-in google_search to a function calling tool (via GoogleSearchAgentTool), which allows it to work alongside custom function tools.
 
 Back to top  [ Previous  AI Models for ADK agents  ](../) [ Next  Claude  ](../anthropic/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

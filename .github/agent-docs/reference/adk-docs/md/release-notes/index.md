@@ -13,6 +13,16 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](..)
+  * [ Build Agents ](../get-started/)
+  * [ Run Agents ](../runtime/)
+  * [ Components ](../get-started/about/)
+  * [ Integrations ](../integrations/)
+  * [ Reference ](../api-reference/)
+  * [ ADK 2.0 ](../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
@@ -160,6 +170,7 @@ A2A Protocol
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
+      * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
 Gemini Live API Toolkit 
@@ -176,8 +187,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](./)
     * [ API Reference  ](../api-reference/)
 
 API Reference 
@@ -190,6 +203,18 @@ API Reference
       * [ REST API  ](../api-reference/rest/)
     * [ Community Resources  ](../community/)
     * [ Contributing Guide  ](../contributing-guide/)
+    * [ Release Notes  ](./)
+  * [ ADK 2.0  ](../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../workflows/graph-routes/)
+      * [ Data handling  ](../workflows/data-handling/)
+      * [ Human input  ](../workflows/human-input/)
+    * [ Collaborative agents  ](../workflows/collaboration/)
+    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
@@ -206,7 +231,7 @@ You can find the release notes in the code repositories for each supported langu
 
 
 
-Back to top  [ Previous  Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/) [ Next  API Reference  ](../api-reference/)
+Back to top  [ Previous  Contributing Guide  ](../contributing-guide/) [ Next  Overview  ](../2.0/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

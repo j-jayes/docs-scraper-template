@@ -13,6 +13,16 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../..)
+  * [ Build Agents ](../../get-started/)
+  * [ Run Agents ](../../runtime/)
+  * [ Components ](../../get-started/about/)
+  * [ Integrations ](../../integrations/)
+  * [ Reference ](../../api-reference/)
+  * [ ADK 2.0 ](../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
@@ -158,6 +168,7 @@ A2A Protocol
         * Python  [ Python  ](./) Table of contents 
           * Overview 
           * Exposing the Remote Agent with the to_a2a(root_agent) function 
+            * Under the hood: to_a2a() method 
             * 1\. Getting the Sample Code 
               * Root Agent (a2a_root/agent.py) 
               * Remote Hello World Agent (a2a_root/remote_a2a/hello_world/agent.py) 
@@ -165,11 +176,16 @@ A2A Protocol
             * 3\. Check that your remote agent is running 
             * 4\. Run the Main (Consuming) Agent 
           * Example Interactions 
+          * Advanced Configuration: Custom Converters and Interceptors 
+            * Converters 
+            * Execute Interceptors 
+          * Agent Executor V2 
           * Next Steps 
         * [ Go  ](../quickstart-exposing-go/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../quickstart-consuming/)
         * [ Go  ](../quickstart-consuming-go/)
+      * [ A2A Extension  ](../a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
 Gemini Live API Toolkit 
@@ -186,8 +202,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
 
 API Reference 
@@ -200,6 +218,18 @@ API Reference
       * [ REST API  ](../../api-reference/rest/)
     * [ Community Resources  ](../../community/)
     * [ Contributing Guide  ](../../contributing-guide/)
+    * [ Release Notes  ](../../release-notes/)
+  * [ ADK 2.0  ](../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../workflows/graph-routes/)
+      * [ Data handling  ](../../workflows/data-handling/)
+      * [ Human input  ](../../workflows/human-input/)
+    * [ Collaborative agents  ](../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -207,6 +237,7 @@ Table of contents
 
   * Overview 
   * Exposing the Remote Agent with the to_a2a(root_agent) function 
+    * Under the hood: to_a2a() method 
     * 1\. Getting the Sample Code 
       * Root Agent (a2a_root/agent.py) 
       * Remote Hello World Agent (a2a_root/remote_a2a/hello_world/agent.py) 
@@ -214,6 +245,10 @@ Table of contents
     * 3\. Check that your remote agent is running 
     * 4\. Run the Main (Consuming) Agent 
   * Example Interactions 
+  * Advanced Configuration: Custom Converters and Interceptors 
+    * Converters 
+    * Execute Interceptors 
+  * Agent Executor V2 
   * Next Steps 
 
 
@@ -326,6 +361,17 @@ You can also provide your own agent card by using the `agent_card` parameter. Th
     # Load A2A agent card from a file
     a2a_app = to_a2a(root_agent, port=8001, agent_card="/path/to/your/agent-card.json")
     
+
+### Under the hood: to_a2a() method¶
+
+When you call `to_a2a()`, the ADK automatically handles several setup steps to expose your agent:
+
+  * **`A2aAgentExecutor` setup:** An `A2aAgentExecutor` is initialized to act as the bridge between the A2A protocol and your ADK agent. If you don't provide a custom `Runner`, it automatically creates a default one backed by in-memory services (for artifacts, sessions, memory, and credentials).
+  * **State Management:** It creates an `InMemoryTaskStore` to track A2A tasks and an `InMemoryPushNotificationConfigStore` for handling push notifications.
+  * **Request Handling:** A `DefaultRequestHandler` is created to route incoming A2A HTTP requests to the `A2aAgentExecutor` and the state stores.
+  * **Starlette App & Agent Card:** It creates a Starlette application. During the application's startup phase, it either loads your provided Agent Card or automatically builds one from your agent's configuration using an `AgentCardBuilder`. It then mounts all the necessary A2A API routes.
+
+
 
 Now let's dive into the sample code.
 
@@ -447,6 +493,47 @@ This interaction uses both the local Roll Agent and the remote Prime Agent:
     Bot: 8 is not a prime number.
     
 
+## Advanced Configuration: Custom Converters and Interceptors¶
+
+In scenarios where you want more granular control than what `to_a2a()` provides, you may instantiate and pass an [`A2aAgentExecutorConfig`](https://github.com/google/adk-python/blob/main/src/google/adk/a2a/executor/config.py) directly to the `A2aAgentExecutor`. This allows you to override default data converters and inject execution middleware.
+
+### Converters¶
+
+Converters handle the bidirectional translation between A2A protocol payloads and ADK's native `Event` or `Part` objects. You can provide your own mapping functions for the following hooks:
+
+  * **`a2a_part_converter`** : Converts A2A Message Parts into ADK `Part` objects.
+  * **`gen_ai_part_converter`** : Converts native ADK `Part` objects into A2A Message Parts.
+  * **`request_converter`** : Converts an incoming A2A request into an ADK `RunRequest`.
+  * **`event_converter`** : _(Legacy)_ Converts an ADK Event into an A2A Event, used by the legacy executor implementation.
+  * **`adk_event_converter`** : _(New)_ Converts an ADK Event into an A2A Event, used by the new, updated executor implementation.
+
+
+
+### Execute Interceptors¶
+
+You can inject a list of `execute_interceptors` to add middleware logic to the `A2aAgentExecutor` payload processing:
+
+  * **`before_agent`** : Executed before the agent starts processing the request. It allows you to inspect or modify the incoming `RequestContext`.
+  * **`after_event`** : Executed _after_ an ADK event is converted to an A2A event. Allows you to mutate the outgoing event before it is enqueued, or return `None` to filter out and drop the event entirely.
+  * **`after_agent`** : Executed after the agent finishes and the final event is prepared. Use this to inspect or modify the terminal status event (e.g., `completed` or `failed`) before it is sent.
+
+
+
+## Agent Executor V2¶
+
+The new version of the [agent executor](https://github.com/google/adk-python/blob/main/src/google/adk/a2a/executor/a2a_agent_executor_impl.py) is typically enabled when a client sends the required [A2A extension](../a2a-extension/).
+
+However, you can also bypass the extension and force the server to use the new executor version by setting the `force_new_version=True` flag when instantiating the `A2aAgentExecutor`. This allows you to use the new executor logic without needing to modify existing clients to send the extension.
+    
+    
+    from google.adk.a2a.executor import A2aAgentExecutor
+    
+    executor = A2aAgentExecutor(
+                ...,
+                force_new_version=True
+            )
+    
+
 ## Next Steps¶
 
 Now that you have created an agent that's exposing a remote agent via an A2A server, the next step is to learn how to consume it from another agent.
@@ -457,7 +544,7 @@ Now that you have created an agent that's exposing a remote agent via an A2A ser
 
 Back to top  [ Previous  Introduction to A2A  ](../intro/) [ Next  Go  ](../quickstart-exposing-go/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

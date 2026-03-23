@@ -17,7 +17,7 @@ Preparing search index...
 
 Log levels for the logger.
 
-  * Defined in [core/src/utils/logger.ts:8](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/logger.ts#L8)
+  * Defined in [utils/logger.ts:9](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L9)
 
 
 
@@ -27,7 +27,7 @@ Log levels for the logger.
 
 DEBUG: 0
 
-  * Defined in [core/src/utils/logger.ts:9](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/logger.ts#L9)
+  * Defined in [utils/logger.ts:10](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L10)
 
 
 
@@ -35,7 +35,7 @@ DEBUG: 0
 
 ERROR: 3
 
-  * Defined in [core/src/utils/logger.ts:12](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/logger.ts#L12)
+  * Defined in [utils/logger.ts:13](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L13)
 
 
 
@@ -43,7 +43,7 @@ ERROR: 3
 
 INFO: 1
 
-  * Defined in [core/src/utils/logger.ts:10](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/logger.ts#L10)
+  * Defined in [utils/logger.ts:11](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L11)
 
 
 
@@ -51,7 +51,7 @@ INFO: 1
 
 WARN: 2
 
-  * Defined in [core/src/utils/logger.ts:11](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/logger.ts#L11)
+  * Defined in [utils/logger.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L12)
 
 
 

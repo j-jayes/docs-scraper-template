@@ -19,10 +19,10 @@ The parameters for `processLlmRequest`.
 
 interface ToolProcessLlmRequest {  
 llmRequest: [LlmRequest](LlmRequest.html);  
-toolContext: [ToolContext](../classes/ToolContext.html);  
+toolContext: [Context](../classes/Context.html);  
 }
 
-  * Defined in [core/src/tools/base_tool.ts:25](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L25)
+  * Defined in [tools/base_tool.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L25)
 
 
 
@@ -32,15 +32,15 @@ toolContext: [ToolContext](../classes/ToolContext.html);
 
 llmRequest: [LlmRequest](LlmRequest.html)
 
-  * Defined in [core/src/tools/base_tool.ts:27](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L27)
+  * Defined in [tools/base_tool.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L27)
 
 
 
 ### toolContext
 
-toolContext: [ToolContext](../classes/ToolContext.html)
+toolContext: [Context](../classes/Context.html)
 
-  * Defined in [core/src/tools/base_tool.ts:26](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L26)
+  * Defined in [tools/base_tool.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L26)
 
 
 

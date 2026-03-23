@@ -25,7 +25,7 @@ model?: string;
 toolsDict: { [key: string]: [BaseTool](../classes/BaseTool.html) };  
 }
 
-  * Defined in [core/src/models/llm_request.ts:15](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_request.ts#L15)
+  * Defined in [models/llm_request.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_request.ts#L21)
 
 
 
@@ -37,7 +37,7 @@ config?: GenerateContentConfig
 
 Additional config for the generate content request. Tools in generateContentConfig should not be set directly; use appendTools.
 
-  * Defined in [core/src/models/llm_request.ts:30](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_request.ts#L30)
+  * Defined in [models/llm_request.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_request.ts#L36)
 
 
 
@@ -47,7 +47,7 @@ contents: Content[]
 
 The contents to send to the model.
 
-  * Defined in [core/src/models/llm_request.ts:24](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_request.ts#L24)
+  * Defined in [models/llm_request.ts:30](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_request.ts#L30)
 
 
 
@@ -55,7 +55,7 @@ The contents to send to the model.
 
 liveConnectConfig: LiveConnectConfig
 
-  * Defined in [core/src/models/llm_request.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_request.ts#L32)
+  * Defined in [models/llm_request.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_request.ts#L38)
 
 
 
@@ -65,7 +65,7 @@ model?: string
 
 The model name.
 
-  * Defined in [core/src/models/llm_request.ts:19](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_request.ts#L19)
+  * Defined in [models/llm_request.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_request.ts#L25)
 
 
 
@@ -75,7 +75,7 @@ toolsDict: { [key: string]: [BaseTool](../classes/BaseTool.html) }
 
 The tools dictionary. Excluded from JSON serialization.
 
-  * Defined in [core/src/models/llm_request.ts:37](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/llm_request.ts#L37)
+  * Defined in [models/llm_request.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/llm_request.ts#L43)
 
 
 

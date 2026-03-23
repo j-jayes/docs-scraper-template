@@ -27,7 +27,7 @@ stateDelta: { [key: string]: unknown };
 transferToAgent?: string;  
 }
 
-  * Defined in [core/src/events/event_actions.ts:15](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L15)
+  * Defined in [events/event_actions.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L16)
 
 
 
@@ -39,7 +39,7 @@ artifactDelta: { [key: string]: number }
 
 Indicates that the event is updating an artifact. key is the filename, value is the version.
 
-  * Defined in [core/src/events/event_actions.ts:31](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L31)
+  * Defined in [events/event_actions.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L32)
 
 
 
@@ -49,7 +49,7 @@ escalate?: boolean
 
 The agent is escalating to a higher level agent.
 
-  * Defined in [core/src/events/event_actions.ts:41](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L41)
+  * Defined in [events/event_actions.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L42)
 
 
 
@@ -66,7 +66,7 @@ This field will only be set by a tool response event indicating tool request aut
 
 
 
-  * Defined in [core/src/events/event_actions.ts:54](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L54)
+  * Defined in [events/event_actions.ts:55](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L55)
 
 
 
@@ -76,7 +76,7 @@ requestedToolConfirmations: { [key: string]: [ToolConfirmation](../classes/ToolC
 
 A dict of tool confirmation requested by this event, keyed by the function call id.
 
-  * Defined in [core/src/events/event_actions.ts:60](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L60)
+  * Defined in [events/event_actions.ts:61](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L61)
 
 
 
@@ -86,7 +86,7 @@ skipSummarization?: boolean
 
 If true, it won't call model to summarize function response. Only used for function_response event.
 
-  * Defined in [core/src/events/event_actions.ts:20](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L20)
+  * Defined in [events/event_actions.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L21)
 
 
 
@@ -96,7 +96,7 @@ stateDelta: { [key: string]: unknown }
 
 Indicates that the event is updating the state with the given delta.
 
-  * Defined in [core/src/events/event_actions.ts:25](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L25)
+  * Defined in [events/event_actions.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L26)
 
 
 
@@ -106,7 +106,7 @@ transferToAgent?: string
 
 If set, the event transfers to the specified agent.
 
-  * Defined in [core/src/events/event_actions.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L36)
+  * Defined in [events/event_actions.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L37)
 
 
 
