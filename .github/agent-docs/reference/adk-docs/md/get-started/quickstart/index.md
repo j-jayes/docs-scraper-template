@@ -41,6 +41,8 @@ Get Started
 Build your Agent 
       * Multi-tool agent  [ Multi-tool agent  ](./) Table of contents 
         * 1\. Set up Environment & Install ADK 
+        * Create a new Go module 
+        * Install ADK 
         * 2\. Create Agent Project 
           * Project structure 
           * __init__.py 
@@ -49,6 +51,8 @@ Build your Agent
           * agent.ts 
           * .env 
           * Create MultiToolAgent.java 
+          * agent.go 
+          * .env 
         * 3\. Set up the model 
         * 4\. Run Your Agent 
           * 📝 Example prompts to try 
@@ -134,6 +138,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -181,9 +187,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -235,6 +243,8 @@ Graph-based workflows
 Table of contents 
 
   * 1\. Set up Environment & Install ADK 
+  * Create a new Go module 
+  * Install ADK 
   * 2\. Create Agent Project 
     * Project structure 
     * __init__.py 
@@ -243,6 +253,8 @@ Table of contents
     * agent.ts 
     * .env 
     * Create MultiToolAgent.java 
+    * agent.go 
+    * .env 
   * 3\. Set up the model 
   * 4\. Run Your Agent 
     * 📝 Example prompts to try 
@@ -264,7 +276,7 @@ This quickstart assumes a local IDE (VS Code, PyCharm, IntelliJ IDEA, etc.) with
 
 ## 1\. Set up Environment & Install ADK¶
 
-PythonTypeScriptJava
+PythonTypeScriptJavaGo
 
 Create & Activate Virtual Environment (Recommended):
     
@@ -314,11 +326,31 @@ tsconfig.json
 
 To install ADK and setup the environment, proceed to the following steps.
 
+## Create a new Go module¶
+
+If you are starting a new project, you can create a new Go module:
+    
+    
+    mkdir my-adk-agent
+    cd my-adk-agent
+    go mod init example.com/my-agent
+    
+
+## Install ADK¶
+
+To add the ADK to your project, run the following command:
+    
+    
+    go get google.golang.org/adk
+    
+
+This will add the ADK as a dependency to your `go.mod` file.
+
 ## 2\. Create Agent Project¶
 
 ### Project structure¶
 
-PythonTypeScriptJava
+PythonTypeScriptJavaGo
 
 You will need to create the following project structure:
     
@@ -374,6 +406,20 @@ Copy and paste the following code into `agent.py`:
 
 multi_tool_agent/agent.py
     
+    
+    # Copyright 2026 Google LLC
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #     http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
     
     import datetime
     from zoneinfo import ZoneInfo
@@ -433,7 +479,7 @@ multi_tool_agent/agent.py
     
     root_agent = Agent(
         name="weather_time_agent",
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         description=(
             "Agent to answer questions about the time and weather in a city."
         ),
@@ -709,6 +755,104 @@ agents/multitool/MultiToolAgent.java
     }
     
 
+You will need to create the following project structure:
+    
+    
+    my-adk-agent/
+        agent.go
+        .env
+        go.mod
+    
+
+### `agent.go`¶
+
+Create an `agent.go` file in your project folder:
+
+OS X & LinuxWindows
+    
+    
+    touch agent.go
+    
+    
+    
+    type nul > agent.go
+    
+
+Copy and paste the following code into `agent.go`:
+
+agent.go
+    
+    
+    package main
+    
+    import (
+        "context"
+        "log"
+        "os"
+    
+        "google.golang.org/genai"
+    
+        "google.golang.org/adk/agent"
+        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/cmd/launcher"
+        "google.golang.org/adk/cmd/launcher/full"
+        "google.golang.org/adk/model/gemini"
+        "google.golang.org/adk/tool"
+        "google.golang.org/adk/tool/geminitool"
+    )
+    
+    func main() {
+        ctx := context.Background()
+    
+        // 1. Setup the model.
+        // Note: Authentication is handled via GOOGLE_API_KEY environment variable.
+        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+            APIKey: os.Getenv("GOOGLE_API_KEY"),
+        })
+        if err != nil {
+            log.Fatalf("Failed to create model: %v", err)
+        }
+    
+        // 2. Define the agent.
+        a, err := llmagent.New(llmagent.Config{
+            Name:        "multi_tool_agent",
+            Model:       model,
+            Description: "An agent that can answer questions using Google Search.",
+            Instruction: "You are a helpful assistant. Use the available tools to answer questions.",
+            Tools: []tool.Tool{
+                geminitool.GoogleSearch{},
+            },
+        })
+        if err != nil {
+            log.Fatalf("Failed to create agent: %v", err)
+        }
+    
+        // 3. Configure the launcher and run.
+        config := &launcher.Config{
+            AgentLoader: agent.NewSingleLoader(a),
+        }
+    
+        l := full.NewLauncher()
+        if err = l.Execute(ctx, config, os.Args[1:]); err != nil {
+            log.Fatalf("Run failed: %v\n\n%s", err, l.CommandLineSyntax())
+        }
+    }
+    
+
+### `.env`¶
+
+Create a `.env` file in the same folder:
+
+OS X & LinuxWindows
+    
+    
+    touch .env
+    
+    
+    
+    type nul > .env
+    
+
 ## 3\. Set up the model¶
 
 Your agent's ability to understand user requests and generate responses is powered by a Large Language Model (LLM). Your agent needs to make secure calls to this external LLM service, which **requires authentication credentials**. Without valid authentication, the LLM service will deny the agent's requests, and the agent will be unable to function.
@@ -738,7 +882,19 @@ terminal
 
 When using TypeScript, the `.env` file is automatically loaded by the `import 'dotenv/config';` line at the top of your `agent.ts` file.
 
-`env title=""multi_tool_agent/.env" GOOGLE_GENAI_USE_VERTEXAI=FALSE GOOGLE_GENAI_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE`
+multi_tool_agent/.env
+         
+         GOOGLE_GENAI_USE_VERTEXAI=FALSE
+         GOOGLE_GENAI_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE
+         
+
+When using Go, define environment variables in your terminal or use a `.env` file:
+
+terminal
+         
+         export GOOGLE_GENAI_USE_VERTEXAI=FALSE
+         export GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE
+         
 
   3. Replace `PASTE_YOUR_ACTUAL_API_KEY_HERE` with your actual `API KEY`.
 
@@ -775,6 +931,15 @@ When using TypeScript, the `.env` file is automatically loaded by the `import 'd
          GOOGLE_CLOUD_LOCATION=LOCATION
          
 
+When using Go, define environment variables in your terminal or use a `.env` file:
+
+terminal
+         
+         export GOOGLE_GENAI_USE_VERTEXAI=TRUE
+         export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
+         export GOOGLE_CLOUD_LOCATION=LOCATION
+         
+
 
 
 
@@ -805,12 +970,20 @@ When using TypeScript, the `.env` file is automatically loaded by the `import 'd
          GOOGLE_GENAI_API_KEY=PASTE_YOUR_ACTUAL_EXPRESS_MODE_API_KEY_HERE
          
 
+When using Go, define environment variables in your terminal or use a `.env` file:
+
+terminal
+         
+         export GOOGLE_GENAI_USE_VERTEXAI=TRUE
+         export GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_EXPRESS_MODE_API_KEY_HERE
+         
+
 
 
 
 ## 4\. Run Your Agent¶
 
-PythonTypeScriptJava
+PythonTypeScriptGoJava
 
 Using the terminal, navigate to the parent directory of your agent project (e.g. using `cd ..`):
     
@@ -951,6 +1124,41 @@ To exit, use Cmd/Ctrl+C.
 `npx adk api_server` enables you to create a local Express.js server in a single command, enabling you to test local cURL requests before you deploy your agent.
 
 To learn how to use `api_server` for testing, refer to the [documentation on testing](/adk-docs/runtime/api-server/).
+
+Using the terminal, navigate to your agent project directory:
+    
+    
+    my-adk-agent/      <-- navigate to this directory
+        agent.go
+        .env
+        go.mod
+    
+
+There are multiple ways to interact with your agent:
+
+Dev UI (web)Terminal (console)
+
+Run the following command to launch the **dev UI**. You must specify which sub-launchers to activate (e.g., `webui`, `api`).
+    
+    
+    go run agent.go web webui api
+    
+
+**Step 1:** Open the URL provided (usually `http://localhost:8080`) directly in your browser.
+
+**Step 2.** In the top-left corner of the UI, select your agent from the dropdown. It should be "weather_time_agent".
+
+**Step 3.** Now you can chat with your agent using the textbox.
+
+Run the following command to chat with your agent in the terminal.
+    
+    
+    go run agent.go console
+    
+
+**Note:** If `console` is the first sublauncher in your code (as it is with `full.NewLauncher()`), you can also just run `go run agent.go`.
+
+To exit, use Cmd/Ctrl+C.
 
 Using the terminal, navigate to the parent directory of your agent project (e.g. using `cd ..`):
     

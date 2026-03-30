@@ -120,6 +120,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -182,9 +184,11 @@ A2A Protocol
           * Agent Executor V2 
           * Next Steps 
         * [ Go  ](../quickstart-exposing-go/)
+        * [ Java  ](../quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../quickstart-consuming/)
         * [ Go  ](../quickstart-consuming-go/)
+        * [ Java  ](../quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -346,9 +350,9 @@ You can also provide your own agent card by using the `agent_card` parameter. Th
         version="1.0.0",
         capabilities={},
         skills=[],
-        defaultInputModes=["text/plain"],
-        defaultOutputModes=["text/plain"],
-        supportsAuthenticatedExtendedCard=False,
+        default_input_modes=["text/plain"],
+        default_output_modes=["text/plain"],
+        supports_authenticated_extended_card=False,
     )
     a2a_app = to_a2a(root_agent, port=8001, agent_card=my_agent_card)
     

@@ -30,14 +30,6 @@ Element
 
 Description
 
-[com.google.adk.agents.InvocationContext.agent(BaseAgent)](com/google/adk/agents/InvocationContext.html#agent\(com.google.adk.agents.BaseAgent\))
-
-Use [`InvocationContext.toBuilder()`](com/google/adk/agents/InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.agent(BaseAgent)`](com/google/adk/agents/InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
-
-[com.google.adk.agents.InvocationContext.copyOf(InvocationContext)](com/google/adk/agents/InvocationContext.html#copyOf\(com.google.adk.agents.InvocationContext\))
-
-Use `other.toBuilder().build()` instead.
-
 [com.google.adk.runner.Runner.runAsync(Session, Content, RunConfig)](com/google/adk/runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))
 
 Use runAsync with sessionId.
@@ -55,14 +47,6 @@ Use runAsync with sessionId.
 Method
 
 Description
-
-[com.google.adk.agents.InvocationContext.agent(BaseAgent)](com/google/adk/agents/InvocationContext.html#agent\(com.google.adk.agents.BaseAgent\))
-
-Use [`InvocationContext.toBuilder()`](com/google/adk/agents/InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.agent(BaseAgent)`](com/google/adk/agents/InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
-
-[com.google.adk.agents.InvocationContext.copyOf(InvocationContext)](com/google/adk/agents/InvocationContext.html#copyOf\(com.google.adk.agents.InvocationContext\))
-
-Use `other.toBuilder().build()` instead.
 
 [com.google.adk.events.Event.setFinishReason(Optional<FinishReason>)](com/google/adk/events/Event.html#setFinishReason\(java.util.Optional\))
 

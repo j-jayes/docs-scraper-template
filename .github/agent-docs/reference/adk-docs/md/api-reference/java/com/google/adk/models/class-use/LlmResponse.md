@@ -52,6 +52,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.plugins.recordings
 
  
@@ -164,7 +168,7 @@ ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/Respon
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
+BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,io.opentelemetry.context.Context\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse, io.opentelemetry.context.Context parentContext)`
 
 Post-processes the LLM response after receiving it from the LLM.
 
@@ -455,6 +459,48 @@ Callback executed after a response is received from the model.
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
 PluginManager.`[afterModelCallback](../../plugins/PluginManager.html#afterModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
+
+ 
+
+  * ## Uses of [LlmResponse](../LlmResponse.html "class in com.google.adk.models") in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html)
+
+Methods in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html) that return types with arguments of type [LlmResponse](../LlmResponse.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[afterModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#afterModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[beforeModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[onModelErrorCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+
+ 
+
+Methods in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html) with parameters of type [LlmResponse](../LlmResponse.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[afterModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#afterModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
  
 

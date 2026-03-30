@@ -120,6 +120,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Custom Metrics  ](../evaluate/custom_metrics/)
+      * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
 
 Safety and Security 
@@ -167,9 +169,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../a2a/quickstart-exposing/)
         * [ Go  ](../a2a/quickstart-exposing-go/)
+        * [ Java  ](../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
+        * [ Java  ](../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
@@ -259,7 +263,7 @@ Join the [ADK Community Google Group](https://groups.google.com/g/adk-community)
 
 See recent recordings below, or browse all past calls on our [YouTube playlist](https://www.youtube.com/playlist?list=PLwi6PfxEP7zZbBPmWiZ8QbPcuKyAY5RR3).
 
-[ Community Call 📞 Feb 2026 Recording Discussions include ADK evaluations with built-in metrics, token-based context compaction, the BigQuery observability plugin, and a community spotlight on Redis integration. ](https://www.youtube.com/watch?v=cXDr4RYJxK0) [ Community Call 📞 Jan 2026 Recording Discussions include Session Service schema for cross-language support, TypeScript multi-agent demo, API Registry for MCP servers, and third-party tool integrations. ](https://www.youtube.com/watch?v=h9Lueiqo89E) [ Community Call 📞 Dec 2025 Recording Discussions include the ADK TypeScript launch, Gemini 3 Flash support, bidirectional streaming for voice agents, and the Visual Builder UI. ](https://www.youtube.com/watch?v=cNVWhrbdn-E)
+[ Community Call 📞 Mar 2026 Recording Discussions include the ADK 2.0 alpha release, Workflows for graph-based agent composition, Agent Modes for structured multi-agent coordination, and a community spotlight on Restate durable agents. ](https://www.youtube.com/watch?v=bPngDY7EuOQ) [ Community Call 📞 Feb 2026 Recording Discussions include ADK evaluations with built-in metrics, token-based context compaction, the BigQuery observability plugin, and a community spotlight on Redis integration. ](https://www.youtube.com/watch?v=cXDr4RYJxK0) [ Community Call 📞 Jan 2026 Recording Discussions include Session Service schema for cross-language support, TypeScript multi-agent demo, API Registry for MCP servers, and third-party tool integrations. ](https://www.youtube.com/watch?v=h9Lueiqo89E)
 
 ## Courses & Deep Dives¶
 

@@ -44,6 +44,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.runner
 
  
@@ -104,7 +108,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")>`
 
 App.`[plugins](../../apps/App.html#plugins\(\))()`
 
@@ -231,6 +235,22 @@ Description
 `[PluginManager](../PluginManager.html#%3Cinit%3E\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../Plugin.html "interface in com.google.adk.plugins")> plugins)`
 
  
+
+  * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.plugins.agentanalytics](../agentanalytics/package-summary.html)
+
+Classes in [com.google.adk.plugins.agentanalytics](../agentanalytics/package-summary.html) that implement [Plugin](../Plugin.html "interface in com.google.adk.plugins")
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[BigQueryAgentAnalyticsPlugin](../agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")`
+
+BigQuery Agent Analytics Plugin for Java.
 
   * ## Uses of [Plugin](../Plugin.html "interface in com.google.adk.plugins") in [com.google.adk.runner](../../runner/package-summary.html)
 

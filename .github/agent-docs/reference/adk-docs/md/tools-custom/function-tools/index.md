@@ -143,6 +143,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -190,9 +192,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -305,7 +309,7 @@ A well-defined function signature is crucial for the LLM to use your tool correc
 
 ##### Required Parameters¶
 
-PythonGo
+PythonGoJava
 
 A parameter is considered **required** if it has a type hint but **no default value**. The LLM must provide a value for this argument when it calls the tool. The parameter's description is taken from the function's docstring.
 
@@ -348,9 +352,31 @@ Example: Required Parameters
 
 In this example, both `location` and `unit` are mandatory.
 
+In Java, primitive types (e.g., `int`, `double`, `boolean`) are inherently **required** because they cannot be null. For object types (like `String` or `Integer`), they are typically considered required unless explicitly marked as optional.
+
+The `@Schema` annotation is used to provide the argument's description and can explicitly define parameter properties. This is crucial for the LLM to understand what the argument is for.
+
+Example: Required Parameters
+    
+    
+    // The @Schema annotation on the parameter provides the description.
+    public static Map<String, Object> getWeather(
+        @Schema(description = "The city and state, e.g., San Francisco, CA", name = "location")
+        String location,
+    
+        @Schema(description = "The temperature unit, either 'Celsius' or 'Fahrenheit'", name = "unit")
+        String unit) {
+    
+        // ... function logic ...
+        return Map.of("status", "success", "report", "Weather for " + location + " is sunny.");
+    }
+    
+
+In this example, both `location` and `unit` are mandatory.
+
 ##### Optional Parameters¶
 
-PythonGo
+PythonGoJava
 
 A parameter is considered **optional** if you provide a **default value**. This is the standard Python way to define optional arguments. You can also mark a parameter as optional using `typing.Optional[SomeType]` or the `| None` syntax (Python 3.10+).
 
@@ -394,6 +420,35 @@ Example: Optional Parameters
 
 Here, `unit` and `days` are optional. The LLM can choose to provide them, but they are not required.
 
+A parameter can be considered **optional** in Java by using object types that allow `null` values (such as `Integer` instead of `int`), or by explicitly defining it as optional using `java.util.Optional`.
+
+Example: Optional Parameters
+    
+    
+    import java.util.Map;
+    import java.util.Optional;
+    
+    public static Map<String, Object> searchFlights(
+        @Schema(description = "The destination city.", name = "destination")
+        String destination,
+    
+        @Schema(description = "The desired departure date.", name = "departureDate")
+        String departureDate,
+    
+        @Schema(description = "Number of flexible days for the search. Defaults to 0.", name = "flexibleDays")
+        Optional<Integer> flexibleDays) {
+    
+        // ... function logic ...
+        int days = flexibleDays.orElse(0);
+        if (days > 0) {
+            return Map.of("status", "success", "report", "Found flexible flights to " + destination + ".");
+        }
+        return Map.of("status", "success", "report", "Found flights to " + destination + " on " + departureDate + ".");
+    }
+    
+
+Here, `flexibleDays` is optional. The LLM can choose to provide it, but it's not required.
+
 ##### Optional Parameters with `typing.Optional`¶
 
 You can also mark a parameter as optional using `typing.Optional[SomeType]` or the `| None` syntax (Python 3.10+). This signals that the parameter can be `None`. When combined with a default value of `None`, it behaves as a standard optional parameter.
@@ -425,13 +480,13 @@ While you can include `*args` (variable positional arguments) and `**kwargs` (va
 
 #### Return Type¶
 
-The preferred return type for a Function Tool is a **dictionary** in Python, a **Map** in Java, or an **object** in TypeScript. This allows you to structure the response with key-value pairs, providing context and clarity to the LLM. If your function returns a type other than a dictionary, the framework automatically wraps it into a dictionary with a single key named **"result"**.
+The preferred return type for a Function Tool is a **dictionary** in Python, a **Map** or custom **Record or POJO** in Java, or an **object** in TypeScript. This allows you to structure the response with key-value pairs, providing context and clarity to the LLM. If your function returns a type other than a dictionary or map, the framework automatically wraps it into a dictionary with a single key named **"result"**.
 
 Strive to make your return values as descriptive as possible. _For example,_ instead of returning a numeric error code, return a dictionary with an "error_message" key containing a human-readable explanation. **Remember that the LLM** , not a piece of code, needs to understand the result. As a best practice, include a "status" key in your return dictionary to indicate the overall outcome (e.g., "success", "error", "pending"), providing the LLM with a clear signal about the operation's state.
 
 #### Docstrings¶
 
-The docstring of your function serves as the tool's **description** and is sent to the LLM. Therefore, a well-written and comprehensive docstring is crucial for the LLM to understand how to use the tool effectively. Clearly explain the purpose of the function, the meaning of its parameters, and the expected return values.
+The docstring of your function serves as the tool's **description** and is sent to the LLM. Therefore, a well-written and comprehensive docstring is crucial for the LLM to understand how to use the tool effectively. Clearly explain the purpose of the function, the meaning of its parameters, and the expected return values. In Java, you can use Javadoc comments or the `@Schema(description="...")` annotation on your method to serve as this description.
 
 ### Passing Data Between Tools¶
 
@@ -926,24 +981,17 @@ This tool retrieves the mocked value of a stock price.
     import com.google.genai.types.Content;
     import com.google.genai.types.Part;
     import io.reactivex.rxjava3.core.Flowable;
-    import java.util.HashMap;
     import java.util.Map;
+    import yahoofinance.Stock;
+    import yahoofinance.YahooFinance;
+    import java.math.BigDecimal;
     
     public class StockPriceAgent {
     
       private static final String APP_NAME = "stock_agent";
       private static final String USER_ID = "user1234";
     
-      // Mock data for various stocks functionality
-      // NOTE: This is a MOCK implementation. In a real Java application,
-      // you would use a financial data API or library.
-      private static final Map<String, Double> mockStockPrices = new HashMap<>();
-    
-      static {
-        mockStockPrices.put("GOOG", 1.0);
-        mockStockPrices.put("AAPL", 1.0);
-        mockStockPrices.put("MSFT", 1.0);
-      }
+      // No longer using mock stock data - we fetch it live!
     
       @Schema(description = "Retrieves the current stock price for a given symbol.")
       public static Map<String, Object> getStockPrice(
@@ -952,10 +1000,11 @@ This tool retrieves the mocked value of a stock price.
           String symbol) {
     
         try {
-          if (mockStockPrices.containsKey(symbol.toUpperCase())) {
-            double currentPrice = mockStockPrices.get(symbol.toUpperCase());
-            System.out.println("Tool: Found price for " + symbol + ": " + currentPrice);
-            return Map.of("symbol", symbol, "price", currentPrice);
+          Stock stock = YahooFinance.get(symbol.toUpperCase());
+          if (stock != null && stock.getQuote().getPrice() != null) {
+            BigDecimal currentPrice = stock.getQuote().getPrice();
+            System.out.println("Tool: Found live price for " + symbol + ": " + currentPrice);
+            return Map.of("symbol", symbol, "price", currentPrice.doubleValue());
           } else {
             return Map.of("symbol", symbol, "error", "No data found for symbol");
           }

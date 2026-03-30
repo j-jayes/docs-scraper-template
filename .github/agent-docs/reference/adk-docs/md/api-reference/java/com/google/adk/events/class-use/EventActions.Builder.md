@@ -45,7 +45,7 @@ Description
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[artifactDelta](../EventActions.Builder.html#artifactDelta\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> value)`
+EventActions.Builder.`[artifactDelta](../EventActions.Builder.html#artifactDelta\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> value)`
 
  
 
@@ -95,7 +95,7 @@ EventActions.Builder.`[merge](../EventActions.Builder.html#merge\(com.google.adk
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[requestedAuthConfigs](../EventActions.Builder.html#requestedAuthConfigs\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> value)`
+EventActions.Builder.`[requestedAuthConfigs](../EventActions.Builder.html#requestedAuthConfigs\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), ? extends [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> value)`
 
  
 
@@ -113,7 +113,7 @@ EventActions.Builder.`[skipSummarization](../EventActions.Builder.html#skipSumma
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[stateDelta](../EventActions.Builder.html#stateDelta\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> value)`
+EventActions.Builder.`[stateDelta](../EventActions.Builder.html#stateDelta\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> value)`
 
  
 

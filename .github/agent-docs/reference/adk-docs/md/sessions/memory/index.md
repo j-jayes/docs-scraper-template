@@ -120,6 +120,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -180,9 +182,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -269,7 +273,7 @@ Think of it this way:
 
 ## The `MemoryService` Role¶
 
-The `BaseMemoryService` defines the interface for managing this searchable, long-term knowledge store. Its primary responsibilities are:
+The `BaseMemoryService` (or `Service` in Go) defines the interface for managing this searchable, long-term knowledge store. Its primary responsibilities are:
 
   1. **Ingesting Information (`add_session_to_memory`):** Taking the contents of a (usually completed) `Session` and adding relevant information to the long-term knowledge store.
   2. **Searching Information (`search_memory`):** Allowing an agent (typically via a `Tool`) to query the knowledge store and retrieve relevant snippets or context based on a search query.
@@ -438,7 +442,7 @@ PythonGoJava
     const (
         appName = "go_memory_example_app"
         userID  = "go_mem_user"
-        modelID = "gemini-2.5-pro"
+        modelID = "gemini-2.5-flash"
     )
     
     // Args defines the input structure for the memory search tool.
@@ -519,7 +523,7 @@ PythonGoJava
                 log.Printf("Agent 1 Error: %v", err)
                 continue
             }
-            if event.Content != nil && !event.LLMResponse.Partial {
+            if event.LLMResponse.Content != nil && !event.LLMResponse.Partial {
                 finalResponseText = strings.Join(textParts(event.LLMResponse.Content), "")
             }
         }
@@ -531,7 +535,7 @@ PythonGoJava
         if err != nil {
             log.Fatalf("Failed to get completed session: %v", err)
         }
-        if err := memoryService.AddSession(ctx, resp.Session); err != nil {
+        if err := memoryService.AddSessionToMemory(ctx, resp.Session); err != nil {
             log.Fatalf("Failed to add session to memory: %v", err)
         }
         fmt.Println("Session added to memory.")
@@ -563,7 +567,7 @@ PythonGoJava
                 log.Printf("Agent 2 Error: %v", err)
                 continue
             }
-            if event.Content != nil && !event.LLMResponse.Partial {
+            if event.LLMResponse.Content != nil && !event.LLMResponse.Partial {
                 finalResponseText2 = strings.Join(textParts(event.LLMResponse.Content), "")
             }
         }
@@ -787,7 +791,7 @@ When a memory service is configured, your agent can use a tool or callback to re
 
 **Example:**
 
-Python
+PythonGoJava
     
     
     from google.adk.agents import Agent
@@ -800,8 +804,21 @@ Python
         tools=[PreloadMemoryTool()]
     )
     
-
-Java
+    
+    
+    import (
+        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/tool"
+        "google.golang.org/adk/tool/preloadmemorytool"
+    )
+    
+    agent, _ := llmagent.New(llmagent.Config{
+        Model:       model,
+        Name:        "weather_sentiment_agent",
+        Instruction: "...",
+        Tools:       []tool.Tool{preloadmemorytool.New()},
+    })
+    
     
     
     import com.google.adk.agents.LlmAgent;
@@ -817,7 +834,7 @@ Java
 
 To extract memories from your session, you need to call `add_session_to_memory`. For example, you can automate this via a callback:
 
-Python
+PythonGo
     
     
     from google.adk.agents import Agent
@@ -835,26 +852,31 @@ Python
         after_agent_callback=auto_save_session_to_memory_callback,
     )
     
-
-Java
     
     
-    import com.google.adk.agents.LlmAgent;
-    import com.google.adk.tools.LoadMemoryTool;
-    import io.reactivex.rxjava3.core.Maybe;
-    import java.util.Optional;
+    import (
+        "context"
+        "google.golang.org/adk/agent"
+        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/session"
+        "google.golang.org/adk/tool"
+        "google.golang.org/adk/tool/loadmemorytool"
+    )
     
-    LlmAgent agent = new LlmAgent.Builder()
-        .model(MODEL)
-        .name("Generic_QA_Agent")
-        .instruction("Answer the user's questions")
-        .tools(new LoadMemoryTool())
-        .afterAgentCallback((context) -> {
-            return context.invocationContext().memoryService()
-                .addSessionToMemory(context.invocationContext().session())
-                .andThen(Maybe.empty());
-        })
-        .build();
+    func autoSaveSessionToMemoryCallback(ctx agent.CallbackContext, s session.Session) (*genai.Content, error) {
+        if err := ctx.Memory().AddSessionToMemory(context.Background(), s); err != nil {
+            return nil, err
+        }
+        return nil, nil
+    }
+    
+    agent, _ := llmagent.New(llmagent.Config{
+        Model:               model,
+        Name:                "Generic_QA_Agent",
+        Instruction:         "Answer the user's questions",
+        Tools:               []tool.Tool{loadmemorytool.New()},
+        AfterAgentCallbacks: []agent.AfterAgentCallback{autoSaveSessionToMemoryCallback},
+    })
     
 
 ## Advanced Concepts¶

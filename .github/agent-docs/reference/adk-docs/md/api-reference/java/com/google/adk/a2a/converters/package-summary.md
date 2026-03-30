@@ -41,6 +41,14 @@ Description
 
 Enum for the type of A2A DataPart metadata.
 
+[A2AMetadataKey](A2AMetadataKey.html "enum class in com.google.adk.a2a.converters")
+
+Enum for the type of A2A metadata.
+
+[AdkMetadataKey](AdkMetadataKey.html "enum class in com.google.adk.a2a.converters")
+
+Enum for the type of ADK metadata.
+
 [EventConverter](EventConverter.html "class in com.google.adk.a2a.converters")
 
 Converter for ADK Events to A2A Messages.

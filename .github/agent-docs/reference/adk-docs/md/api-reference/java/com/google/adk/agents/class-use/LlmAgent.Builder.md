@@ -173,24 +173,6 @@ LlmAgent.Builder.`[disallowTransferToPeers](../LlmAgent.Builder.html#disallowTra
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[exampleProvider](../LlmAgent.Builder.html#exampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../../examples/BaseExampleProvider.html "interface in com.google.adk.examples") exampleProvider)`
-
- 
-
-`[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
-
-LlmAgent.Builder.`[exampleProvider](../LlmAgent.Builder.html#exampleProvider\(com.google.adk.examples.Example...\))([Example](../../examples/Example.html "class in com.google.adk.examples")... examples)`
-
- 
-
-`[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
-
-LlmAgent.Builder.`[exampleProvider](../LlmAgent.Builder.html#exampleProvider\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Example](../../examples/Example.html "class in com.google.adk.examples")> examples)`
-
- 
-
-`[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
-
 LlmAgent.Builder.`[executor](../LlmAgent.Builder.html#executor\(java.util.concurrent.Executor\))([Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "class or interface in java.util.concurrent") executor)`
 
  

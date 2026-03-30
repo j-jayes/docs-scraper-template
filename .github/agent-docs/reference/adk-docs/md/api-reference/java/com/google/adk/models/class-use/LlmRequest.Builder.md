@@ -45,6 +45,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.tools
 
  
@@ -159,6 +163,12 @@ LlmRequest.`[toBuilder](../LlmRequest.html#toBuilder\(\))()`
 
  
 
+`abstract [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")`
+
+LlmRequest.Builder.`[tools](../LlmRequest.Builder.html#tools\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")> tools)`
+
+ 
+
   * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.plugins](../../plugins/package-summary.html)
 
 Methods in [com.google.adk.plugins](../../plugins/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
@@ -220,6 +230,28 @@ Callback executed when a model call encounters an error.
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
 PluginManager.`[onModelErrorCallback](../../plugins/PluginManager.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+
+ 
+
+  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html)
+
+Methods in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[beforeModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[onModelErrorCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
 
  
 

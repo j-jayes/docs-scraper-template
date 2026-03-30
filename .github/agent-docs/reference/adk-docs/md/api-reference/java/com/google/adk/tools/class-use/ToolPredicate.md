@@ -68,6 +68,38 @@ McpAsyncToolset.Builder.`[toolFilter](../mcp/McpAsyncToolset.Builder.html#toolFi
 
  
 
+Constructors in [com.google.adk.tools.mcp](../mcp/package-summary.html) with parameters of type [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[McpToolset](../mcp/McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,com.google.adk.tools.ToolPredicate\))([McpSessionManager](../mcp/McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with an McpSessionManager.
+
+` `
+
+`[McpToolset](../mcp/McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.SseServerParameters,com.fasterxml.jackson.databind.ObjectMapper,com.google.adk.tools.ToolPredicate\))([SseServerParameters](../mcp/SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with SSE server parameters.
+
+` `
+
+`[McpToolset](../mcp/McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.StreamableHttpServerParameters,com.fasterxml.jackson.databind.ObjectMapper,com.google.adk.tools.ToolPredicate\))([StreamableHttpServerParameters](../mcp/StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with Streamable HTTP server parameters.
+
+` `
+
+`[McpToolset](../mcp/McpToolset.html#%3Cinit%3E\(io.modelcontextprotocol.client.transport.ServerParameters,com.fasterxml.jackson.databind.ObjectMapper,com.google.adk.tools.ToolPredicate\))(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with local server parameters.
+
 
 
 

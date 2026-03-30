@@ -29,17 +29,21 @@ Contents
   6. Field Details
      1. CONFIG_TYPE
   7. Constructor Details
-     1. McpToolset(SseServerParameters, ObjectMapper, Optional)
-     2. McpToolset(SseServerParameters, ObjectMapper)
-     3. McpToolset(ServerParameters, ObjectMapper, Optional)
-     4. McpToolset(ServerParameters, ObjectMapper)
-     5. McpToolset(SseServerParameters, Optional)
-     6. McpToolset(SseServerParameters)
-     7. McpToolset(ServerParameters, Optional)
+     1. McpToolset(SseServerParameters, ObjectMapper, ToolPredicate)
+     2. McpToolset(SseServerParameters, ObjectMapper, List)
+     3. McpToolset(SseServerParameters, ObjectMapper)
+     4. McpToolset(ServerParameters, ObjectMapper, ToolPredicate)
+     5. McpToolset(ServerParameters, ObjectMapper, List)
+     6. McpToolset(ServerParameters, ObjectMapper)
+     7. McpToolset(SseServerParameters)
      8. McpToolset(ServerParameters)
-     9. McpToolset(McpSessionManager, ObjectMapper, Optional)
-     10. McpToolset(StreamableHttpServerParameters, ObjectMapper, Optional)
-     11. McpToolset(StreamableHttpServerParameters)
+     9. McpToolset(McpSessionManager, ObjectMapper, ToolPredicate)
+     10. McpToolset(McpSessionManager, ObjectMapper, List)
+     11. McpToolset(McpSessionManager, ObjectMapper)
+     12. McpToolset(StreamableHttpServerParameters, ObjectMapper, ToolPredicate)
+     13. McpToolset(StreamableHttpServerParameters, ObjectMapper, List)
+     14. McpToolset(StreamableHttpServerParameters, ObjectMapper)
+     15. McpToolset(StreamableHttpServerParameters)
   8. Method Details
      1. getTools(ReadonlyContext)
      2. close()
@@ -108,7 +112,15 @@ Constructor
 
 Description
 
-`McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+Initializes the McpToolset with an McpSessionManager and no tool filter.
+
+`McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with an McpSessionManager.
+
+`McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
 
 Initializes the McpToolset with an McpSessionManager.
 
@@ -120,21 +132,29 @@ Initializes the McpToolset with SSE server parameters, using the ObjectMapper us
 
 Initializes the McpToolset with SSE server parameters and no tool filter.
 
-`McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
 Initializes the McpToolset with SSE server parameters.
 
-`McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
 
-Initializes the McpToolset with SSE server parameters, using the ObjectMapper used across the ADK.
+Initializes the McpToolset with SSE server parameters.
 
 `McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams)`
 
 Initializes the McpToolset with Streamable HTTP server parameters, using the ObjectMapper used across the ADK and no tool filter.
 
-`McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
 
-Initializes the McpToolset with Steamable HTTP server parameters.
+Initializes the McpToolset with Streamable HTTP server parameters and no tool filter.
+
+`McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with Streamable HTTP server parameters.
+
+`McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
+
+Initializes the McpToolset with Streamable HTTP server parameters.
 
 `McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams)`
 
@@ -144,13 +164,13 @@ Initializes the McpToolset with local server parameters, using the ObjectMapper 
 
 Initializes the McpToolset with local server parameters and no tool filter.
 
-`McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
 Initializes the McpToolset with local server parameters.
 
-`McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
 
-Initializes the McpToolset with local server parameters, using the ObjectMapper used across the ADK.
+Initializes the McpToolset with local server parameters.
 
   * ## Method Summary
 
@@ -201,14 +221,25 @@ protected static final [Class](https://docs.oracle.com/en/java/javase/17/docs/ap
 
     * ### McpToolset
 
-public McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
+public McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)
 
 Initializes the McpToolset with SSE server parameters.
 
 Parameters:
     `connectionParams` \- The SSE connection parameters to the MCP server.
     `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
+    `toolPredicate` \- A [`ToolPredicate`](../ToolPredicate.html "interface in com.google.adk.tools")
+
+    * ### McpToolset
+
+public McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)
+
+Initializes the McpToolset with SSE server parameters.
+
+Parameters:
+    `connectionParams` \- The SSE connection parameters to the MCP server.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
+    `toolNames` \- A list of tool names
 
     * ### McpToolset
 
@@ -222,14 +253,25 @@ Parameters:
 
     * ### McpToolset
 
-public McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
+public McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)
 
 Initializes the McpToolset with local server parameters.
 
 Parameters:
     `connectionParams` \- The local server connection parameters to the MCP server.
     `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
+    `toolPredicate` \- A [`ToolPredicate`](../ToolPredicate.html "interface in com.google.adk.tools")
+
+    * ### McpToolset
+
+public McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)
+
+Initializes the McpToolset with local server parameters.
+
+Parameters:
+    `connectionParams` \- The local server connection parameters to the MCP server.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
+    `toolNames` \- A list of tool names
 
     * ### McpToolset
 
@@ -243,32 +285,12 @@ Parameters:
 
     * ### McpToolset
 
-public McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
-
-Initializes the McpToolset with SSE server parameters, using the ObjectMapper used across the ADK.
-
-Parameters:
-    `connectionParams` \- The SSE connection parameters to the MCP server.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
-
-    * ### McpToolset
-
 public McpToolset([SseServerParameters](SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams)
 
 Initializes the McpToolset with SSE server parameters, using the ObjectMapper used across the ADK and no tool filter.
 
 Parameters:
     `connectionParams` \- The SSE connection parameters to the MCP server.
-
-    * ### McpToolset
-
-public McpToolset(io.modelcontextprotocol.client.transport.ServerParameters connectionParams, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
-
-Initializes the McpToolset with local server parameters, using the ObjectMapper used across the ADK.
-
-Parameters:
-    `connectionParams` \- The local server connection parameters to the MCP server.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
 
     * ### McpToolset
 
@@ -281,25 +303,67 @@ Parameters:
 
     * ### McpToolset
 
-public McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
+public McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)
 
 Initializes the McpToolset with an McpSessionManager.
 
 Parameters:
     `mcpSessionManager` \- A McpSessionManager instance for testing.
     `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
+    `toolPredicate` \- A [`ToolPredicate`](../ToolPredicate.html "interface in com.google.adk.tools")
 
     * ### McpToolset
 
-public McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)
+public McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)
 
-Initializes the McpToolset with Steamable HTTP server parameters.
+Initializes the McpToolset with an McpSessionManager.
+
+Parameters:
+    `mcpSessionManager` \- A McpSessionManager instance for testing.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
+    `toolNames` \- A list of tool names
+
+    * ### McpToolset
+
+public McpToolset([McpSessionManager](McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+
+Initializes the McpToolset with an McpSessionManager and no tool filter.
+
+Parameters:
+    `mcpSessionManager` \- A McpSessionManager instance for testing.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
+
+    * ### McpToolset
+
+public McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)
+
+Initializes the McpToolset with Streamable HTTP server parameters.
 
 Parameters:
     `connectionParams` \- The Streamable HTTP connection parameters to the MCP server.
     `objectMapper` \- An ObjectMapper instance for parsing schemas.
-    `toolFilter` \- An Optional containing either a ToolPredicate or a List of tool names.
+    `toolPredicate` \- A [`ToolPredicate`](../ToolPredicate.html "interface in com.google.adk.tools")
+
+    * ### McpToolset
+
+public McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)
+
+Initializes the McpToolset with Streamable HTTP server parameters.
+
+Parameters:
+    `connectionParams` \- The Streamable HTTP connection parameters to the MCP server.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
+    `toolNames` \- A list of tool names
+
+    * ### McpToolset
+
+public McpToolset([StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+
+Initializes the McpToolset with Streamable HTTP server parameters and no tool filter.
+
+Parameters:
+    `connectionParams` \- The Streamable HTTP connection parameters to the MCP server.
+    `objectMapper` \- An ObjectMapper instance for parsing schemas.
 
     * ### McpToolset
 

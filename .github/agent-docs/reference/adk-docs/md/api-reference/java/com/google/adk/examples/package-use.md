@@ -27,10 +27,6 @@ Package
 
 Description
 
-com.google.adk.agents
-
- 
-
 com.google.adk.examples
 
  
@@ -38,20 +34,6 @@ com.google.adk.examples
 com.google.adk.tools
 
  
-
-  * Classes in [com.google.adk.examples](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
-
-Class
-
-Description
-
-[BaseExampleProvider](class-use/BaseExampleProvider.html#com.google.adk.agents)
-
-An interface that provides examples for a given query.
-
-[Example](class-use/Example.html#com.google.adk.agents)
-
-Represents an few-shot example.
 
   * Classes in [com.google.adk.examples](package-summary.html) used by [com.google.adk.examples](package-summary.html)
 

@@ -44,7 +44,7 @@ All Implemented Interfaces:
     `[Plugin](Plugin.html "interface in com.google.adk.plugins")`
 
 Direct Known Subclasses:
-    `[ContextFilterPlugin](ContextFilterPlugin.html "class in com.google.adk.plugins"), [GlobalInstructionPlugin](GlobalInstructionPlugin.html "class in com.google.adk.plugins"), [LoggingPlugin](LoggingPlugin.html "class in com.google.adk.plugins"), [PluginManager](PluginManager.html "class in com.google.adk.plugins"), [ReplayPlugin](ReplayPlugin.html "class in com.google.adk.plugins")`
+    `[BigQueryAgentAnalyticsPlugin](agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics"), [ContextFilterPlugin](ContextFilterPlugin.html "class in com.google.adk.plugins"), [GlobalInstructionPlugin](GlobalInstructionPlugin.html "class in com.google.adk.plugins"), [LoggingPlugin](LoggingPlugin.html "class in com.google.adk.plugins"), [PluginManager](PluginManager.html "class in com.google.adk.plugins"), [ReplayPlugin](ReplayPlugin.html "class in com.google.adk.plugins")`
 
 * * *
 

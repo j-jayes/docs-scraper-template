@@ -59,6 +59,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.tools
 
  
@@ -200,6 +204,20 @@ Description
 The base class for all ADK tools.
 
 [ToolContext](class-use/ToolContext.html#com.google.adk.plugins)
+
+ToolContext object provides a structured context for executing tools or functions.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.plugins.agentanalytics](../plugins/agentanalytics/package-summary.html)
+
+Class
+
+Description
+
+[BaseTool](class-use/BaseTool.html#com.google.adk.plugins.agentanalytics)
+
+The base class for all ADK tools.
+
+[ToolContext](class-use/ToolContext.html#com.google.adk.plugins.agentanalytics)
 
 ToolContext object provides a structured context for executing tools or functions.
 

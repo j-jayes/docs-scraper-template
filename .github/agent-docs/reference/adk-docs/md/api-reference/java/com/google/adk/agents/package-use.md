@@ -83,6 +83,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.runner
 
  
@@ -508,6 +512,24 @@ Base class for all agents.
 The context of various callbacks for an agent invocation.
 
 [InvocationContext](class-use/InvocationContext.html#com.google.adk.plugins)
+
+The context for an agent invocation.
+
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.plugins.agentanalytics](../plugins/agentanalytics/package-summary.html)
+
+Class
+
+Description
+
+[BaseAgent](class-use/BaseAgent.html#com.google.adk.plugins.agentanalytics)
+
+Base class for all agents.
+
+[CallbackContext](class-use/CallbackContext.html#com.google.adk.plugins.agentanalytics)
+
+The context of various callbacks for an agent invocation.
+
+[InvocationContext](class-use/InvocationContext.html#com.google.adk.plugins.agentanalytics)
 
 The context for an agent invocation.
 

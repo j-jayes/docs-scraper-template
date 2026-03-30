@@ -87,6 +87,12 @@ RemoteA2AAgent.Builder.`[name](../RemoteA2AAgent.Builder.html#name\(java.lang.St
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
+RemoteA2AAgent.Builder.`[streaming](../RemoteA2AAgent.Builder.html#streaming\(boolean\))(boolean streaming)`
+
+ 
+
+`[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
+
 RemoteA2AAgent.Builder.`[subAgents](../RemoteA2AAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../../../agents/BaseAgent.html "class in com.google.adk.agents")> subAgents)`
 
  

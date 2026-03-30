@@ -98,7 +98,7 @@ Description
 
  
 
-`com.google.common.collect.ImmutableList<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")>`
 
 `plugins()`
 
@@ -129,7 +129,7 @@ public [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") ro
 
     * ### plugins
 
-public com.google.common.collect.ImmutableList<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins()
+public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins()
 
     * ### eventsCompactionConfig
 

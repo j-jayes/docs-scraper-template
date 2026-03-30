@@ -13,6 +13,16 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../../..)
+  * [ Build Agents ](../../../get-started/)
+  * [ Run Agents ](../../../runtime/)
+  * [ Components ](../../../get-started/about/)
+  * [ Integrations ](../../../integrations/)
+  * [ Reference ](../../../api-reference/)
+  * [ ADK 2.0 ](../../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../../..)
@@ -112,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -159,9 +171,12 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
+      * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
 Gemini Live API Toolkit 
@@ -178,8 +193,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../../release-notes/)
     * [ API Reference  ](../../../api-reference/)
 
 API Reference 
@@ -192,6 +209,18 @@ API Reference
       * [ REST API  ](../../../api-reference/rest/)
     * [ Community Resources  ](../../../community/)
     * [ Contributing Guide  ](../../../contributing-guide/)
+    * [ Release Notes  ](../../../release-notes/)
+  * [ ADK 2.0  ](../../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../../workflows/graph-routes/)
+      * [ Data handling  ](../../../workflows/data-handling/)
+      * [ Human input  ](../../../workflows/human-input/)
+    * [ Collaborative agents  ](../../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../../workflows/dynamic/)
 
 
 
@@ -210,6 +239,10 @@ Table of contents
 # LiteLLM model connector for ADK agents¶
 
 Supported in ADKPython v0.1.0
+
+ADK Python Security Advisory: LiteLLM supply chain compromise
+
+Unauthorized code was identified in LiteLLM versions 1.82.7 and 1.82.8 on PyPI on March 24, 2026. If you use ADK Python with the `eval` or `extensions` extras, update to the latest version of ADK Python immediately. If you installed or upgraded LiteLLM during this period, rotate all secrets and credentials. For details and required actions, refer to the [ADK security advisory](https://github.com/google/adk-python/issues/5005) and [LiteLLM's Security Update: Suspected Supply Chain Incident](https://docs.litellm.ai/blog/security-update-march-2026).
 
 [LiteLLM](https://docs.litellm.ai/) is a Python library that acts as a translation layer for models and model hosting services, providing a standardized, OpenAI-compatible interface to over 100+ LLMs. ADK provides integration through the LiteLLM library, allowing you to access a vast range of LLMs from providers like OpenAI, Anthropic (non-Vertex AI), Cohere, and many others. You can run open-source models locally or self-host them and integrate them using LiteLLM for operational control, cost savings, privacy, or offline use cases.
 

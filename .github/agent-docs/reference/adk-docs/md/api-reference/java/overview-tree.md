@@ -48,6 +48,7 @@ Package Hierarchies:
   * [com.google.adk.models.springai.observability](com/google/adk/models/springai/observability/package-tree.html), 
   * [com.google.adk.models.springai.properties](com/google/adk/models/springai/properties/package-tree.html), 
   * [com.google.adk.plugins](com/google/adk/plugins/package-tree.html), 
+  * [com.google.adk.plugins.agentanalytics](com/google/adk/plugins/agentanalytics/package-tree.html), 
   * [com.google.adk.plugins.recordings](com/google/adk/plugins/recordings/package-tree.html), 
   * [com.google.adk.runner](com/google/adk/runner/package-tree.html), 
   * [com.google.adk.samples.a2aagent](com/google/adk/samples/a2aagent/package-tree.html), 
@@ -139,6 +140,7 @@ Package Hierarchies:
       * com.google.adk.flows.llmflows.[SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
         * com.google.adk.flows.llmflows.[AutoFlow](com/google/adk/flows/llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.plugins.[BasePlugin](com/google/adk/plugins/BasePlugin.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](com/google/adk/plugins/Plugin.html "interface in com.google.adk.plugins")) 
+      * com.google.adk.plugins.agentanalytics.[BigQueryAgentAnalyticsPlugin](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")
       * com.google.adk.plugins.[ContextFilterPlugin](com/google/adk/plugins/ContextFilterPlugin.html "class in com.google.adk.plugins")
       * com.google.adk.plugins.[GlobalInstructionPlugin](com/google/adk/plugins/GlobalInstructionPlugin.html "class in com.google.adk.plugins")
       * com.google.adk.plugins.[LoggingPlugin](com/google/adk/plugins/LoggingPlugin.html "class in com.google.adk.plugins")
@@ -166,6 +168,11 @@ Package Hierarchies:
       * com.google.adk.tools.[UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
     * com.google.adk.flows.llmflows.[Basic](com/google/adk/flows/llmflows/Basic.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
+    * com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+    * com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+    * com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
+    * com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+    * com.google.adk.plugins.agentanalytics.[BigQuerySchema](com/google/adk/plugins/agentanalytics/BigQuerySchema.html "class in com.google.adk.plugins.agentanalytics")
     * com.google.adk.a2a.executor.[Callbacks](com/google/adk/a2a/executor/Callbacks.html "class in com.google.adk.a2a.executor")
     * com.google.adk.agents.[Callbacks](com/google/adk/agents/Callbacks.html "class in com.google.adk.agents")
     * com.google.adk.agents.[CallbackUtil](com/google/adk/agents/CallbackUtil.html "class in com.google.adk.agents")
@@ -210,7 +217,6 @@ Package Hierarchies:
     * com.google.adk.summarizer.[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
     * com.google.adk.events.[EventStream](com/google/adk/events/EventStream.html "class in com.google.adk.events") (implements java.lang.[Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<T>)
     * com.google.adk.examples.[Example.Builder](com/google/adk/examples/Example.Builder.html "class in com.google.adk.examples")
-    * com.google.adk.flows.llmflows.[Examples](com/google/adk/flows/llmflows/Examples.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
     * com.google.adk.examples.[ExampleUtils](com/google/adk/examples/ExampleUtils.html "class in com.google.adk.examples")
     * com.google.adk.web.controller.[ExecutionController](com/google/adk/web/controller/ExecutionController.html "class in com.google.adk.web.controller")
@@ -454,6 +460,8 @@ Package Hierarchies:
     * java.lang.[Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html "class or interface in java.lang")<E> (implements java.lang.[Comparable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html "class or interface in java.lang")<T>, java.lang.constant.[Constable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html "class or interface in java.lang.constant"), java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
       * com.google.adk.a2a.converters.[A2ADataPartMetadataType](com/google/adk/a2a/converters/A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
       * com.google.adk.a2a.common.[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
+      * com.google.adk.a2a.converters.[A2AMetadataKey](com/google/adk/a2a/converters/A2AMetadataKey.html "enum class in com.google.adk.a2a.converters")
+      * com.google.adk.a2a.converters.[AdkMetadataKey](com/google/adk/a2a/converters/AdkMetadataKey.html "enum class in com.google.adk.a2a.converters")
       * com.google.adk.a2a.executor.[AgentExecutorConfig.OutputMode](com/google/adk/a2a/executor/AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor")
       * com.google.adk.tools.computeruse.[ComputerEnvironment](com/google/adk/tools/computeruse/ComputerEnvironment.html "enum class in com.google.adk.tools.computeruse")
       * com.google.adk.agents.[LlmAgent.IncludeContents](com/google/adk/agents/LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")

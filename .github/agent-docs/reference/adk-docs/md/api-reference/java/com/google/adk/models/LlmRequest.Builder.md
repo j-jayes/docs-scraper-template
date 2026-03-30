@@ -33,10 +33,11 @@ Contents
      3. config(GenerateContentConfig)
      4. config()
      5. liveConnectConfig(LiveConnectConfig)
-     6. appendInstructions(List)
-     7. appendTools(List)
-     8. outputSchema(Schema)
-     9. build()
+     6. tools(Map)
+     7. appendInstructions(List)
+     8. appendTools(List)
+     9. outputSchema(Schema)
+     10. build()
 
 Hide sidebar  Show sidebar
 
@@ -131,6 +132,12 @@ Description
 
 Sets the output schema for the LLM response.
 
+`abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models")`
+
+`tools([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> tools)`
+
+ 
+
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
@@ -165,6 +172,10 @@ public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/ja
     * ### liveConnectConfig
 
 @CanIgnoreReturnValue public abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models") liveConnectConfig(com.google.genai.types.LiveConnectConfig liveConnectConfig)
+
+    * ### tools
+
+@CanIgnoreReturnValue public abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models") tools([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> tools)
 
     * ### appendInstructions
 

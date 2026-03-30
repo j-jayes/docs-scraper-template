@@ -42,6 +42,10 @@ Description
 
  
 
+[com.google.adk.plugins.agentanalytics](agentanalytics/package-summary.html)
+
+ 
+
 [com.google.adk.plugins.recordings](recordings/package-summary.html)
 
  

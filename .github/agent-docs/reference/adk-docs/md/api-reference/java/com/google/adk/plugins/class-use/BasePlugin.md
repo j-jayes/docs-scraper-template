@@ -32,6 +32,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.runner
 
  
@@ -79,6 +83,22 @@ Manages the registration and execution of plugins.
 `[ReplayPlugin](../ReplayPlugin.html "class in com.google.adk.plugins")`
 
 Plugin for replaying ADK agent interactions from recordings.
+
+  * ## Uses of [BasePlugin](../BasePlugin.html "class in com.google.adk.plugins") in [com.google.adk.plugins.agentanalytics](../agentanalytics/package-summary.html)
+
+Subclasses of [BasePlugin](../BasePlugin.html "class in com.google.adk.plugins") in [com.google.adk.plugins.agentanalytics](../agentanalytics/package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[BigQueryAgentAnalyticsPlugin](../agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")`
+
+BigQuery Agent Analytics Plugin for Java.
 
   * ## Uses of [BasePlugin](../BasePlugin.html "class in com.google.adk.plugins") in [com.google.adk.runner](../../runner/package-summary.html)
 

@@ -38,7 +38,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"0.9.0"`
+`"1.0.0-rc.1"`
 
 
 
@@ -69,24 +69,6 @@ Modifier and Type
 Constant Field
 
 Value
-
-`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`[A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY)`
-
-`"adk_is_long_running"`
-
-`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`[A2A_DATA_PART_METADATA_IS_PARTIAL_KEY](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_IS_PARTIAL_KEY)`
-
-`"adk_partial"`
-
-`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`[A2A_DATA_PART_METADATA_TYPE_KEY](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_METADATA_TYPE_KEY)`
-
-`"adk_type"`
 
 `public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 

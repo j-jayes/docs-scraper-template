@@ -56,6 +56,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.telemetry
 
  
@@ -172,14 +176,6 @@ InvocationContext.Builder.`[build](../InvocationContext.Builder.html#build\(\))(
 
 Builds the [`InvocationContext`](../InvocationContext.html "class in com.google.adk.agents") instance.
 
-`static [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
-
-InvocationContext.`[copyOf](../InvocationContext.html#copyOf\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") other)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `other.toBuilder().build()` instead.
-
 `[InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
 
 ReadonlyContext.`[invocationContext](../ReadonlyContext.html#invocationContext\(\))()`
@@ -229,14 +225,6 @@ Async callback when tool call fails.
 Callbacks.OnToolErrorCallbackSync.`[call](../Callbacks.OnToolErrorCallbackSync.html#call\(com.google.adk.agents.InvocationContext,com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.lang.Exception\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") baseTool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> input, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
  
-
-`static [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
-
-InvocationContext.`[copyOf](../InvocationContext.html#copyOf\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") other)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `other.toBuilder().build()` instead.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
@@ -434,15 +422,9 @@ Handles function calls in a live/streaming context with tool confirmations, supp
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,io.opentelemetry.context.Context\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse, io.opentelemetry.context.Context parentContext)`
 
 Post-processes the LLM response after receiving it from the LLM.
-
-`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
-
-BaseLlmFlow.`[preprocess](../../flows/llmflows/BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,java.util.concurrent.atomic.AtomicReference\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [AtomicReference](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html "class or interface in java.util.concurrent.atomic")<[LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models")> llmRequestRef)`
-
-Pre-processes the LLM request before sending it to the LLM.
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
@@ -465,12 +447,6 @@ Compaction.`[processRequest](../../flows/llmflows/Compaction.html#processRequest
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
 Contents.`[processRequest](../../flows/llmflows/Contents.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") request)`
-
- 
-
-`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
-
-Examples.`[processRequest](../../flows/llmflows/Examples.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") request)`
 
  
 
@@ -619,6 +595,40 @@ PluginManager.`[runBeforeRunCallback](../../plugins/PluginManager.html#runBefore
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
 
 PluginManager.`[runOnUserMessageCallback](../../plugins/PluginManager.html#runOnUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, com.google.genai.types.Content userMessage)`
+
+ 
+
+  * ## Uses of [InvocationContext](../InvocationContext.html "class in com.google.adk.agents") in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html)
+
+Methods in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html) with parameters of type [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Completable`
+
+BigQueryAgentAnalyticsPlugin.`[afterRunCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#afterRunCallback\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+BigQueryAgentAnalyticsPlugin.`[beforeRunCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeRunCallback\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+BigQueryAgentAnalyticsPlugin.`[onEventCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onEventCallback\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [Event](../../events/Event.html "class in com.google.adk.events") event)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+BigQueryAgentAnalyticsPlugin.`[onUserMessageCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, com.google.genai.types.Content userMessage)`
 
  
 

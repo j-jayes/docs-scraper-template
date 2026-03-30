@@ -131,7 +131,7 @@ BaseAgent.`[canonicalBeforeAgentCallbacks](../BaseAgent.html#canonicalBeforeAgen
 
 The resolved beforeAgentCallback field as a list.
 
-`static com.google.common.collect.ImmutableList<[Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
+`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.BeforeAgentCallback](../Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")>`
 
 CallbackUtil.`[getBeforeAgentCallbacks](../CallbackUtil.html#getBeforeAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.BeforeAgentCallbackBase> beforeAgentCallbacks)`
 

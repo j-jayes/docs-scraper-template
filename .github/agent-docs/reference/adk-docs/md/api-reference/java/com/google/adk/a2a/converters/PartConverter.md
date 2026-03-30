@@ -25,21 +25,18 @@ Contents
   2. Field Summary
   3. Method Summary
   4. Field Details
-     1. A2A_DATA_PART_METADATA_TYPE_KEY
-     2. A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY
-     3. A2A_DATA_PART_METADATA_IS_PARTIAL_KEY
-     4. LANGUAGE_KEY
-     5. OUTCOME_KEY
-     6. CODE_KEY
-     7. OUTPUT_KEY
-     8. NAME_KEY
-     9. ARGS_KEY
-     10. RESPONSE_KEY
-     11. ID_KEY
-     12. WILL_CONTINUE_KEY
-     13. PARTIAL_ARGS_KEY
-     14. SCHEDULING_KEY
-     15. PARTS_KEY
+     1. LANGUAGE_KEY
+     2. OUTCOME_KEY
+     3. CODE_KEY
+     4. OUTPUT_KEY
+     5. NAME_KEY
+     6. ARGS_KEY
+     7. RESPONSE_KEY
+     8. ID_KEY
+     9. WILL_CONTINUE_KEY
+     10. PARTIAL_ARGS_KEY
+     11. SCHEDULING_KEY
+     12. PARTS_KEY
   5. Method Details
      1. toTextPart(Part)
      2. toGenaiPart(Part)
@@ -71,24 +68,6 @@ Modifier and Type
 Field
 
 Description
-
-`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY`
-
- 
-
-`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`A2A_DATA_PART_METADATA_IS_PARTIAL_KEY`
-
- 
-
-`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-`A2A_DATA_PART_METADATA_TYPE_KEY`
-
- 
 
 `static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -216,30 +195,6 @@ Convert an A2A JSON part into a Google GenAI part representation.
 
 
   * ## Field Details
-
-    * ### A2A_DATA_PART_METADATA_TYPE_KEY
-
-public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") A2A_DATA_PART_METADATA_TYPE_KEY
-
-See Also:
-    
-      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.A2A_DATA_PART_METADATA_TYPE_KEY)
-
-    * ### A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY
-
-public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY
-
-See Also:
-    
-      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.A2A_DATA_PART_METADATA_IS_LONG_RUNNING_KEY)
-
-    * ### A2A_DATA_PART_METADATA_IS_PARTIAL_KEY
-
-public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") A2A_DATA_PART_METADATA_IS_PARTIAL_KEY
-
-See Also:
-    
-      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.A2A_DATA_PART_METADATA_IS_PARTIAL_KEY)
 
     * ### LANGUAGE_KEY
 

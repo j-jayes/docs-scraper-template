@@ -37,7 +37,6 @@ Package Hierarchies:
     * com.google.adk.flows.llmflows.[CodeExecution](CodeExecution.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[Compaction](Compaction.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Contents](Contents.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
-    * com.google.adk.flows.llmflows.[Examples](Examples.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Functions](Functions.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[Identity](Identity.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Instructions](Instructions.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))

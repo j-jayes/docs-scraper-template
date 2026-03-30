@@ -36,8 +36,14 @@ Contents
      5. customMetadata()
      6. setCustomMetadata(String, Object)
      7. runAsync(Map, ToolContext)
-     8. processLlmRequest(LlmRequest.Builder, ToolContext)
-     9. fromConfig(BaseTool.ToolConfig, String)
+     8. runAsync(T, ToolContext)
+     9. runAsync(T, ToolContext, ObjectMapper)
+     10. runAsync(I, ToolContext, ObjectMapper, Class)
+     11. runAsync(I, ToolContext, ObjectMapper, TypeReference)
+     12. runAsync(I, ToolContext, Class)
+     13. runAsync(I, ToolContext, TypeReference)
+     14. processLlmRequest(LlmRequest.Builder, ToolContext)
+     15. fromConfig(BaseTool.ToolConfig, String)
 
 Hide sidebar  Show sidebar
 
@@ -152,11 +158,47 @@ Creates a tool instance from a config.
 
 Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html "class in com.google.adk.models").
 
+`final <I,O> io.reactivex.rxjava3.core.Single<O>`
+
+`runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.core.type.TypeReference<? extends O> typeReference)`
+
+Calls a tool with generic arguments, returning the results converted to a specified type reference.
+
+`final <I,O> io.reactivex.rxjava3.core.Single<O>`
+
+`runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.databind.ObjectMapper objectMapper, com.fasterxml.jackson.core.type.TypeReference<? extends O> typeReference)`
+
+Calls a tool with generic arguments and a custom `ObjectMapper`, returning the results converted to a specified type reference.
+
+`final <I,O> io.reactivex.rxjava3.core.Single<O>`
+
+`runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends O> oClass)`
+
+Calls a tool with generic arguments and a custom `ObjectMapper`, returning the results converted to a specified class.
+
+`final <I,O> io.reactivex.rxjava3.core.Single<O>`
+
+`runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends O> oClass)`
+
+Calls a tool with generic arguments, returning the results converted to a specified class.
+
 `io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
 
 `runAsync([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)`
 
 Calls a tool.
+
+`final <T> io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
+
+`runAsync(T args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+Calls a tool with generic arguments and returns a map of results.
+
+`final <T> io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>>`
+
+`runAsync(T args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+Calls a tool with generic arguments using a custom `ObjectMapper` and returns a map of results.
 
 `void`
 
@@ -218,6 +260,42 @@ Sets custom metadata to the tool associated with a key.
 public io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> runAsync([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)
 
 Calls a tool.
+
+    * ### runAsync
+
+public final <T> io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> runAsync(T args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)
+
+Calls a tool with generic arguments and returns a map of results. The args type `T` need to be serializable with [`JsonBaseModel.getMapper()`](../JsonBaseModel.html#getMapper\(\))
+
+    * ### runAsync
+
+public final <T> io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>> runAsync(T args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+
+Calls a tool with generic arguments using a custom `ObjectMapper` and returns a map of results. The args type `T` needs to be serializable with the provided `ObjectMapper`.
+
+    * ### runAsync
+
+public final <I,O> io.reactivex.rxjava3.core.Single<O> runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends O> oClass)
+
+Calls a tool with generic arguments and a custom `ObjectMapper`, returning the results converted to a specified class. The input type `I` needs to be serializable and the output type `O` needs to be deserializable with the provided `ObjectMapper`.
+
+    * ### runAsync
+
+public final <I,O> io.reactivex.rxjava3.core.Single<O> runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.databind.ObjectMapper objectMapper, com.fasterxml.jackson.core.type.TypeReference<? extends O> typeReference)
+
+Calls a tool with generic arguments and a custom `ObjectMapper`, returning the results converted to a specified type reference. The input type `I` needs to be serializable and the output type `O` needs to be deserializable with the provided `ObjectMapper`.
+
+    * ### runAsync
+
+public final <I,O> io.reactivex.rxjava3.core.Single<O> runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends O> oClass)
+
+Calls a tool with generic arguments, returning the results converted to a specified class. The input type `I` needs to be serializable and the output type `O` needs to be deserializable with [`JsonBaseModel.getMapper()`](../JsonBaseModel.html#getMapper\(\))
+
+    * ### runAsync
+
+public final <I,O> io.reactivex.rxjava3.core.Single<O> runAsync(I args, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext, com.fasterxml.jackson.core.type.TypeReference<? extends O> typeReference)
+
+Calls a tool with generic arguments, returning the results converted to a specified type reference. The input type needs to be serializable and the output type needs to be deserializable with [`JsonBaseModel.getMapper()`](../JsonBaseModel.html#getMapper\(\))
 
     * ### processLlmRequest
 

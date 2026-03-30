@@ -120,6 +120,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -167,9 +169,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../quickstart-exposing/)
         * [ Go  ](../quickstart-exposing-go/)
+        * [ Java  ](../quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../quickstart-consuming/)
         * [ Go  ](../quickstart-consuming-go/)
+        * [ Java  ](../quickstart-consuming-java/)
       * A2A Extension  [ A2A Extension  ](./) Table of contents 
         * Client-side extension activation 
         * How it Works 
@@ -284,7 +288,7 @@ Example AgentExtension block:
     }
     
 
-Back to top  [ Previous  Go  ](../quickstart-consuming-go/) [ Next  ADK Gemini Live API Toolkit  ](../../streaming/)
+Back to top  [ Previous  Java  ](../quickstart-consuming-java/) [ Next  ADK Gemini Live API Toolkit  ](../../streaming/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

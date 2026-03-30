@@ -120,6 +120,8 @@ Observability
 Evaluation 
       * [ Criteria  ](evaluate/criteria/)
       * [ User Simulation  ](evaluate/user-sim/)
+      * [ Custom Metrics  ](evaluate/custom_metrics/)
+      * [ Optimization  ](optimize/)
     * [ Safety and Security  ](safety/)
 
 Safety and Security 
@@ -167,9 +169,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](a2a/quickstart-exposing/)
         * [ Go  ](a2a/quickstart-exposing-go/)
+        * [ Java  ](a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](a2a/quickstart-consuming/)
         * [ Go  ](a2a/quickstart-consuming-go/)
+        * [ Java  ](a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](streaming/)
 
@@ -227,6 +231,10 @@ Table of contents
 # Agent Development Kit
 
 Agent Development Kit (ADK) is a flexible and modular framework for **developing and deploying AI agents**. While optimized for Gemini and the Google ecosystem, ADK is **model-agnostic** , **deployment-agnostic** , and is built for **compatibility with other frameworks**. ADK was designed to make agent development feel more like software development, to make it easier for developers to create, deploy, and orchestrate agentic architectures that range from simple tasks to complex workflows.
+
+ADK Python Security Advisory: LiteLLM supply chain compromise
+
+Unauthorized code was identified in LiteLLM versions 1.82.7 and 1.82.8 on PyPI on March 24, 2026. If you use ADK Python with the `eval` or `extensions` extras, update to the latest version of ADK Python immediately. If you installed or upgraded LiteLLM during this period, rotate all secrets and credentials. For details and required actions, refer to the [ADK security advisory](https://github.com/google/adk-python/issues/5005) and [LiteLLM's Security Update: Suspected Supply Chain Incident](https://docs.litellm.ai/blog/security-update-march-2026).
 
 News: ADK Python 2.0 Alpha with graph-based workflows!
 

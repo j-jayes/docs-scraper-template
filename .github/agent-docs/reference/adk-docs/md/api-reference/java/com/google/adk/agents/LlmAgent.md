@@ -42,33 +42,32 @@ Contents
      12. planning()
      13. maxSteps()
      14. generateContentConfig()
-     15. exampleProvider()
-     16. includeContents()
-     17. tools()
-     18. toolsUnion()
-     19. toolsets()
-     20. disallowTransferToParent()
-     21. disallowTransferToPeers()
-     22. beforeModelCallback()
-     23. afterModelCallback()
-     24. beforeToolCallback()
-     25. afterToolCallback()
-     26. onModelErrorCallback()
-     27. onToolErrorCallback()
-     28. canonicalBeforeModelCallbacks()
-     29. canonicalAfterModelCallbacks()
-     30. canonicalOnModelErrorCallbacks()
-     31. canonicalBeforeToolCallbacks()
-     32. canonicalAfterToolCallbacks()
-     33. canonicalOnToolErrorCallbacks()
-     34. inputSchema()
-     35. outputSchema()
-     36. executor()
-     37. outputKey()
-     38. codeExecutor()
-     39. resolvedModel()
-     40. fromConfig(LlmAgentConfig, String)
-     41. close()
+     15. includeContents()
+     16. tools()
+     17. toolsUnion()
+     18. toolsets()
+     19. disallowTransferToParent()
+     20. disallowTransferToPeers()
+     21. beforeModelCallback()
+     22. afterModelCallback()
+     23. beforeToolCallback()
+     24. afterToolCallback()
+     25. onModelErrorCallback()
+     26. onToolErrorCallback()
+     27. canonicalBeforeModelCallbacks()
+     28. canonicalAfterModelCallbacks()
+     29. canonicalOnModelErrorCallbacks()
+     30. canonicalBeforeToolCallbacks()
+     31. canonicalAfterToolCallbacks()
+     32. canonicalOnToolErrorCallbacks()
+     33. inputSchema()
+     34. outputSchema()
+     35. executor()
+     36. outputKey()
+     37. codeExecutor()
+     38. resolvedModel()
+     39. fromConfig(LlmAgentConfig, String)
+     40. close()
 
 Hide sidebar  Show sidebar
 
@@ -254,12 +253,6 @@ Closes all sub-agents.
 
  
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples")>`
-
-`exampleProvider()`
-
- 
-
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "class or interface in java.util.concurrent")>`
 
 `executor()`
@@ -368,7 +361,7 @@ Agent-specific synchronous logic.
 
  
 
-`com.google.common.collect.ImmutableList<[BaseToolset](../tools/BaseToolset.html "interface in com.google.adk.tools")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseToolset](../tools/BaseToolset.html "interface in com.google.adk.tools")>`
 
 `toolsets()`
 
@@ -509,10 +502,6 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
 
 public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.GenerateContentConfig> generateContentConfig()
 
-    * ### exampleProvider
-
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples")> exampleProvider()
-
     * ### includeContents
 
 public [LlmAgent.IncludeContents](LlmAgent.IncludeContents.html "enum class in com.google.adk.agents") includeContents()
@@ -527,7 +516,7 @@ public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/
 
     * ### toolsets
 
-public com.google.common.collect.ImmutableList<[BaseToolset](../tools/BaseToolset.html "interface in com.google.adk.tools")> toolsets()
+public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseToolset](../tools/BaseToolset.html "interface in com.google.adk.tools")> toolsets()
 
     * ### disallowTransferToParent
 

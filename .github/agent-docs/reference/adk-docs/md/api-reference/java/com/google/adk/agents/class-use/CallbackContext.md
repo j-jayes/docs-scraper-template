@@ -36,6 +36,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.tools
 
  
@@ -245,6 +249,46 @@ Description
 ` `
 
 `[GlobalInstructionPlugin](../../plugins/GlobalInstructionPlugin.html#%3Cinit%3E\(java.util.function.Function,java.lang.String\))([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[CallbackContext](../CallbackContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Maybe<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> instructionProvider, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+ 
+
+  * ## Uses of [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html)
+
+Methods in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html) with parameters of type [CallbackContext](../CallbackContext.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+BigQueryAgentAnalyticsPlugin.`[afterAgentCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#afterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[afterModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#afterModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))([CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+BigQueryAgentAnalyticsPlugin.`[beforeAgentCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[beforeModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")>`
+
+BigQueryAgentAnalyticsPlugin.`[onModelErrorCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
 
  
 

@@ -41,6 +41,14 @@ Description
 
 Enum for the type of A2A DataPart metadata.
 
+[A2AMetadataKey](class-use/A2AMetadataKey.html#com.google.adk.a2a.converters)
+
+Enum for the type of A2A metadata.
+
+[AdkMetadataKey](class-use/AdkMetadataKey.html#com.google.adk.a2a.converters)
+
+Enum for the type of ADK metadata.
+
 
 
 

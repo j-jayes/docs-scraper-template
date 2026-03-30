@@ -30,32 +30,30 @@ Contents
   6. Method Details
      1. builder()
      2. toBuilder()
-     3. copyOf(InvocationContext)
-     4. sessionService()
-     5. artifactService()
-     6. memoryService()
-     7. pluginManager()
-     8. activeStreamingTools()
-     9. liveRequestQueue()
-     10. invocationId()
-     11. branch(String)
-     12. branch()
-     13. agent()
-     14. agent(BaseAgent)
-     15. session()
-     16. userContent()
-     17. runConfig()
-     18. callbackContextData()
-     19. endInvocation()
-     20. setEndInvocation(boolean)
-     21. appName()
-     22. userId()
-     23. newInvocationContextId()
-     24. incrementLlmCallsCount()
-     25. eventsCompactionConfig()
-     26. contextCacheConfig()
-     27. equals(Object)
-     28. hashCode()
+     3. sessionService()
+     4. artifactService()
+     5. memoryService()
+     6. pluginManager()
+     7. activeStreamingTools()
+     8. liveRequestQueue()
+     9. invocationId()
+     10. branch(String)
+     11. branch()
+     12. agent()
+     13. session()
+     14. userContent()
+     15. runConfig()
+     16. callbackContextData()
+     17. endInvocation()
+     18. setEndInvocation(boolean)
+     19. appName()
+     20. userId()
+     21. newInvocationContextId()
+     22. incrementLlmCallsCount()
+     23. eventsCompactionConfig()
+     24. contextCacheConfig()
+     25. equals(Object)
+     26. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -105,7 +103,7 @@ Description
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
+All MethodsStatic MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -124,14 +122,6 @@ Returns a map of tool call IDs to active streaming tools for the current invocat
 `agent()`
 
 Returns the agent being invoked.
-
-`void`
-
-`agent([BaseAgent](BaseAgent.html "class in com.google.adk.agents") agent)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `toBuilder()` and [`InvocationContext.Builder.agent(BaseAgent)`](InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
@@ -174,14 +164,6 @@ Returns a map for storing temporary context data that can be shared between diff
 `contextCacheConfig()`
 
 Returns the context cache configuration for the current agent run.
-
-`static [InvocationContext](InvocationContext.html "class in com.google.adk.agents")`
-
-`copyOf([InvocationContext](InvocationContext.html "class in com.google.adk.agents") other)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `other.toBuilder().build()` instead.
 
 `boolean`
 
@@ -312,16 +294,6 @@ public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.
 
 Returns a [`InvocationContext.Builder`](InvocationContext.Builder.html "class in com.google.adk.agents") initialized with the values of this instance.
 
-    * ### copyOf
-
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang")([forRemoval](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval\(\) "class or interface in java.lang")=true) public static [InvocationContext](InvocationContext.html "class in com.google.adk.agents") copyOf([InvocationContext](InvocationContext.html "class in com.google.adk.agents") other)
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `other.toBuilder().build()` instead.
-
-Creates a shallow copy of the given [`InvocationContext`](InvocationContext.html "class in com.google.adk.agents").
-
     * ### sessionService
 
 public [BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService()
@@ -381,16 +353,6 @@ Returns the branch ID for the current invocation, if one is set. A branch repres
 public [BaseAgent](BaseAgent.html "class in com.google.adk.agents") agent()
 
 Returns the agent being invoked.
-
-    * ### agent
-
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang")([forRemoval](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval\(\) "class or interface in java.lang")=true) public void agent([BaseAgent](BaseAgent.html "class in com.google.adk.agents") agent)
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use `toBuilder()` and [`InvocationContext.Builder.agent(BaseAgent)`](InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
-
-Sets the [agent] being invoked. This is useful when delegating to a sub-agent.
 
     * ### session
 

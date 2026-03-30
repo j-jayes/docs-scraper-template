@@ -19,7 +19,7 @@ The base class for all tools.
 
 #### Type Parameters
 
-  * TParameters extends ToolInputParameters = undefined
+  * TParameters extends [ToolInputParameters](../types/ToolInputParameters.html) = undefined
 
 
 
@@ -30,7 +30,7 @@ The base class for all tools.
 
 
 
-  * Defined in [core/src/tools/long_running_tool.ts:24](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/long_running_tool.ts#L24)
+  * Defined in [tools/long_running_tool.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/long_running_tool.ts#L28)
 
 
 
@@ -38,19 +38,19 @@ The base class for all tools.
 
 ### constructor
 
-  * new LongRunningFunctionTool<TParameters extends ToolInputParameters = undefined>(  
-options: ToolOptions<TParameters>,  
+  * new LongRunningFunctionTool<TParameters extends [ToolInputParameters](../types/ToolInputParameters.html) = undefined>(  
+options: [ToolOptions](../types/ToolOptions.html)<TParameters>,  
 ): [LongRunningFunctionTool]()<TParameters>
 
 The constructor acts as the user-friendly factory.
 
 #### Type Parameters
 
-    * TParameters extends ToolInputParameters = undefined
+    * TParameters extends [ToolInputParameters](../types/ToolInputParameters.html) = undefined
 
 #### Parameters
 
-    * options: ToolOptions<TParameters>
+    * options: [ToolOptions](../types/ToolOptions.html)<TParameters>
 
 The configuration for the tool.
 
@@ -58,12 +58,36 @@ The configuration for the tool.
 
 Overrides [FunctionTool](FunctionTool.html).[constructor](FunctionTool.html#constructor)
 
-    * Defined in [core/src/tools/long_running_tool.ts:31](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/long_running_tool.ts#L31)
+    * Defined in [tools/long_running_tool.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/long_running_tool.ts#L35)
 
 
 
 
 ## Properties
+
+### `Readonly`[BASE_TOOL_SIGNATURE_SYMBOL]
+
+"[BASE_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK base tool class.
+
+Inherited from [FunctionTool](FunctionTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](FunctionTool.html#base_tool_signature_symbol)
+
+  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+
+
+
+### `Readonly`[FUNCTION_TOOL_SIGNATURE_SYMBOL]
+
+"[FUNCTION_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK function tool class.
+
+Inherited from [FunctionTool](FunctionTool.html).[[FUNCTION_TOOL_SIGNATURE_SYMBOL]](FunctionTool.html#function_tool_signature_symbol)
+
+  * Defined in [tools/function_tool.ts:99](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L99)
+
+
 
 ### `Readonly`description
 
@@ -71,7 +95,7 @@ description: string
 
 Inherited from [FunctionTool](FunctionTool.html).[description](FunctionTool.html#description)
 
-  * Defined in [core/src/tools/base_tool.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L44)
+  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -81,7 +105,7 @@ isLongRunning: boolean
 
 Inherited from [FunctionTool](FunctionTool.html).[isLongRunning](FunctionTool.html#islongrunning)
 
-  * Defined in [core/src/tools/base_tool.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L45)
+  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -91,7 +115,7 @@ name: string
 
 Inherited from [FunctionTool](FunctionTool.html).[name](FunctionTool.html#name)
 
-  * Defined in [core/src/tools/base_tool.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L43)
+  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -99,15 +123,15 @@ Inherited from [FunctionTool](FunctionTool.html).[name](FunctionTool.html#name)
 
 ### apiVariant
 
-  * get apiVariant(): GoogleLLMVariant
+  * get apiVariant(): [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 The Google API LLM variant to use.
 
-#### Returns GoogleLLMVariant
+#### Returns [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 Inherited from FunctionTool.apiVariant
 
-    * Defined in [core/src/tools/base_tool.ts:125](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L125)
+    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -124,7 +148,7 @@ Provide a schema for the function.
 
 Overrides [FunctionTool](FunctionTool.html).[_getDeclaration](FunctionTool.html#_getdeclaration)
 
-    * Defined in [core/src/tools/long_running_tool.ts:38](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/long_running_tool.ts#L38)
+    * Defined in [tools/long_running_tool.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/long_running_tool.ts#L42)
 
 
 
@@ -150,7 +174,7 @@ The request to process the LLM request.
 
 Inherited from [FunctionTool](FunctionTool.html).[processLlmRequest](FunctionTool.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_tool.ts:97](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L97)
+    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -169,7 +193,7 @@ Logic for running the tool.
 
 Inherited from [FunctionTool](FunctionTool.html).[runAsync](FunctionTool.html#runasync)
 
-    * Defined in [core/src/tools/function_tool.ts:111](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/function_tool.ts#L111)
+    * Defined in [tools/function_tool.ts:140](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L140)
 
 
 
@@ -180,7 +204,7 @@ constructor
 
 Properties
 
-descriptionisLongRunningname
+[BASE_TOOL_SIGNATURE_SYMBOL][FUNCTION_TOOL_SIGNATURE_SYMBOL]descriptionisLongRunningname
 
 Accessors
 

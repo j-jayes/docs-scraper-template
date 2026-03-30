@@ -28,14 +28,15 @@ Contents
   4. Constructor Details
      1. Builder()
   5. Method Details
-     1. name(String)
-     2. agentCard(AgentCard)
-     3. description(String)
-     4. subAgents(List)
-     5. beforeAgentCallback(List)
-     6. afterAgentCallback(List)
-     7. a2aClient(Client)
-     8. build()
+     1. streaming(boolean)
+     2. name(String)
+     3. agentCard(AgentCard)
+     4. description(String)
+     5. subAgents(List)
+     6. beforeAgentCallback(List)
+     7. afterAgentCallback(List)
+     8. a2aClient(Client)
+     9. build()
 
 Hide sidebar  Show sidebar
 
@@ -120,6 +121,12 @@ Description
 
 `[RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
+`streaming(boolean streaming)`
+
+ 
+
+`[RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
+
 `subAgents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")> subAgents)`
 
  
@@ -138,6 +145,10 @@ Description
 public Builder()
 
   * ## Method Details
+
+    * ### streaming
+
+@CanIgnoreReturnValue public [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent") streaming(boolean streaming)
 
     * ### name
 

@@ -120,6 +120,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Custom Metrics  ](../evaluate/custom_metrics/)
+      * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
 
 Safety and Security 
@@ -167,9 +169,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](quickstart-exposing/)
         * [ Go  ](quickstart-exposing-go/)
+        * [ Java  ](quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](quickstart-consuming/)
         * [ Go  ](quickstart-consuming-go/)
+        * [ Java  ](quickstart-consuming-java/)
       * [ A2A Extension  ](a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
@@ -225,7 +229,7 @@ Graph-based workflows
 
 # ADK with Agent2Agent (A2A) Protocol¶
 
-Supported in ADKPythonGoExperimental
+Supported in ADKPythonGoJavaExperimental
 
 With Agent Development Kit (ADK), you can build complex multi-agent systems where different agents need to collaborate and interact using [Agent2Agent (A2A) Protocol](https://a2a-protocol.org/)! This section provides a comprehensive guide to building powerful multi-agent systems where agents can communicate and collaborate securely and efficiently.
 
@@ -237,6 +241,7 @@ Start here to learn the fundamentals of A2A by building a multi-agent system wit
 
   * **[A2A Quickstart (Exposing) for Python](quickstart-exposing/)**
   * **[A2A Quickstart (Exposing) for Go](quickstart-exposing-go/)**
+  * **[A2A Quickstart (Exposing) for Java](quickstart-exposing-java/)**
 
 
 
@@ -245,6 +250,7 @@ These guides show you how to allow your agent to use another, remote agent using
   * **[A2A Quickstart (Consuming) for Python](quickstart-consuming/)**
     * **[A2A Extension - V2 Implementation](a2a-extension/)**
   * **[A2A Quickstart (Consuming) for Go](quickstart-consuming-go/)**
+  * **[A2A Quickstart (Consuming) for Java](quickstart-consuming-java/)**
 
 
 

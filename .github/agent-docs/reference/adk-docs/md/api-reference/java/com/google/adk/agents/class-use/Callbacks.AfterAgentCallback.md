@@ -131,7 +131,7 @@ BaseAgent.`[canonicalAfterAgentCallbacks](../BaseAgent.html#canonicalAfterAgentC
 
 The resolved afterAgentCallback field as a list.
 
-`static com.google.common.collect.ImmutableList<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
+`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")>`
 
 CallbackUtil.`[getAfterAgentCallbacks](../CallbackUtil.html#getAfterAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.adk.agents.Callbacks.AfterAgentCallbackBase> afterAgentCallback)`
 

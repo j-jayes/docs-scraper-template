@@ -80,10 +80,6 @@ Request processor that performs event compaction.
 
 [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") that populates content in request for LLM flows.
 
-[Examples](Examples.html "class in com.google.adk.flows.llmflows")
-
-[`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") that populates examples in LLM request.
-
 [Functions](Functions.html "class in com.google.adk.flows.llmflows")
 
 Utility class for handling function calls.

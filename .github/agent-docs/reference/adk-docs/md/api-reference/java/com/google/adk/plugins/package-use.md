@@ -43,6 +43,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.runner
 
  
@@ -100,6 +104,20 @@ A plugin that filters the LLM request `Content` list to reduce its size, for exa
 Builder for [`ContextFilterPlugin`](ContextFilterPlugin.html "class in com.google.adk.plugins").
 
 [Plugin](class-use/Plugin.html#com.google.adk.plugins)
+
+Interface for creating plugins.
+
+  * Classes in [com.google.adk.plugins](package-summary.html) used by [com.google.adk.plugins.agentanalytics](agentanalytics/package-summary.html)
+
+Class
+
+Description
+
+[BasePlugin](class-use/BasePlugin.html#com.google.adk.plugins.agentanalytics)
+
+Base class for creating plugins.
+
+[Plugin](class-use/Plugin.html#com.google.adk.plugins.agentanalytics)
 
 Interface for creating plugins.
 

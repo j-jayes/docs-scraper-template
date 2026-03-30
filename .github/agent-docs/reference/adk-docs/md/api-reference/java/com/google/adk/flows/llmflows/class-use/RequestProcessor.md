@@ -68,12 +68,6 @@ Request processor that performs event compaction.
 
 `final class `
 
-`[Examples](../Examples.html "class in com.google.adk.flows.llmflows")`
-
-[`RequestProcessor`](../RequestProcessor.html "interface in com.google.adk.flows.llmflows") that populates examples in LLM request.
-
-`final class `
-
 `[Identity](../Identity.html "class in com.google.adk.flows.llmflows")`
 
 [`RequestProcessor`](../RequestProcessor.html "interface in com.google.adk.flows.llmflows") that gives the agent identity from the framework

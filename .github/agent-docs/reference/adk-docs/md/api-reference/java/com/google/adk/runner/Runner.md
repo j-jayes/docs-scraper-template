@@ -51,7 +51,8 @@ Contents
      18. runLive(Session, LiveRequestQueue, RunConfig)
      19. runLive(String, String, LiveRequestQueue, RunConfig)
      20. runLive(SessionKey, LiveRequestQueue, RunConfig)
-     21. runWithSessionId(String, Content, RunConfig)
+     21. runLiveImpl(Session, LiveRequestQueue, RunConfig)
+     22. runWithSessionId(String, Content, RunConfig)
 
 Hide sidebar  Show sidebar
 
@@ -248,13 +249,19 @@ Retrieves the session and runs the agent in live mode.
 
 `runLive([Session](../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
 
-Runs the agent in live mode, appending generated events to the session.
+ 
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")>`
 
 `runLive([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [LiveRequestQueue](../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
 
 Retrieves the session and runs the agent in live mode.
+
+`protected io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")>`
+
+`runLiveImpl([Session](../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
+
+Runs the agent in live mode, appending generated events to the session.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")>`
 
@@ -446,11 +453,6 @@ Returns:
 
 public io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runLive([Session](../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig)
 
-Runs the agent in live mode, appending generated events to the session.
-
-Returns:
-    stream of events from the agent.
-
     * ### runLive
 
 public io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runLive([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId, [LiveRequestQueue](../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig)
@@ -472,6 +474,15 @@ Returns:
     stream of events from the agent.
 Throws:
     `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if the session is not found.
+
+    * ### runLiveImpl
+
+protected io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runLiveImpl([Session](../sessions/Session.html "class in com.google.adk.sessions") session, @Nullable [LiveRequestQueue](../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig)
+
+Runs the agent in live mode, appending generated events to the session.
+
+Returns:
+    stream of events from the agent.
 
     * ### runWithSessionId
 

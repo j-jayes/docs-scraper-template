@@ -88,7 +88,19 @@ Creates a new McpTool with the default ObjectMapper.
 
 ` `
 
-`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,java.util.Optional\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> toolFilter)`
+`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+
+Initializes the McpToolset with an McpSessionManager and no tool filter.
+
+` `
+
+`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,com.google.adk.tools.ToolPredicate\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [ToolPredicate](../../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+
+Initializes the McpToolset with an McpSessionManager.
+
+` `
+
+`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,java.util.List\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
 
 Initializes the McpToolset with an McpSessionManager.
 

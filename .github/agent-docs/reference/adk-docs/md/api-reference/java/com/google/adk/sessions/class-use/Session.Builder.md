@@ -99,7 +99,7 @@ Session.Builder.`[state](../Session.Builder.html#state\(com.google.adk.sessions.
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[state](../Session.Builder.html#state\(java.util.concurrent.ConcurrentMap\))([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
+Session.Builder.`[state](../Session.Builder.html#state\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
 
  
 

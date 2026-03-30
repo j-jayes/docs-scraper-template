@@ -38,42 +38,39 @@ Contents
      7. tools(List)
      8. tools(Object...)
      9. generateContentConfig(GenerateContentConfig)
-     10. exampleProvider(BaseExampleProvider)
-     11. exampleProvider(List)
-     12. exampleProvider(Example...)
-     13. includeContents(LlmAgent.IncludeContents)
-     14. planning(boolean)
-     15. maxSteps(int)
-     16. disallowTransferToParent(boolean)
-     17. disallowTransferToPeers(boolean)
-     18. clearBeforeModelCallbacks()
-     19. beforeModelCallback(Callbacks.BeforeModelCallback)
-     20. beforeModelCallback(List)
-     21. beforeModelCallbackSync(Callbacks.BeforeModelCallbackSync)
-     22. afterModelCallback(Callbacks.AfterModelCallback)
-     23. afterModelCallback(List)
-     24. afterModelCallbackSync(Callbacks.AfterModelCallbackSync)
-     25. onModelErrorCallback(Callbacks.OnModelErrorCallback)
-     26. onModelErrorCallback(List)
-     27. onModelErrorCallbackSync(Callbacks.OnModelErrorCallbackSync)
-     28. beforeAgentCallbackSync(Callbacks.BeforeAgentCallbackSync)
-     29. afterAgentCallbackSync(Callbacks.AfterAgentCallbackSync)
-     30. beforeToolCallback(Callbacks.BeforeToolCallback)
-     31. beforeToolCallback(List)
-     32. beforeToolCallbackSync(Callbacks.BeforeToolCallbackSync)
-     33. afterToolCallback(Callbacks.AfterToolCallback)
-     34. afterToolCallback(List)
-     35. afterToolCallbackSync(Callbacks.AfterToolCallbackSync)
-     36. onToolErrorCallback(Callbacks.OnToolErrorCallback)
-     37. onToolErrorCallback(List)
-     38. onToolErrorCallbackSync(Callbacks.OnToolErrorCallbackSync)
-     39. inputSchema(Schema)
-     40. outputSchema(Schema)
-     41. executor(Executor)
-     42. outputKey(String)
-     43. codeExecutor(BaseCodeExecutor)
-     44. validate()
-     45. build()
+     10. includeContents(LlmAgent.IncludeContents)
+     11. planning(boolean)
+     12. maxSteps(int)
+     13. disallowTransferToParent(boolean)
+     14. disallowTransferToPeers(boolean)
+     15. clearBeforeModelCallbacks()
+     16. beforeModelCallback(Callbacks.BeforeModelCallback)
+     17. beforeModelCallback(List)
+     18. beforeModelCallbackSync(Callbacks.BeforeModelCallbackSync)
+     19. afterModelCallback(Callbacks.AfterModelCallback)
+     20. afterModelCallback(List)
+     21. afterModelCallbackSync(Callbacks.AfterModelCallbackSync)
+     22. onModelErrorCallback(Callbacks.OnModelErrorCallback)
+     23. onModelErrorCallback(List)
+     24. onModelErrorCallbackSync(Callbacks.OnModelErrorCallbackSync)
+     25. beforeAgentCallbackSync(Callbacks.BeforeAgentCallbackSync)
+     26. afterAgentCallbackSync(Callbacks.AfterAgentCallbackSync)
+     27. beforeToolCallback(Callbacks.BeforeToolCallback)
+     28. beforeToolCallback(List)
+     29. beforeToolCallbackSync(Callbacks.BeforeToolCallbackSync)
+     30. afterToolCallback(Callbacks.AfterToolCallback)
+     31. afterToolCallback(List)
+     32. afterToolCallbackSync(Callbacks.AfterToolCallbackSync)
+     33. onToolErrorCallback(Callbacks.OnToolErrorCallback)
+     34. onToolErrorCallback(List)
+     35. onToolErrorCallbackSync(Callbacks.OnToolErrorCallbackSync)
+     36. inputSchema(Schema)
+     37. outputSchema(Schema)
+     38. executor(Executor)
+     39. outputKey(String)
+     40. codeExecutor(BaseCodeExecutor)
+     41. validate()
+     42. build()
 
 Hide sidebar  Show sidebar
 
@@ -233,24 +230,6 @@ Description
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
 `disallowTransferToPeers(boolean disallowTransferToPeers)`
-
- 
-
-`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
-
-`exampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") exampleProvider)`
-
- 
-
-`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
-
-`exampleProvider([Example](../examples/Example.html "class in com.google.adk.examples")... examples)`
-
- 
-
-`[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
-
-`exampleProvider([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Example](../examples/Example.html "class in com.google.adk.examples")> examples)`
 
  
 
@@ -446,18 +425,6 @@ public Builder()
     * ### generateContentConfig
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") generateContentConfig(com.google.genai.types.GenerateContentConfig generateContentConfig)
-
-    * ### exampleProvider
-
-@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") exampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") exampleProvider)
-
-    * ### exampleProvider
-
-@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") exampleProvider([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Example](../examples/Example.html "class in com.google.adk.examples")> examples)
-
-    * ### exampleProvider
-
-@CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") exampleProvider([Example](../examples/Example.html "class in com.google.adk.examples")... examples)
 
     * ### includeContents
 

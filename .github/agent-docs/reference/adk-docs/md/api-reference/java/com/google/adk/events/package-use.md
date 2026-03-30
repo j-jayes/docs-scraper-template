@@ -59,6 +59,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.runner
 
  
@@ -192,6 +196,16 @@ Class
 Description
 
 [Event](class-use/Event.html#com.google.adk.plugins)
+
+Represents an event in a session.
+
+  * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.plugins.agentanalytics](../plugins/agentanalytics/package-summary.html)
+
+Class
+
+Description
+
+[Event](class-use/Event.html#com.google.adk.plugins.agentanalytics)
 
 Represents an event in a session.
 

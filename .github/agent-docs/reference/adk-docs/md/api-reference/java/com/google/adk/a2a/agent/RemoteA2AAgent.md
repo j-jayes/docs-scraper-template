@@ -26,8 +26,9 @@ Contents
   3. Method Summary
   4. Method Details
      1. builder()
-     2. runAsyncImpl(InvocationContext)
-     3. runLiveImpl(InvocationContext)
+     2. isStreaming()
+     3. runAsyncImpl(InvocationContext)
+     4. runLiveImpl(InvocationContext)
 
 Hide sidebar  Show sidebar
 
@@ -100,6 +101,12 @@ Description
 
  
 
+`boolean`
+
+`isStreaming()`
+
+ 
+
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 `runAsyncImpl([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
@@ -128,6 +135,10 @@ Agent-specific synchronous logic.
     * ### builder
 
 public static [RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent") builder()
+
+    * ### isStreaming
+
+public boolean isStreaming()
 
     * ### runAsyncImpl
 

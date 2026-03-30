@@ -56,6 +56,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.runner
 
  
@@ -270,14 +274,6 @@ Method
 
 Description
 
-`void`
-
-InvocationContext.`[agent](../InvocationContext.html#agent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use [`InvocationContext.toBuilder()`](../InvocationContext.html#toBuilder\(\)) and [`InvocationContext.Builder.agent(BaseAgent)`](../InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\)) instead.
-
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
 InvocationContext.Builder.`[agent](../InvocationContext.Builder.html#agent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
@@ -419,6 +415,28 @@ Callback executed before an agent's primary logic is invoked.
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
 
 PluginManager.`[beforeAgentCallback](../../plugins/PluginManager.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html)
+
+Methods in [com.google.adk.plugins.agentanalytics](../../plugins/agentanalytics/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+BigQueryAgentAnalyticsPlugin.`[afterAgentCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#afterAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
+
+BigQueryAgentAnalyticsPlugin.`[beforeAgentCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeAgentCallback\(com.google.adk.agents.BaseAgent,com.google.adk.agents.CallbackContext\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [CallbackContext](../CallbackContext.html "class in com.google.adk.agents") callbackContext)`
 
  
 

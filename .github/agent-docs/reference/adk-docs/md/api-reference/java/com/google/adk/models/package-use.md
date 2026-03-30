@@ -55,6 +55,10 @@ com.google.adk.plugins
 
  
 
+com.google.adk.plugins.agentanalytics
+
+ 
+
 com.google.adk.plugins.recordings
 
  
@@ -254,6 +258,20 @@ Description
 Builder for constructing [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") instances.
 
 [LlmResponse](class-use/LlmResponse.html#com.google.adk.plugins)
+
+Represents a response received from the LLM.
+
+  * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.plugins.agentanalytics](../plugins/agentanalytics/package-summary.html)
+
+Class
+
+Description
+
+[LlmRequest.Builder](class-use/LlmRequest.Builder.html#com.google.adk.plugins.agentanalytics)
+
+Builder for constructing [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") instances.
+
+[LlmResponse](class-use/LlmResponse.html#com.google.adk.plugins.agentanalytics)
 
 Represents a response received from the LLM.
 

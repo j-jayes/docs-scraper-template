@@ -32,7 +32,7 @@ Contents
      1. id(String)
      2. sessionKey(SessionKey)
      3. state(State)
-     4. state(ConcurrentMap)
+     4. state(Map)
      5. appName(String)
      6. userId(String)
      7. events(List)
@@ -133,7 +133,7 @@ Sets the session key.
 
 `[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
 
-`state([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
+`state([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
 
  
 
@@ -180,7 +180,7 @@ Sets the session key.
 
     * ### state
 
-@CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") state([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)
+@CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") state([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)
 
     * ### appName
 

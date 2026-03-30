@@ -110,7 +110,7 @@ Creates a new [`RequestProcessor.RequestProcessingResult`](../../flows/llmflows/
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
+BaseLlmFlow.`[postprocess](../../flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,io.opentelemetry.context.Context\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [Event](../../events/Event.html "class in com.google.adk.events") baseEventForLlmResponse, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse, io.opentelemetry.context.Context parentContext)`
 
 Post-processes the LLM response after receiving it from the LLM.
 
@@ -140,12 +140,6 @@ Contents.`[processRequest](../../flows/llmflows/Contents.html#processRequest\(co
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
-Examples.`[processRequest](../../flows/llmflows/Examples.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
-
- 
-
-`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
-
 Identity.`[processRequest](../../flows/llmflows/Identity.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
 
  
@@ -167,20 +161,6 @@ RequestConfirmationLlmRequestProcessor.`[processRequest](../../flows/llmflows/Re
 RequestProcessor.`[processRequest](../../flows/llmflows/RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
 
 Process the LLM request as part of the pre-processing stage.
-
-Method parameters in [com.google.adk.flows.llmflows](../../flows/llmflows/package-summary.html) with type arguments of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
-
-Modifier and Type
-
-Method
-
-Description
-
-`protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
-
-BaseLlmFlow.`[preprocess](../../flows/llmflows/BaseLlmFlow.html#preprocess\(com.google.adk.agents.InvocationContext,java.util.concurrent.atomic.AtomicReference\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [AtomicReference](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html "class or interface in java.util.concurrent.atomic")<[LlmRequest](../LlmRequest.html "class in com.google.adk.models")> llmRequestRef)`
-
-Pre-processes the LLM request before sending it to the LLM.
 
   * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.models](../package-summary.html)
 

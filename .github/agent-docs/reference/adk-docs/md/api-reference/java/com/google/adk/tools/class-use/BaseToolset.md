@@ -58,7 +58,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>`
 
 LlmAgent.`[toolsets](../../agents/LlmAgent.html#toolsets\(\))()`
 
