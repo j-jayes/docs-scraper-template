@@ -38,7 +38,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"1.0.0-rc.1"`
+`"1.0.0"`
 
 
 
@@ -207,6 +207,22 @@ Value
 `[USER_PREFIX](com/google/adk/sessions/State.html#USER_PREFIX)`
 
 `"user:"`
+
+
+
+  * com.google.adk.tools.[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`[NAME](com/google/adk/tools/SetModelResponseTool.html#NAME)`
+
+`"set_model_response"`
 
 
 

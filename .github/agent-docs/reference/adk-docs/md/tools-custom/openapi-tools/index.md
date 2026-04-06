@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -124,6 +126,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -171,9 +175,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -205,9 +211,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -275,7 +283,7 @@ The process involves these main steps when you use `OpenAPIToolset`:
      * **Schema Generation** : Dynamically creates a `FunctionDeclaration` based on the operation's parameters and request body. This schema tells the LLM how to call the tool (what arguments are expected).
      * **Execution** : When called by the LLM, it constructs the correct HTTP request (URL, headers, query params, body) using the arguments provided by the LLM and the details from the OpenAPI spec. It handles authentication (if configured) and executes the API call using the `requests` library.
      * **Response Handling** : Returns the API response (typically JSON) back to the agent flow.
-  5. **Authentication** : You can configure global authentication (like API keys or OAuth - see [Authentication](/adk-docs/tools/authentication/) for details) when initializing `OpenAPIToolset`. This authentication configuration is automatically applied to all generated `RestApiTool` instances.
+  5. **Authentication** : You can configure global authentication (like API keys or OAuth - see [Authentication](/tools/authentication/) for details) when initializing `OpenAPIToolset`. This authentication configuration is automatically applied to all generated `RestApiTool` instances.
 
 
 

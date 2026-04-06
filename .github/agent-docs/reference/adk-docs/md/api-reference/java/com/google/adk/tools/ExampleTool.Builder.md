@@ -29,10 +29,13 @@ Contents
      1. Builder()
   5. Method Details
      1. setName(String)
-     2. setDescription(String)
-     3. addExample(Example)
-     4. setExampleProvider(BaseExampleProvider)
-     5. build()
+     2. name(String)
+     3. setDescription(String)
+     4. description(String)
+     5. addExample(Example)
+     6. setExampleProvider(BaseExampleProvider)
+     7. exampleProvider(BaseExampleProvider)
+     8. build()
 
 Hide sidebar  Show sidebar
 
@@ -65,7 +68,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -87,21 +90,39 @@ Description
 
 `[ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-`setDescription([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+`description([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
 
  
 
 `[ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+`exampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
+
+ 
+
+`[ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+`name([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+ 
+
+`final [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+`setDescription([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+
+Deprecated.
+
+`final [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
 
 `setExampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
 
- 
+Deprecated.
 
-`[ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
+`final [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")`
 
 `setName([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
 
- 
+Deprecated.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -120,11 +141,23 @@ public Builder()
 
     * ### setName
 
-@CanIgnoreReturnValue public [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") setName([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") setName([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
+
+Deprecated.
+
+    * ### name
+
+@CanIgnoreReturnValue public [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") name([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
 
     * ### setDescription
 
-@CanIgnoreReturnValue public [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") setDescription([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") setDescription([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
+
+Deprecated.
+
+    * ### description
+
+@CanIgnoreReturnValue public [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") description([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
 
     * ### addExample
 
@@ -132,7 +165,13 @@ public Builder()
 
     * ### setExampleProvider
 
-@CanIgnoreReturnValue public [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") setExampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") setExampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)
+
+Deprecated.
+
+    * ### exampleProvider
+
+@CanIgnoreReturnValue public [ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools") exampleProvider([BaseExampleProvider](../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)
 
     * ### build
 

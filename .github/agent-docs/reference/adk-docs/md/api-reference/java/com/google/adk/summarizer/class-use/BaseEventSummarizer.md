@@ -56,7 +56,7 @@ Method
 
 Description
 
-`[BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer")`
+`@Nullable [BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer")`
 
 EventsCompactionConfig.`[summarizer](../EventsCompactionConfig.html#summarizer\(\))()`
 
@@ -72,7 +72,7 @@ Description
 
 `abstract [EventsCompactionConfig.Builder](../EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-EventsCompactionConfig.Builder.`[summarizer](../EventsCompactionConfig.Builder.html#summarizer\(com.google.adk.summarizer.BaseEventSummarizer\))([BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
+EventsCompactionConfig.Builder.`[summarizer](../EventsCompactionConfig.Builder.html#summarizer\(com.google.adk.summarizer.BaseEventSummarizer\))(@Nullable [BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
 
  
 
@@ -86,13 +86,13 @@ Description
 
 ` `
 
-`[EventsCompactionConfig](../EventsCompactionConfig.html#%3Cinit%3E\(int,int,com.google.adk.summarizer.BaseEventSummarizer\))(int compactionInterval, int overlapSize, [BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
+`[EventsCompactionConfig](../EventsCompactionConfig.html#%3Cinit%3E\(int,int,com.google.adk.summarizer.BaseEventSummarizer\))(int compactionInterval, int overlapSize, @Nullable [BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
 
  
 
 ` `
 
-`[EventsCompactionConfig](../EventsCompactionConfig.html#%3Cinit%3E\(java.lang.Integer,java.lang.Integer,com.google.adk.summarizer.BaseEventSummarizer,java.lang.Integer,java.lang.Integer\))([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, [BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
+`[EventsCompactionConfig](../EventsCompactionConfig.html#%3Cinit%3E\(java.lang.Integer,java.lang.Integer,com.google.adk.summarizer.BaseEventSummarizer,java.lang.Integer,java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, @Nullable [BaseEventSummarizer](../BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
 
 Creates an instance of a `EventsCompactionConfig` record class.
 

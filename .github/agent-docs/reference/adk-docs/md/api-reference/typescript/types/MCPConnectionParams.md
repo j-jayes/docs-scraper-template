@@ -19,7 +19,7 @@ MCPConnectionParams: [StdioConnectionParams](../interfaces/StdioConnectionParams
 
 A union of all supported MCP connection parameter types.
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L44)
+  * Defined in [tools/mcp/mcp_session_manager.ts:56](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L56)
 
 
 

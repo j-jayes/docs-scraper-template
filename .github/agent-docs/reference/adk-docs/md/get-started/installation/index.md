@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../streaming/)
 
@@ -72,6 +73,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -211,9 +213,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -338,13 +342,13 @@ pom.xml
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk</artifactId>
-                <version>0.6.0</version>
+                <version>1.0.0</version>
             </dependency>
             <!-- The ADK dev web UI to debug your agent -->
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk-dev</artifactId>
-                <version>0.6.0</version>
+                <version>1.0.0</version>
             </dependency>
         </dependencies>
     
@@ -359,8 +363,8 @@ build.gradle
     
     
     dependencies {
-        implementation 'com.google.adk:google-adk:0.6.0'
-        implementation 'com.google.adk:google-adk-dev:0.6.0'
+        implementation 'com.google.adk:google-adk:1.0.0'
+        implementation 'com.google.adk:google-adk-dev:1.0.0'
     }
     
 
@@ -368,7 +372,7 @@ You should also configure Gradle to pass `-parameters` to `javac`. (Alternativel
 
 ## Next steps¶
 
-  * Try creating your first agent with the [**Quickstart**](../quickstart/)
+  * Try creating your first agent with the [**Get started**](/get-started/) guides.
 
 
 

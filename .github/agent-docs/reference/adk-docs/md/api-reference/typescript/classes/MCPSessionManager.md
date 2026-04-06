@@ -21,7 +21,7 @@ This class is responsible for establishing and managing connections to MCP serve
 
 The primary purpose of this manager is to abstract away the details of session creation and connection handling, providing a simple interface for creating new MCP client instances that can be used to interact with remote tools.
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:60](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L60)
+  * Defined in [tools/mcp/mcp_session_manager.ts:73](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L73)
 
 
 
@@ -37,7 +37,7 @@ The primary purpose of this manager is to abstract away the details of session c
 
 #### Returns [MCPSessionManager]()
 
-    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:63](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L63)
+    * Defined in [tools/mcp/mcp_session_manager.ts:76](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L76)
 
 
 
@@ -50,7 +50,7 @@ The primary purpose of this manager is to abstract away the details of session c
 
 #### Returns Promise<Client<{}, {}, { [key: string]: unknown }>>
 
-    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:67](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L67)
+    * Defined in [tools/mcp/mcp_session_manager.ts:80](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L80)
 
 
 

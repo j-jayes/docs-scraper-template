@@ -123,7 +123,7 @@ Description
 
  
 
-`abstract com.google.genai.types.AudioTranscriptionConfig`
+`abstract @Nullable com.google.genai.types.AudioTranscriptionConfig`
 
 `inputAudioTranscription()`
 
@@ -135,7 +135,7 @@ Description
 
  
 
-`abstract com.google.genai.types.AudioTranscriptionConfig`
+`abstract @Nullable com.google.genai.types.AudioTranscriptionConfig`
 
 `outputAudioTranscription()`
 
@@ -153,7 +153,7 @@ Description
 
  
 
-`abstract com.google.genai.types.SpeechConfig`
+`abstract @Nullable com.google.genai.types.SpeechConfig`
 
 `speechConfig()`
 
@@ -194,7 +194,7 @@ public RunConfig()
 
     * ### speechConfig
 
-@Nullable public abstract com.google.genai.types.SpeechConfig speechConfig()
+public abstract @Nullable com.google.genai.types.SpeechConfig speechConfig()
 
     * ### responseModalities
 
@@ -214,11 +214,11 @@ public abstract [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "
 
     * ### outputAudioTranscription
 
-@Nullable public abstract com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription()
+public abstract @Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription()
 
     * ### inputAudioTranscription
 
-@Nullable public abstract com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription()
+public abstract @Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription()
 
     * ### maxLlmCalls
 

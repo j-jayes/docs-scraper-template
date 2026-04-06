@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -214,9 +216,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -353,7 +357,7 @@ The following example deploy command uses the `multi_tool_agent` sample code as 
             multi_tool_agent
     
 
-For `region`, you can find a list of the supported regions on the [Vertex AI Agent Builder locations page](https://docs.cloud.google.com/agent-builder/locations#supported-regions-agent-engine). To learn about the CLI options for the `adk deploy agent_engine` command, see the [ADK CLI Reference](https://google.github.io/adk-docs/api-reference/cli/cli.html#adk-deploy-agent-engine).
+For `region`, you can find a list of the supported regions on the [Vertex AI Agent Builder locations page](https://docs.cloud.google.com/agent-builder/locations#supported-regions-agent-engine). To learn about the CLI options for the `adk deploy agent_engine` command, see the [ADK CLI Reference](/api-reference/cli/cli.html#adk-deploy-agent-engine).
 
 ### Deploy command output¶
 
@@ -389,7 +393,7 @@ The query URL structure is as follows:
     https://$(LOCATION_ID)-aiplatform.googleapis.com/v1/projects/$(PROJECT_ID)/locations/$(LOCATION_ID)/reasoningEngines/$(RESOURCE_ID):query
     
 
-You can make requests from your agent using this URL structure. For more information on how to make requests, see the instructions in the Agent Engine documentation [Use an Agent Development Kit agent](https://docs.cloud.google.com/agent-builder/agent-engine/use/adk#rest-api). You can also check the Agent Engine documentation to learn about how to manage your [deployed agent](https://docs.cloud.google.com/agent-builder/agent-engine/manage/overview). For more information on testing and interacting with a deployed agent, see [Test deployed agents in Agent Engine](/adk-docs/deploy/agent-engine/test/).
+You can make requests from your agent using this URL structure. For more information on how to make requests, see the instructions in the Agent Engine documentation [Use an Agent Development Kit agent](https://docs.cloud.google.com/agent-builder/agent-engine/use/adk#rest-api). You can also check the Agent Engine documentation to learn about how to manage your [deployed agent](https://docs.cloud.google.com/agent-builder/agent-engine/manage/overview). For more information on testing and interacting with a deployed agent, see [Test deployed agents in Agent Engine](/deploy/agent-engine/test/).
 
 ### Monitoring and verification¶
 
@@ -400,7 +404,7 @@ You can make requests from your agent using this URL structure. For more informa
 
 ## Test deployed agents¶
 
-After completing deployment of your ADK agent you should test the workflow in its new hosted environment. For more information on testing an ADK agent deployed to Agent Engine, see [Test deployed agents in Agent Engine](/adk-docs/deploy/agent-engine/test/).
+After completing deployment of your ADK agent you should test the workflow in its new hosted environment. For more information on testing an ADK agent deployed to Agent Engine, see [Test deployed agents in Agent Engine](/deploy/agent-engine/test/).
 
 Back to top  [ Previous  Deploy to Vertex AI Agent Engine  ](../) [ Next  Agent Starter Pack  ](../asp/)
 

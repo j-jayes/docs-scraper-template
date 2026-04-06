@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -128,6 +130,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -175,9 +179,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -209,9 +215,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -249,7 +257,7 @@ Table of contents
 
 Supported in ADKPython v1.10.0
 
-Starting with Agent Development Kit (ADK) version 1.10.0 for Python, the framework attempts to run any agent-requested [function tools](/adk-docs/tools-custom/function-tools/) in parallel. This behavior can significantly improve the performance and responsiveness of your agents, particularly for agents that rely on multiple external APIs or long-running tasks. For example, if you have 3 tools that each take 2 seconds, by running them in parallel, the total execution time will be closer to 2 seconds, instead of 6 seconds. The ability to run tool functions parallel can improve the performance of your agents, particularly in the following scenarios:
+Starting with Agent Development Kit (ADK) version 1.10.0 for Python, the framework attempts to run any agent-requested [function tools](/tools-custom/function-tools/) in parallel. This behavior can significantly improve the performance and responsiveness of your agents, particularly for agents that rely on multiple external APIs or long-running tasks. For example, if you have 3 tools that each take 2 seconds, by running them in parallel, the total execution time will be closer to 2 seconds, instead of 6 seconds. The ability to run tool functions parallel can improve the performance of your agents, particularly in the following scenarios:
 
   * **Research tasks:** Where the agent collects information from multiple sources before proceeding to the next stage of the workflow.
   * **API calls:** Where the agent accesses several APIs independently, such as searching for available flights using APIs from multiple airlines.
@@ -365,7 +373,7 @@ When building prompts for AI models, consider explicitly specifying or hinting t
       Examples:
       - "Get weather for London and currency rate USD to EUR" → Call both functions
         simultaneously
-      - "Compare cities A and B" → Call get_weather, get_population, get_distance in 
+      - "Compare cities A and B" → Call get_weather, get_population, get_distance in
         parallel
       - "Analyze multiple stocks" → Call get_stock_price for each stock in parallel
     
@@ -392,7 +400,7 @@ The following example shows a tool function description that hints at more effic
 
 ## Next steps¶
 
-For more information on building Tools for agents and function calling, see [Function Tools](/adk-docs/tools-custom/function-tools/). For more detailed examples of tools that take advantage of parallel processing, see the samples in the [adk-python](https://github.com/google/adk-python/tree/main/contributing/samples/parallel_functions) repository.
+For more information on building Tools for agents and function calling, see [Function Tools](/tools-custom/function-tools/). For more detailed examples of tools that take advantage of parallel processing, see the samples in the [adk-python](https://github.com/google/adk-python/tree/main/contributing/samples/parallel_functions) repository.
 
 Back to top  [ Previous  Overview  ](../function-tools/) [ Next  Action confirmations  ](../confirmation/)
 

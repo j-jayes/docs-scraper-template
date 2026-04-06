@@ -23,7 +23,7 @@ sessionId: string;
 userId: string;  
 }
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:47](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L47)
+  * Defined in [artifacts/base_artifact_service.ts:51](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L51)
 
 
 
@@ -35,7 +35,7 @@ appName: string
 
 The app name.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:49](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L49)
+  * Defined in [artifacts/base_artifact_service.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L53)
 
 
 
@@ -45,7 +45,7 @@ sessionId: string
 
 The session ID.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:53](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L53)
+  * Defined in [artifacts/base_artifact_service.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L57)
 
 
 
@@ -55,7 +55,7 @@ userId: string
 
 The user ID.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:51](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L51)
+  * Defined in [artifacts/base_artifact_service.ts:55](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L55)
 
 
 

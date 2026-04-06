@@ -56,6 +56,10 @@ Description
 
  
 
+[LangChain4j.Builder](LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+
+ 
+
 
 
 

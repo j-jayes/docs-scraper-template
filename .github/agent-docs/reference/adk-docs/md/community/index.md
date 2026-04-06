@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](./)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -205,16 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * Community Resources  [ Community Resources  ](./) Table of contents 
-      * Getting Started 
-      * ADK Community Calls 
-      * Courses & Deep Dives 
-      * Agent Tutorials and Demos 
-      * ADK for Java 
-      * Translations 
-      * Contributing Your Resource 
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](./)
+
+Community 
+    * [ Contributing Guide  ](contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -241,7 +238,7 @@ Table of contents
 
 
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/community.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/community.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/community/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/community/index.md "View Markdown source")
 
 # Community Resources¶
 
@@ -292,11 +289,11 @@ Community-provided translations of the ADK documentation.
 
 Have an ADK resource to share (tutorial, translation, tool, video, or example)?
 
-Refer to the steps in the **[Contributing Guide](../contributing-guide/)** for more information on how to get involved!
+Refer to the steps in the **[Contributing Guide](/community/contributing-guide/)** for more information on how to get involved!
 
 Thank you for your contributions to Agent Development Kit! ❤️
 
-Back to top  [ Previous  REST API  ](../api-reference/rest/) [ Next  Contributing Guide  ](../contributing-guide/)
+Back to top  [ Previous  Release Notes  ](../release-notes/) [ Next  Contributing Guide  ](contributing-guide/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

@@ -27,6 +27,7 @@ Contents
      1. isGeminiModel(String)
      2. isGemini2Model(String)
      3. isInstanceOfGemini(Object)
+     4. canUseOutputSchemaWithTools(String)
 
 Hide sidebar  Show sidebar
 
@@ -40,6 +41,8 @@ com.google.adk.utils.ModelNameUtils
 
 public final class ModelNameUtils extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
 
+Utility class for model names.
+
   * ## Method Summary
 
 All MethodsStatic MethodsConcrete Methods
@@ -49,6 +52,12 @@ Modifier and Type
 Method
 
 Description
+
+`static boolean`
+
+`canUseOutputSchemaWithTools([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelString)`
+
+Returns true if the model supports using output schema together with tools.
 
 `static boolean`
 
@@ -97,6 +106,17 @@ Parameters:
     `o` \- The object to check.
 Returns:
     true if object's class is [`Gemini`](../models/Gemini.html "class in com.google.adk.models"), false otherwise.
+
+    * ### canUseOutputSchemaWithTools
+
+public static boolean canUseOutputSchemaWithTools([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelString)
+
+Returns true if the model supports using output schema together with tools.
+
+Parameters:
+    `modelString` \- The model name or path.
+Returns:
+    true if output schema with tools is supported, false otherwise.
 
 
 

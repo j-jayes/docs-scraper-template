@@ -25,7 +25,7 @@ userId: string;
 version?: number;  
 }
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:28](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L28)
+  * Defined in [artifacts/base_artifact_service.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L32)
 
 
 
@@ -37,7 +37,7 @@ appName: string
 
 The app name.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:30](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L30)
+  * Defined in [artifacts/base_artifact_service.ts:34](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L34)
 
 
 
@@ -47,7 +47,7 @@ filename: string
 
 The filename of the artifact.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L36)
+  * Defined in [artifacts/base_artifact_service.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L40)
 
 
 
@@ -57,7 +57,7 @@ sessionId: string
 
 The session ID.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:34](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L34)
+  * Defined in [artifacts/base_artifact_service.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L38)
 
 
 
@@ -67,7 +67,7 @@ userId: string
 
 The user ID.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L32)
+  * Defined in [artifacts/base_artifact_service.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L36)
 
 
 
@@ -77,7 +77,7 @@ version?: number
 
 The version of the artifact to load. If not provided, the latest version of the artifact is loaded.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:41](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L41)
+  * Defined in [artifacts/base_artifact_service.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L45)
 
 
 

@@ -13,6 +13,17 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../../..)
+  * [ Build Agents ](../../../get-started/)
+  * [ Run Agents ](../../../runtime/)
+  * [ Components ](../../../get-started/about/)
+  * [ Integrations ](../../../integrations/)
+  * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
+  * [ ADK 2.0 ](../../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../../..)
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -56,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -116,6 +128,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -163,9 +177,12 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
+      * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
 Gemini Live API Toolkit 
@@ -182,8 +199,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../../release-notes/)
     * [ API Reference  ](../../../api-reference/)
 
 API Reference 
@@ -194,8 +213,22 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
+    * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
+  * [ ADK 2.0  ](../../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../../workflows/graph-routes/)
+      * [ Data handling  ](../../../workflows/data-handling/)
+      * [ Human input  ](../../../workflows/human-input/)
+    * [ Collaborative agents  ](../../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../../workflows/dynamic/)
 
 
 
@@ -220,11 +253,11 @@ Table of contents
 
 Supported in ADKPython
 
-This deployment procedure describes how to perform a deployment using the [Agent Starter Pack](https://github.com/GoogleCloudPlatform/agent-starter-pack) (ASP) and the ADK command line interface (CLI) tool. Using ASP for deployment to the Agent Engine runtime is an accelerated path, and you should use it for __development and testing__ only. The ASP tool configures Google Cloud resources that are not strictly necessary for running an ADK agent workflow, and you should thoroughly review that configuration before using it in a production deployment.
+This deployment procedure describes how to perform a deployment using the [Agent Starter Pack](https://github.com/GoogleCloudPlatform/agent-starter-pack) (ASP) and the ADK command line interface (CLI) tool. Deploying to the Agent Engine runtime via ASP provides an accelerated path to a production-ready environment. ASP automatically configures Google Cloud resources, CI/CD pipelines, and Infrastructure-as-Code (Terraform) to support the entire development lifecycle. As a best practice, always ensure you review the generated configurations to align with your organization’s security and compliance standards before production deployment.
 
 This deployment guide uses the ASP tool to apply a project template to your existing project, add deployment artifacts, and prepare your agent project for deployment. These instructions show you how to use ASP to provision a Google Cloud project with services needed for deploying your ADK project, as follows:
 
-  * Prerequisites: Setup Google Cloud account, a project, and install required software.
+  * Prerequisites: Set up Google Cloud project, IAM permissions, and install required software.
   * Prepare your ADK project: Modify your existing ADK project files to get ready for deployment.
   * Connect to your Google Cloud project: Connect your development environment to Google Cloud and your Google Cloud project.
   * Deploy your ADK project: Provision required services in your Google Cloud project and upload your ADK project code.
@@ -237,8 +270,16 @@ For information on testing a deployed agent, see [Test deployed agent](../test/)
 
 You need the following resources configured to use this deployment path:
 
-  * **Google Cloud account** : with administrator access to the following:
-    * **Google Cloud Project** : An empty Google Cloud project with [billing enabled](https://cloud.google.com/billing/docs/how-to/modify-project). For information on creating projects, see [Creating and managing projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+  * **Google Cloud Project and Permissions** : A Google Cloud project with [billing enabled](https://cloud.google.com/billing/docs/how-to/modify-project). You can use an existing project or create a new one. You must have one of the following IAM roles assigned within this project:
+    * **Vertex AI User role** — sufficient to deploy an agent to Agent Engine.
+    * **Owner role** — required for the full production setup (Terraform infrastructure provisioning, CI/CD pipelines, IAM configuration).
+
+
+
+Note
+
+An empty project is recommended to avoid conflicts with existing resources. For new projects, see [Creating and managing projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+
   * **Python Environment** : A Python version supported by the [ASP project](https://googlecloudplatform.github.io/agent-starter-pack/guide/getting-started.html).
   * **uv Tool:** Manage Python development environment and running ASP tools. For installation details, see [Install uv](https://docs.astral.sh/uv/getting-started/installation/).
   * **Google Cloud CLI tool** : The gcloud command line interface. For installation details, see [Google Cloud Command Line Interface](https://cloud.google.com/sdk/docs/install).
@@ -250,14 +291,14 @@ You need the following resources configured to use this deployment path:
 
 When you deploy an ADK project to Agent Engine, you need some additional files to support the deployment operation. The following ASP command backs up your project and then adds files to your project for deployment purposes.
 
-These instructions assume you have an existing ADK project that you are modifying for deployment. If you do not have an ADK project, or want to use a test project, complete the Python [Quickstart](/adk-docs/get-started/quickstart/) guide, which creates a [multi_tool_agent](https://github.com/google/adk-docs/tree/main/examples/python/snippets/get-started/multi_tool_agent) project. The following instructions use the `multi_tool_agent` project as an example.
+These instructions assume you have an existing ADK project that you are modifying for deployment. If you do not have an ADK project, or want to use a test project, complete one of the [Get started](/get-started/) guides, which creates an agent project. The following instructions use the `my_agent` project as an example.
 
 To prepare your ADK project for deployment to Agent Engine:
 
   1. In a terminal window of your development environment, navigate to the **parent directory** that contains your agent folder. For example, if your project structure is:
          
          your-project-directory/
-         ├── multi_tool_agent/
+         ├── my_agent/
          │   ├── __init__.py
          │   ├── agent.py
          │   └── .env
@@ -333,14 +374,14 @@ To deploy your ADK project to Agent Engine in your Google Cloud project:
 
 
 
-Once this process completes successfully, you should be able to interact with the agent running on Google Cloud Agent Engine. For details on testing the deployed agent, see [Test deployed agent](/adk-docs/deploy/agent-engine/test/).
+Once this process completes successfully, you should be able to interact with the agent running on Google Cloud Agent Engine. For details on testing the deployed agent, see [Test deployed agent](/deploy/agent-engine/test/).
 
 ### Changes to your ADK project¶
 
 The ASP tools add more files to your project for deployment. The procedure below backs up your existing project files before modifying them. This guide uses the [multi_tool_agent](https://github.com/google/adk-docs/tree/main/examples/python/snippets/get-started/multi_tool_agent) project as a reference example. The original project has the following file structure to start with:
     
     
-    multi_tool_agent/
+    my_agent/
     ├─ __init__.py
     ├─ agent.py
     └─ .env
@@ -349,7 +390,7 @@ The ASP tools add more files to your project for deployment. The procedure below
 After running the ASP enhance command to add Agent Engine deployment information, the new structure is as follows:
     
     
-    multi-tool-agent/
+    my-agent/
     ├─ app/                 # Core application code
     │   ├─ agent.py         # Main agent logic
     │   ├─ agent_engine_app.py # Agent Engine application logic
@@ -367,11 +408,11 @@ See the _README.md_ file in your updated ADK project folder for more information
 
 ## Test deployed agents¶
 
-After completing deployment of your ADK agent you should test the workflow in its new hosted environment. For more information on testing an ADK agent deployed to Agent Engine, see [Test deployed agents in Agent Engine](/adk-docs/deploy/agent-engine/test/).
+After completing deployment of your ADK agent you should test the workflow in its new hosted environment. For more information on testing an ADK agent deployed to Agent Engine, see [Test deployed agents in Agent Engine](/deploy/agent-engine/test/).
 
 Back to top  [ Previous  Standard deployment  ](../deploy/) [ Next  Test deployed agents  ](../test/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

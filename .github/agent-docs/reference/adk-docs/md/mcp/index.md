@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -244,7 +248,7 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 
 MCP tools for ADK
 
-For a list of pre-built MCP tools for ADK, see [Tools and Integrations](/adk-docs/integrations/?topic=mcp).
+For a list of pre-built MCP tools for ADK, see [Tools and Integrations](/integrations/?topic=mcp).
 
 ## How does MCP work?¶
 
@@ -254,7 +258,7 @@ MCP follows a client-server architecture, defining how data (resources), interac
 
 ADK helps you both use and consume MCP tools in your agents, whether you're trying to build a tool to call an MCP service, or exposing an MCP server for other developers or agents to interact with your tools.
 
-See [Tools and Integrations](/adk-docs/integrations/) for pre-built MCP tools you can use in your agents. Refer to the [MCP Tools documentation](/adk-docs/tools-custom/mcp-tools/) for code samples and design patterns that help you use ADK together with MCP servers, including:
+See [Tools and Integrations](/integrations/) for pre-built MCP tools you can use in your agents. Refer to the [MCP Tools documentation](/tools-custom/mcp-tools/) for code samples and design patterns that help you use ADK together with MCP servers, including:
 
   * **Using Existing MCP Servers within ADK** : An ADK agent can act as an MCP client and use tools provided by external MCP servers.
   * **Exposing ADK Tools via an MCP Server** : How to build an MCP server that wraps ADK tools, making them accessible to any MCP client.
@@ -265,7 +269,7 @@ See [Tools and Integrations](/adk-docs/integrations/) for pre-built MCP tools yo
 
 ADK uses [FastMCP](https://github.com/jlowin/fastmcp) to handle all the complex MCP protocol details and server management, so you can focus on building great tools. It's designed to be high-level and Pythonic; in most cases, decorating a function is all you need.
 
-Refer to the [MCP Tools](/adk-docs/tools-custom/mcp-tools/) documentation on how you can use ADK together with the FastMCP server running on Cloud Run.
+Refer to the [MCP Tools](/tools-custom/mcp-tools/) documentation on how you can use ADK together with the FastMCP server running on Cloud Run.
 
 ## MCP Servers for Google Cloud Genmedia¶
 

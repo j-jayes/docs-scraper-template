@@ -27,10 +27,10 @@ Contents
   4. Method Details
      1. setTracerForTesting(Tracer)
      2. traceAgentInvocation(Span, String, String, InvocationContext)
-     3. traceToolCall(String, String, String, Map)
-     4. traceToolResponse(String, Event)
-     5. traceCallLlm(Span, InvocationContext, String, LlmRequest, LlmResponse)
-     6. traceSendData(InvocationContext, String, List)
+     3. traceToolExecution(Span, String, String, String, Map, Event, Exception)
+     4. traceCallLlm(Span, InvocationContext, String, LlmRequest, LlmResponse, Exception)
+     5. traceSendData(Span, InvocationContext, String, List)
+     6. traceMergedToolCalls(Span, String, Event)
      7. getTracer()
      8. traceFlowable(Context, Span, Supplier)
      9. trace(String)
@@ -115,7 +115,7 @@ Sets span attributes immediately available on agent invocation according to OTEL
 
 `static void`
 
-`traceCallLlm(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse)`
+`traceCallLlm(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
 Traces a call to the LLM.
 
@@ -127,21 +127,21 @@ Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle.
 
 `static void`
 
-`traceSendData([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> data)`
+`traceMergedToolCalls(io.opentelemetry.api.trace.Span span, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") responseEventId, [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)`
+
+Traces merged tool call events.
+
+`static void`
+
+`traceSendData(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> data)`
 
 Traces the sending of data (history or new content) to the agent/model.
 
 `static void`
 
-`traceToolCall([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolDescription, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolType, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args)`
+`traceToolExecution(io.opentelemetry.api.trace.Span span, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolDescription, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolType, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, @Nullable [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
-Traces tool call arguments.
-
-`static void`
-
-`traceToolResponse([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)`
-
-Traces tool response event.
+Traces a tool execution, including its arguments, response, and any potential error.
 
 `static <T> [Tracing.ContextTransformer](Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T>`
 
@@ -176,28 +176,24 @@ Parameters:
     `agentDescription` \- Agent description from which attributes are gathered.
     `invocationContext` \- InvocationContext from which attributes are gathered.
 
-    * ### traceToolCall
+    * ### traceToolExecution
 
-public static void traceToolCall([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolDescription, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolType, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args)
+public static void traceToolExecution(io.opentelemetry.api.trace.Span span, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolDescription, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolType, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> args, @Nullable [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)
 
-Traces tool call arguments.
-
-Parameters:
-    `args` \- The arguments to the tool call.
-
-    * ### traceToolResponse
-
-public static void traceToolResponse([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)
-
-Traces tool response event.
+Traces a tool execution, including its arguments, response, and any potential error.
 
 Parameters:
-    `eventId` \- The ID of the event.
-    `functionResponseEvent` \- The function response event.
+    `span` \- The span representing the tool execution.
+    `toolName` \- The name of the tool.
+    `toolDescription` \- The tool's description.
+    `toolType` \- The tool's type (e.g., "FunctionTool").
+    `args` \- The arguments passed to the tool.
+    `functionResponseEvent` \- The event containing the tool's response, if successful.
+    `error` \- The exception thrown during execution, if any.
 
     * ### traceCallLlm
 
-public static void traceCallLlm(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse)
+public static void traceCallLlm(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../models/LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../models/LlmResponse.html "class in com.google.adk.models") llmResponse, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)
 
 Traces a call to the LLM.
 
@@ -209,7 +205,7 @@ Parameters:
 
     * ### traceSendData
 
-public static void traceSendData([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> data)
+public static void traceSendData(io.opentelemetry.api.trace.Span span, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> data)
 
 Traces the sending of data (history or new content) to the agent/model.
 
@@ -217,6 +213,18 @@ Parameters:
     `invocationContext` \- The invocation context.
     `eventId` \- The ID of the event, if applicable.
     `data` \- A list of content objects being sent.
+
+    * ### traceMergedToolCalls
+
+public static void traceMergedToolCalls(io.opentelemetry.api.trace.Span span, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") responseEventId, [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)
+
+Traces merged tool call events. 
+
+Calling this function is not needed for telemetry purposes. This is provided for preventing /debug/trace requests (typically sent by web UI).
+
+Parameters:
+    `responseEventId` \- The ID of the response event.
+    `functionResponseEvent` \- The merged response event.
 
     * ### getTracer
 

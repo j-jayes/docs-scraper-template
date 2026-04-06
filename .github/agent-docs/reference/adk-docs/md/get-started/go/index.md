@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -47,7 +48,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../streaming/)
 
@@ -74,6 +75,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -128,6 +130,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -175,9 +179,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -209,9 +215,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -281,7 +289,7 @@ WindowsMacOS / Linux
 
 ### Define the agent code¶
 
-Create the code for a basic agent that uses the built-in [Google Search tool](/adk-docs/tools/built-in-tools/#google-search). Add the following code to the `my_agent/agent.go` file in your project directory:
+Create the code for a basic agent that uses the built-in [Google Search tool](/tools/built-in-tools/#google-search). Add the following code to the `my_agent/agent.go` file in your project directory:
 
 my_agent/agent.go
     
@@ -306,7 +314,7 @@ my_agent/agent.go
     func main() {
         ctx := context.Background()
     
-        model, err := gemini.NewModel(ctx, "gemini-3-pro-preview", &genai.ClientConfig{
+        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
             APIKey: os.Getenv("GOOGLE_API_KEY"),
         })
         if err != nil {
@@ -368,7 +376,7 @@ Update: my_agent/env.bat
 
 Using other AI models with ADK
 
-ADK supports the use of many generative AI models. For more information on configuring other models in ADK agents, see [Models & Authentication](/adk-docs/agents/models).
+ADK supports the use of many generative AI models. For more information on configuring other models in ADK agents, see [Models & Authentication](/agents/models).
 
 ## Run your agent¶
 
@@ -406,7 +414,7 @@ ADK Web is **_not meant for use in production deployments_**. You should use ADK
 
 Now that you have ADK installed and your first agent running, try building your own agent with our build guides:
 
-  * [Build your agent](/adk-docs/tutorials/)
+  * [Build your agent](/tutorials/)
 
 
 

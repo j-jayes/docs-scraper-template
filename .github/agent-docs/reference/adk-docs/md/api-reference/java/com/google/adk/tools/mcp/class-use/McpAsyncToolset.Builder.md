@@ -63,7 +63,7 @@ McpAsyncToolset.Builder.`[objectMapper](../McpAsyncToolset.Builder.html#objectMa
 
 `[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(com.google.adk.tools.ToolPredicate\))([ToolPredicate](../../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(com.google.adk.tools.ToolPredicate\))(@Nullable [ToolPredicate](../../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
  
 

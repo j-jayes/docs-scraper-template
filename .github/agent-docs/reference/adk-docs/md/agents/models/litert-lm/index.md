@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+      * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Vertex AI hosted  ](../vertex/)
       * [ Apigee AI Gateway  ](../apigee/)
@@ -126,6 +128,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -173,9 +177,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
@@ -207,9 +213,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 

@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -77,6 +78,7 @@ Models for Agents
           * Error Code 429 - RESOURCE_EXHAUSTED 
         * Gemini Interactions API 
           * Known limitations 
+      * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Vertex AI hosted  ](../vertex/)
       * [ Apigee AI Gateway  ](../apigee/)
@@ -131,6 +133,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -178,9 +182,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
@@ -212,9 +218,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -254,7 +262,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.2.0
 
-ADK supports the Google Gemini family of generative AI models that provide a powerful set of models with a wide range of features. ADK provides support for many Gemini features, including [Code Execution](/adk-docs/tools/gemini-api/code-execution/), [Google Search](/adk-docs/tools/gemini-api/google-search/), [Context caching](/adk-docs/context/caching/), [Computer use](/adk-docs/tools/gemini-api/computer-use/) and the Interactions API.
+ADK supports the Google Gemini family of generative AI models that provide a powerful set of models with a wide range of features. ADK provides support for many Gemini features, including [Code Execution](/tools/gemini-api/code-execution/), [Google Search](/tools/gemini-api/google-search/), [Context caching](/context/caching/), [Computer use](/tools/gemini-api/computer-use/) and the Interactions API.
 
 ## Get started¶
 
@@ -402,7 +410,7 @@ Explicitly tell the library to use Vertex AI:
   1. **Sign up for Express Mode** to get your API key.
   2. **Set environment variables:**
          
-         export GOOGLE_API_KEY="PASTE_YOUR_EXPRESS_MODE_API_KEY_HERE"
+         export GOOGLE_GENAI_API_KEY="PASTE_YOUR_EXPRESS_MODE_API_KEY_HERE"
          export GOOGLE_GENAI_USE_VERTEXAI=TRUE
          
 
@@ -579,7 +587,7 @@ For a complete code sample, see the [Interactions API sample](https://github.com
 
 ### Known limitations¶
 
-The Interactions API **does not** support mixing custom function calling tools with built-in tools, such as the [Google Search](/adk-docs/tools/built-in-tools/#google-search), tool, within the same agent. You can work around this limitation by configuring the the built-in tool to operate as a custom tool using the `bypass_multi_tools_limit` parameter:
+The Interactions API **does not** support mixing custom function calling tools with built-in tools, such as the [Google Search](/tools/built-in-tools/#google-search), tool, within the same agent. You can work around this limitation by configuring the the built-in tool to operate as a custom tool using the `bypass_multi_tools_limit` parameter:
 
 PythonJava
     
@@ -596,7 +604,7 @@ PythonJava
 
 In this example, this option converts the built-in google_search to a function calling tool (via GoogleSearchAgentTool), which allows it to work alongside custom function tools.
 
-Back to top  [ Previous  AI Models for ADK agents  ](../) [ Next  Claude  ](../anthropic/)
+Back to top  [ Previous  AI Models for ADK agents  ](../) [ Next  Gemma  ](../google-gemma/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

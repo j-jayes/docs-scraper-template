@@ -63,6 +63,12 @@ ParallelAgent.`[builder](../ParallelAgent.html#builder\(\))()`
 
  
 
+`[ParallelAgent.Builder](../ParallelAgent.Builder.html "class in com.google.adk.agents")`
+
+ParallelAgent.Builder.`[scheduler](../ParallelAgent.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\))(io.reactivex.rxjava3.core.Scheduler scheduler)`
+
+ 
+
 
 
 

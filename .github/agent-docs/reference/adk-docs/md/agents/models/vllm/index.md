@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+      * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Vertex AI hosted  ](../vertex/)
       * [ Apigee AI Gateway  ](../apigee/)
@@ -122,6 +124,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -169,9 +173,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
@@ -203,9 +209,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -236,7 +244,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0
 
-Tools such as [vLLM](https://github.com/vllm-project/vllm) allow you to host models efficiently and serve them as an OpenAI-compatible API endpoint. You can use vLLM models through the [LiteLLM](/adk-docs/agents/models/litellm/) library for Python.
+Tools such as [vLLM](https://github.com/vllm-project/vllm) allow you to host models efficiently and serve them as an OpenAI-compatible API endpoint. You can use vLLM models through the [LiteLLM](/agents/models/litellm/) library for Python.
 
 ## Setup¶
 
@@ -255,13 +263,13 @@ The following example shows how to use a vLLM endpoint with ADK agents.
     from google.adk.agents import LlmAgent
     from google.adk.models.lite_llm import LiteLlm
     
-    # --- Example Agent using a model hosted on a vLLM endpoint ---
+    # --- Example Agent using a Gemma 4 model hosted on a vLLM endpoint ---
     
     # Endpoint URL provided by your vLLM deployment
     api_base_url = "https://your-vllm-endpoint.run.app/v1"
     
     # Model name as recognized by *your* vLLM endpoint configuration
-    model_name_at_endpoint = "hosted_vllm/google/gemma-3-4b-it" # Example from vllm_test.py
+    model_name_at_endpoint = "hosted_vllm/google/gemma-4-E4B-it" # Example from vllm_test.py
     
     # Authentication (Example: using gcloud identity token for a Cloud Run deployment)
     # Adapt this based on your endpoint's security
@@ -278,8 +286,15 @@ The following example shows how to use a vLLM endpoint with ADK agents.
         model=LiteLlm(
             model=model_name_at_endpoint,
             api_base=api_base_url,
+            # This extra_body values specific to Gemma 4.
+            extra_body={
+                "chat_template_kwargs": {
+                    "enable_thinking": True # Enable thinking
+                },
+                "skip_special_tokens": False # Should be set to False
+            },
             # Pass authentication headers if needed
-            extra_headers=auth_headers
+            extra_headers=auth_headers,
             # Alternatively, if endpoint uses an API key:
             # api_key="YOUR_ENDPOINT_API_KEY"
         ),

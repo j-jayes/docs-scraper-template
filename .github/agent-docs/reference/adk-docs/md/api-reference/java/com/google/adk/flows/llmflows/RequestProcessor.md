@@ -32,7 +32,7 @@ Hide sidebar  Show sidebar
 # Interface RequestProcessor
 
 All Known Implementing Classes:
-    `[AgentTransfer](AgentTransfer.html "class in com.google.adk.flows.llmflows"), [Basic](Basic.html "class in com.google.adk.flows.llmflows"), [Compaction](Compaction.html "class in com.google.adk.flows.llmflows"), [Contents](Contents.html "class in com.google.adk.flows.llmflows"), [Identity](Identity.html "class in com.google.adk.flows.llmflows"), [Instructions](Instructions.html "class in com.google.adk.flows.llmflows"), [RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")`
+    `[AgentTransfer](AgentTransfer.html "class in com.google.adk.flows.llmflows"), [Basic](Basic.html "class in com.google.adk.flows.llmflows"), [Compaction](Compaction.html "class in com.google.adk.flows.llmflows"), [Contents](Contents.html "class in com.google.adk.flows.llmflows"), [Identity](Identity.html "class in com.google.adk.flows.llmflows"), [Instructions](Instructions.html "class in com.google.adk.flows.llmflows"), [OutputSchema](OutputSchema.html "class in com.google.adk.flows.llmflows"), [RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")`
 
 * * *
 

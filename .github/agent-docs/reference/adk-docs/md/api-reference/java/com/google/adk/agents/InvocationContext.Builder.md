@@ -83,7 +83,7 @@ Sets the artifact service for persisting artifacts.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`branch([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+`branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
 
 Sets the branch ID for the invocation.
 
@@ -101,7 +101,7 @@ Sets the callback context data for the invocation.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`contextCacheConfig([ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
+`contextCacheConfig(@Nullable [ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
 
 Sets the context cache configuration for the current agent run.
 
@@ -113,7 +113,7 @@ Sets whether this invocation should be ended.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`eventsCompactionConfig([EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
+`eventsCompactionConfig(@Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
 
 Sets the events compaction configuration for the current agent run.
 
@@ -125,7 +125,7 @@ Sets the unique ID for the invocation.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`liveRequestQueue([LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)`
+`liveRequestQueue(@Nullable [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)`
 
 Sets the queue for managing live requests.
 
@@ -161,7 +161,7 @@ Sets the session service for managing session state.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-`userContent(com.google.genai.types.Content userContent)`
+`userContent(@Nullable com.google.genai.types.Content userContent)`
 
 Sets the user content that triggered this invocation.
 

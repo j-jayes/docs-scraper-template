@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -77,6 +78,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../models/google-gemini/)
+      * [ Gemma  ](../models/google-gemma/)
       * [ Claude  ](../models/anthropic/)
       * [ Vertex AI hosted  ](../models/vertex/)
       * [ Apigee AI Gateway  ](../models/apigee/)
@@ -131,6 +133,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -178,9 +182,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -212,9 +218,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -268,7 +276,7 @@ First, you need to establish what the agent _is_ and what it's _for_.
 
   * **`description` (Optional, Recommended for Multi-Agent):** Provide a concise summary of the agent's capabilities. This description is primarily used by _other_ LLM agents to determine if they should route a task to this agent. Make it specific enough to differentiate it from peers (e.g., "Handles inquiries about current billing statements," not just "Billing agent").
 
-  * **`model` (Required):** Specify the underlying LLM that will power this agent's reasoning. This is a string identifier like `"gemini-2.5-flash"`. The choice of model impacts the agent's capabilities, cost, and performance. See the [Models](/adk-docs/agents/models/) page for available options and considerations.
+  * **`model` (Required):** Specify the underlying LLM that will power this agent's reasoning. This is a string identifier like `"gemini-2.5-flash"`. The choice of model impacts the agent's capabilities, cost, and performance. See the [Models](/agents/models/) page for available options and considerations.
 
 
 
@@ -561,7 +569,7 @@ PythonTypescriptGoJava
             .build();
     
 
-Learn more about Tools in [Custom Tools](/adk-docs/tools-custom/).
+Learn more about Tools in [Custom Tools](/tools-custom/).
 
 ## Advanced Configuration & Control¶
 
@@ -981,7 +989,7 @@ Example for using built-in-planner:
 
 Supported in ADKPython v0.1.0Java v0.1.0
 
-  * **`code_executor` (Optional):** Provide a `BaseCodeExecutor` instance to allow the agent to execute code blocks found in the LLM's response. For more information, see [Code Execution with Gemini API](/adk-docs/tools/gemini-api/code-execution/).
+  * **`code_executor` (Optional):** Provide a `BaseCodeExecutor` instance to allow the agent to execute code blocks found in the LLM's response. For more information, see [Code Execution with Gemini API](/tools/gemini-api/code-execution/).
 
 
 

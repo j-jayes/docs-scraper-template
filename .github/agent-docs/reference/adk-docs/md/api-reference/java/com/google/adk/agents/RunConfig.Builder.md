@@ -29,15 +29,24 @@ Contents
      1. Builder()
   5. Method Details
      1. setSpeechConfig(SpeechConfig)
-     2. setResponseModalities(Iterable)
-     3. setSaveInputBlobsAsArtifacts(boolean)
-     4. setStreamingMode(RunConfig.StreamingMode)
-     5. setToolExecutionMode(RunConfig.ToolExecutionMode)
-     6. setOutputAudioTranscription(AudioTranscriptionConfig)
-     7. setInputAudioTranscription(AudioTranscriptionConfig)
-     8. setMaxLlmCalls(int)
-     9. setAutoCreateSession(boolean)
-     10. build()
+     2. speechConfig(SpeechConfig)
+     3. setResponseModalities(Iterable)
+     4. responseModalities(Iterable)
+     5. setSaveInputBlobsAsArtifacts(boolean)
+     6. saveInputBlobsAsArtifacts(boolean)
+     7. setStreamingMode(RunConfig.StreamingMode)
+     8. streamingMode(RunConfig.StreamingMode)
+     9. setToolExecutionMode(RunConfig.ToolExecutionMode)
+     10. toolExecutionMode(RunConfig.ToolExecutionMode)
+     11. setOutputAudioTranscription(AudioTranscriptionConfig)
+     12. outputAudioTranscription(AudioTranscriptionConfig)
+     13. setInputAudioTranscription(AudioTranscriptionConfig)
+     14. inputAudioTranscription(AudioTranscriptionConfig)
+     15. setMaxLlmCalls(int)
+     16. maxLlmCalls(int)
+     17. setAutoCreateSession(boolean)
+     18. autoCreateSession(boolean)
+     19. build()
 
 Hide sidebar  Show sidebar
 
@@ -70,13 +79,19 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract MethodsConcrete Methods
+All MethodsInstance MethodsAbstract MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
 Method
 
 Description
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`autoCreateSession(boolean autoCreateSession)`
+
+ 
 
 `[RunConfig](RunConfig.html "class in com.google.adk.agents")`
 
@@ -86,55 +101,103 @@ Description
 
 `abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
+`inputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`maxLlmCalls(int maxLlmCalls)`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`outputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription)`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`responseModalities([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`saveInputBlobsAsArtifacts(boolean saveInputBlobsAsArtifacts)`
+
+ 
+
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
 `setAutoCreateSession(boolean autoCreateSession)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
-`setInputAudioTranscription(com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)`
+`setInputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
 `setMaxLlmCalls(int maxLlmCalls)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
-`setOutputAudioTranscription(com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription)`
+`setOutputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
 `setResponseModalities([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
 `setSaveInputBlobsAsArtifacts(boolean saveInputBlobsAsArtifacts)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
-`setSpeechConfig(com.google.genai.types.SpeechConfig speechConfig)`
+`setSpeechConfig(@Nullable com.google.genai.types.SpeechConfig speechConfig)`
 
- 
+Deprecated.
 
-`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
 `setStreamingMode([RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)`
 
+Deprecated.
+
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`setToolExecutionMode([RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)`
+
+Deprecated.
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`speechConfig(@Nullable com.google.genai.types.SpeechConfig speechConfig)`
+
  
 
 `abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
-`setToolExecutionMode([RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)`
+`streamingMode([RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`toolExecutionMode([RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)`
 
  
 
@@ -155,39 +218,93 @@ public Builder()
 
     * ### setSpeechConfig
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setSpeechConfig(@Nullable com.google.genai.types.SpeechConfig speechConfig)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setSpeechConfig(@Nullable com.google.genai.types.SpeechConfig speechConfig)
+
+Deprecated.
+
+    * ### speechConfig
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") speechConfig(@Nullable com.google.genai.types.SpeechConfig speechConfig)
 
     * ### setResponseModalities
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setResponseModalities([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setResponseModalities([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)
+
+Deprecated.
+
+    * ### responseModalities
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") responseModalities([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)
 
     * ### setSaveInputBlobsAsArtifacts
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setSaveInputBlobsAsArtifacts(boolean saveInputBlobsAsArtifacts)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setSaveInputBlobsAsArtifacts(boolean saveInputBlobsAsArtifacts)
+
+Deprecated.
+
+    * ### saveInputBlobsAsArtifacts
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") saveInputBlobsAsArtifacts(boolean saveInputBlobsAsArtifacts)
 
     * ### setStreamingMode
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setStreamingMode([RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setStreamingMode([RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)
+
+Deprecated.
+
+    * ### streamingMode
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") streamingMode([RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)
 
     * ### setToolExecutionMode
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setToolExecutionMode([RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setToolExecutionMode([RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)
+
+Deprecated.
+
+    * ### toolExecutionMode
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") toolExecutionMode([RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)
 
     * ### setOutputAudioTranscription
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setOutputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setOutputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription)
+
+Deprecated.
+
+    * ### outputAudioTranscription
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") outputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig outputAudioTranscription)
 
     * ### setInputAudioTranscription
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setInputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setInputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)
+
+Deprecated.
+
+    * ### inputAudioTranscription
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") inputAudioTranscription(@Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)
 
     * ### setMaxLlmCalls
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setMaxLlmCalls(int maxLlmCalls)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setMaxLlmCalls(int maxLlmCalls)
+
+Deprecated.
+
+    * ### maxLlmCalls
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") maxLlmCalls(int maxLlmCalls)
 
     * ### setAutoCreateSession
 
-@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setAutoCreateSession(boolean autoCreateSession)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") setAutoCreateSession(boolean autoCreateSession)
+
+Deprecated.
+
+    * ### autoCreateSession
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") autoCreateSession(boolean autoCreateSession)
 
     * ### build
 

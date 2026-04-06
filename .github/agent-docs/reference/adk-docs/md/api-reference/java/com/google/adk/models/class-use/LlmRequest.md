@@ -152,6 +152,12 @@ Instructions.`[processRequest](../../flows/llmflows/Instructions.html#processReq
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
+OutputSchema.`[processRequest](../../flows/llmflows/OutputSchema.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") request)`
+
+ 
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
 RequestConfirmationLlmRequestProcessor.`[processRequest](../../flows/llmflows/RequestConfirmationLlmRequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
  
@@ -380,7 +386,7 @@ Description
 
 `static void`
 
-Tracing.`[traceCallLlm](../../telemetry/Tracing.html#traceCallLlm\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\))(io.opentelemetry.api.trace.Span span, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
+Tracing.`[traceCallLlm](../../telemetry/Tracing.html#traceCallLlm\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,java.lang.Exception\))(io.opentelemetry.api.trace.Span span, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
 
 Traces a call to the LLM.
 

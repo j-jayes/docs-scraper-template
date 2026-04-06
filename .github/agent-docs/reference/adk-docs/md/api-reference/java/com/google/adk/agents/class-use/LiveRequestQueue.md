@@ -46,7 +46,7 @@ Method
 
 Description
 
-`[LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents")`
+`@Nullable [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents")`
 
 ActiveStreamingTool.`[stream](../ActiveStreamingTool.html#stream\(\))()`
 
@@ -76,13 +76,13 @@ Description
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[liveRequestQueue](../InvocationContext.Builder.html#liveRequestQueue\(com.google.adk.agents.LiveRequestQueue\))([LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)`
+InvocationContext.Builder.`[liveRequestQueue](../InvocationContext.Builder.html#liveRequestQueue\(com.google.adk.agents.LiveRequestQueue\))(@Nullable [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)`
 
 Sets the queue for managing live requests.
 
 `void`
 
-ActiveStreamingTool.`[stream](../ActiveStreamingTool.html#stream\(com.google.adk.agents.LiveRequestQueue\))([LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") stream)`
+ActiveStreamingTool.`[stream](../ActiveStreamingTool.html#stream\(com.google.adk.agents.LiveRequestQueue\))(@Nullable [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") stream)`
 
 Sets the active stream of this streaming tool.
 
@@ -136,7 +136,7 @@ Retrieves the session and runs the agent in live mode.
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-Runner.`[runLiveImpl](../../runner/Runner.html#runLiveImpl\(com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
+Runner.`[runLiveImpl](../../runner/Runner.html#runLiveImpl\(com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, @Nullable [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
 Runs the agent in live mode, appending generated events to the session.
 

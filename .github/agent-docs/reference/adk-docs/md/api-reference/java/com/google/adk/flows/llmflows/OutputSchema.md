@@ -1,0 +1,157 @@
+JavaScript is disabled on your browser.
+
+   
+
+Skip navigation links
+
+  * [Overview](../../../../../index.html)
+  * Class
+  * [Use](class-use/OutputSchema.html)
+  * [Tree](package-tree.html)
+  * [Deprecated](../../../../../deprecated-list.html)
+  * [Index](../../../../../index-all.html)
+  * [Search](../../../../../search.html)
+
+
+
+  1. [com.google.adk.flows.llmflows](package-summary.html)
+  2. [OutputSchema](OutputSchema.html)
+
+
+
+Contents 
+
+  1. Description
+  2. Nested Class Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
+     1. OutputSchema()
+  6. Method Details
+     1. processRequest(InvocationContext, LlmRequest)
+     2. getStructuredModelResponse(Event)
+     3. createFinalModelResponseEvent(InvocationContext, String)
+
+Hide sidebar  Show sidebar
+
+# Class OutputSchema
+
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+
+com.google.adk.flows.llmflows.OutputSchema
+
+All Implemented Interfaces:
+    `[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")`
+
+* * *
+
+public final class OutputSchema extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") implements [RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")
+
+Processor that handles output schema for agents with tools.
+
+  * ## Nested Class Summary
+
+### Nested classes/interfaces inherited from interface [RequestProcessor](RequestProcessor.html#nested-class-summary "interface in com.google.adk.flows.llmflows")
+
+`[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")`
+
+  * ## Constructor Summary
+
+Constructors
+
+Constructor
+
+Description
+
+`OutputSchema()`
+
+ 
+
+  * ## Method Summary
+
+All MethodsStatic MethodsInstance MethodsConcrete Methods
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [Event](../../events/Event.html "class in com.google.adk.events")`
+
+`createFinalModelResponseEvent([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") jsonResponse)`
+
+Create a final model response event from set_model_response JSON.
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+
+`getStructuredModelResponse([Event](../../events/Event.html "class in com.google.adk.events") functionResponseEvent)`
+
+Check if function response contains set_model_response and extract JSON.
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
+`processRequest([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") request)`
+
+Process the LLM request as part of the pre-processing stage.
+
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+
+
+
+
+  * ## Constructor Details
+
+    * ### OutputSchema
+
+public OutputSchema()
+
+  * ## Method Details
+
+    * ### processRequest
+
+public io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")> processRequest([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") request)
+
+Description copied from interface: `[RequestProcessor](RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))`
+
+Process the LLM request as part of the pre-processing stage.
+
+Specified by:
+    `[processRequest](RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))` in interface `[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows")`
+Parameters:
+    `context` \- the invocation context.
+    `request` \- the LLM request to process.
+Returns:
+    a list of events generated during processing (if any).
+
+    * ### getStructuredModelResponse
+
+public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> getStructuredModelResponse([Event](../../events/Event.html "class in com.google.adk.events") functionResponseEvent)
+
+Check if function response contains set_model_response and extract JSON.
+
+Parameters:
+    `functionResponseEvent` \- The function response event to check.
+Returns:
+    JSON response string if set_model_response was called, Optional.empty() otherwise.
+
+    * ### createFinalModelResponseEvent
+
+public static [Event](../../events/Event.html "class in com.google.adk.events") createFinalModelResponseEvent([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") jsonResponse)
+
+Create a final model response event from set_model_response JSON.
+
+Parameters:
+    `context` \- The invocation context.
+    `jsonResponse` \- The JSON response from set_model_response tool.
+Returns:
+    A new Event that looks like a normal model response.
+
+
+
+
+* * *
+
+Copyright (C) 1980\. All rights reserved.

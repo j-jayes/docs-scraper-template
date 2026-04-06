@@ -68,7 +68,7 @@ Description
 
 `com.google.auth.oauth2.GoogleCredentials`
 
-`getGoogleCredentials([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") serviceAccountJson)`
+`getGoogleCredentials(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") serviceAccountJson)`
 
 Converts a service account JSON string to a Google Credentials object.
 

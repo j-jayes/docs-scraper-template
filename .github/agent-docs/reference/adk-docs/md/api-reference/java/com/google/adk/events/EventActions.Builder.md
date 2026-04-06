@@ -28,12 +28,12 @@ Contents
   4. Constructor Details
      1. Builder()
   5. Method Details
-     1. skipSummarization(boolean)
+     1. skipSummarization(Boolean)
      2. stateDelta(Map)
      3. artifactDelta(Map)
      4. deletedArtifactIds(Set)
      5. transferToAgent(String)
-     6. escalate(boolean)
+     6. escalate(Boolean)
      7. requestedAuthConfigs(Map)
      8. requestedToolConfirmations(Map)
      9. endOfAgent(boolean)
@@ -121,7 +121,7 @@ Use `endOfAgent(boolean)` instead.
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
-`escalate(boolean escalate)`
+`escalate(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") escalate)`
 
  
 
@@ -145,7 +145,7 @@ Use `endOfAgent(boolean)` instead.
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
-`skipSummarization(boolean skipSummarization)`
+`skipSummarization(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") skipSummarization)`
 
  
 
@@ -178,7 +178,7 @@ public Builder()
 
     * ### skipSummarization
 
-@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") skipSummarization(boolean skipSummarization)
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") skipSummarization(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") skipSummarization)
 
     * ### stateDelta
 
@@ -198,7 +198,7 @@ public Builder()
 
     * ### escalate
 
-@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") escalate(boolean escalate)
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") escalate(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") escalate)
 
     * ### requestedAuthConfigs
 

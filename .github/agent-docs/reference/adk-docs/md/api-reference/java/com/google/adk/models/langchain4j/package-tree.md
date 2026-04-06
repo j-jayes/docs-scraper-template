@@ -31,6 +31,7 @@ Package Hierarchies:
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
     * com.google.adk.models.[BaseLlm](../BaseLlm.html "class in com.google.adk.models")
       * com.google.adk.models.langchain4j.[LangChain4j](LangChain4j.html "class in com.google.adk.models.langchain4j")
+    * com.google.adk.models.langchain4j.[LangChain4j.Builder](LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
 
 
 

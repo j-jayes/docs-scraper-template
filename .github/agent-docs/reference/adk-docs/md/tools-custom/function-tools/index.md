@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -228,9 +230,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -1067,7 +1071,7 @@ While you have considerable flexibility in defining your function, remember that
   * **Fewer Parameters are Better:** Minimize the number of parameters to reduce complexity.
   * **Simple Data Types:** Favor primitive data types like `str` and `int` over custom classes whenever possible.
   * **Meaningful Names:** The function's name and parameter names significantly influence how the LLM interprets and utilizes the tool. Choose names that clearly reflect the function's purpose and the meaning of its inputs. Avoid generic names like `do_stuff()` or `beAgent()`.
-  * **Build for Parallel Execution:** Improve function calling performance when multiple tools are run by building for asynchronous operation. For information on enabling parallel execution for tools, see [Increase tool performance with parallel execution](/adk-docs/tools-custom/performance/).
+  * **Build for Parallel Execution:** Improve function calling performance when multiple tools are run by building for asynchronous operation. For information on enabling parallel execution for tools, see [Increase tool performance with parallel execution](/tools-custom/performance/).
 
 
 
@@ -1083,7 +1087,7 @@ Long Running Function Tools are designed to help you start and _manage_ long run
 
 Tip: Parallel execution
 
-Depending on the type of tool you are building, designing for asynchronous operation may be a better solution than creating a long running tool. For more information, see [Increase tool performance with parallel execution](/adk-docs/tools-custom/performance/).
+Depending on the type of tool you are building, designing for asynchronous operation may be a better solution than creating a long running tool. For more information, see [Increase tool performance with parallel execution](/tools-custom/performance/).
 
 ### How it Works¶
 
@@ -1263,7 +1267,7 @@ Agent client received an event with long running function calls and check the st
 
 Note: Long running function response with Resume feature
 
-If your ADK agent workflow is configured with the [Resume](/adk-docs/runtime/resume/) feature, you also must include the Invocation ID (`invocation_id`) parameter with the long running function response. The Invocation ID you provide must be the same invocation that generated the long running function request, otherwise the system starts a new invocation with the response. If your agent uses the Resume feature, consider including the Invocation ID as a parameter with your long running function request, so it can be included with the response. For more details on using the Resume feature, see [Resume stopped agents](/adk-docs/runtime/resume/).
+If your ADK agent workflow is configured with the [Resume](/runtime/resume/) feature, you also must include the Invocation ID (`invocation_id`) parameter with the long running function response. The Invocation ID you provide must be the same invocation that generated the long running function request, otherwise the system starts a new invocation with the response. If your agent uses the Resume feature, consider including the Invocation ID as a parameter with your long running function request, so it can be included with the response. For more details on using the Resume feature, see [Resume stopped agents](/runtime/resume/).
 
 Applies to only Java ADK
 

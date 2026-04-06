@@ -45,7 +45,7 @@ Description
 
 `abstract [MemoryEntry.Builder](../MemoryEntry.Builder.html "class in com.google.adk.memory")`
 
-MemoryEntry.Builder.`[author](../MemoryEntry.Builder.html#author\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author)`
+MemoryEntry.Builder.`[author](../MemoryEntry.Builder.html#author\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author)`
 
 Sets the author of the memory.
 
@@ -63,7 +63,7 @@ Sets the main content of the memory.
 
 `abstract [MemoryEntry.Builder](../MemoryEntry.Builder.html "class in com.google.adk.memory")`
 
-MemoryEntry.Builder.`[timestamp](../MemoryEntry.Builder.html#timestamp\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp)`
+MemoryEntry.Builder.`[timestamp](../MemoryEntry.Builder.html#timestamp\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp)`
 
 Sets the timestamp when the original content of this memory happened.
 

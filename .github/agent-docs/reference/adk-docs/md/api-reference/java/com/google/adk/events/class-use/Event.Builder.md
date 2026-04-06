@@ -45,7 +45,7 @@ Description
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[actions](../Event.Builder.html#actions\(com.google.adk.events.EventActions\))([EventActions](../EventActions.html "class in com.google.adk.events") value)`
+Event.Builder.`[actions](../Event.Builder.html#actions\(com.google.adk.events.EventActions\))(@Nullable [EventActions](../EventActions.html "class in com.google.adk.events") value)`
 
  
 
@@ -57,13 +57,13 @@ Event.Builder.`[author](../Event.Builder.html#author\(java.lang.String\))([Strin
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[avgLogprobs](../Event.Builder.html#avgLogprobs\(java.lang.Double\))([Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") value)`
+Event.Builder.`[avgLogprobs](../Event.Builder.html#avgLogprobs\(java.lang.Double\))(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[branch](../Event.Builder.html#branch\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+Event.Builder.`[branch](../Event.Builder.html#branch\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
@@ -75,37 +75,37 @@ Event.`[builder](../Event.html#builder\(\))()`
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[content](../Event.Builder.html#content\(com.google.genai.types.Content\))(com.google.genai.types.Content value)`
+Event.Builder.`[content](../Event.Builder.html#content\(com.google.genai.types.Content\))(@Nullable com.google.genai.types.Content value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[customMetadata](../Event.Builder.html#customMetadata\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> value)`
+Event.Builder.`[customMetadata](../Event.Builder.html#customMetadata\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[errorCode](../Event.Builder.html#errorCode\(com.google.genai.types.FinishReason\))(com.google.genai.types.FinishReason value)`
+Event.Builder.`[errorCode](../Event.Builder.html#errorCode\(com.google.genai.types.FinishReason\))(@Nullable com.google.genai.types.FinishReason value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[errorMessage](../Event.Builder.html#errorMessage\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+Event.Builder.`[errorMessage](../Event.Builder.html#errorMessage\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[finishReason](../Event.Builder.html#finishReason\(com.google.genai.types.FinishReason\))(com.google.genai.types.FinishReason value)`
+Event.Builder.`[finishReason](../Event.Builder.html#finishReason\(com.google.genai.types.FinishReason\))(@Nullable com.google.genai.types.FinishReason value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[groundingMetadata](../Event.Builder.html#groundingMetadata\(com.google.genai.types.GroundingMetadata\))(com.google.genai.types.GroundingMetadata value)`
+Event.Builder.`[groundingMetadata](../Event.Builder.html#groundingMetadata\(com.google.genai.types.GroundingMetadata\))(@Nullable com.google.genai.types.GroundingMetadata value)`
 
  
 
@@ -117,7 +117,7 @@ Event.Builder.`[id](../Event.Builder.html#id\(java.lang.String\))([String](https
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[interrupted](../Event.Builder.html#interrupted\(java.lang.Boolean\))([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") value)`
+Event.Builder.`[interrupted](../Event.Builder.html#interrupted\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") value)`
 
  
 
@@ -129,19 +129,19 @@ Event.Builder.`[invocationId](../Event.Builder.html#invocationId\(java.lang.Stri
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[longRunningToolIds](../Event.Builder.html#longRunningToolIds\(java.util.Set\))([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
+Event.Builder.`[longRunningToolIds](../Event.Builder.html#longRunningToolIds\(java.util.Set\))(@Nullable [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[modelVersion](../Event.Builder.html#modelVersion\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+Event.Builder.`[modelVersion](../Event.Builder.html#modelVersion\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[partial](../Event.Builder.html#partial\(java.lang.Boolean\))([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") value)`
+Event.Builder.`[partial](../Event.Builder.html#partial\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") value)`
 
  
 
@@ -159,13 +159,13 @@ Creates a builder pre-filled with this event's values.
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[turnComplete](../Event.Builder.html#turnComplete\(java.lang.Boolean\))([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") value)`
+Event.Builder.`[turnComplete](../Event.Builder.html#turnComplete\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") value)`
 
  
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[usageMetadata](../Event.Builder.html#usageMetadata\(com.google.genai.types.GenerateContentResponseUsageMetadata\))(com.google.genai.types.GenerateContentResponseUsageMetadata value)`
+Event.Builder.`[usageMetadata](../Event.Builder.html#usageMetadata\(com.google.genai.types.GenerateContentResponseUsageMetadata\))(@Nullable com.google.genai.types.GenerateContentResponseUsageMetadata value)`
 
  
 

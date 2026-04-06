@@ -16,28 +16,54 @@ Preparing search index...
 # Type Alias SingleBeforeToolCallback
 
 SingleBeforeToolCallback: (  
-params: { args: Dict; context: [ToolContext](../classes/ToolContext.html); tool: [BaseTool](../classes/BaseTool.html) },  
-) => Dict | undefined | Promise<Dict | undefined>
+params: {  
+args: Record<string, unknown>;  
+context: [Context](../classes/Context.html);  
+tool: [BaseTool](../classes/BaseTool.html);  
+},  
+) => | Record<string, unknown>  
+| undefined  
+| Promise<Record<string, unknown> | undefined>
 
 A callback that runs before a tool is called.
 
 #### Type Declaration
 
   *     * (  
-params: { args: Dict; context: [ToolContext](../classes/ToolContext.html); tool: [BaseTool](../classes/BaseTool.html) },  
-): Dict | undefined | Promise<Dict | undefined>
+params: {  
+args: Record<string, unknown>;  
+context: [Context](../classes/Context.html);  
+tool: [BaseTool](../classes/BaseTool.html);  
+},  
+): | Record<string, unknown>  
+| undefined  
+| Promise<Record<string, unknown> | undefined>
     * #### Parameters
 
-      * params: { args: Dict; context: [ToolContext](../classes/ToolContext.html); tool: [BaseTool](../classes/BaseTool.html) }
+      * params: { args: Record<string, unknown>; context: [Context](../classes/Context.html); tool: [BaseTool](../classes/BaseTool.html) }
+        * ##### args: Record<string, unknown>
 
-#### Returns Dict | undefined | Promise<Dict | undefined>
+The arguments to the tool.
+
+        * ##### context: [Context](../classes/Context.html)
+
+Context for the tool call.
+
+        * ##### tool: [BaseTool](../classes/BaseTool.html)
+
+The tool to be called.
+
+#### Returns   
+| Record<string, unknown>  
+| undefined  
+| Promise<Record<string, unknown> | undefined>
 
 The tool response. When present, the returned tool response will be used and the framework will skip calling the actual tool.
 
 
 
 
-  * Defined in [core/src/agents/llm_agent.ts:96](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/llm_agent.ts#L96)
+  * Defined in [agents/llm_agent.ts:136](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L136)
 
 
 

@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -127,6 +129,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -174,9 +178,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -208,9 +214,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -245,12 +253,12 @@ Table of contents
 
 # Get action confirmation for ADK Tools¶
 
-Supported in ADKPython v1.14.0Experimental
+Supported in ADKPython v1.14.0Go v0.3.0Experimental
 
 Some agent workflows require confirmation for decision making, verification, security, or general oversight. In these cases, you want to get a response from a human or supervising system before proceeding with a workflow. The _Tool Confirmation_ feature in the Agent Development Kit (ADK) allows an ADK Tool to pause its execution and interact with a user or other system for confirmation or to gather structured data before proceeding. You can use Tool Confirmation with an ADK Tool in the following ways:
 
-  * **Boolean Confirmation:** You can configure a FunctionTool with a `require_confirmation` parameter. This option pauses the tool for a yes or no confirmation response.
-  * **Advanced Confirmation:** For scenarios requiring structured data responses, you can configure a `FunctionTool` with a text prompt to explain the confirmation and an expected response.
+  * **Boolean Confirmation:** You can configure a tool with a confirmation flag or provider. This option pauses the tool for a yes or no confirmation response.
+  * **Advanced Confirmation:** For scenarios requiring structured data responses, you can configure a tool with a text prompt to explain the confirmation and an expected response.
 
 
 
@@ -262,29 +270,66 @@ You can configure how a request is communicated to a user, and the system can al
 
 **Figure 1.** Example confirmation response request dialog box using an advanced, tool response implementation.
 
-The following sections describe how to use this feature for the confirmation scenarios. For a complete code sample, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) example. There are additional ways to incorporate human input into your agent workflow, for more details, see the [Human-in-the-loop](/adk-docs/agents/multi-agents/#human-in-the-loop-pattern) agent pattern.
+The following sections describe how to use this feature for the confirmation scenarios. For a complete code sample, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) example. There are additional ways to incorporate human input into your agent workflow, for more details, see the [Human-in-the-loop](/agents/multi-agents/#human-in-the-loop-pattern) agent pattern.
 
 ## Boolean confirmation¶
 
 When your tool only requires a simple `yes` or `no` from the user, you can append a confirmation step using the `FunctionTool` class as a wrapper. For example, if you have a tool called `reimburse`, you can enable a confirmation step by wrapping it with the `FunctionTool` class and setting the `require_confirmation` parameter to `True`, as shown in the following example:
+
+PythonGoJava
     
     
-    # From agent.py
     root_agent = Agent(
-       ...
-       tools=[
+        # ...
+        tools = [
             # Set require_confirmation to True to require user confirmation
             # for the tool call.
             FunctionTool(reimburse, require_confirmation=True),
         ],
-    ...
+        # ...
+    )
     
-
-This implementation method requires minimal code, but is limited to simple approvals from the user or confirming system. For a complete example of this approach, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) code sample.
+    # This implementation method requires minimal code, but is limited to simple
+    # approvals from the user or confirming system. For a complete example of this
+    # approach, see the following code sample for a more detailed example:
+    # https://github.com/google/adk-python/blob/main/contributing/samples/human_tool_confirmation/agent.py
+    
+    
+    
+    reimburseTool, _ := functiontool.New(functiontool.Config{
+        Name:        "reimburse",
+        Description: "Reimburse an amount",
+        // Set RequireConfirmation to true to require user confirmation
+        // for the tool call.
+        RequireConfirmation: true,
+    }, func(ctx tool.Context, args ReimburseArgs) (ReimburseResult, error) {
+        // actual implementation
+        return ReimburseResult{Status: "ok"}, nil
+    })
+    
+    rootAgent, _ := llmagent.New(llmagent.Config{
+        // ...
+        Tools: []tool.Tool{reimburseTool},
+    })
+    
+    
+    
+    LlmAgent rootAgent = LlmAgent.builder()
+        // ...
+        .tools(
+            // Set requireConfirmation to true to require user confirmation
+            // for the tool call.
+            FunctionTool.create(myClassInstance, "reimburse", true)
+        )
+        // ...
+        .build();
+    
 
 ### Require confirmation function¶
 
-You can modify the behavior `require_confirmation` response by replacing its input value with a function that returns a boolean response. The following example shows a function for determining if a confirmation is required:
+You can modify the behavior of the confirmation requirement by using a function that returns a boolean response based on the tool's input.
+
+PythonGoJava
     
     
     async def confirmation_threshold(
@@ -293,20 +338,62 @@ You can modify the behavior `require_confirmation` response by replacing its inp
       """Returns true if the amount is greater than 1000."""
       return amount > 1000
     
-
-This function than then be set as the parameter value for the `require_confirmation` parameter:
-    
-    
     root_agent = Agent(
-       ...
-       tools=[
-            # Set require_confirmation to True to require user confirmation
+        # ...
+        tools = [
+            # Pass the threshold function to dynamically require confirmation
             FunctionTool(reimburse, require_confirmation=confirmation_threshold),
         ],
-    ...
+        # ...
+    )
     
-
-For a complete example of this implementation, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) code sample.
+    
+    
+    reimburseTool, _ := functiontool.New(functiontool.Config{
+        Name:        "reimburse",
+        Description: "Reimburse an amount",
+        // RequireConfirmationProvider allows for dynamic determination
+        // of whether user confirmation is needed.
+        RequireConfirmationProvider: func(args ReimburseArgs) bool {
+            return args.Amount > 1000
+        },
+    }, func(ctx tool.Context, args ReimburseArgs) (ReimburseResult, error) {
+        // actual implementation
+        return ReimburseResult{Status: "ok"}, nil
+    })
+    
+    
+    
+    // In ADK Java, dynamic threshold confirmation logic is evaluated directly
+    // inside the tool logic using the ToolContext rather than via a lambda parameter.
+    public Map<String, Object> reimburse(
+        @Schema(name="amount") int amount, ToolContext toolContext) {
+    
+      // 1. Dynamic threshold check
+      if (amount > 1000) {
+        Optional<ToolConfirmation> toolConfirmation = toolContext.toolConfirmation();
+        if (toolConfirmation.isEmpty()) {
+           toolContext.requestConfirmation("Amount > 1000 requires approval.");
+           return Map.of("status", "Pending manager approval.");
+        } else if (!toolConfirmation.get().confirmed()) {
+           return Map.of("status", "Reimbursement rejected.");
+        }
+      }
+    
+      // 2. Proceed with actual tool logic
+      return Map.of("status", "ok", "reimbursedAmount", amount);
+    }
+    
+    LlmAgent rootAgent = LlmAgent.builder()
+        // ...
+        .tools(
+            // No requireConfirmation flag is set because the custom threshold
+            // logic is already handled inside the method!
+            FunctionTool.create(this, "reimburse")
+        )
+        // ...
+        .build();
+    
 
 ## Advanced confirmation¶
 
@@ -316,46 +403,111 @@ This confirmation flow has a request stage where the system assembles and sends 
 
 ### Confirmation definition¶
 
-When creating a Tool with an advanced confirmation, create a function that includes a ToolContext object. Then define the confirmation using a tool_confirmation object, the `tool_context.request_confirmation()` method with `hint` and `payload` parameters. These properties are used as follows:
+When creating a Tool with advanced confirmation, use the `Tool Context Request Confirmation` method with `hint` and `payload` parameters:
 
   * `hint`: Descriptive message that explains what is needed from the user.
-  * `payload`: The structure of the data you expect in return. This data type is Any and must be serializable into a JSON-formatted string, such as a dictionary or pydantic model.
+  * `payload`: The structure of the data you expect in return. This must be serializable into a JSON-formatted string.
 
 
+
+For a complete example of this approach, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) code sample. Keep in mind that the agent workflow tool execution pauses while a confirmation is obtained. After confirmation is received, you can access the confirmation response in the `tool_confirmation.payload` object and then proceed with the execution of the workflow.
 
 The following code shows an example implementation for a tool that processes time off requests for an employee:
+
+PythonGoJava
     
     
     def request_time_off(days: int, tool_context: ToolContext):
-      """Request day off for the employee."""
-      ...
-      tool_confirmation = tool_context.tool_confirmation
-      if not tool_confirmation:
-        tool_context.request_confirmation(
-            hint=(
-                'Please approve or reject the tool call request_time_off() by'
-                ' responding with a FunctionResponse with an expected'
-                ' ToolConfirmation payload.'
-            ),
-            payload={
-                'approved_days': 0,
-            },
-        )
-        # Return intermediate status indicating that the tool is waiting for
-        # a confirmation response:
-        return {'status': 'Manager approval is required.'}
+        """Request day off for the employee."""
+        # ...
+        tool_confirmation = tool_context.tool_confirmation
+        if not tool_confirmation:
+            tool_context.request_confirmation(
+                hint=(
+                    'Please approve or reject the tool call request_time_off() by'
+                    ' responding with a FunctionResponse with an expected'
+                    ' ToolConfirmation payload.'
+                ),
+                payload={
+                    'approved_days': 0,
+                },
+            )
+            # Return intermediate status indicating that the tool is waiting for
+            # a confirmation response:
+            return {'status': 'Manager approval is required.'}
     
-      approved_days = tool_confirmation.payload['approved_days']
-      approved_days = min(approved_days, days)
-      if approved_days == 0:
-        return {'status': 'The time off request is rejected.', 'approved_days': 0}
-      return {
-          'status': 'ok',
-          'approved_days': approved_days,
-      }
+        approved_days = tool_confirmation.payload['approved_days']
+        approved_days = min(approved_days, days)
+        if approved_days == 0:
+            return {'status': 'The time off request is rejected.', 'approved_days': 0}
+        return {
+            'status': 'ok',
+            'approved_days': approved_days,
+        }
     
-
-For a complete example of this approach, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) code sample. Keep in mind that the agent workflow tool execution pauses while a confirmation is obtained. After confirmation is received, you can access the confirmation response in the `tool_confirmation.payload` object and then proceed with the execution of the workflow.
+    
+    
+    func requestTimeOff(ctx tool.Context, args RequestTimeOffArgs) (map[string]any, error) {
+        confirmation := ctx.ToolConfirmation()
+        if confirmation == nil {
+            ctx.RequestConfirmation(
+                "Please approve or reject the tool call requestTimeOff() by "+
+                "responding with a FunctionResponse with an expected "+
+                "ToolConfirmation payload.",
+                map[string]any{"approved_days": 0},
+            )
+            return map[string]any{"status": "Manager approval is required."}, nil
+        }
+    
+        payload := confirmation.Payload.(map[string]any)
+        // Values in map[string]any from JSON are float64 by default in Go
+        approvedDays := int(payload["approved_days"].(float64))
+        approvedDays = min(approvedDays, args.Days)
+    
+        if approvedDays == 0 {
+            return map[string]any{"status": "The time off request is rejected.", "approved_days": 0}, nil
+        }
+    
+        return map[string]any{
+            "status": "ok",
+            "approved_days": approvedDays,
+        }, nil
+    }
+    
+    
+    
+    public Map<String, Object> requestTimeOff(
+        @Schema(name="days") int days,
+        ToolContext toolContext) {
+        // Request day off for the employee.
+        // ...
+        Optional<ToolConfirmation> toolConfirmation = toolContext.toolConfirmation();
+        if (toolConfirmation.isEmpty()) {
+            toolContext.requestConfirmation(
+                "Please approve or reject the tool call requestTimeOff() by " +
+                "responding with a FunctionResponse with an expected " +
+                "ToolConfirmation payload.",
+                Map.of("approved_days", 0)
+            );
+            // Return intermediate status indicating that the tool is waiting for
+            // a confirmation response:
+            return Map.of("status", "Manager approval is required.");
+        }
+    
+        Map<String, Object> payload = (Map<String, Object>) toolConfirmation.get().payload();
+        int approvedDays = (int) payload.get("approved_days");
+        approvedDays = Math.min(approvedDays, days);
+    
+        if (approvedDays == 0) {
+            return Map.of("status", "The time off request is rejected.", "approved_days", 0);
+        }
+    
+        return Map.of(
+            "status", "ok",
+            "approved_days", approvedDays
+        );
+    }
+    
 
 ## Remote confirmation with REST API¶
 
@@ -377,7 +529,10 @@ You can send the request to the ADK API server's `/run` or `/run_sse` endpoint, 
                         "id": "adk-13b84a8c-c95c-4d66-b006-d72b30447e35",
                         "name": "adk_request_confirmation",
                         "response": {
-                            "confirmed": true
+                            "confirmed": true,
+                            "payload": {
+                                "approved_days": 5
+                            }
                         }
                     }
                 }
@@ -389,28 +544,29 @@ You can send the request to the ADK API server's `/run` or `/run_sse` endpoint, 
 
 A REST-based response for a confirmation must meet the following requirements:
 
-  * The `id` in the `function_response` should match the `function_call_id` from the `RequestConfirmation` `FunctionCall` event.
+  * The `id` in the `function_response` should match the `function_call_id` from the `adk_request_confirmation` `FunctionCall` event.
   * The `name` should be `adk_request_confirmation`.
-  * The `response` object contains the confirmation status and any additional payload data required by the tool.
-
-
+  * The `response` object contains the `confirmed` status and any additional `payload` data.
 
 Note: Confirmation with Resume feature
 
-If your ADK agent workflow is configured with the [Resume](/adk-docs/runtime/resume/) feature, you also must include the Invocation ID (`invocation_id`) parameter with the confirmation response. The Invocation ID you provide must be the same invocation that generated the confirmation request, otherwise the system starts a new invocation with the confirmation response. If your agent uses the Resume feature, consider including the Invocation ID as a parameter with your confirmation request, so it can be included with the response. For more details on using the Resume feature, see [Resume stopped agents](/adk-docs/runtime/resume/).
+If your ADK agent workflow is configured with the [Resume](/runtime/resume/) feature, you also must include the Invocation ID (`invocation_id`) parameter with the confirmation response. The Invocation ID you provide must be the same invocation that generated the confirmation request, otherwise the system starts a new invocation with the confirmation response. If your agent uses the Resume feature, consider including the Invocation ID as a parameter with your confirmation request, so it can be included with the response. For more details on using the Resume feature, see [Resume stopped agents](/runtime/resume/).
+
+
+
 
 ## Known limitations¶
 
 The tool confirmation feature has the following limitations:
 
-  * [DatabaseSessionService](/adk-docs/api-reference/python/google-adk.html#google.adk.sessions.DatabaseSessionService) is not supported by this feature.
-  * [VertexAiSessionService](/adk-docs/api-reference/python/google-adk.html#google.adk.sessions.VertexAiSessionService) is not supported by this feature.
+  * [DatabaseSessionService](/api-reference/python/google-adk.html#google.adk.sessions.DatabaseSessionService) is not supported by this feature.
+  * [VertexAiSessionService](/api-reference/python/google-adk.html#google.adk.sessions.VertexAiSessionService) is not supported by this feature.
 
 
 
 ## Next steps¶
 
-For more information on building ADK tools for agent workflows, see [Function tools](/adk-docs/tools-custom/function-tools/).
+For more information on building ADK tools for agent workflows, see [Function tools](/tools-custom/function-tools/).
 
 Back to top  [ Previous  Tool performance  ](../performance/) [ Next  MCP tools  ](../mcp-tools/)
 

@@ -219,7 +219,7 @@ Constructs the list of tools for this agent based on the `tools()` field.
 
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")>`
 
-`canonicalTools([ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents") context)`
+`canonicalTools(@Nullable [ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents") context)`
 
 Constructs the list of tools for this agent based on the `tools()` field.
 

@@ -13,6 +13,17 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../..)
+  * [ Build Agents ](../../get-started/)
+  * [ Run Agents ](../../runtime/)
+  * [ Components ](../../get-started/about/)
+  * [ Integrations ](../../integrations/)
+  * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
+  * [ ADK 2.0 ](../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -56,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -110,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -157,6 +171,7 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../quickstart-exposing/)
         * [ Go  ](../quickstart-exposing-go/)
+        * [ Java  ](../quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * Python  [ Python  ](./) Table of contents 
           * Overview 
@@ -168,9 +183,15 @@ A2A Protocol
             * 3\. Look out for the required agent card (agent-card.json) of the remote agent 
             * 4\. Run the Main (Consuming) Agent 
               * How it works 
+            * Advanced Configuration: Custom Converters and Interceptors 
+              * Converters 
+              * Request Interceptors 
+              * Request Parameters Configuration 
           * Example Interactions 
           * Next Steps 
         * [ Go  ](../quickstart-consuming-go/)
+        * [ Java  ](../quickstart-consuming-java/)
+      * [ A2A Extension  ](../a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
 Gemini Live API Toolkit 
@@ -187,8 +208,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
 
 API Reference 
@@ -199,8 +222,22 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
+    * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
+  * [ ADK 2.0  ](../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../workflows/graph-routes/)
+      * [ Data handling  ](../../workflows/data-handling/)
+      * [ Human input  ](../../workflows/human-input/)
+    * [ Collaborative agents  ](../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -215,6 +252,10 @@ Table of contents
     * 3\. Look out for the required agent card (agent-card.json) of the remote agent 
     * 4\. Run the Main (Consuming) Agent 
       * How it works 
+    * Advanced Configuration: Custom Converters and Interceptors 
+      * Converters 
+      * Request Interceptors 
+      * Request Parameters Configuration 
   * Example Interactions 
   * Next Steps 
 
@@ -395,10 +436,15 @@ a2a_basic/agent.py
         agent_card=(
             f"http://localhost:8001/a2a/check_prime_agent{AGENT_CARD_WELL_KNOWN_PATH}"
         ),
+        use_legacy=False,
     )
     
     <...code truncated>
     
+
+Using the new A2A integration
+
+By setting `use_legacy=False`, the agent will use the new ADK-A2A integration, as it will send the [A2A extension](../a2a-extension/) to the remote agent.
 
 Then, you can simply use the `RemoteA2aAgent` in your agent. In this case, `prime_agent` is used as one of the sub-agents in the `root_agent` below:
 
@@ -434,6 +480,68 @@ a2a_basic/agent.py
             ]
         ),
     )
+    
+
+### Advanced Configuration: Custom Converters and Interceptors¶
+
+Internally, the `RemoteA2aAgent` translates between the A2A protocol format and the ADK's native `Event` system. You can customize this behaviour by passing an [`A2aRemoteAgentConfig`](https://github.com/google/adk-python/blob/main/src/google/adk/a2a/agent/config.py) object via the `config` parameter to `RemoteA2aAgent`.
+
+This allows you to define custom type mappings, inject request parameters, and intercept requests or responses.
+
+#### Converters¶
+
+Converters handle the translation of incoming A2A responses into native ADK objects. You can provide your own mapping functions for the following hooks:
+
+  * **`a2a_message_converter`** : Converts standard A2A Messages into ADK `Event` objects.
+  * **`a2a_task_converter`** : Converts an A2A Task into an ADK `Event`.
+  * **`a2a_status_update_converter`** : Converts A2A `TaskStatusUpdateEvent`s into ADK `Event` objects.
+  * **`a2a_artifact_update_converter`** : Converts A2A `TaskArtifactUpdateEvent`s into ADK `Event` objects.
+  * **`a2a_part_converter`** : A foundational low-level hook utilized internally by other converters to convert individual A2A Message Parts into GenAI `Part` objects.
+
+
+
+Note
+
+These custom client converters are used only when the response is coming from the new implementation of the [agent executor](https://github.com/google/adk-python/blob/main/src/google/adk/a2a/executor/a2a_agent_executor_impl.py). For more details, see the [A2A extension](../a2a-extension/).
+
+#### Request Interceptors¶
+
+You can inject a list of `request_interceptors` to add middleware logic to A2A requests:
+
+  * **`before_request`** : Executed before the agent starts processing. You can modify the `A2AMessage`, or return an ADK `Event` to immediately abort the request and return that event to the caller.
+  * **`after_request`** : Executed after the agent has processed the request. You can modify the resulting ADK `Event`, or return `None` to filter out and drop the event entirely.
+
+
+
+#### Request Parameters Configuration¶
+
+Through interceptors, you can also modify the `ParametersConfig` for the A2A request to inject:
+
+  * **`request_metadata`** : Pass custom metadata dictionaries into the request headers.
+  * **`client_call_context`** : Inject specific client call contexts for the underlying transport.
+
+
+    
+    
+    <...code truncated...>
+    
+    from google.adk.agents.remote_a2a_agent import AGENT_CARD_WELL_KNOWN_PATH
+    from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
+    
+    prime_agent = RemoteA2aAgent(
+        name="prime_agent",
+        description="Agent that handles checking if numbers are prime.",
+        agent_card=(
+            f"http://localhost:8001/a2a/check_prime_agent{AGENT_CARD_WELL_KNOWN_PATH}"
+        ),
+        use_legacy=False,
+        config=A2aRemoteAgentConfig(
+            a2a_message_converter=my_a2a_message_converter,
+            request_interceptors=[my_request_interceptor],
+        ),
+    )
+    
+    <...code truncated>
     
 
 ## Example Interactions¶
@@ -474,9 +582,9 @@ Now that you have created an agent that's using a remote agent via an A2A server
 
 
 
-Back to top  [ Previous  Go  ](../quickstart-exposing-go/) [ Next  Go  ](../quickstart-consuming-go/)
+Back to top  [ Previous  Java  ](../quickstart-exposing-java/) [ Next  Go  ](../quickstart-consuming-go/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

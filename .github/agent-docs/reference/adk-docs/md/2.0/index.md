@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](./)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](./)
 
 ADK 2.0 
@@ -240,11 +244,11 @@ ADK 2.0 is an Alpha release and may cause breaking changes when used with prior 
 
 ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available as an Alpha release for Python and includes the following key features:
 
-  * [**Graph-based workflows**](/adk-docs/workflows/): Build deterministic agent workflows with more control over how tasks are routed and executed.
+  * [**Graph-based workflows**](/workflows/): Build deterministic agent workflows with more control over how tasks are routed and executed.
 
-  * [**Collaborative agents**](/adk-docs/workflows/collaboration/): Build complex agent architectures with coordinator agents and multiple subagents working together.
+  * [**Collaborative agents**](/workflows/collaboration/): Build complex agent architectures with coordinator agents and multiple subagents working together.
 
-  * [**Dynamic workflows**](/adk-docs/workflows/dynamic/): Use code-based logic for building more complex workflows including iterative loops and complex decision-based branching.
+  * [**Dynamic workflows**](/workflows/dynamic/): Use code-based logic for building more complex workflows including iterative loops and complex decision-based branching.
 
 
 
@@ -310,9 +314,9 @@ The `--pre` option does not install the ADK 2.0 libraries if you already have AD
 
 Read the developer guides for building agents with ADK 2.0 features:
 
-  * [**Graph-based workflows**](/adk-docs/workflows/)
-  * [**Collaborative agents**](/adk-docs/workflows/collaboration/)
-  * [**Dynamic workflows**](/adk-docs/workflows/dynamic/)
+  * [**Graph-based workflows**](/workflows/)
+  * [**Collaborative agents**](/workflows/collaboration/)
+  * [**Dynamic workflows**](/workflows/dynamic/)
 
 
 
@@ -325,7 +329,7 @@ Check out these ADK 2.0 code samples for testing and inspiration:
 
 Thanks for checking out ADK 2.0! We look forward to your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
-Back to top  [ Previous  Release Notes  ](../release-notes/) [ Next  Graph-based agent workflows  ](../workflows/)
+Back to top  [ Previous  Contributing Guide  ](../community/contributing-guide/) [ Next  Graph-based agent workflows  ](../workflows/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

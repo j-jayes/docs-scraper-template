@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -70,6 +71,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../models/google-gemini/)
+      * [ Gemma  ](../../models/google-gemma/)
       * [ Claude  ](../../models/anthropic/)
       * [ Vertex AI hosted  ](../../models/vertex/)
       * [ Apigee AI Gateway  ](../../models/apigee/)
@@ -209,9 +211,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -430,7 +434,7 @@ PythonTypescriptGoJava
     
     
     
-     // Part of agent.ts --> Follow https://google.github.io/adk-docs/get-started/quickstart/ to learn the setup
+     // Part of agent.ts --> Follow https://adk.dev/get-started/ to learn the setup
      // --- 1. Define Researcher Sub-Agents (to run in parallel) ---
     
      const researchTools = [GOOGLE_SEARCH];

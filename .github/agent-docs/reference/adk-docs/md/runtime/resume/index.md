@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -209,9 +211,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -265,7 +269,7 @@ Enable the Resume function for an agent workflow by applying a Resumability conf
 
 Caution: Long Running Functions, Confirmations, Authentication
 
-For agents that use [Long Running Functions](/adk-docs/tools-custom/function-tools/#long-run-tool), [Confirmations](/adk-docs/tools-custom/confirmation/), or [Authentication](/adk-docs/tools-custom/authentication/) requiring user input, adding a resumable confirmation changes how these features operate. For more information, see the documentation for those features.
+For agents that use [Long Running Functions](/tools-custom/function-tools/#long-run-tool), [Confirmations](/tools-custom/confirmation/), or [Authentication](/tools-custom/authentication/) requiring user input, adding a resumable confirmation changes how these features operate. For more information, see the documentation for those features.
 
 Note: Custom Agents
 
@@ -273,7 +277,7 @@ Resume is not supported by default for Custom Agents. You must update the agent 
 
 ## Resume a stopped workflow¶
 
-When an ADK workflow stops execution you can resume the workflow using a command containing the Invocation ID for the workflow instance, which can be found in the [Event](/adk-docs/events/#understanding-and-using-events) history of the workflow. Make sure the ADK API server is running, in case it was interrupted or powered off, and then run the following command to resume the workflow, as shown in the following API request example.
+When an ADK workflow stops execution you can resume the workflow using a command containing the Invocation ID for the workflow instance, which can be found in the [Event](/events/#understanding-and-using-events) history of the workflow. Make sure the ADK API server is running, in case it was interrupted or powered off, and then run the following command to resume the workflow, as shown in the following API request example.
     
     
     # restart the API server if needed:
@@ -293,7 +297,7 @@ When an ADK workflow stops execution you can resume the workflow using a command
 You can also resume a workflow using the Runner object Run Async method, as shown below:
     
     
-    runner.run_async(user_id='u_123', session_id='s_abc', 
+    runner.run_async(user_id='u_123', session_id='s_abc',
         invocation_id='invocation-123')
     
     # When new_message is set to a function response,
@@ -306,7 +310,7 @@ Resuming a workflow from the ADK Web user interface or using the ADK command lin
 
 ## How it works¶
 
-The Resume feature works by logging completed Agent workflow tasks, including incremental steps using [Events](/adk-docs/events/) and [Event Actions](/adk-docs/events/#detecting-actions-and-side-effects). tracking completion of agent tasks within a resumable workflow. If a workflow is interrupted and then later restarted, the system resumes the workflow by setting the completion state of each agent. If an agent did not complete, the workflow system reinstates any completed Events for that agent, and restarts the workflow from the partially completed state. For multi-agent workflows, the specific resume behavior varies, based on the multi-agent classes in your workflow, as described below:
+The Resume feature works by logging completed Agent workflow tasks, including incremental steps using [Events](/events/) and [Event Actions](/events/#detecting-actions-and-side-effects). tracking completion of agent tasks within a resumable workflow. If a workflow is interrupted and then later restarted, the system resumes the workflow by setting the completion state of each agent. If an agent did not complete, the workflow system reinstates any completed Events for that agent, and restarts the workflow from the partially completed state. For multi-agent workflows, the specific resume behavior varies, based on the multi-agent classes in your workflow, as described below:
 
   * **Sequential Agent** : Reads the current_sub_agent from its saved state to find the next sub-agent to run in the sequence.
   * **Loop Agent** : Uses the current_sub_agent and times_looped values to continue the loop from the last completed iteration and sub-agent.
@@ -336,7 +340,7 @@ Custom agents have specific implementation requirements in order to support resu
 
 
 
-The following example shows the required code modifications to the example StoryFlowAgent class shown in the [Custom Agents](/adk-docs/agents/custom-agents/#full-code-example) guide:
+The following example shows the required code modifications to the example StoryFlowAgent class shown in the [Custom Agents](/agents/custom-agents/#full-code-example) guide:
     
     
     class WorkflowStep(int, Enum):

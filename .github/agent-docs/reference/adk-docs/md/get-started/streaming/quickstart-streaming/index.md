@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../)
 
@@ -77,6 +78,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -216,9 +218,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -317,7 +321,7 @@ For `model`, please double-check the model ID as described earlier in the Models
        name="basic_search_agent",
        # The Large Language Model (LLM) that agent will use.
        # Please fill in the latest model id that supports live from
-       # https://google.github.io/adk-docs/get-started/streaming/quickstart-streaming/#supported-models
+       # https://adk.dev/get-started/streaming/quickstart-streaming/#supported-models
        model="...",
        # A short description of the agent's purpose.
        description="Agent to answer questions using Google Search.",

@@ -93,25 +93,25 @@ Description
 
 Creates a new builder for [`SseServerParameters`](SseServerParameters.html "class in com.google.adk.tools.mcp").
 
-`abstract com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+`abstract @Nullable com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
 
 `headers()`
 
 Optional headers to include in the SSE connection request.
 
-`abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`abstract @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `sseEndpoint()`
 
 The endpoint to connect to on the SSE server.
 
-`abstract [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time")`
+`abstract @Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time")`
 
 `sseReadTimeout()`
 
 The timeout for reading data from the SSE stream.
 
-`abstract [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time")`
+`abstract @Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time")`
 
 `timeout()`
 
@@ -146,25 +146,25 @@ The URL of the SSE server.
 
     * ### sseEndpoint
 
-@Nullable public abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sseEndpoint()
+public abstract @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sseEndpoint()
 
 The endpoint to connect to on the SSE server.
 
     * ### headers
 
-@Nullable public abstract com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> headers()
+public abstract @Nullable com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> headers()
 
 Optional headers to include in the SSE connection request.
 
     * ### timeout
 
-@Nullable public abstract [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout()
+public abstract @Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout()
 
 The timeout for the initial connection attempt.
 
     * ### sseReadTimeout
 
-@Nullable public abstract [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout()
+public abstract @Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout()
 
 The timeout for reading data from the SSE stream.
 

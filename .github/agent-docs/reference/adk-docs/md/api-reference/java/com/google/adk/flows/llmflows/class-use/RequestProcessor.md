@@ -78,6 +78,12 @@ Request processor that performs event compaction.
 
 [`RequestProcessor`](../RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles instructions and global instructions for LLM flows.
 
+`final class `
+
+`[OutputSchema](../OutputSchema.html "class in com.google.adk.flows.llmflows")`
+
+Processor that handles output schema for agents with tools.
+
 `class `
 
 `[RequestConfirmationLlmRequestProcessor](../RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")`

@@ -143,7 +143,7 @@ Returns the branch ID for the current invocation, if one is set.
 
 `void`
 
-`branch([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+`branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
 
 Sets the [branch] ID for the current invocation.
 

@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -243,7 +247,7 @@ Graph-based workflows in ADK let you build agents with more precise control, cre
 
 **Figure 1.** A graph-based agent design for flight upgrades, combining workflow nodes of different types, including Functions, human input, Tools, and LLM capabilities.
 
-Prebuilt ADK [workflow agents](/adk-docs/agents/workflow-agents/), such as [Sequential Agents](/adk-docs/agents/workflow-agents/sequential-agents/), provide a defined process flow control only across a set of agents. You can continue to build standard ADK agents with long prompts, tools, and use them in graph-based workflow agents. When you need more precise control, workflow agent graphs give you more flexibility over how tasks are routed and executed. Graph-based workflows provide the following advantages:
+Prebuilt ADK [workflow agents](/agents/workflow-agents/), such as [Sequential Agents](/agents/workflow-agents/sequential-agents/), provide a defined process flow control only across a set of agents. You can continue to build standard ADK agents with long prompts, tools, and use them in graph-based workflow agents. When you need more precise control, workflow agent graphs give you more flexibility over how tasks are routed and executed. Graph-based workflows provide the following advantages:
 
   * **Define precise logic:** Explicitly map out routing logic to manage transitions between different nodes.
   * **Implement complex structures:** Build agent workflows that support branching and state management.
@@ -256,7 +260,7 @@ Alpha Release
 
 ADK 2.0 is an Alpha release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
-Follow the instructions for [installing ADK 2.0](/adk-docs/2.0/#install) and then check out the instructions below to get started with graph-based workflows.
+Follow the instructions for [installing ADK 2.0](/2.0/#install) and then check out the instructions below to get started with graph-based workflows.
 
 ## Get started¶
 
@@ -309,7 +313,7 @@ This section describes how to get started with graph-based agents. The following
 
 This sample code demonstrates how you can use the **_Workflow_** class to assemble a simple, sequential workflow and alternate between AI agent processing and code execution. While you could perform these steps using a single agent with a longer prompt and a tool call, the graph-based approach gives you precise control over the task execution order and the data output from each step.
 
-For more information about data handling with graph-based workflows, see [Data handling with workflow nodes and agents](/adk-docs/workflows/data-handling/).
+For more information about data handling with graph-based workflows, see [Data handling with workflow nodes and agents](/workflows/data-handling/).
 
 ## Build processes with graphs¶
 
@@ -363,14 +367,14 @@ The following code sample shows how the workflow graph in Figure 2 could be tran
     )
     
 
-This sample code demonstrates how you can use an **_edges_** array to define a graph with routes between a set of _nodes_ , which are discrete tasks that can include agents, Tools, your code, and even additional **_Workflows_**. For information about building advanced graphs for workflows, see [Build graph routes for workflow agents](/adk-docs/workflows/graph-routes/).
+This sample code demonstrates how you can use an **_edges_** array to define a graph with routes between a set of _nodes_ , which are discrete tasks that can include agents, Tools, your code, and even additional **_Workflows_**. For information about building advanced graphs for workflows, see [Build graph routes for workflow agents](/workflows/graph-routes/).
 
 ## Known limitations¶
 
 There are some known limitations with graph-based workflows. They are _not compatible_ with the following ADK features:
 
   * **Live Streaming** functionality is not compatible with graph-based workflows.
-  * **Integrations:** Some third-party [Integrations](/adk-docs/integrations/) may not be compatible with graph-based workflows.
+  * **Integrations:** Some third-party [Integrations](/integrations/) may not be compatible with graph-based workflows.
 
 
 

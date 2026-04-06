@@ -23,7 +23,7 @@ An in-memory implementation of the ArtifactService.
 
 
 
-  * Defined in [core/src/artifacts/in_memory_artifact_service.ts:14](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/in_memory_artifact_service.ts#L14)
+  * Defined in [artifacts/in_memory_artifact_service.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L26)
 
 
 
@@ -58,7 +58,32 @@ A promise that resolves when the artifact is deleted.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[deleteArtifact](../interfaces/BaseArtifactService.html#deleteartifact)
 
-    * Defined in [core/src/artifacts/in_memory_artifact_service.ts:76](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/in_memory_artifact_service.ts#L76)
+    * Defined in [artifacts/in_memory_artifact_service.ts:105](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L105)
+
+
+
+
+### getArtifactVersion
+
+  * getArtifactVersion(  
+request: [LoadArtifactRequest](../interfaces/LoadArtifactRequest.html),  
+): Promise<[ArtifactVersion](../interfaces/ArtifactVersion.html) | undefined>
+
+Gets metadata for a specific artifact version.
+
+#### Parameters
+
+    * request: [LoadArtifactRequest](../interfaces/LoadArtifactRequest.html)
+
+The request to get an artifact version.
+
+#### Returns Promise<[ArtifactVersion](../interfaces/ArtifactVersion.html) | undefined>
+
+A promise that resolves to the artifact version metadata or undefined.
+
+Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[getArtifactVersion](../interfaces/BaseArtifactService.html#getartifactversion)
+
+    * Defined in [artifacts/in_memory_artifact_service.ts:157](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L157)
 
 
 
@@ -81,7 +106,30 @@ A promise that resolves to a list of all artifact filenames within a session.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[listArtifactKeys](../interfaces/BaseArtifactService.html#listartifactkeys)
 
-    * Defined in [core/src/artifacts/in_memory_artifact_service.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/in_memory_artifact_service.ts#L57)
+    * Defined in [artifacts/in_memory_artifact_service.ts:83](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L83)
+
+
+
+
+### listArtifactVersions
+
+  * listArtifactVersions(request: [ListVersionsRequest](../interfaces/ListVersionsRequest.html)): Promise<[ArtifactVersion](../interfaces/ArtifactVersion.html)[]>
+
+Lists metadata for each artifact version.
+
+#### Parameters
+
+    * request: [ListVersionsRequest](../interfaces/ListVersionsRequest.html)
+
+The request to list artifact versions.
+
+#### Returns Promise<[ArtifactVersion](../interfaces/ArtifactVersion.html)[]>
+
+A promise that resolves to a list of artifact version metadata.
+
+Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[listArtifactVersions](../interfaces/BaseArtifactService.html#listartifactversions)
+
+    * Defined in [artifacts/in_memory_artifact_service.ts:141](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L141)
 
 
 
@@ -104,7 +152,7 @@ A promise that resolves to a list of all available versions of the artifact.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[listVersions](../interfaces/BaseArtifactService.html#listversions)
 
-    * Defined in [core/src/artifacts/in_memory_artifact_service.ts:87](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/in_memory_artifact_service.ts#L87)
+    * Defined in [artifacts/in_memory_artifact_service.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L120)
 
 
 
@@ -129,7 +177,7 @@ A promise that resolves to the artifact or undefined if not found.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[loadArtifact](../interfaces/BaseArtifactService.html#loadartifact)
 
-    * Defined in [core/src/artifacts/in_memory_artifact_service.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/in_memory_artifact_service.ts#L36)
+    * Defined in [artifacts/in_memory_artifact_service.ts:62](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L62)
 
 
 
@@ -154,7 +202,7 @@ A promise that resolves to The revision ID. The first version of the artifact ha
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[saveArtifact](../interfaces/BaseArtifactService.html#saveartifact)
 
-    * Defined in [core/src/artifacts/in_memory_artifact_service.ts:17](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/in_memory_artifact_service.ts#L17)
+    * Defined in [artifacts/in_memory_artifact_service.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/in_memory_artifact_service.ts#L32)
 
 
 
@@ -165,7 +213,7 @@ constructor
 
 Methods
 
-deleteArtifactlistArtifactKeyslistVersionsloadArtifactsaveArtifact
+deleteArtifactgetArtifactVersionlistArtifactKeyslistArtifactVersionslistVersionsloadArtifactsaveArtifact
 
 [ADK for TypeScript: API Reference](../index.html)
 

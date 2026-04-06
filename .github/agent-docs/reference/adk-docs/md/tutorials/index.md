@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](./)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](multi-tool-agent/)
       * [ Agent team  ](agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -120,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Custom Metrics  ](../evaluate/custom_metrics/)
+      * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
 
 Safety and Security 
@@ -167,9 +171,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../a2a/quickstart-exposing/)
         * [ Go  ](../a2a/quickstart-exposing-go/)
+        * [ Java  ](../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
+        * [ Java  ](../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
@@ -201,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -235,7 +243,7 @@ This approach allows you to learn and build incrementally – starting with foun
 
 Create a workflow that uses multiple tools.
 
-[ Build a multi-tool agent](../get-started/quickstart/)
+[ Build a multi-tool agent](/tutorials/multi-tool-agent/)
 
   * **Agent team**
 
@@ -243,7 +251,7 @@ Create a workflow that uses multiple tools.
 
 Build an multi-agent workflow including agent delegation, session management, and safety callbacks.
 
-[ Build an agent team](agent-team/)
+[ Build an agent team](/tutorials/agent-team/)
 
   * **Streaming agent**
 
@@ -264,7 +272,7 @@ Discover sample agents for retail, travel, customer service, and more!
 
 
 
-Back to top  [ Previous  Java  ](../get-started/java/) [ Next  Multi-tool agent  ](../get-started/quickstart/)
+Back to top  [ Previous  Java  ](../get-started/java/) [ Next  Multi-tool agent  ](multi-tool-agent/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

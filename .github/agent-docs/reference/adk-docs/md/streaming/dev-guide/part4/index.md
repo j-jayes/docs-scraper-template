@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -120,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -167,9 +171,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../)
 
@@ -234,9 +240,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -1180,8 +1188,8 @@ Migration Note: save_live_audio Deprecated
 
 Currently, **only audio is persisted** by ADK's implementation. When enabled, ADK persists audio streams to:
 
-  * **[Session service](https://google.github.io/adk-docs/sessions/)** : Conversation history includes audio references
-  * **[Artifact service](https://google.github.io/adk-docs/artifacts/)** : Audio files stored with unique IDs
+  * **[Session service](/sessions/)** : Conversation history includes audio references
+  * **[Artifact service](/artifacts/)** : Audio files stored with unique IDs
 
 
 
@@ -1359,7 +1367,7 @@ CFC is designed for complex, multi-step workflows that benefit from intelligent 
 
   * [Gemini Function Calling Guide](https://ai.google.dev/gemini-api/docs/function-calling) \- Official documentation on compositional and parallel function calling
   * [ADK Parallel Functions Example](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/contributing/samples/parallel_functions/agent.py) \- Working example with async tools
-  * [ADK Performance Guide](https://google.github.io/adk-docs/tools/performance/) \- Best practices for parallel-ready tools
+  * [ADK Performance Guide](/tools/performance/) \- Best practices for parallel-ready tools
 
 
 

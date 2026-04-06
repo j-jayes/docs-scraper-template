@@ -22,17 +22,25 @@ Skip navigation links
 Contents 
 
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Nested Class Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
      1. LangChain4j(ChatModel)
      2. LangChain4j(ChatModel, String)
      3. LangChain4j(StreamingChatModel)
      4. LangChain4j(StreamingChatModel, String)
      5. LangChain4j(ChatModel, StreamingChatModel, String)
-  5. Method Details
-     1. generateContent(LlmRequest, boolean)
-     2. connect(LlmRequest)
+  6. Method Details
+     1. chatModel()
+     2. streamingChatModel()
+     3. objectMapper()
+     4. modelName()
+     5. tokenCountEstimator()
+     6. model()
+     7. builder()
+     8. generateContent(LlmRequest, boolean)
+     9. connect(LlmRequest)
 
 Hide sidebar  Show sidebar
 
@@ -46,7 +54,23 @@ com.google.adk.models.langchain4j.LangChain4j
 
 * * *
 
-@Experimental public class LangChain4j extends [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
+public abstract class LangChain4j extends [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
+
+  * ## Nested Class Summary
+
+Nested Classes
+
+Modifier and Type
+
+Class
+
+Description
+
+`static class `
+
+`[LangChain4j.Builder](LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")`
+
+ 
 
   * ## Constructor Summary
 
@@ -78,13 +102,25 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsAbstract MethodsConcrete Methods
 
 Modifier and Type
 
 Method
 
 Description
+
+`static [LangChain4j.Builder](LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")`
+
+`builder()`
+
+ 
+
+`abstract @Nullable dev.langchain4j.model.chat.ChatModel`
+
+`chatModel()`
+
+ 
 
 `[BaseLlmConnection](../BaseLlmConnection.html "interface in com.google.adk.models")`
 
@@ -98,9 +134,35 @@ Creates a live connection to the LLM.
 
 Generates one content from the given LLM request and tools.
 
-### Methods inherited from class [BaseLlm](../BaseLlm.html#method-summary "class in com.google.adk.models")
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
-`[model](../BaseLlm.html#model\(\) "model\(\)")`
+`model()`
+
+Returns the name of the LLM model.
+
+`abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+
+`modelName()`
+
+ 
+
+`abstract com.fasterxml.jackson.databind.ObjectMapper`
+
+`objectMapper()`
+
+ 
+
+`abstract @Nullable dev.langchain4j.model.chat.StreamingChatModel`
+
+`streamingChatModel()`
+
+ 
+
+`abstract @Nullable dev.langchain4j.model.TokenCountEstimator`
+
+`tokenCountEstimator()`
+
+ 
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -132,6 +194,43 @@ public LangChain4j(dev.langchain4j.model.chat.StreamingChatModel streamingChatMo
 public LangChain4j(dev.langchain4j.model.chat.ChatModel chatModel, dev.langchain4j.model.chat.StreamingChatModel streamingChatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)
 
   * ## Method Details
+
+    * ### chatModel
+
+public abstract @Nullable dev.langchain4j.model.chat.ChatModel chatModel()
+
+    * ### streamingChatModel
+
+public abstract @Nullable dev.langchain4j.model.chat.StreamingChatModel streamingChatModel()
+
+    * ### objectMapper
+
+public abstract com.fasterxml.jackson.databind.ObjectMapper objectMapper()
+
+    * ### modelName
+
+public abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName()
+
+    * ### tokenCountEstimator
+
+public abstract @Nullable dev.langchain4j.model.TokenCountEstimator tokenCountEstimator()
+
+    * ### model
+
+public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") model()
+
+Description copied from class: `[BaseLlm](../BaseLlm.html#model\(\))`
+
+Returns the name of the LLM model.
+
+Overrides:
+    `[model](../BaseLlm.html#model\(\))` in class `[BaseLlm](../BaseLlm.html "class in com.google.adk.models")`
+Returns:
+    The name of the LLM model.
+
+    * ### builder
+
+public static [LangChain4j.Builder](LangChain4j.Builder.html "class in com.google.adk.models.langchain4j") builder()
 
     * ### generateContent
 

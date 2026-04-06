@@ -25,7 +25,7 @@ sendHistory(history: Content[]): Promise<void>;
 sendRealtime(blob: Blob_2): Promise<void>;  
 }
 
-  * Defined in [core/src/models/base_llm_connection.ts:14](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm_connection.ts#L14)
+  * Defined in [models/base_llm_connection.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L14)
 
 
 
@@ -39,7 +39,7 @@ Closes the llm server connection.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm_connection.ts#L57)
+    * Defined in [models/base_llm_connection.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L57)
 
 
 
@@ -54,7 +54,7 @@ Receives the model response using the llm server connection.
 
 A generator of LlmResponse.
 
-    * Defined in [core/src/models/base_llm_connection.ts:52](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm_connection.ts#L52)
+    * Defined in [models/base_llm_connection.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L52)
 
 
 
@@ -75,7 +75,7 @@ The content to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:35](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm_connection.ts#L35)
+    * Defined in [models/base_llm_connection.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L35)
 
 
 
@@ -96,7 +96,7 @@ The conversation history to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:24](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm_connection.ts#L24)
+    * Defined in [models/base_llm_connection.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L24)
 
 
 
@@ -117,7 +117,7 @@ The blob to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm_connection.ts#L45)
+    * Defined in [models/base_llm_connection.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L45)
 
 
 

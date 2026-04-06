@@ -19,11 +19,11 @@ Defines the parameters for establishing a connection to an MCP server using stan
 
 interface StdioConnectionParams {  
 serverParams: StdioServerParameters;  
-timeout?: Number;  
+timeout?: number;  
 type: "StdioConnectionParams";  
 }
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:16](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L16)
+  * Defined in [tools/mcp/mcp_session_manager.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L22)
 
 
 
@@ -33,15 +33,15 @@ type: "StdioConnectionParams";
 
 serverParams: StdioServerParameters
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:18](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L18)
+  * Defined in [tools/mcp/mcp_session_manager.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L24)
 
 
 
 ### `Optional`timeout
 
-timeout?: Number
+timeout?: number
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:19](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L19)
+  * Defined in [tools/mcp/mcp_session_manager.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L25)
 
 
 
@@ -49,7 +49,7 @@ timeout?: Number
 
 type: "StdioConnectionParams"
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:17](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L17)
+  * Defined in [tools/mcp/mcp_session_manager.ts:23](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L23)
 
 
 

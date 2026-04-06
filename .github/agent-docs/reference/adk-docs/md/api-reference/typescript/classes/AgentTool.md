@@ -30,7 +30,7 @@ The configuration of the agent tool.
 
 
 
-  * Defined in [core/src/tools/agent_tool.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/agent_tool.ts#L45)
+  * Defined in [tools/agent_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L64)
 
 
 
@@ -38,22 +38,44 @@ The configuration of the agent tool.
 
 ### constructor
 
-  * new AgentTool(config: AgentToolConfig): [AgentTool]()
+  * new AgentTool(config: [AgentToolConfig](../interfaces/AgentToolConfig.html)): [AgentTool]()
 
 #### Parameters
 
-    * config: AgentToolConfig
+    * config: [AgentToolConfig](../interfaces/AgentToolConfig.html)
 
 #### Returns [AgentTool]()
 
 Overrides [BaseTool](BaseTool.html).[constructor](BaseTool.html#constructor)
 
-    * Defined in [core/src/tools/agent_tool.ts:50](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/agent_tool.ts#L50)
+    * Defined in [tools/agent_tool.ts:72](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L72)
 
 
 
 
 ## Properties
+
+### `Readonly`[AGENT_TOOL_SIGNATURE_SYMBOL]
+
+"[AGENT_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK agent tool class.
+
+  * Defined in [tools/agent_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L66)
+
+
+
+### `Readonly`[BASE_TOOL_SIGNATURE_SYMBOL]
+
+"[BASE_TOOL_SIGNATURE_SYMBOL]": true
+
+A unique symbol to identify ADK base tool class.
+
+Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool.html#base_tool_signature_symbol)
+
+  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+
+
 
 ### `Readonly`description
 
@@ -61,7 +83,7 @@ description: string
 
 Inherited from [BaseTool](BaseTool.html).[description](BaseTool.html#description)
 
-  * Defined in [core/src/tools/base_tool.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L44)
+  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -71,7 +93,7 @@ isLongRunning: boolean
 
 Inherited from [BaseTool](BaseTool.html).[isLongRunning](BaseTool.html#islongrunning)
 
-  * Defined in [core/src/tools/base_tool.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L45)
+  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -81,7 +103,7 @@ name: string
 
 Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
-  * Defined in [core/src/tools/base_tool.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L43)
+  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -89,15 +111,15 @@ Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
 ### apiVariant
 
-  * get apiVariant(): GoogleLLMVariant
+  * get apiVariant(): [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 The Google API LLM variant to use.
 
-#### Returns GoogleLLMVariant
+#### Returns [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
 Inherited from BaseTool.apiVariant
 
-    * Defined in [core/src/tools/base_tool.ts:125](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L125)
+    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -121,7 +143,7 @@ The FunctionDeclaration of this tool, or undefined if it doesn't need to be adde
 
 Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclaration)
 
-    * Defined in [core/src/tools/agent_tool.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/agent_tool.ts#L57)
+    * Defined in [tools/agent_tool.ts:81](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L81)
 
 
 
@@ -147,7 +169,7 @@ The request to process the LLM request.
 
 Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_tool.ts:97](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_tool.ts#L97)
+    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -175,7 +197,7 @@ A promise that resolves to the tool response.
 
 Overrides [BaseTool](BaseTool.html).[runAsync](BaseTool.html#runasync)
 
-    * Defined in [core/src/tools/agent_tool.ts:95](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/agent_tool.ts#L95)
+    * Defined in [tools/agent_tool.ts:119](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L119)
 
 
 
@@ -186,7 +208,7 @@ constructor
 
 Properties
 
-descriptionisLongRunningname
+[AGENT_TOOL_SIGNATURE_SYMBOL][BASE_TOOL_SIGNATURE_SYMBOL]descriptionisLongRunningname
 
 Accessors
 

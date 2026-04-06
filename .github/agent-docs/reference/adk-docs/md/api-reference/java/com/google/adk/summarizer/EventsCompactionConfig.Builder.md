@@ -82,31 +82,31 @@ Description
 
 `abstract [EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-`compactionInterval([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval)`
+`compactionInterval(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval)`
 
  
 
 `abstract [EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-`eventRetentionSize([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
+`eventRetentionSize(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
 
  
 
 `abstract [EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-`overlapSize([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize)`
+`overlapSize(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize)`
 
  
 
 `abstract [EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-`summarizer([BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
+`summarizer(@Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
 
  
 
 `abstract [EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-`tokenThreshold([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold)`
+`tokenThreshold(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold)`
 
  
 

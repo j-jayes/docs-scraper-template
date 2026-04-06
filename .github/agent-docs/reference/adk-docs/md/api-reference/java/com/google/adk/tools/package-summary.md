@@ -148,6 +148,10 @@ A function tool that returns the result asynchronously.
 
  
 
+[SetModelResponseTool](SetModelResponseTool.html "class in com.google.adk.tools")
+
+Internal tool used for output schema workaround.
+
 [ToolContext](ToolContext.html "class in com.google.adk.tools")
 
 ToolContext object provides a structured context for executing tools or functions.

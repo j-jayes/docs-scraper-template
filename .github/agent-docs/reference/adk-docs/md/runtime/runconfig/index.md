@@ -13,6 +13,17 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../..)
+  * [ Build Agents ](../../get-started/)
+  * [ Run Agents ](../)
+  * [ Components ](../../get-started/about/)
+  * [ Integrations ](../../integrations/)
+  * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
+  * [ ADK 2.0 ](../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -56,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -124,6 +136,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -171,9 +185,12 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
+      * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
 Gemini Live API Toolkit 
@@ -190,8 +207,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
 
 API Reference 
@@ -202,8 +221,22 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
+    * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
+  * [ ADK 2.0  ](../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../workflows/graph-routes/)
+      * [ Data handling  ](../../workflows/data-handling/)
+      * [ Human input  ](../../workflows/human-input/)
+    * [ Collaborative agents  ](../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 

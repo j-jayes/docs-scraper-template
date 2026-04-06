@@ -86,7 +86,7 @@ Method
 
 Description
 
-`abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`abstract @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `author()`
 
@@ -104,7 +104,7 @@ Returns a new builder for creating a [`MemoryEntry`](MemoryEntry.html "class in 
 
 Returns the main content of the memory.
 
-`abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`abstract @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
 
 `timestamp()`
 
@@ -139,13 +139,13 @@ Returns the main content of the memory.
 
     * ### author
 
-@Nullable public abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author()
+public abstract @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") author()
 
 Returns the author of the memory, or null if not set.
 
     * ### timestamp
 
-@Nullable public abstract [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp()
+public abstract @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") timestamp()
 
 Returns the timestamp when the original content of this memory happened, or null if not set. 
 

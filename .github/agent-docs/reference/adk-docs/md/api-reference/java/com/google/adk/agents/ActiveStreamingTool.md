@@ -83,7 +83,7 @@ Method
 
 Description
 
-`[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")`
+`@Nullable [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")`
 
 `stream()`
 
@@ -91,11 +91,11 @@ Returns the active stream of this streaming tool.
 
 `void`
 
-`stream([LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") stream)`
+`stream(@Nullable [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") stream)`
 
 Sets the active stream of this streaming tool.
 
-`io.reactivex.rxjava3.disposables.Disposable`
+`@Nullable io.reactivex.rxjava3.disposables.Disposable`
 
 `task()`
 
@@ -103,7 +103,7 @@ Returns the active task of this streaming tool.
 
 `void`
 
-`task(io.reactivex.rxjava3.disposables.Disposable task)`
+`task(@Nullable io.reactivex.rxjava3.disposables.Disposable task)`
 
 Sets the active task of this streaming tool.
 
@@ -136,7 +136,7 @@ public ActiveStreamingTool()
 
     * ### task
 
-@Nullable public io.reactivex.rxjava3.disposables.Disposable task()
+public @Nullable io.reactivex.rxjava3.disposables.Disposable task()
 
 Returns the active task of this streaming tool.
 
@@ -148,7 +148,7 @@ Sets the active task of this streaming tool.
 
     * ### stream
 
-@Nullable public [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") stream()
+public @Nullable [LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents") stream()
 
 Returns the active stream of this streaming tool.
 

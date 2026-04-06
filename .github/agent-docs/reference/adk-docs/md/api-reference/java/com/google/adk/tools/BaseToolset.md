@@ -68,7 +68,7 @@ Return all tools in the toolset based on the provided context.
 
 `default boolean`
 
-`isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+`isToolSelected([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, @Nullable [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Checks if a tool should be selected based on a filter.
 

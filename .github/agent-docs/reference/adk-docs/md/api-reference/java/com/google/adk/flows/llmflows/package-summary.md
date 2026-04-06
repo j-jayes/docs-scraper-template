@@ -92,6 +92,10 @@ Utility class for handling function calls.
 
 [`RequestProcessor`](RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles instructions and global instructions for LLM flows.
 
+[OutputSchema](OutputSchema.html "class in com.google.adk.flows.llmflows")
+
+Processor that handles output schema for agents with tools.
+
 [RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")
 
 Handles tool confirmation information to build the LLM request.

@@ -17,14 +17,14 @@ Preparing search index...
 
 SingleAfterToolCallback: (  
 params: {  
-args: Dict;  
-context: [ToolContext](../classes/ToolContext.html);  
-response: Dict;  
+args: Record<string, unknown>;  
+context: [Context](../classes/Context.html);  
+response: Record<string, unknown>;  
 tool: [BaseTool](../classes/BaseTool.html);  
 },  
-) => Dict  
+) => | Record<string, unknown>  
 | undefined  
-| Promise<Dict | undefined>
+| Promise<Record<string, unknown> | undefined>
 
 A callback that runs after a tool is called.
 
@@ -32,26 +32,49 @@ A callback that runs after a tool is called.
 
   *     * (  
 params: {  
-args: Dict;  
-context: [ToolContext](../classes/ToolContext.html);  
-response: Dict;  
+args: Record<string, unknown>;  
+context: [Context](../classes/Context.html);  
+response: Record<string, unknown>;  
 tool: [BaseTool](../classes/BaseTool.html);  
 },  
-): Dict  
+): | Record<string, unknown>  
 | undefined  
-| Promise<Dict | undefined>
+| Promise<Record<string, unknown> | undefined>
     * #### Parameters
 
-      * params: { args: Dict; context: [ToolContext](../classes/ToolContext.html); response: Dict; tool: [BaseTool](../classes/BaseTool.html) }
+      * params: {  
+args: Record<string, unknown>;  
+context: [Context](../classes/Context.html);  
+response: Record<string, unknown>;  
+tool: [BaseTool](../classes/BaseTool.html);  
+}
+        * ##### args: Record<string, unknown>
 
-#### Returns Dict | undefined | Promise<Dict | undefined>
+The arguments to the tool.
 
-When present, the returned dict will be used as tool result.
+        * ##### context: [Context](../classes/Context.html)
+
+Context for the tool call.
+
+        * ##### response: Record<string, unknown>
+
+The response from the tool.
+
+        * ##### tool: [BaseTool](../classes/BaseTool.html)
+
+The tool to be called.
+
+#### Returns   
+| Record<string, unknown>  
+| undefined  
+| Promise<Record<string, unknown> | undefined>
+
+When present, the returned record will be used as tool result.
 
 
 
 
-  * Defined in [core/src/agents/llm_agent.ts:118](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/llm_agent.ts#L118)
+  * Defined in [agents/llm_agent.ts:164](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L164)
 
 
 

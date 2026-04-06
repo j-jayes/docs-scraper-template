@@ -100,7 +100,7 @@ Description
 
 `[McpAsyncToolset.Builder](McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-`toolFilter([ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
+`toolFilter(@Nullable [ToolPredicate](../ToolPredicate.html "interface in com.google.adk.tools") toolPredicate)`
 
  
 

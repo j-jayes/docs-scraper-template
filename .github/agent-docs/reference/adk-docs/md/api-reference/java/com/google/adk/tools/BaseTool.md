@@ -54,7 +54,7 @@ Hide sidebar  Show sidebar
 com.google.adk.tools.BaseTool
 
 Direct Known Subclasses:
-    `[AbstractMcpTool](mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp"), [AgentTool](AgentTool.html "class in com.google.adk.tools"), [BaseRetrievalTool](retrieval/BaseRetrievalTool.html "class in com.google.adk.tools.retrieval"), [BuiltInCodeExecutionTool](BuiltInCodeExecutionTool.html "class in com.google.adk.tools"), [ExampleTool](ExampleTool.html "class in com.google.adk.tools"), [FunctionTool](FunctionTool.html "class in com.google.adk.tools"), [GoogleMapsTool](GoogleMapsTool.html "class in com.google.adk.tools"), [GoogleSearchTool](GoogleSearchTool.html "class in com.google.adk.tools"), [IntegrationConnectorTool](applicationintegrationtoolset/IntegrationConnectorTool.html "class in com.google.adk.tools.applicationintegrationtoolset"), [LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools"), [UrlContextTool](UrlContextTool.html "class in com.google.adk.tools"), [VertexAiSearchTool](VertexAiSearchTool.html "class in com.google.adk.tools")`
+    `[AbstractMcpTool](mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp"), [AgentTool](AgentTool.html "class in com.google.adk.tools"), [BaseRetrievalTool](retrieval/BaseRetrievalTool.html "class in com.google.adk.tools.retrieval"), [BuiltInCodeExecutionTool](BuiltInCodeExecutionTool.html "class in com.google.adk.tools"), [ExampleTool](ExampleTool.html "class in com.google.adk.tools"), [FunctionTool](FunctionTool.html "class in com.google.adk.tools"), [GoogleMapsTool](GoogleMapsTool.html "class in com.google.adk.tools"), [GoogleSearchTool](GoogleSearchTool.html "class in com.google.adk.tools"), [IntegrationConnectorTool](applicationintegrationtoolset/IntegrationConnectorTool.html "class in com.google.adk.tools.applicationintegrationtoolset"), [LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools"), [SetModelResponseTool](SetModelResponseTool.html "class in com.google.adk.tools"), [UrlContextTool](UrlContextTool.html "class in com.google.adk.tools"), [VertexAiSearchTool](VertexAiSearchTool.html "class in com.google.adk.tools")`
 
 * * *
 
@@ -217,11 +217,11 @@ Sets custom metadata to the tool associated with a key.
 
     * ### BaseTool
 
-protected BaseTool(@Nonnull [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, @Nonnull [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
+protected BaseTool([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)
 
     * ### BaseTool
 
-protected BaseTool(@Nonnull [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, @Nonnull [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, boolean isLongRunning)
+protected BaseTool([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description, boolean isLongRunning)
 
   * ## Method Details
 

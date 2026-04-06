@@ -34,7 +34,7 @@ const mcpToolset = new MCPToolset(connectionParams); const tools = await mcpTool
 
 
 
-  * Defined in [core/src/tools/mcp/mcp_toolset.ts:41](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_toolset.ts#L41)
+  * Defined in [tools/mcp/mcp_toolset.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_toolset.ts#L40)
 
 
 
@@ -44,32 +44,54 @@ const mcpToolset = new MCPToolset(connectionParams); const tools = await mcpTool
 
   * new MCPToolset(  
 connectionParams: [MCPConnectionParams](../types/MCPConnectionParams.html),  
-toolFilter?: string[] | ToolPredicate,  
+toolFilter?: string[] | [ToolPredicate](../types/ToolPredicate.html),  
+prefix?: string,  
 ): [MCPToolset]()
 
 #### Parameters
 
     * connectionParams: [MCPConnectionParams](../types/MCPConnectionParams.html)
-    * toolFilter: string[] | ToolPredicate = []
+    * toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html) = []
+    * `Optional`prefix: string
 
 #### Returns [MCPToolset]()
 
 Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constructor)
 
-    * Defined in [core/src/tools/mcp/mcp_toolset.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_toolset.ts#L44)
+    * Defined in [tools/mcp/mcp_toolset.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_toolset.ts#L43)
 
 
 
 
 ## Properties
 
+### `Readonly`[BASE_TOOLSET_SIGNATURE_SYMBOL]
+
+"[BASE_TOOLSET_SIGNATURE_SYMBOL]": true
+
+Inherited from [BaseToolset](BaseToolset.html).[[BASE_TOOLSET_SIGNATURE_SYMBOL]](BaseToolset.html#base_toolset_signature_symbol)
+
+  * Defined in [tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L44)
+
+
+
+### `Optional` `Readonly`prefix
+
+prefix?: string
+
+Inherited from [BaseToolset](BaseToolset.html).[prefix](BaseToolset.html#prefix)
+
+  * Defined in [tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L48)
+
+
+
 ### `Readonly`toolFilter
 
-toolFilter: string[] | ToolPredicate
+toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html)
 
 Inherited from [BaseToolset](BaseToolset.html).[toolFilter](BaseToolset.html#toolfilter)
 
-  * Defined in [core/src/tools/base_toolset.ts:27](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_toolset.ts#L27)
+  * Defined in [tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L47)
 
 
 
@@ -89,22 +111,16 @@ A Promise that resolves when the toolset is closed.
 
 Overrides [BaseToolset](BaseToolset.html).[close](BaseToolset.html#close)
 
-    * Defined in [core/src/tools/mcp/mcp_toolset.ts:65](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_toolset.ts#L65)
+    * Defined in [tools/mcp/mcp_toolset.ts:72](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_toolset.ts#L72)
 
 
 
 
 ### getTools
 
-  * getTools(context?: ReadonlyContext): Promise<[BaseTool](BaseTool.html)[]>
+  * getTools(): Promise<[BaseTool](BaseTool.html)[]>
 
 Returns the tools that should be exposed to LLM.
-
-#### Parameters
-
-    * `Optional`context: ReadonlyContext
-
-Context used to filter tools available to the agent. If not defined, all tools in the toolset are returned.
 
 #### Returns Promise<[BaseTool](BaseTool.html)[]>
 
@@ -112,14 +128,14 @@ A Promise that resolves to the list of tools.
 
 Overrides [BaseToolset](BaseToolset.html).[getTools](BaseToolset.html#gettools)
 
-    * Defined in [core/src/tools/mcp/mcp_toolset.ts:51](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_toolset.ts#L51)
+    * Defined in [tools/mcp/mcp_toolset.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_toolset.ts#L52)
 
 
 
 
 ### `Protected`isToolSelected
 
-  * isToolSelected(tool: [BaseTool](BaseTool.html), context: ReadonlyContext): boolean
+  * isToolSelected(tool: [BaseTool](BaseTool.html), context: [ReadonlyContext](ReadonlyContext.html)): boolean
 
 Returns whether the tool should be exposed to LLM.
 
@@ -129,7 +145,7 @@ Returns whether the tool should be exposed to LLM.
 
 The tool to check.
 
-    * context: ReadonlyContext
+    * context: [ReadonlyContext](ReadonlyContext.html)
 
 Context used to filter tools available to the agent.
 
@@ -139,17 +155,14 @@ Whether the tool should be exposed to LLM.
 
 Inherited from [BaseToolset](BaseToolset.html).[isToolSelected](BaseToolset.html#istoolselected)
 
-    * Defined in [core/src/tools/base_toolset.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_toolset.ts#L57)
+    * Defined in [tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L79)
 
 
 
 
 ### processLlmRequest
 
-  * processLlmRequest(  
-toolContext: [ToolContext](ToolContext.html),  
-llmRequest: [LlmRequest](../interfaces/LlmRequest.html),  
-): Promise<void>
+  * processLlmRequest(toolContext: [Context](Context.html), llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
 
 Processes the outgoing LLM request for this toolset. This method will be called before each tool processes the llm request.
 
@@ -159,7 +172,7 @@ Use cases:
 
 #### Parameters
 
-    * toolContext: [ToolContext](ToolContext.html)
+    * toolContext: [Context](Context.html)
 
 The context of the tool.
 
@@ -171,7 +184,7 @@ The outgoing LLM request, mutable this method.
 
 Inherited from [BaseToolset](BaseToolset.html).[processLlmRequest](BaseToolset.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_toolset.ts:85](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/base_toolset.ts#L85)
+    * Defined in [tools/base_toolset.ts:107](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L107)
 
 
 
@@ -182,7 +195,7 @@ constructor
 
 Properties
 
-toolFilter
+[BASE_TOOLSET_SIGNATURE_SYMBOL]prefixtoolFilter
 
 Methods
 

@@ -701,14 +701,16 @@ The author of the event, it could be the name of the agent or "user" literal.
 
 Returns the author of the memory, or null if not set.
 
-[author(String)](com/google/adk/events/Event.Builder.html#author\(java.lang.String\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
-     
 [author(String)](com/google/adk/memory/MemoryEntry.Builder.html#author\(java.lang.String\)) \- Method in class com.google.adk.memory.[MemoryEntry.Builder](com/google/adk/memory/MemoryEntry.Builder.html "class in com.google.adk.memory")
     
 
 Sets the author of the memory.
 
+[author(String)](com/google/adk/events/Event.Builder.html#author\(java.lang.String\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
+     
 [autoCreateSession()](com/google/adk/agents/RunConfig.html#autoCreateSession\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[autoCreateSession(boolean)](com/google/adk/agents/RunConfig.Builder.html#autoCreateSession\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
      
 [AutoFlow](com/google/adk/flows/llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows") \- Class in [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-summary.html)
     
@@ -720,6 +722,8 @@ LLM flow with automatic agent transfer support.
 [AutoFlow(Optional)](com/google/adk/flows/llmflows/AutoFlow.html#%3Cinit%3E\(java.util.Optional\)) \- Constructor for class com.google.adk.flows.llmflows.[AutoFlow](com/google/adk/flows/llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows")
      
 [autoSchemaUpgrade()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#autoSchemaUpgrade\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[autoSchemaUpgrade(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#autoSchemaUpgrade\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [avgLogprobs()](com/google/adk/events/Event.html#avgLogprobs\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
@@ -891,7 +895,11 @@ Base interface for toolsets.
      
 [batchFlushInterval()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#batchFlushInterval\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[batchFlushInterval(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#batchFlushInterval\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [batchSize()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#batchSize\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[batchSize(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#batchSize\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [BEFORE_AGENT_CALLBACK](com/example/CoreCallbacks.html#BEFORE_AGENT_CALLBACK) \- Static variable in class com.example.[CoreCallbacks](com/example/CoreCallbacks.html "class in com.example")
      
@@ -1148,6 +1156,8 @@ Builds the [`ApigeeLlm`](com/google/adk/models/ApigeeLlm.html "class in com.goog
 
 Builds the [`Gemini`](com/google/adk/models/Gemini.html "class in com.google.adk.models") instance.
 
+[build()](com/google/adk/models/langchain4j/LangChain4j.Builder.html#build\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+     
 [build()](com/google/adk/models/LlmRequest.Builder.html#build\(\)) \- Method in class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
      
 [build()](com/google/adk/models/LlmResponse.Builder.html#build\(\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
@@ -1281,6 +1291,8 @@ Returns a new Builder for constructing [`ApigeeLlm`](com/google/adk/models/Apige
 
 Returns a new Builder instance for constructing Gemini objects.
 
+[builder()](com/google/adk/models/langchain4j/LangChain4j.html#builder\(\)) \- Static method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
 [builder()](com/google/adk/models/LlmRequest.html#builder\(\)) \- Static method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
      
 [builder()](com/google/adk/models/LlmResponse.html#builder\(\)) \- Static method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
@@ -1391,6 +1403,8 @@ Creates a new [`Session.Builder`](com/google/adk/sessions/Session.Builder.html "
 [Builder()](com/google/adk/memory/SearchMemoryResponse.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.memory.[SearchMemoryResponse.Builder](com/google/adk/memory/SearchMemoryResponse.Builder.html "class in com.google.adk.memory")
      
 [Builder()](com/google/adk/models/ApigeeLlm.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.[ApigeeLlm.Builder](com/google/adk/models/ApigeeLlm.Builder.html "class in com.google.adk.models")
+     
+[Builder()](com/google/adk/models/langchain4j/LangChain4j.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
      
 [Builder()](com/google/adk/models/LlmRequest.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
      
@@ -1759,6 +1773,15 @@ Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](co
 
 Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](com/google/adk/agents/LlmAgent.html#tools\(\)) field.
 
+[canUseOutputSchemaWithTools(String)](com/google/adk/utils/ModelNameUtils.html#canUseOutputSchemaWithTools\(java.lang.String\)) \- Static method in class com.google.adk.utils.[ModelNameUtils](com/google/adk/utils/ModelNameUtils.html "class in com.google.adk.utils")
+    
+
+Returns true if the model supports using output schema together with tools.
+
+[chatModel()](com/google/adk/models/langchain4j/LangChain4j.html#chatModel\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
+[chatModel(ChatModel)](com/google/adk/models/langchain4j/LangChain4j.Builder.html#chatModel\(dev.langchain4j.model.chat.ChatModel\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+     
 [CHECK_PRIME_INSTANCE](com/example/CustomDieTool.html#CHECK_PRIME_INSTANCE) \- Static variable in class com.example.[CustomDieTool](com/example/CustomDieTool.html "class in com.example")
      
 [checkPrime(List)](com/example/CustomDieTool.html#checkPrime\(java.util.List\)) \- Static method in class com.example.[CustomDieTool](com/example/CustomDieTool.html "class in com.example")
@@ -1892,6 +1915,8 @@ Closes the connection with an error.
 Closes a session.
 
 [clusteringFields()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#clusteringFields\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[clusteringFields(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#clusteringFields\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [code()](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html#code\(\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.AgentRefConfig](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")
      
@@ -2236,6 +2261,8 @@ Creates a live connection to the LLM.
      
 [connectionId()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#connectionId\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[connectionId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#connectionId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [connectionParams(SseServerParameters)](com/google/adk/tools/mcp/McpAsyncToolset.Builder.html#connectionParams\(com.google.adk.tools.mcp.SseServerParameters\)) \- Method in class com.google.adk.tools.mcp.[McpAsyncToolset.Builder](com/google/adk/tools/mcp/McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")
      
 [connectionParams(ServerParameters)](com/google/adk/tools/mcp/McpAsyncToolset.Builder.html#connectionParams\(io.modelcontextprotocol.client.transport.ServerParameters\)) \- Method in class com.google.adk.tools.mcp.[McpAsyncToolset.Builder](com/google/adk/tools/mcp/McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")
@@ -2314,20 +2341,22 @@ Returns the content of the first candidate in the response, if available.
 
 [content(Content)](com/google/adk/agents/LiveRequest.Builder.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.agents.[LiveRequest.Builder](com/google/adk/agents/LiveRequest.Builder.html "class in com.google.adk.agents")
      
-[content(Content)](com/google/adk/agents/LiveRequestQueue.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.agents.[LiveRequestQueue](com/google/adk/agents/LiveRequestQueue.html "class in com.google.adk.agents")
-     
 [content(Content)](com/google/adk/events/Event.Builder.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
+     
+[content(Content)](com/google/adk/models/LlmResponse.Builder.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
+     
+[content(Content)](com/google/adk/agents/LiveRequestQueue.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.agents.[LiveRequestQueue](com/google/adk/agents/LiveRequestQueue.html "class in com.google.adk.agents")
      
 [content(Content)](com/google/adk/memory/MemoryEntry.Builder.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.memory.[MemoryEntry.Builder](com/google/adk/memory/MemoryEntry.Builder.html "class in com.google.adk.memory")
     
 
 Sets the main content of the memory.
 
-[content(Content)](com/google/adk/models/LlmResponse.Builder.html#content\(com.google.genai.types.Content\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
-     
 [content(String)](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html#content\(java.lang.String\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.File.Builder](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")
      
 [contentFormatter()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#contentFormatter\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[contentFormatter(BiFunction)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#contentFormatter\(java.util.function.BiFunction\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [contents()](com/google/adk/models/LlmRequest.html#contents\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
     
@@ -2466,6 +2495,10 @@ Creates a LongRunningFunctionTool from a FunctionTool.
 
 [create(GenerateContentResponse)](com/google/adk/models/LlmResponse.html#create\(com.google.genai.types.GenerateContentResponse\)) \- Static method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
      
+[create(Object, Method)](com/google/adk/tools/LongRunningFunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method\)) \- Static method in class com.google.adk.tools.[LongRunningFunctionTool](com/google/adk/tools/LongRunningFunctionTool.html "class in com.google.adk.tools")
+     
+[create(Object, Method, boolean)](com/google/adk/tools/LongRunningFunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method,boolean\)) \- Static method in class com.google.adk.tools.[LongRunningFunctionTool](com/google/adk/tools/LongRunningFunctionTool.html "class in com.google.adk.tools")
+     
 [create(Class, String)](com/google/adk/tools/FunctionTool.html#create\(java.lang.Class,java.lang.String\)) \- Static method in class com.google.adk.tools.[FunctionTool](com/google/adk/tools/FunctionTool.html "class in com.google.adk.tools")
      
 [create(Class, String)](com/google/adk/tools/LongRunningFunctionTool.html#create\(java.lang.Class,java.lang.String\)) \- Static method in class com.google.adk.tools.[LongRunningFunctionTool](com/google/adk/tools/LongRunningFunctionTool.html "class in com.google.adk.tools")
@@ -2478,11 +2511,7 @@ Creates a LongRunningFunctionTool from a FunctionTool.
      
 [create(Object, Method)](com/google/adk/tools/FunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method\)) \- Static method in class com.google.adk.tools.[FunctionTool](com/google/adk/tools/FunctionTool.html "class in com.google.adk.tools")
      
-[create(Object, Method)](com/google/adk/tools/LongRunningFunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method\)) \- Static method in class com.google.adk.tools.[LongRunningFunctionTool](com/google/adk/tools/LongRunningFunctionTool.html "class in com.google.adk.tools")
-     
 [create(Object, Method, boolean)](com/google/adk/tools/FunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method,boolean\)) \- Static method in class com.google.adk.tools.[FunctionTool](com/google/adk/tools/FunctionTool.html "class in com.google.adk.tools")
-     
-[create(Object, Method, boolean)](com/google/adk/tools/LongRunningFunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method,boolean\)) \- Static method in class com.google.adk.tools.[LongRunningFunctionTool](com/google/adk/tools/LongRunningFunctionTool.html "class in com.google.adk.tools")
      
 [create(Object, Method, boolean, boolean)](com/google/adk/tools/FunctionTool.html#create\(java.lang.Object,java.lang.reflect.Method,boolean,boolean\)) \- Static method in class com.google.adk.tools.[FunctionTool](com/google/adk/tools/FunctionTool.html "class in com.google.adk.tools")
      
@@ -2522,6 +2551,11 @@ Creates default ChatOptions for cases where no ADK config is provided.
 
 Placeholder for creating an evaluation set.
 
+[createFinalModelResponseEvent(InvocationContext, String)](com/google/adk/flows/llmflows/OutputSchema.html#createFinalModelResponseEvent\(com.google.adk.agents.InvocationContext,java.lang.String\)) \- Static method in class com.google.adk.flows.llmflows.[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows")
+    
+
+Create a final model response event from set_model_response JSON.
+
 [createOperation(String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperation\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [createOperationRequest(String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperationRequest\(java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
@@ -2560,13 +2594,14 @@ Creates a new session with the specified application name and user ID, using a d
 
 Creates a new session where the ID is generated by the service.
 
+[createSession(String, String, Map, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
+    
+
+Creates a new session with the specified parameters.
+
 [createSession(String, String, Map, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
      
 [createSession(String, String, Map, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
-     
-[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
-     
-[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
      
 [createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
     
@@ -2575,15 +2610,14 @@ Deprecated.
 
 Use [`BaseSessionService.createSession(String, String, Map, String)`](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) instead.
 
+[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
+     
+[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
+     
 [createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/FirestoreSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions")
     
 
 Creates a new session in Firestore.
-
-[createSession(String, String, Map, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
-    
-
-Creates a new session with the specified parameters.
 
 [createSession(String, String, Map, String)](com/google/adk/sessions/FirestoreSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions")
     
@@ -2607,6 +2641,10 @@ Creates a tool registry from ADK tools for internal tracking.
 [credentials()](com/google/adk/models/VertexCredentials.html#credentials\(\)) \- Method in class com.google.adk.models.[VertexCredentials](com/google/adk/models/VertexCredentials.html "class in com.google.adk.models")
      
 [credentials()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#credentials\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[credentials(Credentials)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#credentials\(com.google.auth.Credentials\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
+[credentials(GoogleCredentials)](com/google/adk/models/VertexCredentials.Builder.html#credentials\(com.google.auth.oauth2.GoogleCredentials\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
      
 [CredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset") \- Interface in [com.google.adk.tools.applicationintegrationtoolset](com/google/adk/tools/applicationintegrationtoolset/package-summary.html)
     
@@ -2665,10 +2703,14 @@ Returns a read-only view of the tool metadata.
      
 [customTags()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#customTags\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[customTags(Map)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#customTags\(java.util.Map\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 
 ## D
 
 [datasetId()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#datasetId\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[datasetId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#datasetId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [dataStore()](com/google/adk/tools/VertexAiSearchTool.html#dataStore\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
@@ -2705,6 +2747,8 @@ Gets the `FunctionDeclaration` representation of this tool.
 [declaration()](com/google/adk/tools/mcp/AbstractMcpTool.html#declaration\(\)) \- Method in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
 [declaration()](com/google/adk/tools/retrieval/BaseRetrievalTool.html#declaration\(\)) \- Method in class com.google.adk.tools.retrieval.[BaseRetrievalTool](com/google/adk/tools/retrieval/BaseRetrievalTool.html "class in com.google.adk.tools.retrieval")
+     
+[declaration()](com/google/adk/tools/SetModelResponseTool.html#declaration\(\)) \- Method in class com.google.adk.tools.[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
      
 [decodeContent(Content)](com/google/adk/sessions/SessionUtils.html#decodeContent\(com.google.genai.types.Content\)) \- Static method in class com.google.adk.sessions.[SessionUtils](com/google/adk/sessions/SessionUtils.html "class in com.google.adk.sessions")
     
@@ -2793,6 +2837,8 @@ Gets the one-line description of the agent's capability.
      
 [description(String)](com/google/adk/agents/BaseAgent.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")
      
+[description(String)](com/google/adk/tools/ExampleTool.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
+     
 [determineLlmFlow()](com/google/adk/agents/LlmAgent.html#determineLlmFlow\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
 [dimensions()](com/google/adk/models/springai/SpringAIEmbedding.html#dimensions\(\)) \- Method in class com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
@@ -2844,6 +2890,8 @@ Utility class for converting between embedding formats and performing vector ope
 Generate embeddings using a full EmbeddingRequest.
 
 [enabled()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#enabled\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[enabled(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#enabled\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [encodeContent(Content)](com/google/adk/sessions/SessionUtils.html#encodeContent\(com.google.genai.types.Content\)) \- Static method in class com.google.adk.sessions.[SessionUtils](com/google/adk/sessions/SessionUtils.html "class in com.google.adk.sessions")
     
@@ -2978,7 +3026,7 @@ The number of attempts to retry on consecutive code execution errors.
 
 [escalate()](com/google/adk/events/EventActions.html#escalate\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
-[escalate(boolean)](com/google/adk/events/EventActions.Builder.html#escalate\(boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
+[escalate(Boolean)](com/google/adk/events/EventActions.Builder.html#escalate\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
 [euclideanDistance(float[], float[])](com/google/adk/models/springai/EmbeddingConverter.html#euclideanDistance\(float%5B%5D,float%5B%5D\)) \- Static method in class com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     
@@ -3038,6 +3086,8 @@ Builder for [`EventActions`](com/google/adk/events/EventActions.html "class in c
 
 [eventAllowlist()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#eventAllowlist\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[eventAllowlist(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#eventAllowlist\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [EventCompaction](com/google/adk/events/EventCompaction.html "class in com.google.adk.events") \- Class in [com.google.adk.events](com/google/adk/events/package-summary.html)
     
 
@@ -3061,6 +3111,8 @@ Base interface for compacting events.
 Converter for ADK Events to A2A Messages.
 
 [eventDenylist()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#eventDenylist\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[eventDenylist(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#eventDenylist\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [eventId()](com/google/adk/agents/CallbackContext.html#eventId\(\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
     
@@ -3161,6 +3213,8 @@ Represents an few-shot example.
 
 Builder for constructing [`Example`](com/google/adk/examples/Example.html "class in com.google.adk.examples") instances.
 
+[exampleProvider(BaseExampleProvider)](com/google/adk/tools/ExampleTool.Builder.html#exampleProvider\(com.google.adk.examples.BaseExampleProvider\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
+     
 [ExampleTool](com/google/adk/tools/ExampleTool.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
     
 
@@ -3954,6 +4008,11 @@ Get the stop words for keyword extraction from the properties file, or return th
      
 [getStreamName(BigQueryLoggerConfig)](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#getStreamName\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryAgentAnalyticsPlugin](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")
      
+[getStructuredModelResponse(Event)](com/google/adk/flows/llmflows/OutputSchema.html#getStructuredModelResponse\(com.google.adk.events.Event\)) \- Static method in class com.google.adk.flows.llmflows.[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows")
+    
+
+Check if function response contains set_model_response and extract JSON.
+
 [getSystemInstructions()](com/google/adk/models/LlmRequest.html#getSystemInstructions\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
     
 
@@ -4334,6 +4393,8 @@ Increments the count of LLM calls made during this invocation and throws an exce
 
 [initialDelay()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#initialDelay\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[initialDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#initialDelay\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [initialize()](com/google/adk/tools/computeruse/BaseComputer.html#initialize\(\)) \- Method in interface com.google.adk.tools.computeruse.[BaseComputer](com/google/adk/tools/computeruse/BaseComputer.html "interface in com.google.adk.tools.computeruse")
     
 
@@ -4392,6 +4453,8 @@ Creates a new instance of the in-memory session service with empty storage.
 [input(Content)](com/google/adk/examples/Example.Builder.html#input\(com.google.genai.types.Content\)) \- Method in class com.google.adk.examples.[Example.Builder](com/google/adk/examples/Example.Builder.html "class in com.google.adk.examples")
      
 [inputAudioTranscription()](com/google/adk/agents/RunConfig.html#inputAudioTranscription\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[inputAudioTranscription(AudioTranscriptionConfig)](com/google/adk/agents/RunConfig.Builder.html#inputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
      
 [inputFiles()](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionInput.html#inputFiles\(\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionInput](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionInput.html "class in com.google.adk.codeexecutors")
     
@@ -4684,6 +4747,8 @@ Presses key combination.
 [LangChain4j(StreamingChatModel)](com/google/adk/models/langchain4j/LangChain4j.html#%3Cinit%3E\(dev.langchain4j.model.chat.StreamingChatModel\)) \- Constructor for class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
      
 [LangChain4j(StreamingChatModel, String)](com/google/adk/models/langchain4j/LangChain4j.html#%3Cinit%3E\(dev.langchain4j.model.chat.StreamingChatModel,java.lang.String\)) \- Constructor for class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
+[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j") \- Class in [com.google.adk.models.langchain4j](com/google/adk/models/langchain4j/package-summary.html)
      
 [LANGUAGE_KEY](com/google/adk/a2a/converters/PartConverter.html#LANGUAGE_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
@@ -5148,6 +5213,8 @@ Returns the location for Vertex AI APIs.
 
 [location()](com/google/adk/tools/VertexAiSearchTool.html#location\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
+[location(String)](com/google/adk/models/VertexCredentials.Builder.html#location\(java.lang.String\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
+     
 [location(String)](com/google/adk/tools/VertexAiSearchTool.Builder.html#location\(java.lang.String\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
      
 [LoggingPlugin](com/google/adk/plugins/LoggingPlugin.html "class in com.google.adk.plugins") \- Class in [com.google.adk.plugins](com/google/adk/plugins/package-summary.html)
@@ -5161,6 +5228,8 @@ A plugin that logs important information at each callback point.
      
 [logMultiModalContent()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#logMultiModalContent\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[logMultiModalContent(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#logMultiModalContent\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [logRequest(String, String)](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html#logRequest\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html "class in com.google.adk.models.springai.observability")
     
 
@@ -5172,6 +5241,8 @@ Logs request content if enabled.
 Logs response content if enabled.
 
 [logSessionMetadata()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#logSessionMetadata\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[logSessionMetadata(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#logSessionMetadata\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [longRunning()](com/google/adk/tools/BaseTool.html#longRunning\(\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
      
@@ -5249,7 +5320,11 @@ Returns the value of the `maxAge` record component.
 
 [maxContentLength()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#maxContentLength\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[maxContentLength(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#maxContentLength\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [maxDelay()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#maxDelay\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[maxDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#maxDelay\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [maxInvocations()](com/google/adk/agents/ContextCacheConfig.html#maxInvocations\(\)) \- Method in record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
     
@@ -5264,11 +5339,15 @@ Returns the value of the [`maxInvocations`](./com/google/adk/agents/ContextCache
      
 [maxLlmCalls()](com/google/adk/agents/RunConfig.html#maxLlmCalls\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
      
+[maxLlmCalls(int)](com/google/adk/agents/RunConfig.Builder.html#maxLlmCalls\(int\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+     
 [maxResults()](com/google/adk/tools/VertexAiSearchTool.html#maxResults\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
 [maxResults(Integer)](com/google/adk/tools/VertexAiSearchTool.Builder.html#maxResults\(java.lang.Integer\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
      
 [maxRetries()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#maxRetries\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[maxRetries(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#maxRetries\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [maxSteps](com/google/adk/flows/llmflows/BaseLlmFlow.html#maxSteps) \- Variable in class com.google.adk.flows.llmflows.[BaseLlmFlow](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
      
@@ -5480,6 +5559,10 @@ Returns a list of memory entries that relate to the search query.
 
 Returns the value of the `memories` record component.
 
+[memories(ImmutableList)](com/google/adk/memory/SearchMemoryResponse.Builder.html#memories\(com.google.common.collect.ImmutableList\)) \- Method in class com.google.adk.memory.[SearchMemoryResponse.Builder](com/google/adk/memory/SearchMemoryResponse.Builder.html "class in com.google.adk.memory")
+     
+[memories(List)](com/google/adk/memory/SearchMemoryResponse.Builder.html#memories\(java.util.List\)) \- Method in class com.google.adk.memory.[SearchMemoryResponse.Builder](com/google/adk/memory/SearchMemoryResponse.Builder.html "class in com.google.adk.memory")
+     
 [MemoryEntry](com/google/adk/memory/MemoryEntry.html "class in com.google.adk.memory") \- Class in [com.google.adk.memory](com/google/adk/memory/package-summary.html)
     
 
@@ -5595,6 +5678,8 @@ Returns the value of the [`minTokens`](./com/google/adk/agents/ContextCacheConfi
 
 Returns the name of the LLM model.
 
+[model()](com/google/adk/models/langchain4j/LangChain4j.html#model\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
 [model()](com/google/adk/models/LlmRequest.html#model\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
     
 
@@ -5627,6 +5712,8 @@ Model-specific errors (model not found, unsupported features)
 
 Builder for [`Model`](com/google/adk/models/Model.html "class in com.google.adk.models").
 
+[modelName()](com/google/adk/models/langchain4j/LangChain4j.html#modelName\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
 [modelName()](com/google/adk/models/Model.html#modelName\(\)) \- Method in class com.google.adk.models.[Model](com/google/adk/models/Model.html "class in com.google.adk.models")
      
 [modelName()](com/google/adk/models/springai/SpringAIEmbedding.html#modelName\(\)) \- Method in class com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
@@ -5644,10 +5731,15 @@ Sets the model string.
 
 Sets the name of the Gemini model to use.
 
+[modelName(String)](com/google/adk/models/langchain4j/LangChain4j.Builder.html#modelName\(java.lang.String\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+     
 [modelName(String)](com/google/adk/models/Model.Builder.html#modelName\(java.lang.String\)) \- Method in class com.google.adk.models.[Model.Builder](com/google/adk/models/Model.Builder.html "class in com.google.adk.models")
      
 [ModelNameUtils](com/google/adk/utils/ModelNameUtils.html "class in com.google.adk.utils") \- Class in [com.google.adk.utils](com/google/adk/utils/package-summary.html)
-     
+    
+
+Utility class for model names.
+
 [modelVersion()](com/google/adk/events/Event.html#modelVersion\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
     
 
@@ -5663,6 +5755,8 @@ The model version used to generate the response.
 [modelVersion(String)](com/google/adk/models/LlmResponse.Builder.html#modelVersion\(java.lang.String\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
      
 [multiplier()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#multiplier\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[multiplier(double)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#multiplier\(double\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 
 ## N
@@ -5704,6 +5798,10 @@ The name of the file with file extension (e.g., "file.csv").
 [name(String)](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.File.Builder](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")
      
 [name(String)](com/google/adk/plugins/ContextFilterPlugin.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.plugins.[ContextFilterPlugin.Builder](com/google/adk/plugins/ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
+     
+[name(String)](com/google/adk/tools/ExampleTool.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
+     
+[NAME](com/google/adk/tools/SetModelResponseTool.html#NAME) \- Static variable in class com.google.adk.tools.[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
      
 [NAME_KEY](com/google/adk/a2a/converters/PartConverter.html#NAME_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
@@ -5765,11 +5863,15 @@ Normalize an embedding vector to unit length.
      
 [objectMapper](com/google/adk/tools/mcp/AbstractMcpTool.html#objectMapper) \- Variable in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
+[objectMapper()](com/google/adk/models/langchain4j/LangChain4j.html#objectMapper\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
 [objectMapper()](com/google/adk/web/AdkWebServer.html#objectMapper\(\)) \- Method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
     
 
 Configures the Jackson ObjectMapper for JSON serialization.
 
+[objectMapper(ObjectMapper)](com/google/adk/models/langchain4j/LangChain4j.Builder.html#objectMapper\(com.fasterxml.jackson.databind.ObjectMapper\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+     
 [objectMapper(ObjectMapper)](com/google/adk/tools/mcp/McpAsyncToolset.Builder.html#objectMapper\(com.fasterxml.jackson.databind.ObjectMapper\)) \- Method in class com.google.adk.tools.mcp.[McpAsyncToolset.Builder](com/google/adk/tools/mcp/McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")
      
 [Observability()](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.springai.properties.[SpringAIProperties.Observability](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties")
@@ -5941,6 +6043,8 @@ Returns the value of the `origins` record component.
      
 [outputAudioTranscription()](com/google/adk/agents/RunConfig.html#outputAudioTranscription\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
      
+[outputAudioTranscription(AudioTranscriptionConfig)](com/google/adk/agents/RunConfig.Builder.html#outputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+     
 [outputFiles()](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.html#outputFiles\(\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors")
     
 
@@ -5969,6 +6073,13 @@ The output files from the code execution.
 
 Sets the output schema for the LLM response.
 
+[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows") \- Class in [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-summary.html)
+    
+
+Processor that handles output schema for agents with tools.
+
+[OutputSchema()](com/google/adk/flows/llmflows/OutputSchema.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.flows.llmflows.[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows")
+     
 [overlapSize()](com/google/adk/summarizer/EventsCompactionConfig.html#overlapSize\(\)) \- Method in record class com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
     
 
@@ -6154,6 +6265,8 @@ Adds computer use configuration to the LLM request.
      
 [processRequest(InvocationContext, LlmRequest)](com/google/adk/flows/llmflows/Instructions.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\)) \- Method in class com.google.adk.flows.llmflows.[Instructions](com/google/adk/flows/llmflows/Instructions.html "class in com.google.adk.flows.llmflows")
      
+[processRequest(InvocationContext, LlmRequest)](com/google/adk/flows/llmflows/OutputSchema.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\)) \- Method in class com.google.adk.flows.llmflows.[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows")
+     
 [processRequest(InvocationContext, LlmRequest)](com/google/adk/flows/llmflows/RequestConfirmationLlmRequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\)) \- Method in class com.google.adk.flows.llmflows.[RequestConfirmationLlmRequestProcessor](com/google/adk/flows/llmflows/RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")
      
 [processRequest(InvocationContext, LlmRequest)](com/google/adk/flows/llmflows/RequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\)) \- Method in interface com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows")
@@ -6180,9 +6293,13 @@ Returns the project ID for Vertex AI APIs.
 
 [project()](com/google/adk/tools/VertexAiSearchTool.html#project\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
+[project(String)](com/google/adk/models/VertexCredentials.Builder.html#project\(java.lang.String\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
+     
 [project(String)](com/google/adk/tools/VertexAiSearchTool.Builder.html#project\(java.lang.String\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
      
 [projectId()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#projectId\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[projectId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#projectId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [Provider(Function)](com/google/adk/agents/Instruction.Provider.html#%3Cinit%3E\(java.util.function.Function\)) \- Constructor for record class com.google.adk.agents.[Instruction.Provider](com/google/adk/agents/Instruction.Provider.html "class in com.google.adk.agents")
     
@@ -6206,6 +6323,8 @@ Sets the URL of the Apigee proxy.
 ## Q
 
 [queueMaxSize()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#queueMaxSize\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[queueMaxSize(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#queueMaxSize\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 
 ## R
@@ -6531,6 +6650,8 @@ Utility for converting ADK events to A2A spec messages (and back).
 
 [responseModalities()](com/google/adk/agents/RunConfig.html#responseModalities\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
      
+[responseModalities(Iterable)](com/google/adk/agents/RunConfig.Builder.html#responseModalities\(java.lang.Iterable\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+     
 [ResponseProcessingResult()](com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.flows.llmflows.[ResponseProcessor.ResponseProcessingResult](com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
      
 [responseProcessor](com/google/adk/flows/llmflows/CodeExecution.html#responseProcessor) \- Static variable in class com.google.adk.flows.llmflows.[CodeExecution](com/google/adk/flows/llmflows/CodeExecution.html "class in com.google.adk.flows.llmflows")
@@ -6548,6 +6669,8 @@ Result of response processing.
 [responseProcessors](com/google/adk/flows/llmflows/BaseLlmFlow.html#responseProcessors) \- Variable in class com.google.adk.flows.llmflows.[BaseLlmFlow](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
      
 [retryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#retryConfig\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[retryConfig(BigQueryLoggerConfig.RetryConfig)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#retryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [RetryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
@@ -6616,20 +6739,6 @@ See [`Runner.runAsync(String, String, Content, RunConfig, Map)`](com/google/adk/
 
 See [`Runner.runAsync(String, String, Content, RunConfig, Map)`](com/google/adk/runner/Runner.html#runAsync\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\)).
 
-[runAsync(Session, Content, RunConfig)](com/google/adk/runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\)) \- Method in class com.google.adk.runner.[Runner](com/google/adk/runner/Runner.html "class in com.google.adk.runner")
-    
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use runAsync with sessionId.
-
-[runAsync(Session, Content, RunConfig, Map)](com/google/adk/runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\)) \- Method in class com.google.adk.runner.[Runner](com/google/adk/runner/Runner.html "class in com.google.adk.runner")
-    
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use runAsync with sessionId.
-
 [runAsync(I, ToolContext, TypeReference)](com/google/adk/tools/BaseTool.html#runAsync\(I,com.google.adk.tools.ToolContext,com.fasterxml.jackson.core.type.TypeReference\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
     
 
@@ -6685,6 +6794,8 @@ Calls a tool.
 [runAsync(Map, ToolContext)](com/google/adk/tools/mcp/McpTool.html#runAsync\(java.util.Map,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.mcp.[McpTool](com/google/adk/tools/mcp/McpTool.html "class in com.google.adk.tools.mcp")
      
 [runAsync(Map, ToolContext)](com/google/adk/tools/retrieval/VertexAiRagRetrieval.html#runAsync\(java.util.Map,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.retrieval.[VertexAiRagRetrieval](com/google/adk/tools/retrieval/VertexAiRagRetrieval.html "class in com.google.adk.tools.retrieval")
+     
+[runAsync(Map, ToolContext)](com/google/adk/tools/SetModelResponseTool.html#runAsync\(java.util.Map,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
      
 [runAsync(T, ToolContext)](com/google/adk/tools/BaseTool.html#runAsync\(T,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
     
@@ -6881,10 +6992,6 @@ Service for creating and caching Runner instances.
      
 [runOnUserMessageCallback(InvocationContext, Content)](com/google/adk/plugins/PluginManager.html#runOnUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
      
-[runWithSessionId(String, Content, RunConfig)](com/google/adk/runner/Runner.html#runWithSessionId\(java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig\)) \- Method in class com.google.adk.runner.[Runner](com/google/adk/runner/Runner.html "class in com.google.adk.runner")
-    
-
-Deprecated, for removal: This API element is subject to removal in a future version.
 
 ## S
 
@@ -6933,6 +7040,10 @@ Saves an artifact to GCS and assigns a new version.
 Saves an artifact in memory and assigns a new version.
 
 [saveInputBlobsAsArtifacts()](com/google/adk/agents/RunConfig.html#saveInputBlobsAsArtifacts\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[saveInputBlobsAsArtifacts(boolean)](com/google/adk/agents/RunConfig.Builder.html#saveInputBlobsAsArtifacts\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+     
+[scheduler(Scheduler)](com/google/adk/agents/ParallelAgent.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\)) \- Method in class com.google.adk.agents.[ParallelAgent.Builder](com/google/adk/agents/ParallelAgent.Builder.html "class in com.google.adk.agents")
      
 [SCHEDULING_KEY](com/google/adk/a2a/converters/PartConverter.html#SCHEDULING_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
@@ -7199,9 +7310,15 @@ Utility functions for session service.
 [setAuthor(String)](com/google/adk/events/Event.html#setAuthor\(java.lang.String\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setAutoCreateSession(boolean)](com/google/adk/agents/RunConfig.Builder.html#setAutoCreateSession\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setAutoSchemaUpgrade(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setAutoSchemaUpgrade\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setAvgLogprobs(Double)](com/google/adk/events/Event.html#setAvgLogprobs\(java.lang.Double\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setBaseAgentCallbacks(BaseAgentConfig, Consumer, Consumer)](com/google/adk/agents/ConfigAgentUtils.html#setBaseAgentCallbacks\(com.google.adk.agents.BaseAgentConfig,java.util.function.Consumer,java.util.function.Consumer\)) \- Static method in class com.google.adk.agents.[ConfigAgentUtils](com/google/adk/agents/ConfigAgentUtils.html "class in com.google.adk.agents")
@@ -7210,9 +7327,15 @@ Utility functions for session service.
 Sets the common agent callbacks (before/after agent) from the config to the builder setters.
 
 [setBatchFlushInterval(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setBatchFlushInterval\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setBatchSize(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setBatchSize\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setBeforeAgentCallbacks(List)](com/google/adk/agents/BaseAgentConfig.html#setBeforeAgentCallbacks\(java.util.List\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
 [setBeforeModelCallbacks(List)](com/google/adk/agents/LlmAgentConfig.html#setBeforeModelCallbacks\(java.util.List\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
@@ -7222,7 +7345,10 @@ Sets the common agent callbacks (before/after agent) from the config to the buil
 [setBuildOutputDirs(String[])](com/google/adk/web/config/AgentLoadingProperties.html#setBuildOutputDirs\(java.lang.String%5B%5D\)) \- Method in class com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
      
 [setClusteringFields(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setClusteringFields\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setCode(String)](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html#setCode\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.AgentRefConfig](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")
      
 [setCompaction(EventCompaction)](com/google/adk/events/EventActions.html#setCompaction\(com.google.adk.events.EventCompaction\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
@@ -7230,15 +7356,27 @@ Sets the common agent callbacks (before/after agent) from the config to the buil
 [setConfigPath(String)](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html#setConfigPath\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.AgentRefConfig](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")
      
 [setConnectionId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setConnectionId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setContent(Content)](com/google/adk/events/Event.html#setContent\(com.google.genai.types.Content\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setContentFormatter(BiFunction)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setContentFormatter\(java.util.function.BiFunction\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setCredentials(Credentials)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setCredentials\(com.google.auth.Credentials\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setCredentials(GoogleCredentials)](com/google/adk/models/VertexCredentials.Builder.html#setCredentials\(com.google.auth.oauth2.GoogleCredentials\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
-     
+    
+
+Deprecated.
+
 [setCustomMetadata(String, Object)](com/google/adk/tools/BaseTool.html#setCustomMetadata\(java.lang.String,java.lang.Object\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
     
 
@@ -7247,15 +7385,24 @@ Sets custom metadata to the tool associated with a key.
 [setCustomMetadata(List)](com/google/adk/events/Event.html#setCustomMetadata\(java.util.List\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setCustomTags(Map)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setCustomTags\(java.util.Map\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setDatasetId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setDatasetId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setDeletedArtifactIds(Set)](com/google/adk/events/EventActions.html#setDeletedArtifactIds\(java.util.Set\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setDescription(String)](com/google/adk/agents/BaseAgentConfig.html#setDescription\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
 [setDescription(String)](com/google/adk/tools/ExampleTool.Builder.html#setDescription\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
-     
+    
+
+Deprecated.
+
 [setDisallowTransferToParent(Boolean)](com/google/adk/agents/LlmAgentConfig.html#setDisallowTransferToParent\(java.lang.Boolean\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
      
 [setDisallowTransferToPeers(Boolean)](com/google/adk/agents/LlmAgentConfig.html#setDisallowTransferToPeers\(java.lang.Boolean\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
@@ -7265,7 +7412,10 @@ Sets custom metadata to the tool associated with a key.
 [setEnabled(boolean)](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html#setEnabled\(boolean\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties.Validation](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html "class in com.google.adk.models.springai.properties")
      
 [setEnabled(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setEnabled\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setEndInvocation(boolean)](com/google/adk/agents/InvocationContext.html#setEndInvocation\(boolean\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
     
 
@@ -7287,11 +7437,20 @@ Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.h
 [setEscalate(Boolean)](com/google/adk/events/EventActions.html#setEscalate\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setEventAllowlist(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setEventAllowlist\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setEventDenylist(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setEventDenylist\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setExampleProvider(BaseExampleProvider)](com/google/adk/tools/ExampleTool.Builder.html#setExampleProvider\(com.google.adk.examples.BaseExampleProvider\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
-     
+    
+
+Deprecated.
+
 [setExecutionId(String)](com/google/adk/codeexecutors/CodeExecutorContext.html#setExecutionId\(java.lang.String\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutorContext](com/google/adk/codeexecutors/CodeExecutorContext.html "class in com.google.adk.codeexecutors")
     
 
@@ -7317,9 +7476,15 @@ Deprecated.
 [setIncludeContents(LlmAgent.IncludeContents)](com/google/adk/agents/LlmAgentConfig.html#setIncludeContents\(com.google.adk.agents.LlmAgent.IncludeContents\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
      
 [setInitialDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setInitialDelay\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setInputAudioTranscription(AudioTranscriptionConfig)](com/google/adk/agents/RunConfig.Builder.html#setInputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setInstance(ComponentRegistry)](com/google/adk/utils/ComponentRegistry.html#setInstance\(com.google.adk.utils.ComponentRegistry\)) \- Static method in class com.google.adk.utils.[ComponentRegistry](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils")
     
 
@@ -7332,29 +7497,55 @@ Updates the global singleton instance with a new ComponentRegistry.
 [setInvocationId(String)](com/google/adk/events/Event.html#setInvocationId\(java.lang.String\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setLocation(String)](com/google/adk/models/VertexCredentials.Builder.html#setLocation\(java.lang.String\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
-     
+    
+
+Deprecated.
+
 [setLogMultiModalContent(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setLogMultiModalContent\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setLogSessionMetadata(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setLogSessionMetadata\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setLongRunningToolIds(Set)](com/google/adk/events/Event.html#setLongRunningToolIds\(java.util.Set\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setMaxContentLength(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setMaxContentLength\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setMaxDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setMaxDelay\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setMaxIterations(Integer)](com/google/adk/agents/LoopAgentConfig.html#setMaxIterations\(java.lang.Integer\)) \- Method in class com.google.adk.agents.[LoopAgentConfig](com/google/adk/agents/LoopAgentConfig.html "class in com.google.adk.agents")
      
 [setMaxLlmCalls(int)](com/google/adk/agents/RunConfig.Builder.html#setMaxLlmCalls\(int\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setMaxRetries(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setMaxRetries\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setMaxTokens(Integer)](com/google/adk/models/springai/properties/SpringAIProperties.html#setMaxTokens\(java.lang.Integer\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
      
+[setMemories(ImmutableList)](com/google/adk/memory/SearchMemoryResponse.Builder.html#setMemories\(com.google.common.collect.ImmutableList\)) \- Method in class com.google.adk.memory.[SearchMemoryResponse.Builder](com/google/adk/memory/SearchMemoryResponse.Builder.html "class in com.google.adk.memory")
+    
+
+Deprecated.
+
 [setMemories(List)](com/google/adk/memory/SearchMemoryResponse.Builder.html#setMemories\(java.util.List\)) \- Method in class com.google.adk.memory.[SearchMemoryResponse.Builder](com/google/adk/memory/SearchMemoryResponse.Builder.html "class in com.google.adk.memory")
     
 
-Sets the list of memory entries using a list.
+Deprecated.
 
 [setMetricsEnabled(boolean)](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html#setMetricsEnabled\(boolean\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties.Observability](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties")
      
@@ -7362,10 +7553,20 @@ Sets the list of memory entries using a list.
      
 [setModel(String)](com/google/adk/models/springai/properties/SpringAIProperties.html#setModel\(java.lang.String\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
      
+[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
+    
+
+Internal tool used for output schema workaround.
+
+[SetModelResponseTool(Schema)](com/google/adk/tools/SetModelResponseTool.html#%3Cinit%3E\(com.google.genai.types.Schema\)) \- Constructor for class com.google.adk.tools.[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
+     
 [setModelVersion(String)](com/google/adk/events/Event.html#setModelVersion\(java.lang.String\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setMultiplier(double)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setMultiplier\(double\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setName(String)](com/google/adk/agents/BaseAgentConfig.CallbackRef.html#setName\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.CallbackRef](com/google/adk/agents/BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")
      
 [setName(String)](com/google/adk/agents/BaseAgentConfig.html#setName\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
@@ -7373,11 +7574,17 @@ Sets the list of memory entries using a list.
 [setName(String)](com/google/adk/tools/BaseTool.ToolConfig.html#setName\(java.lang.String\)) \- Method in class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
      
 [setName(String)](com/google/adk/tools/ExampleTool.Builder.html#setName\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
-     
+    
+
+Deprecated.
+
 [setObservability(SpringAIProperties.Observability)](com/google/adk/models/springai/properties/SpringAIProperties.html#setObservability\(com.google.adk.models.springai.properties.SpringAIProperties.Observability\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
      
 [setOutputAudioTranscription(AudioTranscriptionConfig)](com/google/adk/agents/RunConfig.Builder.html#setOutputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setOutputKey(String)](com/google/adk/agents/LlmAgentConfig.html#setOutputKey\(java.lang.String\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
      
 [setParent(Context)](com/google/adk/telemetry/Tracing.TracerProvider.html#setParent\(io.opentelemetry.context.Context\)) \- Method in class com.google.adk.telemetry.[Tracing.TracerProvider](com/google/adk/telemetry/Tracing.TracerProvider.html "class in com.google.adk.telemetry")
@@ -7388,23 +7595,44 @@ Sets an explicit parent context for the span created by this transformer.
 [setPartial(Boolean)](com/google/adk/events/Event.html#setPartial\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setProject(String)](com/google/adk/models/VertexCredentials.Builder.html#setProject\(java.lang.String\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
-     
+    
+
+Deprecated.
+
 [setProjectId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setProjectId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setQueueMaxSize(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setQueueMaxSize\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setRequestedAuthConfigs(Map)](com/google/adk/events/EventActions.html#setRequestedAuthConfigs\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setRequestedToolConfirmations(Map)](com/google/adk/events/EventActions.html#setRequestedToolConfirmations\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setResponseModalities(Iterable)](com/google/adk/agents/RunConfig.Builder.html#setResponseModalities\(java.lang.Iterable\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setRetryConfig(BigQueryLoggerConfig.RetryConfig)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setRetryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setSaveInputBlobsAsArtifacts(boolean)](com/google/adk/agents/RunConfig.Builder.html#setSaveInputBlobsAsArtifacts\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setShutdownTimeout(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setShutdownTimeout\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setSkipSummarization(boolean)](com/google/adk/events/EventActions.html#setSkipSummarization\(boolean\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setSkipSummarization(Boolean)](com/google/adk/events/EventActions.html#setSkipSummarization\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
@@ -7412,7 +7640,10 @@ Sets an explicit parent context for the span created by this transformer.
 [setSourceDir(String)](com/google/adk/web/config/AgentLoadingProperties.html#setSourceDir\(java.lang.String\)) \- Method in class com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
      
 [setSpeechConfig(SpeechConfig)](com/google/adk/agents/RunConfig.Builder.html#setSpeechConfig\(com.google.genai.types.SpeechConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setSseServerParams(SseServerParameters)](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html#setSseServerParams\(com.google.adk.tools.mcp.SseServerParameters\)) \- Method in class com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
      
 [setStateDelta(ConcurrentMap)](com/google/adk/events/EventActions.html#setStateDelta\(java.util.concurrent.ConcurrentMap\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
@@ -7425,17 +7656,26 @@ Deprecated.
 [setStdioServerParams(StdioServerParameters)](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html#setStdioServerParams\(com.google.adk.tools.mcp.StdioServerParameters\)) \- Method in class com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
      
 [setStreamingMode(RunConfig.StreamingMode)](com/google/adk/agents/RunConfig.Builder.html#setStreamingMode\(com.google.adk.agents.RunConfig.StreamingMode\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setSubAgents(List)](com/google/adk/agents/BaseAgentConfig.html#setSubAgents\(java.util.List\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
 [setTableName(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setTableName\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
-     
+    
+
+Deprecated.
+
 [setTemperature(Double)](com/google/adk/models/springai/properties/SpringAIProperties.html#setTemperature\(java.lang.Double\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
      
 [setTimestamp(long)](com/google/adk/events/Event.html#setTimestamp\(long\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setToolExecutionMode(RunConfig.ToolExecutionMode)](com/google/adk/agents/RunConfig.Builder.html#setToolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Deprecated.
+
 [setToolFilter(List)](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html#setToolFilter\(java.util.List\)) \- Method in class com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
      
 [setTools(List)](com/google/adk/agents/LlmAgentConfig.html#setTools\(java.util.List\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
@@ -7471,6 +7711,8 @@ Determines if accumulated text should be emitted based on the current LlmRespons
      
 [shutdownTimeout()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#shutdownTimeout\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[shutdownTimeout(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#shutdownTimeout\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
 [SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows") \- Class in [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-summary.html)
     
 
@@ -7488,7 +7730,7 @@ Basic LLM flow with fixed request and response processors.
      
 [skipSummarization()](com/google/adk/events/EventActions.html#skipSummarization\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
-[skipSummarization(boolean)](com/google/adk/events/EventActions.Builder.html#skipSummarization\(boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
+[skipSummarization(Boolean)](com/google/adk/events/EventActions.Builder.html#skipSummarization\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
 [SlidingWindowEventCompactor](com/google/adk/summarizer/SlidingWindowEventCompactor.html "class in com.google.adk.summarizer") \- Class in [com.google.adk.summarizer](com/google/adk/summarizer/package-summary.html)
     
@@ -7503,6 +7745,8 @@ This class performs events compaction in a sliding window fashion based on the [
 Interface for a speech-to-text client.
 
 [speechConfig()](com/google/adk/agents/RunConfig.html#speechConfig\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[speechConfig(SpeechConfig)](com/google/adk/agents/RunConfig.Builder.html#speechConfig\(com.google.genai.types.SpeechConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
      
 [SpringAI](com/google/adk/models/springai/SpringAI.html "class in com.google.adk.models.springai") \- Class in [com.google.adk.models.springai](com/google/adk/models/springai/package-summary.html)
     
@@ -7795,7 +8039,13 @@ Builder for [`StreamableHttpServerParameters`](com/google/adk/tools/mcp/Streamab
      
 [streaming(boolean)](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html#streaming\(boolean\)) \- Method in class com.google.adk.a2a.agent.[RemoteA2AAgent.Builder](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
      
+[streamingChatModel()](com/google/adk/models/langchain4j/LangChain4j.html#streamingChatModel\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
+[streamingChatModel(StreamingChatModel)](com/google/adk/models/langchain4j/LangChain4j.Builder.html#streamingChatModel\(dev.langchain4j.model.chat.StreamingChatModel\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+     
 [streamingMode()](com/google/adk/agents/RunConfig.html#streamingMode\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[streamingMode(RunConfig.StreamingMode)](com/google/adk/agents/RunConfig.Builder.html#streamingMode\(com.google.adk.agents.RunConfig.StreamingMode\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
      
 [StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai") \- Class in [com.google.adk.models.springai](com/google/adk/models/springai/package-summary.html)
     
@@ -7844,6 +8094,8 @@ Returns the value of the [`summarizer`](./com/google/adk/summarizer/EventsCompac
 ## T
 
 [tableName()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#tableName\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[tableName(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#tableName\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [TailRetentionEventCompactor](com/google/adk/summarizer/TailRetentionEventCompactor.html "class in com.google.adk.summarizer") \- Class in [com.google.adk.summarizer](com/google/adk/summarizer/package-summary.html)
     
@@ -8012,6 +8264,10 @@ Serializes an object to a JsonNode.
 
 Serializes an object to a Json string.
 
+[tokenCountEstimator()](com/google/adk/models/langchain4j/LangChain4j.html#tokenCountEstimator\(\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+     
+[tokenCountEstimator(TokenCountEstimator)](com/google/adk/models/langchain4j/LangChain4j.Builder.html#tokenCountEstimator\(dev.langchain4j.model.TokenCountEstimator\)) \- Method in class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
+     
 [tokenThreshold()](com/google/adk/summarizer/EventsCompactionConfig.html#tokenThreshold\(\)) \- Method in record class com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
     
 
@@ -8098,6 +8354,8 @@ Converts between ADK and Spring AI tool/function formats.
 Simple metadata holder for tool information.
 
 [toolExecutionMode()](com/google/adk/agents/RunConfig.html#toolExecutionMode\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[toolExecutionMode(RunConfig.ToolExecutionMode)](com/google/adk/agents/RunConfig.Builder.html#toolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
      
 [toolFilter()](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html#toolFilter\(\)) \- Method in class com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
      
@@ -8229,7 +8487,7 @@ Returns a transformer that traces an agent invocation.
 
 Sets span attributes immediately available on agent invocation according to OTEL semconv version 1.37.
 
-[traceCallLlm(Span, InvocationContext, String, LlmRequest, LlmResponse)](com/google/adk/telemetry/Tracing.html#traceCallLlm\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+[traceCallLlm(Span, InvocationContext, String, LlmRequest, LlmResponse, Exception)](com/google/adk/telemetry/Tracing.html#traceCallLlm\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,java.lang.Exception\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     
 
 Traces a call to the LLM.
@@ -8239,20 +8497,20 @@ Traces a call to the LLM.
 
 Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle.
 
-[traceSendData(InvocationContext, String, List)](com/google/adk/telemetry/Tracing.html#traceSendData\(com.google.adk.agents.InvocationContext,java.lang.String,java.util.List\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+[traceMergedToolCalls(Span, String, Event)](com/google/adk/telemetry/Tracing.html#traceMergedToolCalls\(io.opentelemetry.api.trace.Span,java.lang.String,com.google.adk.events.Event\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+    
+
+Traces merged tool call events.
+
+[traceSendData(Span, InvocationContext, String, List)](com/google/adk/telemetry/Tracing.html#traceSendData\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,java.util.List\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     
 
 Traces the sending of data (history or new content) to the agent/model.
 
-[traceToolCall(String, String, String, Map)](com/google/adk/telemetry/Tracing.html#traceToolCall\(java.lang.String,java.lang.String,java.lang.String,java.util.Map\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+[traceToolExecution(Span, String, String, String, Map, Event, Exception)](com/google/adk/telemetry/Tracing.html#traceToolExecution\(io.opentelemetry.api.trace.Span,java.lang.String,java.lang.String,java.lang.String,java.util.Map,com.google.adk.events.Event,java.lang.Exception\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     
 
-Traces tool call arguments.
-
-[traceToolResponse(String, Event)](com/google/adk/telemetry/Tracing.html#traceToolResponse\(java.lang.String,com.google.adk.events.Event\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
-    
-
-Traces tool response event.
+Traces a tool execution, including its arguments, response, and any potential error.
 
 [Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
     

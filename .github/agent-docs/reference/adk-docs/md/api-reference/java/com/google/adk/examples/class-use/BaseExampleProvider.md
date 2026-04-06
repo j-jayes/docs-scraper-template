@@ -64,9 +64,15 @@ Description
 
 `[ExampleTool.Builder](../../tools/ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-ExampleTool.Builder.`[setExampleProvider](../../tools/ExampleTool.Builder.html#setExampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
+ExampleTool.Builder.`[exampleProvider](../../tools/ExampleTool.Builder.html#exampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
 
  
+
+`final [ExampleTool.Builder](../../tools/ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+ExampleTool.Builder.`[setExampleProvider](../../tools/ExampleTool.Builder.html#setExampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
+
+Deprecated.
 
 
 

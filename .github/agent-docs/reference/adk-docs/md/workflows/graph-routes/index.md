@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -276,7 +280,7 @@ Alpha Release
 
 ADK 2.0 is an Alpha release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
-Get started with graph-based workflows in ADK by checking out [Graph-based agent workflows](/adk-docs/workflows/).
+Get started with graph-based workflows in ADK by checking out [Graph-based agent workflows](/workflows/).
 
 ## Nodes¶
 
@@ -290,7 +294,7 @@ A graph is composed of execution nodes. These _nodes_ can be **_Agents_** , ADK 
         return Event(output=input_text_modified)
     
 
-For more information about transferring data between nodes, see . [Data handling for agent workflows](/adk-docs/workflows/data-handling/).
+For more information about transferring data between nodes, see . [Data handling for agent workflows](/workflows/data-handling/).
 
 ## Workflow graphs syntax¶
 
@@ -307,7 +311,7 @@ You define a graph by creating an **_edges_** array, which defines a logical exe
 
 Caution: Workflows and agent limitations
 
-You can add **_Agents_** , or **_LlmAgents_** , to graph-based workflows, however they must be set to a task or single-turn mode. For more information about agent modes, see [Build collaborative agent teams](/adk-docs/workflows/collaboration/#mode-configuration-and-behaviors).
+You can add **_Agents_** , or **_LlmAgents_** , to graph-based workflows, however they must be set to a task or single-turn mode. For more information about agent modes, see [Build collaborative agent teams](/workflows/collaboration/#mode-configuration-and-behaviors).
 
 ### Route sequences¶
 

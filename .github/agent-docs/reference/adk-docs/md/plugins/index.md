@@ -13,6 +13,17 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](..)
+  * [ Build Agents ](../get-started/)
+  * [ Run Agents ](../runtime/)
+  * [ Components ](../get-started/about/)
+  * [ Integrations ](../integrations/)
+  * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
+  * [ ADK 2.0 ](../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -56,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -110,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Custom Metrics  ](../evaluate/custom_metrics/)
+      * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
 
 Safety and Security 
@@ -157,9 +171,12 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../a2a/quickstart-exposing/)
         * [ Go  ](../a2a/quickstart-exposing-go/)
+        * [ Java  ](../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
+        * [ Java  ](../a2a/quickstart-consuming-java/)
+      * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
 Gemini Live API Toolkit 
@@ -176,8 +193,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../release-notes/)
     * [ API Reference  ](../api-reference/)
 
 API Reference 
@@ -188,8 +207,22 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
+    * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
+  * [ ADK 2.0  ](../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../workflows/graph-routes/)
+      * [ Data handling  ](../workflows/data-handling/)
+      * [ Human input  ](../workflows/human-input/)
+    * [ Collaborative agents  ](../workflows/collaboration/)
+    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
@@ -224,7 +257,7 @@ Table of contents
 
 # Plugins¶
 
-Supported in ADKPython v1.7.0
+Supported in ADKPython v1.7.0TypeScript v0.2.5Go v0.4.0Java v0.3.0
 
 A Plugin in Agent Development Kit (ADK) is a custom code module that can be executed at various stages of an agent workflow lifecycle using callback hooks. You use Plugins for functionality that is applicable across your agent workflow. Some typical applications of Plugins are as follows:
 
@@ -238,11 +271,11 @@ A Plugin in Agent Development Kit (ADK) is a custom code module that can be exec
 
 Tip: Use Plugins for safety features
 
-When implementing security guardrails and policies, use ADK Plugins for better modularity and flexibility than Callbacks. For more details, see [Callbacks and Plugins for Security Guardrails](/adk-docs/safety/#callbacks-and-plugins-for-security-guardrails).
+When implementing security guardrails and policies, use ADK Plugins for better modularity and flexibility than Callbacks. For more details, see [Callbacks and Plugins for Security Guardrails](/safety/#callbacks-and-plugins-for-security-guardrails).
 
 Tip: ADK Integrations
 
-For a list of pre-built plugins and other integrations for ADK, see [Tools and Integrations](/adk-docs/integrations/).
+For a list of pre-built plugins and other integrations for ADK, see [Tools and Integrations](/integrations/).
 
 ## How do Plugins work?¶
 
@@ -254,8 +287,8 @@ Plugin functionality builds on [Callbacks](../callbacks/), which is a key design
 
 ADK includes several plugins that you can add to your agent workflows immediately:
 
-  * [**Reflect and Retry Tools**](/adk-docs/plugins/reflect-and-retry/): Tracks tool failures and intelligently retries tool requests.
-  * [**BigQuery Analytics**](/adk-docs/observability/bigquery-agent-analytics/): Enables agent logging and analysis with BigQuery.
+  * [**Reflect and Retry Tools**](/plugins/reflect-and-retry/): Tracks tool failures and intelligently retries tool requests.
+  * [**BigQuery Analytics**](/observability/bigquery-agent-analytics/): Enables agent logging and analysis with BigQuery.
   * [**Context Filter**](https://github.com/google/adk-python/blob/main/src/google/adk/plugins/context_filter_plugin.py): Filters the generative AI context to reduce its size.
   * [**Global Instruction**](https://github.com/google/adk-python/blob/main/src/google/adk/plugins/global_instruction_plugin.py): Plugin that provides global instructions functionality at the App level.
   * [**Save Files as Artifacts**](https://github.com/google/adk-python/blob/main/src/google/adk/plugins/save_files_as_artifacts_plugin.py): Saves files included in user messages as Artifacts.
@@ -271,7 +304,7 @@ This section explains how to define Plugin classes and register them as part of 
 
 Start by extending the `BasePlugin` class and add one or more `callback` methods, as shown in the following code example:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
 
 count_plugin.py
     
@@ -392,13 +425,65 @@ CountInvocationPlugin.java
     }
     
 
+count_plugin.go
+    
+    
+    package main
+    
+    import (
+        "fmt"
+    
+        "google.golang.org/adk/agent"
+        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/model"
+        "google.golang.org/adk/plugin"
+        "google.golang.org/genai"
+    )
+    
+    /**
+     * A custom plugin that counts agent and tool invocations.
+     */
+    type CountInvocationPlugin struct {
+        AgentCount      int
+        ToolCount       int
+        LlmRequestCount int
+    }
+    
+    func NewCountInvocationPlugin() (*plugin.Plugin, error) {
+        p := &CountInvocationPlugin{}
+        return plugin.New(plugin.Config{
+            Name:                "count_invocation",
+            BeforeAgentCallback: p.BeforeAgentCallback,
+            BeforeModelCallback: p.BeforeModelCallback,
+        })
+    }
+    
+    /**
+     * Count agent runs.
+     */
+    func (p *CountInvocationPlugin) BeforeAgentCallback(ctx agent.CallbackContext) (*genai.Content, error) {
+        p.AgentCount++
+        fmt.Printf("[Plugin] Agent run count: %d\n", p.AgentCount)
+        return nil, nil
+    }
+    
+    /**
+     * Count LLM requests.
+     */
+    func (p *CountInvocationPlugin) BeforeModelCallback(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+        p.LlmRequestCount++
+        fmt.Printf("[Plugin] LLM request count: %d\n", p.LlmRequestCount)
+        return nil, nil
+    }
+    
+
 This example code implements callbacks for `before_agent_callback` and `before_model_callback` to count execution of these tasks during the lifecycle of the agent.
 
 ### Register Plugin class¶
 
 Integrate your Plugin class by registering it during your agent initialization as part of your `Runner` class, using the `plugins` parameter. You can specify multiple Plugins with this parameter. The following code example shows how to register the `CountInvocationPlugin` plugin defined in the previous section with a simple ADK agent.
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     from google.adk.runners import InMemoryRunner
@@ -591,12 +676,116 @@ PythonTypescriptJava
       }
     }
     
+    
+    
+    package main
+    
+    import (
+        "context"
+        "fmt"
+        "log"
+    
+        "google.golang.org/adk/agent"
+        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/model/gemini"
+        "google.golang.org/adk/plugin"
+        "google.golang.org/adk/runner"
+        "google.golang.org/adk/session"
+        "google.golang.org/adk/tool"
+        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/genai"
+    )
+    
+    type helloWorldArgs struct {
+        Query string `json:"query"`
+    }
+    
+    type helloWorldResult struct {
+        Result string `json:"result"`
+    }
+    
+    func helloWorld(ctx tool.Context, args helloWorldArgs) (helloWorldResult, error) {
+        output := fmt.Sprintf("Hello world: query is [%s]", args.Query)
+        fmt.Println(output)
+        return helloWorldResult{Result: output}, nil
+    }
+    
+    func main() {
+        ctx := context.Background()
+        model, err := gemini.NewModel(ctx, "gemini-2.0-flash", &genai.ClientConfig{})
+        if err != nil {
+            log.Fatalf("failed to create model: %v", err)
+        }
+    
+        helloWorldTool, err := functiontool.New(functiontool.Config{
+            Name:        "hello_world",
+            Description: "Prints hello world with user query.",
+        }, helloWorld)
+        if err != nil {
+            log.Fatalf("failed to create tool: %v", err)
+        }
+    
+        rootAgent, err := llmagent.New(llmagent.Config{
+            Model:       model,
+            Name:        "hello_world",
+            Description: "Prints hello world with user query.",
+            Instruction: "Use hello_world tool to print hello world and user query.",
+            Tools:       []tool.Tool{helloWorldTool},
+        })
+        if err != nil {
+            log.Fatalf("failed to create agent: %v", err)
+        }
+    
+        // Create your plugin.
+        countPlugin, err := NewCountInvocationPlugin()
+        if err != nil {
+            log.Fatalf("failed to create plugin: %v", err)
+        }
+    
+        sessionService := session.InMemoryService()
+        // Add your plugin here. You can add multiple plugins.
+        r, err := runner.New(runner.Config{
+            AppName:        "test_app_with_plugin",
+            Agent:          rootAgent,
+            SessionService: sessionService,
+            PluginConfig: runner.PluginConfig{
+                Plugins: []*plugin.Plugin{countPlugin},
+            },
+        })
+        if err != nil {
+            log.Fatalf("failed to create runner: %v", err)
+        }
+    
+        // The rest is the same as starting a regular ADK runner.
+        sessResp, err := sessionService.Create(ctx, &session.CreateRequest{
+            AppName: "test_app_with_plugin",
+            UserID:  "user",
+        })
+        if err != nil {
+            log.Fatalf("failed to create session: %v", err)
+        }
+        sess := sessResp.Session
+    
+        prompt := "hello world"
+        input := genai.NewContentFromText(prompt, genai.RoleUser)
+    
+        for event, err := range r.Run(ctx, "user", sess.ID(), input, agent.RunConfig{}) {
+            if err != nil {
+                log.Printf("AGENT_ERROR: %v", err)
+                continue
+            }
+            if event.Author != "" {
+                fmt.Printf("** Got event from %s\n", event.Author)
+            }
+        }
+    }
+    
 
 ### Run the agent with the Plugin¶
 
 Run the plugin as you typically would. The following shows how to run the command line:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     python3 -m path.to.main.py
@@ -608,6 +797,10 @@ PythonTypescriptJava
     
     
     ./mvnw -q clean compile exec:java -Dexec.mainClass="com.example.Main"
+    
+    
+    
+    go run path/to/main.go
     
 
 The output of this previously described agent should look similar to the following:
@@ -622,7 +815,7 @@ The output of this previously described agent should look similar to the followi
     ** Got event from hello_world
     
 
-For more information on running ADK agents, see the [Quickstart](/adk-docs/get-started/quickstart/#run-your-agent) guide.
+For more information on running ADK agents, see the [Agent Runtime](/runtime/#ways-to-run-agents) guides.
 
 ## Build workflows with Plugins¶
 
@@ -685,7 +878,7 @@ _A User Message c_ allback (`on_user_message_callback`) happens when a user send
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     async def on_user_message_callback(
@@ -713,6 +906,13 @@ PythonTypescriptJava
       return Maybe.empty();
     }
     
+    
+    
+    func (p *MyPlugin) OnUserMessageCallback(ctx agent.InvocationContext, msg *genai.Content) (*genai.Content, error) {
+      // Your implementation here
+      return nil, nil
+    }
+    
 
 ### Runner start callbacks¶
 
@@ -726,7 +926,7 @@ A _Runner start_ callback (`before_run_callback`) happens when the `Runner` obje
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     async def before_run_callback(
@@ -745,6 +945,13 @@ PythonTypescriptJava
     public Maybe<Content> beforeRunCallback(InvocationContext invocationContext) {
       // Your implementation here
       return Maybe.empty();
+    }
+    
+    
+    
+    func (p *MyPlugin) BeforeRunCallback(ctx agent.InvocationContext) (*genai.Content, error) {
+      // Your implementation here
+      return nil, nil
     }
     
 
@@ -784,7 +991,7 @@ The on error callback for Model objects is only supported by the Plugins feature
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     async def on_model_error_callback(
@@ -814,6 +1021,13 @@ PythonTypescriptJava
       return Maybe.empty();
     }
     
+    
+    
+    func (p *MyPlugin) OnModelErrorCallback(ctx agent.CallbackContext, req *model.LLMRequest, err error) (*model.LLMResponse, error) {
+      // Your implementation here
+      return nil, nil
+    }
+    
 
 ### Tool callbacks¶
 
@@ -841,7 +1055,7 @@ The on error callback for Tool objects is only supported by the Plugins feature 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     async def on_tool_error_callback(
@@ -873,6 +1087,13 @@ PythonTypescriptJava
       return Maybe.empty();
     }
     
+    
+    
+    func (p *MyPlugin) OnToolErrorCallback(ctx tool.Context, t tool.Tool, args map[string]any, err error) (map[string]any, error) {
+      // Your implementation here
+      return nil, nil
+    }
+    
 
 ### Event callbacks¶
 
@@ -886,7 +1107,7 @@ An _Event callback_ (`on_event_callback`) happens when an agent produces outputs
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     async def on_event_callback(
@@ -910,6 +1131,13 @@ PythonTypescriptJava
       return Maybe.empty();
     }
     
+    
+    
+    func (p *MyPlugin) OnEventCallback(ctx agent.InvocationContext, event *session.Event) (*session.Event, error) {
+      // Your implementation here
+      return nil, nil
+    }
+    
 
 ### Runner end callbacks¶
 
@@ -923,7 +1151,7 @@ The _Runner end_ callback **(`after_run_callback`)** happens when the agent has 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJava
+PythonTypescriptJavaGo
     
     
     async def after_run_callback(
@@ -944,13 +1172,19 @@ PythonTypescriptJava
       return Completable.complete();
     }
     
+    
+    
+    func (p *MyPlugin) AfterRunCallback(ctx agent.InvocationContext) {
+      // Your implementation here
+    }
+    
 
 ## Next steps¶
 
 Check out these resources for developing and applying Plugins to your ADK projects:
 
-  * For more ADK Plugin code examples, see the [ADK Python repository](https://github.com/google/adk-python/tree/main/src/google/adk/plugins).
-  * For information on applying Plugins for security purposes, see [Callbacks and Plugins for Security Guardrails](/adk-docs/safety/#callbacks-and-plugins-for-security-guardrails).
+  * For more ADK Plugin code examples, see the [ADK Samples repository](https://github.com/google/adk-samples).
+  * For information on applying Plugins for security purposes, see [Callbacks and Plugins for Security Guardrails](/safety/#callbacks-and-plugins-for-security-guardrails).
 
 
 

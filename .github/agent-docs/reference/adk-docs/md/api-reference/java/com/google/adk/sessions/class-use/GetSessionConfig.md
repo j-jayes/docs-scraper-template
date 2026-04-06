@@ -58,7 +58,7 @@ Description
 
 `default io.reactivex.rxjava3.core.Maybe<[Session](../Session.html "class in com.google.adk.sessions")>`
 
-BaseSessionService.`[getSession](../BaseSessionService.html#getSession\(com.google.adk.sessions.SessionKey,com.google.adk.sessions.GetSessionConfig\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions") config)`
+BaseSessionService.`[getSession](../BaseSessionService.html#getSession\(com.google.adk.sessions.SessionKey,com.google.adk.sessions.GetSessionConfig\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, @Nullable [GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions") config)`
 
 Retrieves a specific session, optionally filtering the events included.
 

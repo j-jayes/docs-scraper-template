@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -70,6 +71,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -209,9 +211,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -252,7 +256,7 @@ The Visual Builder feature is an experimental release. We welcome your [feedback
 
 ## Get started¶
 
-The Visual Builder interface is part of the ADK Web tool user interface. Make sure you have ADK library [installed](/adk-docs/get-started/installation/#python) and then run the ADK Web user interface.
+The Visual Builder interface is part of the ADK Web tool user interface. Make sure you have ADK library [installed](/get-started/installation/#python) and then run the ADK Web user interface.
     
     
     adk web --port 8000
@@ -292,23 +296,23 @@ The Visual Builder tool provides a drag-and-drop user interface for constructing
 
   * **Agents**
     * **Root Agent** : The primary controlling agent for a workflow. All other agents in an ADK agent workflow are considered Sub Agents.
-    * [**LLM Agent:**](/adk-docs/agents/llm-agents/) An agent powered by a generative AI model.
-    * [**Sequential Agent:**](/adk-docs/agents/workflow-agents/sequential-agents/) A workflow agent that executes a series of sub-agents in a sequence.
-    * [**Loop Agent:**](/adk-docs/agents/workflow-agents/loop-agents/) A workflow agent that repeatedly executes a sub-agent until a certain condition is met.
-    * [**Parallel Agent:**](/adk-docs/agents/workflow-agents/parallel-agents/) A workflow agent that executes multiple sub-agents concurrently.
+    * [**LLM Agent:**](/agents/llm-agents/) An agent powered by a generative AI model.
+    * [**Sequential Agent:**](/agents/workflow-agents/sequential-agents/) A workflow agent that executes a series of sub-agents in a sequence.
+    * [**Loop Agent:**](/agents/workflow-agents/loop-agents/) A workflow agent that repeatedly executes a sub-agent until a certain condition is met.
+    * [**Parallel Agent:**](/agents/workflow-agents/parallel-agents/) A workflow agent that executes multiple sub-agents concurrently.
   * **Tools**
-    * [**Prebuilt tools:**](/adk-docs/tools/built-in-tools/) A limited set of ADK-provided tools can be added to agents.
-    * [**Custom tools:**](/adk-docs/tools-custom/) You can build and add custom tools to your workflow.
+    * [**Prebuilt tools:**](/tools/built-in-tools/) A limited set of ADK-provided tools can be added to agents.
+    * [**Custom tools:**](/tools-custom/) You can build and add custom tools to your workflow.
   * **Components**
-    * [**Callbacks**](/adk-docs/callbacks/) A flow control component that lets you modify the behavior of agents at the start and end of agent workflow events.
+    * [**Callbacks**](/callbacks/) A flow control component that lets you modify the behavior of agents at the start and end of agent workflow events.
 
 
 
-Some advanced ADK features are not supported by Visual Builder due to limitations of the Agent Config feature. For more information, see the Agent Config [Known limitations](/adk-docs/agents/config/#known-limitations).
+Some advanced ADK features are not supported by Visual Builder due to limitations of the Agent Config feature. For more information, see the Agent Config [Known limitations](/agents/config/#known-limitations).
 
 ## Project code output¶
 
-The Visual Builder tool generates code in the [Agent Config](/adk-docs/agents/config/) format, using `.yaml` configuration files for agents and Python code for custom tools. These files are generated in a subfolder of the directory where you ran the ADK Web interface. The following listing shows an example layout for a DiceAgent project:
+The Visual Builder tool generates code in the [Agent Config](/agents/config/) format, using `.yaml` configuration files for agents and Python code for custom tools. These files are generated in a subfolder of the directory where you ran the ADK Web interface. The following listing shows an example layout for a DiceAgent project:
     
     
     DiceAgent/
@@ -334,8 +338,8 @@ Using the Visual Builder development Assistant, try building a new agent using t
 
 Check out more information on the Agent Config code format used by Visual Builder and the available options:
 
-  * [Agent Config](/adk-docs/agents/config/)
-  * [Agent Config YAML schema](/adk-docs/api-reference/agentconfig/)
+  * [Agent Config](/agents/config/)
+  * [Agent Config YAML schema](/api-reference/agentconfig/)
 
 
 

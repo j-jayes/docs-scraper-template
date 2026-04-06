@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -214,9 +216,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -254,7 +258,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0Java v0.1.0
 
-[Google Search Grounding tool](/adk-docs/tools/gemini-api/google-search/) is a powerful feature in the Agent Development Kit (ADK) that connects your AI agents directly to Google Search. By giving your agents access to real-time, authoritative information from the web, they can answer questions about recent events, current weather, stock prices, or any other dynamic data that falls outside the model's training window. The agent automatically decides when to search and seamlessly incorporates the results into its responses with proper citations.
+[Google Search Grounding tool](/tools/gemini-api/google-search/) is a powerful feature in the Agent Development Kit (ADK) that connects your AI agents directly to Google Search. By giving your agents access to real-time, authoritative information from the web, they can answer questions about recent events, current weather, stock prices, or any other dynamic data that falls outside the model's training window. The agent automatically decides when to search and seamlessly incorporates the results into its responses with proper citations.
 
 ## Creating a Grounded Agent¶
 

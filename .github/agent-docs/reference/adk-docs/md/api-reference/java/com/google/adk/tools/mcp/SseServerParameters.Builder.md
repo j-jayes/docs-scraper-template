@@ -82,7 +82,7 @@ Builds a new [`SseServerParameters`](SseServerParameters.html "class in com.goog
 
 `abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-`headers([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> headers)`
+`headers(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> headers)`
 
 Sets the headers for the SSE connection request.
 
@@ -94,13 +94,13 @@ Sets the endpoint to connect to on the SSE server.
 
 `abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-`sseReadTimeout([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)`
+`sseReadTimeout(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)`
 
 Sets the timeout for reading data from the SSE stream.
 
 `abstract [SseServerParameters.Builder](SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-`timeout([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout)`
+`timeout(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout)`
 
 Sets the timeout for the initial connection attempt.
 

@@ -16,7 +16,7 @@ Preparing search index...
 # Type Alias SingleBeforeModelCallback
 
 SingleBeforeModelCallback: (  
-params: { context: [CallbackContext](../classes/CallbackContext.html); request: [LlmRequest](../interfaces/LlmRequest.html) },  
+params: { context: [Context](../classes/Context.html); request: [LlmRequest](../interfaces/LlmRequest.html) },  
 ) => [LlmResponse](../interfaces/LlmResponse.html) | undefined | Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
 A callback that runs before a request is sent to the model.
@@ -24,11 +24,18 @@ A callback that runs before a request is sent to the model.
 #### Type Declaration
 
   *     * (  
-params: { context: [CallbackContext](../classes/CallbackContext.html); request: [LlmRequest](../interfaces/LlmRequest.html) },  
+params: { context: [Context](../classes/Context.html); request: [LlmRequest](../interfaces/LlmRequest.html) },  
 ): [LlmResponse](../interfaces/LlmResponse.html) | undefined | Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
     * #### Parameters
 
-      * params: { context: [CallbackContext](../classes/CallbackContext.html); request: [LlmRequest](../interfaces/LlmRequest.html) }
+      * params: { context: [Context](../classes/Context.html); request: [LlmRequest](../interfaces/LlmRequest.html) }
+        * ##### context: [Context](../classes/Context.html)
+
+The current callback context.
+
+        * ##### request: [LlmRequest](../interfaces/LlmRequest.html)
+
+The raw model request. Callback can mutate the request.
 
 #### Returns [LlmResponse](../interfaces/LlmResponse.html) | undefined | Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
@@ -37,7 +44,7 @@ The content to return to the user. When present, the model call will be skipped 
 
 
 
-  * Defined in [core/src/agents/llm_agent.ts:47](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/llm_agent.ts#L47)
+  * Defined in [agents/llm_agent.ts:88](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L88)
 
 
 

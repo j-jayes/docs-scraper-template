@@ -83,7 +83,7 @@ EventActions.Builder.`[endOfAgent](../EventActions.Builder.html#endOfAgent\(bool
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[escalate](../EventActions.Builder.html#escalate\(boolean\))(boolean escalate)`
+EventActions.Builder.`[escalate](../EventActions.Builder.html#escalate\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") escalate)`
 
  
 
@@ -107,7 +107,7 @@ EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[skipSummarization](../EventActions.Builder.html#skipSummarization\(boolean\))(boolean skipSummarization)`
+EventActions.Builder.`[skipSummarization](../EventActions.Builder.html#skipSummarization\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") skipSummarization)`
 
  
 

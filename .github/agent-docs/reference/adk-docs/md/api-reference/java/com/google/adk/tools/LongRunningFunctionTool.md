@@ -78,6 +78,18 @@ Creates a LongRunningFunctionTool from a FunctionTool.
 
 `static [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
 
+`create(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") method)`
+
+ 
+
+`static [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
+
+`create(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") method, boolean requireConfirmation)`
+
+ 
+
+`static [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
+
 `create([Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<?> cls, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName)`
 
  
@@ -85,18 +97,6 @@ Creates a LongRunningFunctionTool from a FunctionTool.
 `static [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
 
 `create([Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<?> cls, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") methodName, boolean requireConfirmation)`
-
- 
-
-`static [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
-
-`create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") method)`
-
- 
-
-`static [LongRunningFunctionTool](LongRunningFunctionTool.html "class in com.google.adk.tools")`
-
-`create([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") instance, [Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") method, boolean requireConfirmation)`
 
  
 

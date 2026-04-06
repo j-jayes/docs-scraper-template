@@ -86,7 +86,7 @@ Utility methods for handling instruction templates.
 
 [ModelNameUtils](ModelNameUtils.html "class in com.google.adk.utils")
 
- 
+Utility class for model names.
 
 [Pairs](Pairs.html "class in com.google.adk.utils")
 

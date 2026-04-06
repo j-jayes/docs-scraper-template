@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -445,12 +449,12 @@ PythonTypeScriptGoJava
 Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0
 
   * **How it works:** Uses Google Cloud Vertex AI infrastructure via API calls for session management.
-  * **Persistence:** Yes. Data is managed reliably and scalably via [Vertex AI Agent Engine](https://google.github.io/adk-docs/deploy/agent-engine/).
+  * **Persistence:** Yes. Data is managed reliably and scalably via [Vertex AI Agent Engine](/deploy/agent-engine/).
   * **Requires:**
     * A Google Cloud project (`pip install vertexai`)
     * A Google Cloud storage bucket that can be configured by this [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
-    * A Reasoning Engine resource name/ID that can setup following this [tutorial](https://google.github.io/adk-docs/deploy/agent-engine/).
-    * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Vertex AI Express Mode](/adk-docs/tools/google-cloud/express-mode/).
+    * A Reasoning Engine resource name/ID that can setup following this [tutorial](/deploy/agent-engine/).
+    * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Vertex AI Express Mode](/tools/google-cloud/express-mode/).
   * **Best for:** Scalable production applications deployed on Google Cloud, especially when integrating with other Vertex AI features.
 
 
@@ -538,7 +542,7 @@ Async Driver Requirement
 
 Session database schema change in ADK Python v1.22.0
 
-The schema for the session database changed in ADK Python v1.22.0, which requires migration of the Session Database. For more information, see [Session database schema migration](/adk-docs/sessions/session/migrate/).
+The schema for the session database changed in ADK Python v1.22.0, which requires migration of the Session Database. For more information, see [Session database schema migration](/sessions/session/migrate/).
 
 ## The Session Lifecycle¶
 

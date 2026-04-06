@@ -83,9 +83,15 @@ Method
 
 Description
 
-`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
 RunConfig.Builder.`[setToolExecutionMode](../RunConfig.Builder.html#setToolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\))([RunConfig.ToolExecutionMode](../RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)`
+
+Deprecated.
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[toolExecutionMode](../RunConfig.Builder.html#toolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\))([RunConfig.ToolExecutionMode](../RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") toolExecutionMode)`
 
  
 

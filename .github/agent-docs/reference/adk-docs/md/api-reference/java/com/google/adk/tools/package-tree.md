@@ -42,6 +42,7 @@ Package Hierarchies:
       * com.google.adk.tools.[GoogleMapsTool](GoogleMapsTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[GoogleSearchTool](GoogleSearchTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools")
+      * com.google.adk.tools.[SetModelResponseTool](SetModelResponseTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[UrlContextTool](UrlContextTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[VertexAiSearchTool](VertexAiSearchTool.html "class in com.google.adk.tools")
     * com.google.adk.tools.[ExampleTool.Builder](ExampleTool.Builder.html "class in com.google.adk.tools")

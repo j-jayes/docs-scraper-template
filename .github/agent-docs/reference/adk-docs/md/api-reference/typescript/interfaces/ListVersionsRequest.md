@@ -24,7 +24,7 @@ sessionId: string;
 userId: string;  
 }
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:73](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L73)
+  * Defined in [artifacts/base_artifact_service.ts:77](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L77)
 
 
 
@@ -36,7 +36,7 @@ appName: string
 
 The app name.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:75](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L75)
+  * Defined in [artifacts/base_artifact_service.ts:79](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L79)
 
 
 
@@ -46,7 +46,7 @@ filename: string
 
 The filename of the artifact.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:81](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L81)
+  * Defined in [artifacts/base_artifact_service.ts:85](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L85)
 
 
 
@@ -56,7 +56,7 @@ sessionId: string
 
 The session ID.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:79](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L79)
+  * Defined in [artifacts/base_artifact_service.ts:83](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L83)
 
 
 
@@ -66,7 +66,7 @@ userId: string
 
 The user ID.
 
-  * Defined in [core/src/artifacts/base_artifact_service.ts:77](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/artifacts/base_artifact_service.ts#L77)
+  * Defined in [artifacts/base_artifact_service.ts:81](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L81)
 
 
 

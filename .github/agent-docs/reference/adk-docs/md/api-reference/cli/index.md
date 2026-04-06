@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 1.26.0.
+This page contains the auto-generated command-line reference for ADK 1.28.0.
 
   * adk
 
@@ -17,6 +17,8 @@ This page contains the auto-generated command-line reference for ADK 1.26.0.
     * eval_set
 
     * migrate
+
+    * optimize
 
     * run
 
@@ -290,7 +292,7 @@ Custom directories: adk conformance record tests/core tests/tools
 Usage
     
     
-    adk conformance record [OPTIONS] [PATHS]...
+    adk conformance record [OPTIONS] [PATHS]... {none|sse|bidi}
     
 
 Arguments
@@ -299,6 +301,11 @@ PATHS¶
     
 
 Optional argument(s)
+
+STREAMING_MODE¶
+    
+
+Required argument
 
 #### test¶
 
@@ -331,6 +338,10 @@ spec.yaml # Test specification
 generated-recordings.yaml # Recorded interactions (replay mode)
 
 generated-session.yaml # Session data (replay mode)
+
+generated-recordings-sse.yaml # Recorded SSE interactions (replay mode)
+
+generated-session-sse.yaml # SSE Session data (replay mode)
 
 REPORT GENERATION:
 
@@ -400,6 +411,14 @@ Default:
 
 Optional. Directory to store the generated report. Defaults to current directory.
 
+\--streaming-mode <streaming_mode>¶
+    
+
+Options:
+    
+
+None | sse | bidi
+
 Arguments
 
 PATHS¶
@@ -468,9 +487,9 @@ Deploys an agent to Agent Engine.
 
 Example:
 
-> # With Express Mode API Key adk deploy agent_engine –api_key=[api_key] my_agent
+>  # With Express Mode API Key adk deploy agent_engine –api_key=[api_key] my_agent
 > 
-> # With Google Cloud Project and Region adk deploy agent_engine –project=[project] –region=[region]
+>  # With Google Cloud Project and Region adk deploy agent_engine –project=[project] –region=[region]
 >
 >> –display_name=[app_name] my_agent
 
@@ -702,7 +721,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'1.26.0'`
+`'1.28.0'`
 
 \--a2a¶
     
@@ -894,6 +913,21 @@ Options:
 
 DEBUG | INFO | WARNING | ERROR | CRITICAL
 
+\--service_type <service_type>¶
+    
+
+Optional. The Kubernetes Service type for the deployed agent. ClusterIP (default) keeps the service cluster-internal; use LoadBalancer to expose a public IP.
+
+Default:
+    
+
+`'ClusterIP'`
+
+Options:
+    
+
+ClusterIP | LoadBalancer
+
 \--temp_folder <temp_folder>¶
     
 
@@ -907,7 +941,7 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'1.26.0'`
+`'1.28.0'`
 
 \--session_service_uri <session_service_uri>¶
     
@@ -1227,6 +1261,70 @@ Options:
     
 
 DEBUG | INFO | WARNING | ERROR | CRITICAL
+
+### optimize¶
+
+Optimizes the root agent instructions using the GEPA optimizer.
+
+AGENT_MODULE_FILE_PATH: The path to the __init__.py file that contains a module by the name “agent”. “agent” module contains a root_agent.
+
+SAMPLER_CONFIG_FILE_PATH: The path to the config for the LocalEvalSampler, which contains the eval config and the eval sets to use for training and validation during optimization.
+
+OPTIMIZER_CONFIG_FILE_PATH: Optional. The path to the config for the GEPARootAgentPromptOptimizer. If not provided, the default config will be used.
+
+PRINT_DETAILED_RESULTS: Optional. Enables printing detailed results exposed by the GEPA optimizer to the console.
+
+LOG_LEVEL: Optional. Set the logging level.
+
+Usage
+    
+    
+    adk optimize [OPTIONS] AGENT_MODULE_FILE_PATH
+    
+
+Options
+
+\--sampler_config_file_path <sampler_config_file_path>¶
+    
+
+**Required** The path to the local eval sampler config file.
+
+\--optimizer_config_file_path <optimizer_config_file_path>¶
+    
+
+Optional. The path to the GEPA optimizer config file. If not provided, the default config will be used.
+
+\--print_detailed_results¶
+    
+
+Optional. Set to enable detailed printing of GEPA optimization results to the console.
+
+Default:
+    
+
+`False`
+
+\--log_level <log_level>¶
+    
+
+Optional. Set the logging level
+
+Default:
+    
+
+`'INFO'`
+
+Options:
+    
+
+DEBUG | INFO | WARNING | ERROR | CRITICAL
+
+Arguments
+
+AGENT_MODULE_FILE_PATH¶
+    
+
+Required argument
 
 ### run¶
 

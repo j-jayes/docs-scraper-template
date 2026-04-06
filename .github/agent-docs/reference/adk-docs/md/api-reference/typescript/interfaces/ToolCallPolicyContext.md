@@ -20,7 +20,7 @@ tool: [BaseTool](../classes/BaseTool.html);
 toolArgs: Record<string, unknown>;  
 }
 
-  * Defined in [core/src/plugins/security_plugin.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L44)
+  * Defined in [plugins/security_plugin.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L44)
 
 
 
@@ -30,7 +30,7 @@ toolArgs: Record<string, unknown>;
 
 tool: [BaseTool](../classes/BaseTool.html)
 
-  * Defined in [core/src/plugins/security_plugin.ts:45](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L45)
+  * Defined in [plugins/security_plugin.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L45)
 
 
 
@@ -38,7 +38,7 @@ tool: [BaseTool](../classes/BaseTool.html)
 
 toolArgs: Record<string, unknown>
 
-  * Defined in [core/src/plugins/security_plugin.ts:46](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L46)
+  * Defined in [plugins/security_plugin.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L46)
 
 
 

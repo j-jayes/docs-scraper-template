@@ -145,7 +145,7 @@ The branch of the event.
 
 `void`
 
-`branch([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+`branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
 
 Sets the branch for this event.
 
@@ -289,37 +289,37 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 `void`
 
-`setAvgLogprobs([Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
+`setAvgLogprobs(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
 
  
 
 `void`
 
-`setContent(com.google.genai.types.Content content)`
+`setContent(@Nullable com.google.genai.types.Content content)`
 
  
 
 `void`
 
-`setCustomMetadata([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
+`setCustomMetadata(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
 
  
 
 `void`
 
-`setErrorCode(com.google.genai.types.FinishReason errorCode)`
+`setErrorCode(@Nullable com.google.genai.types.FinishReason errorCode)`
 
  
 
 `void`
 
-`setErrorMessage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
+`setErrorMessage(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
 
  
 
 `void`
 
-`setFinishReason(com.google.genai.types.FinishReason finishReason)`
+`setFinishReason(@Nullable com.google.genai.types.FinishReason finishReason)`
 
  
 
@@ -331,7 +331,7 @@ Deprecated.
 
 `void`
 
-`setGroundingMetadata(com.google.genai.types.GroundingMetadata groundingMetadata)`
+`setGroundingMetadata(@Nullable com.google.genai.types.GroundingMetadata groundingMetadata)`
 
  
 
@@ -343,7 +343,7 @@ Deprecated.
 
 `void`
 
-`setInterrupted([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)`
+`setInterrupted(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)`
 
  
 
@@ -355,19 +355,19 @@ Deprecated.
 
 `void`
 
-`setLongRunningToolIds([Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> longRunningToolIds)`
+`setLongRunningToolIds(@Nullable [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> longRunningToolIds)`
 
  
 
 `void`
 
-`setModelVersion([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
+`setModelVersion(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
 
  
 
 `void`
 
-`setPartial([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
+`setPartial(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
 
  
 
@@ -379,13 +379,13 @@ Deprecated.
 
 `void`
 
-`setTurnComplete([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)`
+`setTurnComplete(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)`
 
  
 
 `void`
 
-`setUsageMetadata(com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)`
+`setUsageMetadata(@Nullable com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)`
 
  
 

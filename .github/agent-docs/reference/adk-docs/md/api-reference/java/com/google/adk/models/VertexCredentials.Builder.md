@@ -29,9 +29,12 @@ Contents
      1. Builder()
   5. Method Details
      1. setProject(String)
-     2. setLocation(String)
-     3. setCredentials(GoogleCredentials)
-     4. build()
+     2. project(String)
+     3. setLocation(String)
+     4. location(String)
+     5. setCredentials(GoogleCredentials)
+     6. credentials(GoogleCredentials)
+     7. build()
 
 Hide sidebar  Show sidebar
 
@@ -64,7 +67,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -80,21 +83,39 @@ Description
 
 `abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-`setCredentials(com.google.auth.oauth2.GoogleCredentials value)`
+`credentials(@Nullable com.google.auth.oauth2.GoogleCredentials value)`
 
  
 
 `abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-`setLocation([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+`location(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
 `abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-`setProject([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+`project(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
+
+`final [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
+
+`setCredentials(@Nullable com.google.auth.oauth2.GoogleCredentials value)`
+
+Deprecated.
+
+`final [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
+
+`setLocation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+
+Deprecated.
+
+`final [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models")`
+
+`setProject(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+
+Deprecated.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -113,15 +134,33 @@ public Builder()
 
     * ### setProject
 
-public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setProject(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setProject(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
+
+Deprecated.
+
+    * ### project
+
+@CanIgnoreReturnValue public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") project(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
 
     * ### setLocation
 
-public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setLocation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setLocation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
+
+Deprecated.
+
+    * ### location
+
+@CanIgnoreReturnValue public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") location(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)
 
     * ### setCredentials
 
-public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setCredentials(@Nullable com.google.auth.oauth2.GoogleCredentials value)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") setCredentials(@Nullable com.google.auth.oauth2.GoogleCredentials value)
+
+Deprecated.
+
+    * ### credentials
+
+@CanIgnoreReturnValue public abstract [VertexCredentials.Builder](VertexCredentials.Builder.html "class in com.google.adk.models") credentials(@Nullable com.google.auth.oauth2.GoogleCredentials value)
 
     * ### build
 

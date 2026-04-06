@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+      * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * Vertex AI hosted  [ Vertex AI hosted  ](./) Table of contents 
         * Vertex AI Setup 
@@ -210,9 +212,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -505,7 +509,7 @@ Python
 
 You can use the [LiteLLM](https://docs.litellm.ai/) library to access open models like Meta's Llama on VertexAI MaaS
 
-**Integration Method:** Use the `LiteLlm` wrapper class and set it as the `model` parameter of `LlmAgent`. Make sure you go through the [LiteLLM model connector for ADK agents](/adk-docs/agents/models/litellm/#litellm-model-connector-for-adk-agents) documentation on how to use LiteLLM in ADK
+**Integration Method:** Use the `LiteLlm` wrapper class and set it as the `model` parameter of `LlmAgent`. Make sure you go through the [LiteLLM model connector for ADK agents](/agents/models/litellm/#litellm-model-connector-for-adk-agents) documentation on how to use LiteLLM in ADK
 
 **Setup:**
 

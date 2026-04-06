@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -244,9 +246,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -333,7 +337,7 @@ Before calling `send_realtime()`, ensure your audio data is already in the corre
 
 ADK does not perform audio format conversion. Sending audio in incorrect formats will result in poor quality or errors.
 
-Demo implementation: [main.py:181-184](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L181-L184)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L181-L184" target="_blank">main.py:181-184</a>
     
     
     audio_blob = types.Blob(
@@ -375,7 +379,7 @@ In browser-based applications, capturing microphone audio and sending it to the 
 
 
 
-Demo implementation: [audio-recorder.js:7-58](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/audio-recorder.js#L7-L58)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/audio-recorder.js#L7-L58" target="_blank">audio-recorder.js:7-58</a>
     
     
     // Start audio recorder worklet
@@ -430,7 +434,7 @@ Demo implementation: [audio-recorder.js:7-58](https://github.com/google/adk-samp
     }
     
 
-Demo implementation: [pcm-recorder-processor.js:1-18](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/pcm-recorder-processor.js#L1-L18)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/pcm-recorder-processor.js#L1-L18" target="_blank">pcm-recorder-processor.js:1-18</a>
     
     
     // pcm-recorder-processor.js - AudioWorklet processor for capturing audio
@@ -454,7 +458,7 @@ Demo implementation: [pcm-recorder-processor.js:1-18](https://github.com/google/
     registerProcessor("pcm-recorder-processor", PCMProcessor);
     
 
-Demo implementation: [app.js:977-986](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L979-L988)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L979-L988" target="_blank">app.js:977-986</a>
     
     
     // Audio recorder handler - called for each audio chunk
@@ -545,7 +549,7 @@ The Live API wire protocol transmits audio data as base64-encoded strings. The g
 
 The bidi-demo uses a different architectural approach: instead of processing audio on the server, it forwards all events (including audio data) to the WebSocket client and handles audio playback in the browser. This pattern separates concerns—the server focuses on ADK event streaming while the client handles media playback using Web Audio API.
 
-Demo implementation: [main.py:225-233](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L225-L233)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L225-L233" target="_blank">main.py:225-233</a>
     
     
     # The bidi-demo forwards all events (including audio) to the WebSocket client
@@ -563,7 +567,7 @@ Demo implementation: [main.py:225-233](https://github.com/google/adk-samples/blo
 
 The client-side implementation involves three components: WebSocket message handling, audio player setup with AudioWorklet, and the AudioWorklet processor itself.
 
-Demo implementation: [app.js:638-688](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L640-L690)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L640-L690" target="_blank">app.js:638-688</a>
     
     
     // 1. WebSocket Message Handler
@@ -611,7 +615,7 @@ Demo implementation: [app.js:638-688](https://github.com/google/adk-samples/blob
     }
     
 
-Demo implementation: [audio-player.js:5-24](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/audio-player.js#L5-L24)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/audio-player.js#L5-L24" target="_blank">audio-player.js:5-24</a>
     
     
     // 2. Audio Player Setup
@@ -641,7 +645,7 @@ Demo implementation: [audio-player.js:5-24](https://github.com/google/adk-sample
     }
     
 
-Demo implementation: [pcm-player-processor.js:5-76](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/pcm-player-processor.js#L5-L76)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/static/js/pcm-player-processor.js#L5-L76" target="_blank">pcm-player-processor.js:5-76</a>
     
     
     // 3. AudioWorklet Processor (Ring Buffer)
@@ -752,7 +756,7 @@ Both images and video in ADK Gemini Live API Toolkit are processed as JPEG frame
 
 
 
-Demo implementation: [main.py:202-217](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L202-L217)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L202-L217" target="_blank">main.py:202-217</a>
     
     
     # Decode base64 image data
@@ -792,7 +796,7 @@ In browser-based applications, capturing images from the user's webcam and sendi
 
 
 
-Demo implementation: [app.js:801-843](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L803-L845)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L803-L845" target="_blank">app.js:801-843</a>
     
     
     // 1. Opening Camera Preview
@@ -836,7 +840,7 @@ Demo implementation: [app.js:801-843](https://github.com/google/adk-samples/blob
     }
     
 
-Demo implementation: [app.js:846-914](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L848-L916)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L848-L916" target="_blank">app.js:846-914</a>
     
     
     // 2. Capturing and Sending Image
@@ -937,7 +941,7 @@ ADK provides special tool support for processing video frames during streaming s
 
 **Important** : You must provide a `stop_streaming(function_name: str)` function as a tool to allow the model to explicitly stop streaming operations.
 
-For implementing custom video streaming tools that process and yield video frames to the model, see the [Streaming Tools documentation](https://google.github.io/adk-docs/streaming/streaming-tools/).
+For implementing custom video streaming tools that process and yield video frames to the model, see the [Streaming Tools documentation](/streaming/streaming-tools/).
 
 ## Understanding Audio Model Architectures¶
 
@@ -1208,7 +1212,7 @@ In web applications, transcription events need to be forwarded from the server t
 
 
 
-Demo implementation: [app.js:530-653](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L532-L655)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L532-L655" target="_blank">app.js:530-653</a>
     
     
     // Handle input transcription (user's spoken words)

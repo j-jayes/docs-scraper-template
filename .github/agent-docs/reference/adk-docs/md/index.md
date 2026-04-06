@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](get-started/about/)
   * [ Integrations ](integrations/)
   * [ Reference ](api-reference/)
+  * [ Community ](community/)
   * [ ADK 2.0 ](2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](get-started/quickstart/)
+      * [ Multi-tool agent  ](tutorials/multi-tool-agent/)
       * [ Agent team  ](tutorials/agent-team/)
       * [ Streaming agent  ](get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](agents/models/google-gemini/)
+      * [ Gemma  ](agents/models/google-gemma/)
       * [ Claude  ](agents/models/anthropic/)
       * [ Vertex AI hosted  ](agents/models/vertex/)
       * [ Apigee AI Gateway  ](agents/models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](api-reference/cli/)
       * [ Agent Config Reference  ](api-reference/agentconfig/)
       * [ REST API  ](api-reference/rest/)
-    * [ Community Resources  ](community/)
-    * [ Contributing Guide  ](contributing-guide/)
     * [ Release Notes  ](release-notes/)
+  * [ Community  ](community/)
+
+Community 
+    * [ Contributing Guide  ](community/contributing-guide/)
   * [ ADK 2.0  ](2.0/)
 
 ADK 2.0 
@@ -232,17 +236,13 @@ Table of contents
 
 Agent Development Kit (ADK) is a flexible and modular framework for **developing and deploying AI agents**. While optimized for Gemini and the Google ecosystem, ADK is **model-agnostic** , **deployment-agnostic** , and is built for **compatibility with other frameworks**. ADK was designed to make agent development feel more like software development, to make it easier for developers to create, deploy, and orchestrate agentic architectures that range from simple tasks to complex workflows.
 
-ADK Python Security Advisory: LiteLLM supply chain compromise
+News: ADK Go 1.0.0 released!
 
-Unauthorized code was identified in LiteLLM versions 1.82.7 and 1.82.8 on PyPI on March 24, 2026. If you use ADK Python with the `eval` or `extensions` extras, update to the latest version of ADK Python immediately. If you installed or upgraded LiteLLM during this period, rotate all secrets and credentials. For details and required actions, refer to the [ADK security advisory](https://github.com/google/adk-python/issues/5005) and [LiteLLM's Security Update: Suspected Supply Chain Incident](https://docs.litellm.ai/blog/security-update-march-2026).
+ADK Go 1.0.0 release adds several major features, including OpenTelemetry integration, self-healing logic using plugins, and improved human input support. For more details on this release, see the [ADK Go v1.0 announcement](https://developers.googleblog.com/adk-go-10-arrives/).
 
-News: ADK Python 2.0 Alpha with graph-based workflows!
+News: ADK Java 1.0.0 released!
 
-ADK 2.0 Alpha release provides a huge orchestration upgrade for agents with support for graph-based workflows. Download the Alpha release and [try out ADK 2.0](/adk-docs/2.0/).
-
-News: ADK Python Skills released!
-
-ADK Python development [Agent Skills](https://agentskills.io/) allow you to code ADK agents quickly and more effectively with AI-powered development environments. For more details, check out the [Coding with AI](/adk-docs/tutorials/coding-with-ai/#adk-skills), ADK Skills docs.
+ADK Java 1.0.0 is now available! This release includes several bug fixes and enhancements. Read more about it in the [blog announcement](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/). Upgrade to ADK Java 1.0.0 to take advantage of these enhancements and ensure optimal performance in your applications.
 
 Get started:
 
@@ -269,7 +269,7 @@ pom.xml
     <dependency>
         <groupId>com.google.adk</groupId>
         <artifactId>google-adk</artifactId>
-        <version>0.6.0</version>
+        <version>1.0.0</version>
     </dependency>
     
 
@@ -277,11 +277,11 @@ build.gradle
     
     
     dependencies {
-        implementation 'com.google.adk:google-adk:0.6.0'
+        implementation 'com.google.adk:google-adk:1.0.0'
     }
     
 
-[Start with Python](/adk-docs/get-started/python/) [Start with TypeScript](/adk-docs/get-started/typescript/) [Start with Go](/adk-docs/get-started/go/) [Start with Java](/adk-docs/get-started/java/)
+[Start with Python](/get-started/python/) [Start with TypeScript](/get-started/typescript/) [Start with Go](/get-started/go/) [Start with Java](/get-started/java/)
 
 * * *
 

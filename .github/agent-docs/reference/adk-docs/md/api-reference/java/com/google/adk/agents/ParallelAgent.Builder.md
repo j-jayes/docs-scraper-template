@@ -29,7 +29,8 @@ Contents
   5. Constructor Details
      1. Builder()
   6. Method Details
-     1. build()
+     1. scheduler(Scheduler)
+     2. build()
 
 Hide sidebar  Show sidebar
 
@@ -84,6 +85,12 @@ Description
 
  
 
+`[ParallelAgent.Builder](ParallelAgent.Builder.html "class in com.google.adk.agents")`
+
+`scheduler(io.reactivex.rxjava3.core.Scheduler scheduler)`
+
+ 
+
 ### Methods inherited from class [BaseAgent.Builder](BaseAgent.Builder.html#method-summary "class in com.google.adk.agents")
 
 `[afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback\(com.google.adk.agents.Callbacks.AfterAgentCallback\) "afterAgentCallback\(Callbacks.AfterAgentCallback\)"), [afterAgentCallback](BaseAgent.Builder.html#afterAgentCallback\(java.util.List\) "afterAgentCallback\(List\)"), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback\(com.google.adk.agents.Callbacks.BeforeAgentCallback\) "beforeAgentCallback\(Callbacks.BeforeAgentCallback\)"), [beforeAgentCallback](BaseAgent.Builder.html#beforeAgentCallback\(java.util.List\) "beforeAgentCallback\(List\)"), [description](BaseAgent.Builder.html#description\(java.lang.String\) "description\(String\)"), [name](BaseAgent.Builder.html#name\(java.lang.String\) "name\(String\)"), [self](BaseAgent.Builder.html#self\(\) "self\(\)"), [subAgents](BaseAgent.Builder.html#subAgents\(com.google.adk.agents.BaseAgent...\) "subAgents\(BaseAgent...\)"), [subAgents](BaseAgent.Builder.html#subAgents\(java.util.List\) "subAgents\(List\)")`
@@ -102,6 +109,10 @@ Description
 public Builder()
 
   * ## Method Details
+
+    * ### scheduler
+
+@CanIgnoreReturnValue public [ParallelAgent.Builder](ParallelAgent.Builder.html "class in com.google.adk.agents") scheduler(io.reactivex.rxjava3.core.Scheduler scheduler)
 
     * ### build
 

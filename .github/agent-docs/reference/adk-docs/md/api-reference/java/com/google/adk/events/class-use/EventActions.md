@@ -122,7 +122,7 @@ Description
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
-Event.Builder.`[actions](../Event.Builder.html#actions\(com.google.adk.events.EventActions\))([EventActions](../EventActions.html "class in com.google.adk.events") value)`
+Event.Builder.`[actions](../Event.Builder.html#actions\(com.google.adk.events.EventActions\))(@Nullable [EventActions](../EventActions.html "class in com.google.adk.events") value)`
 
  
 

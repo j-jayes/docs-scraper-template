@@ -28,8 +28,11 @@ Contents
   4. Constructor Details
      1. Builder()
   5. Method Details
-     1. setMemories(List)
-     2. build()
+     1. setMemories(ImmutableList)
+     2. setMemories(List)
+     3. memories(ImmutableList)
+     4. memories(List)
+     5. build()
 
 Hide sidebar  Show sidebar
 
@@ -62,7 +65,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract MethodsConcrete Methods
+All MethodsInstance MethodsAbstract MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -76,11 +79,29 @@ Description
 
 Builds the immutable [`SearchMemoryResponse`](SearchMemoryResponse.html "class in com.google.adk.memory") object.
 
+`abstract [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
+
+`memories(com.google.common.collect.ImmutableList<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+ 
+
 `[SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
+
+`memories([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+ 
+
+`final [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
+
+`setMemories(com.google.common.collect.ImmutableList<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+Deprecated.
+
+`final [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
 
 `setMemories([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)`
 
-Sets the list of memory entries using a list.
+Deprecated.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
 
@@ -99,9 +120,25 @@ public Builder()
 
     * ### setMemories
 
-public [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory") setMemories([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory") setMemories(com.google.common.collect.ImmutableList<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)
+
+Deprecated.
+
+    * ### setMemories
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "class or interface in java.lang") @CanIgnoreReturnValue public final [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory") setMemories([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)
+
+Deprecated.
 
 Sets the list of memory entries using a list.
+
+    * ### memories
+
+@CanIgnoreReturnValue public abstract [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory") memories(com.google.common.collect.ImmutableList<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)
+
+    * ### memories
+
+@CanIgnoreReturnValue public [SearchMemoryResponse.Builder](SearchMemoryResponse.Builder.html "class in com.google.adk.memory") memories([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](MemoryEntry.html "class in com.google.adk.memory")> memories)
 
     * ### build
 

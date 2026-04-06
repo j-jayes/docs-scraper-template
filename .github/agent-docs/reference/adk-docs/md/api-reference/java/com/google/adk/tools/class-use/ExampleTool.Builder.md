@@ -57,21 +57,39 @@ ExampleTool.`[builder](../ExampleTool.html#builder\(\))()`
 
 `[ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-ExampleTool.Builder.`[setDescription](../ExampleTool.Builder.html#setDescription\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+ExampleTool.Builder.`[description](../ExampleTool.Builder.html#description\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
 
  
 
 `[ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+ExampleTool.Builder.`[exampleProvider](../ExampleTool.Builder.html#exampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
+
+ 
+
+`[ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+ExampleTool.Builder.`[name](../ExampleTool.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+
+ 
+
+`final [ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
+
+ExampleTool.Builder.`[setDescription](../ExampleTool.Builder.html#setDescription\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+
+Deprecated.
+
+`final [ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
 ExampleTool.Builder.`[setExampleProvider](../ExampleTool.Builder.html#setExampleProvider\(com.google.adk.examples.BaseExampleProvider\))([BaseExampleProvider](../../examples/BaseExampleProvider.html "interface in com.google.adk.examples") provider)`
 
- 
+Deprecated.
 
-`[ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
+`final [ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
 ExampleTool.Builder.`[setName](../ExampleTool.Builder.html#setName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
 
- 
+Deprecated.
 
 
 

@@ -95,6 +95,12 @@ Instructions.`[processRequest](../Instructions.html#processRequest\(com.google.a
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
+OutputSchema.`[processRequest](../OutputSchema.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") context, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") request)`
+
+ 
+
+`io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
+
 RequestConfirmationLlmRequestProcessor.`[processRequest](../RequestConfirmationLlmRequestProcessor.html#processRequest\(com.google.adk.agents.InvocationContext,com.google.adk.models.LlmRequest\))([InvocationContext](../../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
  

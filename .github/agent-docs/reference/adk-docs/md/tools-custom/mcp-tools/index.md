@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -160,6 +162,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -207,9 +211,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
@@ -241,9 +247,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -316,7 +324,7 @@ This guide walks you through two ways of integrating Model Context Protocol (MCP
 
 MCP tools for ADK
 
-For a list of pre-built MCP tools for ADK, see [Tools and Integrations](/adk-docs/integrations/?topic=mcp).
+For a list of pre-built MCP tools for ADK, see [Tools and Integrations](/integrations/?topic=mcp).
 
 ## What is Model Context Protocol (MCP)?¶
 
@@ -341,11 +349,21 @@ Before you begin, ensure you have the following set up:
   * **Verify Installations:** **(Python only)** Confirm `adk` and `npx` are in your PATH within the activated virtual environment:
 
 
+
+MacOS / Linux
     
     
     # Both commands should print the path to the executables.
     which adk
     which npx
+    
+
+Windows
+    
+    
+    # Both commands should print the path to the executables.
+    Get-Command adk
+    Get-Command npx
     
 
 ## 1\. Using MCP servers with ADK agents (ADK as an MCP client) in `adk web`¶
@@ -397,7 +415,7 @@ Create an `agent.py` file (e.g., in `./adk_agent_samples/mcp_agent/agent.py`). T
     # If you created ./adk_agent_samples/mcp_agent/your_folder,
     
     root_agent = LlmAgent(
-        model='gemini-2.0-flash',
+        model='gemini-2.5-flash',
         name='filesystem_assistant_agent',
         instruction='Help the user manage their files. You can list files, read files, etc.',
         tools=[
@@ -463,19 +481,15 @@ For Java, refer to the following sample to define an agent that initializes the 
     
     package agents;
     
-    import com.google.adk.JsonBaseModel;
     import com.google.adk.agents.LlmAgent;
-    import com.google.adk.agents.RunConfig;
     import com.google.adk.runner.InMemoryRunner;
-    import com.google.adk.tools.mcp.McpTool;
+    import com.google.adk.sessions.SessionKey;
     import com.google.adk.tools.mcp.McpToolset;
-    import com.google.adk.tools.mcp.McpToolset.McpToolsAndToolsetResult;
+    import com.google.adk.tools.mcp.StdioServerParameters;
     import com.google.genai.types.Content;
     import com.google.genai.types.Part;
-    import io.modelcontextprotocol.client.transport.ServerParameters;
     
     import java.util.List;
-    import java.util.concurrent.CompletableFuture;
     
     public class McpAgentCreator {
     
@@ -489,7 +503,8 @@ For Java, refer to the following sample to define an agent that initializes the 
             //Note: you may have permissions issues if the folder is outside home
             String yourFolderPath = "~/path/to/folder";
     
-            ServerParameters connectionParams = ServerParameters.builder("npx")
+            StdioServerParameters serverParams = StdioServerParameters.builder()
+                    .command("npx")
                     .args(List.of(
                             "-y",
                             "@modelcontextprotocol/server-filesystem",
@@ -497,52 +512,36 @@ For Java, refer to the following sample to define an agent that initializes the 
                     ))
                     .build();
     
-            try {
-                CompletableFuture<McpToolsAndToolsetResult> futureResult =
-                        McpToolset.fromServer(connectionParams, JsonBaseModel.getMapper());
+            try (McpToolset toolset = new McpToolset(serverParams.toServerParameters())) {
+                LlmAgent agent = LlmAgent.builder()
+                        .model("gemini-2.5-flash")
+                        .name("enterprise_assistant")
+                        .description("An agent to help users access their file systems")
+                        .instruction(
+                                "Help user accessing their file systems. You can list files in a directory."
+                        )
+                        .tools(toolset)
+                        .build();
     
-                McpToolsAndToolsetResult result = futureResult.join();
+                System.out.println("Agent created: " + agent.name());
     
-                try (McpToolset toolset = result.getToolset()) {
-                    List<McpTool> tools = result.getTools();
+                InMemoryRunner runner = new InMemoryRunner(agent);
+                String userId = "user123";
+                String sessionId = "1234";
+                String promptText = "Which files are in this directory - " + yourFolderPath + "?";
     
-                    LlmAgent agent = LlmAgent.builder()
-                            .model("gemini-2.0-flash")
-                            .name("enterprise_assistant")
-                            .description("An agent to help users access their file systems")
-                            .instruction(
-                                    "Help user accessing their file systems. You can list files in a directory."
-                            )
-                            .tools(tools)
-                            .build();
+                // Explicitly create the session first
+                SessionKey sessionKey = runner.sessionService().createSession(runner.appName(), userId, null, sessionId).blockingGet().sessionKey();
+                System.out.println("Session created: " + sessionId + " for user: " + userId);
     
-                    System.out.println("Agent created: " + agent.name());
+                Content promptContent = Content.fromParts(Part.fromText(promptText));
     
-                    InMemoryRunner runner = new InMemoryRunner(agent);
-                    String userId = "user123";
-                    String sessionId = "1234";
-                    String promptText = "Which files are in this directory - " + yourFolderPath + "?";
+                System.out.println("\nSending prompt: \"" + promptText + "\" to agent...\n");
     
-                    // Explicitly create the session first
-                    try {
-                        // appName for InMemoryRunner defaults to agent.name() if not specified in constructor
-                        runner.sessionService().createSession(runner.appName(), userId, null, sessionId).blockingGet();
-                        System.out.println("Session created: " + sessionId + " for user: " + userId);
-                    } catch (Exception sessionCreationException) {
-                        System.err.println("Failed to create session: " + sessionCreationException.getMessage());
-                        sessionCreationException.printStackTrace();
-                        return;
-                    }
-    
-                    Content promptContent = Content.fromParts(Part.fromText(promptText));
-    
-                    System.out.println("\nSending prompt: \"" + promptText + "\" to agent...\n");
-    
-                    runner.runAsync(userId, sessionId, promptContent, RunConfig.builder().build())
-                            .blockingForEach(event -> {
-                                System.out.println("Event received: " + event.toJson());
-                            });
-                }
+                runner.runAsync(sessionKey, promptContent)
+                        .blockingForEach(event -> {
+                            System.out.println("Event received: " + event.toJson());
+                        });
             } catch (Exception e) {
                 System.err.println("An error occurred: " + e.getMessage());
                 e.printStackTrace();
@@ -638,7 +637,7 @@ Modify your `agent.py` file (e.g., in `./adk_agent_samples/mcp_agent/agent.py`).
             # You might want to raise an error or exit if the key is crucial and not found.
     
     root_agent = LlmAgent(
-        model='gemini-2.0-flash',
+        model='gemini-2.5-flash',
         name='maps_assistant_agent',
         instruction='Help the user with mapping, directions, and finding places using Google Maps tools.',
         tools=[
@@ -705,26 +704,18 @@ For Java, refer to the following sample to define an agent that initializes the 
     
     package agents;
     
-    import com.google.adk.JsonBaseModel;
     import com.google.adk.agents.LlmAgent;
-    import com.google.adk.agents.RunConfig;
     import com.google.adk.runner.InMemoryRunner;
-    import com.google.adk.tools.mcp.McpTool;
+    import com.google.adk.sessions.SessionKey;
     import com.google.adk.tools.mcp.McpToolset;
-    import com.google.adk.tools.mcp.McpToolset.McpToolsAndToolsetResult;
-    
-    
+    import com.google.adk.tools.mcp.StdioServerParameters;
     import com.google.genai.types.Content;
     import com.google.genai.types.Part;
     
-    import io.modelcontextprotocol.client.transport.ServerParameters;
-    
-    import java.util.List;
-    import java.util.Map;
     import java.util.Collections;
     import java.util.HashMap;
-    import java.util.concurrent.CompletableFuture;
-    import java.util.Arrays;
+    import java.util.List;
+    import java.util.Map;
     
     public class MapsAgentCreator {
     
@@ -740,57 +731,44 @@ For Java, refer to the following sample to define an agent that initializes the 
             Map<String, String> envVariables = new HashMap<>();
             envVariables.put("GOOGLE_MAPS_API_KEY", googleMapsApiKey);
     
-            ServerParameters connectionParams = ServerParameters.builder("npx")
+            StdioServerParameters serverParams = StdioServerParameters.builder()
+                    .command("npx")
                     .args(List.of(
                             "-y",
                             "@modelcontextprotocol/server-google-maps"
                     ))
-                    .env(Collections.unmodifiableMap(envVariables))
+                    .env(envVariables)
                     .build();
     
-            try {
-                CompletableFuture<McpToolsAndToolsetResult> futureResult =
-                        McpToolset.fromServer(connectionParams, JsonBaseModel.getMapper());
+            try (McpToolset toolset = new McpToolset(serverParams.toServerParameters())) {
+                LlmAgent agent = LlmAgent.builder()
+                        .model("gemini-2.5-flash")
+                        .name("maps_assistant")
+                        .description("Maps assistant")
+                        .instruction("Help user with mapping and directions using available tools.")
+                        .tools(toolset)
+                        .build();
     
-                McpToolsAndToolsetResult result = futureResult.join();
+                System.out.println("Agent created: " + agent.name());
     
-                try (McpToolset toolset = result.getToolset()) {
-                    List<McpTool> tools = result.getTools();
+                InMemoryRunner runner = new InMemoryRunner(agent);
+                String userId = "maps-user-" + System.currentTimeMillis();
+                String sessionId = "maps-session-" + System.currentTimeMillis();
     
-                    LlmAgent agent = LlmAgent.builder()
-                            .model("gemini-2.0-flash")
-                            .name("maps_assistant")
-                            .description("Maps assistant")
-                            .instruction("Help user with mapping and directions using available tools.")
-                            .tools(tools)
-                            .build();
+                String promptText = "Please give me directions to the nearest pharmacy to Madison Square Garden.";
     
-                    System.out.println("Agent created: " + agent.name());
+                // Explicitly create the session first
+                SessionKey sessionKey = runner.sessionService().createSession(runner.appName(), userId, null, sessionId).blockingGet().sessionKey();
+                System.out.println("Session created: " + sessionId + " for user: " + userId);
     
-                    InMemoryRunner runner = new InMemoryRunner(agent);
-                    String userId = "maps-user-" + System.currentTimeMillis();
-                    String sessionId = "maps-session-" + System.currentTimeMillis();
+                Content promptContent = Content.fromParts(Part.fromText(promptText));
     
-                    String promptText = "Please give me directions to the nearest pharmacy to Madison Square Garden.";
+                System.out.println("\nSending prompt: \"" + promptText + "\" to agent...\n");
     
-                    try {
-                        runner.sessionService().createSession(runner.appName(), userId, null, sessionId).blockingGet();
-                        System.out.println("Session created: " + sessionId + " for user: " + userId);
-                    } catch (Exception sessionCreationException) {
-                        System.err.println("Failed to create session: " + sessionCreationException.getMessage());
-                        sessionCreationException.printStackTrace();
-                        return;
-                    }
-    
-                    Content promptContent = Content.fromParts(Part.fromText(promptText))
-    
-                    System.out.println("\nSending prompt: \"" + promptText + "\" to agent...\n");
-    
-                    runner.runAsync(userId, sessionId, promptContent, RunConfig.builder().build())
-                            .blockingForEach(event -> {
-                                System.out.println("Event received: " + event.toJson());
-                            });
-                }
+                runner.runAsync(sessionKey, promptContent)
+                        .blockingForEach(event -> {
+                            System.out.println("Event received: " + event.toJson());
+                        });
             } catch (Exception e) {
                 System.err.println("An error occurred: " + e.getMessage());
                 e.printStackTrace();
@@ -1028,7 +1006,7 @@ Create an `agent.py` (e.g., in `./adk_agent_samples/mcp_client_agent/agent.py`):
         # Optionally, raise an error if the path is critical
     
     root_agent = LlmAgent(
-        model='gemini-2.0-flash',
+        model='gemini-2.5-flash',
         name='web_reader_mcp_client_agent',
         instruction="Use the 'load_web_page' tool to fetch content from a URL provided by the user.",
         tools=[
@@ -1141,7 +1119,7 @@ The following example is modified from the "Example 1: File System MCP Server" e
     
       # Use in an agent
       root_agent = LlmAgent(
-          model='gemini-2.0-flash', # Adjust model name if needed based on availability
+          model='gemini-2.5-flash', # Adjust model name if needed based on availability
           name='enterprise_assistant',
           instruction='Help user accessing their file systems',
           tools=[toolset], # Provide the MCP tools to the ADK agent
@@ -1232,7 +1210,7 @@ When deploying ADK agents that use MCP tools to production environments like Clo
     _allowed_path = os.path.dirname(os.path.abspath(__file__))
     
     root_agent = LlmAgent(
-        model='gemini-2.0-flash',
+        model='gemini-2.5-flash',
         name='enterprise_assistant',
         instruction=f'Help user accessing their file systems. Allowed directory: {_allowed_path}',
         tools=[
@@ -1434,6 +1412,8 @@ For production deployments requiring scalability, deploy MCP servers as separate
     
 
 **Agent Configuration for Remote MCP:**
+
+PythonJava
     
     
     # Your ADK agent connects to the remote MCP service via Streamable HTTP
@@ -1443,6 +1423,20 @@ For production deployments requiring scalability, deploy MCP servers as separate
             headers={"Authorization": "Bearer your-auth-token"}
         ),
     )
+    
+    
+    
+    import java.util.Map;
+    import com.google.adk.tools.mcp.StreamableHttpServerParameters;
+    import com.google.adk.tools.mcp.McpToolset;
+    
+    // Your ADK agent connects to the remote MCP service via Streamable HTTP
+    StreamableHttpServerParameters streamableParams = StreamableHttpServerParameters.builder()
+            .url("https://your-mcp-server-url.run.app/mcp")
+            .headers(Map.of("Authorization", "Bearer your-auth-token"))
+            .build();
+    
+    McpToolset toolset = new McpToolset(streamableParams);
     
 
 #### Pattern 3: Sidecar MCP Servers (GKE)¶

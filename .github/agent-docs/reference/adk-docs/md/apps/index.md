@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+      * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
@@ -120,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Custom Metrics  ](../evaluate/custom_metrics/)
+      * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
 
 Safety and Security 
@@ -167,9 +171,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../a2a/quickstart-exposing/)
         * [ Go  ](../a2a/quickstart-exposing-go/)
+        * [ Java  ](../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
+        * [ Java  ](../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../streaming/)
 
@@ -201,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -237,14 +245,14 @@ Table of contents
 
 Supported in ADKPython v1.14.0Java v0.1.0
 
-The **_App_** class is a top-level container for an entire Agent Development Kit (ADK) agent workflow. It is designed to manage the lifecycle, configuration, and state for a collection of agents grouped by a **_root agent_**. The **App** class separates the concerns of an agent workflow's overall operational infrastructure from individual agents' task-oriented reasoning. 
+The **_App_** class is a top-level container for an entire Agent Development Kit (ADK) agent workflow. It is designed to manage the lifecycle, configuration, and state for a collection of agents grouped by a **_root agent_**. The **App** class separates the concerns of an agent workflow's overall operational infrastructure from individual agents' task-oriented reasoning.
 
 Defining an **_App_** object in your ADK workflow is optional and changes how you organize your agent code and run your agents. From a practical perspective, you use the **_App_** class to configure the following features for your agent workflow:
 
-  * [**Context caching**](/adk-docs/context/caching/)
-  * [**Context compression**](/adk-docs/context/compaction/)
-  * [**Agent resume**](/adk-docs/runtime/resume/)
-  * [**Plugins**](/adk-docs/plugins/)
+  * [**Context caching**](/context/caching/)
+  * [**Context compression**](/context/compaction/)
+  * [**Agent resume**](/runtime/resume/)
+  * [**Plugins**](/plugins/)
 
 
 
@@ -263,7 +271,7 @@ The **_App_** class addresses several architectural issues that arise when build
 
 ## Define an App object¶
 
-The **_App_** class is used as the primary container of your agent workflow and contains the root agent of the project. The **_root agent_** is the container for the primary controller agent and any additional sub-agents. 
+The **_App_** class is used as the primary container of your agent workflow and contains the root agent of the project. The **_root agent_** is the container for the primary controller agent and any additional sub-agents.
 
 ### Define app with root agent¶
 
@@ -317,7 +325,7 @@ AgentConfiguration.java
 
 Recommended: Use `app` variable name
 
-In your agent project code, set your **_App_** object to the variable name `app` so it is compatible with the ADK command line interface runner tools. 
+In your agent project code, set your **_App_** object to the variable name `app` so it is compatible with the ADK command line interface runner tools.
 
 ### Run your App agent¶
 
@@ -374,7 +382,7 @@ AppMain.java
 
 Version requirement for `Runner.run_debug()`
 
-The `Runner.run_debug()` command requires ADK Python v1.18.0 or higher. You can also use `Runner.run()`, which requires more setup code. For more details, see the 
+The `Runner.run_debug()` command requires ADK Python v1.18.0 or higher. You can also use `Runner.run()`, which requires more setup code. For more details, see the
 
 PythonJava
 

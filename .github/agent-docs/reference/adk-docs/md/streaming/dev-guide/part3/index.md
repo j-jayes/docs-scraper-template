@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -120,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -167,9 +171,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../)
 
@@ -253,9 +259,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -351,7 +359,7 @@ All `run_live()` code requires async context. See [Part 1: FastAPI Application E
 
 **Usage:**
 
-Source reference: [runners.py](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/runners.py)
+Source reference: <a href="https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/runners.py" target="_blank">runners.py</a>
     
     
     # The method signature reveals the thoughtful design
@@ -392,7 +400,7 @@ As its signature tells, every streaming conversation needs identity (user_id), c
 
 The simplest way to consume events from `run_live()` is to iterate over the async generator with a for-loop:
 
-Demo implementation: [main.py:225-233](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L225-L233)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L225-L233" target="_blank">main.py:225-233</a>
     
     
     async for event in runner.run_live(
@@ -1179,7 +1187,7 @@ This provides a simple one-liner to convert ADK events into JSON format that can
 
 The `model_dump_json()` method serializes an `Event` object to a JSON string:
 
-Demo implementation: [main.py:219-234](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L219-L234)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/main.py#L219-L234" target="_blank">main.py:219-234</a>
     
     
     async def downstream_task() -> None:
@@ -1261,7 +1269,7 @@ This shows how to parse and handle serialized events on the client side, enablin
 
 On the client side (JavaScript/TypeScript), parse the JSON back to objects:
 
-Demo implementation: [app.js:339-688](https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L341-L690)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/2f7b82f182659e0990bfb86f6ef400dd82633c07/python/agents/bidi-demo/app/static/js/app.js#L341-L690" target="_blank">app.js:339-688</a>
     
     
     // Handle incoming messages
@@ -1400,7 +1408,7 @@ This creates significant implementation overhead, especially in streaming contex
 
 With ADK, tool execution becomes declarative. Simply define tools on your Agent:
 
-Demo implementation: [agent.py:11-16](https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/google_search_agent/agent.py#L11-L16)
+Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0723fbf16ddf6eed411eb070d1c76afd1a/python/agents/bidi-demo/app/google_search_agent/agent.py#L11-L16" target="_blank">agent.py:11-16</a>
     
     
     import os
@@ -1484,7 +1492,7 @@ This enables tools to provide incremental updates, progress notifications, or pa
 
 **Code reference** : See `runners.py:828-865` (tool detection) and `function_tool.py:238-253` (parameter injection) for implementation details.
 
-See the [Tools Guide](https://google.github.io/adk-docs/tools/) for implementation examples.
+See the [Tools Guide](/tools/) for implementation examples.
 
 ### Key Takeaway¶
 
@@ -1509,7 +1517,7 @@ See InvocationContext implementation in [`invocation_context.py`](https://github
 
 While `run_live()` returns an AsyncGenerator for consuming events, internally it creates and manages an `InvocationContext`—ADK's unified state carrier that encapsulates everything needed for a complete conversation invocation. **One InvocationContext corresponds to one`run_live()` loop**—it's created when you call `run_live()` and persists for the entire streaming session.
 
-Think of it as a traveling notebook that accompanies a conversation from start to finish, collecting information, tracking progress, and providing context to every component along the way. It's ADK's runtime implementation of the Context concept, providing the execution-time state and services needed during a live conversation. For a broader overview of context in ADK, see [Context in ADK](https://google.github.io/adk-docs/context/).
+Think of it as a traveling notebook that accompanies a conversation from start to finish, collecting information, tracking progress, and providing context to every component along the way. It's ADK's runtime implementation of the Context concept, providing the execution-time state and services needed during a live conversation. For a broader overview of context in ADK, see [Context in ADK](/context/).
 
 ### What is an Invocation?¶
 
@@ -1608,7 +1616,7 @@ ADK's bidirectional streaming supports three agent architectures: **single agent
 
 Learn More
 
-For comprehensive coverage of multi-agent patterns, see [Workflow Agents as Orchestrators](https://google.github.io/adk-docs/agents/multi-agents/#workflow-agents-as-orchestrators) in the ADK documentation.
+For comprehensive coverage of multi-agent patterns, see [Workflow Agents as Orchestrators](/agents/multi-agents/#workflow-agents-as-orchestrators) in the ADK documentation.
 
 When building multi-agent systems with ADK, understanding how agents transition and share state during live streaming is crucial for smooth BIDI communication.
 

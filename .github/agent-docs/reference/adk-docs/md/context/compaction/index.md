@@ -13,6 +13,17 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../..)
+  * [ Build Agents ](../../get-started/)
+  * [ Run Agents ](../../runtime/)
+  * [ Components ](../../get-started/about/)
+  * [ Integrations ](../../integrations/)
+  * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
+  * [ ADK 2.0 ](../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -56,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -110,6 +122,8 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -161,9 +175,12 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../a2a/quickstart-exposing/)
         * [ Go  ](../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../a2a/quickstart-consuming-java/)
+      * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
 Gemini Live API Toolkit 
@@ -180,8 +197,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
 
 API Reference 
@@ -192,8 +211,22 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
+    * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
+  * [ ADK 2.0  ](../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../workflows/graph-routes/)
+      * [ Data handling  ](../../workflows/data-handling/)
+      * [ Human input  ](../../workflows/human-input/)
+    * [ Collaborative agents  ](../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -213,15 +246,17 @@ Table of contents
 
 # Compress agent context for performance¶
 
-Supported in ADKPython v1.16.0
+Supported in ADKPython v1.16.0Java v0.2.0
 
 As an ADK agent runs it collects _context_ information, including user instructions, retrieved data, tool responses, and generated content. As the size of this context data grows, agent processing times typically also increase. More and more data is sent to the generative AI model used by the agent, increasing processing time and slowing down responses. The ADK Context Compaction feature is designed to reduce the size of context as an agent is running by summarizing older parts of the agent workflow event history.
 
-The Context Compaction feature uses a _sliding window_ approach for collecting and summarizing agent workflow event data within a [Session](/adk-docs/sessions/session/). When you configure this feature in your agent, it summarizes data from older events once it reaches a threshold of a specific number of workflow events, or invocations, with the current Session.
+The Context Compaction feature uses a _sliding window_ approach for collecting and summarizing agent workflow event data within a [Session](/sessions/session/). When you configure this feature in your agent, it summarizes data from older events once it reaches a threshold of a specific number of workflow events, or invocations, with the current Session.
 
 ## Configure context compaction¶
 
 Add context compaction to your agent workflow by adding an Events Compaction Configuration setting to the App object of your workflow. As part of the configuration, you must specify a compaction interval and overlap size, as shown in the following sample code:
+
+PythonJava
     
     
     from google.adk.apps.app import App
@@ -235,6 +270,20 @@ Add context compaction to your agent workflow by adding an Events Compaction Con
             overlap_size=1          # Include last invocation from the previous window.
         ),
     )
+    
+    
+    
+    import com.google.adk.apps.App;
+    import com.google.adk.summarizer.EventsCompactionConfig;
+    
+    App app = App.builder()
+        .name("my-agent")
+        .rootAgent(rootAgent)
+        .eventsCompactionConfig(EventsCompactionConfig.builder()
+            .compactionInterval(3)  // Trigger compaction every 3 new invocations.
+            .overlapSize(1)         // Include last invocation from the previous window.
+            .build())
+        .build();
     
 
 Once configured, the ADK `Runner` handles the compaction process in the background each time the session reaches the interval.
@@ -266,6 +315,8 @@ The configuration settings for this feature control how frequently event data is
 ### Define a Summarizer¶
 
 You can customize the process of context compression by defining a summarizer. The LlmEventSummarizer class allows you to specify a particular model for summarization. The following code example demonstrates how to define and configure a custom summarizer:
+
+PythonJava
     
     
     from google.adk.apps.app import App, EventsCompactionConfig
@@ -288,6 +339,32 @@ You can customize the process of context compression by defining a summarizer. T
             summarizer=my_summarizer,
         ),
     )
+    
+    
+    
+    import com.google.adk.apps.App;
+    import com.google.adk.models.Gemini;
+    import com.google.adk.summarizer.EventsCompactionConfig;
+    import com.google.adk.summarizer.LlmEventSummarizer;
+    
+    // Define the AI model to be used for summarization:
+    Gemini summarizationLlm = Gemini.builder()
+        .model("gemini-2.5-flash")
+        .build();
+    
+    // Create the summarizer with the custom model:
+    LlmEventSummarizer mySummarizer = new LlmEventSummarizer(summarizationLlm);
+    
+    // Configure the App with the custom summarizer and compaction settings:
+    App app = App.builder()
+        .name("my-agent")
+        .rootAgent(rootAgent)
+        .eventsCompactionConfig(EventsCompactionConfig.builder()
+            .compactionInterval(3)
+            .overlapSize(1)
+            .summarizer(mySummarizer)
+            .build())
+        .build();
     
 
 You can further refine the operation of the `SlidingWindowCompactor` by modifying its summarizer class `LlmEventSummarizer` including changing the `prompt_template` setting of that class. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60).

@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -78,6 +79,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../models/google-gemini/)
+      * [ Gemma  ](../models/google-gemma/)
       * [ Claude  ](../models/anthropic/)
       * [ Vertex AI hosted  ](../models/vertex/)
       * [ Apigee AI Gateway  ](../models/apigee/)
@@ -217,9 +219,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -258,7 +262,7 @@ Table of contents
 
 # Build agents with Agent Config¶
 
-Supported in ADKPython v1.11.0Java v0.3.0Experimental
+Supported in ADKPython v1.11.0Java v0.3.0Go v0.3.0Experimental
 
 The ADK Agent Config feature lets you build an ADK workflow without writing code. An Agent Config uses a YAML format text file with a brief description of the agent, allowing just about anyone to assemble and run an ADK agent. The following is a simple example of a basic Agent Config definition:
     
@@ -269,7 +273,7 @@ The ADK Agent Config feature lets you build an ADK workflow without writing code
     instruction: You are an agent to help answer users' various questions.
     
 
-You can use Agent Config files to build more complex agents which can incorporate Functions, Tools, Sub-Agents, and more. This page describes how to build and run ADK workflows with the Agent Config feature. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/adk-docs/api-reference/agentconfig/).
+You can use Agent Config files to build more complex agents which can incorporate Functions, Tools, Sub-Agents, and more. This page describes how to build and run ADK workflows with the Agent Config feature. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/api-reference/agentconfig/).
 
 Experimental
 
@@ -289,7 +293,7 @@ The Agent Config feature currently only supports Gemini models. For more informa
 
 To set up ADK for use with Agent Config:
 
-  1. Install the ADK Python libraries by following the [Installation](/adk-docs/get-started/installation/#python) instructions. _Python is currently required._ For more information, see the Known limitations.
+  1. Install the ADK Python libraries by following the [Installation](/get-started/installation/#python) instructions. _Python is currently required._ For more information, see the Known limitations.
   2. Verify that ADK is installed by running the following command in your terminal:
          
          adk --version
@@ -302,7 +306,7 @@ This command should show the ADK version you have installed.
 
 Tip
 
-If the `adk` command fails to run and the version is not listed in step 2, make sure your Python environment is active. Execute `source .venv/bin/activate` in your terminal on Mac and Linux. For other platform commands, see the [Installation](/adk-docs/get-started/installation/#python) page.
+If the `adk` command fails to run and the version is not listed in step 2, make sure your Python environment is active. Execute `source .venv/bin/activate` in your terminal on Mac and Linux. For other platform commands, see the [Installation](/get-started/installation/#python) page.
 
 ### Build an agent¶
 
@@ -349,7 +353,7 @@ For information on creating a Cloud Project, see the Google Cloud docs for [Crea
     instruction: You are an agent to help answer users' various questions.
     
 
-You can discover more configuration options for your `root_agent.yaml` agent configuration file by referring to the ADK [samples repository](https://github.com/search?q=repo%3Agoogle%2Fadk-python+path%3A%2F%5Econtributing%5C%2Fsamples%5C%2F%2F+.yaml&type=code) or the [Agent Config syntax](/adk-docs/api-reference/agentconfig/) reference.
+You can discover more configuration options for your `root_agent.yaml` agent configuration file by referring to the ADK [samples repository](https://github.com/search?q=repo%3Agoogle%2Fadk-python+path%3A%2F%5Econtributing%5C%2Fsamples%5C%2F%2F+.yaml&type=code) or the [Agent Config syntax](/api-reference/agentconfig/) reference.
 
 ### Run the agent¶
 
@@ -365,7 +369,7 @@ To run your Agent Config-defined agent:
 
 
 
-For more information on the ways to run your agent, see the _Run Your Agent_ topic in the [Quickstart](/adk-docs/get-started/quickstart/#run-your-agent). For more information about the ADK command line options, see the [ADK CLI reference](/adk-docs/api-reference/cli/).
+For more information on the ways to run your agent, see [Agent Runtime](/runtime/#ways-to-run-agents). For more information about the ADK command line options, see the [ADK CLI reference](/api-reference/cli/).
 
 ### Run programmatically¶
 
@@ -469,7 +473,7 @@ For more details, see the full code for this sample in the [ADK sample repositor
 
 ## Deploy agent configs¶
 
-You can deploy Agent Config agents with [Cloud Run](/adk-docs/deploy/cloud-run/) and [Agent Engine](/adk-docs/deploy/agent-engine/), using the same procedure as code-based agents. For more information on how to prepare and deploy Agent Config-based agents, see the [Cloud Run](/adk-docs/deploy/cloud-run/) and [Agent Engine](/adk-docs/deploy/agent-engine/) deployment guides.
+You can deploy Agent Config agents with [Cloud Run](/deploy/cloud-run/) and [Agent Engine](/deploy/agent-engine/), using the same procedure as code-based agents. For more information on how to prepare and deploy Agent Config-based agents, see the [Cloud Run](/deploy/cloud-run/) and [Agent Engine](/deploy/agent-engine/) deployment guides.
 
 ## Known limitations¶
 
@@ -479,6 +483,7 @@ The Agent Config feature is experimental and includes the following limitations:
   * **Programming language:** The Agent Config feature currently supports Python and Java code for tools and other functionality requiring programming code.
   * **ADK Tool support:** The following ADK tools are supported by the Agent Config feature, but _not all tools are fully supported_ :
     * `google_search`
+    * `google_maps_grounding`
     * `load_artifacts`
     * `url_context`
     * `exit_loop`
@@ -486,18 +491,18 @@ The Agent Config feature is experimental and includes the following limitations:
     * `get_user_choice`
     * `enterprise_web_search`
     * `load_web_page`: Requires a fully-qualified path to access web pages.
+    * `AgentTool`: Allows an agent to call another agent.
+    * `LongRunningFunctionTool`: Supports long-running functions.
+    * `McpToolset`: Connects to Model Context Protocol (MCP) servers.
+    * `ExampleTool`: Provides example-based few-shot learning for tools.
   * **Agent Type Support:** The `LangGraphAgent` and `A2aAgent` types are not yet supported.
-    * `AgentTool`
-    * `LongRunningFunctionTool`
-    * `VertexAiSearchTool`
-    * `McpToolset`
-    * `ExampleTool`
+  * **Vertex AI Search:** The `VertexAiSearchTool` is currently supported in Python and Java Agent Configs.
 
 
 
 ## Next steps¶
 
-For ideas on how and what to build with ADK Agent Configs, see the yaml-based agent definitions in the ADK [adk-samples](https://github.com/search?q=repo:google/adk-python+path:/%5Econtributing%5C/samples%5C//+root_agent.yaml&type=code) repository. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/adk-docs/api-reference/agentconfig/).
+For ideas on how and what to build with ADK Agent Configs, see the yaml-based agent definitions in the ADK [adk-samples](https://github.com/search?q=repo:google/adk-python+path:/%5Econtributing%5C/samples%5C//+root_agent.yaml&type=code) repository. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/api-reference/agentconfig/).
 
 Back to top  [ Previous  Multi-agent systems  ](../multi-agents/) [ Next  AI Models for ADK agents  ](../models/)
 

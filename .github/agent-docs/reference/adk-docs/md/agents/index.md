@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../get-started/about/)
   * [ Integrations ](../integrations/)
   * [ Reference ](../api-reference/)
+  * [ Community ](../community/)
   * [ ADK 2.0 ](../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../get-started/quickstart/)
+      * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
       * [ Streaming agent  ](../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](models/google-gemini/)
+      * [ Gemma  ](models/google-gemma/)
       * [ Claude  ](models/anthropic/)
       * [ Vertex AI hosted  ](models/vertex/)
       * [ Apigee AI Gateway  ](models/apigee/)
@@ -205,9 +207,11 @@ API Reference
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
-    * [ Community Resources  ](../community/)
-    * [ Contributing Guide  ](../contributing-guide/)
     * [ Release Notes  ](../release-notes/)
+  * [ Community  ](../community/)
+
+Community 
+    * [ Contributing Guide  ](../community/contributing-guide/)
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
@@ -285,19 +289,19 @@ Understanding these core types is the first step toward building sophisticated, 
 
 Beyond the core agent types, ADK allows you to significantly expand what your agents can do through several key mechanisms:
 
-  * [**AI Models**](/adk-docs/agents/models/): Swap the underlying intelligence of your agents by integrating with different generative AI models from Google and other providers.
+  * [**AI Models**](/agents/models/): Swap the underlying intelligence of your agents by integrating with different generative AI models from Google and other providers.
 
-  * [**Artifacts**](/adk-docs/artifacts/): Enable agents to create and manage persistent outputs like files, code, or documents that exist beyond the conversation lifecycle.
+  * [**Artifacts**](/artifacts/): Enable agents to create and manage persistent outputs like files, code, or documents that exist beyond the conversation lifecycle.
 
-  * [**Pre-built tools and integrations**](/adk-docs/integrations/): Equip your agents with a wide array tools, plugins, and other integrations to interact with the world, including web sites, MCP tools, applications, databases, programming interfaces, and more.
+  * [**Pre-built tools and integrations**](/integrations/): Equip your agents with a wide array tools, plugins, and other integrations to interact with the world, including web sites, MCP tools, applications, databases, programming interfaces, and more.
 
-  * [**Custom tools**](/adk-docs/tools-custom/): Create your own, task-specific tools for solving specific problems with precision and control.
+  * [**Custom tools**](/tools-custom/): Create your own, task-specific tools for solving specific problems with precision and control.
 
-  * [**Plugins**](/adk-docs/plugins/): Integrate complex, pre-packaged behaviors and third-party services directly into your agent's workflow.
+  * [**Plugins**](/plugins/): Integrate complex, pre-packaged behaviors and third-party services directly into your agent's workflow.
 
-  * [**Skills**](/adk-docs/skills/): Use prebuilt or custom [Agent Skills](https://agentskills.io/) to extend agent capabilities in a way that works efficiently inside AI context window limits.
+  * [**Skills**](/skills/): Use prebuilt or custom [Agent Skills](https://agentskills.io/) to extend agent capabilities in a way that works efficiently inside AI context window limits.
 
-  * [**Callbacks**](/adk-docs/callbacks/): Hook into specific events during an agent's execution lifecycle to add logging, monitoring, or custom side-effects without altering core agent logic.
+  * [**Callbacks**](/callbacks/): Hook into specific events during an agent's execution lifecycle to add logging, monitoring, or custom side-effects without altering core agent logic.
 
 
 
@@ -310,7 +314,7 @@ Now that you have an overview of the different agent types available in ADK, div
   * [**Workflow Agents:**](workflow-agents/) Learn how to orchestrate tasks using `SequentialAgent`, `ParallelAgent`, and `LoopAgent` for structured and predictable processes.
   * [**Custom Agents:**](custom-agents/) Discover the principles of extending `BaseAgent` to build agents with unique logic and integrations tailored to your specific needs.
   * [**Multi-Agents:**](multi-agents/) Understand how to combine different agent types to create sophisticated, collaborative systems capable of tackling complex problems.
-  * [**Models:**](/adk-docs/agents/models/) Learn about the different LLM integrations available and how to select the right model for your agents.
+  * [**Models:**](/agents/models/) Learn about the different LLM integrations available and how to select the right model for your agents.
 
 
 

@@ -21,14 +21,15 @@ Usage: const connectionParams: StreamableHTTPConnectionParams = { type: 'Streama
 
 interface StreamableHTTPConnectionParams {  
 header?: Record<string, unknown>;  
-sseReadTimeout?: Number;  
+sseReadTimeout?: number;  
 terminateOnClose?: boolean;  
-timeout?: Number;  
+timeout?: number;  
+transportOptions?: StreamableHTTPClientTransportOptions;  
 type: "StreamableHTTPConnectionParams";  
 url: string;  
 }
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L32)
+  * Defined in [tools/mcp/mcp_session_manager.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L38)
 
 
 
@@ -38,15 +39,19 @@ url: string;
 
 header?: Record<string, unknown>
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:35](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L35)
+#### Deprecated
+
+Use transportOptions.requestInit.headers instead. This field will be ignored if transportOptions is provided even if no headers are specified in transportOptions.
+
+  * Defined in [tools/mcp/mcp_session_manager.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L46)
 
 
 
 ### `Optional`sseReadTimeout
 
-sseReadTimeout?: Number
+sseReadTimeout?: number
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:37](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L37)
+  * Defined in [tools/mcp/mcp_session_manager.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L48)
 
 
 
@@ -54,15 +59,23 @@ sseReadTimeout?: Number
 
 terminateOnClose?: boolean
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:38](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L38)
+  * Defined in [tools/mcp/mcp_session_manager.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L49)
 
 
 
 ### `Optional`timeout
 
-timeout?: Number
+timeout?: number
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L36)
+  * Defined in [tools/mcp/mcp_session_manager.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L47)
+
+
+
+### `Optional`transportOptions
+
+transportOptions?: StreamableHTTPClientTransportOptions
+
+  * Defined in [tools/mcp/mcp_session_manager.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L50)
 
 
 
@@ -70,7 +83,7 @@ timeout?: Number
 
 type: "StreamableHTTPConnectionParams"
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:33](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L33)
+  * Defined in [tools/mcp/mcp_session_manager.ts:39](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L39)
 
 
 
@@ -78,13 +91,13 @@ type: "StreamableHTTPConnectionParams"
 
 url: string
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:34](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/mcp/mcp_session_manager.ts#L34)
+  * Defined in [tools/mcp/mcp_session_manager.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L40)
 
 
 
 Properties
 
-headersseReadTimeoutterminateOnClosetimeouttypeurl
+headersseReadTimeoutterminateOnClosetimeouttransportOptionstypeurl
 
 [ADK for TypeScript: API Reference](../index.html)
 

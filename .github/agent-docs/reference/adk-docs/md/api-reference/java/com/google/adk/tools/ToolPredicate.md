@@ -55,7 +55,7 @@ Description
 
 `default boolean`
 
-`test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+`test([BaseTool](BaseTool.html "class in com.google.adk.tools") tool, @Nullable [ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Decides if the given tool is selected.
 

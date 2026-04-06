@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+      * [ Gemma  ](../google-gemma/)
       * Claude  [ Claude  ](./) Table of contents 
         * Get started 
         * Prerequisites 
@@ -208,9 +210,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -242,7 +246,7 @@ Table of contents
 
 Supported in ADKJava v0.2.0
 
-You can integrate Anthropic's Claude models directly using an Anthropic API key or from a Vertex AI backend into your Java ADK applications by using the ADK's `Claude` wrapper class. You can also access Anthropic models through Google Cloud Vertex AI services. For more information, see the [Third-Party Models on Vertex AI](/adk-docs/agents/models/vertex/#third-party-models-on-vertex-ai-eg-anthropic-claude) section. You can also use Anthropic models through the [LiteLLM](/adk-docs/agents/models/litellm/) library for Python.
+You can integrate Anthropic's Claude models directly using an Anthropic API key or from a Vertex AI backend into your Java ADK applications by using the ADK's `Claude` wrapper class. You can also access Anthropic models through Google Cloud Vertex AI services. For more information, see the [Third-Party Models on Vertex AI](/agents/models/vertex/#third-party-models-on-vertex-ai-eg-anthropic-claude) section. You can also use Anthropic models through the [LiteLLM](/agents/models/litellm/) library for Python.
 
 ## Get started¶
 
@@ -323,7 +327,7 @@ Instantiate `com.google.adk.models.Claude`, providing the desired Claude model n
     }
     
 
-Back to top  [ Previous  Gemini  ](../google-gemini/) [ Next  Vertex AI hosted  ](../vertex/)
+Back to top  [ Previous  Gemma  ](../google-gemma/) [ Next  Vertex AI hosted  ](../vertex/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

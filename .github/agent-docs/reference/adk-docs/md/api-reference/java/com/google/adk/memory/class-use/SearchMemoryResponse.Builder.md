@@ -49,11 +49,29 @@ SearchMemoryResponse.`[builder](../SearchMemoryResponse.html#builder\(\))()`
 
 Creates a new builder for [`SearchMemoryResponse`](../SearchMemoryResponse.html "class in com.google.adk.memory").
 
+`abstract [SearchMemoryResponse.Builder](../SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
+
+SearchMemoryResponse.Builder.`[memories](../SearchMemoryResponse.Builder.html#memories\(com.google.common.collect.ImmutableList\))(com.google.common.collect.ImmutableList<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+ 
+
 `[SearchMemoryResponse.Builder](../SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
+
+SearchMemoryResponse.Builder.`[memories](../SearchMemoryResponse.Builder.html#memories\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+ 
+
+`final [SearchMemoryResponse.Builder](../SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
+
+SearchMemoryResponse.Builder.`[setMemories](../SearchMemoryResponse.Builder.html#setMemories\(com.google.common.collect.ImmutableList\))(com.google.common.collect.ImmutableList<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+
+Deprecated.
+
+`final [SearchMemoryResponse.Builder](../SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
 
 SearchMemoryResponse.Builder.`[setMemories](../SearchMemoryResponse.Builder.html#setMemories\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
 
-Sets the list of memory entries using a list.
+Deprecated.
 
 
 

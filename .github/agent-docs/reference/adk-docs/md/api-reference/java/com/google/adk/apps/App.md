@@ -80,13 +80,13 @@ Description
 
  
 
-`[ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents")`
+`@Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents")`
 
 `contextCacheConfig()`
 
  
 
-`[EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")`
+`@Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")`
 
 `eventsCompactionConfig()`
 
@@ -133,11 +133,11 @@ public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/
 
     * ### eventsCompactionConfig
 
-@Nullable public [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig()
+public @Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig()
 
     * ### contextCacheConfig
 
-@Nullable public [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig()
+public @Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig()
 
     * ### builder
 

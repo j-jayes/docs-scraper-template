@@ -120,25 +120,9 @@ Method
 
 Description
 
-`io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
-
-Runner.`[runAsync](../../runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig\))([Session](../Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use runAsync with sessionId.
-
-`io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
-
-Runner.`[runAsync](../../runner/Runner.html#runAsync\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
-
-Deprecated, for removal: This API element is subject to removal in a future version.
-
-Use runAsync with sessionId.
-
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-Runner.`[runAsyncImpl](../../runner/Runner.html#runAsyncImpl\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
+Runner.`[runAsyncImpl](../../runner/Runner.html#runAsyncImpl\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
 
 Runs the agent asynchronously using a provided Session object.
 
@@ -150,7 +134,7 @@ Runner.`[runLive](../../runner/Runner.html#runLive\(com.google.adk.sessions.Sess
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-Runner.`[runLiveImpl](../../runner/Runner.html#runLiveImpl\(com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([Session](../Session.html "class in com.google.adk.sessions") session, [LiveRequestQueue](../../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
+Runner.`[runLiveImpl](../../runner/Runner.html#runLiveImpl\(com.google.adk.sessions.Session,com.google.adk.agents.LiveRequestQueue,com.google.adk.agents.RunConfig\))([Session](../Session.html "class in com.google.adk.sessions") session, @Nullable [LiveRequestQueue](../../agents/LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig)`
 
 Runs the agent in live mode, appending generated events to the session.
 
@@ -192,7 +176,7 @@ Creates a new session with the specified application name and user ID, using a d
 
 `default io.reactivex.rxjava3.core.Single<[Session](../Session.html "class in com.google.adk.sessions")>`
 
-BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(com.google.adk.sessions.SessionKey,java.util.Map\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
+BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(com.google.adk.sessions.SessionKey,java.util.Map\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
 
 Creates a new session with the specified parameters.
 
@@ -202,19 +186,19 @@ BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(ja
 
 Creates a new session with the specified application name and user ID, using a default state (null) and allowing the service to generate a unique session ID.
 
+`default io.reactivex.rxjava3.core.Single<[Session](../Session.html "class in com.google.adk.sessions")>`
+
+BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+
+Creates a new session with the specified parameters.
+
 `io.reactivex.rxjava3.core.Single<[Session](../Session.html "class in com.google.adk.sessions")>`
 
-BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, @Nullable [ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
 
 Deprecated.
 
 Use [`BaseSessionService.createSession(String, String, Map, String)`](../BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) instead.
-
-`default io.reactivex.rxjava3.core.Single<[Session](../Session.html "class in com.google.adk.sessions")>`
-
-BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
-
-Creates a new session with the specified parameters.
 
 `io.reactivex.rxjava3.core.Single<[Session](../Session.html "class in com.google.adk.sessions")>`
 
@@ -254,7 +238,7 @@ VertexAiSessionService.`[createSession](../VertexAiSessionService.html#createSes
 
 `default io.reactivex.rxjava3.core.Maybe<[Session](../Session.html "class in com.google.adk.sessions")>`
 
-BaseSessionService.`[getSession](../BaseSessionService.html#getSession\(com.google.adk.sessions.SessionKey,com.google.adk.sessions.GetSessionConfig\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions") config)`
+BaseSessionService.`[getSession](../BaseSessionService.html#getSession\(com.google.adk.sessions.SessionKey,com.google.adk.sessions.GetSessionConfig\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, @Nullable [GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions") config)`
 
 Retrieves a specific session, optionally filtering the events included.
 

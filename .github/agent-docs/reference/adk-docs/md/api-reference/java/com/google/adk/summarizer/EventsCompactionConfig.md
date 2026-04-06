@@ -93,11 +93,11 @@ Description
 
  
 
-`EventsCompactionConfig(int compactionInterval, int overlapSize, [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
+`EventsCompactionConfig(int compactionInterval, int overlapSize, @Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer)`
 
  
 
-`EventsCompactionConfig([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
+`EventsCompactionConfig(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize, @Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold, @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
 
 Creates an instance of a `EventsCompactionConfig` record class.
 
@@ -117,7 +117,7 @@ Description
 
  
 
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
+`@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
 
 `compactionInterval()`
 
@@ -129,7 +129,7 @@ Returns the value of the `compactionInterval` record component.
 
 Indicates whether some other object is "equal to" this one.
 
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
+`@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
 
 `eventRetentionSize()`
 
@@ -147,13 +147,13 @@ Returns a hash code value for this object.
 
  
 
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
+`@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
 
 `overlapSize()`
 
 Returns the value of the `overlapSize` record component.
 
-`[BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer")`
+`@Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer")`
 
 `summarizer()`
 
@@ -165,7 +165,7 @@ Returns the value of the `summarizer` record component.
 
  
 
-`[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
+`@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")`
 
 `tokenThreshold()`
 
@@ -258,7 +258,7 @@ Returns:
 
     * ### compactionInterval
 
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval()
+public @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval()
 
 Returns the value of the `compactionInterval` record component.
 
@@ -267,7 +267,7 @@ Returns:
 
     * ### overlapSize
 
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize()
+public @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize()
 
 Returns the value of the `overlapSize` record component.
 
@@ -276,7 +276,7 @@ Returns:
 
     * ### summarizer
 
-@Nullable public [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer()
+public @Nullable [BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer") summarizer()
 
 Returns the value of the `summarizer` record component.
 
@@ -285,7 +285,7 @@ Returns:
 
     * ### tokenThreshold
 
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold()
+public @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold()
 
 Returns the value of the `tokenThreshold` record component.
 
@@ -294,7 +294,7 @@ Returns:
 
     * ### eventRetentionSize
 
-@Nullable public [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize()
+public @Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize()
 
 Returns the value of the `eventRetentionSize` record component.
 

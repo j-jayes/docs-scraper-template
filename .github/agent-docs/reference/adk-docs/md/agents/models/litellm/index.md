@@ -19,6 +19,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+      * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Vertex AI hosted  ](../vertex/)
       * [ Apigee AI Gateway  ](../apigee/)
@@ -207,9 +209,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -249,7 +253,7 @@ Unauthorized code was identified in LiteLLM versions 1.82.7 and 1.82.8 on PyPI o
 You can use the LiteLLM library to access remote or locally hosted AI models:
 
   * **Remote model host:** Use the `LiteLlm` wrapper class and set it as the `model` parameter of `LlmAgent`.
-  * **Local model host:** Use the `LiteLlm` wrapper class configured to point to your local model server. For examples of local model hosting solutions, see the [Ollama](/adk-docs/agents/models/ollama/) or [vLLM](/adk-docs/agents/models/vllm/) documentation.
+  * **Local model host:** Use the `LiteLlm` wrapper class configured to point to your local model server. For examples of local model hosting solutions, see the [Ollama](/agents/models/ollama/) or [vLLM](/agents/models/vllm/) documentation.
 
 Windows Encoding with LiteLLM
 

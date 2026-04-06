@@ -57,7 +57,7 @@ Sets the artifact service for persisting artifacts.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[branch](../InvocationContext.Builder.html#branch\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+InvocationContext.Builder.`[branch](../InvocationContext.Builder.html#branch\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
 
 Sets the branch ID for the invocation.
 
@@ -75,7 +75,7 @@ Sets the callback context data for the invocation.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[contextCacheConfig](../InvocationContext.Builder.html#contextCacheConfig\(com.google.adk.agents.ContextCacheConfig\))([ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
+InvocationContext.Builder.`[contextCacheConfig](../InvocationContext.Builder.html#contextCacheConfig\(com.google.adk.agents.ContextCacheConfig\))(@Nullable [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
 
 Sets the context cache configuration for the current agent run.
 
@@ -87,7 +87,7 @@ Sets whether this invocation should be ended.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[eventsCompactionConfig](../InvocationContext.Builder.html#eventsCompactionConfig\(com.google.adk.summarizer.EventsCompactionConfig\))([EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
+InvocationContext.Builder.`[eventsCompactionConfig](../InvocationContext.Builder.html#eventsCompactionConfig\(com.google.adk.summarizer.EventsCompactionConfig\))(@Nullable [EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig)`
 
 Sets the events compaction configuration for the current agent run.
 
@@ -99,7 +99,7 @@ Sets the unique ID for the invocation.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[liveRequestQueue](../InvocationContext.Builder.html#liveRequestQueue\(com.google.adk.agents.LiveRequestQueue\))([LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)`
+InvocationContext.Builder.`[liveRequestQueue](../InvocationContext.Builder.html#liveRequestQueue\(com.google.adk.agents.LiveRequestQueue\))(@Nullable [LiveRequestQueue](../LiveRequestQueue.html "class in com.google.adk.agents") liveRequestQueue)`
 
 Sets the queue for managing live requests.
 
@@ -141,7 +141,7 @@ Returns a [`InvocationContext.Builder`](../InvocationContext.Builder.html "class
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[userContent](../InvocationContext.Builder.html#userContent\(com.google.genai.types.Content\))(com.google.genai.types.Content userContent)`
+InvocationContext.Builder.`[userContent](../InvocationContext.Builder.html#userContent\(com.google.genai.types.Content\))(@Nullable com.google.genai.types.Content userContent)`
 
 Sets the user content that triggered this invocation.
 

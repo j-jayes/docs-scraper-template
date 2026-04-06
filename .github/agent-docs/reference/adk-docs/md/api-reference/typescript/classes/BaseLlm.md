@@ -24,7 +24,7 @@ The BaseLLM class.
 
 
 
-  * Defined in [core/src/models/base_llm.ts:14](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L14)
+  * Defined in [models/base_llm.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L36)
 
 
 
@@ -48,18 +48,28 @@ The name of the LLM, e.g. gemini-1.5-flash or gemini-1.5-flash-001.
 
 #### Returns [BaseLlm]()
 
-    * Defined in [core/src/models/base_llm.ts:23](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L23)
+    * Defined in [models/base_llm.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L50)
 
 
 
 
 ## Properties
 
+### `Readonly`[BASE_MODEL_SYMBOL]
+
+"[BASE_MODEL_SYMBOL]": true
+
+A unique symbol to identify BaseLlm classes.
+
+  * Defined in [models/base_llm.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L40)
+
+
+
 ### `Readonly`model
 
 model: string
 
-  * Defined in [core/src/models/base_llm.ts:15](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L15)
+  * Defined in [models/base_llm.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L42)
 
 
 
@@ -69,7 +79,20 @@ supportedModels: (string | RegExp)[] = []
 
 List of supported models in regex for LlmRegistry.
 
-  * Defined in [core/src/models/base_llm.ts:30](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L30)
+  * Defined in [models/base_llm.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L57)
+
+
+
+## Accessors
+
+### `Protected`trackingHeaders
+
+  * get trackingHeaders(): Record<string, string>
+
+#### Returns Record<string, string>
+
+    * Defined in [models/base_llm.ts:80](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L80)
+
 
 
 
@@ -91,7 +114,7 @@ LlmRequest, the request to send to the LLM.
 
 A live connection to the LLM.
 
-    * Defined in [core/src/models/base_llm.ts:49](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L49)
+    * Defined in [models/base_llm.ts:78](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L78)
 
 
 
@@ -119,7 +142,7 @@ whether to do streaming call. For non-streaming call, it will only yield one Con
 
 A generator of LlmResponse.
 
-    * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L40)
+    * Defined in [models/base_llm.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L67)
 
 
 
@@ -138,7 +161,7 @@ LlmRequest, the request to send to the LLM.
 
 #### Returns void
 
-    * Defined in [core/src/models/base_llm.ts:56](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/base_llm.ts#L56)
+    * Defined in [models/base_llm.ts:94](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L94)
 
 
 
@@ -149,7 +172,11 @@ constructor
 
 Properties
 
-modelsupportedModels
+[BASE_MODEL_SYMBOL]modelsupportedModels
+
+Accessors
+
+trackingHeaders
 
 Methods
 
