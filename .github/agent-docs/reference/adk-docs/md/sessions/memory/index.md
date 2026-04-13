@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -19,6 +21,7 @@ Initializing search
   * [ Components ](../../get-started/about/)
   * [ Integrations ](../../integrations/)
   * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
   * [ ADK 2.0 ](../../2.0/)
 
 
@@ -26,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -120,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -218,9 +221,11 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
     * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
@@ -253,8 +258,9 @@ Table of contents
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ Sessions & Memory  ](../)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ Sessions & Memory  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/memory.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/memory.md "View Markdown source")
 
@@ -298,11 +304,16 @@ The ADK offers two distinct `MemoryService` implementations, each tailored to di
 
 The `InMemoryMemoryService` stores session information in the application's memory and performs basic keyword matching for searches. It requires no setup and is best for prototyping and simple testing scenarios where persistence isn't required.
 
-PythonGoJava
+PythonTypeScriptGoJava
     
     
     from google.adk.memory import InMemoryMemoryService
     memory_service = InMemoryMemoryService()
+    
+    
+    
+    import { InMemoryMemoryService } from '@google/adk';
+    const memoryService = new InMemoryMemoryService();
     
     
     
@@ -326,7 +337,7 @@ PythonGoJava
 
 This example demonstrates the basic flow using the `InMemoryMemoryService` for simplicity.
 
-PythonGoJava
+PythonTypeScriptGoJava
     
     
     import asyncio
@@ -340,7 +351,7 @@ PythonGoJava
     # --- Constants ---
     APP_NAME = "memory_example_app"
     USER_ID = "mem_user"
-    MODEL = "gemini-2.0-flash" # Use a valid model
+    MODEL = "gemini-flash-latest" # Use a valid model
     
     # --- Agent Definitions ---
     # Agent 1: Simple agent to capture information
@@ -419,6 +430,111 @@ PythonGoJava
     # asyncio.run(run_scenario())
     
     # await run_scenario()
+    
+    
+    
+    import {
+        InMemoryMemoryService,
+        InMemorySessionService,
+        LOAD_MEMORY,
+        LlmAgent,
+        Runner
+    } from '@google/adk';
+    import { createUserContent } from '@google/genai';
+    
+    // --- Constants ---
+    const APP_NAME = "memory_example_app";
+    const USER_ID = "mem_user";
+    const MODEL = "gemini-2.5-flash";
+    
+    // --- Agent Definitions ---
+    
+    // Agent 1: Simple agent to capture information
+    const infoCaptureAgent = new LlmAgent({
+        model: MODEL,
+        name: "InfoCaptureAgent",
+        instruction: "Acknowledge the user's statement concisely.",
+    });
+    
+    // Agent 2: Agent that can use memory
+    const memoryRecallAgent = new LlmAgent({
+        model: MODEL,
+        name: "MemoryRecallAgent",
+        instruction: "Answer the user's question. Use the 'load_memory' tool if the answer might be in past conversations.",
+        tools: [LOAD_MEMORY]
+    });
+    
+    // Export for 'adk run' compatibility (to avoid 'No BaseAgent found' error)
+    export const root_agent = memoryRecallAgent;
+    
+    // --- Services ---
+    const sessionService = new InMemorySessionService();
+    const memoryService = new InMemoryMemoryService();
+    
+    async function runScenario() {
+        // --- Turn 1: Capture some information in a session ---
+        console.log("--- Turn 1: Capturing Information ---");
+        const runner1 = new Runner({
+            agent: infoCaptureAgent,
+            appName: APP_NAME,
+            sessionService,
+            memoryService
+        });
+    
+        const session1Id = "session_info";
+        await sessionService.createSession({ appName: APP_NAME, userId: USER_ID, sessionId: session1Id });
+        const userInput1 = createUserContent("My favorite project is Project Alpha.");
+    
+        let finalResponseText = "(No final response)";
+        for await (const event of runner1.runAsync({ userId: USER_ID, sessionId: session1Id, newMessage: userInput1 })) {
+            // Capture any text response from the agent
+            if (event.author === infoCaptureAgent.name && event.content?.parts) {
+                const text = event.content.parts.map(p => p.text || "").join("").trim();
+                if (text) finalResponseText = text;
+            }
+        }
+        console.log(`Agent 1 Response: ${finalResponseText}`);
+    
+        // Get the completed session and add to Memory
+        const completedSession1 = await sessionService.getSession({ appName: APP_NAME, userId: USER_ID, sessionId: session1Id });
+        console.log("\n--- Adding Session 1 to Memory ---");
+        if (completedSession1) {
+            await memoryService.addSessionToMemory(completedSession1);
+            console.log("Session added to memory.");
+        }
+    
+        // --- Turn 2: Recall the information in a new session ---
+        console.log("\n--- Turn 2: Recalling Information ---");
+        const runner2 = new Runner({
+            agent: memoryRecallAgent,
+            appName: APP_NAME,
+            sessionService,
+            memoryService
+        });
+    
+        const session2Id = "session_recall";
+        await sessionService.createSession({ appName: APP_NAME, userId: USER_ID, sessionId: session2Id });
+        const userInput2 = createUserContent("What is my favorite project?");
+    
+        let finalResponseText2 = "(No final response)";
+        for await (const event of runner2.runAsync({ userId: USER_ID, sessionId: session2Id, newMessage: userInput2 })) {
+            // Capture any text response from the agent
+            if (event.author === memoryRecallAgent.name && event.content?.parts) {
+                const text = event.content.parts.map(p => p.text || "").join("").trim();
+                if (text) finalResponseText2 = text;
+            }
+        }
+        console.log(`Agent 2 Response: ${finalResponseText2}`);
+    
+        // Exit immediately to prevent the ADK CLI from starting an interactive loop
+        process.exit(0);
+    }
+    
+    // Execute the scenario
+    runScenario().catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
     
     
     
@@ -592,7 +708,7 @@ PythonGoJava
     
       private static final String APP_NAME = "memory_example_app";
       private static final String USER_ID = "mem_user";
-      private static final String MODEL = "gemini-2.0-flash";
+      private static final String MODEL = "gemini-flash-latest";
     
       public static void main(String[] args) {
         // Services
@@ -670,7 +786,7 @@ PythonGoJava
 
 You can also search memory from within a custom tool by using the `tool.Context`.
 
-GoJava
+GoTypeScriptJava
     
     
     // memorySearchToolFunc is the implementation of the memory search tool.
@@ -701,6 +817,18 @@ GoJava
         },
         memorySearchToolFunc,
     ))
+    
+    
+    
+    // Within a tool implementation
+    async runAsync({ args, toolContext }: RunAsyncToolRequest) {
+      const query = args['query'] as string;
+      const response = await toolContext.searchMemory(query);
+      // process response
+      return {
+        memories: response.memories.map(m => m.content.parts?.map(p => p.text).join(' ')).join('\n')
+      };
+    }
     
     
     
@@ -791,7 +919,7 @@ When a memory service is configured, your agent can use a tool or callback to re
 
 **Example:**
 
-PythonGoJava
+PythonTypeScriptGoJava
     
     
     from google.adk.agents import Agent
@@ -803,6 +931,17 @@ PythonGoJava
         instruction="...",
         tools=[PreloadMemoryTool()]
     )
+    
+    
+    
+    import { LlmAgent, PRELOAD_MEMORY } from '@google/adk';
+    
+    const agent = new LlmAgent({
+        model: MODEL_ID,
+        name: 'weather_sentiment_agent',
+        instruction: "...",
+        tools: [PRELOAD_MEMORY]
+    });
     
     
     
@@ -834,7 +973,7 @@ PythonGoJava
 
 To extract memories from your session, you need to call `add_session_to_memory`. For example, you can automate this via a callback:
 
-PythonGo
+PythonTypeScriptGo
     
     
     from google.adk.agents import Agent
@@ -851,6 +990,26 @@ PythonGo
         tools=[adk.tools.preload_memory_tool.PreloadMemoryTool()],
         after_agent_callback=auto_save_session_to_memory_callback,
     )
+    
+    
+    
+    import { LlmAgent, PRELOAD_MEMORY, SingleAgentCallback } from '@google/adk';
+    
+    const autoSaveSessionToMemoryCallback: SingleAgentCallback = async (callbackContext) => {
+        if (callbackContext.invocationContext.memoryService) {
+            await callbackContext.invocationContext.memoryService.addSessionToMemory(
+                callbackContext.invocationContext.session
+            );
+        }
+    };
+    
+    const agent = new LlmAgent({
+        model: MODEL,
+        name: "Generic_QA_Agent",
+        instruction: "Answer the user's questions",
+        tools: [PRELOAD_MEMORY],
+        afterAgentCallback: autoSaveSessionToMemoryCallback,
+    });
     
     
     

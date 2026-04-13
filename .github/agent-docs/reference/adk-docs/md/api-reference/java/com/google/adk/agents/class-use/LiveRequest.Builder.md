@@ -45,7 +45,7 @@ Description
 
 `abstract [LiveRequest.Builder](../LiveRequest.Builder.html "class in com.google.adk.agents")`
 
-LiveRequest.Builder.`[blob](../LiveRequest.Builder.html#blob\(com.google.genai.types.Blob\))(com.google.genai.types.Blob blob)`
+LiveRequest.Builder.`[blob](../LiveRequest.Builder.html#blob\(com.google.genai.types.Blob\))(@Nullable com.google.genai.types.Blob blob)`
 
  
 
@@ -57,13 +57,13 @@ LiveRequest.`[builder](../LiveRequest.html#builder\(\))()`
 
 `abstract [LiveRequest.Builder](../LiveRequest.Builder.html "class in com.google.adk.agents")`
 
-LiveRequest.Builder.`[close](../LiveRequest.Builder.html#close\(java.lang.Boolean\))([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") close)`
+LiveRequest.Builder.`[close](../LiveRequest.Builder.html#close\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") close)`
 
  
 
 `abstract [LiveRequest.Builder](../LiveRequest.Builder.html "class in com.google.adk.agents")`
 
-LiveRequest.Builder.`[content](../LiveRequest.Builder.html#content\(com.google.genai.types.Content\))(com.google.genai.types.Content content)`
+LiveRequest.Builder.`[content](../LiveRequest.Builder.html#content\(com.google.genai.types.Content\))(@Nullable com.google.genai.types.Content content)`
 
  
 

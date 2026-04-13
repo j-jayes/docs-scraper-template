@@ -100,7 +100,7 @@ Constructs the text instruction for this agent based on the `LlmAgent.instructio
 
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
 
-LlmAgent.`[canonicalTools](../LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") context)`
+LlmAgent.`[canonicalTools](../LlmAgent.html#canonicalTools\(com.google.adk.agents.ReadonlyContext\))(@Nullable [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") context)`
 
 Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](../LlmAgent.html#tools\(\)) field.
 
@@ -150,13 +150,13 @@ Return all tools in the toolset based on the provided context.
 
 `default boolean`
 
-BaseToolset.`[isToolSelected](../../tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+BaseToolset.`[isToolSelected](../../tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, @Nullable [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Checks if a tool should be selected based on a filter.
 
 `default boolean`
 
-ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, @Nullable [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Decides if the given tool is selected.
 

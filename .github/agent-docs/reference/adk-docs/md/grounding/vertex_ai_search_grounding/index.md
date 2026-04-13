@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -255,8 +256,9 @@ Table of contents
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ Grounding  ](../)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ Grounding  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/grounding/vertex_ai_search_grounding.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/grounding/vertex_ai_search_grounding.md "View Markdown source")
 
@@ -306,7 +308,7 @@ PythonJava
     
     root_agent = Agent(
         name="vertex_search_agent",
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         instruction="Answer questions using Vertex AI Search to find information from internal documents. Always cite sources when available.",
         description="Enterprise document search assistant with Vertex AI Search capabilities",
         tools=[VertexAiSearchTool(data_store_id=DATASTORE_ID)]
@@ -322,7 +324,7 @@ PythonJava
     
     LlmAgent rootAgent = LlmAgent.builder()
         .name("vertex_search_agent")
-        .model("gemini-2.5-flash")
+        .model("gemini-flash-latest")
         .instruction("Answer questions using Vertex AI Search to find information from internal documents. Always cite sources when available.")
         .description("Enterprise document search assistant with Vertex AI Search capabilities")
         .tools(VertexAiSearchTool.builder().dataStoreId(DATASTORE_ID).build())

@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](./)
@@ -245,8 +246,9 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../runtime/)
-  2. [ Safety and Security  ](./)
+  1. [ Home  ](..)
+  2. [ Run Agents  ](../runtime/)
+  3. [ Safety and Security  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/safety/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/safety/index.md "View Markdown source")
 
@@ -651,7 +653,7 @@ PythonTypeScriptGoJava
     
     # Hypothetical Agent setup
     root_agent = LlmAgent( # Use specific agent type
-        model='gemini-2.5-flash',
+        model='gemini-flash-latest',
         name='root_agent',
         instruction="...",
         before_tool_callback=validate_tool_params, # Assign the callback
@@ -690,7 +692,7 @@ PythonTypeScriptGoJava
     
     // Hypothetical Agent setup
     const rootAgent = new LlmAgent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         name: 'root_agent',
         instruction: "...",
         beforeToolCallback: validateToolParams, // Assign the callback
@@ -738,7 +740,7 @@ PythonTypeScriptGoJava
     
     // Hypothetical Agent setup
     // agent, _ := llmagent.New(llmagent.Config{
-    //  Model: "gemini-2.5-flash",
+    //  Model: "gemini-flash-latest",
     //  Name: "root_agent",
     //  Instruction: "...",
     //  BeforeToolCallbacks: []llmagent.BeforeToolCallback{validateToolParams},
@@ -774,7 +776,7 @@ PythonTypeScriptGoJava
     public void runAgent() {
     LlmAgent agent =
         LlmAgent.builder()
-            .model("gemini-2.5-flash")
+            .model("gemini-flash-latest")
             .name("AgentWithBeforeToolCallback")
             .instruction("...")
             .beforeToolCallback(this::validateToolParams) // Assign the callback

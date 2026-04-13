@@ -1,1 +1,1 @@
-ADK CLI documentation ===================== This page contains the auto-generated command-line reference for ADK 1.28.0. .. contents:: :local: :depth: 2 .. click:: google.adk.cli.cli_tools_click:main :prog: adk :nested: full 
+ADK CLI documentation ===================== This page contains the auto-generated command-line reference for ADK 1.29.0. .. contents:: :local: :depth: 2 .. click:: google.adk.cli.cli_tools_click:main :prog: adk :nested: full 

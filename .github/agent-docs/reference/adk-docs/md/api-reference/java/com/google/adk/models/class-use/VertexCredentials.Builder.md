@@ -51,21 +51,39 @@ VertexCredentials.`[builder](../VertexCredentials.html#builder\(\))()`
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setCredentials](../VertexCredentials.Builder.html#setCredentials\(com.google.auth.oauth2.GoogleCredentials\))(com.google.auth.oauth2.GoogleCredentials value)`
+VertexCredentials.Builder.`[credentials](../VertexCredentials.Builder.html#credentials\(com.google.auth.oauth2.GoogleCredentials\))(@Nullable com.google.auth.oauth2.GoogleCredentials value)`
 
  
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setLocation](../VertexCredentials.Builder.html#setLocation\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+VertexCredentials.Builder.`[location](../VertexCredentials.Builder.html#location\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setProject\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+VertexCredentials.Builder.`[project](../VertexCredentials.Builder.html#project\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
 
  
+
+`final [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
+
+VertexCredentials.Builder.`[setCredentials](../VertexCredentials.Builder.html#setCredentials\(com.google.auth.oauth2.GoogleCredentials\))(@Nullable com.google.auth.oauth2.GoogleCredentials value)`
+
+Deprecated.
+
+`final [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
+
+VertexCredentials.Builder.`[setLocation](../VertexCredentials.Builder.html#setLocation\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+
+Deprecated.
+
+`final [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
+
+VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setProject\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+
+Deprecated.
 
 
 

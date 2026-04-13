@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 1.28.0.
+This page contains the auto-generated command-line reference for ADK 1.29.0.
 
   * adk
 
@@ -171,6 +171,11 @@ Optional. Comma-separated list of extra plugin classes or instances to enable (e
     
 
 Optional. URL path prefix when the application is mounted behind a reverse proxy or API gateway (e.g., ‘/api/v1’, ‘/adk’). This ensures generated URLs and redirects work correctly when the app is not served at the root path. Must start with ‘/’ if provided.
+
+\--trigger_sources <trigger_sources>¶
+    
+
+Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /apps/{app_name}/trigger/* endpoints for batch and event-driven agent invocations.
 
 \--session_service_uri <session_service_uri>¶
     
@@ -681,7 +686,7 @@ Default:
 \--with_ui¶
     
 
-Optional. Deploy ADK Web UI if set. (default: deploy ADK API server only)
+Optional. Deploy ADK Web UI if set. (default: deploy ADK API server only). WARNING: The web UI is for development and testing only — do not use in production.
 
 Default:
     
@@ -721,7 +726,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'1.28.0'`
+`'1.29.0'`
 
 \--a2a¶
     
@@ -732,6 +737,11 @@ Default:
     
 
 `False`
+
+\--trigger_sources <trigger_sources>¶
+    
+
+Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /trigger/* endpoints for batch and event-driven agent invocations.
 
 \--allow_origins <allow_origins>¶
     
@@ -896,7 +906,7 @@ Default:
 \--with_ui¶
     
 
-Optional. Deploy ADK Web UI if set. (default: deploy ADK API server only)
+Optional. Deploy ADK Web UI if set. (default: deploy ADK API server only). WARNING: The web UI is for development and testing only — do not use in production.
 
 Default:
     
@@ -941,7 +951,12 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'1.28.0'`
+`'1.29.0'`
+
+\--trigger_sources <trigger_sources>¶
+    
+
+Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /trigger/* endpoints for batch and event-driven agent invocations.
 
 \--session_service_uri <session_service_uri>¶
     
@@ -1192,6 +1207,57 @@ Usage
     
 
 Options
+
+\--eval_storage_uri <eval_storage_uri>¶
+    
+
+Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
+
+\--log_level <log_level>¶
+    
+
+Optional. Set the logging level
+
+Options:
+    
+
+DEBUG | INFO | WARNING | ERROR | CRITICAL
+
+Arguments
+
+AGENT_MODULE_FILE_PATH¶
+    
+
+Required argument
+
+EVAL_SET_ID¶
+    
+
+Required argument
+
+#### generate_eval_cases¶
+
+Generates eval cases dynamically and adds them to the given eval set.
+
+Uses Vertex AI Eval SDK to generate conversation scenarios based on an Agent’s info and definitions. It will automatically create the empty eval_set if it has not been created in advance.
+
+Args:
+    
+
+agent_module_file_path: The path to the agent module file. eval_set_id: The id of the eval set to generate cases for. user_simulation_config_file: The path to the user simulation config file. eval_storage_uri: The eval storage uri. log_level: The log level.
+
+Usage
+    
+    
+    adk eval_set generate_eval_cases [OPTIONS] AGENT_MODULE_FILE_PATH EVAL_SET_ID
+    
+
+Options
+
+\--user_simulation_config_file <user_simulation_config_file>¶
+    
+
+**Required** A path to file containing JSON serialized UserScenarioGenerationConfig dict.
 
 \--eval_storage_uri <eval_storage_uri>¶
     
@@ -1580,6 +1646,11 @@ Optional. Comma-separated list of extra plugin classes or instances to enable (e
     
 
 Optional. URL path prefix when the application is mounted behind a reverse proxy or API gateway (e.g., ‘/api/v1’, ‘/adk’). This ensures generated URLs and redirects work correctly when the app is not served at the root path. Must start with ‘/’ if provided.
+
+\--trigger_sources <trigger_sources>¶
+    
+
+Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /apps/{app_name}/trigger/* endpoints for batch and event-driven agent invocations.
 
 \--logo-text <logo_text>¶
     

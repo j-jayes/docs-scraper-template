@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -134,6 +134,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -255,8 +256,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../../get-started/)
-  2. [ Agents  ](../)
+  1. [ Home  ](../..)
+  2. [ Build Agents  ](../../get-started/)
+  3. [ Agents  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/config.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/config.md "View Markdown source")
 
@@ -268,7 +270,7 @@ The ADK Agent Config feature lets you build an ADK workflow without writing code
     
     
     name: assistant_agent
-    model: gemini-2.5-flash
+    model: gemini-flash-latest
     description: A helper agent that can answer users' questions.
     instruction: You are an agent to help answer users' various questions.
     
@@ -348,7 +350,7 @@ For information on creating a Cloud Project, see the Google Cloud docs for [Crea
     
     # yaml-language-server: $schema=https://raw.githubusercontent.com/google/adk-python/refs/heads/main/src/google/adk/agents/config_schemas/AgentConfig.json
     name: assistant_agent
-    model: gemini-2.5-flash
+    model: gemini-flash-latest
     description: A helper agent that can answer users' questions.
     instruction: You are an agent to help answer users' various questions.
     
@@ -415,7 +417,7 @@ The following example uses a built-in ADK tool function for using google search 
     
     # yaml-language-server: $schema=https://raw.githubusercontent.com/google/adk-python/refs/heads/main/src/google/adk/agents/config_schemas/AgentConfig.json
     name: search_agent
-    model: gemini-2.0-flash
+    model: gemini-flash-latest
     description: 'an agent whose job it is to perform Google search queries and answer questions about the results.'
     instruction: You are an agent whose job is to perform Google search queries and answer questions about the results.
     tools:
@@ -431,7 +433,7 @@ The following example uses a custom tool built with Python code and listed in th
     
     # yaml-language-server: $schema=https://raw.githubusercontent.com/google/adk-python/refs/heads/main/src/google/adk/agents/config_schemas/AgentConfig.json
     agent_class: LlmAgent
-    model: gemini-2.5-flash
+    model: gemini-flash-latest
     name: prime_agent
     description: Handles checking if numbers are prime.
     instruction: |
@@ -452,7 +454,7 @@ The following example shows an agent defined with two sub-agents in the `sub_age
     
     # yaml-language-server: $schema=https://raw.githubusercontent.com/google/adk-python/refs/heads/main/src/google/adk/agents/config_schemas/AgentConfig.json
     agent_class: LlmAgent
-    model: gemini-2.5-flash
+    model: gemini-flash-latest
     name: root_agent
     description: Learning assistant that provides tutoring in code and math.
     instruction: |

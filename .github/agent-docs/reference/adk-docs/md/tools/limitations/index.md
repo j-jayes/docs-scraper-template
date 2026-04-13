@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -125,6 +125,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -237,8 +238,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../../get-started/)
-  2. [ Custom Tools  ](../../tools-custom/)
+  1. [ Home  ](../..)
+  2. [ Build Agents  ](../../get-started/)
+  3. [ Custom Tools  ](../../tools-custom/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/tools/limitations.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools/limitations.md "View Markdown source")
 
@@ -267,7 +269,7 @@ PythonJava
     
     root_agent = Agent(
         name="RootAgent",
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         description="Code Agent",
         tools=[custom_function],
         code_executor=BuiltInCodeExecutor() # <-- NOT supported when used with tools
@@ -299,7 +301,7 @@ PythonJava
     from google.adk.code_executors import BuiltInCodeExecutor
     
     search_agent = Agent(
-        model='gemini-2.0-flash',
+        model='gemini-flash-latest',
         name='SearchAgent',
         instruction="""
         You're a specialist in Google Search
@@ -307,7 +309,7 @@ PythonJava
         tools=[google_search],
     )
     coding_agent = Agent(
-        model='gemini-2.0-flash',
+        model='gemini-flash-latest',
         name='CodeAgent',
         instruction="""
         You're a specialist in Code Execution
@@ -316,7 +318,7 @@ PythonJava
     )
     root_agent = Agent(
         name="RootAgent",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         description="Root Agent",
         tools=[AgentTool(agent=search_agent), AgentTool(agent=coding_agent)],
     )
@@ -332,7 +334,7 @@ PythonJava
     
     public class NestedAgentApp {
     
-      private static final String MODEL_ID = "gemini-2.0-flash";
+      private static final String MODEL_ID = "gemini-flash-latest";
     
       public static void main(String[] args) {
     
@@ -394,7 +396,7 @@ PythonJava
     
     
     url_context_agent = Agent(
-        model='gemini-2.5-flash',
+        model='gemini-flash-latest',
         name='UrlContextAgent',
         instruction="""
         You're a specialist in URL Context
@@ -402,7 +404,7 @@ PythonJava
         tools=[url_context],
     )
     coding_agent = Agent(
-        model='gemini-2.5-flash',
+        model='gemini-flash-latest',
         name='CodeAgent',
         instruction="""
         You're a specialist in Code Execution
@@ -411,7 +413,7 @@ PythonJava
     )
     root_agent = Agent(
         name="RootAgent",
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         description="Root Agent",
         sub_agents=[
             url_context_agent,
@@ -423,7 +425,7 @@ PythonJava
     
     LlmAgent searchAgent =
         LlmAgent.builder()
-            .model("gemini-2.5-flash")
+            .model("gemini-flash-latest")
             .name("SearchAgent")
             .instruction("You're a specialist in Google Search")
             .tools(new GoogleSearchTool())
@@ -431,7 +433,7 @@ PythonJava
     
     LlmAgent codingAgent =
         LlmAgent.builder()
-            .model("gemini-2.5-flash")
+            .model("gemini-flash-latest")
             .name("CodeAgent")
             .instruction("You're a specialist in Code Execution")
             .tools(new BuiltInCodeExecutionTool())
@@ -441,7 +443,7 @@ PythonJava
     LlmAgent rootAgent =
         LlmAgent.builder()
             .name("RootAgent")
-            .model("gemini-2.5-flash")
+            .model("gemini-flash-latest")
             .description("Root Agent")
             .subAgents(searchAgent, codingAgent) // Not supported, as the sub agents use built in tools.
             .build();

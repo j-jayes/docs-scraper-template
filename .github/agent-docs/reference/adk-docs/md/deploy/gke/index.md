@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -156,6 +156,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -299,8 +300,9 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../../runtime/)
-  2. [ Deployment  ](../)
+  1. [ Home  ](../..)
+  2. [ Run Agents  ](../../runtime/)
+  3. [ Deployment  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/deploy/gke.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/deploy/gke.md "View Markdown source")
 
@@ -441,7 +443,7 @@ capital_agent/agent.py
          
          # Add the tool to the agent
          capital_agent = LlmAgent(
-             model="gemini-2.0-flash",
+             model="gemini-flash-latest",
              name="capital_agent", #name of your agent
              description="Answers user questions about the capital city of a given country.",
              instruction="""You are an agent that provides the capital city of a country... (previous instruction text)""",
@@ -929,7 +931,7 @@ You can also verify the image was built and pushed to the Artifact Registry usin
 
 When using the ADK Dev UI for your deployed agent, text-based chat works, but voice (e.g., clicking the microphone button) fail. You might see a `websockets.exceptions.ConnectionClosedError` in the pod logs indicating that your model is "not supported in the live api".
 
-This error occurs because the agent is configured with a model (like `gemini-2.0-flash` in the example) that does not support the Gemini Live API. The Live API is required for real-time, bidirectional streaming of audio and video.
+This error occurs because the agent is configured with a model (like `gemini-flash-latest` in the example) that does not support the Gemini Live API. The Live API is required for real-time, bidirectional streaming of audio and video.
 
 ## Cleanup¶
 

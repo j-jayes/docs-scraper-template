@@ -21,7 +21,7 @@ The PluginManager is an internal class that orchestrates the invocation of plugi
 
 The core execution logic implements an "early exit" strategy: if any plugin callback returns a non-`undefined` value, the execution of subsequent plugins for that specific event is halted, and the returned value is propagated up the call stack. This allows plugins to short-circuit operations like agent runs, tool calls, or model requests.
 
-  * Defined in [core/src/plugins/plugin_manager.ts:35](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L35)
+  * Defined in [plugins/plugin_manager.ts:34](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L34)
 
 
 
@@ -41,7 +41,7 @@ An optional list of plugins to register upon initialization.
 
 #### Returns [PluginManager]()
 
-    * Defined in [core/src/plugins/plugin_manager.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L43)
+    * Defined in [plugins/plugin_manager.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L42)
 
 
 
@@ -64,7 +64,7 @@ The name of the plugin to retrieve.
 
 The plugin instance if found, otherwise `undefined`.
 
-    * Defined in [core/src/plugins/plugin_manager.ts:78](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L78)
+    * Defined in [plugins/plugin_manager.ts:77](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L77)
 
 
 
@@ -87,7 +87,7 @@ The plugin instance to register.
 
 If the same exact plugin or a plugin with the same name is already registered.
 
-    * Defined in [core/src/plugins/plugin_manager.ts:58](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L58)
+    * Defined in [plugins/plugin_manager.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L57)
 
 
 
@@ -95,21 +95,18 @@ If the same exact plugin or a plugin with the same name is already registered.
 ### runAfterAgentCallback
 
   * runAfterAgentCallback(  
-__namedParameters: {  
-agent: [BaseAgent](BaseAgent.html);  
-callbackContext: [CallbackContext](CallbackContext.html);  
-},  
+__namedParameters: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) },  
 ): Promise<Content | undefined>
 
 Runs the `afterAgentCallback` for all plugins.
 
 #### Parameters
 
-    * __namedParameters: { agent: [BaseAgent](BaseAgent.html); callbackContext: [CallbackContext](CallbackContext.html) }
+    * __namedParameters: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) }
 
 #### Returns Promise<Content | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:196](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L196)
+    * Defined in [plugins/plugin_manager.ts:204](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L204)
 
 
 
@@ -118,7 +115,7 @@ Runs the `afterAgentCallback` for all plugins.
 
   * runAfterModelCallback(  
 __namedParameters: {  
-callbackContext: [CallbackContext](CallbackContext.html);  
+callbackContext: [Context](Context.html);  
 llmResponse: [LlmResponse](../interfaces/LlmResponse.html);  
 },  
 ): Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
@@ -127,11 +124,11 @@ Runs the `afterModelCallback` for all plugins.
 
 #### Parameters
 
-    * __namedParameters: { callbackContext: [CallbackContext](CallbackContext.html); llmResponse: [LlmResponse](../interfaces/LlmResponse.html) }
+    * __namedParameters: { callbackContext: [Context](Context.html); llmResponse: [LlmResponse](../interfaces/LlmResponse.html) }
 
 #### Returns Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:272](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L272)
+    * Defined in [plugins/plugin_manager.ts:302](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L302)
 
 
 
@@ -150,7 +147,7 @@ Runs the `afterRunCallback` for all plugins.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:153](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L153)
+    * Defined in [plugins/plugin_manager.ts:153](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L153)
 
 
 
@@ -162,7 +159,7 @@ __namedParameters: {
 result: Record<string, unknown>;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
-toolContext: [ToolContext](ToolContext.html);  
+toolContext: [Context](Context.html);  
 },  
 ): Promise<Record<string, unknown> | undefined>
 
@@ -174,12 +171,12 @@ Runs the `afterToolCallback` for all plugins.
 result: Record<string, unknown>;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
-toolContext: [ToolContext](ToolContext.html);  
+toolContext: [Context](Context.html);  
 }
 
 #### Returns Promise<Record<string, unknown> | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:226](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L226)
+    * Defined in [plugins/plugin_manager.ts:242](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L242)
 
 
 
@@ -187,21 +184,18 @@ toolContext: [ToolContext](ToolContext.html);
 ### runBeforeAgentCallback
 
   * runBeforeAgentCallback(  
-__namedParameters: {  
-agent: [BaseAgent](BaseAgent.html);  
-callbackContext: [CallbackContext](CallbackContext.html);  
-},  
+__namedParameters: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) },  
 ): Promise<Content | undefined>
 
 Runs the `beforeAgentCallback` for all plugins.
 
 #### Parameters
 
-    * __namedParameters: { agent: [BaseAgent](BaseAgent.html); callbackContext: [CallbackContext](CallbackContext.html) }
+    * __namedParameters: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) }
 
 #### Returns Promise<Content | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:181](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L181)
+    * Defined in [plugins/plugin_manager.ts:186](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L186)
 
 
 
@@ -209,21 +203,18 @@ Runs the `beforeAgentCallback` for all plugins.
 ### runBeforeModelCallback
 
   * runBeforeModelCallback(  
-__namedParameters: {  
-callbackContext: [CallbackContext](CallbackContext.html);  
-llmRequest: [LlmRequest](../interfaces/LlmRequest.html);  
-},  
+__namedParameters: { callbackContext: [Context](Context.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) },  
 ): Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
 Runs the `beforeModelCallback` for all plugins.
 
 #### Parameters
 
-    * __namedParameters: { callbackContext: [CallbackContext](CallbackContext.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
+    * __namedParameters: { callbackContext: [Context](Context.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
 
 #### Returns Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:257](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L257)
+    * Defined in [plugins/plugin_manager.ts:284](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L284)
 
 
 
@@ -242,7 +233,7 @@ Runs the `beforeRunCallback` for all plugins.
 
 #### Returns Promise<Content | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:138](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L138)
+    * Defined in [plugins/plugin_manager.ts:138](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L138)
 
 
 
@@ -253,7 +244,7 @@ Runs the `beforeRunCallback` for all plugins.
 __namedParameters: {  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
-toolContext: [ToolContext](ToolContext.html);  
+toolContext: [Context](Context.html);  
 },  
 ): Promise<Record<string, unknown> | undefined>
 
@@ -261,11 +252,11 @@ Runs the `beforeToolCallback` for all plugins.
 
 #### Parameters
 
-    * __namedParameters: { tool: [BaseTool](BaseTool.html); toolArgs: Record<string, unknown>; toolContext: [ToolContext](ToolContext.html) }
+    * __namedParameters: { tool: [BaseTool](BaseTool.html); toolArgs: Record<string, unknown>; toolContext: [Context](Context.html) }
 
 #### Returns Promise<Record<string, unknown> | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:211](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L211)
+    * Defined in [plugins/plugin_manager.ts:222](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L222)
 
 
 
@@ -287,7 +278,7 @@ Runs the `onEventCallback` for all plugins.
 
 #### Returns Promise<[Event](../interfaces/Event.html) | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:166](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L166)
+    * Defined in [plugins/plugin_manager.ts:168](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L168)
 
 
 
@@ -296,7 +287,7 @@ Runs the `onEventCallback` for all plugins.
 
   * runOnModelErrorCallback(  
 __namedParameters: {  
-callbackContext: [CallbackContext](CallbackContext.html);  
+callbackContext: [Context](Context.html);  
 error: Error;  
 llmRequest: [LlmRequest](../interfaces/LlmRequest.html);  
 },  
@@ -306,11 +297,11 @@ Runs the `onModelErrorCallback` for all plugins.
 
 #### Parameters
 
-    * __namedParameters: { callbackContext: [CallbackContext](CallbackContext.html); error: Error; llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
+    * __namedParameters: { callbackContext: [Context](Context.html); error: Error; llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
 
 #### Returns Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:242](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L242)
+    * Defined in [plugins/plugin_manager.ts:264](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L264)
 
 
 
@@ -322,7 +313,7 @@ __namedParameters: {
 error: Error;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
-toolContext: [ToolContext](ToolContext.html);  
+toolContext: [Context](Context.html);  
 },  
 ): Promise<Record<string, unknown> | undefined>
 
@@ -334,12 +325,12 @@ Runs the `onToolErrorCallback` for all plugins.
 error: Error;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
-toolContext: [ToolContext](ToolContext.html);  
+toolContext: [Context](Context.html);  
 }
 
 #### Returns Promise<Record<string, unknown> | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:287](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L287)
+    * Defined in [plugins/plugin_manager.ts:320](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L320)
 
 
 
@@ -361,7 +352,7 @@ Runs the `onUserMessageCallback` for all plugins.
 
 #### Returns Promise<Content | undefined>
 
-    * Defined in [core/src/plugins/plugin_manager.ts:122](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/plugin_manager.ts#L122)
+    * Defined in [plugins/plugin_manager.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/plugin_manager.ts#L120)
 
 
 

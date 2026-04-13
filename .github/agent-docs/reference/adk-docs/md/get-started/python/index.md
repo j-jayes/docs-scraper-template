@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../)
 
@@ -131,6 +131,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -249,8 +250,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../)
-  2. [ Get Started  ](../)
+  1. [ Home  ](../..)
+  2. [ Build Agents  ](../)
+  3. [ Get Started  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/get-started/python.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/python.md "View Markdown source")
 
@@ -327,7 +329,7 @@ The `agent.py` file contains a `root_agent` definition which is the only require
         return {"status": "success", "city": city, "time": "10:30 AM"}
     
     root_agent = Agent(
-        model='gemini-3-flash-preview',
+        model='gemini-flash-latest',
         name='root_agent',
         description="Tells the current time in a specified city.",
         instruction="You are a helpful assistant that tells the current time in cities. Use the 'get_current_time' tool for this purpose.",

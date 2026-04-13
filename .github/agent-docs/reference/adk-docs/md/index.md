@@ -1,10 +1,10 @@
-Skip to content 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
 
 [ ](. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](. "Agent Development Kit \(ADK\)")
 
-Index 
+Agent Development Kit (ADK) 
 
 Initializing search 
 
@@ -27,8 +27,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](.)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](get-started/)
 
@@ -122,6 +120,7 @@ Observability
 Evaluation 
       * [ Criteria  ](evaluate/criteria/)
       * [ User Simulation  ](evaluate/user-sim/)
+      * [ Environment Simulation  ](evaluate/environment_simulation/)
       * [ Custom Metrics  ](evaluate/custom_metrics/)
       * [ Optimization  ](optimize/)
     * [ Safety and Security  ](safety/)
@@ -226,119 +225,145 @@ Graph-based workflows
 
 
 
-Table of contents 
+# Build production agents, not prototypes.
 
-  * Learn more 
+ADK is the open-source agent development framework that lets you build, debug, and deploy reliable AI agents at enterprise scale. Available in Python, TypeScript, Go, and Java.
 
+[Start building](get-started/)
 
+Python
 
-# Agent Development Kit
+TypeScript
 
-Agent Development Kit (ADK) is a flexible and modular framework for **developing and deploying AI agents**. While optimized for Gemini and the Google ecosystem, ADK is **model-agnostic** , **deployment-agnostic** , and is built for **compatibility with other frameworks**. ADK was designed to make agent development feel more like software development, to make it easier for developers to create, deploy, and orchestrate agentic architectures that range from simple tasks to complex workflows.
+Go
 
-News: ADK Go 1.0.0 released!
-
-ADK Go 1.0.0 release adds several major features, including OpenTelemetry integration, self-healing logic using plugins, and improved human input support. For more details on this release, see the [ADK Go v1.0 announcement](https://developers.googleblog.com/adk-go-10-arrives/).
-
-News: ADK Java 1.0.0 released!
-
-ADK Java 1.0.0 is now available! This release includes several bug fixes and enhancements. Read more about it in the [blog announcement](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/). Upgrade to ADK Java 1.0.0 to take advantage of these enhancements and ensure optimal performance in your applications.
-
-Get started:
-
-PythonTypeScriptGoJava
-
-  
-
-
-`pip install google-adk`
-
-  
-
-
-`npm install @google/adk`
-
-  
-
-
-`go get google.golang.org/adk`
-
-pom.xml
+Java
     
     
-    <dependency>
-        <groupId>com.google.adk</groupId>
-        <artifactId>google-adk</artifactId>
-        <version>1.0.0</version>
-    </dependency>
+    from google.adk import Agent
+    from google.adk.tools import google_search
     
-
-build.gradle
+    agent = Agent(
+        name="researcher",
+        model="gemini-flash-latest",
+        instruction="You help users research topics thoroughly.",
+        tools=[google_search],
+    )
     
     
-    dependencies {
-        implementation 'com.google.adk:google-adk:1.0.0'
-    }
+    import { LlmAgent, GOOGLE_SEARCH } from '@google/adk';
     
+    const agent = new LlmAgent({
+      name: 'researcher',
+      model: 'gemini-flash-latest',
+      instruction: 'You help users research topics thoroughly.',
+      tools: [GOOGLE_SEARCH],
+    });
+    
+    
+    
+    
+    import "google.golang.org/adk/agent"
+    
+    a := agent.New("researcher",
+        agent.WithModel("gemini-flash-latest"),
+        agent.WithInstruction("You help users research topics thoroughly."),
+        agent.WithTools(googleSearch),
+    )
+    
+    
+    
+    
+    
+    import com.google.adk.agents.LlmAgent;
+    import com.google.adk.tools.GoogleSearchTool;
+    
+    LlmAgent agent = LlmAgent.builder()
+        .name("researcher")
+        .model("gemini-flash-latest")
+        .instruction("You help users research topics thoroughly.")
+        .tools(new GoogleSearchTool())
+        .build();
 
-[Start with Python](/get-started/python/) [Start with TypeScript](/get-started/typescript/) [Start with Go](/get-started/go/) [Start with Java](/get-started/java/)
+`pip install google-adk` 📋
 
-* * *
+`npm install @google/adk` 📋
 
-## Learn more¶
+`go get google.golang.org/adk` 📋
 
-[ Watch "Introducing Agent Development Kit"!](https://www.youtube.com/watch?v=zgrOwow_uTQ)
+`com.google.adk:google-adk` 📋
 
-  * **Flexible Orchestration**
+Framework
 
-* * *
+## Powerful simplicity. Built for scale.
 
-Define workflows using workflow agents (`Sequential`, `Parallel`, `Loop`) for predictable pipelines, or leverage LLM-driven dynamic routing (`LlmAgent` transfer) for adaptive behavior.
+Start building ADK agents with prompts and tool calls, then grow to multi-agent orchestration, graph-based workflows, performance evaluation, and deployment to world class enterprise services for scalability, reliability, and throughput.
 
-[**Learn about agents**](agents/)
+[Learn more](get-started/about/)
 
-  * **Multi-Agent Architecture**
+Ecosystem
 
-* * *
+## Open ecosystem. Connect everything.
 
-Build modular and scalable applications by composing multiple specialized agents in a hierarchy. Enable complex coordination and delegation.
+ADK's open integration partners connect your agents with existing apps, a wide range of AI models, and extend agent capabilities to access data, add resilience, and evaluate performance.
 
-[**Explore multi-agent systems**](agents/multi-agents/)
+[Learn more](integrations/)
 
-  * **Rich Tool Ecosystem**
+AI Dev Tools
 
-* * *
+## Build agents _with_ agents.
 
-Equip agents with diverse capabilities: use pre-built tools (Search, Code Exec), create custom functions, integrate 3rd-party libraries, or even use other agents as tools.
+ADK agents are designed to be written by humans and AI. Connect your AI-powered development tools to our ADK coding resources and generate robust, capable agents in seconds.
 
-[**Browse tools and integrations**](integrations/)
+[Code with AI](tutorials/coding-with-ai/)
 
-  * **Deployment Ready**
+Evaluation
 
-* * *
+## Go beyond vibes. Evaluate everything.
 
-Containerize and deploy your agents anywhere – run locally, scale with Vertex AI Agent Engine, or integrate into custom infrastructure using Cloud Run or Docker.
+Engage ADK's visual debugging, open evaluation framework, and partner tools to test your entire agent execution trajectory. Simulate user interactions, build custom performance metrics, and optimize agents against your evaluation results.
 
-[**Deploy agents**](deploy/)
+[Learn more](evaluate/)
 
-  * **Built-in Evaluation**
+## Ready to build agents?
 
-* * *
+We think one of the best ways to learn is by building, so we've created guides that help you get your development environment set up and run an ADK agent in minutes.
 
-Systematically assess agent performance by evaluating both the final response quality and the step-by-step execution trajectory against predefined test cases.
+[Start building](get-started/)
 
-[**Evaluate agents**](evaluate/)
+## Developer Community
 
-  * **Building Safe and Secure Agents**
+Build alongside a growing community of developers engineering the next generation of production-ready AI agents. Whether you want to troubleshoot a graph workflow, share a custom Agent Skill, or shape the future of the framework, we want you involved.
 
-* * *
+### [Community call Join the ADK core engineering team for live demos, technical deep dives, roadmap updates, and Q&A.; Learn more → ](community/#adk-community-calls) ### [Developer resources Skip the learning curve with comprehensive training, videos, and deep-dives from community members like you. Learn more → ](community/)
 
-Learn how to building powerful and trustworthy agents by implementing security and safety patterns and best practices into your agent's design.
+## Frequently Asked Questions
 
-[**Safety and Security**](safety/)
+Still have questions about ADK? Here are some answers:
 
+Can I vibe code agents with ADK?
 
+Yes! ADK is designed to be written by both humans and AI. Connect your favorite coding assistant to our ADK developer Skills and AI-aware developer resources, and generate agents in seconds. Find out more about AI-powered coding of agents in our [Coding with AI](tutorials/coding-with-ai/) guide.
 
+What AI models can I use with ADK?
+
+ADK can work with almost any generative AI model. The framework provides easy access to Gemini as well as other leading models, and we provide adapters that let you connect with many other models and model providers, including locally running models. For enterprises, ADK can connect to models on hosted services, including Google Cloud which provides a wide range of models and lets you closely manage performance, reliability, security, access, safety, and costs.
+
+What makes ADK different?
+
+With ADK, we are focused on building an open development framework that lets you build professional, production grade agents, without requiring a pile of code to get started. Our goal is to get you building agents quickly, and let you add functionality and complexity as you need it. ADK provides a basic structure for agents that is easy to build, and that structure is designed with the flexibility to let you extend, expand, and build complex, robust, useful agentic systems. We've put a lot of effort into providing you with development tools for interacting with agents you build, and providing ways to use AI-powered tools for building ADK agents. We are also quite proud of our approach to agent context management and how we manage context to keep it efficient, and also let you tune context management to your needs. We could go on, and if you are interested, you can find more details in our [developer docs](get-started/about/).
+
+How does ADK handle context management?
+
+Unlike tools that simply paste strings together until the context window overflows, ADK **manages** your context. We treat context like source code—sessions, memory, tool outputs, and artifacts are assembled into a structured view where every token earns its place. ADK automatically filters irrelevant events, summarizes older conversational turns, lazy-loads artifacts, and tracks token usage. This approach keeps your agents fast, efficient, and reliable by default, while giving you the controls to fully customize how context is managed for complex tasks.
+
+How does ADK deploy to production?
+
+ADK is built for _deploy anywhere_ flexibility. You can containerize and run ADK on your own infrastructure, or take advantage of our native, one-command deployment to Google Cloud. When deploying to Google Cloud via Agent Engine (Vertex AI), Cloud Run, or GKE, your agents instantly inherit managed infrastructure, built-in authentication, Cloud Trace observability, and enterprise-grade security—all without requiring you to change a single line of your agent code. Develop locally, scale globally.
+
+When should I use an agent framework to work with generative AI?
+
+AI chat conversations can accomplish many tasks, but when you need to accomplish complex, multi-step processes, an agent framework lets you create a managed, repeatable task structure that can run _hands-off_ with minimal human input. Agent frameworks like ADK can automatically initiate tasks, make multiple iterative AI model requests, manage context, handle tool calls, record data, run parallel jobs, handle failures, and resume tasks if they get stopped.
 
 Back to top  [ Next  Get started  ](get-started/)
 

@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../../.. "Agent Development Kit \(ADK\)")
@@ -19,6 +21,7 @@ Initializing search
   * [ Components ](../../../get-started/about/)
   * [ Integrations ](../../../integrations/)
   * [ Reference ](../../../api-reference/)
+  * [ Community ](../../../community/)
   * [ ADK 2.0 ](../../../2.0/)
 
 
@@ -26,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../../get-started/)
 
@@ -39,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
       * [ Streaming agent  ](../../../get-started/streaming/)
 
@@ -66,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../../agents/models/google-gemini/)
+      * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
@@ -130,6 +132,9 @@ Observability
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../../evaluate/environment_simulation/)
+      * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
 
 Safety and Security 
@@ -177,9 +182,11 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../../../a2a/quickstart-exposing/)
         * [ Go  ](../../../a2a/quickstart-exposing-go/)
+        * [ Java  ](../../../a2a/quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
+        * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../../streaming/)
 
@@ -211,9 +218,11 @@ API Reference
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
-    * [ Community Resources  ](../../../community/)
-    * [ Contributing Guide  ](../../../contributing-guide/)
     * [ Release Notes  ](../../../release-notes/)
+  * [ Community  ](../../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../../community/contributing-guide/)
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
@@ -243,15 +252,16 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../../../runtime/)
-  2. [ Deployment  ](../../)
-  3. [ Agent Engine  ](../)
+  1. [ Home  ](../../..)
+  2. [ Run Agents  ](../../../runtime/)
+  3. [ Deployment  ](../../)
+  4. [ Agent Engine  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/deploy/agent-engine/test.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/deploy/agent-engine/test.md "View Markdown source")
 
 # Test deployed agents in Agent Engine¶
 
-These instructions explain how to test an ADK agent deployed to the [Agent Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview) runtime environment. Before using these instructions, you need to have completed the deployment of your agent to the Agent Engine runtime environment using one of the [available methods](/adk-docs/deploy/agent-engine/). This guide shows you how to view, interact, and test your deployed agent through the Google Cloud Console, and interact with the agent using REST API calls or the Vertex AI SDK for Python.
+These instructions explain how to test an ADK agent deployed to the [Agent Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview) runtime environment. Before using these instructions, you need to have completed the deployment of your agent to the Agent Engine runtime environment using one of the [available methods](/deploy/agent-engine/). This guide shows you how to view, interact, and test your deployed agent through the Google Cloud Console, and interact with the agent using REST API calls or the Vertex AI SDK for Python.
 
 ## View deployed agent in Cloud Console¶
 

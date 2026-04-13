@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -127,6 +127,7 @@ Evaluation
         * Example: Evaluating the hello_world agent with conversation scenarios 
         * User simulator configuration 
         * Custom Personas 
+      * [ Environment Simulation  ](../environment_simulation/)
       * [ Custom Metrics  ](../custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -241,8 +242,9 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../../runtime/)
-  2. [ Evaluation  ](../)
+  1. [ Home  ](../..)
+  2. [ Run Agents  ](../../runtime/)
+  3. [ Evaluation  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/evaluate/user-sim.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/evaluate/user-sim.md "View Markdown source")
 
@@ -408,7 +410,7 @@ You can override the default user simulator configuration to change the model, i
         # same as before
       },
       "user_simulator_config": {
-        "model": "gemini-2.5-flash",
+        "model": "gemini-flash-latest",
         "model_configuration": {
           "thinking_config": {
             "include_thoughts": true,
@@ -462,7 +464,7 @@ Example of a custom persona definition:
     }
     
 
-Back to top  [ Previous  Criteria  ](../criteria/) [ Next  Custom Metrics  ](../custom_metrics/)
+Back to top  [ Previous  Criteria  ](../criteria/) [ Next  Environment Simulation  ](../environment_simulation/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

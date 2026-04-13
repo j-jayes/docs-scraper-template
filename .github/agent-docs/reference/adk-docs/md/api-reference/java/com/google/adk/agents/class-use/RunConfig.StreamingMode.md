@@ -83,9 +83,15 @@ Method
 
 Description
 
-`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+`final [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
 RunConfig.Builder.`[setStreamingMode](../RunConfig.Builder.html#setStreamingMode\(com.google.adk.agents.RunConfig.StreamingMode\))([RunConfig.StreamingMode](../RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)`
+
+Deprecated.
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[streamingMode](../RunConfig.Builder.html#streamingMode\(com.google.adk.agents.RunConfig.StreamingMode\))([RunConfig.StreamingMode](../RunConfig.StreamingMode.html "enum class in com.google.adk.agents") streamingMode)`
 
  
 

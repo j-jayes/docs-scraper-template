@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
@@ -250,8 +251,9 @@ Table of contents
 
 
 
-  1. [ Components  ](../get-started/about/)
-  2. [ Artifacts  ](./)
+  1. [ Home  ](..)
+  2. [ Components  ](../get-started/about/)
+  3. [ Artifacts  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/artifacts/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/artifacts/index.md "View Markdown source")
 
@@ -430,7 +432,7 @@ PythonTypescriptGoJava
     from google.adk.sessions import InMemorySessionService
     
     # Example: Configuring the Runner with an Artifact Service
-    my_agent = LlmAgent(name="artifact_user_agent", model="gemini-2.0-flash")
+    my_agent = LlmAgent(name="artifact_user_agent", model="gemini-flash-latest")
     artifact_service = InMemoryArtifactService() # Choose an implementation
     session_service = InMemorySessionService()
     
@@ -450,7 +452,7 @@ PythonTypescriptGoJava
     import { InMemorySessionService } from '@google/adk';
     
     // Example: Configuring the Runner with an Artifact Service
-    const myAgent = new LlmAgent({name: "artifact_user_agent", model: "gemini-2.5-flash"});
+    const myAgent = new LlmAgent({name: "artifact_user_agent", model: "gemini-flash-latest"});
     const artifactService = new InMemoryArtifactService(); // Choose an implementation
     const sessionService = new InMemorySessionService();
     
@@ -526,7 +528,7 @@ PythonTypescriptGoJava
     // Example: Configuring the Runner with an Artifact Service
     LlmAgent myAgent =  LlmAgent.builder()
       .name("artifact_user_agent")
-      .model("gemini-2.0-flash")
+      .model("gemini-flash-latest")
       .build();
     InMemoryArtifactService artifactService = new InMemoryArtifactService(); // Choose an implementation
     InMemorySessionService sessionService = new InMemorySessionService();
@@ -762,7 +764,7 @@ In Python, you provide this instance when initializing your `Runner`.
     from google.adk.sessions import InMemorySessionService
     
     # Your agent definition
-    agent = LlmAgent(name="my_agent", model="gemini-2.0-flash")
+    agent = LlmAgent(name="my_agent", model="gemini-flash-latest")
     
     # Instantiate the desired artifact service
     artifact_service = InMemoryArtifactService()
@@ -782,7 +784,7 @@ If no `artifact_service` is configured in the `InvocationContext` (which happens
     import { LlmAgent, InMemoryRunner, InMemoryArtifactService, InMemorySessionService } from '@google/adk';
     
     // Your agent definition
-    const agent = new LlmAgent({name: "my_agent", model: "gemini-2.5-flash"});
+    const agent = new LlmAgent({name: "my_agent", model: "gemini-flash-latest"});
     
     // Instantiate the desired artifact service
     const artifactService = new InMemoryArtifactService();
@@ -868,7 +870,7 @@ In Java, you would instantiate a `BaseArtifactService` implementation and then e
         // Your agent definition
         LlmAgent agent = LlmAgent.builder()
             .name("my_agent")
-            .model("gemini-2.0-flash")
+            .model("gemini-flash-latest")
             .build();
     
         // Instantiate the desired artifact service

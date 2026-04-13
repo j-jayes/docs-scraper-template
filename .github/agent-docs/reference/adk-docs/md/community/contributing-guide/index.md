@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -212,11 +213,11 @@ API Reference
 
 Community 
     * Contributing Guide  [ Contributing Guide  ](./) Table of contents 
+      * Join the community 
       * Preparing to contribute 
         * Choose the right repository 
         * Sign a CLA 
         * Review community guidelines 
-      * Join the discussion 
       * How to contribute 
         * Reporting issues 
         * Suggesting enhancements 
@@ -241,11 +242,11 @@ Graph-based workflows
 
 Table of contents 
 
+  * Join the community 
   * Preparing to contribute 
     * Choose the right repository 
     * Sign a CLA 
     * Review community guidelines 
-  * Join the discussion 
   * How to contribute 
     * Reporting issues 
     * Suggesting enhancements 
@@ -257,6 +258,9 @@ Table of contents
 
 
 
+  1. [ Home  ](../..)
+  2. [ Community  ](../)
+
 [ ](https://github.com/google/adk-docs/edit/main/docs/community/contributing-guide.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/community/contributing-guide.md "View Markdown source")
 
 # Contributing Guide
@@ -264,6 +268,14 @@ Table of contents
 Thank you for your interest in contributing to Agent Development Kit (ADK)! We welcome contributions to the core frameworks, documentation, and related components, which are listed below.
 
 This guide provides information on how to get involved.
+
+## Join the community¶
+
+  * Want to discuss ADK, ask questions, or talk about all things agents? Head to **[r/agentdevelopmentkit](https://www.reddit.com/r/agentdevelopmentkit/)** on Reddit.
+  * Want updates on the monthly community call? Join the **[ADK Community Google Group](https://groups.google.com/g/adk-community)**.
+  * Want to file a bug or contribute to the ADK framework? See the sections below for how to find the right repo and get started.
+
+
 
 ## Preparing to contribute¶
 
@@ -295,19 +307,6 @@ Visit <https://cla.developers.google.com/> to see your current agreements or to 
 ### Review community guidelines¶
 
 This project follows [Google's Open Source Community Guidelines](https://opensource.google/conduct/).
-
-## Join the discussion¶
-
-Have questions, want to share ideas, or discuss how you're using ADK? Head over to our **[Python](https://github.com/google/adk-python/discussions)** , **[TypeScript](https://github.com/google/adk-js/discussions)** , **[Go](https://github.com/google/adk-go/discussions)** , or **[Java](https://github.com/google/adk-java/discussions)** Discussions!
-
-This is the primary place for:
-
-  * Asking questions and getting help from the community and maintainers.
-  * Sharing your projects or use cases (`Show and Tell`).
-  * Discussing potential features or improvements before creating a formal issue.
-  * General conversation about ADK.
-
-
 
 ## How to contribute¶
 

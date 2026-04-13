@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../criteria/)
       * [ User Simulation  ](../user-sim/)
+      * [ Environment Simulation  ](../environment_simulation/)
       * Custom Metrics  [ Custom Metrics  ](./) Table of contents 
         * Custom Metrics for Agent Evaluation 
         * Define a Custom Metric 
@@ -245,8 +246,9 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../../runtime/)
-  2. [ Evaluation  ](../)
+  1. [ Home  ](../..)
+  2. [ Run Agents  ](../../runtime/)
+  3. [ Evaluation  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/evaluate/custom_metrics.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/evaluate/custom_metrics.md "View Markdown source")
 
@@ -476,7 +478,7 @@ Here is an example of providing `metric_info` for a custom metric that returns a
     }
     
 
-Back to top  [ Previous  User Simulation  ](../user-sim/) [ Next  Optimization  ](../../optimize/)
+Back to top  [ Previous  Environment Simulation  ](../environment_simulation/) [ Next  Optimization  ](../../optimize/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

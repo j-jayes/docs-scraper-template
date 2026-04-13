@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * Optimization  [ Optimization  ](./) Table of contents 
         * Definitions 
@@ -263,8 +264,9 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../runtime/)
-  2. [ Evaluation  ](../evaluate/)
+  1. [ Home  ](..)
+  2. [ Run Agents  ](../runtime/)
+  3. [ Evaluation  ](../evaluate/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/optimize/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/optimize/index.md "View Markdown source")
 
@@ -445,7 +447,7 @@ Note: The `GEPARootAgentPromptOptimizer` does not improve any sub-agents, agent 
 
 You can configure the `GEPARootAgentPromptOptimizer` with a `GEPARootAgentPromptOptimizerConfig` that contains the following fields:
 
-  * `optimizer_model` (optional): The model used to analyze evaluation results and optimize the agent. Defaults to `"gemini-2.5-flash"`.
+  * `optimizer_model` (optional): The model used to analyze evaluation results and optimize the agent. Defaults to `"gemini-flash-latest"`.
   * `model_configuration` (optional): The configuration for the optimizer model. Defaults to a config with a 10K token thinking budget.
   * `max_metric_calls` (optional): The maximum number of evaluations to run during optimization. Defaults to 100.
   * `reflection_minibatch_size` (optional): The number of examples to use at a time to update the agent instructions. Defaults to 3.

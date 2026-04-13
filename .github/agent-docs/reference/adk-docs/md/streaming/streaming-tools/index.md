@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -226,8 +227,9 @@ Graph-based workflows
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ Gemini Live API Toolkit  ](../)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ Gemini Live API Toolkit  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/streaming/streaming-tools.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/streaming-tools.md "View Markdown source")
 
@@ -330,7 +332,7 @@ PythonJava
     
           # Call the model to generate content based on the provided image and prompt
           response = client.models.generate_content(
-              model="gemini-2.0-flash-exp",
+              model="gemini-flash-latest",
               contents=contents,
               config=genai_types.GenerateContentConfig(
                   system_instruction=(
@@ -364,7 +366,7 @@ PythonJava
     
     
     root_agent = Agent(
-        model="gemini-2.0-flash-exp",
+        model="gemini-flash-latest",
         name="video_streaming_agent",
         instruction="""
           You are a monitoring agent. You can do video monitoring and stock price monitoring
@@ -433,7 +435,7 @@ PythonJava
                   .build();
     
               GenerateContentResponse response = client.models().generateContent(
-                  "gemini-2.5-flash",
+                  "gemini-flash-latest",
                   contents,
                   GenerateContentConfig.builder()
                       .systemInstruction(Content.builder().parts(Arrays.asList(
@@ -456,7 +458,7 @@ PythonJava
     
       public static void main(String[] args) {
         LlmAgent rootAgent = LlmAgent.builder()
-            .model("gemini-2.0-flash-exp")
+            .model("gemini-flash-latest")
             .name("video_streaming_agent")
             .instruction(
                 "You are a monitoring agent. You can do video monitoring and stock price monitoring\n" +

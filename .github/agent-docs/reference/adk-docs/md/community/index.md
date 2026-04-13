@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -122,6 +122,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
@@ -228,6 +229,7 @@ Graph-based workflows
 
 Table of contents 
 
+  * Join the Community 
   * Getting Started 
   * ADK Community Calls 
   * Courses & Deep Dives 
@@ -237,6 +239,9 @@ Table of contents
   * Contributing Your Resource 
 
 
+
+  1. [ Home  ](..)
+  2. [ Community  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/community/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/community/index.md "View Markdown source")
 
@@ -248,17 +253,21 @@ Info
 
 Google and the ADK team do not provide support for the content linked in these external community resources.
 
+## Join the Community¶
+
+  * Want to discuss ADK, ask questions, or talk about all things agents? Head to **[r/agentdevelopmentkit](https://www.reddit.com/r/agentdevelopmentkit/)** on Reddit.
+  * Want updates on the monthly community call? Join the **[ADK Community Google Group](https://groups.google.com/g/adk-community)**.
+  * Want to file a bug or contribute to the ADK framework? Check out the **[Contributing Guide](/community/contributing-guide/)** to find the right repo and get started.
+
+
+
 ## Getting Started¶
 
 [ Video Demo 📺 Introducing Agent Development Kit A demo of building a multi-agent travel planner, showcasing core design principles. ](https://www.youtube.com/watch?v=zgrOwow_uTQ) [ Video 📺 Getting started with Agent Development Kit Learn the fundamentals of agent definition and how to run and debug your first agent. ](https://www.youtube.com/watch?v=44C8u0CDtSo) [ Video 📺 Getting Started with ADK Tools A guide to building a software bug assistant using tools like MCP and Google Search. ](https://www.youtube.com/watch?v=5ZmaWY7UX6k)
 
 ## ADK Community Calls¶
 
-Stay Connected
-
-Join the [ADK Community Google Group](https://groups.google.com/g/adk-community) for updates, calendar invites, and to connect with the ADK community.
-
-See recent recordings below, or browse all past calls on our [YouTube playlist](https://www.youtube.com/playlist?list=PLwi6PfxEP7zZbBPmWiZ8QbPcuKyAY5RR3).
+Join the [ADK Community Google Group](https://groups.google.com/g/adk-community) for updates on the next call. Recent recordings are below, or browse the full [YouTube playlist](https://www.youtube.com/playlist?list=PLwi6PfxEP7zZbBPmWiZ8QbPcuKyAY5RR3).
 
 [ Community Call 📞 Mar 2026 Recording Discussions include the ADK 2.0 alpha release, Workflows for graph-based agent composition, Agent Modes for structured multi-agent coordination, and a community spotlight on Restate durable agents. ](https://www.youtube.com/watch?v=bPngDY7EuOQ) [ Community Call 📞 Feb 2026 Recording Discussions include ADK evaluations with built-in metrics, token-based context compaction, the BigQuery observability plugin, and a community spotlight on Redis integration. ](https://www.youtube.com/watch?v=cXDr4RYJxK0) [ Community Call 📞 Jan 2026 Recording Discussions include Session Service schema for cross-language support, TypeScript multi-agent demo, API Registry for MCP servers, and third-party tool integrations. ](https://www.youtube.com/watch?v=h9Lueiqo89E)
 
