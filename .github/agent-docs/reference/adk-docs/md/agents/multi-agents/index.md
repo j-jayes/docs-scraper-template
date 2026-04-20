@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -116,6 +116,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -139,6 +140,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -265,8 +267,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../../get-started/)
-  2. [ Agents  ](../)
+  1. [ Home  ](../..)
+  2. [ Build Agents  ](../../get-started/)
+  3. [ Agents  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/multi-agents.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/multi-agents.md "View Markdown source")
 
@@ -314,14 +317,14 @@ PythonTypescriptGoJava
     
     
     # Define individual agents
-    greeter = LlmAgent(name="Greeter", model="gemini-2.0-flash")
+    greeter = LlmAgent(name="Greeter", model="gemini-flash-latest")
     task_doer = BaseAgent(name="TaskExecutor") # Custom non-LLM agent
     
     
     # Create parent agent and assign children via sub_agents
     coordinator = LlmAgent(
         name="Coordinator",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         description="I coordinate greetings and tasks.",
         sub_agents=[ # Assign sub_agents here
             greeter,
@@ -357,13 +360,13 @@ PythonTypescriptGoJava
     }
     
     // Define individual agents
-    const greeter = new LlmAgent({name: 'Greeter', model: 'gemini-2.5-flash'});
+    const greeter = new LlmAgent({name: 'Greeter', model: 'gemini-flash-latest'});
     const taskDoer = new TaskExecutorAgent({name: 'TaskExecutor'}); // Custom non-LLM agent
     
     // Create parent agent and assign children via subAgents
     const coordinator = new LlmAgent({
         name: 'Coordinator',
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         description: 'I coordinate greetings and tasks.',
         subAgents: [ // Assign subAgents here
             greeter,
@@ -403,14 +406,14 @@ PythonTypescriptGoJava
     
     
     // Define individual agents
-    LlmAgent greeter = LlmAgent.builder().name("Greeter").model("gemini-2.0-flash").build();
+    LlmAgent greeter = LlmAgent.builder().name("Greeter").model("gemini-flash-latest").build();
     SequentialAgent taskDoer = SequentialAgent.builder().name("TaskExecutor").subAgents(...).build(); // Sequential Agent
     
     
     // Create parent agent and assign sub_agents
     LlmAgent coordinator = LlmAgent.builder()
         .name("Coordinator")
-        .model("gemini-2.0-flash")
+        .model("gemini-flash-latest")
         .description("I coordinate greetings and tasks")
         .subAgents(greeter, taskDoer) // Assign sub_agents here
         .build();
@@ -813,7 +816,7 @@ PythonTypescriptGoJava
     
     coordinator = LlmAgent(
         name="Coordinator",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         instruction="You are an assistant. Delegate booking tasks to Booker and info requests to Info.",
         description="Main coordinator.",
         # AutoFlow is typically used implicitly here
@@ -833,7 +836,7 @@ PythonTypescriptGoJava
     
     const coordinator = new LlmAgent({
         name: 'Coordinator',
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         instruction: 'You are an assistant. Delegate booking tasks to Booker and info requests to Info.',
         description: 'Main coordinator.',
         // AutoFlow is typically used implicitly here
@@ -886,7 +889,7 @@ PythonTypescriptGoJava
     // Define the coordinator agent
     LlmAgent coordinator = LlmAgent.builder()
         .name("Coordinator")
-        .model("gemini-2.0-flash") // Or your desired model
+        .model("gemini-flash-latest") // Or your desired model
         .instruction("You are an assistant. Delegate booking tasks to Booker and info requests to Info.")
         .description("Main coordinator.")
         // AutoFlow will be used by default (implicitly) because subAgents are present
@@ -938,7 +941,7 @@ PythonTypescriptGoJava
     # Parent agent uses the AgentTool
     artist_agent = LlmAgent(
         name="Artist",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         instruction="Create a prompt and use the ImageGen tool to generate the image.",
         tools=[image_tool] # Include the AgentTool
     )
@@ -978,7 +981,7 @@ PythonTypescriptGoJava
     // Parent agent uses the AgentTool
     const artistAgent = new LlmAgent({
         name: 'Artist',
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         instruction: 'Create a prompt and use the ImageGen tool to generate the image.',
         tools: [imageTool] // Include the AgentTool
     });
@@ -1088,7 +1091,7 @@ PythonTypescriptGoJava
     // Parent agent uses the AgentTool
     LlmAgent artistAgent = LlmAgent.builder()
             .name("Artist")
-            .model("gemini-2.0-flash")
+            .model("gemini-flash-latest")
             .instruction(
                     "You are an artist. Create a detailed prompt for an image and then " +
                             "use the 'ImageGen' tool to generate the image. " +
@@ -1136,7 +1139,7 @@ PythonTypescriptGoJava
     
     coordinator = LlmAgent(
         name="HelpDeskCoordinator",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         instruction="Route user requests: Use Billing agent for payment issues, Support agent for technical problems.",
         description="Main help desk router.",
         # allow_transfer=True is often implicit with sub_agents in AutoFlow
@@ -1155,7 +1158,7 @@ PythonTypescriptGoJava
     
     const coordinator = new LlmAgent({
         name: 'HelpDeskCoordinator',
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         instruction: 'Route user requests: Use Billing agent for payment issues, Support agent for technical problems.',
         description: 'Main help desk router.',
         // allowTransfer=true is often implicit with subAgents in AutoFlow
@@ -1202,7 +1205,7 @@ PythonTypescriptGoJava
     
     LlmAgent coordinator = LlmAgent.builder()
         .name("HelpDeskCoordinator")
-        .model("gemini-2.0-flash")
+        .model("gemini-flash-latest")
         .instruction("Route user requests: Use Billing agent for payment issues, Support agent for technical problems.")
         .description("Main help desk router.")
         .subAgents(billingAgent, supportAgent)
@@ -1474,7 +1477,7 @@ PythonTypescriptGoJava
     # Mid-level agent combining tools
     research_assistant = LlmAgent(
         name="ResearchAssistant",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         description="Finds and summarizes information on a topic.",
         tools=[agent_tool.AgentTool(agent=web_searcher), agent_tool.AgentTool(agent=summarizer)]
     )
@@ -1483,7 +1486,7 @@ PythonTypescriptGoJava
     # High-level agent delegating research
     report_writer = LlmAgent(
         name="ReportWriter",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         instruction="Write a report on topic X. Use the ResearchAssistant to gather information.",
         tools=[agent_tool.AgentTool(agent=research_assistant)]
         # Alternatively, could use LLM Transfer if research_assistant is a sub_agent
@@ -1505,7 +1508,7 @@ PythonTypescriptGoJava
     // Mid-level agent combining tools
     const researchAssistant = new LlmAgent({
         name: 'ResearchAssistant',
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         description: 'Finds and summarizes information on a topic.',
         tools: [new AgentTool({agent: webSearcher}), new AgentTool({agent: summarizer})]
     });
@@ -1513,7 +1516,7 @@ PythonTypescriptGoJava
     // High-level agent delegating research
     const reportWriter = new LlmAgent({
         name: 'ReportWriter',
-        model: 'gemini-2.5-flash',
+        model: 'gemini-flash-latest',
         instruction: 'Write a report on topic X. Use the ResearchAssistant to gather information.',
         tools: [new AgentTool({agent: researchAssistant})]
         // Alternatively, could use LLM Transfer if researchAssistant is a subAgent
@@ -1582,7 +1585,7 @@ PythonTypescriptGoJava
     // Mid-level agent combining tools
     LlmAgent researchAssistant = LlmAgent.builder()
         .name("ResearchAssistant")
-        .model("gemini-2.0-flash")
+        .model("gemini-flash-latest")
         .description("Finds and summarizes information on a topic.")
         .tools(AgentTool.create(webSearcher), AgentTool.create(summarizer))
         .build();
@@ -1591,7 +1594,7 @@ PythonTypescriptGoJava
     // High-level agent delegating research
     LlmAgent reportWriter = LlmAgent.builder()
         .name("ReportWriter")
-        .model("gemini-2.0-flash")
+        .model("gemini-flash-latest")
         .instruction("Write a report on topic X. Use the ResearchAssistant to gather information.")
         .tools(AgentTool.create(researchAssistant))
         // Alternatively, could use LLM Transfer if research_assistant is a subAgent
@@ -2177,7 +2180,7 @@ TypeScript
     
     const rootAgent = new LlmAgent({
       name: 'weather_time_agent',
-      model: 'gemini-2.5-flash',
+      model: 'gemini-flash-latest',
       description:
           'Agent to answer questions about the time and weather in a city.',
       instruction:

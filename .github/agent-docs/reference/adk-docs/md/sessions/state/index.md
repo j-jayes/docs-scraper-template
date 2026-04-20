@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -122,6 +123,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -251,8 +253,9 @@ Table of contents
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ Sessions & Memory  ](../)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ Sessions & Memory  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/state.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/state.md "View Markdown source")
 
@@ -353,7 +356,7 @@ PythonTypeScriptGoJava
     
     story_generator = LlmAgent(
         name="StoryGenerator",
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         instruction="""Write a short story about a cat, focusing on the theme: {topic}."""
     )
     
@@ -367,7 +370,7 @@ PythonTypeScriptGoJava
     
     const storyGenerator = new LlmAgent({
         name: "StoryGenerator",
-        model: "gemini-2.5-flash",
+        model: "gemini-flash-latest",
         instruction: "Write a short story about a cat, focusing on the theme: {topic}."
     });
     
@@ -425,7 +428,7 @@ PythonTypeScriptGoJava
     
     LlmAgent storyGenerator = LlmAgent.builder()
         .name("StoryGenerator")
-        .model("gemini-2.5-flash")
+        .model("gemini-flash-latest")
         .instruction("Write a short story about a cat, focusing on the theme: " + topic)
         .build();
     
@@ -466,7 +469,7 @@ PythonTypeScriptGoJava
         return 'Format your output as JSON: {"city": "<name>", "population": <number>}'
     
     agent = LlmAgent(
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         name="template_helper_agent",
         instruction=my_instruction_provider
     )
@@ -482,7 +485,7 @@ PythonTypeScriptGoJava
     }
     
     const agent = new LlmAgent({
-        model: "gemini-2.5-flash",
+        model: "gemini-flash-latest",
         name: "template_helper_agent",
         instruction: myInstructionProvider
     });
@@ -513,7 +516,7 @@ PythonTypeScriptGoJava
     );
     
     LlmAgent agent = LlmAgent.builder()
-        .model("gemini-2.5-flash")
+        .model("gemini-flash-latest")
         .name("template_helper_agent")
         .instruction(myInstructionProvider)
         .build();
@@ -535,7 +538,7 @@ PythonGoJava
         return await instructions_utils.inject_session_state(template, context)
     
     agent = LlmAgent(
-        model="gemini-2.0-flash",
+        model="gemini-flash-latest",
         name="dynamic_template_helper_agent",
         instruction=my_dynamic_instruction_provider
     )
@@ -568,7 +571,7 @@ PythonGoJava
     );
     
     LlmAgent agent = LlmAgent.builder()
-        .model("gemini-2.5-flash")
+        .model("gemini-flash-latest")
         .name("dynamic_template_helper_agent")
         .instruction(myDynamicInstructionProvider)
         .build();
@@ -611,7 +614,7 @@ PythonTypeScriptGoJava
     # Define agent with output_key
     greeting_agent = LlmAgent(
         name="Greeter",
-        model="gemini-2.0-flash", # Use a valid model
+        model="gemini-flash-latest", # Use a valid model
         instruction="Generate a short, friendly greeting.",
         output_key="last_greeting" # Save response to state['last_greeting']
     )
@@ -652,7 +655,7 @@ PythonTypeScriptGoJava
     // Define agent with outputKey
     const greetingAgent = new LlmAgent({
         name: "Greeter",
-        model: "gemini-2.5-flash",
+        model: "gemini-flash-latest",
         instruction: "Generate a short, friendly greeting.",
         outputKey: "last_greeting" // Save response to state['last_greeting']
     });

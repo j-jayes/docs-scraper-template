@@ -22,7 +22,7 @@ Preparing search index...
 
 
 
-  * Defined in [core/src/runner/runner.ts:37](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L37)
+  * Defined in [runner/runner.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L57)
 
 
 
@@ -30,15 +30,15 @@ Preparing search index...
 
 ### constructor
 
-  * new Runner(input: RunnerInput): [Runner]()
+  * new Runner(input: [RunnerConfig](../interfaces/RunnerConfig.html)): [Runner]()
 
 #### Parameters
 
-    * input: RunnerInput
+    * input: [RunnerConfig](../interfaces/RunnerConfig.html)
 
 #### Returns [Runner]()
 
-    * Defined in [core/src/runner/runner.ts:46](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L46)
+    * Defined in [runner/runner.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L66)
 
 
 
@@ -49,7 +49,7 @@ Preparing search index...
 
 agent: [BaseAgent](BaseAgent.html)
 
-  * Defined in [core/src/runner/runner.ts:39](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L39)
+  * Defined in [runner/runner.ts:59](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L59)
 
 
 
@@ -57,7 +57,7 @@ agent: [BaseAgent](BaseAgent.html)
 
 appName: string
 
-  * Defined in [core/src/runner/runner.ts:38](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L38)
+  * Defined in [runner/runner.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L58)
 
 
 
@@ -65,7 +65,7 @@ appName: string
 
 artifactService?: [BaseArtifactService](../interfaces/BaseArtifactService.html)
 
-  * Defined in [core/src/runner/runner.ts:41](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L41)
+  * Defined in [runner/runner.ts:61](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L61)
 
 
 
@@ -73,7 +73,7 @@ artifactService?: [BaseArtifactService](../interfaces/BaseArtifactService.html)
 
 credentialService?: [BaseCredentialService](../interfaces/BaseCredentialService.html)
 
-  * Defined in [core/src/runner/runner.ts:44](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L44)
+  * Defined in [runner/runner.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L64)
 
 
 
@@ -81,7 +81,7 @@ credentialService?: [BaseCredentialService](../interfaces/BaseCredentialService.
 
 memoryService?: [BaseMemoryService](../interfaces/BaseMemoryService.html)
 
-  * Defined in [core/src/runner/runner.ts:43](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L43)
+  * Defined in [runner/runner.ts:63](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L63)
 
 
 
@@ -89,7 +89,7 @@ memoryService?: [BaseMemoryService](../interfaces/BaseMemoryService.html)
 
 pluginManager: [PluginManager](PluginManager.html)
 
-  * Defined in [core/src/runner/runner.ts:40](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L40)
+  * Defined in [runner/runner.ts:60](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L60)
 
 
 
@@ -97,7 +97,7 @@ pluginManager: [PluginManager](PluginManager.html)
 
 sessionService: [BaseSessionService](BaseSessionService.html)
 
-  * Defined in [core/src/runner/runner.ts:42](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L42)
+  * Defined in [runner/runner.ts:62](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L62)
 
 
 
@@ -106,11 +106,11 @@ sessionService: [BaseSessionService](BaseSessionService.html)
 ### runAsync
 
   * runAsync(  
-userId: {  
+params: {  
 newMessage: Content;  
 runConfig?: [RunConfig](../interfaces/RunConfig.html);  
 sessionId: string;  
-stateDelta?: Record<string, any>;  
+stateDelta?: Record<string, unknown>;  
 userId: string;  
 },  
 ): AsyncGenerator<[Event](../interfaces/Event.html), void, undefined>
@@ -119,13 +119,30 @@ Runs the agent with the given message, and returns an async generator of events.
 
 #### Parameters
 
-    * userId: {  
+    * params: {  
 newMessage: Content;  
 runConfig?: [RunConfig](../interfaces/RunConfig.html);  
 sessionId: string;  
-stateDelta?: Record<string, any>;  
+stateDelta?: Record<string, unknown>;  
 userId: string;  
 }
+      * ##### newMessage: Content
+
+A new message to append to the session.
+
+      * ##### `Optional`runConfig?: [RunConfig](../interfaces/RunConfig.html)
+
+The run config for the agent.
+
+      * ##### sessionId: string
+
+The session ID of the session.
+
+      * ##### `Optional`stateDelta?: Record<string, unknown>
+
+An optional state delta to apply to the session.
+
+      * ##### userId: string
 
 The user ID of the session.
 
@@ -135,7 +152,55 @@ The user ID of the session.
 
 The events generated by the agent.
 
-    * Defined in [core/src/runner/runner.ts:68](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/runner/runner.ts#L68)
+    * Defined in [runner/runner.ts:126](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L126)
+
+
+
+
+### runEphemeral
+
+  * runEphemeral(  
+params: {  
+newMessage: Content;  
+runConfig?: [RunConfig](../interfaces/RunConfig.html);  
+stateDelta?: Record<string, unknown>;  
+userId: string;  
+},  
+): AsyncGenerator<[Event](../interfaces/Event.html), void, undefined>
+
+Runs the agent with a new, ephemeral session.
+
+#### Parameters
+
+    * params: {  
+newMessage: Content;  
+runConfig?: [RunConfig](../interfaces/RunConfig.html);  
+stateDelta?: Record<string, unknown>;  
+userId: string;  
+}
+      * ##### newMessage: Content
+
+A new message to append to the session.
+
+      * ##### `Optional`runConfig?: [RunConfig](../interfaces/RunConfig.html)
+
+The run config for the agent.
+
+      * ##### `Optional`stateDelta?: Record<string, unknown>
+
+An optional state delta to apply to the session.
+
+      * ##### userId: string
+
+The user ID of the session.
+
+#### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, undefined>
+
+#### Yields
+
+The Events generated by the agent.
+
+    * Defined in [runner/runner.ts:85](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L85)
 
 
 
@@ -150,7 +215,7 @@ agentappNameartifactServicecredentialServicememoryServicepluginManagersessionSer
 
 Methods
 
-runAsync
+runAsyncrunEphemeral
 
 [ADK for TypeScript: API Reference](../index.html)
 

@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -248,7 +249,7 @@ Table of contents
 
 # Compress agent context for performance¶
 
-Supported in ADKPython v1.16.0Java v0.2.0
+Supported in ADKPython v1.16.0Java v0.2.0TypeScript v0.6.0
 
 As an ADK agent runs it collects _context_ information, including user instructions, retrieved data, tool responses, and generated content. As the size of this context data grows, agent processing times typically also increase. More and more data is sent to the generative AI model used by the agent, increasing processing time and slowing down responses. The ADK Context Compaction feature is designed to reduce the size of context as an agent is running by summarizing older parts of the agent workflow event history.
 
@@ -256,9 +257,9 @@ The Context Compaction feature uses a _sliding window_ approach for collecting a
 
 ## Configure context compaction¶
 
-Add context compaction to your agent workflow by adding an Events Compaction Configuration setting to the App object of your workflow. As part of the configuration, you must specify a compaction interval and overlap size, as shown in the following sample code:
+Add context compaction to your agent workflow by adding an Events Compaction Configuration setting to the App object (Python/Java) or by configuring `contextCompactors` on the `LlmAgent` (TypeScript). As part of the configuration, you must specify a compaction interval and overlap size (Python/Java) or a token threshold and event retention size (TypeScript), as shown in the following sample code:
 
-PythonJava
+PythonJavaTypeScript
     
     
     from google.adk.apps.app import App
@@ -286,6 +287,24 @@ PythonJava
             .overlapSize(1)         // Include last invocation from the previous window.
             .build())
         .build();
+    
+    
+    
+    import {Gemini, LlmAgent, LlmSummarizer, TokenBasedContextCompactor} from '@google/adk';
+    
+    const agent = new LlmAgent({
+      name: 'my-agent',
+      model: 'gemini-flash-latest',
+      contextCompactors: [
+        new TokenBasedContextCompactor({
+          tokenThreshold: 1000, // Trigger compaction when session exceeds 1000 tokens.
+          eventRetentionSize: 1, // Keep at least 1 raw event (overlap).
+          summarizer: new LlmSummarizer({
+            llm: new Gemini({model: 'gemini-flash-latest'}),
+          }),
+        }),
+      ],
+    });
     
 
 Once configured, the ADK `Runner` handles the compaction process in the background each time the session reaches the interval.
@@ -316,9 +335,9 @@ The configuration settings for this feature control how frequently event data is
 
 ### Define a Summarizer¶
 
-You can customize the process of context compression by defining a summarizer. The LlmEventSummarizer class allows you to specify a particular model for summarization. The following code example demonstrates how to define and configure a custom summarizer:
+You can customize the process of context compression by defining a summarizer. The `LlmEventSummarizer` (Python/Java) or `LlmSummarizer` (TypeScript) class allows you to specify a particular model for summarization. The following code example demonstrates how to define and configure a custom summarizer:
 
-PythonJava
+PythonJavaTypeScript
     
     
     from google.adk.apps.app import App, EventsCompactionConfig
@@ -368,8 +387,31 @@ PythonJava
             .build())
         .build();
     
+    
+    
+    import {Gemini, LlmAgent, LlmSummarizer, TokenBasedContextCompactor} from '@google/adk';
+    
+    // Define the AI model to be used for summarization:
+    const summarizationLlm = new Gemini({model: 'gemini-flash-latest'});
+    
+    // Create the summarizer with the custom model:
+    const mySummarizer = new LlmSummarizer({llm: summarizationLlm});
+    
+    // Configure the agent with the custom summarizer and compaction settings:
+    const agent = new LlmAgent({
+      name: 'my-agent',
+      model: 'gemini-flash-latest',
+      contextCompactors: [
+        new TokenBasedContextCompactor({
+          tokenThreshold: 1000,
+          eventRetentionSize: 1,
+          summarizer: mySummarizer,
+        }),
+      ],
+    });
+    
 
-You can further refine the operation of the `SlidingWindowCompactor` by modifying its summarizer class `LlmEventSummarizer` including changing the `prompt_template` setting of that class. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60).
+You can further refine the compactor by modifying its summarizer. In Python and Java, customize the `prompt_template` on `LlmEventSummarizer`. In TypeScript, customize the `prompt` on `LlmSummarizer`. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60) or [`LlmSummarizer` code](https://github.com/google/adk-js/blob/main/core/src/context/summarizers/llm_summarizer.ts).
 
 Back to top  [ Previous  Context caching  ](../caching/) [ Next  Introduction to Conversational Context: Session, State, and Memory  ](../../sessions/)
 

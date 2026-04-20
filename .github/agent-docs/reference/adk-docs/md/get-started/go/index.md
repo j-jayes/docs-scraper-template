@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../)
 
@@ -107,6 +107,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -130,6 +131,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -247,8 +249,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../)
-  2. [ Get Started  ](../)
+  1. [ Home  ](../..)
+  2. [ Build Agents  ](../)
+  3. [ Get Started  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/get-started/go.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/go.md "View Markdown source")
 
@@ -289,7 +292,7 @@ WindowsMacOS / Linux
 
 ### Define the agent code¶
 
-Create the code for a basic agent that uses the built-in [Google Search tool](/tools/built-in-tools/#google-search). Add the following code to the `my_agent/agent.go` file in your project directory:
+Create the code for a basic agent that uses the built-in [Google Search tool](/integrations/google-search/). Add the following code to the `my_agent/agent.go` file in your project directory:
 
 my_agent/agent.go
     
@@ -314,7 +317,7 @@ my_agent/agent.go
     func main() {
         ctx := context.Background()
     
-        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+        model, err := gemini.NewModel(ctx, "gemini-flash-latest", &genai.ClientConfig{
             APIKey: os.Getenv("GOOGLE_API_KEY"),
         })
         if err != nil {

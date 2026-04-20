@@ -107,6 +107,7 @@ Agent Runtime
           * Example with storage options 
         * All options 
       * [ API Server  ](../api-server/)
+      * [ Ambient Agents  ](../ambient-agents/)
       * [ Resume Agents  ](../resume/)
       * [ Runtime Config  ](../runconfig/)
       * [ Event Loop  ](../event-loop/)

@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
@@ -122,6 +123,7 @@ Observability
 Evaluation 
       * [ Criteria  ](criteria/)
       * [ User Simulation  ](user-sim/)
+      * [ Environment Simulation  ](environment_simulation/)
       * [ Custom Metrics  ](custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
@@ -253,8 +255,9 @@ Table of contents
 
 
 
-  1. [ Run Agents  ](../runtime/)
-  2. [ Evaluation  ](./)
+  1. [ Home  ](..)
+  2. [ Run Agents  ](../runtime/)
+  3. [ Evaluation  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/evaluate/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/evaluate/index.md "View Markdown source")
 
@@ -561,6 +564,10 @@ Here is a summary of all the available criteria:
   * **rubric_based_tool_use_quality_v1** : LLM-judged tool usage quality based on custom rubrics.
   * **hallucinations_v1** : LLM-judged groundedness of agent response against context.
   * **safety_v1** : Safety/harmlessness of agent response.
+  * **per_turn_user_simulator_quality_v1** : LLM-judged user simulator quality.
+  * **multi_turn_task_success_v1** : Evaluates if agent achieves goal(s) of conversation.
+  * **multi_turn_trajectory_quality_v1** : Evaluates the overall trajectory of the conversation.
+  * **multi_turn_tool_use_quality_v1** : Evaluates function calls made during a conversation.
 
 
 
@@ -592,6 +599,9 @@ Choose criteria based on your evaluation goals:
   * **Evaluate the correctness of tool usage:** Use `rubric_based_tool_use_quality_v1`. This allows you to validate the agent's reasoning process by checking, for example, that a specific tool was called or that tools were called in the correct order (e.g., "Tool A must be called before Tool B").
   * **Check if responses are grounded in context:** Use `hallucinations_v1` to detect if the agent makes claims that are unsupported by or contradictory to the information available to it (e.g., tool outputs).
   * **Check for harmful content:** Use `safety_v1` to ensure that agent responses are safe and do not violate safety policies.
+  * **Evaluate multi-turn goal completion:** Use `multi_turn_task_success_v1` to measure the overall success of a multi-turn conversation in achieving its intended objectives.
+  * **Evaluate overall conversation trajectory:** Use `multi_turn_trajectory_quality_v1` to assess the efficiency, effectiveness, and logic of the steps taken during the conversation.
+  * **Evaluate tool usage in multi-turn workflows:** Use `multi_turn_tool_use_quality_v1` to assess the quality, relevance, and correctness of tool or function calls made across multiple turns.
 
 
 

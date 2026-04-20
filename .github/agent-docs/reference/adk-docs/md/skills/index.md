@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
@@ -122,6 +123,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
@@ -232,13 +234,13 @@ Table of contents
   * Define Skills 
     * Define Skills with files 
     * Define Skills in code 
-  * Known limitations 
   * Next steps 
 
 
 
-  1. [ Build Agents  ](../get-started/)
-  2. [ Skills for Agents  ](./)
+  1. [ Home  ](..)
+  2. [ Build Agents  ](../get-started/)
+  3. [ Skills for Agents  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/skills/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/skills/index.md "View Markdown source")
 
@@ -250,7 +252,7 @@ An agent **_Skill_** is a self-contained unit of functionality that an ADK agent
 
 Experimental
 
-The Skills feature is experimental and has some known limitations. We welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=skills)!
+The Skills feature is experimental. We welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=skills)!
 
 ## Get started¶
 
@@ -272,7 +274,7 @@ Use the `SkillToolset` class to include one or more Skills in your agent definit
     )
     
     root_agent = Agent(
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         name="skill_user_agent",
         description="An agent that can use specialized skills.",
         instruction=(
@@ -320,10 +322,6 @@ The following directory structure shows the recommended way to include Skills in
                     *.py          # utility scripts
     
 
-Script execution not supported
-
-Scripts execution is not yet supported and is a known limitation.
-
 ### Define Skills in code¶
 
 In ADK agents, you can also define Skills within the code of the agent, using the `Skill` model class, as shown below. This method of Skill definition enables you to dynamically modify skills from your ADK agent code.
@@ -350,14 +348,6 @@ In ADK agents, you can also define Skills within the code of the agent, using th
         ),
     )
     
-
-## Known limitations¶
-
-The Skills feature is experimental and includes the following limitations:
-
-  * **Script execution:** The Skills feature does not currently support script execution (`scripts/` directory).
-
-
 
 ## Next steps¶
 

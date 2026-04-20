@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -122,6 +123,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../evaluate/custom_metrics/)
       * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
@@ -249,8 +251,9 @@ Table of contents
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ Grounding  ](../)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ Grounding  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/grounding/google_search_grounding.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/grounding/google_search_grounding.md "View Markdown source")
 
@@ -258,7 +261,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0Java v0.1.0
 
-[Google Search Grounding tool](/tools/gemini-api/google-search/) is a powerful feature in the Agent Development Kit (ADK) that connects your AI agents directly to Google Search. By giving your agents access to real-time, authoritative information from the web, they can answer questions about recent events, current weather, stock prices, or any other dynamic data that falls outside the model's training window. The agent automatically decides when to search and seamlessly incorporates the results into its responses with proper citations.
+[Google Search Grounding tool](/integrations/google-search/) is a powerful feature in the Agent Development Kit (ADK) that connects your AI agents directly to Google Search. By giving your agents access to real-time, authoritative information from the web, they can answer questions about recent events, current weather, stock prices, or any other dynamic data that falls outside the model's training window. The agent automatically decides when to search and seamlessly incorporates the results into its responses with proper citations.
 
 ## Creating a Grounded Agent¶
 
@@ -272,7 +275,7 @@ PythonTypeScriptJava
     
     root_agent = Agent(
         name="google_search_agent",
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         instruction="Answer questions using Google Search when needed. Always cite sources.",
         description="Professional search assistant with Google Search capabilities",
         tools=[google_search]
@@ -284,7 +287,7 @@ PythonTypeScriptJava
     
     const rootAgent = new LlmAgent({
         name: "google_search_agent",
-        model: "gemini-2.5-flash",
+        model: "gemini-flash-latest",
         instruction: "Answer questions using Google Search when needed. Always cite sources.",
         description: "Professional search assistant with Google Search capabilities",
         tools: [GOOGLE_SEARCH],
@@ -297,7 +300,7 @@ PythonTypeScriptJava
     
     LlmAgent rootAgent = LlmAgent.builder()
         .name("google_search_agent")
-        .model("gemini-2.5-flash")
+        .model("gemini-flash-latest")
         .instruction("Answer questions using Google Search when needed. Always cite sources.")
         .description("Professional search assistant with Google Search capabilities")
         .tools(GoogleSearchTool.INSTANCE)

@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 1.29.0.
+This page contains the auto-generated command-line reference for ADK 1.31.0.
 
   * adk
 
@@ -726,7 +726,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'1.29.0'`
+`'1.31.0'`
 
 \--a2a¶
     
@@ -951,7 +951,7 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'1.29.0'`
+`'1.31.0'`
 
 \--trigger_sources <trigger_sources>¶
     

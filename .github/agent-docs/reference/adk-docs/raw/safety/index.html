@@ -2645,6 +2645,8 @@
       
         
       
+        
+      
     
     
     
@@ -2773,6 +2775,34 @@
     
   
     API Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime/ambient-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ambient Agents
   
 
     
@@ -7236,7 +7266,7 @@
 </ul>
 <h3 id="sandboxed-code-execution">Sandboxed Code Execution<a class="headerlink" href="#sandboxed-code-execution" title="Permanent link">&para;</a></h3>
 <p>Code execution is a special tool that has extra security implications: sandboxing must be used to prevent model-generated code to compromise the local environment, potentially creating security issues.</p>
-<p>Google and the ADK provide several options for safe code execution. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/code-execution-api">Vertex Gemini Enterprise API code execution feature</a> enables agents to take advantage of sandboxed code execution server-side by enabling the tool_execution tool. For code performing data analysis, you can use the <a href="/tools/gemini-api/code-execution/">Code Executor</a> tool in ADK to call the <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/extensions/code-interpreter">Vertex Code Interpreter Extension</a>.</p>
+<p>Google and the ADK provide several options for safe code execution. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/code-execution-api">Vertex Gemini Enterprise API code execution feature</a> enables agents to take advantage of sandboxed code execution server-side by enabling the tool_execution tool. For code performing data analysis, you can use the <a href="/integrations/code-execution/">Code Executor</a> tool in ADK to call the <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/extensions/code-interpreter">Vertex Code Interpreter Extension</a>.</p>
 <p>If none of these options satisfy your requirements, you can build your own code executor using the building blocks provided by the ADK. We recommend creating execution environments that are hermetic: no network connections and API calls permitted to avoid uncontrolled data exfiltration; and full cleanup of data across execution to not create cross-user exfiltration concerns.</p>
 <h3 id="evaluations">Evaluations<a class="headerlink" href="#evaluations" title="Permanent link">&para;</a></h3>
 <p>See <a href="../evaluate/">Evaluate Agents</a>.</p>

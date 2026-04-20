@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
@@ -391,7 +392,7 @@ PythonJava
 Run your App agent with the `main.py` code using the following command:
     
     
-    python main.py
+    python3 main.py
     
 
 Run your App agent with the `AppMain.java` code using your build tool (e.g. Gradle `application` plugin):

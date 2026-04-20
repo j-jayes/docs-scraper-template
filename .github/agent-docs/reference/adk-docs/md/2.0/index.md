@@ -99,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
@@ -291,7 +292,7 @@ Recommended: Create and activate a Python virtual environment
 Create a Python virtual environment:
     
     
-    python -m venv .venv
+    python3 -m venv .venv
     
 
 Activate the Python virtual environment:

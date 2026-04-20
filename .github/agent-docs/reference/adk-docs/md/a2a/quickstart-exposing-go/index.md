@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -13,11 +15,20 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../..)
+  * [ Build Agents ](../../get-started/)
+  * [ Run Agents ](../../runtime/)
+  * [ Components ](../../get-started/about/)
+  * [ Integrations ](../../integrations/)
+  * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
+  * [ ADK 2.0 ](../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -56,6 +67,7 @@ Workflow agents
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Vertex AI hosted  ](../../agents/models/vertex/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
@@ -87,6 +99,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -110,6 +123,9 @@ Observability
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -168,9 +184,12 @@ A2A Protocol
               * How it works 
           * Example Interactions 
           * Next Steps 
+        * [ Java  ](../quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../quickstart-consuming/)
         * [ Go  ](../quickstart-consuming-go/)
+        * [ Java  ](../quickstart-consuming-java/)
+      * [ A2A Extension  ](../a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
 Gemini Live API Toolkit 
@@ -187,8 +206,10 @@ Gemini Live API Toolkit
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
       * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+  * [ Integrations  ](../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
 
 API Reference 
@@ -199,8 +220,22 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
+    * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
+  * [ ADK 2.0  ](../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../workflows/graph-routes/)
+      * [ Data handling  ](../../workflows/data-handling/)
+      * [ Human input  ](../../workflows/human-input/)
+    * [ Collaborative agents  ](../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -220,9 +255,10 @@ Table of contents
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ A2A Protocol  ](../)
-  3. [ A2A Quickstart (Exposing)  ](../quickstart-exposing/)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ A2A Protocol  ](../)
+  4. [ A2A Quickstart (Exposing)  ](../quickstart-exposing/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/a2a/quickstart-exposing-go.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/a2a/quickstart-exposing-go.md "View Markdown source")
 
@@ -417,9 +453,9 @@ Now that you have created an agent that's exposing a remote agent via an A2A ser
 
 
 
-Back to top  [ Previous  Python  ](../quickstart-exposing/) [ Next  Python  ](../quickstart-consuming/)
+Back to top  [ Previous  Python  ](../quickstart-exposing/) [ Next  Java  ](../quickstart-exposing-java/)
 
-Copyright Google 2026  |  [Terms](//policies.google.com/terms)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
+Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
 Made with [ Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)
 

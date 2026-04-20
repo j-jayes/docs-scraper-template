@@ -139,6 +139,7 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
@@ -719,7 +720,7 @@ For Java, refer to the following sample to define an agent that initializes the 
     public class MapsAgentCreator {
     
         /**
-         * Initializes an McpToolset for Google Maps Grounding Lite, 
+         * Initializes an McpToolset for Google Maps Grounding Lite,
          * creates an LlmAgent, sends a map-related prompt, and closes the toolset.
          */
         public static void main(String[] args) {
@@ -808,7 +809,7 @@ For TypeScript, refer to the following sample to define an agent that initialize
             new MCPToolset({
                 // Using SseConnectionParams to connect to the remote Grounding Lite service,
                 // mirroring Python's StreamableHTTPConnectionParams.
-                type: "SseConnectionParams", 
+                type: "SseConnectionParams",
                 url: "https://mapstools.googleapis.com/mcp",
                 headers: {
                     "X-Goog-Api-Key": googleMapsApiKey,

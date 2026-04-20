@@ -84,7 +84,7 @@ Description
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`avgLogprobs([Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
+`avgLogprobs(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
 
  
 
@@ -96,55 +96,55 @@ Description
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`content(com.google.genai.types.Content content)`
+`content(@Nullable com.google.genai.types.Content content)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`customMetadata([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
+`customMetadata(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`errorCode(com.google.genai.types.FinishReason errorCode)`
+`errorCode(@Nullable com.google.genai.types.FinishReason errorCode)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`errorMessage([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
+`errorMessage(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`finishReason(com.google.genai.types.FinishReason finishReason)`
+`finishReason(@Nullable com.google.genai.types.FinishReason finishReason)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`groundingMetadata(com.google.genai.types.GroundingMetadata groundingMetadata)`
+`groundingMetadata(@Nullable com.google.genai.types.GroundingMetadata groundingMetadata)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`interrupted([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)`
+`interrupted(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`modelVersion([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
+`modelVersion(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`partial([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
+`partial(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
 
  
 
@@ -156,13 +156,13 @@ Description
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`turnComplete([Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)`
+`turnComplete(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)`
 
  
 
 `abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
 
-`usageMetadata(com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)`
+`usageMetadata(@Nullable com.google.genai.types.GenerateContentResponseUsageMetadata usageMetadata)`
 
  
 
