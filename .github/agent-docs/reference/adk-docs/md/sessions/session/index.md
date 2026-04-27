@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -193,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -292,7 +293,7 @@ PythonTypeScriptGoJava
      print(f"---------------------------------")
     
      # Clean up (optional for this example)
-     temp_service = await temp_service.delete_session(app_name=example_session.app_name,
+     await temp_service.delete_session(app_name=example_session.app_name,
                                  user_id=example_session.user_id, session_id=example_session.id)
      print("The final status of temp_service - ", temp_service)
     
@@ -450,14 +451,14 @@ PythonTypeScriptGoJava
 
 Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0
 
-  * **How it works:** Uses Google Cloud Vertex AI infrastructure via API calls for session management.
-  * **Persistence:** Yes. Data is managed reliably and scalably via [Vertex AI Agent Engine](/deploy/agent-engine/).
+  * **How it works:** Uses Google Cloud Agent Platform infrastructure via API calls for session management.
+  * **Persistence:** Yes. Data is managed reliably and scalably via [Agent Runtime](/deploy/agent-runtime/).
   * **Requires:**
     * A Google Cloud project (`pip install vertexai`)
     * A Google Cloud storage bucket that can be configured by this [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
-    * A Reasoning Engine resource name/ID that can setup following this [tutorial](/deploy/agent-engine/).
-    * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Vertex AI Express Mode](/tools/google-cloud/express-mode/).
-  * **Best for:** Scalable production applications deployed on Google Cloud, especially when integrating with other Vertex AI features.
+    * A Reasoning Engine resource name/ID that can setup following this [tutorial](/deploy/agent-runtime/).
+    * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Agent Platform Express Mode](/integrations/express-mode/).
+  * **Best for:** Scalable production applications deployed on Google Cloud, especially when integrating with other Agent Platform features.
 
 
 

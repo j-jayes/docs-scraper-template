@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -194,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -252,7 +252,7 @@ Table of contents
 
 # Build collaborative agent teams¶
 
-Supported in ADKPython v2.0.0Alpha
+Supported in ADKPython v2.0.0Beta
 
 Some complex tasks may require multiple agents with specific responsibilities and benefit from less structured procedures, particularly for iterative processes with several, substantial sub-tasks. In a collaborative agent team in ADK, a coordinator agent handles delegation of tasks to one or more subagents. This approach makes it easier to build complex, self-managing agent systems, with subagents defined to handle specific tasks, and automatic return to the parent after completing a task.
 
@@ -266,16 +266,16 @@ When using this self-managed agent team approach, the subagents are assigned an 
 
 This guide covers how to use modes for your subagents and how these modes impact agent behavior.
 
-Alpha Release
+Beta Release
 
-ADK 2.0 is an Alpha release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
+ADK 2.0 is a Beta release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
 ## Get started¶
 
 The following code example shows how to set operating modes for a small team of subagents and assign them to a coordinator agent:
     
     
-    from google.adk.workflow.agents.llm_agent import Agent
+    from google.adk import Agent
     
     weather_agent = Agent(
         name="weather_checker",

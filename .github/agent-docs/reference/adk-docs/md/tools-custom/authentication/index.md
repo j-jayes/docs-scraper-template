@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -114,18 +114,19 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -208,7 +209,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -284,7 +285,9 @@ There are several ways to manage authentication and credentials in ADK agents. E
 
 ### Recommended: Authentication manager services¶
 
-When deploying agents to production hosted environments, your agent's ability to properly authenticate to restricted tools and services becomes more challenging and more important to properly manage. This authentication challenge can become even more complicated when users of your agent have varying levels of access to restricted tools and data. Rather than writing code to handle the authentication process and credential managment for various tools used by your agent, use an _authentication manager_ service that manages _both_ for you. This service should handle the storage of keys and secrets, as well as the acquisition, management, and storage of OAuth access or refresh tokens.
+When deploying agents to production hosted environments, your agent's ability to properly authenticate to restricted tools and services becomes more challenging and more important to properly manage. This authentication challenge can become even more complicated when users of your agent have varying levels of access to restricted tools and data.
+
+Rather than writing code to handle the authentication process and credential management for various tools used by your agent, use an _authentication manager_ service that manages _both_ for you. This service should handle the storage of keys and secrets, as well as the acquisition, management, and storage of OAuth access or refresh tokens. Learn more about Agent Identity Authentication Manager for [2-legged OAuth](https://docs.cloud.google.com/iam/docs/auth-with-2lo), [3-legged OAuth](https://docs.cloud.google.com/iam/docs/auth-with-3lo), and [API key](https://docs.cloud.google.com/iam/docs/auth-with-api-key).
 
 ### Self-managed authentication¶
 

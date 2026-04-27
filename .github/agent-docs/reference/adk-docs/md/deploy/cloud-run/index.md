@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../)
 
 Deployment 
-      * [ Agent Engine  ](../agent-engine/)
+      * [ Agent Runtime  ](../agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../agent-engine/asp/)
-        * [ Test deployed agents  ](../agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../agent-runtime/deploy/)
+        * [ agents-cli  ](../agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../agent-runtime/test/)
       * Cloud Run  [ Cloud Run  ](./) Table of contents 
         * Agent sample 
         * Environment variables 
@@ -245,7 +245,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -517,7 +517,7 @@ Optional but recommended: Setting environment variables can make the deployment 
   * `--region TEXT`: (Required) The Google Cloud location for deployment (e.g., `$GOOGLE_CLOUD_LOCATION`, `us-central1`).
   * `--service_name TEXT`: (Optional) The name for the Cloud Run service (e.g., `$SERVICE_NAME`). Defaults to `adk-default-service-name`.
   * `--app_name TEXT`: (Optional) The application name for the ADK API server (e.g., `$APP_NAME`). Defaults to the name of the directory specified by `AGENT_PATH` (e.g., `capital_agent` if `AGENT_PATH` is `./capital_agent`).
-  * `--agent_engine_id TEXT`: (Optional) If you are using a managed session service via Vertex AI Agent Engine, provide its resource ID here.
+  * `--agent_engine_id TEXT`: (Optional) If you are using a managed session service via Agent Runtime, provide its resource ID here.
   * `--port INTEGER`: (Optional) The port number the ADK API server will listen on within the container. Defaults to 8000.
   * `--with_ui`: (Optional) If included, deploys the ADK dev UI alongside the agent API server. By default, only the API server is deployed.
   * `--temp_folder TEXT`: (Optional) Specifies a directory for storing intermediate files generated during the deployment process. Defaults to a timestamped folder in the system's temporary directory. _(Note: This option is generally not needed unless troubleshooting issues)._
@@ -1168,7 +1168,7 @@ Send a prompt to your agent. Replace `capital_agent` with your app name and adju
 
 
 
-Back to top  [ Previous  Test deployed agents  ](../agent-engine/test/) [ Next  GKE  ](../gke/)
+Back to top  [ Previous  Test deployed agents  ](../agent-runtime/test/) [ Next  GKE  ](../gke/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

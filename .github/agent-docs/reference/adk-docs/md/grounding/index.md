@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
@@ -193,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -240,8 +241,8 @@ Grounding is the process that connects your AI agents to external information so
 ADK supports multiple grounding approaches:
 
   * **Google Search Grounding** : Connect agents to real-time web information for queries requiring current data like news, weather, or facts that may have changed since the model's training.
-  * **Vertex AI Search Grounding** : Connect agents to your organization's private documents and enterprise data for queries requiring proprietary information.
-  * **Agentic RAG** : Build agents that reason about how to search, constructing queries and filters dynamically using Vector Search 2.0, Vertex AI RAG Engine, or other retrieval systems.
+  * **Grounding with Search** : Connect agents to your organization's private documents and enterprise data for queries requiring proprietary information.
+  * **Agentic RAG** : Build agents that reason about how to search, constructing queries and filters dynamically using Vector Search 2.0, RAG Engine, or other retrieval systems.
 
 
 
@@ -252,13 +253,13 @@ ADK supports multiple grounding approaches:
 Enable your agents to access real-time, authoritative information from the web. Learn how to set up Google Search grounding, understand the data flow, interpret grounded responses, and display citations to users.
 
     * [Understanding Google Search Grounding](google_search_grounding/)
-  * **Vertex AI Search Grounding**
+  * **Grounding with Search**
 
 * * *
 
-Connect your agents to indexed enterprise documents and private data repositories. Learn how to configure Vertex AI Search datastores, ground responses in your organization's knowledge base, and provide source attribution.
+Connect your agents to indexed enterprise documents and private data repositories. Learn how to configure Agent Search datastores, ground responses in your organization's knowledge base, and provide source attribution.
 
-    * [Understanding Vertex AI Search Grounding](vertex_ai_search_grounding/)
+    * [Understanding Grounding with Search](grounding_with_search/)
   * **Blog post: 10-minute Agentic RAG with Vector Search 2.0 and ADK**
 
 * * *
@@ -284,7 +285,7 @@ A production-ready fullstack research agent that transforms topics into comprehe
 
 * * *
 
-A document Q&A agent powered by Vertex AI RAG Engine. Upload documents and ask questions to receive accurate answers with citations formatted as URLs pointing to source materials.
+A document Q&A agent powered by RAG Engine. Upload documents and ask questions to receive accurate answers with citations formatted as URLs pointing to source materials.
 
     * [RAG Agent](https://github.com/google/adk-samples/tree/main/python/agents/RAG)
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](./)
 
 Deployment 
-      * [ Agent Engine  ](agent-engine/)
+      * [ Agent Runtime  ](agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](agent-engine/deploy/)
-        * [ Agent Starter Pack  ](agent-engine/asp/)
-        * [ Test deployed agents  ](agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](agent-runtime/deploy/)
+        * [ agents-cli  ](agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](agent-runtime/test/)
       * [ Cloud Run  ](cloud-run/)
       * [ GKE  ](gke/)
     * [ Observability  ](../observability/)
@@ -194,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -231,7 +231,7 @@ Graph-based workflows
 Table of contents 
 
   * Deployment Options 
-    * Agent Engine in Vertex AI 
+    * Agent Runtime on Agent Platform 
     * Cloud Run 
     * Google Kubernetes Engine (GKE) 
     * Other Container-friendly Infrastructure 
@@ -252,11 +252,11 @@ Once you've built and tested your agent using ADK, the next step is to deploy it
 
 Your ADK agent can be deployed to a range of different environments based on your needs for production readiness or custom flexibility:
 
-### Agent Engine in Vertex AI¶
+### Agent Runtime on Agent Platform¶
 
-[Agent Engine](agent-engine/) is a fully managed auto-scaling service on Google Cloud specifically designed for deploying, managing, and scaling AI agents built with frameworks such as ADK.
+[Agent Runtime](agent-runtime/) is a fully managed auto-scaling service on Google Cloud specifically designed for deploying, managing, and scaling AI agents built with frameworks such as ADK.
 
-Learn more about [deploying your agent to Vertex AI Agent Engine](agent-engine/).
+Learn more about [deploying your agent to Agent Runtime](agent-runtime/).
 
 ### Cloud Run¶
 
@@ -276,7 +276,7 @@ You can manually package your Agent into a container image and then run it in an
 
 Follow the instructions for [deploying your agent to Cloud Run](cloud-run/#deployment-commands). In the "Deployment Commands" section for gcloud CLI, you will find an example FastAPI entry point and Dockerfile.
 
-Back to top  [ Previous  Event Loop  ](../runtime/event-loop/) [ Next  Deploy to Vertex AI Agent Engine  ](agent-engine/)
+Back to top  [ Previous  Event Loop  ](../runtime/event-loop/) [ Next  Deploy to Agent Runtime  ](agent-runtime/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

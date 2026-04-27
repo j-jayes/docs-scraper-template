@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -203,7 +203,7 @@ Grounding
             * How to Interpret the Response 
           * How to display grounding responses with Google Search 
             * Displaying Search Suggestions 
-      * [ Vertex AI Search Grounding  ](../vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -403,9 +403,9 @@ The `searchEntryPoint` object in the `groundingMetadata` contains pre-formatted 
 
 **Rendered HTML from searchEntryPoint:** The metadata provides the necessary HTML and CSS to render the search suggestions bar, which includes the Google logo and chips for related queries. Integrating this HTML directly into your application's front end will display the suggestions as intended.
 
-For more information, consult [using Google Search Suggestions](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/grounding-search-suggestions) in Vertex AI documentation.
+For more information, consult [using Google Search Suggestions](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/grounding-search-suggestions) in Agent Platform documentation.
 
-Back to top  [ Previous  Grounding agents with data  ](../) [ Next  Vertex AI Search Grounding  ](../vertex_ai_search_grounding/)
+Back to top  [ Previous  Grounding agents with data  ](../) [ Next  Grounding with Search  ](../grounding_with_search/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

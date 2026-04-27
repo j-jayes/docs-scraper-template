@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -110,7 +110,7 @@ Custom Tools
         * Deploying Agents with MCP Tools 
           * Critical Deployment Requirement: Synchronous Agent Definition 
           * Quick Deployment Commands 
-            * Vertex AI Agent Engine 
+            * Agent Runtime 
             * Cloud Run 
           * Deployment Patterns 
             * Pattern 1: Self-Contained Stdio MCP Servers 
@@ -123,7 +123,7 @@ Custom Tools
           * Environment-Specific Configurations 
             * Cloud Run 
             * GKE 
-            * Vertex AI Agent Engine 
+            * Agent Runtime 
           * Troubleshooting Deployment Issues 
         * Further Resources 
       * [ OpenAPI tools  ](../openapi-tools/)
@@ -146,12 +146,12 @@ Agent Runtime
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -234,7 +234,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -294,7 +294,7 @@ Table of contents
   * Deploying Agents with MCP Tools 
     * Critical Deployment Requirement: Synchronous Agent Definition 
     * Quick Deployment Commands 
-      * Vertex AI Agent Engine 
+      * Agent Runtime 
       * Cloud Run 
     * Deployment Patterns 
       * Pattern 1: Self-Contained Stdio MCP Servers 
@@ -307,7 +307,7 @@ Table of contents
     * Environment-Specific Configurations 
       * Cloud Run 
       * GKE 
-      * Vertex AI Agent Engine 
+      * Agent Runtime 
     * Troubleshooting Deployment Issues 
   * Further Resources 
 
@@ -1183,7 +1183,7 @@ When working with MCP and ADK, keep these points in mind:
 
 ## Deploying Agents with MCP Tools¶
 
-When deploying ADK agents that use MCP tools to production environments like Cloud Run, GKE, or Vertex AI Agent Engine, you need to consider how MCP connections will work in containerized and distributed environments.
+When deploying ADK agents that use MCP tools to production environments like Cloud Run, GKE, or Agent Runtime, you need to consider how MCP connections will work in containerized and distributed environments.
 
 ### Critical Deployment Requirement: Synchronous Agent Definition¶
 
@@ -1232,7 +1232,7 @@ When deploying ADK agents that use MCP tools to production environments like Clo
 
 ### Quick Deployment Commands¶
 
-#### Vertex AI Agent Engine¶
+#### Agent Runtime¶
     
     
     uv run adk deploy agent_engine \
@@ -1530,10 +1530,10 @@ When deploying agents with MCP tools to production:
     )
     
 
-#### Vertex AI Agent Engine¶
+#### Agent Runtime¶
     
     
-    # Agent Engine managed deployment
+    # Agent Runtime managed deployment
     # Prefer lightweight, self-contained MCP servers or external services
     McpToolset(
         connection_params=SseConnectionParams(

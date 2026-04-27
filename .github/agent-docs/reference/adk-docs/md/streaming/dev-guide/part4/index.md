@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../../agents/models/google-gemini/)
       * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
       * [ Ollama  ](../../../agents/models/ollama/)
       * [ vLLM  ](../../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
@@ -226,7 +227,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -342,7 +343,7 @@ Source Reference
 
 **Platform Support Legend:**
 
-  * **Both** : Supported on both Gemini Live API and Vertex AI Live API
+  * **Both** : Supported on both Gemini Live API and Gemini Live API (Agent Platform)
   * **Gemini** : Only supported on Gemini Live API
   * **Model-specific** : Requires specific model architecture (e.g., native audio)
 
@@ -369,7 +370,7 @@ The `RunConfig` class itself and `StreamingMode` enum are imported from `google.
 
 ## Response Modalities¶
 
-Response modalities control how the model generates output—as text or audio. Both Gemini Live API and Vertex AI Live API have the same restriction: only one response modality per session.
+Response modalities control how the model generates output—as text or audio. Both Gemini Live API and Gemini Live API (Agent Platform) have the same restriction: only one response modality per session.
 
 **Configuration:**
     
@@ -401,7 +402,7 @@ Response modalities control how the model generates output—as text or audio. B
     )
     
 
-Both Gemini Live API and Vertex AI Live API restrict sessions to a single response modality. Attempting to use both will result in an API error:
+Both Gemini Live API and Gemini Live API (Agent Platform) restrict sessions to a single response modality. Attempting to use both will result in an API error:
     
     
     # ❌ INCORRECT: Both modalities not supported
@@ -622,13 +623,13 @@ While this guide focuses on Bidi-streaming with Gemini 2.0 Live models, ADK also
 
 ## Understanding Live API Connections and Sessions¶
 
-When building ADK Gemini Live API Toolkit applications, it's essential to understand how ADK manages the communication layer between itself and the Live API backend. This section explores the fundamental distinction between **connections** (the WebSocket transport links that ADK establishes to Live API) and **sessions** (the logical conversation contexts maintained by Live API). Unlike traditional request-response APIs, the Bidi-streaming architecture introduces unique constraints: connection timeouts, session duration limits that vary by modality (audio-only vs audio+video), finite context windows, and concurrent session quotas that differ between Gemini Live API and Vertex AI Live API.
+When building ADK Gemini Live API Toolkit applications, it's essential to understand how ADK manages the communication layer between itself and the Live API backend. This section explores the fundamental distinction between **connections** (the WebSocket transport links that ADK establishes to Live API) and **sessions** (the logical conversation contexts maintained by Live API). Unlike traditional request-response APIs, the Bidi-streaming architecture introduces unique constraints: connection timeouts, session duration limits that vary by modality (audio-only vs audio+video), finite context windows, and concurrent session quotas that differ between Gemini Live API and Gemini Live API (Agent Platform).
 
 ### ADK `Session` vs Live API Session¶
 
 Understanding the distinction between **ADK`Session`** and **Live API session** is crucial for building reliable streaming applications with ADK Gemini Live API Toolkit.
 
-**ADK`Session`** (managed by SessionService): \- Persistent conversation storage for conversation history, events, and state, created via `SessionService.create_session()` \- Storage options: in-memory, database (PostgreSQL/MySQL/SQLite), or Vertex AI \- Survives across multiple `run_live()` calls and application restarts (with the persistent `SessionService`)
+**ADK`Session`** (managed by SessionService): \- Persistent conversation storage for conversation history, events, and state, created via `SessionService.create_session()` \- Storage options: in-memory, database (PostgreSQL/MySQL/SQLite), or Agent Platform \- Survives across multiple `run_live()` calls and application restarts (with the persistent `SessionService`)
 
 **Live API session** (managed by Live API backend): \- Maintained by the Live API during the `run_live()` event loop is running, and destroyed when streaming ends by calling `LiveRequestQueue.close()` \- Subject to platform duration limits, and can be resumed across multiple connections using session resumption handles (see How ADK Manages Session Resumption below)
 
@@ -694,7 +695,7 @@ The following diagram illustrates the relationship between ADK Session persisten
     
         Note over ADK,LiveSession: Bidirectional streaming continues...
 
-**Key insights:** \- ADK Session survives across multiple `run_live()` calls and app restarts \- Live API session is ephemeral - created and destroyed per streaming session \- Conversation continuity is maintained through ADK Session's persistent storage \- SessionService manages the persistence layer (in-memory, database, or Vertex AI)
+**Key insights:** \- ADK Session survives across multiple `run_live()` calls and app restarts \- Live API session is ephemeral - created and destroyed per streaming session \- Conversation continuity is maintained through ADK Session's persistent storage \- SessionService manages the persistence layer (in-memory, database, or Agent Platform)
 
 Now that we understand the difference between ADK `Session` objects and Live API sessions, let's focus on Live API connections and sessions—the backend infrastructure that powers real-time bidirectional streaming.
 
@@ -715,23 +716,23 @@ Understanding the distinction between **connections** and **sessions** at the Li
   
 #### Live API Connection and Session Limits by Platform¶
 
-Understanding the constraints of each platform is critical for production planning. Gemini Live API and Vertex AI Live API have different limits that affect how long conversations can run and how many users can connect simultaneously. The most important distinction is between **connection duration** (how long a single WebSocket connection stays open) and **session duration** (how long a logical conversation can continue).
+Understanding the constraints of each platform is critical for production planning. Gemini Live API and Gemini Live API (Agent Platform) have different limits that affect how long conversations can run and how many users can connect simultaneously. The most important distinction is between **connection duration** (how long a single WebSocket connection stays open) and **session duration** (how long a logical conversation can continue).
 
 Constraint Type | Gemini Live API  
-(Google AI Studio) | Vertex AI Live API  
-(Google Cloud) | Notes  
+(Google AI Studio) | Gemini Live API  
+(Agent Platform) | Notes  
 ---|---|---|---  
 **Connection duration** | ~10 minutes | Not documented separately | Each Gemini WebSocket connection auto-terminates; ADK reconnects transparently with session resumption  
 **Session Duration (Audio-only)** | 15 minutes | 10 minutes | Maximum session duration without context window compression. Both platforms: unlimited with context window compression enabled  
-**Session Duration (Audio + video)** | 2 minutes | 10 minutes | Gemini has shorter limit for video; Vertex treats all sessions equally. Both platforms: unlimited with context window compression enabled  
+**Session Duration (Audio + video)** | 2 minutes | 10 minutes | Gemini has shorter limit for video; Agent Platform treats all sessions equally. Both platforms: unlimited with context window compression enabled  
 **Concurrent sessions** | 50 (Tier 1)  
-1,000 (Tier 2+) | Up to 1,000 | Gemini limits vary by API tier; Vertex limit is per Google Cloud project  
+1,000 (Tier 2+) | Up to 1,000 | Gemini limits vary by API tier; Agent Platform limit is per Google Cloud project  
   
 Source References
 
   * [Gemini Live API Capabilities Guide](https://ai.google.dev/gemini-api/docs/live-guide)
   * [Gemini API Quotas](https://ai.google.dev/gemini-api/docs/quota)
-  * [Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
+  * [Gemini Live API (Agent Platform)](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
 
 
 
@@ -743,7 +744,7 @@ By default, the Live API limits connection duration to approximately 10 minutes�
 
 ### Scope of ADK's Reconnection Management¶
 
-ADK manages the **ADK-to-Live API connection** (the WebSocket between ADK and the Gemini/Vertex Live API backend). This is transparent to your application code.
+ADK manages the **ADK-to-Live API connection** (the WebSocket between ADK and the Gemini Live API backend). This is transparent to your application code.
 
 **Your application remains responsible for** :
 
@@ -780,7 +781,7 @@ While session resumption is recommended for most production applications, consid
 
 ### How ADK Manages Session Resumption¶
 
-While session resumption is supported by both Gemini Live API and Vertex AI Live API, using it directly requires managing resumption handles, detecting connection closures, and implementing reconnection logic. ADK takes full responsibility for this complexity, automatically utilizing session resumption behind the scenes so developers don't need to write any reconnection code. You simply enable it in RunConfig, and ADK handles everything transparently.
+While session resumption is supported by both Gemini Live API and Gemini Live API (Agent Platform), using it directly requires managing resumption handles, detecting connection closures, and implementing reconnection logic. ADK takes full responsibility for this complexity, automatically utilizing session resumption behind the scenes so developers don't need to write any reconnection code. You simply enable it in RunConfig, and ADK handles everything transparently.
 
 **ADK's automatic management:**
 
@@ -805,7 +806,7 @@ The following sequence diagram illustrates how ADK automatically manages Live AP
         participant App as Your Application
         participant ADK as ADK (run_live)
         participant WS as WebSocket Connection
-        participant API as Live API (Gemini/Vertex AI)
+        participant API as Live API (Gemini/Agent Platform)
         participant LiveSession as Live Session Context
     
         Note over App,LiveSession: Initial Connection (with session resumption enabled)
@@ -863,18 +864,18 @@ For details on which events are saved to the ADK `Session` versus which are only
 
 ## Live API Context Window Compression¶
 
-**Problem:** Live API sessions face two critical constraints that limit conversation duration. First, **session duration limits** impose hard time caps: without compression, Gemini Live API limits audio-only sessions to 15 minutes and audio+video sessions to just 2 minutes, while Vertex AI limits all sessions to 10 minutes. Second, **context window limits** restrict conversation length: models have finite token capacities (128k tokens for `gemini-2.5-flash-native-audio-preview-12-2025`, 32k-128k for Vertex AI models). Long conversations—especially extended customer support sessions, tutoring interactions, or multi-hour voice dialogues—will hit either the time limit or the token limit, causing the session to terminate or lose critical conversation history.
+**Problem:** Live API sessions face two critical constraints that limit conversation duration. First, **session duration limits** impose hard time caps: without compression, Gemini Live API limits audio-only sessions to 15 minutes and audio+video sessions to just 2 minutes, while Agent Platform limits all sessions to 10 minutes. Second, **context window limits** restrict conversation length: models have finite token capacities (128k tokens for `gemini-2.5-flash-native-audio-preview-12-2025`, 32k-128k for Agent Platform models). Long conversations—especially extended customer support sessions, tutoring interactions, or multi-hour voice dialogues—will hit either the time limit or the token limit, causing the session to terminate or lose critical conversation history.
 
-**Solution:** [Context window compression](https://ai.google.dev/gemini-api/docs/live-session#context-window-compression) solves both constraints simultaneously. It uses a sliding-window approach to automatically compress or summarize earlier conversation history when the token count reaches a configured threshold. The Live API preserves recent context in full detail while compressing older portions. **Critically, enabling context window compression extends session duration to unlimited time** , removing the session duration limits (15 minutes for audio-only / 2 minutes for audio+video on Gemini Live API; 10 minutes for all sessions on Vertex AI) while also preventing token limit exhaustion. However, there is a trade-off: as the feature summarizes earlier conversation history rather than retaining it all, the detail of past context will be gradually lost over time. The model will have access to compressed summaries of older exchanges, not the full verbatim history.
+**Solution:** [Context window compression](https://ai.google.dev/gemini-api/docs/live-session#context-window-compression) solves both constraints simultaneously. It uses a sliding-window approach to automatically compress or summarize earlier conversation history when the token count reaches a configured threshold. The Live API preserves recent context in full detail while compressing older portions. **Critically, enabling context window compression extends session duration to unlimited time** , removing the session duration limits (15 minutes for audio-only / 2 minutes for audio+video on Gemini Live API; 10 minutes for all sessions on Agent Platform) while also preventing token limit exhaustion. However, there is a trade-off: as the feature summarizes earlier conversation history rather than retaining it all, the detail of past context will be gradually lost over time. The model will have access to compressed summaries of older exchanges, not the full verbatim history.
 
 ### Platform Behavior and Official Limits¶
 
-Session duration management and context window compression are **Live API platform features**. ADK configures these features via RunConfig and passes the configuration to the Live API, but the actual enforcement and implementation are handled by the Gemini/Vertex AI Live API backends.
+Session duration management and context window compression are **Live API platform features**. ADK configures these features via RunConfig and passes the configuration to the Live API, but the actual enforcement and implementation are handled by the Gemini Live API backends.
 
 **Important** : The duration limits and "unlimited" session behavior mentioned in this guide are based on current Live API behavior. These limits are subject to change by Google. Always verify current session duration limits and compression behavior in the official documentation:
 
   * [Gemini Live API Documentation](https://ai.google.dev/gemini-api/docs/live)
-  * [Vertex AI Live API Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
+  * [Gemini Live API (Agent Platform) Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
 
 
 
@@ -904,7 +905,7 @@ When context window compression is enabled:
   3. Earlier conversation history is compressed or summarized using a sliding window approach
   4. Recent context (last `target_tokens` worth) is preserved in full detail
   5. **Two critical effects occur simultaneously:**
-  6. Session duration limits are removed (no more 15-minute/2-minute caps on Gemini Live API or 10-minute caps on Vertex AI)
+  6. Session duration limits are removed (no more 15-minute/2-minute caps on Gemini Live API or 10-minute caps on Agent Platform)
   7. Token limits are managed (sessions can continue indefinitely regardless of conversation length)
 
 
@@ -953,7 +954,7 @@ Aspect | With Compression | Without Compression | Best For
 ---|---|---|---  
 **Session Duration** | Unlimited | 15 min (audio)  
 2 min (video) Gemini  
-10 min Vertex | Compression: Long sessions  
+10 min Agent Platform | Compression: Long sessions  
 No compression: Short sessions  
 **Context Quality** | Older context summarized | Full verbatim history | Compression: General conversation  
 No compression: Precision-critical  
@@ -1022,7 +1023,7 @@ No compression: Prototypes
 
   * ✅ Focus on **session duration limits** , not connection timeouts (ADK handles those automatically)
   * ✅ **Gemini Live API** : Monitor for 15-minute limit (audio-only) or 2-minute limit (audio+video)
-  * ✅ **Vertex AI Live API** : Monitor for 10-minute session limit
+  * ✅ **Gemini Live API (Agent Platform)** : Monitor for 10-minute session limit
   * ✅ Warn users 1-2 minutes before session duration limits
   * ✅ Implement graceful session transitions for conversations exceeding session limits
 
@@ -1030,7 +1031,7 @@ No compression: Prototypes
 
 ## Concurrent Live API Sessions and Quota Management¶
 
-**Problem:** Production voice applications typically serve multiple users simultaneously, each requiring their own Live API session. However, both Gemini Live API and Vertex AI Live API impose strict concurrent session limits that vary by platform and pricing tier. Without proper quota planning and session management, applications can hit these limits quickly, causing connection failures for new users or degraded service quality during peak usage.
+**Problem:** Production voice applications typically serve multiple users simultaneously, each requiring their own Live API session. However, both Gemini Live API and Gemini Live API (Agent Platform) impose strict concurrent session limits that vary by platform and pricing tier. Without proper quota planning and session management, applications can hit these limits quickly, causing connection failures for new users or degraded service quality during peak usage.
 
 **Solution:** Understand platform-specific quotas, design your architecture to stay within concurrent session limits, implement session pooling or queueing strategies when needed, and monitor quota usage proactively. ADK handles individual session lifecycle automatically, but developers must architect their applications to manage multiple concurrent users within quota constraints.
 
@@ -1053,7 +1054,7 @@ Source
 
 [Gemini API Quotas](https://ai.google.dev/gemini-api/docs/quota)
 
-**Vertex AI Live API (Google Cloud) - Project-based quotas:**
+**Gemini Live API (Agent Platform) - Project-based quotas:**
 
 **Resource Type** | **Limit** | **Scope**  
 ---|---|---  
@@ -1063,7 +1064,7 @@ Source
   
 Source
 
-[Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api) | [Vertex AI Quotas](https://cloud.google.com/vertex-ai/generative-ai/docs/quotas)
+[Gemini Live API (Agent Platform)](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api) | [Agent Platform Quotas](https://cloud.google.com/vertex-ai/generative-ai/docs/quotas)
 
 **Requesting a quota increase:**
 
@@ -1073,7 +1074,7 @@ To request an increase for Live API concurrent sessions, navigate to the [Quotas
 
   1. **Gemini Live API** : Concurrent session limits scale dramatically with API tier (50 → 1,000 sessions). Best for applications with unpredictable or rapidly scaling user bases willing to pay for higher tiers.
 
-  2. **Vertex AI Live API** : Rate-limited by connection establishment rate (10/min) but supports up to 1,000 total concurrent sessions. Best for enterprise applications with gradual scaling patterns and existing Google Cloud infrastructure. Additionally, you can request quota increases to prepare for production deployments with higher concurrency requirements.
+  2. **Gemini Live API (Agent Platform)** : Rate-limited by connection establishment rate (10/min) but supports up to 1,000 total concurrent sessions. Best for enterprise applications with gradual scaling patterns and existing Google Cloud infrastructure. Additionally, you can request quota increases to prepare for production deployments with higher concurrency requirements.
 
 
 
@@ -1250,7 +1251,7 @@ This parameter allows you to attach arbitrary key-value metadata to events gener
 When you provide `custom_metadata` in RunConfig:
 
   1. **Metadata attachment** : The dictionary is attached to every `Event` generated during the invocation
-  2. **Session persistence** : Events with metadata are stored in the session service (database, Vertex AI, or in-memory)
+  2. **Session persistence** : Events with metadata are stored in the session service (database, Agent Platform, or in-memory)
   3. **Event access** : Retrieve metadata from any event via `event.custom_metadata`
   4. **A2A integration** : For Agent-to-Agent (A2A) communication, ADK automatically propagates A2A request metadata to this field
 
@@ -1369,7 +1370,7 @@ CFC is designed for complex, multi-step workflows that benefit from intelligent 
 
   * [Gemini Function Calling Guide](https://ai.google.dev/gemini-api/docs/function-calling) \- Official documentation on compositional and parallel function calling
   * [ADK Parallel Functions Example](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/contributing/samples/parallel_functions/agent.py) \- Working example with async tools
-  * [ADK Performance Guide](/tools/performance/) \- Best practices for parallel-ready tools
+  * [ADK Performance Guide](/tools-custom/performance/) \- Best practices for parallel-ready tools
 
 
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -203,7 +203,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -306,21 +306,24 @@ PythonTypescriptGoJava
     # #    - Set it as an environment variable:
     # import os
     # os.environ["GOOGLE_API_KEY"] = "YOUR_API_KEY_HERE" # <--- REPLACE with your actual key
-    # # Or learn about other authentication methods (like Vertex AI):
+    # # Or learn about other authentication methods (like Agent Platform):
     # # https://adk.dev/agents/models/
     
     # ADK Imports
     from google.adk.agents import LlmAgent
     from google.adk.agents.callback_context import CallbackContext
-    from google.adk.runners import InMemoryRunner # Use InMemoryRunner
-    from google.genai import types # For types.Content
+    from google.adk.runners import InMemoryRunner  # Use InMemoryRunner
+    from google.genai import types  # For types.Content
     from typing import Optional
     
     # Define the model - Use the specific model name requested
-    GEMINI_2_FLASH="gemini-2.0-flash"
+    GEMINI_2_FLASH = "gemini-2.0-flash"
+    
     
     # --- 1. Define the Callback Function ---
-    def check_if_agent_should_run(callback_context: CallbackContext) -> Optional[types.Content]:
+    def check_if_agent_should_run(
+        callback_context: CallbackContext,
+    ) -> Optional[types.Content]:
         """
         Logs entry and checks 'skip_llm_agent' in session state.
         If True, returns Content to skip the agent's execution.
@@ -335,16 +338,25 @@ PythonTypescriptGoJava
     
         # Check the condition in session state dictionary
         if current_state.get("skip_llm_agent", False):
-            print(f"[Callback] State condition 'skip_llm_agent=True' met: Skipping agent {agent_name}.")
+            print(
+                f"[Callback] State condition 'skip_llm_agent=True' met: Skipping agent {agent_name}."
+            )
             # Return Content to skip the agent's run
             return types.Content(
-                parts=[types.Part(text=f"Agent {agent_name} skipped by before_agent_callback due to state.")],
-                role="model" # Assign model role to the overriding response
+                parts=[
+                    types.Part(
+                        text=f"Agent {agent_name} skipped by before_agent_callback due to state."
+                    )
+                ],
+                role="model",  # Assign model role to the overriding response
             )
         else:
-            print(f"[Callback] State condition not met: Proceeding with agent {agent_name}.")
+            print(
+                f"[Callback] State condition not met: Proceeding with agent {agent_name}."
+            )
             # Return None to allow the LlmAgent's normal execution
             return None
+    
     
     # --- 2. Setup Agent with Callback ---
     llm_agent_with_before_cb = LlmAgent(
@@ -352,8 +364,9 @@ PythonTypescriptGoJava
         model=GEMINI_2_FLASH,
         instruction="You are a concise assistant.",
         description="An LLM agent demonstrating stateful before_agent_callback",
-        before_agent_callback=check_if_agent_should_run # Assign the callback
+        before_agent_callback=check_if_agent_should_run,  # Assign the callback
     )
+    
     
     # --- 3. Setup Runner and Sessions using InMemoryRunner ---
     async def main():
@@ -371,7 +384,7 @@ PythonTypescriptGoJava
         session_service.create_session(
             app_name=app_name,
             user_id=user_id,
-            session_id=session_id_run
+            session_id=session_id_run,
             # No initial state means 'skip_llm_agent' will be False in the callback check
         )
     
@@ -380,41 +393,60 @@ PythonTypescriptGoJava
             app_name=app_name,
             user_id=user_id,
             session_id=session_id_skip,
-            state={"skip_llm_agent": True} # Set the state flag here
+            state={"skip_llm_agent": True},  # Set the state flag here
         )
     
         # --- Scenario 1: Run where callback allows agent execution ---
-        print("\n" + "="*20 + f" SCENARIO 1: Running Agent on Session '{session_id_run}' (Should Proceed) " + "="*20)
+        print(
+            "\n"
+            + "=" * 20
+            + f" SCENARIO 1: Running Agent on Session '{session_id_run}' (Should Proceed) "
+            + "=" * 20
+        )
         async for event in runner.run_async(
             user_id=user_id,
             session_id=session_id_run,
-            new_message=types.Content(role="user", parts=[types.Part(text="Hello, please respond.")])
+            new_message=types.Content(
+                role="user", parts=[types.Part(text="Hello, please respond.")]
+            ),
         ):
             # Print final output (either from LLM or callback override)
             if event.is_final_response() and event.content:
-                print(f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}")
+                print(
+                    f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}"
+                )
             elif event.is_error():
-                 print(f"Error Event: {event.error_details}")
+                print(f"Error Event: {event.error_details}")
     
         # --- Scenario 2: Run where callback intercepts and skips agent ---
-        print("\n" + "="*20 + f" SCENARIO 2: Running Agent on Session '{session_id_skip}' (Should Skip) " + "="*20)
+        print(
+            "\n"
+            + "=" * 20
+            + f" SCENARIO 2: Running Agent on Session '{session_id_skip}' (Should Skip) "
+            + "=" * 20
+        )
         async for event in runner.run_async(
             user_id=user_id,
             session_id=session_id_skip,
-            new_message=types.Content(role="user", parts=[types.Part(text="This message won't reach the LLM.")])
+            new_message=types.Content(
+                role="user", parts=[types.Part(text="This message won't reach the LLM.")]
+            ),
         ):
-             # Print final output (either from LLM or callback override)
-             if event.is_final_response() and event.content:
-                print(f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}")
-             elif event.is_error():
-                 print(f"Error Event: {event.error_details}")
+            # Print final output (either from LLM or callback override)
+            if event.is_final_response() and event.content:
+                print(
+                    f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}"
+                )
+            elif event.is_error():
+                print(f"Error Event: {event.error_details}")
+    
     
     # --- 4. Execute ---
     # In a Python script:
     # import asyncio
     # if __name__ == "__main__":
-    #     # Make sure GOOGLE_API_KEY environment variable is set if not using Vertex AI auth
-    #     # Or ensure Application Default Credentials (ADC) are configured for Vertex AI
+    #     # Make sure GOOGLE_API_KEY environment variable is set if not using Agent Platform auth
+    #     # Or ensure Application Default Credentials (ADC) are configured for Agent Platform
     #     asyncio.run(main())
     
     # In a Jupyter Notebook or similar environment:
@@ -799,22 +831,25 @@ PythonTypescriptGoJava
     # #    - Set it as an environment variable:
     # import os
     # os.environ["GOOGLE_API_KEY"] = "YOUR_API_KEY_HERE" # <--- REPLACE with your actual key
-    # # Or learn about other authentication methods (like Vertex AI):
+    # # Or learn about other authentication methods (like Agent Platform):
     # # https://adk.dev/agents/models/
     
     
     # ADK Imports
     from google.adk.agents import LlmAgent
     from google.adk.agents.callback_context import CallbackContext
-    from google.adk.runners import InMemoryRunner # Use InMemoryRunner
-    from google.genai import types # For types.Content
+    from google.adk.runners import InMemoryRunner  # Use InMemoryRunner
+    from google.genai import types  # For types.Content
     from typing import Optional
     
     # Define the model - Use the specific model name requested
-    GEMINI_2_FLASH="gemini-2.0-flash"
+    GEMINI_2_FLASH = "gemini-2.0-flash"
+    
     
     # --- 1. Define the Callback Function ---
-    def modify_output_after_agent(callback_context: CallbackContext) -> Optional[types.Content]:
+    def modify_output_after_agent(
+        callback_context: CallbackContext,
+    ) -> Optional[types.Content]:
         """
         Logs exit from an agent and checks 'add_concluding_note' in session state.
         If True, returns new Content to *replace* the agent's original output.
@@ -829,16 +864,25 @@ PythonTypescriptGoJava
     
         # Example: Check state to decide whether to modify the final output
         if current_state.get("add_concluding_note", False):
-            print(f"[Callback] State condition 'add_concluding_note=True' met: Replacing agent {agent_name}'s output.")
+            print(
+                f"[Callback] State condition 'add_concluding_note=True' met: Replacing agent {agent_name}'s output."
+            )
             # Return Content to *replace* the agent's own output
             return types.Content(
-                parts=[types.Part(text=f"Concluding note added by after_agent_callback, replacing original output.")],
-                role="model" # Assign model role to the overriding response
+                parts=[
+                    types.Part(
+                        text=f"Concluding note added by after_agent_callback, replacing original output."
+                    )
+                ],
+                role="model",  # Assign model role to the overriding response
             )
         else:
-            print(f"[Callback] State condition not met: Using agent {agent_name}'s original output.")
+            print(
+                f"[Callback] State condition not met: Using agent {agent_name}'s original output."
+            )
             # Return None - the agent's output produced just before this callback will be used.
             return None
+    
     
     # --- 2. Setup Agent with Callback ---
     llm_agent_with_after_cb = LlmAgent(
@@ -846,8 +890,9 @@ PythonTypescriptGoJava
         model=GEMINI_2_FLASH,
         instruction="You are a simple agent. Just say 'Processing complete!'",
         description="An LLM agent demonstrating after_agent_callback for output modification",
-        after_agent_callback=modify_output_after_agent # Assign the callback here
+        after_agent_callback=modify_output_after_agent,  # Assign the callback here
     )
+    
     
     # --- 3. Setup Runner and Sessions using InMemoryRunner ---
     async def main():
@@ -865,7 +910,7 @@ PythonTypescriptGoJava
         session_service.create_session(
             app_name=app_name,
             user_id=user_id,
-            session_id=session_id_normal
+            session_id=session_id_normal,
             # No initial state means 'add_concluding_note' will be False in the callback check
         )
         # print(f"Session '{session_id_normal}' created with default state.")
@@ -875,43 +920,61 @@ PythonTypescriptGoJava
             app_name=app_name,
             user_id=user_id,
             session_id=session_id_modify,
-            state={"add_concluding_note": True} # Set the state flag here
+            state={"add_concluding_note": True},  # Set the state flag here
         )
         # print(f"Session '{session_id_modify}' created with state={{'add_concluding_note': True}}.")
     
-    
         # --- Scenario 1: Run where callback allows agent's original output ---
-        print("\n" + "="*20 + f" SCENARIO 1: Running Agent on Session '{session_id_normal}' (Should Use Original Output) " + "="*20)
+        print(
+            "\n"
+            + "=" * 20
+            + f" SCENARIO 1: Running Agent on Session '{session_id_normal}' (Should Use Original Output) "
+            + "=" * 20
+        )
         async for event in runner.run_async(
             user_id=user_id,
             session_id=session_id_normal,
-            new_message=types.Content(role="user", parts=[types.Part(text="Process this please.")])
+            new_message=types.Content(
+                role="user", parts=[types.Part(text="Process this please.")]
+            ),
         ):
             # Print final output (either from LLM or callback override)
             if event.is_final_response() and event.content:
-                print(f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}")
+                print(
+                    f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}"
+                )
             elif event.is_error():
-                 print(f"Error Event: {event.error_details}")
+                print(f"Error Event: {event.error_details}")
     
         # --- Scenario 2: Run where callback replaces the agent's output ---
-        print("\n" + "="*20 + f" SCENARIO 2: Running Agent on Session '{session_id_modify}' (Should Replace Output) " + "="*20)
+        print(
+            "\n"
+            + "=" * 20
+            + f" SCENARIO 2: Running Agent on Session '{session_id_modify}' (Should Replace Output) "
+            + "=" * 20
+        )
         async for event in runner.run_async(
             user_id=user_id,
             session_id=session_id_modify,
-            new_message=types.Content(role="user", parts=[types.Part(text="Process this and add note.")])
+            new_message=types.Content(
+                role="user", parts=[types.Part(text="Process this and add note.")]
+            ),
         ):
-             # Print final output (either from LLM or callback override)
-             if event.is_final_response() and event.content:
-                print(f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}")
-             elif event.is_error():
-                 print(f"Error Event: {event.error_details}")
+            # Print final output (either from LLM or callback override)
+            if event.is_final_response() and event.content:
+                print(
+                    f"Final Output: [{event.author}] {event.content.parts[0].text.strip()}"
+                )
+            elif event.is_error():
+                print(f"Error Event: {event.error_details}")
+    
     
     # --- 4. Execute ---
     # In a Python script:
     # import asyncio
     # if __name__ == "__main__":
-    #     # Make sure GOOGLE_API_KEY environment variable is set if not using Vertex AI auth
-    #     # Or ensure Application Default Credentials (ADC) are configured for Vertex AI
+    #     # Make sure GOOGLE_API_KEY environment variable is set if not using Agent Platform auth
+    #     # Or ensure Application Default Credentials (ADC) are configured for Agent Platform
     #     asyncio.run(main())
     
     # In a Jupyter Notebook or similar environment:

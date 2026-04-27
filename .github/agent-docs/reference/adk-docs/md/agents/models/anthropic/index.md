@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -72,7 +72,7 @@ Models for Agents
         * Get started 
         * Prerequisites 
         * Example implementation 
-      * [ Vertex AI hosted  ](../vertex/)
+      * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
@@ -109,12 +109,12 @@ Agent Runtime
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
@@ -197,7 +197,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -249,7 +249,7 @@ Table of contents
 
 Supported in ADKJava v0.2.0
 
-You can integrate Anthropic's Claude models directly using an Anthropic API key or from a Vertex AI backend into your Java ADK applications by using the ADK's `Claude` wrapper class. You can also access Anthropic models through Google Cloud Vertex AI services. For more information, see the [Third-Party Models on Vertex AI](/agents/models/vertex/#third-party-models-on-vertex-ai-eg-anthropic-claude) section. You can also use Anthropic models through the [LiteLLM](/agents/models/litellm/) library for Python.
+You can integrate Anthropic's Claude models directly using an Anthropic API key or from an Agent Platform backend into your Java ADK applications by using the ADK's `Claude` wrapper class. You can also access Anthropic models through Google Cloud Agent Platform services. For more information, see the [Third-Party Models on Agent Platform](/agents/models/agent-platform/#anthropic-claude) section. You can also use Anthropic models through the [LiteLLM](/agents/models/litellm/) library for Python.
 
 ## Get started¶
 
@@ -330,7 +330,7 @@ Instantiate `com.google.adk.models.Claude`, providing the desired Claude model n
     }
     
 
-Back to top  [ Previous  Gemma  ](../google-gemma/) [ Next  Vertex AI hosted  ](../vertex/)
+Back to top  [ Previous  Gemma  ](../google-gemma/) [ Next  Agent Platform hosted  ](../agent-platform/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

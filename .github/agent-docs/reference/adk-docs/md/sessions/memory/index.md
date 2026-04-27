@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -149,7 +150,7 @@ Sessions
         * Choosing the Right Memory Service 
         * In-Memory Memory 
           * Searching Memory Within a Tool 
-        * Vertex AI Memory Bank 
+        * Memory Bank 
           * How It Works 
           * Prerequisites 
           * Configuration 
@@ -206,7 +207,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -246,7 +247,7 @@ Table of contents
   * Choosing the Right Memory Service 
   * In-Memory Memory 
     * Searching Memory Within a Tool 
-  * Vertex AI Memory Bank 
+  * Memory Bank 
     * How It Works 
     * Prerequisites 
     * Configuration 
@@ -292,12 +293,12 @@ The ADK offers two distinct `MemoryService` implementations, each tailored to di
 
 **Feature** | **InMemoryMemoryService** | **VertexAiMemoryBankService**  
 ---|---|---  
-**Persistence** | None (data is lost on restart) | Yes (Managed by Vertex AI)  
+**Persistence** | None (data is lost on restart) | Yes (Managed by Agent Platform)  
 **Primary Use Case** | Prototyping, local development, and simple testing. | Building meaningful, evolving memories from user conversations.  
 **Memory Extraction** | Stores full conversation | Extracts [meaningful information](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/generate-memories) from conversations and consolidates it with existing memories (powered by LLM)  
 **Search Capability** | Basic keyword matching. | Advanced semantic search.  
-**Setup Complexity** | None. It's the default. | Low. Requires an [Agent Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/overview) instance in Vertex AI.  
-**Dependencies** | None. | Google Cloud Project, Vertex AI API  
+**Setup Complexity** | None. It's the default. | Low. Requires an [Agent Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/overview) instance on Agent Platform.  
+**Dependencies** | None. | Google Cloud Project, Agent Platform API  
 **When to use it** | When you want to search across multiple sessions’ chat histories for prototyping. | When you want your agent to remember and learn from past interactions.  
   
 ## In-Memory Memory¶
@@ -843,9 +844,9 @@ GoTypeScriptJava
     }
     
 
-## Vertex AI Memory Bank¶
+## Memory Bank¶
 
-The `VertexAiMemoryBankService` connects your agent to [Vertex AI Memory Bank](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/overview), a fully managed Google Cloud service that provides sophisticated, persistent memory capabilities for conversational agents.
+The `VertexAiMemoryBankService` connects your agent to [Memory Bank](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/overview), a fully managed Google Cloud service that provides sophisticated, persistent memory capabilities for conversational agents.
 
 ### How It Works¶
 
@@ -860,8 +861,8 @@ The service handles two key operations:
 
 Before you can use this feature, you must have:
 
-  1. **A Google Cloud Project:** With the Vertex AI API enabled.
-  2. **An Agent Engine:** You need to create an Agent Engine in Vertex AI. You do not need to deploy your agent to Agent Engine Runtime to use Memory Bank. This will provide you with the **Agent Engine ID** required for configuration.
+  1. **A Google Cloud Project:** With the Agent Platform API enabled.
+  2. **An Agent Runtime:** You need to create an Agent Runtime on Agent Platform. You do not need to deploy your agent to Agent Runtime to use Memory Bank. This will provide you with the **Agent Runtime ID** required for configuration.
   3. **Authentication:** Ensure your local environment is authenticated to access Google Cloud services. The simplest way is to run: 
          
          gcloud auth application-default login
@@ -1045,7 +1046,7 @@ PythonTypeScriptGo
 The memory workflow internally involves these steps:
 
   1. **Session Interaction:** A user interacts with an agent via a `Session`, managed by a `SessionService`. Events are added, and state might be updated.
-  2. **Ingestion into Memory:** At some point (often when a session is considered complete or has yielded significant information), your application calls `memory_service.add_session_to_memory(session)`. This extracts relevant information from the session's events and adds it to the long-term knowledge store (in-memory dictionary or Agent Engine Memory Bank).
+  2. **Ingestion into Memory:** At some point (often when a session is considered complete or has yielded significant information), your application calls `memory_service.add_session_to_memory(session)`. This extracts relevant information from the session's events and adds it to the long-term knowledge store (in-memory dictionary or Agent Runtime Memory Bank).
   3. **Later Query:** In a _different_ (or the same) session, the user might ask a question requiring past context (e.g., "What did we discuss about project X last week?").
   4. **Agent Uses Memory Tool:** An agent equipped with a memory-retrieval tool (like the built-in `load_memory` tool) recognizes the need for past context. It calls the tool, providing a search query (e.g., "discussion project X last week").
   5. **Search Execution:** The tool internally calls `memory_service.search_memory(app_name, user_id, query)`.

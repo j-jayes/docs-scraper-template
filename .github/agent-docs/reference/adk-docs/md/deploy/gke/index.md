@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../)
 
 Deployment 
-      * [ Agent Engine  ](../agent-engine/)
+      * [ Agent Runtime  ](../agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../agent-engine/asp/)
-        * [ Test deployed agents  ](../agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../agent-runtime/deploy/)
+        * [ agents-cli  ](../agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../agent-runtime/test/)
       * [ Cloud Run  ](../cloud-run/)
       * GKE  [ GKE  ](./) Table of contents 
         * Environment variables 
@@ -123,7 +123,7 @@ Agent Engine
           * Create Your Agent 
           * Code files 
           * Build the container image 
-          * Configure Kubernetes Service Account for Vertex AI 
+          * Configure Kubernetes Service Account for Agent Platform 
           * Create the Kubernetes manifest files 
           * Deploy the Application 
         * Option 2: Automated Deployment using adk deploy gke 
@@ -228,7 +228,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -273,7 +273,7 @@ Table of contents
     * Create Your Agent 
     * Code files 
     * Build the container image 
-    * Configure Kubernetes Service Account for Vertex AI 
+    * Configure Kubernetes Service Account for Agent Platform 
     * Create the Kubernetes manifest files 
     * Deploy the Application 
   * Option 2: Automated Deployment using adk deploy gke 
@@ -315,7 +315,7 @@ Supported in ADKPython
 
 To deploy your agent you will need to have a Kubernetes cluster running on GKE. You can create a cluster using the Google Cloud Console or the `gcloud` command line tool.
 
-In this example we will deploy a simple agent to GKE. The agent will be a FastAPI application that uses `Gemini 2.0 Flash` as the LLM. We can use Vertex AI or AI Studio as the LLM provider using the Environment variable `GOOGLE_GENAI_USE_VERTEXAI`.
+In this example we will deploy a simple agent to GKE. The agent will be a FastAPI application that uses `Gemini 2.0 Flash` as the LLM. We can use Agent Platform or AI Studio as the LLM provider using the Environment variable `GOOGLE_GENAI_USE_VERTEXAI`.
 
 ## Environment variables¶
 
@@ -324,7 +324,7 @@ Set your environment variables as described in the [Setup and Installation](../.
     
     export GOOGLE_CLOUD_PROJECT=your-project-id # Your GCP project ID
     export GOOGLE_CLOUD_LOCATION=us-central1 # Or your preferred location
-    export GOOGLE_GENAI_USE_VERTEXAI=true # Set to true if using Vertex AI
+    export GOOGLE_GENAI_USE_VERTEXAI=true # Set to true if using Agent Platform
     export GOOGLE_CLOUD_PROJECT_NUMBER=$(gcloud projects describe --format json $GOOGLE_CLOUD_PROJECT | jq -r ".projectNumber")
     
 
@@ -565,9 +565,9 @@ Verify the image is built and pushed to the Artifact Registry:
       --project=$GOOGLE_CLOUD_PROJECT
     
 
-### Configure Kubernetes Service Account for Vertex AI¶
+### Configure Kubernetes Service Account for Agent Platform¶
 
-If your agent uses Vertex AI, you need to create a Kubernetes service account with the necessary permissions. This example creates a service account named `adk-agent-sa` and binds it to the `Vertex AI User` role.
+If your agent uses Agent Platform, you need to create a Kubernetes service account with the necessary permissions. This example creates a service account named `adk-agent-sa` and binds it to the `Agent Platform User` role.
 
 > If you are using AI Studio and accessing the model with an API key you can skip this step.
     
@@ -882,7 +882,7 @@ These are some common issues you might encounter when deploying your agent to GK
 
 ### 403 Permission Denied for `Gemini 2.0 Flash`¶
 
-This usually means that the Kubernetes service account does not have the necessary permission to access the Vertex AI API. Ensure that you have created the service account and bound it to the `Vertex AI User` role as described in the Configure Kubernetes Service Account for Vertex AI section. If you are using AI Studio, ensure that you have set the `GOOGLE_API_KEY` environment variable in the deployment manifest and it is valid.
+This usually means that the Kubernetes service account does not have the necessary permission to access the Agent Platform API. Ensure that you have created the service account and bound it to the `Agent Platform User` role as described in the Configure Kubernetes Service Account for Agent Platform section. If you are using AI Studio, ensure that you have set the `GOOGLE_API_KEY` environment variable in the deployment manifest and it is valid.
 
 ### 404 or Not Found response¶
 

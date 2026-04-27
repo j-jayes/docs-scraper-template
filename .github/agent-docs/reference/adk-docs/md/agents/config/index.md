@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -81,7 +81,7 @@ Models for Agents
       * [ Gemini  ](../models/google-gemini/)
       * [ Gemma  ](../models/google-gemma/)
       * [ Claude  ](../models/anthropic/)
-      * [ Vertex AI hosted  ](../models/vertex/)
+      * [ Agent Platform hosted  ](../models/agent-platform/)
       * [ Apigee AI Gateway  ](../models/apigee/)
       * [ Ollama  ](../models/ollama/)
       * [ vLLM  ](../models/vllm/)
@@ -111,18 +111,19 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -205,7 +206,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -475,7 +476,7 @@ For more details, see the full code for this sample in the [ADK sample repositor
 
 ## Deploy agent configs¶
 
-You can deploy Agent Config agents with [Cloud Run](/deploy/cloud-run/) and [Agent Engine](/deploy/agent-engine/), using the same procedure as code-based agents. For more information on how to prepare and deploy Agent Config-based agents, see the [Cloud Run](/deploy/cloud-run/) and [Agent Engine](/deploy/agent-engine/) deployment guides.
+You can deploy Agent Config agents with [Cloud Run](/deploy/cloud-run/) and [Agent Runtime](/deploy/agent-runtime/), using the same procedure as code-based agents. For more information on how to prepare and deploy Agent Config-based agents, see the [Cloud Run](/deploy/cloud-run/) and [Agent Runtime](/deploy/agent-runtime/) deployment guides.
 
 ## Known limitations¶
 
@@ -498,7 +499,7 @@ The Agent Config feature is experimental and includes the following limitations:
     * `McpToolset`: Connects to Model Context Protocol (MCP) servers.
     * `ExampleTool`: Provides example-based few-shot learning for tools.
   * **Agent Type Support:** The `LangGraphAgent` and `A2aAgent` types are not yet supported.
-  * **Vertex AI Search:** The `VertexAiSearchTool` is currently supported in Python and Java Agent Configs.
+  * **Agent Search:** The `VertexAiSearchTool` is currently supported in Python and Java Agent Configs.
 
 
 

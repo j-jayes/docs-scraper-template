@@ -47,6 +47,10 @@ Constants and utilities for A2A metadata keys.
 
 Enum for A2A custom metadata keys.
 
+[A2AMetadataKey](com/google/adk/a2a/converters/A2AMetadataKey.html "enum class in com.google.adk.a2a.converters")
+
+Enum for the type of A2A metadata.
+
 [AbstractMcpTool<T>](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
 
 Base class for MCP tools.
@@ -66,6 +70,10 @@ DTO for POST /apps/{appName}/eval_sets/{evalSetId}/add-session requests.
 [AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils")
 
 Service provider interface for ADK components to be registered in [`ComponentRegistry`](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils").
+
+[AdkMetadataKey](com/google/adk/a2a/converters/AdkMetadataKey.html "enum class in com.google.adk.a2a.converters")
+
+Enum for the type of ADK metadata.
 
 [AdkWebCorsConfig](com/google/adk/web/config/AdkWebCorsConfig.html "class in com.google.adk.web.config")
 
@@ -286,6 +294,30 @@ Base interface for toolsets.
 [Basic](com/google/adk/flows/llmflows/Basic.html "class in com.google.adk.flows.llmflows")
 
 [`RequestProcessor`](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows") that handles basic information to build the LLM request.
+
+[BigQueryAgentAnalyticsPlugin](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")
+
+BigQuery Agent Analytics Plugin for Java.
+
+[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
+
+Configuration for the BigQueryAgentAnalyticsPlugin.
+
+[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+
+Builder for [`BigQueryLoggerConfig`](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics").
+
+[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
+
+Retry configuration for BigQuery writes.
+
+[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+
+Builder for [`BigQueryLoggerConfig.RetryConfig`](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics").
+
+[BigQuerySchema](com/google/adk/plugins/agentanalytics/BigQuerySchema.html "class in com.google.adk.plugins.agentanalytics")
+
+Utility for defining the BigQuery events table schema.
 
 [BuiltInCodeExecutionTool](com/google/adk/tools/BuiltInCodeExecutionTool.html "class in com.google.adk.tools")
 
@@ -615,10 +647,6 @@ Represents an few-shot example.
 
 Builder for constructing [`Example`](com/google/adk/examples/Example.html "class in com.google.adk.examples") instances.
 
-[Examples](com/google/adk/flows/llmflows/Examples.html "class in com.google.adk.flows.llmflows")
-
-[`RequestProcessor`](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows") that populates examples in LLM request.
-
 [ExampleTool](com/google/adk/tools/ExampleTool.html "class in com.google.adk.tools")
 
 A tool that injects (few-shot) examples into the outgoing LLM request as system instructions.
@@ -809,6 +837,10 @@ Builder for [`InvocationContext`](com/google/adk/agents/InvocationContext.html "
 The base class for the types that needs JSON serialization/deserialization capability.
 
 [LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j")
+
+ 
+
+[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
 
  
 
@@ -1042,7 +1074,7 @@ Builder for [`Model`](com/google/adk/models/Model.html "class in com.google.adk.
 
 [ModelNameUtils](com/google/adk/utils/ModelNameUtils.html "class in com.google.adk.utils")
 
- 
+Utility class for model names.
 
 [NamedToolPredicate](com/google/adk/tools/NamedToolPredicate.html "class in com.google.adk.tools")
 
@@ -1051,6 +1083,10 @@ Builder for [`Model`](com/google/adk/models/Model.html "class in com.google.adk.
 [OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config")
 
 Configuration class for OpenTelemetry, setting up the tracer provider and span exporter.
+
+[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows")
+
+Processor that handles output schema for agents with tools.
 
 [Pairs](com/google/adk/utils/Pairs.html "class in com.google.adk.utils")
 
@@ -1247,6 +1283,10 @@ Data Transfer Object (DTO) for POST /apps/{appName}/users/{userId}/sessions and 
 [SessionUtils](com/google/adk/sessions/SessionUtils.html "class in com.google.adk.sessions")
 
 Utility functions for session service.
+
+[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
+
+Internal tool used for output schema workaround.
 
 [SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
 

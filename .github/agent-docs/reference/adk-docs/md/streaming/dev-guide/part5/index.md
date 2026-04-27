@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../../agents/models/google-gemini/)
       * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
       * [ Ollama  ](../../../agents/models/ollama/)
       * [ vLLM  ](../../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
@@ -232,7 +233,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -958,7 +959,7 @@ A fully integrated end-to-end audio model architecture where the model processes
 Audio Model Architecture | Platform | Model | Notes  
 ---|---|---|---  
 Native Audio | Gemini Live API | [gemini-2.5-flash-native-audio-preview-12-2025](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-live) | Publicly available  
-Native Audio | Vertex AI Live API | [gemini-live-2.5-flash-native-audio](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api) | Public preview  
+Native Audio | Gemini Live API | [gemini-live-2.5-flash-native-audio](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-live-api) | Public preview  
   
 **Key Characteristics:**
 
@@ -983,7 +984,7 @@ Audio input is processed natively, but responses are first generated as text the
 Audio Model Architecture | Platform | Model | Notes  
 ---|---|---|---  
 Half-Cascade | Gemini Live API | [gemini-2.0-flash-live-001](https://ai.google.dev/gemini-api/docs/models#gemini-2.0-flash-live) | Deprecated on December 09, 2025  
-Half-Cascade | Vertex AI Live API | [gemini-live-2.5-flash](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash#2.5-flash) | Private GA, not publicly available  
+Half-Cascade | Gemini Live API | [gemini-live-2.5-flash](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash#2.5-flash) | Private GA, not publicly available  
   
 **Key Characteristics:**
 
@@ -1017,7 +1018,7 @@ When building ADK applications, you'll need to specify which model to use. The r
 **Why use environment variables:**
 
   * **Model availability changes** : Models are released, updated, and deprecated regularly (e.g., `gemini-2.0-flash-live-001` was deprecated on December 09, 2025)
-  * **Platform-specific names** : Gemini Live API and Vertex AI Live API use different model naming conventions for the same functionality
+  * **Platform-specific names** : Gemini Live API and Gemini Live API on Agent Platform use different model naming conventions for the same functionality
   * **Easy switching** : Change models without modifying code by updating the `.env` file
   * **Environment-specific configuration** : Use different models for development, staging, and production
 
@@ -1029,7 +1030,7 @@ When building ADK applications, you'll need to specify which model to use. The r
     # For Gemini Live API (publicly available)
     DEMO_AGENT_MODEL=gemini-2.5-flash-native-audio-preview-12-2025
     
-    # For Vertex AI Live API (if using Vertex AI)
+    # For Gemini Live API (if using Agent Platform)
     # DEMO_AGENT_MODEL=gemini-live-2.5-flash-native-audio
     
 
@@ -1064,7 +1065,7 @@ This is a Python import behavior: when you import a module, its top-level code e
 
 **Selecting the right model:**
 
-  1. **Choose platform** : Decide between Gemini Live API (public) or Vertex AI Live API (enterprise)
+  1. **Choose platform** : Decide between Gemini Live API (public) or Gemini Live API on Agent Platform (enterprise)
   2. **Choose architecture** :
   3. Native Audio for natural conversational AI with advanced features
   4. Half-Cascade for production reliability with tool execution
@@ -1078,7 +1079,7 @@ This is a Python import behavior: when you import a module, its top-level code e
 For the latest information on Live API model compatibility and availability:
 
   * **Gemini Live API models** : See the [Gemini models documentation](https://ai.google.dev/gemini-api/docs/models/gemini)
-  * **Vertex AI Live API models** : See the [Vertex AI model documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)
+  * **Gemini Live API models (Agent Platform)** : See the [Agent Platform model documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)
 
 
 
@@ -1570,11 +1571,11 @@ Voice configuration is supported on both platforms, but voice availability may v
 
 
 
-**Vertex AI Live API:**
+**Gemini Live API (Agent Platform):**
 
   * ✅ Voice configuration supported
   * ⚠️ **Platform-specific difference** : Voice availability may differ from Gemini Live API
-  * ⚠️ **Verification required** : Check [Vertex AI documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api) for the current list of supported voices
+  * ⚠️ **Verification required** : Check [Agent Platform documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api) for the current list of supported voices
 
 
 
@@ -1941,7 +1942,7 @@ These features are **model-specific** and have platform implications:
 
 
 
-**Vertex AI Live API:**
+**Gemini Live API (Agent Platform):**
 
   * ❌ Not currently supported on `gemini-live-2.5-flash` (half-cascade model)
   * ⚠️ **Platform-specific difference** : Proactivity and affective dialog require native audio models, which are currently only available on Gemini Live API

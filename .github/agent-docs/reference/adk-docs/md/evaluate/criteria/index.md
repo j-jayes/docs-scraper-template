@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -249,7 +249,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -688,11 +688,11 @@ This criterion should be used when you need to ensure that agent responses compl
 
 ### Details¶
 
-This criterion assesses whether the agent's response contains any harmful content, such as hate speech, harassment, or dangerous information. Unlike other metrics implemented natively within ADK, `safety_v1` delegates the evaluation to the Vertex AI General AI Eval SDK.
+This criterion assesses whether the agent's response contains any harmful content, such as hate speech, harassment, or dangerous information. Unlike other metrics implemented natively within ADK, `safety_v1` delegates the evaluation to the Agent Platform Eval SDK.
 
 ### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Vertex AI SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum safety score for a response to be considered passing.
 
@@ -759,11 +759,11 @@ Use this criterion when you want to measure the overall success of a multi-turn 
 
 #### Details¶
 
-This criterion takes into account all the turns of the multi-turn conversation to determine if the task was successfully completed. It delegates the evaluation to the Vertex AI General AI Eval SDK.
+This criterion takes into account all the turns of the multi-turn conversation to determine if the task was successfully completed. It delegates the evaluation to the Agent Platform Eval SDK.
 
 #### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Vertex AI SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum score for the conversation to be considered a success.
 
@@ -791,11 +791,11 @@ This metric is different from `multi_turn_task_success_v1`, in the sense that ta
 
 #### Details¶
 
-This criterion is a reference-free metric that assesses the quality of the interaction trajectory across multiple turns. It delegates the evaluation to the Vertex AI General AI Eval SDK.
+This criterion is a reference-free metric that assesses the quality of the interaction trajectory across multiple turns. It delegates the evaluation to the Agent Platform Eval SDK.
 
 #### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Vertex AI SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum trajectory quality score to be considered passing.
 
@@ -827,7 +827,7 @@ This metric is reference-free and evaluates the function calling behavior withou
 
 #### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Vertex AI SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum tool use quality score to be considered passing.
 

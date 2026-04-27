@@ -139,6 +139,10 @@ Description
 
  
 
+[com.google.adk.plugins.agentanalytics](com/google/adk/plugins/agentanalytics/package-summary.html)
+
+ 
+
 [com.google.adk.plugins.recordings](com/google/adk/plugins/recordings/package-summary.html)
 
  

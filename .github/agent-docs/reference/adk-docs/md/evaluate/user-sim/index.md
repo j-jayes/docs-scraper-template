@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -127,6 +128,10 @@ Evaluation
         * Example: Evaluating the hello_world agent with conversation scenarios 
         * User simulator configuration 
         * Custom Personas 
+        * Generating Evaluation Cases via User Simulation 
+          * Command Syntax 
+          * Configuration File Format 
+          * Configuration Fields 
       * [ Environment Simulation  ](../environment_simulation/)
       * [ Custom Metrics  ](../custom_metrics/)
       * [ Optimization  ](../../optimize/)
@@ -198,7 +203,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -239,6 +244,10 @@ Table of contents
   * Example: Evaluating the hello_world agent with conversation scenarios 
   * User simulator configuration 
   * Custom Personas 
+  * Generating Evaluation Cases via User Simulation 
+    * Command Syntax 
+    * Configuration File Format 
+    * Configuration Fields 
 
 
 
@@ -463,6 +472,45 @@ Example of a custom persona definition:
       }
     }
     
+
+## Generating Evaluation Cases via User Simulation¶
+
+Writing evaluation cases manually can be time-consuming and may not cover all potential failure modes. ADK provides a command to automatically generate diverse and realistic conversation scenarios based on your agent's definition using the Agent Platform Eval SDK.
+
+Prerequisites: Agent Platform Credentials
+
+Generating evaluation cases uses the [Vertex Gen AI Evaluation Service API](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview). You must have a Google Cloud project with the Agent Platform API enabled and valid Application Default Credentials (ADC) configured in your environment.
+
+### Command Syntax¶
+    
+    
+    adk eval_set generate_eval_cases \
+        <AGENT_MODULE_FILE_PATH> \
+        <EVAL_SET_ID> \
+        --user_simulation_config_file=<PATH_TO_CONFIG_FILE>
+    
+
+### Configuration File Format¶
+
+The `--user_simulation_config_file` expects a JSON file matching the `ConversationGenerationConfig` schema:
+    
+    
+    {
+      "count": 5,
+      "generation_instruction": "Generate scenarios where the user asks to control home devices under different conditions.",
+      "environment_context": "Available devices: device_1 (Light), device_2 (Thermostat).",
+      "model_name": "gemini-flash-latest"
+    }
+    
+
+### Configuration Fields¶
+
+  * **`count`** (required): The number of conversation scenarios to generate.
+  * **`generation_instruction`** (optional): A natural language prompt guiding the specific types of scenarios or goals you want to test.
+  * **`environment_context`** (optional): Context describing the backend data or state accessible to the agent's tools. This helps the generator create queries that are grounded in realistic data (e.g., valid device IDs).
+  * **`model_name`** (required): The Gemini model used for generation (e.g., `gemini-flash-latest`).
+
+
 
 Back to top  [ Previous  Criteria  ](../criteria/) [ Next  Environment Simulation  ](../environment_simulation/)
 

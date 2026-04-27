@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](models/google-gemini/)
       * [ Gemma  ](models/google-gemma/)
       * [ Claude  ](models/anthropic/)
-      * [ Vertex AI hosted  ](models/vertex/)
+      * [ Agent Platform hosted  ](models/agent-platform/)
       * [ Apigee AI Gateway  ](models/apigee/)
       * [ Ollama  ](models/ollama/)
       * [ vLLM  ](models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
@@ -194,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 

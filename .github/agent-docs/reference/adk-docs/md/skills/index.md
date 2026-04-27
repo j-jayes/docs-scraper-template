@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
@@ -106,12 +106,12 @@ Agent Runtime
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
@@ -194,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -246,7 +246,7 @@ Table of contents
 
 # Skills for ADK agents¶
 
-Supported in ADKPython v1.25.0Experimental
+Supported in ADKPython v1.25.0TypeScript v0.6.1Experimental
 
 An agent **_Skill_** is a self-contained unit of functionality that an ADK agent can use to perform a specific task. An agent Skill encapsulates the necessary instructions, resources, and tools required for a task, based on the [Agent Skill specification](https://agentskills.io/specification). The structure of a Skill allows it to be loaded incrementally to minimize the impact on the operating context window of the agent.
 
@@ -257,6 +257,8 @@ The Skills feature is experimental. We welcome your [feedback](https://github.co
 ## Get started¶
 
 Use the `SkillToolset` class to include one or more Skills in your agent definition and then add to your agent's tools list. You can define a Skill in code, or load the skill from a file definition, as shown below:
+
+PythonTypeScript
     
     
     import pathlib
@@ -270,7 +272,8 @@ Use the `SkillToolset` class to include one or more Skills in your agent definit
     )
     
     my_skill_toolset = skill_toolset.SkillToolset(
-        skills=[weather_skill]
+        skills=[weather_skill],
+        additional_tools=[get_weather_tool],
     )
     
     root_agent = Agent(
@@ -284,6 +287,9 @@ Use the `SkillToolset` class to include one or more Skills in your agent definit
             my_skill_toolset,
         ],
     )
+    
+    
+    
     
 
 For a complete code example of an ADK agent with a Skill, including both file-based and in-line Skill definitions, see the code sample [skills_agent](https://github.com/google/adk-python/tree/main/contributing/samples/skills_agent).
@@ -307,7 +313,7 @@ The following directory structure shows the recommended way to include Skills in
     
     
     my_agent/
-        agent.py
+        agent.py (or agent.ts)
         .env
         skills/
             example_skill/        # Skill
@@ -319,12 +325,16 @@ The following directory structure shows the recommended way to include Skills in
                 assets/
                     *.*           # templates, images, data
                 scripts/
-                    *.py          # utility scripts
+                    *.py          # utility scripts (Python)
+                    *.js          # utility scripts (JavaScript)
+                    *.ts          # utility scripts (TypeScript)
     
 
 ### Define Skills in code¶
 
-In ADK agents, you can also define Skills within the code of the agent, using the `Skill` model class, as shown below. This method of Skill definition enables you to dynamically modify skills from your ADK agent code.
+In ADK agents, you can also define Skills within the code of the agent, as shown below. This method of Skill definition enables you to dynamically modify skills from your ADK agent code.
+
+PythonTypeScript
     
     
     from google.adk.skills import models
@@ -347,6 +357,9 @@ In ADK agents, you can also define Skills within the code of the agent, using th
             },
         ),
     )
+    
+    
+    
     
 
 ## Next steps¶

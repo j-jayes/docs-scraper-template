@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -193,7 +194,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -254,17 +255,13 @@ Table of contents
 
 # Data handling for agent workflows¶
 
-Supported in ADKPython v2.0.0Alpha
+Supported in ADKPython v2.0.0Beta
 
 Structuring and managing data between agents and graph-based notes is critical for building reliable processes with ADK. This guide explains data handling within graph-based workflows and collaboration agents, including how information is transmitted and received between graph nodes using **_Events_**. It covers the essential parameters for events, data, content, and state, and explains how to implement structured data transfer for both function and agent nodes using data format schemas and specific instruction syntax.
 
-Alpha Release
+Beta Release
 
-ADK 2.0 is an Alpha release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
-
-WARNING: DO NOT MIX ADK 2.0 and ADK 1.0 data storage systems
-
-If you use persistent storage for ADK 2.0 projects, **DO NOT allow ADK 2.0 projects to share storage with ADK 1.0 projects** , including, but not limited to, session storage, memory systems, and evaluation data. Doing so may result in loss of data or make the data unusable in ADK 1.0 projects.
+ADK 2.0 is a Beta release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
 ## Workflow graph Events¶
 
@@ -300,8 +297,8 @@ The **_output_** parameter of an **_Event_** is the standard way to pass data to
     def my_function_node_1():
         return Event(output="The Result")
     
-    def my_function_node_2(node_input: Content):
-        output_value = node_input.parts[0].text.lower()
+    def my_function_node_2(node_input: str):
+        output_value = node_input.lower()
         return Event(output=output_value) # "the result"
     
 
@@ -350,7 +347,7 @@ The **_state_** parameter of an **_Event_** is used to maintain a small set of d
           },
       )
     
-    async def read_state_node(ctx: WorkflowContext):
+    async def read_state_node(ctx: Context):
       print(f"attempts state: {ctx.state}") # attempts state: attempts: 1
     
     root_agent = Workflow(
@@ -394,7 +391,7 @@ The code example below shows how to set both input and output schemas for a suba
         input_schema=FlightSearchInput,
         output_schema=FlightSearchOutput,
         tools=[search_flights_api],
-        mode="single-turn",
+        mode="single_turn",
         ...
     )
     

@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../../agents/models/google-gemini/)
       * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
       * [ Ollama  ](../../../agents/models/ollama/)
       * [ vLLM  ](../../../agents/models/vllm/)
@@ -99,18 +99,19 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
@@ -193,14 +194,14 @@ Gemini Live API Toolkit
               * Field Service & Technical Assistance 
               * Healthcare & Telemedicine 
               * Financial Services & Wealth Management 
-          * 1.2 Gemini Live API and Vertex AI Live API 
+          * 1.2 Gemini Live API and Gemini Live API (Agent Platform) 
             * What is the Live API? 
-            * Gemini Live API vs Vertex AI Live API 
+            * Gemini Live API vs Gemini Live API (Agent Platform) 
           * 1.3 ADK Gemini Live API Toolkit: For Building Realtime Agent Applications 
             * Platform Flexibility 
               * How Platform Selection Works 
                 * Development Phase: Gemini Live API (Google AI Studio) 
-                * Production Phase: Vertex AI Live API (Google Cloud) 
+                * Production Phase: Gemini Live API (Agent Platform) 
           * 1.4 ADK Gemini Live API Toolkit Architecture Overview 
             * High-Level Architecture 
           * 1.5 ADK Gemini Live API Toolkit Application Lifecycle 
@@ -236,7 +237,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -282,14 +283,14 @@ Table of contents
       * Field Service & Technical Assistance 
       * Healthcare & Telemedicine 
       * Financial Services & Wealth Management 
-  * 1.2 Gemini Live API and Vertex AI Live API 
+  * 1.2 Gemini Live API and Gemini Live API (Agent Platform) 
     * What is the Live API? 
-    * Gemini Live API vs Vertex AI Live API 
+    * Gemini Live API vs Gemini Live API (Agent Platform) 
   * 1.3 ADK Gemini Live API Toolkit: For Building Realtime Agent Applications 
     * Platform Flexibility 
       * How Platform Selection Works 
         * Development Phase: Gemini Live API (Google AI Studio) 
-        * Production Phase: Vertex AI Live API (Google Cloud) 
+        * Production Phase: Gemini Live API (Agent Platform) 
   * 1.4 ADK Gemini Live API Toolkit Architecture Overview 
     * High-Level Architecture 
   * 1.5 ADK Gemini Live API Toolkit Application Lifecycle 
@@ -329,7 +330,7 @@ Table of contents
 
 Google's Agent Development Kit ([ADK](https://adk.dev)) provides a production-ready framework for building Bidi-streaming applications with Gemini models. This guide introduces ADK's streaming architecture, which enables real-time, two-way communication between users and AI agents through multimodal channels (text, audio, video).
 
-**What you'll learn** : This part covers the fundamentals of Bidi-streaming, the underlying Live API technology (Gemini Live API and Vertex AI Live API), ADK's architectural components (`LiveRequestQueue`, `Runner`, `Agent`), and a complete FastAPI implementation example. You'll understand how ADK handles session management, tool orchestration, and platform abstraction—reducing months of infrastructure development to declarative configuration.
+**What you'll learn** : This part covers the fundamentals of Bidi-streaming, the underlying Live API technology (Gemini Live API and Gemini Live API (Agent Platform)), ADK's architectural components (`LiveRequestQueue`, `Runner`, `Agent`), and a complete FastAPI implementation example. You'll understand how ADK handles session management, tool orchestration, and platform abstraction—reducing months of infrastructure development to declarative configuration.
 
 ## ADK Gemini Live API Toolkit Demo¶
 
@@ -457,11 +458,11 @@ An agent can provide clients with a secure, interactive, and data-rich way to ma
 
 
 
-## 1.2 Gemini Live API and Vertex AI Live API¶
+## 1.2 Gemini Live API and Gemini Live API (Agent Platform)¶
 
-ADK Gemini Live API Toolkit capabilities are powered by Live API technology, available through two platforms: **[Gemini Live API](https://ai.google.dev/gemini-api/docs/live)** (via Google AI Studio) and **[Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)** (via Google Cloud). Both provide real-time, low-latency streaming conversations with Gemini models, but serve different development and deployment needs.
+ADK Gemini Live API Toolkit capabilities are powered by Live API technology, available through two platforms: **[Gemini Live API](https://ai.google.dev/gemini-api/docs/live)** (via Google AI Studio) and **[Gemini Live API (Agent Platform)](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)** (via Google Cloud). Both provide real-time, low-latency streaming conversations with Gemini models, but serve different development and deployment needs.
 
-Throughout this guide, we use **"Live API"** to refer to both platforms collectively, specifying "Gemini Live API" or "Vertex AI Live API" only when discussing platform-specific features or differences.
+Throughout this guide, we use **"Live API"** to refer to both platforms collectively, specifying "Gemini Live API" or "Gemini Live API (Agent Platform)" only when discussing platform-specific features or differences.
 
 ### What is the Live API?¶
 
@@ -500,11 +501,11 @@ For detailed information about Native Audio models and these features, see [Part
 
 
 
-### Gemini Live API vs Vertex AI Live API¶
+### Gemini Live API vs Gemini Live API (Agent Platform)¶
 
 Both APIs provide the same core Live API technology, but differ in deployment platform, authentication, and enterprise features:
 
-**Aspect** | **Gemini Live API** | **Vertex AI Live API**  
+**Aspect** | **Gemini Live API** | **Gemini Live API (Agent Platform)**  
 ---|---|---  
 **Access** | Google AI Studio | Google Cloud  
 **Authentication** | API key (`GOOGLE_API_KEY`) | Google Cloud credentials (`GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION`)  
@@ -524,7 +525,7 @@ Live API Reference Notes
 
 **Concurrent session limits** : Quota-based and may vary by account tier or configuration. Check your current quotas in Google AI Studio or Google Cloud Console.
 
-**Official Documentation** : [Gemini Live API Guide](https://ai.google.dev/gemini-api/docs/live-guide) | [Vertex AI Live API Overview](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
+**Official Documentation** : [Gemini Live API Guide](https://ai.google.dev/gemini-api/docs/live-guide) | [Gemini Live API (Agent Platform) Overview](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
 
 ## 1.3 ADK Gemini Live API Toolkit: For Building Realtime Agent Applications¶
 
@@ -541,18 +542,18 @@ Feature | Raw Live API (`google-genai` SDK) | ADK Gemini Live API Toolkit (`adk-
 **Connection Management** | ❌ Manual reconnection and session resumption | ✅ Automatic reconnection and session resumption (see [Part 4: Live API Session Resumption](../part4/#live-api-session-resumption))  
 **Event Model** | ❌ Custom event structures and serialization | ✅ Unified event model with metadata (see [Part 3: Event Handling](../part3/))  
 **Async Event Processing Framework** | ❌ Manual async coordination and stream handling | ✅ `LiveRequestQueue`, `run_live()` async generator, automatic bidirectional flow coordination (see [Part 2](../part2/) and [Part 3](../part3/))  
-**App-level Session Persistence** | ❌ Manual implementation | ✅ SQL databases (PostgreSQL, MySQL, SQLite), Vertex AI, in-memory (see [ADK Session docs](/sessions/))  
+**App-level Session Persistence** | ❌ Manual implementation | ✅ SQL databases (PostgreSQL, MySQL, SQLite), Agent Platform, in-memory (see [ADK Session docs](/sessions/))  
   
 ### Platform Flexibility¶
 
-One of ADK's most powerful features is its transparent support for both [Gemini Live API](https://ai.google.dev/gemini-api/docs/live) and [Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api). This platform flexibility enables a seamless development-to-production workflow: develop locally with Gemini API using free API keys, then deploy to production with Vertex AI using enterprise Google Cloud infrastructure—all **without changing application code** , only environment configuration.
+One of ADK's most powerful features is its transparent support for both [Gemini Live API](https://ai.google.dev/gemini-api/docs/live) and [Gemini Live API (Agent Platform)](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api). This platform flexibility enables a seamless development-to-production workflow: develop locally with Gemini API using free API keys, then deploy to production with Agent Platform using enterprise Google Cloud infrastructure—all **without changing application code** , only environment configuration.
 
 #### How Platform Selection Works¶
 
 ADK uses the `GOOGLE_GENAI_USE_VERTEXAI` environment variable to determine which Live API platform to use:
 
   * `GOOGLE_GENAI_USE_VERTEXAI=FALSE` (or not set): Uses Gemini Live API via Google AI Studio
-  * `GOOGLE_GENAI_USE_VERTEXAI=TRUE`: Uses Vertex AI Live API via Google Cloud
+  * `GOOGLE_GENAI_USE_VERTEXAI=TRUE`: Uses Gemini Live API (Agent Platform) via Google Cloud
 
 
 
@@ -575,7 +576,7 @@ This environment variable is read by the underlying `google-genai` SDK when ADK 
 
 
 
-##### Production Phase: Vertex AI Live API (Google Cloud)¶
+##### Production Phase: Gemini Live API (Agent Platform)¶
     
     
     # .env.production
@@ -626,7 +627,7 @@ You'll see how key components like `LiveRequestQueue`, `Runner`, and `Agent` orc
     
             subgraph "LLM Integration"
                 G1[GeminiLlmConnection]
-                G2[Gemini Live API / Vertex AI Live API]
+                G2[Gemini Live API / Gemini Live API on Agent Platform]
             end
         end
     
@@ -660,7 +661,7 @@ Developer provides: | ADK provides: | Live API provide:
   
 **[RunConfig](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/agents/run_config.py)** : Configuration for streaming behavior, modalities, and advanced features  
   
-**Internal components** (managed automatically, not directly used by developers): [LLM Flow](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/flows/llm_flows/base_llm_flow.py) for processing pipeline and [GeminiLlmConnection](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/models/gemini_llm_connection.py) for protocol translation | **[Gemini Live API](https://ai.google.dev/gemini-api/docs/live)** (via Google AI Studio) and **[Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)** (via Google Cloud): Google's real-time language model services that process streaming input, generate responses, handle interruptions, support multimodal content (text, audio, video), and provide advanced AI capabilities like function calling and contextual understanding  
+**Internal components** (managed automatically, not directly used by developers): [LLM Flow](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/flows/llm_flows/base_llm_flow.py) for processing pipeline and [GeminiLlmConnection](https://github.com/google/adk-python/blob/427a983b18088bdc22272d02714393b0a779ecdf/src/google/adk/models/gemini_llm_connection.py) for protocol translation | **[Gemini Live API](https://ai.google.dev/gemini-api/docs/live)** (via Google AI Studio) and **[Gemini Live API (Agent Platform)](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)** (via Google Cloud): Google's real-time language model services that process streaming input, generate responses, handle interruptions, support multimodal content (text, audio, video), and provide advanced AI capabilities like function calling and contextual understanding  
   
 This architecture demonstrates ADK's clear separation of concerns: your application handles user interaction and transport protocols, ADK manages the streaming orchestration and state, and Live API provide the AI intelligence. By abstracting away the complexity of LLM-side streaming connection management, event loops, and protocol translation, ADK enables you to focus on building agent behavior and user experiences rather than streaming infrastructure.
 
@@ -785,7 +786,7 @@ Demo implementation: <a href="https://github.com/google/adk-samples/blob/31847c0
     
     # Default models for Live API with native audio support:
     # - Gemini Live API: gemini-2.5-flash-native-audio-preview-12-2025
-    # - Vertex AI Live API: gemini-live-2.5-flash-native-audio
+    # - Gemini Live API (Agent Platform): gemini-live-2.5-flash-native-audio
     agent = Agent(
         name="google_search_agent",
         model=os.getenv("DEMO_AGENT_MODEL", "gemini-2.5-flash-native-audio-preview-12-2025"),
@@ -836,7 +837,7 @@ For production applications, choose a persistent session service based on your i
 
   * You're already using Google Cloud Platform
   * You want managed storage with built-in scalability
-  * You need tight integration with Vertex AI features
+  * You need tight integration with Agent Platform features
   * Example: `VertexAiSessionService(project="my-project")`
 
 
@@ -1280,7 +1281,7 @@ For building an ADK Gemini Live API Toolkit application in production, we recomm
 
 Google's production-ready framework for building AI agents with streaming capabilities. ADK provides high-level abstractions for session management, tool orchestration, and state persistence, eliminating the need to implement low-level streaming infrastructure from scratch.
 
-**Live API ([Gemini Live API](https://ai.google.dev/gemini-api/docs/live) and [Vertex AI Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api))**
+**Live API ([Gemini Live API](https://ai.google.dev/gemini-api/docs/live) and [Gemini Live API (Agent Platform)](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api))**
 
 Google's real-time conversational AI technology that enables low-latency bidirectional streaming with Gemini models. The Live API provides the underlying WebSocket-based protocol that powers ADK's streaming capabilities, handling multimodal input/output and natural conversation flow.
 

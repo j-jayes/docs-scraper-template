@@ -1,4 +1,4 @@
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](. "Agent Development Kit \(ADK\)")
 
@@ -67,7 +67,7 @@ Models for Agents
       * [ Gemini  ](agents/models/google-gemini/)
       * [ Gemma  ](agents/models/google-gemma/)
       * [ Claude  ](agents/models/anthropic/)
-      * [ Vertex AI hosted  ](agents/models/vertex/)
+      * [ Agent Platform hosted  ](agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](agents/models/apigee/)
       * [ Ollama  ](agents/models/ollama/)
       * [ vLLM  ](agents/models/vllm/)
@@ -104,12 +104,12 @@ Agent Runtime
     * [ Deployment  ](deploy/)
 
 Deployment 
-      * [ Agent Engine  ](deploy/agent-engine/)
+      * [ Agent Runtime  ](deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](deploy/agent-runtime/test/)
       * [ Cloud Run  ](deploy/cloud-run/)
       * [ GKE  ](deploy/gke/)
     * [ Observability  ](observability/)
@@ -192,7 +192,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](grounding/grounding_with_search/)
   * [ Integrations  ](integrations/)
 
 Integrations 
@@ -360,7 +360,7 @@ Unlike tools that simply paste strings together until the context window overflo
 
 How does ADK deploy to production?
 
-ADK is built for _deploy anywhere_ flexibility. You can containerize and run ADK on your own infrastructure, or take advantage of our native, one-command deployment to Google Cloud. When deploying to Google Cloud via Agent Engine (Vertex AI), Cloud Run, or GKE, your agents instantly inherit managed infrastructure, built-in authentication, Cloud Trace observability, and enterprise-grade security—all without requiring you to change a single line of your agent code. Develop locally, scale globally.
+ADK is built for _deploy anywhere_ flexibility. You can containerize and run ADK on your own infrastructure, or take advantage of our native, one-command deployment to Google Cloud. When deploying to Google Cloud via Agent Runtime (Agent Platform), Cloud Run, or GKE, your agents instantly inherit managed infrastructure, built-in authentication, Cloud Trace observability, and enterprise-grade security—all without requiring you to change a single line of your agent code. Develop locally, scale globally.
 
 When should I use an agent framework to work with generative AI?
 

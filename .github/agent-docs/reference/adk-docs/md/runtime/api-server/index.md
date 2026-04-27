@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -69,7 +69,7 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
@@ -114,18 +114,19 @@ Agent Runtime
           * Agent execution 
             * Run agent (single response) 
             * Run agent (streaming) 
+      * [ Ambient Agents  ](../ambient-agents/)
       * [ Resume Agents  ](../resume/)
       * [ Runtime Config  ](../runconfig/)
       * [ Event Loop  ](../event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
@@ -208,7 +209,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -515,7 +516,7 @@ ADK uses [Callbacks](../../callbacks/) to integrate with third-party observabili
 
 Now that you've verified the local operation of your agent, you're ready to move on to deploying your agent! Here are some ways you can deploy your agent:
 
-  * Deploy to [Agent Engine](../../deploy/agent-engine/), a simple way to deploy your ADK agents to a managed service in Vertex AI on Google Cloud.
+  * Deploy to [Agent Runtime](../../deploy/agent-runtime/), a simple way to deploy your ADK agents to a managed service on Agent Platform on Google Cloud.
   * Deploy to [Cloud Run](../../deploy/cloud-run/) and have full control over how you scale and manage your agents using serverless architecture on Google Cloud.
 
 
@@ -733,7 +734,7 @@ Executes the agent and streams events back to the client as they are generated u
       }'
     
 
-Back to top  [ Previous  Command Line  ](../command-line/) [ Next  Resume Agents  ](../resume/)
+Back to top  [ Previous  Command Line  ](../command-line/) [ Next  Ambient Agents  ](../ambient-agents/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

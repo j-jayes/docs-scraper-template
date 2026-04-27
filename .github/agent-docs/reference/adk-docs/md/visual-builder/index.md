@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -73,7 +73,7 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
@@ -103,18 +103,19 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
@@ -126,6 +127,7 @@ Observability
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
@@ -196,7 +198,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -239,8 +241,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../get-started/)
-  2. [ Build your Agent  ](../tutorials/)
+  1. [ Home  ](..)
+  2. [ Build Agents  ](../get-started/)
+  3. [ Build your Agent  ](../tutorials/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/visual-builder/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/visual-builder/index.md "View Markdown source")
 
@@ -301,7 +304,7 @@ The Visual Builder tool provides a drag-and-drop user interface for constructing
     * [**Loop Agent:**](/agents/workflow-agents/loop-agents/) A workflow agent that repeatedly executes a sub-agent until a certain condition is met.
     * [**Parallel Agent:**](/agents/workflow-agents/parallel-agents/) A workflow agent that executes multiple sub-agents concurrently.
   * **Tools**
-    * [**Prebuilt tools:**](/tools/built-in-tools/) A limited set of ADK-provided tools can be added to agents.
+    * [**Prebuilt tools:**](/integrations/) A limited set of ADK-provided tools can be added to agents.
     * [**Custom tools:**](/tools-custom/) You can build and add custom tools to your workflow.
   * **Components**
     * [**Callbacks**](/callbacks/) A flow control component that lets you modify the behavior of agents at the start and end of agent workflow events.
