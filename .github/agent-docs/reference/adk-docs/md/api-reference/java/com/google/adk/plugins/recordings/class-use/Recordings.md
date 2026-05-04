@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.recordings](../package-summary.html)
   2. [Recordings](../Recordings.html)
@@ -50,25 +54,25 @@ Recordings.Builder.`[build](../Recordings.Builder.html#build\(\))()`
 
 `static [Recordings](../Recordings.html "class in com.google.adk.plugins.recordings")`
 
-RecordingsLoader.`[load](../RecordingsLoader.html#load\(java.io.InputStream\))([InputStream](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html "class or interface in java.io") inputStream)`
+RecordingsLoader.`[load](../RecordingsLoader.html#load\(java.io.InputStream\))([InputStream](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html "class in java.io") inputStream)`
 
 Loads recordings from a YAML input stream.
 
 `static [Recordings](../Recordings.html "class in com.google.adk.plugins.recordings")`
 
-RecordingsLoader.`[load](../RecordingsLoader.html#load\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") yamlContent)`
+RecordingsLoader.`[load](../RecordingsLoader.html#load\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") yamlContent)`
 
 Loads recordings from a YAML string.
 
 `static [Recordings](../Recordings.html "class in com.google.adk.plugins.recordings")`
 
-RecordingsLoader.`[load](../RecordingsLoader.html#load\(java.nio.file.Path\))([Path](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html "class or interface in java.nio.file") path)`
+RecordingsLoader.`[load](../RecordingsLoader.html#load\(java.nio.file.Path\))([Path](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html "interface in java.nio.file") path)`
 
 Loads recordings from a YAML file.
 
 `static [Recordings](../Recordings.html "class in com.google.adk.plugins.recordings")`
 
-Recordings.`[of](../Recordings.html#of\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Recording](../Recording.html "class in com.google.adk.plugins.recordings")> recordings)`
+Recordings.`[of](../Recordings.html#of\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Recording](../Recording.html "class in com.google.adk.plugins.recordings")> recordings)`
 
  
 

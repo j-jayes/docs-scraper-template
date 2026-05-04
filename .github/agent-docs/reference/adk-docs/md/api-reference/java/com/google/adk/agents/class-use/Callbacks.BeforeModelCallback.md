@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [Callbacks](../Callbacks.html)
@@ -67,13 +71,13 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](../Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.BeforeModelCallback](../Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
 
 LlmAgent.`[beforeModelCallback](../LlmAgent.html#beforeModelCallback\(\))()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.BeforeModelCallback](../Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.BeforeModelCallback](../Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
 
 LlmAgent.`[canonicalBeforeModelCallbacks](../LlmAgent.html#canonicalBeforeModelCallbacks\(\))()`
 
@@ -103,9 +107,9 @@ Method
 
 Description
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Callbacks.BeforeModelCallback](../Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Callbacks.BeforeModelCallback](../Callbacks.BeforeModelCallback.html "interface in com.google.adk.agents")>`
 
-ComponentRegistry.`[resolveBeforeModelCallback](../../utils/ComponentRegistry.html#resolveBeforeModelCallback\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+ComponentRegistry.`[resolveBeforeModelCallback](../../utils/ComponentRegistry.html#resolveBeforeModelCallback\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
  
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.tools.[BaseTool](../BaseTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.mcp.[AbstractMcpTool](AbstractMcpTool.html "class in com.google.adk.tools.mcp")<T>
         * com.google.adk.tools.mcp.[McpAsyncTool](McpAsyncTool.html "class in com.google.adk.tools.mcp")
@@ -49,9 +53,9 @@ Package Hierarchies:
     * com.google.adk.tools.mcp.[StdioServerParameters.Builder](StdioServerParameters.Builder.html "class in com.google.adk.tools.mcp")
     * com.google.adk.tools.mcp.[StreamableHttpServerParameters](StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp")
     * com.google.adk.tools.mcp.[StreamableHttpServerParameters.Builder](StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")
-    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
-      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
-        * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang")
+    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 
+      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")
+        * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang")
           * com.google.adk.tools.mcp.[McpToolException](McpToolException.html "class in com.google.adk.tools.mcp")
             * com.google.adk.tools.mcp.[McpToolException.McpToolDeclarationException](McpToolException.McpToolDeclarationException.html "class in com.google.adk.tools.mcp")
           * com.google.adk.tools.mcp.[McpToolsetException](McpToolsetException.html "class in com.google.adk.tools.mcp")

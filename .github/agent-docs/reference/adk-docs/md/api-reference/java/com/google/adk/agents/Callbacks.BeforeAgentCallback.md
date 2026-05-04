@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](package-summary.html)
   2. [Callbacks](Callbacks.html)
@@ -20,7 +24,7 @@ Skip navigation links
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -39,7 +43,7 @@ Functional Interface:
 
 * * *
 
-[@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface Callbacks.BeforeAgentCallback
+[@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "annotation interface in java.lang") public static interface Callbacks.BeforeAgentCallback
 
 Async callback interface for actions to be performed before an agent starts running.
 

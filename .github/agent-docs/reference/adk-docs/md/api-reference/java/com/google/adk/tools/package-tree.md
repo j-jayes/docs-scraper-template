@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.tools.[Annotations](Annotations.html "class in com.google.adk.tools")
     * com.google.adk.tools.[BaseTool](BaseTool.html "class in com.google.adk.tools")
       * com.google.adk.tools.[AgentTool](AgentTool.html "class in com.google.adk.tools")
@@ -62,7 +66,7 @@ Package Hierarchies:
 
 ## Interface Hierarchy
 
-  * java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")
+  * java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")
     * com.google.adk.tools.[BaseToolset](BaseToolset.html "interface in com.google.adk.tools")
   * com.google.adk.tools.[ToolPredicate](ToolPredicate.html "interface in com.google.adk.tools")
 
@@ -70,14 +74,14 @@ Package Hierarchies:
 
 ## Annotation Interface Hierarchy
 
-  * com.google.adk.tools.[Annotations.Schema](Annotations.Schema.html "annotation interface in com.google.adk.tools") (implements java.lang.annotation.[Annotation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html "class or interface in java.lang.annotation"))
+  * com.google.adk.tools.[Annotations.Schema](Annotations.Schema.html "annotation interface in com.google.adk.tools") (implements java.lang.annotation.[Annotation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html "interface in java.lang.annotation"))
 
 
 
 ## Record Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
       * com.google.adk.tools.[LoadMemoryResponse](LoadMemoryResponse.html "class in com.google.adk.tools")
 
 

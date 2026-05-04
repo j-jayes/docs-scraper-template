@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.langchain4j](../package-summary.html)
   2. [LangChain4j](../LangChain4j.html)
@@ -57,7 +61,7 @@ LangChain4j.Builder.`[chatModel](../LangChain4j.Builder.html#chatModel\(dev.lang
 
 `abstract [LangChain4j.Builder](../LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")`
 
-LangChain4j.Builder.`[modelName](../LangChain4j.Builder.html#modelName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)`
+LangChain4j.Builder.`[modelName](../LangChain4j.Builder.html#modelName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)`
 
  
 

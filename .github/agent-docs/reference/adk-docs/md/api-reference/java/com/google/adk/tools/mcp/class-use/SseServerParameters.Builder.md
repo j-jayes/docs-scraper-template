@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [SseServerParameters](../SseServerParameters.html)
@@ -51,31 +55,31 @@ Creates a new builder for [`SseServerParameters`](../SseServerParameters.html "c
 
 `abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-SseServerParameters.Builder.`[headers](../SseServerParameters.Builder.html#headers\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> headers)`
+SseServerParameters.Builder.`[headers](../SseServerParameters.Builder.html#headers\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> headers)`
 
 Sets the headers for the SSE connection request.
 
 `abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-SseServerParameters.Builder.`[sseEndpoint](../SseServerParameters.Builder.html#sseEndpoint\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sseEndpoint)`
+SseServerParameters.Builder.`[sseEndpoint](../SseServerParameters.Builder.html#sseEndpoint\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sseEndpoint)`
 
 Sets the endpoint to connect to on the SSE server.
 
 `abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-SseServerParameters.Builder.`[sseReadTimeout](../SseServerParameters.Builder.html#sseReadTimeout\(java.time.Duration\))(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") sseReadTimeout)`
+SseServerParameters.Builder.`[sseReadTimeout](../SseServerParameters.Builder.html#sseReadTimeout\(java.time.Duration\))(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") sseReadTimeout)`
 
 Sets the timeout for reading data from the SSE stream.
 
 `abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-SseServerParameters.Builder.`[timeout](../SseServerParameters.Builder.html#timeout\(java.time.Duration\))(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout)`
+SseServerParameters.Builder.`[timeout](../SseServerParameters.Builder.html#timeout\(java.time.Duration\))(@Nullable [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") timeout)`
 
 Sets the timeout for the initial connection attempt.
 
 `abstract [SseServerParameters.Builder](../SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-SseServerParameters.Builder.`[url](../SseServerParameters.Builder.html#url\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
+SseServerParameters.Builder.`[url](../SseServerParameters.Builder.html#url\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") url)`
 
 Sets the URL of the SSE server.
 

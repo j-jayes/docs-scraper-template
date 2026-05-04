@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [ToolContext](../ToolContext.html)
@@ -57,13 +61,13 @@ ToolContext.`[builder](../ToolContext.html#builder\(com.google.adk.agents.Invoca
 
 `[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
 
-ToolContext.Builder.`[eventId](../ToolContext.Builder.html#eventId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId)`
+ToolContext.Builder.`[eventId](../ToolContext.Builder.html#eventId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") eventId)`
 
  
 
 `[ToolContext.Builder](../ToolContext.Builder.html "class in com.google.adk.tools")`
 
-ToolContext.Builder.`[functionCallId](../ToolContext.Builder.html#functionCallId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") functionCallId)`
+ToolContext.Builder.`[functionCallId](../ToolContext.Builder.html#functionCallId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") functionCallId)`
 
  
 

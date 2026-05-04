@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [StreamableHttpServerParameters](../StreamableHttpServerParameters.html)
@@ -51,13 +55,13 @@ StreamableHttpServerParameters.`[builder](../StreamableHttpServerParameters.html
 
 `[StreamableHttpServerParameters.Builder](../StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StreamableHttpServerParameters.Builder.`[headers](../StreamableHttpServerParameters.Builder.html#headers\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> headers)`
+StreamableHttpServerParameters.Builder.`[headers](../StreamableHttpServerParameters.Builder.html#headers\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> headers)`
 
  
 
 `[StreamableHttpServerParameters.Builder](../StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StreamableHttpServerParameters.Builder.`[readTimeout](../StreamableHttpServerParameters.Builder.html#readTimeout\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") readTimeout)`
+StreamableHttpServerParameters.Builder.`[readTimeout](../StreamableHttpServerParameters.Builder.html#readTimeout\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") readTimeout)`
 
  
 
@@ -69,13 +73,13 @@ StreamableHttpServerParameters.Builder.`[terminateOnClose](../StreamableHttpServ
 
 `[StreamableHttpServerParameters.Builder](../StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StreamableHttpServerParameters.Builder.`[timeout](../StreamableHttpServerParameters.Builder.html#timeout\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") timeout)`
+StreamableHttpServerParameters.Builder.`[timeout](../StreamableHttpServerParameters.Builder.html#timeout\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") timeout)`
 
  
 
 `[StreamableHttpServerParameters.Builder](../StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StreamableHttpServerParameters.Builder.`[url](../StreamableHttpServerParameters.Builder.html#url\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
+StreamableHttpServerParameters.Builder.`[url](../StreamableHttpServerParameters.Builder.html#url\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") url)`
 
  
 

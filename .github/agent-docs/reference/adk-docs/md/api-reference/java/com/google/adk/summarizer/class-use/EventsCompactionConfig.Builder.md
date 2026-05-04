@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.summarizer](../package-summary.html)
   2. [EventsCompactionConfig](../EventsCompactionConfig.html)
@@ -51,19 +55,19 @@ EventsCompactionConfig.`[builder](../EventsCompactionConfig.html#builder\(\))()`
 
 `abstract [EventsCompactionConfig.Builder](../EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-EventsCompactionConfig.Builder.`[compactionInterval](../EventsCompactionConfig.Builder.html#compactionInterval\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") compactionInterval)`
+EventsCompactionConfig.Builder.`[compactionInterval](../EventsCompactionConfig.Builder.html#compactionInterval\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") compactionInterval)`
 
  
 
 `abstract [EventsCompactionConfig.Builder](../EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-EventsCompactionConfig.Builder.`[eventRetentionSize](../EventsCompactionConfig.Builder.html#eventRetentionSize\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") eventRetentionSize)`
+EventsCompactionConfig.Builder.`[eventRetentionSize](../EventsCompactionConfig.Builder.html#eventRetentionSize\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") eventRetentionSize)`
 
  
 
 `abstract [EventsCompactionConfig.Builder](../EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-EventsCompactionConfig.Builder.`[overlapSize](../EventsCompactionConfig.Builder.html#overlapSize\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") overlapSize)`
+EventsCompactionConfig.Builder.`[overlapSize](../EventsCompactionConfig.Builder.html#overlapSize\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") overlapSize)`
 
  
 
@@ -81,7 +85,7 @@ EventsCompactionConfig.`[toBuilder](../EventsCompactionConfig.html#toBuilder\(\)
 
 `abstract [EventsCompactionConfig.Builder](../EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")`
 
-EventsCompactionConfig.Builder.`[tokenThreshold](../EventsCompactionConfig.Builder.html#tokenThreshold\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") tokenThreshold)`
+EventsCompactionConfig.Builder.`[tokenThreshold](../EventsCompactionConfig.Builder.html#tokenThreshold\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") tokenThreshold)`
 
  
 

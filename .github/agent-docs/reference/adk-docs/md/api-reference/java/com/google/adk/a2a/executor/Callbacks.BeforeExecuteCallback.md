@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.a2a.executor](package-summary.html)
   2. [Callbacks](Callbacks.html)
@@ -20,7 +24,7 @@ Skip navigation links
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -39,7 +43,7 @@ Functional Interface:
 
 * * *
 
-[@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface Callbacks.BeforeExecuteCallback
+[@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "annotation interface in java.lang") public static interface Callbacks.BeforeExecuteCallback
 
 Async callback interface for actions to be performed before an execution is started.
 
@@ -53,7 +57,7 @@ Method
 
 Description
 
-`io.reactivex.rxjava3.core.Single<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")>`
+`io.reactivex.rxjava3.core.Single<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")>`
 
 `call(io.a2a.server.agentexecution.RequestContext ctx)`
 
@@ -66,7 +70,7 @@ Callback which will be called before an execution is started.
 
     * ### call
 
-io.reactivex.rxjava3.core.Single<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")> call(io.a2a.server.agentexecution.RequestContext ctx)
+io.reactivex.rxjava3.core.Single<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")> call(io.a2a.server.agentexecution.RequestContext ctx)
 
 Callback which will be called before an execution is started. It can be used to instrument a context or prevent the execution by returning an error.
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [ParallelAgentConfig](../ParallelAgentConfig.html)
@@ -44,7 +48,7 @@ Description
 
 `static [ParallelAgent](../ParallelAgent.html "class in com.google.adk.agents")`
 
-ParallelAgent.`[fromConfig](../ParallelAgent.html#fromConfig\(com.google.adk.agents.ParallelAgentConfig,java.lang.String\))([ParallelAgentConfig](../ParallelAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+ParallelAgent.`[fromConfig](../ParallelAgent.html#fromConfig\(com.google.adk.agents.ParallelAgentConfig,java.lang.String\))([ParallelAgentConfig](../ParallelAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a ParallelAgent from configuration.
 

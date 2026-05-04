@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](package-summary.html)
   2. [Instruction](Instruction.html)
@@ -20,7 +24,7 @@ Skip navigation links
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Nested Class Summary
@@ -38,9 +42,9 @@ Hide sidebar  Show sidebar
 
 # Record Class Instruction.Provider
 
-[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
-[java.lang.Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
+[java.lang.Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
 
 com.google.adk.agents.Instruction.Provider
 
@@ -52,7 +56,7 @@ Enclosing interface:
 
 * * *
 
-public static record Instruction.Provider([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> getInstruction) extends [Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang") implements [Instruction](Instruction.html "interface in com.google.adk.agents")
+public static record Instruction.Provider([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>> getInstruction) extends [Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang") implements [Instruction](Instruction.html "interface in com.google.adk.agents")
 
 Returns an instruction dynamically constructed from the given context.
 
@@ -62,6 +66,24 @@ Returns an instruction dynamically constructed from the given context.
 
 `[Instruction.Provider](Instruction.Provider.html "class in com.google.adk.agents"), [Instruction.Static](Instruction.Static.html "class in com.google.adk.agents")`
 
+Modifier and Type
+
+Interface
+
+Description
+
+`static final record `
+
+`[Instruction.Provider](Instruction.Provider.html "class in com.google.adk.agents")`
+
+Returns an instruction dynamically constructed from the given context.
+
+`static final record `
+
+`[Instruction.Static](Instruction.Static.html "class in com.google.adk.agents")`
+
+Plain instruction directly provided to the agent.
+
   * ## Constructor Summary
 
 Constructors
@@ -70,7 +92,7 @@ Constructor
 
 Description
 
-`Provider([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> getInstruction)`
+`Provider([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>> getInstruction)`
 
 Creates an instance of a `Provider` record class.
 
@@ -86,11 +108,11 @@ Description
 
 `final boolean`
 
-`equals([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") o)`
+`equals([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") o)`
 
 Indicates whether some other object is "equal to" this one.
 
-`[Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>>`
+`[Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>>`
 
 `getInstruction()`
 
@@ -102,15 +124,15 @@ Returns the value of the `getInstruction` record component.
 
 Returns a hash code value for this object.
 
-`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
 `toString()`
 
 Returns a string representation of this record class.
 
-### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
-`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
 
 
 
@@ -119,7 +141,7 @@ Returns a string representation of this record class.
 
     * ### Provider
 
-public Provider([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> getInstruction)
+public Provider([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>> getInstruction)
 
 Creates an instance of a `Provider` record class.
 
@@ -130,12 +152,12 @@ Parameters:
 
     * ### toString
 
-public final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toString()
+public final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toString()
 
 Returns a string representation of this record class. The representation contains the name of the class, followed by the name and value of each of the record components.
 
 Specified by:
-    `[toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#toString\(\) "class or interface in java.lang")` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")`
+    `[toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#toString\(\))` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")`
 Returns:
     a string representation of this object
 
@@ -146,18 +168,18 @@ public final int hashCode()
 Returns a hash code value for this object. The value is derived from the hash code of each of the record components.
 
 Specified by:
-    `[hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#hashCode\(\) "class or interface in java.lang")` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")`
+    `[hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#hashCode\(\))` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")`
 Returns:
     a hash code value for this object
 
     * ### equals
 
-public final boolean equals([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") o)
+public final boolean equals([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") o)
 
-Indicates whether some other object is "equal to" this one. The objects are equal if the other object is of the same class and if all the record components are equal. All components in this record class are compared with [`Objects::equals(Object,Object)`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Objects.html#equals\(java.lang.Object,java.lang.Object\) "class or interface in java.util").
+Indicates whether some other object is "equal to" this one. The objects are equal if the other object is of the same class and if all the record components are equal. All components in this record class are compared with [`Objects::equals(Object,Object)`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Objects.html#equals\(java.lang.Object,java.lang.Object\)).
 
 Specified by:
-    `[equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#equals\(java.lang.Object\) "class or interface in java.lang")` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")`
+    `[equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html#equals\(java.lang.Object\))` in class `[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")`
 Parameters:
     `o` \- the object with which to compare
 Returns:
@@ -165,7 +187,7 @@ Returns:
 
     * ### getInstruction
 
-public [Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> getInstruction()
+public [Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>> getInstruction()
 
 Returns the value of the `getInstruction` record component.
 

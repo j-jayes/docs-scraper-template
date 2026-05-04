@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [LiveRequest](../LiveRequest.html)
@@ -57,7 +61,7 @@ LiveRequest.`[builder](../LiveRequest.html#builder\(\))()`
 
 `abstract [LiveRequest.Builder](../LiveRequest.Builder.html "class in com.google.adk.agents")`
 
-LiveRequest.Builder.`[close](../LiveRequest.Builder.html#close\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") close)`
+LiveRequest.Builder.`[close](../LiveRequest.Builder.html#close\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") close)`
 
  
 

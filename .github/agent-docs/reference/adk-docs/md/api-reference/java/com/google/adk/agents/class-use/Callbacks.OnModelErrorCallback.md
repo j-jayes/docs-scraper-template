@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [Callbacks](../Callbacks.html)
@@ -43,13 +47,13 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnModelErrorCallback](../Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.OnModelErrorCallback](../Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")>`
 
 LlmAgent.`[canonicalOnModelErrorCallbacks](../LlmAgent.html#canonicalOnModelErrorCallbacks\(\))()`
 
 The resolved onModelErrorCallback field as a list.
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Callbacks.OnModelErrorCallback](../Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.OnModelErrorCallback](../Callbacks.OnModelErrorCallback.html "interface in com.google.adk.agents")>`
 
 LlmAgent.`[onModelErrorCallback](../LlmAgent.html#onModelErrorCallback\(\))()`
 

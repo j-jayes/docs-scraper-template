@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](../package-summary.html)
   2. [HttpApiClient](../HttpApiClient.html)
@@ -44,7 +48,7 @@ Description
 
 ` `
 
-`[VertexAiSessionService](../VertexAiSessionService.html#%3Cinit%3E\(java.lang.String,java.lang.String,com.google.adk.sessions.HttpApiClient\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [HttpApiClient](../HttpApiClient.html "class in com.google.adk.sessions") apiClient)`
+`[VertexAiSessionService](../VertexAiSessionService.html#%3Cinit%3E\(java.lang.String,java.lang.String,com.google.adk.sessions.HttpApiClient\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") location, [HttpApiClient](../HttpApiClient.html "class in com.google.adk.sessions") apiClient)`
 
 Creates a new instance of the Vertex AI Session Service with a custom ApiClient for testing.
 

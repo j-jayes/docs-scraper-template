@@ -9,8 +9,12 @@ Skip navigation links
   * Deprecated
   * [Index](index-all.html)
   * [Search](search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
 
 
@@ -72,54 +76,6 @@ Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.h
 [com.google.adk.models.VertexCredentials.Builder.setLocation(String)](com/google/adk/models/VertexCredentials.Builder.html#setLocation\(java.lang.String\))
 
 [com.google.adk.models.VertexCredentials.Builder.setProject(String)](com/google/adk/models/VertexCredentials.Builder.html#setProject\(java.lang.String\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setAutoSchemaUpgrade(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setAutoSchemaUpgrade\(boolean\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setBatchFlushInterval(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setBatchFlushInterval\(java.time.Duration\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setBatchSize(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setBatchSize\(int\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setClusteringFields(List<String>)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setClusteringFields\(java.util.List\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setConnectionId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setConnectionId\(java.lang.String\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setContentFormatter(BiFunction<Object, String, Object>)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setContentFormatter\(java.util.function.BiFunction\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setCredentials(Credentials)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setCredentials\(com.google.auth.Credentials\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setCustomTags(Map<String, Object>)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setCustomTags\(java.util.Map\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setDatasetId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setDatasetId\(java.lang.String\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setEnabled(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setEnabled\(boolean\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setEventAllowlist(List<String>)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setEventAllowlist\(java.util.List\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setEventDenylist(List<String>)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setEventDenylist\(java.util.List\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setLogMultiModalContent(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setLogMultiModalContent\(boolean\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setLogSessionMetadata(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setLogSessionMetadata\(boolean\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setMaxContentLength(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setMaxContentLength\(int\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setProjectId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setProjectId\(java.lang.String\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setQueueMaxSize(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setQueueMaxSize\(int\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setRetryConfig(BigQueryLoggerConfig.RetryConfig)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setRetryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setShutdownTimeout(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setShutdownTimeout\(java.time.Duration\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.Builder.setTableName(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#setTableName\(java.lang.String\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig.Builder.setInitialDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setInitialDelay\(java.time.Duration\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig.Builder.setMaxDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setMaxDelay\(java.time.Duration\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig.Builder.setMaxRetries(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setMaxRetries\(int\))
-
-[com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig.Builder.setMultiplier(double)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#setMultiplier\(double\))
 
 [com.google.adk.sessions.BaseSessionService.createSession(String, String, ConcurrentMap<String, Object>, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))
 

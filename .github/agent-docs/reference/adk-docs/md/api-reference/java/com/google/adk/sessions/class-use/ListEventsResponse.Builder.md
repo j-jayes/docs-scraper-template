@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](../package-summary.html)
   2. [ListEventsResponse](../ListEventsResponse.html)
@@ -51,13 +55,13 @@ ListEventsResponse.`[builder](../ListEventsResponse.html#builder\(\))()`
 
 `abstract [ListEventsResponse.Builder](../ListEventsResponse.Builder.html "class in com.google.adk.sessions")`
 
-ListEventsResponse.Builder.`[events](../ListEventsResponse.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+ListEventsResponse.Builder.`[events](../ListEventsResponse.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
 
  
 
 `abstract [ListEventsResponse.Builder](../ListEventsResponse.Builder.html "class in com.google.adk.sessions")`
 
-ListEventsResponse.Builder.`[nextPageToken](../ListEventsResponse.Builder.html#nextPageToken\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") nextPageToken)`
+ListEventsResponse.Builder.`[nextPageToken](../ListEventsResponse.Builder.html#nextPageToken\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") nextPageToken)`
 
  
 

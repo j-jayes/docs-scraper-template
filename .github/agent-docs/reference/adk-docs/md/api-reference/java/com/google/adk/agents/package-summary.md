@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](package-summary.html)
 
@@ -231,6 +235,42 @@ Builder for [`ParallelAgent`](ParallelAgent.html "class in com.google.adk.agents
 [ParallelAgentConfig](ParallelAgentConfig.html "class in com.google.adk.agents")
 
 Configuration for ParallelAgent.
+
+[Planner](Planner.html "interface in com.google.adk.agents")
+
+Strategy interface for planning which sub-agent(s) to execute next.
+
+[PlannerAction](PlannerAction.html "interface in com.google.adk.agents")
+
+Represents the next action a [`Planner`](Planner.html "interface in com.google.adk.agents") wants the [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents") to take.
+
+[PlannerAction.Done](PlannerAction.Done.html "class in com.google.adk.agents")
+
+Plan is complete, no result to emit.
+
+[PlannerAction.DoneWithResult](PlannerAction.DoneWithResult.html "class in com.google.adk.agents")
+
+Plan is complete with a final text result.
+
+[PlannerAction.NoOp](PlannerAction.NoOp.html "class in com.google.adk.agents")
+
+Skip this iteration (no-op).
+
+[PlannerAction.RunAgents](PlannerAction.RunAgents.html "class in com.google.adk.agents")
+
+Run the specified sub-agent(s).
+
+[PlannerAgent](PlannerAgent.html "class in com.google.adk.agents")
+
+An agent that delegates execution planning to a [`Planner`](Planner.html "interface in com.google.adk.agents") strategy.
+
+[PlannerAgent.Builder](PlannerAgent.Builder.html "class in com.google.adk.agents")
+
+Builder for [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents").
+
+[PlanningContext](PlanningContext.html "class in com.google.adk.agents")
+
+Context provided to a [`Planner`](Planner.html "interface in com.google.adk.agents") during the planning loop.
 
 [ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [McpSessionManager](../McpSessionManager.html)
@@ -45,6 +49,20 @@ Description
 `protected final [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp")`
 
 AbstractMcpTool.`[mcpSessionManager](../AbstractMcpTool.html#mcpSessionManager)`
+
+ 
+
+Methods in [com.google.adk.tools.mcp](../package-summary.html) with parameters of type [McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
+
+McpAsyncToolset.Builder.`[mcpSessionManager](../McpAsyncToolset.Builder.html#mcpSessionManager\(com.google.adk.tools.mcp.McpSessionManager\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager)`
 
  
 
@@ -100,7 +118,7 @@ Initializes the McpToolset with an McpSessionManager.
 
 ` `
 
-`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,java.util.List\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
+`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper,java.util.List\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> toolNames)`
 
 Initializes the McpToolset with an McpSessionManager.
 

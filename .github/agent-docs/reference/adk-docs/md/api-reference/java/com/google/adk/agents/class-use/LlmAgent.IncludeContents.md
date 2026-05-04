@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [LlmAgent](../LlmAgent.html)
@@ -71,7 +75,7 @@ LlmAgentConfig.`[includeContents](../LlmAgentConfig.html#includeContents\(\))()`
 
 `static [LlmAgent.IncludeContents](../LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")`
 
-LlmAgent.IncludeContents.`[valueOf](../LlmAgent.IncludeContents.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+LlmAgent.IncludeContents.`[valueOf](../LlmAgent.IncludeContents.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Returns the enum constant of this class with the specified name.
 

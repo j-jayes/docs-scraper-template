@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.memory](../package-summary.html)
   2. [SearchMemoryResponse](../SearchMemoryResponse.html)
@@ -62,19 +66,19 @@ Description
 
 `io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")>`
 
-BaseMemoryService.`[searchMemory](../BaseMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query)`
+BaseMemoryService.`[searchMemory](../BaseMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
 
 Searches for sessions that match the query asynchronously.
 
 `io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")>`
 
-FirestoreMemoryService.`[searchMemory](../FirestoreMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query)`
+FirestoreMemoryService.`[searchMemory](../FirestoreMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
 
 Searches memory entries for the given appName and userId that match the query keywords.
 
 `io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")>`
 
-InMemoryMemoryService.`[searchMemory](../InMemoryMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query)`
+InMemoryMemoryService.`[searchMemory](../InMemoryMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
 
  
 
@@ -90,7 +94,7 @@ Description
 
 `io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")>`
 
-ToolContext.`[searchMemory](../../tools/ToolContext.html#searchMemory\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query)`
+ToolContext.`[searchMemory](../../tools/ToolContext.html#searchMemory\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
 
 Searches the memory of the current user.
 

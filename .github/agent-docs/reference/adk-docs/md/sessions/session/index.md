@@ -118,6 +118,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -456,7 +457,7 @@ Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0
   * **Requires:**
     * A Google Cloud project (`pip install vertexai`)
     * A Google Cloud storage bucket that can be configured by this [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
-    * A Reasoning Engine resource name/ID that can setup following this [tutorial](/deploy/agent-runtime/).
+    * An Agent Runtime resource name/ID that can setup following this [tutorial](/deploy/agent-runtime/).
     * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Agent Platform Express Mode](/integrations/express-mode/).
   * **Best for:** Scalable production applications deployed on Google Cloud, especially when integrating with other Agent Platform features.
 

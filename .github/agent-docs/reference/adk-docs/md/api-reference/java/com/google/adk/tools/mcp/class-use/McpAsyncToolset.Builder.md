@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [McpAsyncToolset](../McpAsyncToolset.html)
@@ -43,6 +47,12 @@ Method
 
 Description
 
+`static [McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
+
+McpAsyncToolset.`[builder](../McpAsyncToolset.html#builder\(\))()`
+
+ 
+
 `[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
 McpAsyncToolset.Builder.`[connectionParams](../McpAsyncToolset.Builder.html#connectionParams\(com.google.adk.tools.mcp.SseServerParameters\))([SseServerParameters](../SseServerParameters.html "class in com.google.adk.tools.mcp") connectionParams)`
@@ -52,6 +62,12 @@ McpAsyncToolset.Builder.`[connectionParams](../McpAsyncToolset.Builder.html#conn
 `[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
 McpAsyncToolset.Builder.`[connectionParams](../McpAsyncToolset.Builder.html#connectionParams\(io.modelcontextprotocol.client.transport.ServerParameters\))(io.modelcontextprotocol.client.transport.ServerParameters connectionParams)`
+
+ 
+
+`[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
+
+McpAsyncToolset.Builder.`[mcpSessionManager](../McpAsyncToolset.Builder.html#mcpSessionManager\(com.google.adk.tools.mcp.McpSessionManager\))([McpSessionManager](../McpSessionManager.html "class in com.google.adk.tools.mcp") mcpSessionManager)`
 
  
 
@@ -69,7 +85,7 @@ McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter
 
 `[McpAsyncToolset.Builder](../McpAsyncToolset.Builder.html "class in com.google.adk.tools.mcp")`
 
-McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
+McpAsyncToolset.Builder.`[toolFilter](../McpAsyncToolset.Builder.html#toolFilter\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> toolNames)`
 
  
 

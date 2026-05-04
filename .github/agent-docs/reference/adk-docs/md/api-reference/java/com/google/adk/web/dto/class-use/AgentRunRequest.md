@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.web.dto](../package-summary.html)
   2. [AgentRunRequest](../AgentRunRequest.html)
@@ -42,7 +46,7 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../../events/Event.html "class in com.google.adk.events")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../../events/Event.html "class in com.google.adk.events")>`
 
 ExecutionController.`[agentRun](../../controller/ExecutionController.html#agentRun\(com.google.adk.web.dto.AgentRunRequest\))([AgentRunRequest](../AgentRunRequest.html "class in com.google.adk.web.dto") request)`
 

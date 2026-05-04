@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.artifacts](../package-summary.html)
   2. [ListArtifactsResponse](../ListArtifactsResponse.html)
@@ -64,19 +68,19 @@ BaseArtifactService.`[listArtifactKeys](../BaseArtifactService.html#listArtifact
 
 `io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](../ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
 
-BaseArtifactService.`[listArtifactKeys](../BaseArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+BaseArtifactService.`[listArtifactKeys](../BaseArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId)`
 
 Lists all the artifact filenames within a session.
 
 `io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](../ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
 
-GcsArtifactService.`[listArtifactKeys](../GcsArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+GcsArtifactService.`[listArtifactKeys](../GcsArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId)`
 
 Lists artifact filenames for a user and session.
 
 `io.reactivex.rxjava3.core.Single<[ListArtifactsResponse](../ListArtifactsResponse.html "class in com.google.adk.artifacts")>`
 
-InMemoryArtifactService.`[listArtifactKeys](../InMemoryArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") sessionId)`
+InMemoryArtifactService.`[listArtifactKeys](../InMemoryArtifactService.html#listArtifactKeys\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId)`
 
 Lists filenames of stored artifacts for the session.
 

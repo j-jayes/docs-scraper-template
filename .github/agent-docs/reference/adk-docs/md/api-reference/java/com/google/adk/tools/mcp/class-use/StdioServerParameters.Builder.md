@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [StdioServerParameters](../StdioServerParameters.html)
@@ -45,7 +49,7 @@ Description
 
 `abstract [StdioServerParameters.Builder](../StdioServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StdioServerParameters.Builder.`[args](../StdioServerParameters.Builder.html#args\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> args)`
+StdioServerParameters.Builder.`[args](../StdioServerParameters.Builder.html#args\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> args)`
 
 Sets the arguments for the command.
 
@@ -57,13 +61,13 @@ Creates a new builder for [`StdioServerParameters`](../StdioServerParameters.htm
 
 `abstract [StdioServerParameters.Builder](../StdioServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StdioServerParameters.Builder.`[command](../StdioServerParameters.Builder.html#command\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") command)`
+StdioServerParameters.Builder.`[command](../StdioServerParameters.Builder.html#command\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") command)`
 
 Sets the command to execute for the stdio server.
 
 `abstract [StdioServerParameters.Builder](../StdioServerParameters.Builder.html "class in com.google.adk.tools.mcp")`
 
-StdioServerParameters.Builder.`[env](../StdioServerParameters.Builder.html#env\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> env)`
+StdioServerParameters.Builder.`[env](../StdioServerParameters.Builder.html#env\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> env)`
 
 Sets the environment variables.
 

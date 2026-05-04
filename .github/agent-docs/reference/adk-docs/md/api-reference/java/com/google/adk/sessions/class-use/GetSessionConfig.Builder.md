@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](../package-summary.html)
   2. [GetSessionConfig](../GetSessionConfig.html)
@@ -45,7 +49,7 @@ Description
 
 `abstract [GetSessionConfig.Builder](../GetSessionConfig.Builder.html "class in com.google.adk.sessions")`
 
-GetSessionConfig.Builder.`[afterTimestamp](../GetSessionConfig.Builder.html#afterTimestamp\(java.time.Instant\))([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") afterTimestamp)`
+GetSessionConfig.Builder.`[afterTimestamp](../GetSessionConfig.Builder.html#afterTimestamp\(java.time.Instant\))([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class in java.time") afterTimestamp)`
 
  
 

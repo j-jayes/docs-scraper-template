@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../../get-started/)
 
@@ -78,7 +78,7 @@ Models for Agents
           * Environment variables 
           * Example usage 
       * [ Claude  ](../anthropic/)
-      * [ Vertex AI hosted  ](../vertex/)
+      * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
@@ -108,29 +108,32 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
 
 Observability 
       * [ Logging  ](../../../observability/logging/)
+      * [ Traces  ](../../../observability/traces/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
       * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
@@ -201,7 +204,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -249,8 +252,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../../../get-started/)
-  2. [ Models for Agents  ](../)
+  1. [ Home  ](../../..)
+  2. [ Build Agents  ](../../../get-started/)
+  3. [ Models for Agents  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/google-gemma.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/models/google-gemma.md "View Markdown source")
 
@@ -260,7 +264,7 @@ Supported in ADKPython v0.1.0
 
 ADK agents can use the [Google Gemma](https://ai.google.dev/gemma/docs) family of generative AI models that offer a wide range of capabilities. ADK supports many Gemma features, including [Tool Calling](/tools-custom/) and [Structured Output](/agents/llm-agents/#structuring-data-input_schema-output_schema-output_key).
 
-You can use Gemma 4 through the [Gemini API](https://ai.google.dev/gemini-api/docs), or with one of many self-hosting options on Google Cloud: [Vertex AI](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma4), [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm), [Cloud Run](https://docs.cloud.google.com/run/docs/run-gemma-on-cloud-run).
+You can use Gemma 4 through the [Gemini API](https://ai.google.dev/gemini-api/docs), or with one of many self-hosting options on Google Cloud: [Agent Platform](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma4), [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm), [Cloud Run](https://docs.cloud.google.com/run/docs/run-gemma-on-cloud-run).
 
 ## Gemini API Example¶
 
@@ -323,7 +327,7 @@ The following example shows how to use a Gemma 4 vLLM endpoint with ADK agents.
 
 ### Setup¶
 
-  1. **Deploy Model:** Deploy your chosen model using [Vertex AI](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma4), [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm), or [Cloud Run](https://docs.cloud.google.com/run/docs/run-gemma-on-cloud-run), and use its OpenAI-compatible API endpoint. Note that the API base URL includes `/v1` (e.g., `https://your-vllm-endpoint.run.app/v1`).
+  1. **Deploy Model:** Deploy your chosen model using [Agent Platform](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma4), [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm), or [Cloud Run](https://docs.cloud.google.com/run/docs/run-gemma-on-cloud-run), and use its OpenAI-compatible API endpoint. Note that the API base URL includes `/v1` (e.g., `https://your-vllm-endpoint.run.app/v1`).
      * _Important for ADK Tools:_ When deploying, ensure the serving tool supports and enables compatible tool/function calling and reasoning parsers.
   2. **Authentication:** Determine how your endpoint handles authentication (e.g., API key, bearer token).
 

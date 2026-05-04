@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [McpToolset](../McpToolset.html)
@@ -43,7 +47,7 @@ Field
 
 Description
 
-`protected static final [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [McpToolset.McpToolsetConfig](../McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")>`
+`protected static final [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class in java.lang")<? extends [McpToolset.McpToolsetConfig](../McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")>`
 
 McpToolset.`[CONFIG_TYPE](../McpToolset.html#CONFIG_TYPE)`
 

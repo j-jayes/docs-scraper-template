@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [AgentTool](../AgentTool.html)
@@ -71,6 +75,12 @@ AgentTool.`[create](../AgentTool.html#create\(com.google.adk.agents.BaseAgent\))
 `static [AgentTool](../AgentTool.html "class in com.google.adk.tools")`
 
 AgentTool.`[create](../AgentTool.html#create\(com.google.adk.agents.BaseAgent,boolean\))([BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, boolean skipSummarization)`
+
+ 
+
+`static [AgentTool](../AgentTool.html "class in com.google.adk.tools")`
+
+AgentTool.`[create](../AgentTool.html#create\(com.google.adk.agents.BaseAgent,boolean,boolean\))([BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, boolean skipSummarization, boolean includePlugins)`
 
  
 

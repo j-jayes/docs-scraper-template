@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.recordings](../package-summary.html)
   2. [ToolRecording](../ToolRecording.html)
@@ -56,7 +60,7 @@ Method
 
 Description
 
-`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ToolRecording](../ToolRecording.html "class in com.google.adk.plugins.recordings")>`
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolRecording](../ToolRecording.html "class in com.google.adk.plugins.recordings")>`
 
 Recording.`[toolRecording](../Recording.html#toolRecording\(\))()`
 

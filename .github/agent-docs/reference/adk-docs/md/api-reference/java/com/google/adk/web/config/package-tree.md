@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.web.config](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.web.config.[AdkWebCorsConfig](AdkWebCorsConfig.html "class in com.google.adk.web.config")
     * com.google.adk.web.config.[AgentLoadingProperties](AgentLoadingProperties.html "class in com.google.adk.web.config")
     * com.google.adk.web.config.[OpenTelemetryConfig](OpenTelemetryConfig.html "class in com.google.adk.web.config")
@@ -37,8 +41,8 @@ Package Hierarchies:
 
 ## Record Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
       * com.google.adk.web.config.[AdkWebCorsProperties](AdkWebCorsProperties.html "class in com.google.adk.web.config")
 
 

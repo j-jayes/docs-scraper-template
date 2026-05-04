@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [BaseAgentConfig](../BaseAgentConfig.html)
@@ -49,13 +53,13 @@ BaseAgentConfig.`[afterAgentCallbacks](../BaseAgentConfig.html#afterAgentCallbac
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
 
 LlmAgentConfig.`[afterModelCallbacks](../LlmAgentConfig.html#afterModelCallbacks\(\))()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
 
 LlmAgentConfig.`[afterToolCallbacks](../LlmAgentConfig.html#afterToolCallbacks\(\))()`
 
@@ -67,13 +71,13 @@ BaseAgentConfig.`[beforeAgentCallbacks](../BaseAgentConfig.html#beforeAgentCallb
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
 
 LlmAgentConfig.`[beforeModelCallbacks](../LlmAgentConfig.html#beforeModelCallbacks\(\))()`
 
  
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")>`
 
 LlmAgentConfig.`[beforeToolCallbacks](../LlmAgentConfig.html#beforeToolCallbacks\(\))()`
 
@@ -89,43 +93,43 @@ Description
 
 `static <T> void`
 
-ConfigAgentUtils.`[resolveAndSetCallback](../ConfigAgentUtils.html#resolveAndSetCallback\(java.util.List,java.lang.Class,java.lang.String,java.util.function.Consumer\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> refs, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<T> callbackBaseClass, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") callbackTypeName, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "class or interface in java.util.function")<com.google.common.collect.ImmutableList<T>> builderSetter)`
+ConfigAgentUtils.`[resolveAndSetCallback](../ConfigAgentUtils.html#resolveAndSetCallback\(java.util.List,java.lang.Class,java.lang.String,java.util.function.Consumer\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> refs, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class in java.lang")<T> callbackBaseClass, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") callbackTypeName, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "interface in java.util.function")<com.google.common.collect.ImmutableList<T>> builderSetter)`
 
 Resolves and sets callbacks from configuration.
 
 `void`
 
-BaseAgentConfig.`[setAfterAgentCallbacks](../BaseAgentConfig.html#setAfterAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterAgentCallbacks)`
+BaseAgentConfig.`[setAfterAgentCallbacks](../BaseAgentConfig.html#setAfterAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterAgentCallbacks)`
 
  
 
 `void`
 
-LlmAgentConfig.`[setAfterModelCallbacks](../LlmAgentConfig.html#setAfterModelCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterModelCallbacks)`
+LlmAgentConfig.`[setAfterModelCallbacks](../LlmAgentConfig.html#setAfterModelCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterModelCallbacks)`
 
  
 
 `void`
 
-LlmAgentConfig.`[setAfterToolCallbacks](../LlmAgentConfig.html#setAfterToolCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterToolCallbacks)`
+LlmAgentConfig.`[setAfterToolCallbacks](../LlmAgentConfig.html#setAfterToolCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> afterToolCallbacks)`
 
  
 
 `void`
 
-BaseAgentConfig.`[setBeforeAgentCallbacks](../BaseAgentConfig.html#setBeforeAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeAgentCallbacks)`
+BaseAgentConfig.`[setBeforeAgentCallbacks](../BaseAgentConfig.html#setBeforeAgentCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeAgentCallbacks)`
 
  
 
 `void`
 
-LlmAgentConfig.`[setBeforeModelCallbacks](../LlmAgentConfig.html#setBeforeModelCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeModelCallbacks)`
+LlmAgentConfig.`[setBeforeModelCallbacks](../LlmAgentConfig.html#setBeforeModelCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeModelCallbacks)`
 
  
 
 `void`
 
-LlmAgentConfig.`[setBeforeToolCallbacks](../LlmAgentConfig.html#setBeforeToolCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeToolCallbacks)`
+LlmAgentConfig.`[setBeforeToolCallbacks](../LlmAgentConfig.html#setBeforeToolCallbacks\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> beforeToolCallbacks)`
 
  
 

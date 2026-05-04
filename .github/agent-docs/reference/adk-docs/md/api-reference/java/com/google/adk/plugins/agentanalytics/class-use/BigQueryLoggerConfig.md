@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.agentanalytics](../package-summary.html)
   2. [BigQueryLoggerConfig](../BigQueryLoggerConfig.html)
@@ -45,32 +49,6 @@ Description
 `abstract [BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")`
 
 BigQueryLoggerConfig.Builder.`[build](../BigQueryLoggerConfig.Builder.html#build\(\))()`
-
- 
-
-Methods in [com.google.adk.plugins.agentanalytics](../package-summary.html) with parameters of type [BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
-
-Modifier and Type
-
-Method
-
-Description
-
-`protected com.google.cloud.bigquery.storage.v1.BigQueryWriteClient`
-
-BigQueryAgentAnalyticsPlugin.`[createWriteClient](../BigQueryAgentAnalyticsPlugin.html#createWriteClient\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig\))([BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics") config)`
-
- 
-
-`protected com.google.cloud.bigquery.storage.v1.StreamWriter`
-
-BigQueryAgentAnalyticsPlugin.`[createWriter](../BigQueryAgentAnalyticsPlugin.html#createWriter\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig\))([BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics") config)`
-
- 
-
-`protected [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
-
-BigQueryAgentAnalyticsPlugin.`[getStreamName](../BigQueryAgentAnalyticsPlugin.html#getStreamName\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig\))([BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics") config)`
 
  
 

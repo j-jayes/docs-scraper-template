@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](package-summary.html)
 
@@ -28,8 +32,8 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * com.google.adk.sessions.[ApiResponse](ApiResponse.html "class in com.google.adk.sessions") (implements java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")) 
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+    * com.google.adk.sessions.[ApiResponse](ApiResponse.html "class in com.google.adk.sessions") (implements java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")) 
       * com.google.adk.sessions.[HttpApiResponse](HttpApiResponse.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[FirestoreSessionService](FirestoreSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions"))
     * com.google.adk.sessions.[GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions")
@@ -45,10 +49,10 @@ Package Hierarchies:
     * com.google.adk.sessions.[ListSessionsResponse.Builder](ListSessionsResponse.Builder.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[SessionUtils](SessionUtils.html "class in com.google.adk.sessions")
-    * com.google.adk.sessions.[State](State.html "class in com.google.adk.sessions") (implements java.util.concurrent.[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "class or interface in java.util.concurrent")<K,V>)
-    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
-      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
-        * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class or interface in java.lang")
+    * com.google.adk.sessions.[State](State.html "class in com.google.adk.sessions") (implements java.util.concurrent.[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "interface in java.util.concurrent")<K,V>)
+    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 
+      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")
+        * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang")
           * com.google.adk.sessions.[SessionException](SessionException.html "class in com.google.adk.sessions")
             * com.google.adk.sessions.[SessionNotFoundException](SessionNotFoundException.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[VertexAiSessionService](VertexAiSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions"))

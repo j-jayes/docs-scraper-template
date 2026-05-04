@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.a2a.agent](../package-summary.html)
   2. [RemoteA2AAgent](../RemoteA2AAgent.html)
@@ -51,7 +55,7 @@ RemoteA2AAgent.Builder.`[a2aClient](../RemoteA2AAgent.Builder.html#a2aClient\(io
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
-RemoteA2AAgent.Builder.`[afterAgentCallback](../RemoteA2AAgent.Builder.html#afterAgentCallback\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.AfterAgentCallback](../../../agents/Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
+RemoteA2AAgent.Builder.`[afterAgentCallback](../RemoteA2AAgent.Builder.html#afterAgentCallback\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Callbacks.AfterAgentCallback](../../../agents/Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
 
  
 
@@ -63,7 +67,7 @@ RemoteA2AAgent.Builder.`[agentCard](../RemoteA2AAgent.Builder.html#agentCard\(io
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
-RemoteA2AAgent.Builder.`[beforeAgentCallback](../RemoteA2AAgent.Builder.html#beforeAgentCallback\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Callbacks.BeforeAgentCallback](../../../agents/Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback)`
+RemoteA2AAgent.Builder.`[beforeAgentCallback](../RemoteA2AAgent.Builder.html#beforeAgentCallback\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Callbacks.BeforeAgentCallback](../../../agents/Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback)`
 
  
 
@@ -75,13 +79,13 @@ RemoteA2AAgent.`[builder](../RemoteA2AAgent.html#builder\(\))()`
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
-RemoteA2AAgent.Builder.`[description](../RemoteA2AAgent.Builder.html#description\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+RemoteA2AAgent.Builder.`[description](../RemoteA2AAgent.Builder.html#description\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description)`
 
  
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
-RemoteA2AAgent.Builder.`[name](../RemoteA2AAgent.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+RemoteA2AAgent.Builder.`[name](../RemoteA2AAgent.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
  
 
@@ -93,7 +97,7 @@ RemoteA2AAgent.Builder.`[streaming](../RemoteA2AAgent.Builder.html#streaming\(bo
 
 `[RemoteA2AAgent.Builder](../RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")`
 
-RemoteA2AAgent.Builder.`[subAgents](../RemoteA2AAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [BaseAgent](../../../agents/BaseAgent.html "class in com.google.adk.agents")> subAgents)`
+RemoteA2AAgent.Builder.`[subAgents](../RemoteA2AAgent.Builder.html#subAgents\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](../../../agents/BaseAgent.html "class in com.google.adk.agents")> subAgents)`
 
  
 

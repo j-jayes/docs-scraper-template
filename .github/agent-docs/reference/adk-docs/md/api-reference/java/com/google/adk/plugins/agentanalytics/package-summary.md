@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.agentanalytics](package-summary.html)
 
@@ -75,6 +79,10 @@ Builder for [`BigQueryLoggerConfig.RetryConfig`](BigQueryLoggerConfig.RetryConfi
 [BigQuerySchema](BigQuerySchema.html "class in com.google.adk.plugins.agentanalytics")
 
 Utility for defining the BigQuery events table schema.
+
+[TraceManager](TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+
+Manages OpenTelemetry-style trace and span context using InvocationContext callback data.
 
 
 

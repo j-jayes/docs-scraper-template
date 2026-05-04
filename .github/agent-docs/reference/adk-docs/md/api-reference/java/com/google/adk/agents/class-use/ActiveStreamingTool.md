@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [ActiveStreamingTool](../ActiveStreamingTool.html)
@@ -42,7 +46,7 @@ Method
 
 Description
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ActiveStreamingTool](../ActiveStreamingTool.html "class in com.google.adk.agents")>`
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ActiveStreamingTool](../ActiveStreamingTool.html "class in com.google.adk.agents")>`
 
 InvocationContext.`[activeStreamingTools](../InvocationContext.html#activeStreamingTools\(\))()`
 

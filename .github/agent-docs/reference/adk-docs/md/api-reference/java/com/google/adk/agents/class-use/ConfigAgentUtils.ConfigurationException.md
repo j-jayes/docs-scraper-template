@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [ConfigAgentUtils](../ConfigAgentUtils.html)
@@ -53,55 +57,55 @@ Description
 
 `static [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")`
 
-ConfigAgentUtils.`[fromConfig](../ConfigAgentUtils.html#fromConfig\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configPath)`
+ConfigAgentUtils.`[fromConfig](../ConfigAgentUtils.html#fromConfig\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configPath)`
 
 Load agent from a YAML config file path.
 
 `static [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
 
-LlmAgent.`[fromConfig](../LlmAgent.html#fromConfig\(com.google.adk.agents.LlmAgentConfig,java.lang.String\))([LlmAgentConfig](../LlmAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+LlmAgent.`[fromConfig](../LlmAgent.html#fromConfig\(com.google.adk.agents.LlmAgentConfig,java.lang.String\))([LlmAgentConfig](../LlmAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates an LlmAgent from configuration with full subagent support.
 
 `static [LoopAgent](../LoopAgent.html "class in com.google.adk.agents")`
 
-LoopAgent.`[fromConfig](../LoopAgent.html#fromConfig\(com.google.adk.agents.LoopAgentConfig,java.lang.String\))([LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+LoopAgent.`[fromConfig](../LoopAgent.html#fromConfig\(com.google.adk.agents.LoopAgentConfig,java.lang.String\))([LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a LoopAgent from configuration.
 
 `static [ParallelAgent](../ParallelAgent.html "class in com.google.adk.agents")`
 
-ParallelAgent.`[fromConfig](../ParallelAgent.html#fromConfig\(com.google.adk.agents.ParallelAgentConfig,java.lang.String\))([ParallelAgentConfig](../ParallelAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+ParallelAgent.`[fromConfig](../ParallelAgent.html#fromConfig\(com.google.adk.agents.ParallelAgentConfig,java.lang.String\))([ParallelAgentConfig](../ParallelAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a ParallelAgent from configuration.
 
 `static [SequentialAgent](../SequentialAgent.html "class in com.google.adk.agents")`
 
-SequentialAgent.`[fromConfig](../SequentialAgent.html#fromConfig\(com.google.adk.agents.SequentialAgentConfig,java.lang.String\))([SequentialAgentConfig](../SequentialAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+SequentialAgent.`[fromConfig](../SequentialAgent.html#fromConfig\(com.google.adk.agents.SequentialAgentConfig,java.lang.String\))([SequentialAgentConfig](../SequentialAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a SequentialAgent from configuration.
 
 `static <T> void`
 
-ConfigAgentUtils.`[resolveAndSetCallback](../ConfigAgentUtils.html#resolveAndSetCallback\(java.util.List,java.lang.Class,java.lang.String,java.util.function.Consumer\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> refs, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<T> callbackBaseClass, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") callbackTypeName, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "class or interface in java.util.function")<com.google.common.collect.ImmutableList<T>> builderSetter)`
+ConfigAgentUtils.`[resolveAndSetCallback](../ConfigAgentUtils.html#resolveAndSetCallback\(java.util.List,java.lang.Class,java.lang.String,java.util.function.Consumer\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.CallbackRef](../BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")> refs, [Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class in java.lang")<T> callbackBaseClass, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") callbackTypeName, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "interface in java.util.function")<com.google.common.collect.ImmutableList<T>> builderSetter)`
 
 Resolves and sets callbacks from configuration.
 
 `static void`
 
-ConfigAgentUtils.`[resolveAndSetCommonAgentFields](../ConfigAgentUtils.html#resolveAndSetCommonAgentFields\(com.google.adk.agents.BaseAgent.Builder,com.google.adk.agents.BaseAgentConfig,java.lang.String\))([BaseAgent.Builder](../BaseAgent.Builder.html "class in com.google.adk.agents")<?> builder, [BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+ConfigAgentUtils.`[resolveAndSetCommonAgentFields](../ConfigAgentUtils.html#resolveAndSetCommonAgentFields\(com.google.adk.agents.BaseAgent.Builder,com.google.adk.agents.BaseAgentConfig,java.lang.String\))([BaseAgent.Builder](../BaseAgent.Builder.html "class in com.google.adk.agents")<?> builder, [BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Configures the common properties of an agent builder from the configuration.
 
 `static com.google.common.collect.ImmutableList<[BaseAgent](../BaseAgent.html "class in com.google.adk.agents")>`
 
-ConfigAgentUtils.`[resolveSubAgents](../ConfigAgentUtils.html#resolveSubAgents\(java.util.List,java.lang.String\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseAgentConfig.AgentRefConfig](../BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")> subAgentConfigs, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+ConfigAgentUtils.`[resolveSubAgents](../ConfigAgentUtils.html#resolveSubAgents\(java.util.List,java.lang.String\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseAgentConfig.AgentRefConfig](../BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")> subAgentConfigs, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Resolves subagent configurations into actual BaseAgent instances.
 
 `static void`
 
-ConfigAgentUtils.`[setBaseAgentCallbacks](../ConfigAgentUtils.html#setBaseAgentCallbacks\(com.google.adk.agents.BaseAgentConfig,java.util.function.Consumer,java.util.function.Consumer\))([BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "class or interface in java.util.function")<com.google.common.collect.ImmutableList<com.google.adk.agents.Callbacks.BeforeAgentCallbackBase>> beforeSetter, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "class or interface in java.util.function")<com.google.common.collect.ImmutableList<com.google.adk.agents.Callbacks.AfterAgentCallbackBase>> afterSetter)`
+ConfigAgentUtils.`[setBaseAgentCallbacks](../ConfigAgentUtils.html#setBaseAgentCallbacks\(com.google.adk.agents.BaseAgentConfig,java.util.function.Consumer,java.util.function.Consumer\))([BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "interface in java.util.function")<com.google.common.collect.ImmutableList<com.google.adk.agents.Callbacks.BeforeAgentCallbackBase>> beforeSetter, [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html "interface in java.util.function")<com.google.common.collect.ImmutableList<com.google.adk.agents.Callbacks.AfterAgentCallbackBase>> afterSetter)`
 
 Sets the common agent callbacks (before/after agent) from the config to the builder setters.
 
@@ -117,13 +121,13 @@ Description
 
 `static [BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")`
 
-AgentTool.`[fromConfig](../../tools/AgentTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolArgsConfig,java.lang.String\))([BaseTool.ToolArgsConfig](../../tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools") args, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+AgentTool.`[fromConfig](../../tools/AgentTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolArgsConfig,java.lang.String\))([BaseTool.ToolArgsConfig](../../tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools") args, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
  
 
 `static [BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")`
 
-BaseTool.`[fromConfig](../../tools/BaseTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../../tools/BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+BaseTool.`[fromConfig](../../tools/BaseTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../../tools/BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a tool instance from a config.
 
@@ -135,7 +139,7 @@ Overload to match resolver which passes only ToolArgsConfig.
 
 `static [ExampleTool](../../tools/ExampleTool.html "class in com.google.adk.tools")`
 
-ExampleTool.`[fromConfig](../../tools/ExampleTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolArgsConfig,java.lang.String\))([BaseTool.ToolArgsConfig](../../tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools") args, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+ExampleTool.`[fromConfig](../../tools/ExampleTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolArgsConfig,java.lang.String\))([BaseTool.ToolArgsConfig](../../tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools") args, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Factory from YAML tool args.
 
@@ -151,7 +155,7 @@ Description
 
 `static [McpToolset](../../tools/mcp/McpToolset.html "class in com.google.adk.tools.mcp")`
 
-McpToolset.`[fromConfig](../../tools/mcp/McpToolset.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../../tools/BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+McpToolset.`[fromConfig](../../tools/mcp/McpToolset.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../../tools/BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a McpToolset instance from a config.
 

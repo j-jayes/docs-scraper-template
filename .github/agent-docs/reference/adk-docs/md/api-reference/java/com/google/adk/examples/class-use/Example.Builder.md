@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.examples](../package-summary.html)
   2. [Example](../Example.html)
@@ -57,7 +61,7 @@ Example.Builder.`[input](../Example.Builder.html#input\(com.google.genai.types.C
 
 `abstract [Example.Builder](../Example.Builder.html "class in com.google.adk.examples")`
 
-Example.Builder.`[output](../Example.Builder.html#output\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> output)`
+Example.Builder.`[output](../Example.Builder.html#output\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.Content> output)`
 
  
 

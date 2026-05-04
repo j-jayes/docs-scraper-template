@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.flows.llmflows.audio](package-summary.html)
   2. [SpeechClientInterface](SpeechClientInterface.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -32,14 +36,14 @@ Hide sidebar  Show sidebar
 # Interface SpeechClientInterface
 
 All Superinterfaces:
-    `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")`
+    `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`
 
 All Known Implementing Classes:
     `[VertexSpeechClient](VertexSpeechClient.html "class in com.google.adk.flows.llmflows.audio")`
 
 * * *
 
-public interface SpeechClientInterface extends [AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")
+public interface SpeechClientInterface extends [AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")
 
 Interface for a speech-to-text client. Allows for different implementations (e.g., Cloud, Mocks).
 
@@ -72,7 +76,7 @@ Performs synchronous speech recognition.
 
     * ### recognize
 
-com.google.cloud.speech.v1.RecognizeResponse recognize(com.google.cloud.speech.v1.RecognitionConfig config, com.google.cloud.speech.v1.RecognitionAudio audio) throws [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
+com.google.cloud.speech.v1.RecognizeResponse recognize(com.google.cloud.speech.v1.RecognitionConfig config, com.google.cloud.speech.v1.RecognitionAudio audio) throws [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")
 
 Performs synchronous speech recognition.
 
@@ -82,18 +86,18 @@ Parameters:
 Returns:
     The recognition response.
 Throws:
-    `[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")` \- if an error occurs during recognition.
+    `[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")` \- if an error occurs during recognition.
 
     * ### close
 
-void close() throws [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
+void close() throws [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")
 
 Closes the client and releases any resources.
 
 Specified by:
-    `[close](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html#close\(\) "class or interface in java.lang")` in interface `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "class or interface in java.lang")`
+    `[close](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html#close\(\))` in interface `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`
 Throws:
-    `[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")` \- if an error occurs during closing.
+    `[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")` \- if an error occurs during closing.
 
 
 

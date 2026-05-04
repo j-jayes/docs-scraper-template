@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [ReadonlyContext](../ReadonlyContext.html)
@@ -72,7 +76,7 @@ Method
 
 Description
 
-`[Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>>`
+`[Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>>`
 
 Instruction.Provider.`[getInstruction](../Instruction.Provider.html#getInstruction\(\))()`
 
@@ -86,13 +90,13 @@ Method
 
 Description
 
-`io.reactivex.rxjava3.core.Single<[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")>>`
+`io.reactivex.rxjava3.core.Single<[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")>>`
 
 LlmAgent.`[canonicalGlobalInstruction](../LlmAgent.html#canonicalGlobalInstruction\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") context)`
 
 Constructs the text global instruction for this agent based on the `LlmAgent.globalInstruction` field.
 
-`io.reactivex.rxjava3.core.Single<[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang")>>`
+`io.reactivex.rxjava3.core.Single<[Map.Entry](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.Entry.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")>>`
 
 LlmAgent.`[canonicalInstruction](../LlmAgent.html#canonicalInstruction\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") context)`
 
@@ -114,7 +118,7 @@ Description
 
 ` `
 
-`[Provider](../Instruction.Provider.html#%3Cinit%3E\(java.util.function.Function\))([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "class or interface in java.util.function")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>> getInstruction)`
+`[Provider](../Instruction.Provider.html#%3Cinit%3E\(java.util.function.Function\))([Function](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html "interface in java.util.function")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents"), io.reactivex.rxjava3.core.Single<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>> getInstruction)`
 
 Creates an instance of a `Provider` record class.
 
@@ -150,7 +154,7 @@ Return all tools in the toolset based on the provided context.
 
 `default boolean`
 
-BaseToolset.`[isToolSelected](../../tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") toolFilter, @Nullable [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+BaseToolset.`[isToolSelected](../../tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") toolFilter, @Nullable [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Checks if a tool should be selected based on a filter.
 
@@ -170,13 +174,13 @@ Description
 
 `boolean`
 
-NamedToolPredicate.`[test](../../tools/NamedToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
+NamedToolPredicate.`[test](../../tools/NamedToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
  
 
 `boolean`
 
-ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
+ToolPredicate.`[test](../../tools/ToolPredicate.html#test\(com.google.adk.tools.BaseTool,java.util.Optional\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")> readonlyContext)`
 
 Deprecated.
 

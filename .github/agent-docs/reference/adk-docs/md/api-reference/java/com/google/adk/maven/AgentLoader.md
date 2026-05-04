@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.maven](package-summary.html)
   2. [AgentLoader](AgentLoader.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -79,7 +83,7 @@ Method
 
 Description
 
-`com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+`com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
 
 `listAgents()`
 
@@ -87,7 +91,7 @@ Returns a list of available agent names.
 
 `[BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents")`
 
-`loadAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+`loadAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Loads the BaseAgent instance for the specified agent name.
 
@@ -98,7 +102,7 @@ Loads the BaseAgent instance for the specified agent name.
 
     * ### listAgents
 
-@Nonnull com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> listAgents()
+@Nonnull com.google.common.collect.ImmutableList<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> listAgents()
 
 Returns a list of available agent names.
 
@@ -107,7 +111,7 @@ Returns:
 
     * ### loadAgent
 
-[BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") loadAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)
+[BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") loadAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)
 
 Loads the BaseAgent instance for the specified agent name.
 
@@ -116,8 +120,8 @@ Parameters:
 Returns:
     BaseAgent instance for the given name
 Throws:
-    `[NoSuchElementException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html "class or interface in java.util")` \- if the agent doesn't exist
-    `[IllegalStateException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html "class or interface in java.lang")` \- if the agent exists but fails to load
+    `[NoSuchElementException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html "class in java.util")` \- if the agent doesn't exist
+    `[IllegalStateException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html "class in java.lang")` \- if the agent exists but fails to load
 
 
 

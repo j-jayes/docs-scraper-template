@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../deprecated-list.html)
   * [Index](../../index-all.html)
   * [Search](../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.example](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.utils.[ComponentRegistry](../google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils")
       * com.example.[CustomDemoRegistry](CustomDemoRegistry.html "class in com.example")
     * com.example.[CoreCallbacks](CoreCallbacks.html "class in com.example")

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [SequentialAgent](../SequentialAgent.html)
@@ -50,7 +54,7 @@ SequentialAgent.Builder.`[build](../SequentialAgent.Builder.html#build\(\))()`
 
 `static [SequentialAgent](../SequentialAgent.html "class in com.google.adk.agents")`
 
-SequentialAgent.`[fromConfig](../SequentialAgent.html#fromConfig\(com.google.adk.agents.SequentialAgentConfig,java.lang.String\))([SequentialAgentConfig](../SequentialAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+SequentialAgent.`[fromConfig](../SequentialAgent.html#fromConfig\(com.google.adk.agents.SequentialAgentConfig,java.lang.String\))([SequentialAgentConfig](../SequentialAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a SequentialAgent from configuration.
 

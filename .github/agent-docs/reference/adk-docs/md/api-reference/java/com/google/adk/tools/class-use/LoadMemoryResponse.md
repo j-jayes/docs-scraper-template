@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [LoadMemoryResponse](../LoadMemoryResponse.html)
@@ -44,7 +48,7 @@ Description
 
 `static io.reactivex.rxjava3.core.Single<[LoadMemoryResponse](../LoadMemoryResponse.html "class in com.google.adk.tools")>`
 
-LoadMemoryTool.`[loadMemory](../LoadMemoryTool.html#loadMemory\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+LoadMemoryTool.`[loadMemory](../LoadMemoryTool.html#loadMemory\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
 Loads the memory for the current user.
 

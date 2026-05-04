@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [StreamableHttpServerParameters](../StreamableHttpServerParameters.html)
@@ -76,7 +80,7 @@ Initializes the McpToolset with Streamable HTTP server parameters.
 
 ` `
 
-`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.StreamableHttpServerParameters,com.fasterxml.jackson.databind.ObjectMapper,java.util.List\))([StreamableHttpServerParameters](../StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> toolNames)`
+`[McpToolset](../McpToolset.html#%3Cinit%3E\(com.google.adk.tools.mcp.StreamableHttpServerParameters,com.fasterxml.jackson.databind.ObjectMapper,java.util.List\))([StreamableHttpServerParameters](../StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp") connectionParams, com.fasterxml.jackson.databind.ObjectMapper objectMapper, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> toolNames)`
 
 Initializes the McpToolset with Streamable HTTP server parameters.
 

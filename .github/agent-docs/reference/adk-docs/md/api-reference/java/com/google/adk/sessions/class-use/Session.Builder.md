@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](../package-summary.html)
   2. [Session](../Session.html)
@@ -45,7 +49,7 @@ Description
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[appName](../Session.Builder.html#appName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName)`
+Session.Builder.`[appName](../Session.Builder.html#appName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName)`
 
  
 
@@ -57,25 +61,25 @@ Creates a new [`Session.Builder`](../Session.Builder.html "class in com.google.a
 
 `static [Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.`[builder](../Session.html#builder\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)`
+Session.`[builder](../Session.html#builder\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") id)`
 
  
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[events](../Session.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+Session.Builder.`[events](../Session.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
 
  
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[id](../Session.Builder.html#id\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") id)`
+Session.Builder.`[id](../Session.Builder.html#id\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") id)`
 
  
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[lastUpdateTime](../Session.Builder.html#lastUpdateTime\(java.time.Instant\))([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class or interface in java.time") lastUpdateTime)`
+Session.Builder.`[lastUpdateTime](../Session.Builder.html#lastUpdateTime\(java.time.Instant\))([Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class in java.time") lastUpdateTime)`
 
  
 
@@ -99,13 +103,13 @@ Session.Builder.`[state](../Session.Builder.html#state\(com.google.adk.sessions.
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[state](../Session.Builder.html#state\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
+Session.Builder.`[state](../Session.Builder.html#state\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> state)`
 
  
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[userId](../Session.Builder.html#userId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") userId)`
+Session.Builder.`[userId](../Session.Builder.html#userId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId)`
 
  
 

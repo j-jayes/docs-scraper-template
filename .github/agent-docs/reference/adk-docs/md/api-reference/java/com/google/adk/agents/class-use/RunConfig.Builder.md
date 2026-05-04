@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [RunConfig](../RunConfig.html)
@@ -81,7 +85,7 @@ RunConfig.Builder.`[outputAudioTranscription](../RunConfig.Builder.html#outputAu
 
 `abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
-RunConfig.Builder.`[responseModalities](../RunConfig.Builder.html#responseModalities\(java.lang.Iterable\))([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)`
+RunConfig.Builder.`[responseModalities](../RunConfig.Builder.html#responseModalities\(java.lang.Iterable\))([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<com.google.genai.types.Modality> responseModalities)`
 
  
 
@@ -117,7 +121,7 @@ Deprecated.
 
 `final [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
-RunConfig.Builder.`[setResponseModalities](../RunConfig.Builder.html#setResponseModalities\(java.lang.Iterable\))([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<com.google.genai.types.Modality> responseModalities)`
+RunConfig.Builder.`[setResponseModalities](../RunConfig.Builder.html#setResponseModalities\(java.lang.Iterable\))([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<com.google.genai.types.Modality> responseModalities)`
 
 Deprecated.
 

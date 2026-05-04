@@ -139,15 +139,15 @@
             
             
 <span class="announce-item">
-  <strong>New Releases!</strong> Check out our blog posts for
-  <a href="https://developers.googleblog.com/adk-go-10-arrives/" target="_blank" rel="noopener">
-    ADK Go 1.0
+  <strong>New Releases!</strong> Explore
+  <a href="/2.0/">
+    ADK Python 2.0 Beta
   </a>
-  and
-  <a href="https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/"
-    target="_blank" rel="noopener">
-    ADK Java 1.0
+  with workflows and agent teams, and
+  <a href="https://github.com/google/adk-js/releases/tag/adk-v1.0.0" target="_blank" rel="noopener">
+    ADK TypeScript 1.0
   </a>
+  is now available
 </span>
 
           </div>
@@ -1886,14 +1886,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/vertex/" class="md-nav__link">
+      <a href="../agents/models/agent-platform/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Vertex AI hosted
+    Agent Platform hosted
   
 
     
@@ -3020,14 +3020,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../deploy/agent-engine/" class="md-nav__link ">
+            <a href="../deploy/agent-runtime/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Agent Engine
+    Agent Runtime
   
 
     
@@ -3049,7 +3049,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Agent Engine
+    Agent Runtime
   
 
           </label>
@@ -3064,7 +3064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/agent-engine/deploy/" class="md-nav__link">
+      <a href="../deploy/agent-runtime/deploy/" class="md-nav__link">
         
   
   
@@ -3092,14 +3092,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/agent-engine/asp/" class="md-nav__link">
+      <a href="../deploy/agent-runtime/agents-cli/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Agent Starter Pack
+    agents-cli
   
 
     
@@ -3120,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/agent-engine/test/" class="md-nav__link">
+      <a href="../deploy/agent-runtime/test/" class="md-nav__link">
         
   
   
@@ -3230,6 +3230,8 @@
       
         
       
+        
+      
     
     
     
@@ -3302,6 +3304,34 @@
     
   
     Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="traces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traces
   
 
     
@@ -5527,14 +5557,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../grounding/vertex_ai_search_grounding/" class="md-nav__link">
+      <a href="../grounding/grounding_with_search/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Vertex AI Search Grounding
+    Grounding with Search
   
 
     
@@ -6551,11 +6581,10 @@ analyzing its external telemetry and structured logs. When building
 agents, you may need these features to help debug and diagnose their
 in-process behavior. Basic input and output monitoring is typically
 insufficient for agents with any significant level of complexity.</p>
-<p>Agent Development Kit (ADK) provides configurable
-<a href="/observability/logging/">logging</a>
-functionality for monitoring and debugging agents. However, you may
-need to consider more advanced
-<a href="/integrations/?topic=observability">observability ADK Integrations</a>
+<p>Agent Development Kit (ADK) provides built-in observability through
+<a href="/observability/logging/">logging</a> and <a href="/observability/traces/">traces</a> to help
+you monitor and debug your agents. However, you may need to consider more
+advanced <a href="/integrations/?topic=observability">observability ADK Integrations</a>
 for monitoring and analysis.</p>
 <div class="admonition tip">
 <p class="admonition-title">ADK Integrations for observability</p>

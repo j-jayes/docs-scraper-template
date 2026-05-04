@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.utils](package-summary.html)
 
@@ -31,6 +35,14 @@ com.example
 
  
 
+com.google.adk.a2a.agent
+
+ 
+
+com.google.adk.agents
+
+ 
+
 com.google.adk.utils
 
  
@@ -45,6 +57,26 @@ Description
 
 A registry for storing and retrieving ADK instances by name.
 
+  * Classes in [com.google.adk.utils](package-summary.html) used by [com.google.adk.a2a.agent](../a2a/agent/package-summary.html)
+
+Class
+
+Description
+
+[AgentEnums.AgentOrigin](class-use/AgentEnums.AgentOrigin.html#com.google.adk.a2a.agent)
+
+Origin of the agent.
+
+  * Classes in [com.google.adk.utils](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
+
+Class
+
+Description
+
+[AgentEnums.AgentOrigin](class-use/AgentEnums.AgentOrigin.html#com.google.adk.agents)
+
+Origin of the agent.
+
   * Classes in [com.google.adk.utils](package-summary.html) used by [com.google.adk.utils](package-summary.html)
 
 Class
@@ -54,6 +86,10 @@ Description
 [AdkComponentProvider](class-use/AdkComponentProvider.html#com.google.adk.utils)
 
 Service provider interface for ADK components to be registered in [`ComponentRegistry`](ComponentRegistry.html "class in com.google.adk.utils").
+
+[AgentEnums.AgentOrigin](class-use/AgentEnums.AgentOrigin.html#com.google.adk.utils)
+
+Origin of the agent.
 
 [ComponentRegistry](class-use/ComponentRegistry.html#com.google.adk.utils)
 

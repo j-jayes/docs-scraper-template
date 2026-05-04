@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [Annotations](../Annotations.html)
@@ -59,13 +63,13 @@ Method
 
 Description
 
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
 
-CustomDieTool.`[checkPrime](../../../../example/CustomDieTool.html#checkPrime\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> nums)`
+CustomDieTool.`[checkPrime](../../../../example/CustomDieTool.html#checkPrime\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")> nums)`
 
  
 
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
 
 CustomDieTool.`[rollDie](../../../../example/CustomDieTool.html#rollDie\(int,com.google.adk.tools.ToolContext\))(int sides, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
@@ -79,13 +83,13 @@ Method
 
 Description
 
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
 
-CustomDieTool.`[checkPrime](../../../../example/CustomDieTool.html#checkPrime\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")> nums)`
+CustomDieTool.`[checkPrime](../../../../example/CustomDieTool.html#checkPrime\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")> nums)`
 
  
 
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")>`
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
 
 CustomDieTool.`[rollDie](../../../../example/CustomDieTool.html#rollDie\(int,com.google.adk.tools.ToolContext\))(int sides, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
@@ -103,7 +107,7 @@ Description
 
 `static void`
 
-AgentTransfer.`[transferToAgent](../../flows/llmflows/AgentTransfer.html#transferToAgent\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+AgentTransfer.`[transferToAgent](../../flows/llmflows/AgentTransfer.html#transferToAgent\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
 
@@ -117,13 +121,13 @@ Description
 
 `static void`
 
-AgentTransfer.`[transferToAgent](../../flows/llmflows/AgentTransfer.html#transferToAgent\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+AgentTransfer.`[transferToAgent](../../flows/llmflows/AgentTransfer.html#transferToAgent\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
 
 `static void`
 
-AgentTransfer.`[transferToAgent](../../flows/llmflows/AgentTransfer.html#transferToAgent\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+AgentTransfer.`[transferToAgent](../../flows/llmflows/AgentTransfer.html#transferToAgent\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
 
@@ -153,7 +157,7 @@ Description
 
 `static io.reactivex.rxjava3.core.Single<[LoadMemoryResponse](../LoadMemoryResponse.html "class in com.google.adk.tools")>`
 
-LoadMemoryTool.`[loadMemory](../LoadMemoryTool.html#loadMemory\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+LoadMemoryTool.`[loadMemory](../LoadMemoryTool.html#loadMemory\(java.lang.String,com.google.adk.tools.ToolContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
 Loads the memory for the current user.
 
@@ -217,79 +221,79 @@ Hovers at a specific x, y coordinate on the webpage.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[keyCombination](../computeruse/BaseComputer.html#keyCombination\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> keys)`
+BaseComputer.`[keyCombination](../computeruse/BaseComputer.html#keyCombination\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> keys)`
 
 Presses key combination.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[navigate](../computeruse/BaseComputer.html#navigate\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
+BaseComputer.`[navigate](../computeruse/BaseComputer.html#navigate\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") url)`
 
 Navigates to URL.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction, int magnitude)`
+BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction, int magnitude)`
 
 Scrolls at a specific x, y coordinate by magnitude.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction, int magnitude)`
+BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction, int magnitude)`
 
 Scrolls at a specific x, y coordinate by magnitude.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction, int magnitude)`
+BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction, int magnitude)`
 
 Scrolls at a specific x, y coordinate by magnitude.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction, int magnitude)`
+BaseComputer.`[scrollAt](../computeruse/BaseComputer.html#scrollAt\(int,int,java.lang.String,int\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction, int magnitude)`
 
 Scrolls at a specific x, y coordinate by magnitude.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[scrollDocument](../computeruse/BaseComputer.html#scrollDocument\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction)`
+BaseComputer.`[scrollDocument](../computeruse/BaseComputer.html#scrollDocument\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction)`
 
 Scrolls the entire webpage in a direction.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)`
+BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)`
 
 Types text at a specific x, y coordinate.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)`
+BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)`
 
 Types text at a specific x, y coordinate.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)`
+BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)`
 
 Types text at a specific x, y coordinate.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)`
+BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)`
 
 Types text at a specific x, y coordinate.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)`
+BaseComputer.`[typeTextAt](../computeruse/BaseComputer.html#typeTextAt\(int,int,java.lang.String,java.lang.Boolean,java.lang.Boolean\))(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)`
 
 Types text at a specific x, y coordinate.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](../computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-BaseComputer.`[wait](../computeruse/BaseComputer.html#wait\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") duration)`
+BaseComputer.`[wait](../computeruse/BaseComputer.html#wait\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") duration)`
 
 Waits for specified duration.
 
@@ -303,21 +307,21 @@ Method
 
 Description
 
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
 
-CityTimeWeather.`[getCurrentTime](../../tutorials/CityTimeWeather.html#getCurrentTime\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") city)`
-
- 
-
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
-
-CityTimeWeather.`[getWeather](../../tutorials/CityTimeWeather.html#getWeather\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") city)`
+CityTimeWeather.`[getCurrentTime](../../tutorials/CityTimeWeather.html#getCurrentTime\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") city)`
 
  
 
-`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")>`
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
 
-LiveAudioSingleAgent.`[getWeather](../../tutorials/LiveAudioSingleAgent.html#getWeather\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location)`
+CityTimeWeather.`[getWeather](../../tutorials/CityTimeWeather.html#getWeather\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") city)`
+
+ 
+
+`static [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
+
+LiveAudioSingleAgent.`[getWeather](../../tutorials/LiveAudioSingleAgent.html#getWeather\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") location)`
 
  
 

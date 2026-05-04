@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](package-summary.html)
 
@@ -28,17 +32,19 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.agents.[ActiveStreamingTool](ActiveStreamingTool.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgent](BaseAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LlmAgent](LlmAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LoopAgent](LoopAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[ParallelAgent](ParallelAgent.html "class in com.google.adk.agents")
+      * com.google.adk.agents.[PlannerAgent](PlannerAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[SequentialAgent](SequentialAgent.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgent.Builder](BaseAgent.Builder.html "class in com.google.adk.agents")<B>
       * com.google.adk.agents.[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LoopAgent.Builder](LoopAgent.Builder.html "class in com.google.adk.agents")
       * com.google.adk.agents.[ParallelAgent.Builder](ParallelAgent.Builder.html "class in com.google.adk.agents")
+      * com.google.adk.agents.[PlannerAgent.Builder](PlannerAgent.Builder.html "class in com.google.adk.agents")
       * com.google.adk.agents.[SequentialAgent.Builder](SequentialAgent.Builder.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgentConfig](BaseAgentConfig.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LlmAgentConfig](LlmAgentConfig.html "class in com.google.adk.agents")
@@ -56,12 +62,13 @@ Package Hierarchies:
       * com.google.adk.agents.[LiveRequest](LiveRequest.html "class in com.google.adk.agents")
     * com.google.adk.agents.[LiveRequest.Builder](LiveRequest.Builder.html "class in com.google.adk.agents")
     * com.google.adk.agents.[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")
+    * com.google.adk.agents.[PlanningContext](PlanningContext.html "class in com.google.adk.agents")
     * com.google.adk.agents.[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")
       * com.google.adk.agents.[CallbackContext](CallbackContext.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig](RunConfig.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")
-    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
-      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang")
+    * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 
+      * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")
         * com.google.adk.agents.[ConfigAgentUtils.ConfigurationException](ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")
 
 
@@ -93,13 +100,15 @@ Package Hierarchies:
     * com.google.adk.agents.[Callbacks.OnToolErrorCallback](Callbacks.OnToolErrorCallback.html "interface in com.google.adk.agents")
     * com.google.adk.agents.[Callbacks.OnToolErrorCallbackSync](Callbacks.OnToolErrorCallbackSync.html "interface in com.google.adk.agents")
   * com.google.adk.agents.[Instruction](Instruction.html "interface in com.google.adk.agents")
+  * com.google.adk.agents.[Planner](Planner.html "interface in com.google.adk.agents")
+  * com.google.adk.agents.[PlannerAction](PlannerAction.html "interface in com.google.adk.agents")
 
 
 
 ## Enum Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * java.lang.[Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html "class or interface in java.lang")<E> (implements java.lang.[Comparable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html "class or interface in java.lang")<T>, java.lang.constant.[Constable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html "class or interface in java.lang.constant"), java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "class or interface in java.io")) 
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+    * java.lang.[Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html "class in java.lang")<E> (implements java.lang.[Comparable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html "interface in java.lang")<T>, java.lang.constant.[Constable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html "interface in java.lang.constant"), java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 
       * com.google.adk.agents.[LlmAgent.IncludeContents](LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.StreamingMode](RunConfig.StreamingMode.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
@@ -108,11 +117,15 @@ Package Hierarchies:
 
 ## Record Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
       * com.google.adk.agents.[ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")
       * com.google.adk.agents.[Instruction.Provider](Instruction.Provider.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](Instruction.html "interface in com.google.adk.agents"))
       * com.google.adk.agents.[Instruction.Static](Instruction.Static.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](Instruction.html "interface in com.google.adk.agents"))
+      * com.google.adk.agents.[PlannerAction.Done](PlannerAction.Done.html "class in com.google.adk.agents") (implements com.google.adk.agents.[PlannerAction](PlannerAction.html "interface in com.google.adk.agents"))
+      * com.google.adk.agents.[PlannerAction.DoneWithResult](PlannerAction.DoneWithResult.html "class in com.google.adk.agents") (implements com.google.adk.agents.[PlannerAction](PlannerAction.html "interface in com.google.adk.agents"))
+      * com.google.adk.agents.[PlannerAction.NoOp](PlannerAction.NoOp.html "class in com.google.adk.agents") (implements com.google.adk.agents.[PlannerAction](PlannerAction.html "interface in com.google.adk.agents"))
+      * com.google.adk.agents.[PlannerAction.RunAgents](PlannerAction.RunAgents.html "class in com.google.adk.agents") (implements com.google.adk.agents.[PlannerAction](PlannerAction.html "interface in com.google.adk.agents"))
 
 
 

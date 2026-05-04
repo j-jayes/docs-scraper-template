@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](package-summary.html)
 
@@ -76,6 +80,18 @@ com.google.adk.flows.llmflows
  
 
 com.google.adk.maven
+
+ 
+
+com.google.adk.planner
+
+ 
+
+com.google.adk.planner.goap
+
+ 
+
+com.google.adk.planner.p2p
 
  
 
@@ -411,6 +427,26 @@ Builder for [`ParallelAgent`](ParallelAgent.html "class in com.google.adk.agents
 
 Configuration for ParallelAgent.
 
+[Planner](class-use/Planner.html#com.google.adk.agents)
+
+Strategy interface for planning which sub-agent(s) to execute next.
+
+[PlannerAction](class-use/PlannerAction.html#com.google.adk.agents)
+
+Represents the next action a [`Planner`](Planner.html "interface in com.google.adk.agents") wants the [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents") to take.
+
+[PlannerAgent](class-use/PlannerAgent.html#com.google.adk.agents)
+
+An agent that delegates execution planning to a [`Planner`](Planner.html "interface in com.google.adk.agents") strategy.
+
+[PlannerAgent.Builder](class-use/PlannerAgent.Builder.html#com.google.adk.agents)
+
+Builder for [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents").
+
+[PlanningContext](class-use/PlanningContext.html#com.google.adk.agents)
+
+Context provided to a [`Planner`](Planner.html "interface in com.google.adk.agents") during the planning loop.
+
 [ReadonlyContext](class-use/ReadonlyContext.html#com.google.adk.agents)
 
 Provides read-only access to the context of an agent run.
@@ -496,6 +532,60 @@ Description
 [BaseAgent](class-use/BaseAgent.html#com.google.adk.maven)
 
 Base class for all agents.
+
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.planner](../planner/package-summary.html)
+
+Class
+
+Description
+
+[Planner](class-use/Planner.html#com.google.adk.planner)
+
+Strategy interface for planning which sub-agent(s) to execute next.
+
+[PlannerAction](class-use/PlannerAction.html#com.google.adk.planner)
+
+Represents the next action a [`Planner`](Planner.html "interface in com.google.adk.agents") wants the [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents") to take.
+
+[PlanningContext](class-use/PlanningContext.html#com.google.adk.planner)
+
+Context provided to a [`Planner`](Planner.html "interface in com.google.adk.agents") during the planning loop.
+
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.planner.goap](../planner/goap/package-summary.html)
+
+Class
+
+Description
+
+[Planner](class-use/Planner.html#com.google.adk.planner.goap)
+
+Strategy interface for planning which sub-agent(s) to execute next.
+
+[PlannerAction](class-use/PlannerAction.html#com.google.adk.planner.goap)
+
+Represents the next action a [`Planner`](Planner.html "interface in com.google.adk.agents") wants the [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents") to take.
+
+[PlanningContext](class-use/PlanningContext.html#com.google.adk.planner.goap)
+
+Context provided to a [`Planner`](Planner.html "interface in com.google.adk.agents") during the planning loop.
+
+  * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.planner.p2p](../planner/p2p/package-summary.html)
+
+Class
+
+Description
+
+[Planner](class-use/Planner.html#com.google.adk.planner.p2p)
+
+Strategy interface for planning which sub-agent(s) to execute next.
+
+[PlannerAction](class-use/PlannerAction.html#com.google.adk.planner.p2p)
+
+Represents the next action a [`Planner`](Planner.html "interface in com.google.adk.agents") wants the [`PlannerAgent`](PlannerAgent.html "class in com.google.adk.agents") to take.
+
+[PlanningContext](class-use/PlanningContext.html#com.google.adk.planner.p2p)
+
+Context provided to a [`Planner`](Planner.html "interface in com.google.adk.agents") during the planning loop.
 
   * Classes in [com.google.adk.agents](package-summary.html) used by [com.google.adk.plugins](../plugins/package-summary.html)
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [InvocationContext](../InvocationContext.html)
@@ -57,7 +61,7 @@ Sets the artifact service for persisting artifacts.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[branch](../InvocationContext.Builder.html#branch\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") branch)`
+InvocationContext.Builder.`[branch](../InvocationContext.Builder.html#branch\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") branch)`
 
 Sets the branch ID for the invocation.
 
@@ -69,7 +73,7 @@ Returns a new [`InvocationContext.Builder`](../InvocationContext.Builder.html "c
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[callbackContextData](../InvocationContext.Builder.html#callbackContextData\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> callbackContextData)`
+InvocationContext.Builder.`[callbackContextData](../InvocationContext.Builder.html#callbackContextData\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> callbackContextData)`
 
 Sets the callback context data for the invocation.
 
@@ -93,7 +97,7 @@ Sets the events compaction configuration for the current agent run.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
-InvocationContext.Builder.`[invocationId](../InvocationContext.Builder.html#invocationId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") invocationId)`
+InvocationContext.Builder.`[invocationId](../InvocationContext.Builder.html#invocationId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") invocationId)`
 
 Sets the unique ID for the invocation.
 

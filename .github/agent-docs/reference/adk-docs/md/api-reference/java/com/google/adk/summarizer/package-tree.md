@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.summarizer](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.summarizer.[EventsCompactionConfig.Builder](EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
     * com.google.adk.summarizer.[LlmEventSummarizer](LlmEventSummarizer.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[BaseEventSummarizer](BaseEventSummarizer.html "interface in com.google.adk.summarizer"))
     * com.google.adk.summarizer.[SlidingWindowEventCompactor](SlidingWindowEventCompactor.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[EventCompactor](EventCompactor.html "interface in com.google.adk.summarizer"))
@@ -45,8 +49,8 @@ Package Hierarchies:
 
 ## Record Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
-    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+    * java.lang.[Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
       * com.google.adk.summarizer.[EventsCompactionConfig](EventsCompactionConfig.html "class in com.google.adk.summarizer")
 
 

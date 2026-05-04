@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [ExampleTool](../ExampleTool.html)
@@ -57,7 +61,7 @@ ExampleTool.`[builder](../ExampleTool.html#builder\(\))()`
 
 `[ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-ExampleTool.Builder.`[description](../ExampleTool.Builder.html#description\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+ExampleTool.Builder.`[description](../ExampleTool.Builder.html#description\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description)`
 
  
 
@@ -69,13 +73,13 @@ ExampleTool.Builder.`[exampleProvider](../ExampleTool.Builder.html#exampleProvid
 
 `[ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-ExampleTool.Builder.`[name](../ExampleTool.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+ExampleTool.Builder.`[name](../ExampleTool.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
  
 
 `final [ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-ExampleTool.Builder.`[setDescription](../ExampleTool.Builder.html#setDescription\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") description)`
+ExampleTool.Builder.`[setDescription](../ExampleTool.Builder.html#setDescription\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description)`
 
 Deprecated.
 
@@ -87,7 +91,7 @@ Deprecated.
 
 `final [ExampleTool.Builder](../ExampleTool.Builder.html "class in com.google.adk.tools")`
 
-ExampleTool.Builder.`[setName](../ExampleTool.Builder.html#setName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+ExampleTool.Builder.`[setName](../ExampleTool.Builder.html#setName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Deprecated.
 

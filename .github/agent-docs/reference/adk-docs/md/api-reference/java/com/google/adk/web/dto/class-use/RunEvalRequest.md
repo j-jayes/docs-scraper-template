@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.web.dto](../package-summary.html)
   2. [RunEvalRequest](../RunEvalRequest.html)
@@ -42,9 +46,9 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[RunEvalResult](../RunEvalResult.html "class in com.google.adk.web.dto")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[RunEvalResult](../RunEvalResult.html "class in com.google.adk.web.dto")>`
 
-EvaluationController.`[runEval](../../controller/EvaluationController.html#runEval\(java.lang.String,java.lang.String,com.google.adk.web.dto.RunEvalRequest\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") evalSetId, [RunEvalRequest](../RunEvalRequest.html "class in com.google.adk.web.dto") req)`
+EvaluationController.`[runEval](../../controller/EvaluationController.html#runEval\(java.lang.String,java.lang.String,com.google.adk.web.dto.RunEvalRequest\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") evalSetId, [RunEvalRequest](../RunEvalRequest.html "class in com.google.adk.web.dto") req)`
 
 Placeholder for running evaluations.
 

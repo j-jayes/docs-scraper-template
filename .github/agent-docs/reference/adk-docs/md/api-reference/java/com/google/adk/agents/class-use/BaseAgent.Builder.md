@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [BaseAgent](../BaseAgent.html)
@@ -77,6 +81,12 @@ Builder for [`ParallelAgent`](../ParallelAgent.html "class in com.google.adk.age
 
 `static class `
 
+`[PlannerAgent.Builder](../PlannerAgent.Builder.html "class in com.google.adk.agents")`
+
+Builder for [`PlannerAgent`](../PlannerAgent.html "class in com.google.adk.agents").
+
+`static class `
+
 `[SequentialAgent.Builder](../SequentialAgent.Builder.html "class in com.google.adk.agents")`
 
 Builder for [`SequentialAgent`](../SequentialAgent.html "class in com.google.adk.agents").
@@ -91,7 +101,7 @@ Description
 
 `static void`
 
-ConfigAgentUtils.`[resolveAndSetCommonAgentFields](../ConfigAgentUtils.html#resolveAndSetCommonAgentFields\(com.google.adk.agents.BaseAgent.Builder,com.google.adk.agents.BaseAgentConfig,java.lang.String\))([BaseAgent.Builder](../BaseAgent.Builder.html "class in com.google.adk.agents")<?> builder, [BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+ConfigAgentUtils.`[resolveAndSetCommonAgentFields](../ConfigAgentUtils.html#resolveAndSetCommonAgentFields\(com.google.adk.agents.BaseAgent.Builder,com.google.adk.agents.BaseAgentConfig,java.lang.String\))([BaseAgent.Builder](../BaseAgent.Builder.html "class in com.google.adk.agents")<?> builder, [BaseAgentConfig](../BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Configures the common properties of an agent builder from the configuration.
 

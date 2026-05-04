@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [VertexCredentials](../VertexCredentials.html)
@@ -57,13 +61,13 @@ VertexCredentials.Builder.`[credentials](../VertexCredentials.Builder.html#crede
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[location](../VertexCredentials.Builder.html#location\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+VertexCredentials.Builder.`[location](../VertexCredentials.Builder.html#location\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)`
 
  
 
 `abstract [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[project](../VertexCredentials.Builder.html#project\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+VertexCredentials.Builder.`[project](../VertexCredentials.Builder.html#project\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)`
 
  
 
@@ -75,13 +79,13 @@ Deprecated.
 
 `final [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setLocation](../VertexCredentials.Builder.html#setLocation\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+VertexCredentials.Builder.`[setLocation](../VertexCredentials.Builder.html#setLocation\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)`
 
 Deprecated.
 
 `final [VertexCredentials.Builder](../VertexCredentials.Builder.html "class in com.google.adk.models")`
 
-VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setProject\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") value)`
+VertexCredentials.Builder.`[setProject](../VertexCredentials.Builder.html#setProject\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)`
 
 Deprecated.
 

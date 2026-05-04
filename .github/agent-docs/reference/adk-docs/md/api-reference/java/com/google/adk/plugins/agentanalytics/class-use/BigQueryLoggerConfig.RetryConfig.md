@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.agentanalytics](../package-summary.html)
   2. [BigQueryLoggerConfig](../BigQueryLoggerConfig.html)
@@ -68,12 +72,6 @@ Description
 BigQueryLoggerConfig.Builder.`[retryConfig](../BigQueryLoggerConfig.Builder.html#retryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\))([BigQueryLoggerConfig.RetryConfig](../BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics") retryConfig)`
 
  
-
-`final [BigQueryLoggerConfig.Builder](../BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
-
-BigQueryLoggerConfig.Builder.`[setRetryConfig](../BigQueryLoggerConfig.Builder.html#setRetryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\))([BigQueryLoggerConfig.RetryConfig](../BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics") retryConfig)`
-
-Deprecated.
 
 
 

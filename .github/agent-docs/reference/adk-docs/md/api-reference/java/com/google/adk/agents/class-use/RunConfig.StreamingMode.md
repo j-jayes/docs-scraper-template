@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [RunConfig](../RunConfig.html)
@@ -65,7 +69,7 @@ RunConfig.`[streamingMode](../RunConfig.html#streamingMode\(\))()`
 
 `static [RunConfig.StreamingMode](../RunConfig.StreamingMode.html "enum class in com.google.adk.agents")`
 
-RunConfig.StreamingMode.`[valueOf](../RunConfig.StreamingMode.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+RunConfig.StreamingMode.`[valueOf](../RunConfig.StreamingMode.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Returns the enum constant of this class with the specified name.
 

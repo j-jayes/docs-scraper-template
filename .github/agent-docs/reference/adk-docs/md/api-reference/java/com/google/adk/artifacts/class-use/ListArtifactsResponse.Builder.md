@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.artifacts](../package-summary.html)
   2. [ListArtifactsResponse](../ListArtifactsResponse.html)
@@ -51,7 +55,7 @@ ListArtifactsResponse.`[builder](../ListArtifactsResponse.html#builder\(\))()`
 
 `abstract [ListArtifactsResponse.Builder](../ListArtifactsResponse.Builder.html "class in com.google.adk.artifacts")`
 
-ListArtifactsResponse.Builder.`[filenames](../ListArtifactsResponse.Builder.html#filenames\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> filenames)`
+ListArtifactsResponse.Builder.`[filenames](../ListArtifactsResponse.Builder.html#filenames\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> filenames)`
 
  
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai](../package-summary.html)
   2. [ToolConverter](../ToolConverter.html)
@@ -43,13 +47,13 @@ Method
 
 Description
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConverter.ToolMetadata](../ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")>`
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConverter.ToolMetadata](../ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")>`
 
-ToolConverter.`[createToolRegistry](../ToolConverter.html#createToolRegistry\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[BaseTool](../../../tools/BaseTool.html "class in com.google.adk.tools")> tools)`
+ToolConverter.`[createToolRegistry](../ToolConverter.html#createToolRegistry\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[BaseTool](../../../tools/BaseTool.html "class in com.google.adk.tools")> tools)`
 
 Creates a tool registry from ADK tools for internal tracking.
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConverter.ToolMetadata](../ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")>`
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConverter.ToolMetadata](../ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")>`
 
 MessageConverter.`[getToolRegistry](../MessageConverter.html#getToolRegistry\(com.google.adk.models.LlmRequest\))([LlmRequest](../../LlmRequest.html "class in com.google.adk.models") llmRequest)`
 

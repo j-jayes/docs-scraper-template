@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.recordings](../package-summary.html)
   2. [Recordings](../Recordings.html)
@@ -51,7 +55,7 @@ Recordings.`[builder](../Recordings.html#builder\(\))()`
 
 `abstract [Recordings.Builder](../Recordings.Builder.html "class in com.google.adk.plugins.recordings")`
 
-Recordings.Builder.`[recordings](../Recordings.Builder.html#recordings\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Recording](../Recording.html "class in com.google.adk.plugins.recordings")> recordings)`
+Recordings.Builder.`[recordings](../Recordings.Builder.html#recordings\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Recording](../Recording.html "class in com.google.adk.plugins.recordings")> recordings)`
 
  
 

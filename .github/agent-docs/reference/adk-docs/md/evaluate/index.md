@@ -118,6 +118,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](./)
 
 Evaluation 
@@ -745,7 +746,7 @@ Here are the details for each command line argument:
 
 
 
-Back to top  [ Previous  Logging  ](../observability/logging/) [ Next  Criteria  ](criteria/)
+Back to top  [ Previous  Traces  ](../observability/traces/) [ Next  Criteria  ](criteria/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

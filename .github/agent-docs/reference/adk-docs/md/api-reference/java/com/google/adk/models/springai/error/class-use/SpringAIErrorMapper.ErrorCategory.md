@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../../deprecated-list.html)
   * [Index](../../../../../../../index-all.html)
   * [Search](../../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai.error](../package-summary.html)
   2. [SpringAIErrorMapper](../SpringAIErrorMapper.html)
@@ -65,7 +69,7 @@ SpringAIErrorMapper.MappedError.`[getCategory](../SpringAIErrorMapper.MappedErro
 
 `static [SpringAIErrorMapper.ErrorCategory](../SpringAIErrorMapper.ErrorCategory.html "enum class in com.google.adk.models.springai.error")`
 
-SpringAIErrorMapper.ErrorCategory.`[valueOf](../SpringAIErrorMapper.ErrorCategory.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+SpringAIErrorMapper.ErrorCategory.`[valueOf](../SpringAIErrorMapper.ErrorCategory.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Returns the enum constant of this class with the specified name.
 
@@ -99,7 +103,7 @@ Description
 
 ` `
 
-`[MappedError](../SpringAIErrorMapper.MappedError.html#%3Cinit%3E\(com.google.adk.models.springai.error.SpringAIErrorMapper.ErrorCategory,com.google.adk.models.springai.error.SpringAIErrorMapper.RetryStrategy,java.lang.String\))([SpringAIErrorMapper.ErrorCategory](../SpringAIErrorMapper.ErrorCategory.html "enum class in com.google.adk.models.springai.error") category, [SpringAIErrorMapper.RetryStrategy](../SpringAIErrorMapper.RetryStrategy.html "enum class in com.google.adk.models.springai.error") retryStrategy, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") normalizedMessage)`
+`[MappedError](../SpringAIErrorMapper.MappedError.html#%3Cinit%3E\(com.google.adk.models.springai.error.SpringAIErrorMapper.ErrorCategory,com.google.adk.models.springai.error.SpringAIErrorMapper.RetryStrategy,java.lang.String\))([SpringAIErrorMapper.ErrorCategory](../SpringAIErrorMapper.ErrorCategory.html "enum class in com.google.adk.models.springai.error") category, [SpringAIErrorMapper.RetryStrategy](../SpringAIErrorMapper.RetryStrategy.html "enum class in com.google.adk.models.springai.error") retryStrategy, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") normalizedMessage)`
 
  
 

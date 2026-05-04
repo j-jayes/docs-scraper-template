@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.computeruse](../package-summary.html)
   2. [ComputerState](../ComputerState.html)
@@ -57,7 +61,7 @@ ComputerState.Builder.`[screenshot](../ComputerState.Builder.html#screenshot\(by
 
 `[ComputerState.Builder](../ComputerState.Builder.html "class in com.google.adk.tools.computeruse")`
 
-ComputerState.Builder.`[url](../ComputerState.Builder.html#url\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
+ComputerState.Builder.`[url](../ComputerState.Builder.html#url\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") url)`
 
  
 

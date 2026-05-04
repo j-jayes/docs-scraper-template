@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.computeruse](package-summary.html)
   2. [BaseComputer](BaseComputer.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -121,13 +125,13 @@ Initialize the computer.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-`keyCombination([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> keys)`
+`keyCombination([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> keys)`
 
 Presses key combination.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-`navigate([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)`
+`navigate([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") url)`
 
 Navigates to URL.
 
@@ -145,13 +149,13 @@ Returns the screen size of the environment.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-`scrollAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction, int magnitude)`
+`scrollAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction, int magnitude)`
 
 Scrolls at a specific x, y coordinate by magnitude.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-`scrollDocument([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction)`
+`scrollDocument([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction)`
 
 Scrolls the entire webpage in a direction.
 
@@ -163,13 +167,13 @@ Jumps to search.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-`typeTextAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)`
+`typeTextAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)`
 
 Types text at a specific x, y coordinate.
 
 `io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")>`
 
-`wait([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") duration)`
+`wait([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") duration)`
 
 Waits for specified duration.
 
@@ -204,25 +208,25 @@ Hovers at a specific x, y coordinate on the webpage.
 
     * ### typeTextAt
 
-io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> typeTextAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") clearBeforeTyping)
+io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> typeTextAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") pressEnter, [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") clearBeforeTyping)
 
 Types text at a specific x, y coordinate.
 
     * ### scrollDocument
 
-io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> scrollDocument([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction)
+io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> scrollDocument([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction)
 
 Scrolls the entire webpage in a direction.
 
     * ### scrollAt
 
-io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> scrollAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") direction, int magnitude)
+io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> scrollAt(int x, int y, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") direction, int magnitude)
 
 Scrolls at a specific x, y coordinate by magnitude.
 
     * ### wait
 
-io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> wait([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") duration)
+io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> wait([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") duration)
 
 Waits for specified duration.
 
@@ -246,13 +250,13 @@ Jumps to search.
 
     * ### navigate
 
-io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> navigate([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") url)
+io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> navigate([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") url)
 
 Navigates to URL.
 
     * ### keyCombination
 
-io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> keyCombination([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> keys)
+io.reactivex.rxjava3.core.Single<[ComputerState](ComputerState.html "class in com.google.adk.tools.computeruse")> keyCombination([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> keys)
 
 Presses key combination.
 

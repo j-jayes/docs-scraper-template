@@ -9,8 +9,12 @@ Skip navigation links
   * [Deprecated](deprecated-list.html)
   * [Index](index-all.html)
   * [Search](search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
 
 
@@ -111,6 +115,10 @@ Description
 
  
 
+[com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
+
+ 
+
 [com.google.adk.models.langchain4j](com/google/adk/models/langchain4j/package-summary.html)
 
  
@@ -132,6 +140,18 @@ Description
  
 
 [com.google.adk.models.springai.properties](com/google/adk/models/springai/properties/package-summary.html)
+
+ 
+
+[com.google.adk.planner](com/google/adk/planner/package-summary.html)
+
+ 
+
+[com.google.adk.planner.goap](com/google/adk/planner/goap/package-summary.html)
+
+ 
+
+[com.google.adk.planner.p2p](com/google/adk/planner/p2p/package-summary.html)
 
  
 

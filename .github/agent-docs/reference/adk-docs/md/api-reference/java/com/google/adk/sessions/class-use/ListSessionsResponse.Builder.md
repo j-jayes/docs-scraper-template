@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](../package-summary.html)
   2. [ListSessionsResponse](../ListSessionsResponse.html)
@@ -51,7 +55,7 @@ ListSessionsResponse.`[builder](../ListSessionsResponse.html#builder\(\))()`
 
 `abstract [ListSessionsResponse.Builder](../ListSessionsResponse.Builder.html "class in com.google.adk.sessions")`
 
-ListSessionsResponse.Builder.`[sessions](../ListSessionsResponse.Builder.html#sessions\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Session](../Session.html "class in com.google.adk.sessions")> sessions)`
+ListSessionsResponse.Builder.`[sessions](../ListSessionsResponse.Builder.html#sessions\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Session](../Session.html "class in com.google.adk.sessions")> sessions)`
 
  
 

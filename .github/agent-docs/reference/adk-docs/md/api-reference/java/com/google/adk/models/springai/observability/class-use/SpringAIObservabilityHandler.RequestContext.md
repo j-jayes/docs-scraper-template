@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../../deprecated-list.html)
   * [Index](../../../../../../../index-all.html)
   * [Search](../../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai.observability](../package-summary.html)
   2. [SpringAIObservabilityHandler](../SpringAIObservabilityHandler.html)
@@ -45,7 +49,7 @@ Description
 
 `[SpringAIObservabilityHandler.RequestContext](../SpringAIObservabilityHandler.RequestContext.html "class in com.google.adk.models.springai.observability")`
 
-SpringAIObservabilityHandler.`[startRequest](../SpringAIObservabilityHandler.html#startRequest\(java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") requestType)`
+SpringAIObservabilityHandler.`[startRequest](../SpringAIObservabilityHandler.html#startRequest\(java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") requestType)`
 
 Records the start of a request.
 
@@ -59,7 +63,7 @@ Description
 
 `void`
 
-SpringAIObservabilityHandler.`[recordError](../SpringAIObservabilityHandler.html#recordError\(com.google.adk.models.springai.observability.SpringAIObservabilityHandler.RequestContext,java.lang.Throwable\))([SpringAIObservabilityHandler.RequestContext](../SpringAIObservabilityHandler.RequestContext.html "class in com.google.adk.models.springai.observability") context, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+SpringAIObservabilityHandler.`[recordError](../SpringAIObservabilityHandler.html#recordError\(com.google.adk.models.springai.observability.SpringAIObservabilityHandler.RequestContext,java.lang.Throwable\))([SpringAIObservabilityHandler.RequestContext](../SpringAIObservabilityHandler.RequestContext.html "class in com.google.adk.models.springai.observability") context, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
 Records a failed request.
 

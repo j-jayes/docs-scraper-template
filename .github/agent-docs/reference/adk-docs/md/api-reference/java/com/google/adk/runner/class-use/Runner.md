@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.runner](../package-summary.html)
   2. [Runner](../Runner.html)
@@ -84,7 +88,7 @@ Description
 
 `[Runner](../Runner.html "class in com.google.adk.runner")`
 
-RunnerService.`[getRunner](../../web/service/RunnerService.html#getRunner\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") appName)`
+RunnerService.`[getRunner](../../web/service/RunnerService.html#getRunner\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName)`
 
 Gets the Runner instance for a given application name.
 

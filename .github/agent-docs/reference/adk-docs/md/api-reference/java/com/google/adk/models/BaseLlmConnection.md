@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](package-summary.html)
   2. [BaseLlmConnection](BaseLlmConnection.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -62,7 +66,7 @@ Closes the connection.
 
 `void`
 
-`close([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") throwable)`
+`close([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") throwable)`
 
 Closes the connection with an error.
 
@@ -80,7 +84,7 @@ Sends a user content to the model.
 
 `io.reactivex.rxjava3.core.Completable`
 
-`sendHistory([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> history)`
+`sendHistory([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.Content> history)`
 
 Sends the conversation history to the model.
 
@@ -97,7 +101,7 @@ Sends a chunk of audio or a frame of video to the model in realtime.
 
     * ### sendHistory
 
-io.reactivex.rxjava3.core.Completable sendHistory([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Content> history)
+io.reactivex.rxjava3.core.Completable sendHistory([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.Content> history)
 
 Sends the conversation history to the model. 
 
@@ -133,7 +137,7 @@ Closes the connection.
 
     * ### close
 
-void close([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") throwable)
+void close([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") throwable)
 
 Closes the connection with an error.
 

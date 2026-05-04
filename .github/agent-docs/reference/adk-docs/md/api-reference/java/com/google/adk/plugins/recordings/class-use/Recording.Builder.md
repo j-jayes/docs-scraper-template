@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.recordings](../package-summary.html)
   2. [Recording](../Recording.html)
@@ -45,7 +49,7 @@ Description
 
 `abstract [Recording.Builder](../Recording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-Recording.Builder.`[agentName](../Recording.Builder.html#agentName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") agentName)`
+Recording.Builder.`[agentName](../Recording.Builder.html#agentName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName)`
 
  
 

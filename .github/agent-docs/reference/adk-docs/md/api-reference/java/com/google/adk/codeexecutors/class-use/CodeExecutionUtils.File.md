@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.codeexecutors](../package-summary.html)
   2. [CodeExecutionUtils](../CodeExecutionUtils.html)
@@ -57,7 +61,7 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")>`
 
 CodeExecutorContext.`[getInputFiles](../CodeExecutorContext.html#getInputFiles\(\))()`
 
@@ -85,19 +89,19 @@ Description
 
 `void`
 
-CodeExecutorContext.`[addInputFiles](../CodeExecutorContext.html#addInputFiles\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")> inputFiles)`
+CodeExecutorContext.`[addInputFiles](../CodeExecutorContext.html#addInputFiles\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")> inputFiles)`
 
 Adds the input files to the code executor context.
 
 `abstract [CodeExecutionUtils.CodeExecutionInput.Builder](../CodeExecutionUtils.CodeExecutionInput.Builder.html "class in com.google.adk.codeexecutors")`
 
-CodeExecutionUtils.CodeExecutionInput.Builder.`[inputFiles](../CodeExecutionUtils.CodeExecutionInput.Builder.html#inputFiles\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")> inputFiles)`
+CodeExecutionUtils.CodeExecutionInput.Builder.`[inputFiles](../CodeExecutionUtils.CodeExecutionInput.Builder.html#inputFiles\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")> inputFiles)`
 
  
 
 `abstract [CodeExecutionUtils.CodeExecutionResult.Builder](../CodeExecutionUtils.CodeExecutionResult.Builder.html "class in com.google.adk.codeexecutors")`
 
-CodeExecutionUtils.CodeExecutionResult.Builder.`[outputFiles](../CodeExecutionUtils.CodeExecutionResult.Builder.html#outputFiles\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")> outputFiles)`
+CodeExecutionUtils.CodeExecutionResult.Builder.`[outputFiles](../CodeExecutionUtils.CodeExecutionResult.Builder.html#outputFiles\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[CodeExecutionUtils.File](../CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")> outputFiles)`
 
  
 

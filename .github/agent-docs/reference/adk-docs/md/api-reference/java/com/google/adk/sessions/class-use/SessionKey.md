@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.sessions](../package-summary.html)
   2. [SessionKey](../SessionKey.html)
@@ -52,7 +56,7 @@ Description
 
 `default io.reactivex.rxjava3.core.Completable`
 
-BaseArtifactService.`[deleteArtifact](../../artifacts/BaseArtifactService.html#deleteArtifact\(com.google.adk.sessions.SessionKey,java.lang.String\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+BaseArtifactService.`[deleteArtifact](../../artifacts/BaseArtifactService.html#deleteArtifact\(com.google.adk.sessions.SessionKey,java.lang.String\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename)`
 
  
 
@@ -62,33 +66,33 @@ BaseArtifactService.`[listArtifactKeys](../../artifacts/BaseArtifactService.html
 
  
 
-`default io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>>`
+`default io.reactivex.rxjava3.core.Single<com.google.common.collect.ImmutableList<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")>>`
 
-BaseArtifactService.`[listVersions](../../artifacts/BaseArtifactService.html#listVersions\(com.google.adk.sessions.SessionKey,java.lang.String\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+BaseArtifactService.`[listVersions](../../artifacts/BaseArtifactService.html#listVersions\(com.google.adk.sessions.SessionKey,java.lang.String\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename)`
 
  
 
 `default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
-BaseArtifactService.`[loadArtifact](../../artifacts/BaseArtifactService.html#loadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename)`
+BaseArtifactService.`[loadArtifact](../../artifacts/BaseArtifactService.html#loadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename)`
 
 Loads the latest version of an artifact from the service.
 
 `default io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
-BaseArtifactService.`[loadArtifact](../../artifacts/BaseArtifactService.html#loadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,int\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, int version)`
+BaseArtifactService.`[loadArtifact](../../artifacts/BaseArtifactService.html#loadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,int\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, int version)`
 
  
 
 `default io.reactivex.rxjava3.core.Single<com.google.genai.types.Part>`
 
-BaseArtifactService.`[saveAndReloadArtifact](../../artifacts/BaseArtifactService.html#saveAndReloadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,com.google.genai.types.Part\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
+BaseArtifactService.`[saveAndReloadArtifact](../../artifacts/BaseArtifactService.html#saveAndReloadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,com.google.genai.types.Part\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, com.google.genai.types.Part artifact)`
 
 Saves an artifact and returns it with fileData if available.
 
-`default io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang")>`
+`default io.reactivex.rxjava3.core.Single<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")>`
 
-BaseArtifactService.`[saveArtifact](../../artifacts/BaseArtifactService.html#saveArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,com.google.genai.types.Part\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filename, com.google.genai.types.Part artifact)`
+BaseArtifactService.`[saveArtifact](../../artifacts/BaseArtifactService.html#saveArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,com.google.genai.types.Part\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, com.google.genai.types.Part artifact)`
 
 Saves an artifact.
 
@@ -116,7 +120,7 @@ See [`Runner.runAsync(String, String, Content, RunConfig, Map)`](../../runner/Ru
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
-Runner.`[runAsync](../../runner/Runner.html#runAsync\(com.google.adk.sessions.SessionKey,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> stateDelta)`
+Runner.`[runAsync](../../runner/Runner.html#runAsync\(com.google.adk.sessions.SessionKey,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)`
 
 See [`Runner.runAsync(String, String, Content, RunConfig, Map)`](../../runner/Runner.html#runAsync\(java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\)).
 
@@ -138,7 +142,7 @@ Description
 
 `static [SessionKey](../SessionKey.html "class in com.google.adk.sessions")`
 
-SessionKey.`[fromJson](../SessionKey.html#fromJson\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") json)`
+SessionKey.`[fromJson](../SessionKey.html#fromJson\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") json)`
 
  
 
@@ -170,7 +174,7 @@ Creates a new session with the specified application name and user ID, using a d
 
 `default io.reactivex.rxjava3.core.Single<[Session](../Session.html "class in com.google.adk.sessions")>`
 
-BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(com.google.adk.sessions.SessionKey,java.util.Map\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")> state)`
+BaseSessionService.`[createSession](../BaseSessionService.html#createSession\(com.google.adk.sessions.SessionKey,java.util.Map\))([SessionKey](../SessionKey.html "class in com.google.adk.sessions") sessionKey, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> state)`
 
 Creates a new session with the specified parameters.
 

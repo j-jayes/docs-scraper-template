@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../deprecated-list.html)
   * [Index](../../../index-all.html)
   * [Search](../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk](package-summary.html)
 
@@ -21,8 +25,7 @@ Skip navigation links
 Contents
 
   1. Description
-  2. Related Packages
-  3. Classes and Interfaces
+  2. Classes and Interfaces
 
 Hide sidebar  Show sidebar
 
@@ -31,92 +34,6 @@ Hide sidebar  Show sidebar
 * * *
 
 package com.google.adk
-
-  * Related Packages
-
-Package
-
-Description
-
-[com.google.adk.agents](agents/package-summary.html)
-
- 
-
-[com.google.adk.apps](apps/package-summary.html)
-
- 
-
-[com.google.adk.artifacts](artifacts/package-summary.html)
-
- 
-
-[com.google.adk.codeexecutors](codeexecutors/package-summary.html)
-
- 
-
-[com.google.adk.events](events/package-summary.html)
-
- 
-
-[com.google.adk.examples](examples/package-summary.html)
-
- 
-
-[com.google.adk.flows](flows/package-summary.html)
-
- 
-
-[com.google.adk.google_adk_maven_plugin](google_adk_maven_plugin/package-summary.html)
-
- 
-
-[com.google.adk.maven](maven/package-summary.html)
-
- 
-
-[com.google.adk.memory](memory/package-summary.html)
-
- 
-
-[com.google.adk.models](models/package-summary.html)
-
- 
-
-[com.google.adk.plugins](plugins/package-summary.html)
-
- 
-
-[com.google.adk.runner](runner/package-summary.html)
-
- 
-
-[com.google.adk.sessions](sessions/package-summary.html)
-
- 
-
-[com.google.adk.summarizer](summarizer/package-summary.html)
-
- 
-
-[com.google.adk.telemetry](telemetry/package-summary.html)
-
- 
-
-[com.google.adk.tools](tools/package-summary.html)
-
- 
-
-[com.google.adk.tutorials](tutorials/package-summary.html)
-
- 
-
-[com.google.adk.utils](utils/package-summary.html)
-
- 
-
-[com.google.adk.web](web/package-summary.html)
-
- 
 
   * Classes
 

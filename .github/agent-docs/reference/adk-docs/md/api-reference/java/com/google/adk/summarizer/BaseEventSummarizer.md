@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.summarizer](package-summary.html)
   2. [BaseEventSummarizer](BaseEventSummarizer.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -51,7 +55,7 @@ Description
 
 `io.reactivex.rxjava3.core.Maybe<[Event](../events/Event.html "class in com.google.adk.events")>`
 
-`summarizeEvents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
+`summarizeEvents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
 
 Compact a list of events into a single event.
 
@@ -62,7 +66,7 @@ Compact a list of events into a single event.
 
     * ### summarizeEvents
 
-io.reactivex.rxjava3.core.Maybe<[Event](../events/Event.html "class in com.google.adk.events")> summarizeEvents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
+io.reactivex.rxjava3.core.Maybe<[Event](../events/Event.html "class in com.google.adk.events")> summarizeEvents([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
 
 Compact a list of events into a single event. 
 

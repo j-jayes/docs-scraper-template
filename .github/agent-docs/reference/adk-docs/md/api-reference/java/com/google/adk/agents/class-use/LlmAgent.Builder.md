@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [LlmAgent](../LlmAgent.html)
@@ -71,7 +75,7 @@ LlmAgent.Builder.`[afterModelCallback](../LlmAgent.Builder.html#afterModelCallba
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[afterModelCallback](../LlmAgent.Builder.html#afterModelCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterModelCallbackBase> afterModelCallbacks)`
+LlmAgent.Builder.`[afterModelCallback](../LlmAgent.Builder.html#afterModelCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterModelCallbackBase> afterModelCallbacks)`
 
  
 
@@ -89,7 +93,7 @@ LlmAgent.Builder.`[afterToolCallback](../LlmAgent.Builder.html#afterToolCallback
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[afterToolCallback](../LlmAgent.Builder.html#afterToolCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterToolCallbackBase> afterToolCallbacks)`
+LlmAgent.Builder.`[afterToolCallback](../LlmAgent.Builder.html#afterToolCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends com.google.adk.agents.Callbacks.AfterToolCallbackBase> afterToolCallbacks)`
 
  
 
@@ -113,7 +117,7 @@ LlmAgent.Builder.`[beforeModelCallback](../LlmAgent.Builder.html#beforeModelCall
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[beforeModelCallback](../LlmAgent.Builder.html#beforeModelCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.BeforeModelCallbackBase> beforeModelCallbacks)`
+LlmAgent.Builder.`[beforeModelCallback](../LlmAgent.Builder.html#beforeModelCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends com.google.adk.agents.Callbacks.BeforeModelCallbackBase> beforeModelCallbacks)`
 
  
 
@@ -131,7 +135,7 @@ LlmAgent.Builder.`[beforeToolCallback](../LlmAgent.Builder.html#beforeToolCallba
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[beforeToolCallback](../LlmAgent.Builder.html#beforeToolCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.BeforeToolCallbackBase> beforeToolCallbacks)`
+LlmAgent.Builder.`[beforeToolCallback](../LlmAgent.Builder.html#beforeToolCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends com.google.adk.agents.Callbacks.BeforeToolCallbackBase> beforeToolCallbacks)`
 
  
 
@@ -173,7 +177,7 @@ LlmAgent.Builder.`[disallowTransferToPeers](../LlmAgent.Builder.html#disallowTra
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[executor](../LlmAgent.Builder.html#executor\(java.util.concurrent.Executor\))([Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "class or interface in java.util.concurrent") executor)`
+LlmAgent.Builder.`[executor](../LlmAgent.Builder.html#executor\(java.util.concurrent.Executor\))([Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "interface in java.util.concurrent") executor)`
 
  
 
@@ -191,7 +195,7 @@ LlmAgent.Builder.`[globalInstruction](../LlmAgent.Builder.html#globalInstruction
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[globalInstruction](../LlmAgent.Builder.html#globalInstruction\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") globalInstruction)`
+LlmAgent.Builder.`[globalInstruction](../LlmAgent.Builder.html#globalInstruction\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") globalInstruction)`
 
  
 
@@ -215,7 +219,7 @@ LlmAgent.Builder.`[instruction](../LlmAgent.Builder.html#instruction\(com.google
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[instruction](../LlmAgent.Builder.html#instruction\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") instruction)`
+LlmAgent.Builder.`[instruction](../LlmAgent.Builder.html#instruction\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") instruction)`
 
  
 
@@ -233,7 +237,7 @@ LlmAgent.Builder.`[model](../LlmAgent.Builder.html#model\(com.google.adk.models.
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[model](../LlmAgent.Builder.html#model\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") model)`
+LlmAgent.Builder.`[model](../LlmAgent.Builder.html#model\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") model)`
 
  
 
@@ -245,7 +249,7 @@ LlmAgent.Builder.`[onModelErrorCallback](../LlmAgent.Builder.html#onModelErrorCa
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[onModelErrorCallback](../LlmAgent.Builder.html#onModelErrorCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.OnModelErrorCallbackBase> onModelErrorCallbacks)`
+LlmAgent.Builder.`[onModelErrorCallback](../LlmAgent.Builder.html#onModelErrorCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends com.google.adk.agents.Callbacks.OnModelErrorCallbackBase> onModelErrorCallbacks)`
 
  
 
@@ -263,7 +267,7 @@ LlmAgent.Builder.`[onToolErrorCallback](../LlmAgent.Builder.html#onToolErrorCall
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[onToolErrorCallback](../LlmAgent.Builder.html#onToolErrorCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends com.google.adk.agents.Callbacks.OnToolErrorCallbackBase> onToolErrorCallbacks)`
+LlmAgent.Builder.`[onToolErrorCallback](../LlmAgent.Builder.html#onToolErrorCallback\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends com.google.adk.agents.Callbacks.OnToolErrorCallbackBase> onToolErrorCallbacks)`
 
  
 
@@ -275,7 +279,7 @@ LlmAgent.Builder.`[onToolErrorCallbackSync](../LlmAgent.Builder.html#onToolError
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[outputKey](../LlmAgent.Builder.html#outputKey\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") outputKey)`
+LlmAgent.Builder.`[outputKey](../LlmAgent.Builder.html#outputKey\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") outputKey)`
 
  
 
@@ -293,13 +297,13 @@ LlmAgent.Builder.`[planning](../LlmAgent.Builder.html#planning\(boolean\))(boole
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[tools](../LlmAgent.Builder.html#tools\(java.lang.Object...\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")... tools)`
+LlmAgent.Builder.`[tools](../LlmAgent.Builder.html#tools\(java.lang.Object...\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")... tools)`
 
  
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 
-LlmAgent.Builder.`[tools](../LlmAgent.Builder.html#tools\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<?> tools)`
+LlmAgent.Builder.`[tools](../LlmAgent.Builder.html#tools\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<?> tools)`
 
  
 

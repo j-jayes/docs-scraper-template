@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.codeexecutors](../package-summary.html)
   2. [CodeExecutionUtils](../CodeExecutionUtils.html)
@@ -52,19 +56,19 @@ CodeExecutionUtils.File.`[builder](../CodeExecutionUtils.File.html#builder\(\))(
 
 `abstract [CodeExecutionUtils.File.Builder](../CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")`
 
-CodeExecutionUtils.File.Builder.`[content](../CodeExecutionUtils.File.Builder.html#content\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") content)`
+CodeExecutionUtils.File.Builder.`[content](../CodeExecutionUtils.File.Builder.html#content\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") content)`
 
  
 
 `abstract [CodeExecutionUtils.File.Builder](../CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")`
 
-CodeExecutionUtils.File.Builder.`[mimeType](../CodeExecutionUtils.File.Builder.html#mimeType\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") mimeType)`
+CodeExecutionUtils.File.Builder.`[mimeType](../CodeExecutionUtils.File.Builder.html#mimeType\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") mimeType)`
 
  
 
 `abstract [CodeExecutionUtils.File.Builder](../CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")`
 
-CodeExecutionUtils.File.Builder.`[name](../CodeExecutionUtils.File.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+CodeExecutionUtils.File.Builder.`[name](../CodeExecutionUtils.File.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
  
 

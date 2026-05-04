@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.artifacts](../package-summary.html)
   2. [ListArtifactVersionsResponse](../ListArtifactVersionsResponse.html)
@@ -51,7 +55,7 @@ ListArtifactVersionsResponse.`[builder](../ListArtifactVersionsResponse.html#bui
 
 `abstract [ListArtifactVersionsResponse.Builder](../ListArtifactVersionsResponse.Builder.html "class in com.google.adk.artifacts")`
 
-ListArtifactVersionsResponse.Builder.`[versions](../ListArtifactVersionsResponse.Builder.html#versions\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Part> versions)`
+ListArtifactVersionsResponse.Builder.`[versions](../ListArtifactVersionsResponse.Builder.html#versions\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.Part> versions)`
 
  
 

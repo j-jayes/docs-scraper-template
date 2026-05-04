@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai.properties](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.models.springai.properties.[SpringAIProperties](SpringAIProperties.html "class in com.google.adk.models.springai.properties")
     * com.google.adk.models.springai.properties.[SpringAIProperties.Observability](SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties")
     * com.google.adk.models.springai.properties.[SpringAIProperties.Validation](SpringAIProperties.Validation.html "class in com.google.adk.models.springai.properties")

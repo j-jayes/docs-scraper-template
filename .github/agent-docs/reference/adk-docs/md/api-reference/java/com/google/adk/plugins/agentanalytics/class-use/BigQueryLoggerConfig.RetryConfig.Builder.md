@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.plugins.agentanalytics](../package-summary.html)
   2. [BigQueryLoggerConfig](../BigQueryLoggerConfig.html)
@@ -52,13 +56,13 @@ BigQueryLoggerConfig.RetryConfig.`[builder](../BigQueryLoggerConfig.RetryConfig.
 
 `abstract [BigQueryLoggerConfig.RetryConfig.Builder](../BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
 
-BigQueryLoggerConfig.RetryConfig.Builder.`[initialDelay](../BigQueryLoggerConfig.RetryConfig.Builder.html#initialDelay\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") initialDelay)`
+BigQueryLoggerConfig.RetryConfig.Builder.`[initialDelay](../BigQueryLoggerConfig.RetryConfig.Builder.html#initialDelay\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") initialDelay)`
 
  
 
 `abstract [BigQueryLoggerConfig.RetryConfig.Builder](../BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
 
-BigQueryLoggerConfig.RetryConfig.Builder.`[maxDelay](../BigQueryLoggerConfig.RetryConfig.Builder.html#maxDelay\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") maxDelay)`
+BigQueryLoggerConfig.RetryConfig.Builder.`[maxDelay](../BigQueryLoggerConfig.RetryConfig.Builder.html#maxDelay\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") maxDelay)`
 
  
 
@@ -73,30 +77,6 @@ BigQueryLoggerConfig.RetryConfig.Builder.`[maxRetries](../BigQueryLoggerConfig.R
 BigQueryLoggerConfig.RetryConfig.Builder.`[multiplier](../BigQueryLoggerConfig.RetryConfig.Builder.html#multiplier\(double\))(double multiplier)`
 
  
-
-`final [BigQueryLoggerConfig.RetryConfig.Builder](../BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
-
-BigQueryLoggerConfig.RetryConfig.Builder.`[setInitialDelay](../BigQueryLoggerConfig.RetryConfig.Builder.html#setInitialDelay\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") initialDelay)`
-
-Deprecated.
-
-`final [BigQueryLoggerConfig.RetryConfig.Builder](../BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
-
-BigQueryLoggerConfig.RetryConfig.Builder.`[setMaxDelay](../BigQueryLoggerConfig.RetryConfig.Builder.html#setMaxDelay\(java.time.Duration\))([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class or interface in java.time") maxDelay)`
-
-Deprecated.
-
-`final [BigQueryLoggerConfig.RetryConfig.Builder](../BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
-
-BigQueryLoggerConfig.RetryConfig.Builder.`[setMaxRetries](../BigQueryLoggerConfig.RetryConfig.Builder.html#setMaxRetries\(int\))(int maxRetries)`
-
-Deprecated.
-
-`final [BigQueryLoggerConfig.RetryConfig.Builder](../BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")`
-
-BigQueryLoggerConfig.RetryConfig.Builder.`[setMultiplier](../BigQueryLoggerConfig.RetryConfig.Builder.html#setMultiplier\(double\))(double multiplier)`
-
-Deprecated.
 
 
 

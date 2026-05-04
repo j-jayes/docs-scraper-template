@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](package-summary.html)
   2. [McpSessionManager](McpSessionManager.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Constructor Summary
@@ -39,13 +43,13 @@ Hide sidebar  Show sidebar
 
 # Class McpSessionManager
 
-[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 com.google.adk.tools.mcp.McpSessionManager
 
 * * *
 
-public class McpSessionManager extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+public class McpSessionManager extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 Manages MCP client sessions. 
 
@@ -59,11 +63,11 @@ Constructor
 
 Description
 
-`McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)`
+`McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)`
 
  
 
-`McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
+`McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
 
  
 
@@ -91,31 +95,31 @@ Description
 
 `static io.modelcontextprotocol.client.McpAsyncClient`
 
-`initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)`
+`initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)`
 
  
 
 `static io.modelcontextprotocol.client.McpAsyncClient`
 
-`initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
+`initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
 
  
 
 `static io.modelcontextprotocol.client.McpSyncClient`
 
-`initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)`
+`initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)`
 
  
 
 `static io.modelcontextprotocol.client.McpSyncClient`
 
-`initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
+`initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
 
  
 
-### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
-`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
 
 
 
@@ -124,11 +128,11 @@ Description
 
     * ### McpSessionManager
 
-public McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)
+public McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)
 
     * ### McpSessionManager
 
-public McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)
+public McpSessionManager([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)
 
   * ## Method Details
 
@@ -138,11 +142,11 @@ public io.modelcontextprotocol.client.McpSyncClient createSession()
 
     * ### initializeSession
 
-public static io.modelcontextprotocol.client.McpSyncClient initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)
+public static io.modelcontextprotocol.client.McpSyncClient initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)
 
     * ### initializeSession
 
-public static io.modelcontextprotocol.client.McpSyncClient initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)
+public static io.modelcontextprotocol.client.McpSyncClient initializeSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)
 
     * ### createAsyncSession
 
@@ -150,11 +154,11 @@ public io.modelcontextprotocol.client.McpAsyncClient createAsyncSession()
 
     * ### initializeAsyncSession
 
-public static io.modelcontextprotocol.client.McpAsyncClient initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)
+public static io.modelcontextprotocol.client.McpAsyncClient initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)
 
     * ### initializeAsyncSession
 
-public static io.modelcontextprotocol.client.McpAsyncClient initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)
+public static io.modelcontextprotocol.client.McpAsyncClient initializeAsyncSession([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)
 
 
 

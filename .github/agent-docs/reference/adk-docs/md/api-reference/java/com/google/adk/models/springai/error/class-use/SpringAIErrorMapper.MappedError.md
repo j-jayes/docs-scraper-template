@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../../deprecated-list.html)
   * [Index](../../../../../../../index-all.html)
   * [Search](../../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai.error](../package-summary.html)
   2. [SpringAIErrorMapper](../SpringAIErrorMapper.html)
@@ -45,7 +49,7 @@ Description
 
 `static [SpringAIErrorMapper.MappedError](../SpringAIErrorMapper.MappedError.html "class in com.google.adk.models.springai.error")`
 
-SpringAIErrorMapper.`[mapError](../SpringAIErrorMapper.html#mapError\(java.lang.Throwable\))([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") exception)`
+SpringAIErrorMapper.`[mapError](../SpringAIErrorMapper.html#mapError\(java.lang.Throwable\))([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") exception)`
 
 Maps a Spring AI exception to an error category and retry strategy.
 

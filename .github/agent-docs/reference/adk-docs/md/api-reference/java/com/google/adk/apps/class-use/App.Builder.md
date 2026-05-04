@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.apps](../package-summary.html)
   2. [App](../App.html)
@@ -63,7 +67,7 @@ App.Builder.`[eventsCompactionConfig](../App.Builder.html#eventsCompactionConfig
 
 `[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
 
-App.Builder.`[name](../App.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+App.Builder.`[name](../App.Builder.html#name\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
  
 
@@ -75,7 +79,7 @@ App.Builder.`[plugins](../App.Builder.html#plugins\(com.google.adk.plugins.Plugi
 
 `[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
 
-App.Builder.`[plugins](../App.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
+App.Builder.`[plugins](../App.Builder.html#plugins\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins)`
 
  
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.flows.llmflows](../package-summary.html)
   2. [RequestProcessor](../RequestProcessor.html)
@@ -45,7 +49,7 @@ Description
 
 `static [RequestProcessor.RequestProcessingResult](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
-RequestProcessor.RequestProcessingResult.`[create](../RequestProcessor.RequestProcessingResult.html#create\(com.google.adk.models.LlmRequest,java.lang.Iterable\))([LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") updatedRequest, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../../events/Event.html "class in com.google.adk.events")> events)`
+RequestProcessor.RequestProcessingResult.`[create](../RequestProcessor.RequestProcessingResult.html#create\(com.google.adk.models.LlmRequest,java.lang.Iterable\))([LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") updatedRequest, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<[Event](../../../events/Event.html "class in com.google.adk.events")> events)`
 
 Creates a new [`RequestProcessor.RequestProcessingResult`](../RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows").
 

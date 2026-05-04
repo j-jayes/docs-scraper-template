@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [BaseTool](../BaseTool.html)
@@ -51,7 +55,7 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools")>`
 
 LlmAgentConfig.`[tools](../../agents/LlmAgentConfig.html#tools\(\))()`
 
@@ -67,7 +71,7 @@ Description
 
 `void`
 
-LlmAgentConfig.`[setTools](../../agents/LlmAgentConfig.html#setTools\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools")> tools)`
+LlmAgentConfig.`[setTools](../../agents/LlmAgentConfig.html#setTools\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools")> tools)`
 
  
 
@@ -83,7 +87,7 @@ Description
 
 `static [BaseTool](../BaseTool.html "class in com.google.adk.tools")`
 
-BaseTool.`[fromConfig](../BaseTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+BaseTool.`[fromConfig](../BaseTool.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a tool instance from a config.
 
@@ -99,7 +103,7 @@ Description
 
 `static [McpToolset](../mcp/McpToolset.html "class in com.google.adk.tools.mcp")`
 
-McpToolset.`[fromConfig](../mcp/McpToolset.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+McpToolset.`[fromConfig](../mcp/McpToolset.html#fromConfig\(com.google.adk.tools.BaseTool.ToolConfig,java.lang.String\))([BaseTool.ToolConfig](../BaseTool.ToolConfig.html "class in com.google.adk.tools") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a McpToolset instance from a config.
 

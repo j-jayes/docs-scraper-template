@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.examples](../package-summary.html)
   2. [BaseExampleProvider](../BaseExampleProvider.html)
@@ -46,9 +50,9 @@ Method
 
 Description
 
-`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
-ExampleUtils.`[buildExampleSi](../ExampleUtils.html#buildExampleSi\(com.google.adk.examples.BaseExampleProvider,java.lang.String\))([BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") exampleProvider, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") query)`
+ExampleUtils.`[buildExampleSi](../ExampleUtils.html#buildExampleSi\(com.google.adk.examples.BaseExampleProvider,java.lang.String\))([BaseExampleProvider](../BaseExampleProvider.html "interface in com.google.adk.examples") exampleProvider, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
 
 Builds a formatted few-shot example string for the given query.
 

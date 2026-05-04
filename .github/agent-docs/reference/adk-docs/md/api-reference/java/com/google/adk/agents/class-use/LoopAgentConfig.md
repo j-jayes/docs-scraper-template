@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [LoopAgentConfig](../LoopAgentConfig.html)
@@ -44,7 +48,7 @@ Description
 
 `static [LoopAgent](../LoopAgent.html "class in com.google.adk.agents")`
 
-LoopAgent.`[fromConfig](../LoopAgent.html#fromConfig\(com.google.adk.agents.LoopAgentConfig,java.lang.String\))([LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") configAbsPath)`
+LoopAgent.`[fromConfig](../LoopAgent.html#fromConfig\(com.google.adk.agents.LoopAgentConfig,java.lang.String\))([LoopAgentConfig](../LoopAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a LoopAgent from configuration.
 

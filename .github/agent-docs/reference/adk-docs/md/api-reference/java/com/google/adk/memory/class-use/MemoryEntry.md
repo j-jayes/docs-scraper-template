@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.memory](../package-summary.html)
   2. [MemoryEntry](../MemoryEntry.html)
@@ -82,7 +86,7 @@ SearchMemoryResponse.Builder.`[memories](../SearchMemoryResponse.Builder.html#me
 
 `[SearchMemoryResponse.Builder](../SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
 
-SearchMemoryResponse.Builder.`[memories](../SearchMemoryResponse.Builder.html#memories\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+SearchMemoryResponse.Builder.`[memories](../SearchMemoryResponse.Builder.html#memories\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
 
  
 
@@ -94,7 +98,7 @@ Deprecated.
 
 `final [SearchMemoryResponse.Builder](../SearchMemoryResponse.Builder.html "class in com.google.adk.memory")`
 
-SearchMemoryResponse.Builder.`[setMemories](../SearchMemoryResponse.Builder.html#setMemories\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+SearchMemoryResponse.Builder.`[setMemories](../SearchMemoryResponse.Builder.html#setMemories\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
 
 Deprecated.
 
@@ -108,7 +112,7 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")>`
 
 LoadMemoryResponse.`[memories](../../tools/LoadMemoryResponse.html#memories\(\))()`
 
@@ -124,7 +128,7 @@ Description
 
 ` `
 
-`[LoadMemoryResponse](../../tools/LoadMemoryResponse.html#%3Cinit%3E\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
+`[LoadMemoryResponse](../../tools/LoadMemoryResponse.html#%3Cinit%3E\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[MemoryEntry](../MemoryEntry.html "class in com.google.adk.memory")> memories)`
 
 Creates an instance of a `LoadMemoryResponse` record class.
 

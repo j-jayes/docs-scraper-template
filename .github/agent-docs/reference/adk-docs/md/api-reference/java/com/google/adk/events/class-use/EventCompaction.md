@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.events](../package-summary.html)
   2. [EventCompaction](../EventCompaction.html)
@@ -56,7 +60,7 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[EventCompaction](../EventCompaction.html "class in com.google.adk.events")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[EventCompaction](../EventCompaction.html "class in com.google.adk.events")>`
 
 EventActions.`[compaction](../EventActions.html#compaction\(\))()`
 

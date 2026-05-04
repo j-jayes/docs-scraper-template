@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](package-summary.html)
   2. [McpTransportBuilder](McpTransportBuilder.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -51,7 +55,7 @@ Description
 
 `io.modelcontextprotocol.spec.McpClientTransport`
 
-`build([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)`
+`build([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)`
 
 Builds an McpClientTransport based on the provided connection parameters.
 
@@ -62,7 +66,7 @@ Builds an McpClientTransport based on the provided connection parameters.
 
     * ### build
 
-io.modelcontextprotocol.spec.McpClientTransport build([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams)
+io.modelcontextprotocol.spec.McpClientTransport build([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams)
 
 Builds an McpClientTransport based on the provided connection parameters.
 
@@ -71,7 +75,7 @@ Parameters:
 Returns:
     An instance of McpClientTransport.
 Throws:
-    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if the connectionParams are not supported or invalid.
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if the connectionParams are not supported or invalid.
 
 
 

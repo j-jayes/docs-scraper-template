@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [Gemini](../Gemini.html)
@@ -51,7 +55,7 @@ Sets the explicit `Client` instance for making API calls.
 
 `[Gemini.Builder](../Gemini.Builder.html "class in com.google.adk.models")`
 
-Gemini.Builder.`[apiKey](../Gemini.Builder.html#apiKey\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") apiKey)`
+Gemini.Builder.`[apiKey](../Gemini.Builder.html#apiKey\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") apiKey)`
 
 Sets the Google Gemini API key.
 
@@ -63,7 +67,7 @@ Returns a new Builder instance for constructing Gemini objects.
 
 `[Gemini.Builder](../Gemini.Builder.html "class in com.google.adk.models")`
 
-Gemini.Builder.`[modelName](../Gemini.Builder.html#modelName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)`
+Gemini.Builder.`[modelName](../Gemini.Builder.html#modelName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)`
 
 Sets the name of the Gemini model to use.
 

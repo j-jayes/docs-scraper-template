@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.utils](package-summary.html)
   2. [Pairs](Pairs.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -40,13 +44,13 @@ Hide sidebar  Show sidebar
 
 # Class Pairs
 
-[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 com.google.adk.utils.Pairs
 
 * * *
 
-public final class Pairs extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+public final class Pairs extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 Utility class for creating ConcurrentHashMaps.
 
@@ -60,75 +64,75 @@ Method
 
 Description
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of()`
 
 Returns a new, empty `ConcurrentHashMap`.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1)`
 
 Returns a new `ConcurrentHashMap` containing a single mapping.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2)`
 
 Returns a new `ConcurrentHashMap` containing two mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3)`
 
 Returns a new `ConcurrentHashMap` containing three mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4)`
 
 Returns a new `ConcurrentHashMap` containing four mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5)`
 
 Returns a new `ConcurrentHashMap` containing five mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6)`
 
 Returns a new `ConcurrentHashMap` containing six mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7)`
 
 Returns a new `ConcurrentHashMap` containing seven mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8)`
 
 Returns a new `ConcurrentHashMap` containing eight mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9)`
 
 Returns a new `ConcurrentHashMap` containing nine mappings.
 
-`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V>`
+`static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V>`
 
 `of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10)`
 
 Returns a new `ConcurrentHashMap` containing ten mappings.
 
-### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
-`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
 
 
 
@@ -137,7 +141,7 @@ Returns a new `ConcurrentHashMap` containing ten mappings.
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of()
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of()
 
 Returns a new, empty `ConcurrentHashMap`.
 
@@ -149,7 +153,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1)
 
 Returns a new `ConcurrentHashMap` containing a single mapping.
 
@@ -162,11 +166,11 @@ Parameters:
 Returns:
     a `ConcurrentHashMap` containing the specified mapping
 Throws:
-    `[NullPointerException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html "class or interface in java.lang")` \- if the key or the value is `null`
+    `[NullPointerException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html "class in java.lang")` \- if the key or the value is `null`
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2)
 
 Returns a new `ConcurrentHashMap` containing two mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -183,7 +187,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3)
 
 Returns a new `ConcurrentHashMap` containing three mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -202,7 +206,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4)
 
 Returns a new `ConcurrentHashMap` containing four mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -223,7 +227,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5)
 
 Returns a new `ConcurrentHashMap` containing five mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -246,7 +250,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6)
 
 Returns a new `ConcurrentHashMap` containing six mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -269,12 +273,12 @@ Parameters:
 Returns:
     a `ConcurrentHashMap` containing the specified mappings
 Throws:
-    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if there are any duplicate keys (behavior inherited from Map.of)
-    `[NullPointerException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html "class or interface in java.lang")` \- if any key or value is `null` (behavior inherited from Map.of)
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if there are any duplicate keys (behavior inherited from Map.of)
+    `[NullPointerException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html "class in java.lang")` \- if any key or value is `null` (behavior inherited from Map.of)
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7)
 
 Returns a new `ConcurrentHashMap` containing seven mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -301,7 +305,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8)
 
 Returns a new `ConcurrentHashMap` containing eight mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -330,7 +334,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9)
 
 Returns a new `ConcurrentHashMap` containing nine mappings. This method leverages ` java.util.Map.of` for initial validation.
 
@@ -361,7 +365,7 @@ Returns:
 
     * ### of
 
-public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class or interface in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10)
+public static <K,V> [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html "class in java.util.concurrent")<K,V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10)
 
 Returns a new `ConcurrentHashMap` containing ten mappings. This method leverages ` java.util.Map.of` for initial validation.
 

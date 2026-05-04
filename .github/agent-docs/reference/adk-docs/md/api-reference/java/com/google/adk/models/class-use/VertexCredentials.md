@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [VertexCredentials](../VertexCredentials.html)
@@ -72,7 +76,7 @@ Description
 
 ` `
 
-`[Gemini](../Gemini.html#%3Cinit%3E\(java.lang.String,com.google.adk.models.VertexCredentials\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName, [VertexCredentials](../VertexCredentials.html "class in com.google.adk.models") vertexCredentials)`
+`[Gemini](../Gemini.html#%3Cinit%3E\(java.lang.String,com.google.adk.models.VertexCredentials\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, [VertexCredentials](../VertexCredentials.html "class in com.google.adk.models") vertexCredentials)`
 
 Constructs a new Gemini instance with a Google Gemini API key.
 

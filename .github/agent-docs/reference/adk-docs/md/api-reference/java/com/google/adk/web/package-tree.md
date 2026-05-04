@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.web](package-summary.html)
 
@@ -28,7 +32,7 @@ Package Hierarchies:
 
 ## Class Hierarchy
 
-  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+  * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.web.[AdkWebServer](AdkWebServer.html "class in com.google.adk.web") (implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer)
     * com.google.adk.web.[AgentGraphGenerator](AgentGraphGenerator.html "class in com.google.adk.web")
     * com.google.adk.web.[AgentStaticLoader](AgentStaticLoader.html "class in com.google.adk.web") (implements com.google.adk.web.[AgentLoader](AgentLoader.html "interface in com.google.adk.web"))

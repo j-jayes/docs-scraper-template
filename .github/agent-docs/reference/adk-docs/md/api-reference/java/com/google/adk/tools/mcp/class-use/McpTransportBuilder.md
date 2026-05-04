@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.mcp](../package-summary.html)
   2. [McpTransportBuilder](../McpTransportBuilder.html)
@@ -58,13 +62,13 @@ Description
 
 `static io.modelcontextprotocol.client.McpAsyncClient`
 
-McpSessionManager.`[initializeAsyncSession](../McpSessionManager.html#initializeAsyncSession\(java.lang.Object,com.google.adk.tools.mcp.McpTransportBuilder\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](../McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
+McpSessionManager.`[initializeAsyncSession](../McpSessionManager.html#initializeAsyncSession\(java.lang.Object,com.google.adk.tools.mcp.McpTransportBuilder\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](../McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
 
  
 
 `static io.modelcontextprotocol.client.McpSyncClient`
 
-McpSessionManager.`[initializeSession](../McpSessionManager.html#initializeSession\(java.lang.Object,com.google.adk.tools.mcp.McpTransportBuilder\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](../McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
+McpSessionManager.`[initializeSession](../McpSessionManager.html#initializeSession\(java.lang.Object,com.google.adk.tools.mcp.McpTransportBuilder\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](../McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
 
  
 
@@ -78,7 +82,7 @@ Description
 
 ` `
 
-`[McpSessionManager](../McpSessionManager.html#%3Cinit%3E\(java.lang.Object,com.google.adk.tools.mcp.McpTransportBuilder\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") connectionParams, [McpTransportBuilder](../McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
+`[McpSessionManager](../McpSessionManager.html#%3Cinit%3E\(java.lang.Object,com.google.adk.tools.mcp.McpTransportBuilder\))([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") connectionParams, [McpTransportBuilder](../McpTransportBuilder.html "interface in com.google.adk.tools.mcp") transportBuilder)`
 
  
 

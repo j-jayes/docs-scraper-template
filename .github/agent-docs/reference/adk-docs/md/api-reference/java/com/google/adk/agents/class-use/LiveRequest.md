@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.agents](../package-summary.html)
   2. [LiveRequest](../LiveRequest.html)
@@ -50,7 +54,7 @@ LiveRequest.Builder.`[build](../LiveRequest.Builder.html#build\(\))()`
 
 `static [LiveRequest](../LiveRequest.html "class in com.google.adk.agents")`
 
-LiveRequest.`[fromJsonString](../LiveRequest.html#fromJsonString\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") json)`
+LiveRequest.`[fromJsonString](../LiveRequest.html#fromJsonString\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") json)`
 
 Deserializes a Json string to a [`LiveRequest`](../LiveRequest.html "class in com.google.adk.agents") object.
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [VertexAiSearchTool](../VertexAiSearchTool.html)
@@ -51,49 +55,49 @@ VertexAiSearchTool.`[builder](../VertexAiSearchTool.html#builder\(\))()`
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[dataStore](../VertexAiSearchTool.Builder.html#dataStore\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dataStore)`
+VertexAiSearchTool.Builder.`[dataStore](../VertexAiSearchTool.Builder.html#dataStore\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") dataStore)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[dataStoreId](../VertexAiSearchTool.Builder.html#dataStoreId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") dataStoreId)`
+VertexAiSearchTool.Builder.`[dataStoreId](../VertexAiSearchTool.Builder.html#dataStoreId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") dataStoreId)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[dataStoreSpecs](../VertexAiSearchTool.Builder.html#dataStoreSpecs\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.VertexAISearchDataStoreSpec> dataStoreSpecs)`
+VertexAiSearchTool.Builder.`[dataStoreSpecs](../VertexAiSearchTool.Builder.html#dataStoreSpecs\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.VertexAISearchDataStoreSpec> dataStoreSpecs)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[filter](../VertexAiSearchTool.Builder.html#filter\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") filter)`
+VertexAiSearchTool.Builder.`[filter](../VertexAiSearchTool.Builder.html#filter\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filter)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[location](../VertexAiSearchTool.Builder.html#location\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location)`
+VertexAiSearchTool.Builder.`[location](../VertexAiSearchTool.Builder.html#location\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") location)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[maxResults](../VertexAiSearchTool.Builder.html#maxResults\(java.lang.Integer\))([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class or interface in java.lang") maxResults)`
+VertexAiSearchTool.Builder.`[maxResults](../VertexAiSearchTool.Builder.html#maxResults\(java.lang.Integer\))([Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") maxResults)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[project](../VertexAiSearchTool.Builder.html#project\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project)`
+VertexAiSearchTool.Builder.`[project](../VertexAiSearchTool.Builder.html#project\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") project)`
 
  
 
 `abstract [VertexAiSearchTool.Builder](../VertexAiSearchTool.Builder.html "class in com.google.adk.tools")`
 
-VertexAiSearchTool.Builder.`[searchEngineId](../VertexAiSearchTool.Builder.html#searchEngineId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") searchEngineId)`
+VertexAiSearchTool.Builder.`[searchEngineId](../VertexAiSearchTool.Builder.html#searchEngineId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") searchEngineId)`
 
  
 
