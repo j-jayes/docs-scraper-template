@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../get-started/)
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
+      * [ Agent routing  ](../agents/routing/)
       * [ Agent Config  ](../agents/config/)
     * [ Models for Agents  ](../agents/models/)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -99,29 +101,34 @@ Agent Runtime
       * [ Web Interface  ](../runtime/web-interface/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
+      * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
       * [ Criteria  ](../evaluate/criteria/)
       * [ User Simulation  ](../evaluate/user-sim/)
+      * [ Environment Simulation  ](../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../evaluate/custom_metrics/)
       * [ Optimization  ](../optimize/)
     * [ Safety and Security  ](../safety/)
@@ -192,7 +199,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -250,8 +257,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../get-started/)
-  2. [ Custom Tools  ](./)
+  1. [ Home  ](..)
+  2. [ Build Agents  ](../get-started/)
+  3. [ Custom Tools  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/tools-custom/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools-custom/index.md "View Markdown source")
 
@@ -270,9 +278,9 @@ In an ADK agent workflow, Tools are programming functions with structured input 
 
 
 
-[ADK Tools list](/tools/)
+[ADK Tools and Integrations](/integrations/)
 
-Before building your own Tools for ADK, check out the **[ADK Tools list](/tools/)** for pre-built tools you can use with ADK Agents.
+Before building your own tools for ADK, check out the **[ADK Tools and Integrations](/integrations/)** for pre-built tools and integrations you can use with ADK Agents.
 
 ## What is a Tool?¶
 
@@ -310,7 +318,7 @@ ADK offers flexibility by supporting several types of tools:
      * **[Functions/Methods](/tools-custom/function-tools/#1-function-tool):** Define standard synchronous functions or methods in your code (e.g., Python def).
      * **[Agents-as-Tools](/tools-custom/function-tools/#3-agent-as-a-tool):** Use another, potentially specialized, agent as a tool for a parent agent.
      * **[Long Running Function Tools](/tools-custom/function-tools/#2-long-running-function-tool):** Support for tools that perform asynchronous operations or take significant time to complete.
-  2. **[Built-in Tools](/tools/built-in-tools/):** Ready-to-use tools provided by the framework for common tasks. Examples: Google Search, Code Execution, Retrieval-Augmented Generation (RAG).
+  2. **[Built-in Tools](/integrations/):** Ready-to-use tools provided by the framework for common tasks. Examples: Google Search, Code Execution, Retrieval-Augmented Generation (RAG).
   3. **Third-Party Tools:** Integrate tools seamlessly from popular external libraries.
 
 
@@ -1825,7 +1833,7 @@ Here are key guidelines for defining effective tool functions:
     * Use clear and descriptive names (e.g., `city` instead of `c`, `search_query` instead of `q`).
     * **Provide type hints in Python** for all parameters (e.g., `city: str`, `user_id: int`, `items: list[str]`). This is essential for ADK to generate the correct schema for the LLM.
     * Ensure all parameter types are **JSON serializable**. All java primitives as well as standard Python types like `str`, `int`, `float`, `bool`, `list`, `dict`, and their combinations are generally safe. Avoid complex custom class instances as direct parameters unless they have a clear JSON representation.
-    * **Do not set default values** for parameters. E.g., `def my_func(param1: str = "default")`. Default values are not reliably supported or used by the underlying models during function call generation. All necessary information should be derived by the LLM from the context or explicitly requested if missing.
+    * **Avoid default values for information the model must provide.** E.g., avoid `def my_func(destination: str = "Paris")` if the destination should come from the user or conversation context. Default values can be appropriate for genuinely optional tuning parameters, but do not use them to hide required business inputs from the tool schema.
     * **`self` / `cls` Handled Automatically:** Implicit parameters like `self` (for instance methods) or `cls` (for class methods) are automatically handled by ADK and excluded from the schema shown to the LLM. You only need to define type hints and descriptions for the logical parameters your tool requires the LLM to provide.
   * **Return Type:**
 
@@ -2041,6 +2049,17 @@ Let's create a basic example of a toolset that provides simple arithmetic operat
 PythonTypeScriptJava
     
     
+    import asyncio
+    from typing import Optional, List, Dict, Any
+    
+    from google.adk.agents import LlmAgent
+    from google.adk.agents.readonly_context import ReadonlyContext
+    from google.adk.tools import BaseTool, FunctionTool
+    from google.adk.tools.base_toolset import BaseToolset
+    from google.adk.tools.tool_context import ToolContext
+    from google.adk.runners import InMemoryRunner
+    
+    
     # 1. Define the individual tool functions
     def add_numbers(a: int, b: int, tool_context: ToolContext) -> Dict[str, Any]:
         """Adds two integer numbers.
@@ -2071,22 +2090,23 @@ PythonTypeScriptJava
     
     # 2. Create the Toolset by implementing BaseToolset
     class SimpleMathToolset(BaseToolset):
-        def __init__(self, prefix: str = "math_"):
+        def __init__(self, prefix: str = "math"):
             self.prefix = prefix
+            super().__init__(tool_name_prefix=self.prefix) # Toolset can customize names by passing a prefix
+    
             # Create FunctionTool instances once
             self._add_tool = FunctionTool(
                 func=add_numbers,
-                name=f"{self.prefix}add_numbers",  # Toolset can customize names
             )
             self._subtract_tool = FunctionTool(
-                func=subtract_numbers, name=f"{self.prefix}subtract_numbers"
+                func=subtract_numbers,
             )
             print(f"SimpleMathToolset initialized with prefix '{self.prefix}'")
     
         async def get_tools(
             self, readonly_context: Optional[ReadonlyContext] = None
         ) -> List[BaseTool]:
-            print(f"SimpleMathToolset.get_tools() called.")
+            print("SimpleMathToolset.get_tools() called.")
             # Example of dynamic behavior:
             # Could use readonly_context.state to decide which tools to return
             # For instance, if readonly_context.state.get("enable_advanced_math"):
@@ -2113,18 +2133,31 @@ PythonTypeScriptJava
     greet_tool = FunctionTool(func=greet_user)
     
     # 4. Instantiate the toolset
-    math_toolset_instance = SimpleMathToolset(prefix="calculator_")
+    math_toolset_instance = SimpleMathToolset(prefix="calculator")
     
     # 5. Define an agent that uses both the individual tool and the toolset
     calculator_agent = LlmAgent(
         name="CalculatorAgent",
-        model="gemini-2.0-flash",  # Replace with your desired model
+        model="gemini-flash-latest",  # Replace with your desired model
         instruction="You are a helpful calculator and greeter. "
         "Use 'greet_user' for greetings. "
         "Use 'calculator_add_numbers' to add and 'calculator_subtract_numbers' to subtract. "
         "Announce the state of 'last_math_operation' if it's set.",
         tools=[greet_tool, math_toolset_instance],  # Individual tool  # Toolset instance
     )
+    
+    # 6. Run the agent
+    runner = InMemoryRunner(agent=calculator_agent, app_name="toolset_example_app")
+    
+    async def main():
+        print("\n--- Query 1: Greeting ---")
+        await runner.run_debug("Hi there!")
+        print("\n--- Query 2: Addition ---")
+        await runner.run_debug("What is 5 plus 3?")
+        await math_toolset_instance.close()
+    
+    if __name__ == "__main__":
+        asyncio.run(main())
     
     
     

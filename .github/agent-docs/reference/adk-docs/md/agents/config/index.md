@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../workflow-agents/parallel-agents/)
       * [ Custom agents  ](../custom-agents/)
       * [ Multi-agent systems  ](../multi-agents/)
+      * [ Agent routing  ](../routing/)
       * Agent Config  [ Agent Config  ](./) Table of contents 
         * Get started 
           * Setup 
@@ -83,6 +84,7 @@ Models for Agents
       * [ Claude  ](../models/anthropic/)
       * [ Agent Platform hosted  ](../models/agent-platform/)
       * [ Apigee AI Gateway  ](../models/apigee/)
+      * [ Model routing  ](../models/routing/)
       * [ Ollama  ](../models/ollama/)
       * [ vLLM  ](../models/vllm/)
       * [ LiteLLM  ](../models/litellm/)
@@ -113,6 +115,7 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -130,6 +133,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
       * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -508,7 +512,7 @@ The Agent Config feature is experimental and includes the following limitations:
 
 For ideas on how and what to build with ADK Agent Configs, see the yaml-based agent definitions in the ADK [adk-samples](https://github.com/search?q=repo:google/adk-python+path:/%5Econtributing%5C/samples%5C//+root_agent.yaml&type=code) repository. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/api-reference/agentconfig/).
 
-Back to top  [ Previous  Multi-agent systems  ](../multi-agents/) [ Next  AI Models for ADK agents  ](../models/)
+Back to top  [ Previous  Agent routing  ](../routing/) [ Next  AI Models for ADK agents  ](../models/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

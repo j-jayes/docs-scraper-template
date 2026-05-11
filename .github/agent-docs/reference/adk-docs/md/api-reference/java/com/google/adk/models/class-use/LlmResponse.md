@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [LlmResponse](../LlmResponse.html)
@@ -80,7 +84,7 @@ Callbacks.AfterModelCallback.`[call](../../agents/Callbacks.AfterModelCallback.h
 
 Async callback after LLM response.
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
 Callbacks.AfterModelCallbackSync.`[call](../../agents/Callbacks.AfterModelCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
@@ -92,7 +96,7 @@ Callbacks.BeforeModelCallback.`[call](../../agents/Callbacks.BeforeModelCallback
 
 Async callback before LLM invocation.
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
 Callbacks.BeforeModelCallbackSync.`[call](../../agents/Callbacks.BeforeModelCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder)`
 
@@ -100,13 +104,13 @@ Callbacks.BeforeModelCallbackSync.`[call](../../agents/Callbacks.BeforeModelCall
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-Callbacks.OnModelErrorCallback.`[call](../../agents/Callbacks.OnModelErrorCallback.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest,java.lang.Exception\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
+Callbacks.OnModelErrorCallback.`[call](../../agents/Callbacks.OnModelErrorCallback.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest,java.lang.Exception\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") error)`
 
 Async callback when model call fails.
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-Callbacks.OnModelErrorCallbackSync.`[call](../../agents/Callbacks.OnModelErrorCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest,java.lang.Exception\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
+Callbacks.OnModelErrorCallbackSync.`[call](../../agents/Callbacks.OnModelErrorCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest,java.lang.Exception\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") error)`
 
  
 
@@ -124,7 +128,7 @@ Callbacks.AfterModelCallback.`[call](../../agents/Callbacks.AfterModelCallback.h
 
 Async callback after LLM response.
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
 Callbacks.AfterModelCallbackSync.`[call](../../agents/Callbacks.AfterModelCallbackSync.html#call\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmResponse\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
@@ -156,13 +160,13 @@ Description
 
 `static [ResponseProcessor.ResponseProcessingResult](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
-ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
 
  
 
 `static [ResponseProcessor.ResponseProcessingResult](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
-ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable,java.lang.String\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "class or interface in java.lang")<[Event](../../events/Event.html "class in com.google.adk.events")> events, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") transferToAgent)`
+ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable,java.lang.String\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<[Event](../../events/Event.html "class in com.google.adk.events")> events, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") transferToAgent)`
 
  
 
@@ -202,7 +206,7 @@ LlmResponse.`[create](../LlmResponse.html#create\(com.google.genai.types.Generat
 
 `static [LlmResponse](../LlmResponse.html "class in com.google.adk.models")`
 
-LlmResponse.`[create](../LlmResponse.html#create\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.Candidate> candidates)`
+LlmResponse.`[create](../LlmResponse.html#create\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.Candidate> candidates)`
 
  
 
@@ -258,13 +262,13 @@ Method
 
 Description
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<com.google.genai.types.Part>`
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Part>`
 
 GeminiUtil.`[getPart0FromLlmResponse](../GeminiUtil.html#getPart0FromLlmResponse\(com.google.adk.models.LlmResponse\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
 Extracts the first part of an LlmResponse, if available.
 
-`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")`
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
 GeminiUtil.`[getTextFromLlmResponse](../GeminiUtil.html#getTextFromLlmResponse\(com.google.adk.models.LlmResponse\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse)`
 
@@ -420,19 +424,19 @@ ReplayPlugin.`[beforeModelCallback](../../plugins/ReplayPlugin.html#beforeModelC
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-LoggingPlugin.`[onModelErrorCallback](../../plugins/LoggingPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+LoggingPlugin.`[onModelErrorCallback](../../plugins/LoggingPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
  
 
 `default io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-Plugin.`[onModelErrorCallback](../../plugins/Plugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+Plugin.`[onModelErrorCallback](../../plugins/Plugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
 Callback executed when a model call encounters an error.
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-PluginManager.`[onModelErrorCallback](../../plugins/PluginManager.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+PluginManager.`[onModelErrorCallback](../../plugins/PluginManager.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
  
 
@@ -482,11 +486,11 @@ BigQueryAgentAnalyticsPlugin.`[afterModelCallback](../../plugins/agentanalytics/
 
 BigQueryAgentAnalyticsPlugin.`[beforeModelCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeModelCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest)`
 
- 
+Callback before LLM call.
 
 `io.reactivex.rxjava3.core.Maybe<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-BigQueryAgentAnalyticsPlugin.`[onModelErrorCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") error)`
+BigQueryAgentAnalyticsPlugin.`[onModelErrorCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onModelErrorCallback\(com.google.adk.agents.CallbackContext,com.google.adk.models.LlmRequest.Builder,java.lang.Throwable\))([CallbackContext](../../agents/CallbackContext.html "class in com.google.adk.agents") callbackContext, [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequest, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
  
 
@@ -514,7 +518,7 @@ Method
 
 Description
 
-`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>>`
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>>`
 
 LlmRecording.`[llmResponses](../../plugins/recordings/LlmRecording.html#llmResponses\(\))()`
 
@@ -530,7 +534,7 @@ Description
 
 `abstract [LlmRecording.Builder](../../plugins/recordings/LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-LlmRecording.Builder.`[llmResponses](../../plugins/recordings/LlmRecording.Builder.html#llmResponses\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")> llmResponses)`
+LlmRecording.Builder.`[llmResponses](../../plugins/recordings/LlmRecording.Builder.html#llmResponses\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")> llmResponses)`
 
  
 
@@ -546,7 +550,7 @@ Description
 
 `static void`
 
-Tracing.`[traceCallLlm](../../telemetry/Tracing.html#traceCallLlm\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,java.lang.Exception\))(io.opentelemetry.api.trace.Span span, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") eventId, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class or interface in java.lang") error)`
+Tracing.`[traceCallLlm](../../telemetry/Tracing.html#traceCallLlm\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,java.lang.Exception\))(io.opentelemetry.api.trace.Span span, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") eventId, [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, [LlmResponse](../LlmResponse.html "class in com.google.adk.models") llmResponse, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") error)`
 
 Traces a call to the LLM.
 

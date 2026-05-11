@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai](package-summary.html)
   2. [EmbeddingConverter](EmbeddingConverter.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -40,13 +44,13 @@ Hide sidebar  Show sidebar
 
 # Class EmbeddingConverter
 
-[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 com.google.adk.models.springai.EmbeddingConverter
 
 * * *
 
-public class EmbeddingConverter extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+public class EmbeddingConverter extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 Utility class for converting between embedding formats and performing vector operations. 
 
@@ -62,9 +66,9 @@ Method
 
 Description
 
-`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")>`
+`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class in java.lang")>`
 
-`calculateSimilarities(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<float[]> candidates)`
+`calculateSimilarities(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<float[]> candidates)`
 
 Calculate similarity scores between a query and all candidates.
 
@@ -76,13 +80,13 @@ Calculate cosine similarity between two embedding vectors.
 
 `static org.springframework.ai.embedding.EmbeddingRequest`
 
-`createRequest([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text)`
+`createRequest([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text)`
 
 Create an EmbeddingRequest for a single text input.
 
 `static org.springframework.ai.embedding.EmbeddingRequest`
 
-`createRequest([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> texts)`
+`createRequest([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> texts)`
 
 Create an EmbeddingRequest for multiple text inputs.
 
@@ -92,7 +96,7 @@ Create an EmbeddingRequest for multiple text inputs.
 
 Calculate Euclidean distance between two embedding vectors.
 
-`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<float[]>`
+`static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<float[]>`
 
 `extractEmbeddings(org.springframework.ai.embedding.EmbeddingResponse response)`
 
@@ -106,7 +110,7 @@ Extract the first embedding vector from an EmbeddingResponse.
 
 `static int`
 
-`findMostSimilar(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<float[]> candidates)`
+`findMostSimilar(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<float[]> candidates)`
 
 Find the most similar embedding from a list of candidates.
 
@@ -128,9 +132,9 @@ Convert float array to double array.
 
 Convert double array to float array.
 
-### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
-`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
 
 
 
@@ -139,7 +143,7 @@ Convert double array to float array.
 
     * ### createRequest
 
-public static org.springframework.ai.embedding.EmbeddingRequest createRequest([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") text)
+public static org.springframework.ai.embedding.EmbeddingRequest createRequest([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") text)
 
 Create an EmbeddingRequest for a single text input.
 
@@ -150,7 +154,7 @@ Returns:
 
     * ### createRequest
 
-public static org.springframework.ai.embedding.EmbeddingRequest createRequest([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> texts)
+public static org.springframework.ai.embedding.EmbeddingRequest createRequest([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> texts)
 
 Create an EmbeddingRequest for multiple text inputs.
 
@@ -161,7 +165,7 @@ Returns:
 
     * ### extractEmbeddings
 
-public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<float[]> extractEmbeddings(org.springframework.ai.embedding.EmbeddingResponse response)
+public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<float[]> extractEmbeddings(org.springframework.ai.embedding.EmbeddingResponse response)
 
 Extract embedding vectors from an EmbeddingResponse.
 
@@ -218,7 +222,7 @@ Returns:
 
     * ### findMostSimilar
 
-public static int findMostSimilar(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<float[]> candidates)
+public static int findMostSimilar(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<float[]> candidates)
 
 Find the most similar embedding from a list of candidates.
 
@@ -230,7 +234,7 @@ Returns:
 
     * ### calculateSimilarities
 
-public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang")> calculateSimilarities(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<float[]> candidates)
+public static [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class in java.lang")> calculateSimilarities(float[] query, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<float[]> candidates)
 
 Calculate similarity scores between a query and all candidates.
 

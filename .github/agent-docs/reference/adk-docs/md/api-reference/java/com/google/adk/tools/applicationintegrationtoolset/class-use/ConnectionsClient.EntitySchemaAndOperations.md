@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.applicationintegrationtoolset](../package-summary.html)
   2. [ConnectionsClient](../ConnectionsClient.html)
@@ -45,7 +49,7 @@ Description
 
 `[ConnectionsClient.EntitySchemaAndOperations](../ConnectionsClient.EntitySchemaAndOperations.html "class in com.google.adk.tools.applicationintegrationtoolset")`
 
-ConnectionsClient.`[getEntitySchemaAndOperations](../ConnectionsClient.html#getEntitySchemaAndOperations\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") entity)`
+ConnectionsClient.`[getEntitySchemaAndOperations](../ConnectionsClient.html#getEntitySchemaAndOperations\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") entity)`
 
 Retrieves the JSON schema and available operations for a given entity.
 

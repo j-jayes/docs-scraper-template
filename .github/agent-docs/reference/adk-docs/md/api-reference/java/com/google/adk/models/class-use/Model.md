@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [Model](../Model.html)
@@ -60,7 +64,7 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Model](../Model.html "class in com.google.adk.models")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Model](../Model.html "class in com.google.adk.models")>`
 
 LlmAgent.`[model](../../agents/LlmAgent.html#model\(\))()`
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](../package-summary.html)
   2. [BaseToolset](../BaseToolset.html)
@@ -58,7 +62,7 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>`
 
 LlmAgent.`[toolsets](../../agents/LlmAgent.html#toolsets\(\))()`
 
@@ -128,27 +132,27 @@ Method
 
 Description
 
-`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
+`[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
 
 AdditionalAdkComponentProvider.`[getToolsetClasses](../../utils/AdditionalAdkComponentProvider.html#getToolsetClasses\(\))()`
 
 Returns toolset classes for [`McpToolset`](../mcp/McpToolset.html "class in com.google.adk.tools.mcp").
 
-`default [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
+`default [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
 
 AdkComponentProvider.`[getToolsetClasses](../../utils/AdkComponentProvider.html#getToolsetClasses\(\))()`
 
 Returns a list of toolset classes to register.
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class or interface in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Class](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html "class in java.lang")<? extends [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>>`
 
-ComponentRegistry.`[resolveToolsetClass](../../utils/ComponentRegistry.html#resolveToolsetClass\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") toolsetClassName)`
+ComponentRegistry.`[resolveToolsetClass](../../utils/ComponentRegistry.html#resolveToolsetClass\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolsetClassName)`
 
 Resolves a toolset class by name from the registry or by attempting to load it.
 
-`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>`
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")>`
 
-ComponentRegistry.`[resolveToolsetInstance](../../utils/ComponentRegistry.html#resolveToolsetInstance\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+ComponentRegistry.`[resolveToolsetInstance](../../utils/ComponentRegistry.html#resolveToolsetInstance\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Resolves a toolset instance by name from the registry.
 

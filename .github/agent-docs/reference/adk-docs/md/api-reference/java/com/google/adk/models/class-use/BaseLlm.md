@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [BaseLlm](../BaseLlm.html)
@@ -41,6 +45,10 @@ com.google.adk.models.langchain4j
  
 
 com.google.adk.models.springai
+
+ 
+
+com.google.adk.planner
 
  
 
@@ -106,13 +114,13 @@ Description
 
 `[BaseLlm](../BaseLlm.html "class in com.google.adk.models")`
 
-LlmRegistry.LlmFactory.`[create](../LlmRegistry.LlmFactory.html#create\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)`
+LlmRegistry.LlmFactory.`[create](../LlmRegistry.LlmFactory.html#create\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)`
 
  
 
 `static [BaseLlm](../BaseLlm.html "class in com.google.adk.models")`
 
-LlmRegistry.`[getLlm](../LlmRegistry.html#getLlm\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)`
+LlmRegistry.`[getLlm](../LlmRegistry.html#getLlm\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)`
 
 Returns an LLM instance for the given model name, using a cached or new factory-created instance.
 
@@ -124,7 +132,7 @@ Method
 
 Description
 
-`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[BaseLlm](../BaseLlm.html "class in com.google.adk.models")>`
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[BaseLlm](../BaseLlm.html "class in com.google.adk.models")>`
 
 Model.`[model](../Model.html#model\(\))()`
 
@@ -176,6 +184,34 @@ Description
 
 Spring AI implementation of BaseLlm that wraps Spring AI ChatModel and StreamingChatModel.
 
+  * ## Uses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.planner](../../planner/package-summary.html)
+
+Constructors in [com.google.adk.planner](../../planner/package-summary.html) with parameters of type [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[SupervisorPlanner](../../planner/SupervisorPlanner.html#%3Cinit%3E\(com.google.adk.models.BaseLlm\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") llm)`
+
+ 
+
+` `
+
+`[SupervisorPlanner](../../planner/SupervisorPlanner.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") llm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") systemInstruction)`
+
+ 
+
+` `
+
+`[SupervisorPlanner](../../planner/SupervisorPlanner.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String,int\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") llm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") systemInstruction, int maxEvents)`
+
+ 
+
   * ## Uses of [BaseLlm](../BaseLlm.html "class in com.google.adk.models") in [com.google.adk.summarizer](../../summarizer/package-summary.html)
 
 Constructors in [com.google.adk.summarizer](../../summarizer/package-summary.html) with parameters of type [BaseLlm](../BaseLlm.html "class in com.google.adk.models")
@@ -194,7 +230,7 @@ Description
 
 ` `
 
-`[LlmEventSummarizer](../../summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") baseLlm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") promptTemplate)`
+`[LlmEventSummarizer](../../summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String\))([BaseLlm](../BaseLlm.html "class in com.google.adk.models") baseLlm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate)`
 
  
 

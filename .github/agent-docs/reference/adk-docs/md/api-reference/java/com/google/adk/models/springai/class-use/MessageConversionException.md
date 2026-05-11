@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai](../package-summary.html)
   2. [MessageConversionException](../MessageConversionException.html)
@@ -44,19 +48,19 @@ Description
 
 `static [MessageConversionException](../MessageConversionException.html "class in com.google.adk.models.springai")`
 
-MessageConversionException.`[invalidMessageStructure](../MessageConversionException.html#invalidMessageStructure\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") message)`
+MessageConversionException.`[invalidMessageStructure](../MessageConversionException.html#invalidMessageStructure\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") message)`
 
 Creates a MessageConversionException for invalid message structure.
 
 `static [MessageConversionException](../MessageConversionException.html "class in com.google.adk.models.springai")`
 
-MessageConversionException.`[jsonParsingFailed](../MessageConversionException.html#jsonParsingFailed\(java.lang.String,java.lang.Throwable\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") context, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class or interface in java.lang") cause)`
+MessageConversionException.`[jsonParsingFailed](../MessageConversionException.html#jsonParsingFailed\(java.lang.String,java.lang.Throwable\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") context, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") cause)`
 
 Creates a MessageConversionException for JSON parsing failures.
 
 `static [MessageConversionException](../MessageConversionException.html "class in com.google.adk.models.springai")`
 
-MessageConversionException.`[unsupportedContentType](../MessageConversionException.html#unsupportedContentType\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") contentType)`
+MessageConversionException.`[unsupportedContentType](../MessageConversionException.html#unsupportedContentType\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") contentType)`
 
 Creates a MessageConversionException for unsupported content type.
 

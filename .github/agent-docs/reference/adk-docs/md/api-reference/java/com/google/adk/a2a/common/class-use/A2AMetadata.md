@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.a2a.common](../package-summary.html)
   2. [A2AMetadata](../A2AMetadata.html)

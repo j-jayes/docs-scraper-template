@@ -11,15 +11,19 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools](package-summary.html)
   2. [FunctionCallingUtils](FunctionCallingUtils.html)
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -32,13 +36,13 @@ Hide sidebar  Show sidebar
 
 # Class FunctionCallingUtils
 
-[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+[java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 com.google.adk.tools.FunctionCallingUtils
 
 * * *
 
-public final class FunctionCallingUtils extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang")
+public final class FunctionCallingUtils extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
 Utility class for function calling.
 
@@ -54,25 +58,25 @@ Description
 
 `static com.google.genai.types.FunctionDeclaration`
 
-`buildFunctionDeclaration([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> ignoreParams)`
+`buildFunctionDeclaration([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class in java.lang.reflect") func, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> ignoreParams)`
 
 Builds a FunctionDeclaration from a Java Method, ignoring parameters with the given names.
 
 `static com.google.genai.types.Schema`
 
-`buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "class or interface in java.lang.reflect") type)`
+`buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "interface in java.lang.reflect") type)`
 
 Builds a Schema from a Java Type, creating a new context for the generation process.
 
 `static com.google.genai.types.Schema`
 
-`buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "class or interface in java.lang.reflect") type, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+`buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "interface in java.lang.reflect") type, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
 
 Builds a Schema from a Java Type, creating a new context for the generation process.
 
-### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class or interface in java.lang")
+### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
-`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "class or interface in java.lang")`
+`[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
 
 
 
@@ -81,44 +85,44 @@ Builds a Schema from a Java Type, creating a new context for the generation proc
 
     * ### buildFunctionDeclaration
 
-public static com.google.genai.types.FunctionDeclaration buildFunctionDeclaration([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") func, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang")> ignoreParams)
+public static com.google.genai.types.FunctionDeclaration buildFunctionDeclaration([Method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class in java.lang.reflect") func, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> ignoreParams)
 
 Builds a FunctionDeclaration from a Java Method, ignoring parameters with the given names.
 
 Parameters:
-    `func` \- The Java [`Method`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class or interface in java.lang.reflect") to convert into a FunctionDeclaration.
+    `func` \- The Java [`Method`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Method.html "class in java.lang.reflect") to convert into a FunctionDeclaration.
     `ignoreParams` \- The names of parameters to ignore.
 Returns:
     The generated `FunctionDeclaration`.
 Throws:
-    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if a type is encountered that cannot be serialized by Jackson.
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if a type is encountered that cannot be serialized by Jackson.
 
     * ### buildSchemaFromType
 
-public static com.google.genai.types.Schema buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "class or interface in java.lang.reflect") type)
+public static com.google.genai.types.Schema buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "interface in java.lang.reflect") type)
 
 Builds a Schema from a Java Type, creating a new context for the generation process.
 
 Parameters:
-    `type` \- The Java [`Type`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "class or interface in java.lang.reflect") to convert into a Schema.
+    `type` \- The Java [`Type`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "interface in java.lang.reflect") to convert into a Schema.
 Returns:
     The generated `Schema`.
 Throws:
-    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if a type is encountered that cannot be serialized by Jackson.
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if a type is encountered that cannot be serialized by Jackson.
 
     * ### buildSchemaFromType
 
-public static com.google.genai.types.Schema buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "class or interface in java.lang.reflect") type, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
+public static com.google.genai.types.Schema buildSchemaFromType([Type](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "interface in java.lang.reflect") type, com.fasterxml.jackson.databind.ObjectMapper objectMapper)
 
 Builds a Schema from a Java Type, creating a new context for the generation process.
 
 Parameters:
-    `type` \- The Java [`Type`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "class or interface in java.lang.reflect") to convert into a Schema.
+    `type` \- The Java [`Type`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/Type.html "interface in java.lang.reflect") to convert into a Schema.
     `objectMapper` \- The `ObjectMapper` to use for introspecting types.
 Returns:
     The generated `Schema`.
 Throws:
-    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class or interface in java.lang")` \- if a type is encountered that cannot be serialized by Jackson.
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if a type is encountered that cannot be serialized by Jackson.
 
 
 

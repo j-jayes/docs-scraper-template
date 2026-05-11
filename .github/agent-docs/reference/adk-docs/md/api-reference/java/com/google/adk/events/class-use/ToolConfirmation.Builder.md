@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.events](../package-summary.html)
   2. [ToolConfirmation](../ToolConfirmation.html)
@@ -57,13 +61,13 @@ ToolConfirmation.Builder.`[confirmed](../ToolConfirmation.Builder.html#confirmed
 
 `abstract [ToolConfirmation.Builder](../ToolConfirmation.Builder.html "class in com.google.adk.events")`
 
-ToolConfirmation.Builder.`[hint](../ToolConfirmation.Builder.html#hint\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") hint)`
+ToolConfirmation.Builder.`[hint](../ToolConfirmation.Builder.html#hint\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint)`
 
  
 
 `abstract [ToolConfirmation.Builder](../ToolConfirmation.Builder.html "class in com.google.adk.events")`
 
-ToolConfirmation.Builder.`[payload](../ToolConfirmation.Builder.html#payload\(java.lang.Object\))(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class or interface in java.lang") payload)`
+ToolConfirmation.Builder.`[payload](../ToolConfirmation.Builder.html#payload\(java.lang.Object\))(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") payload)`
 
  
 

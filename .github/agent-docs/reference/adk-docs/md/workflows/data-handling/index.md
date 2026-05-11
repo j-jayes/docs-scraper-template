@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -118,6 +121,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -257,7 +262,7 @@ Table of contents
 
 Supported in ADKPython v2.0.0Beta
 
-Structuring and managing data between agents and graph-based notes is critical for building reliable processes with ADK. This guide explains data handling within graph-based workflows and collaboration agents, including how information is transmitted and received between graph nodes using **_Events_**. It covers the essential parameters for events, data, content, and state, and explains how to implement structured data transfer for both function and agent nodes using data format schemas and specific instruction syntax.
+Structuring and managing data between agents and graph-based nodes is critical for building reliable processes with ADK. This guide explains data handling within graph-based workflows and collaboration agents, including how information is transmitted and received between graph nodes using **_Events_**. It covers the essential parameters for events, data, content, and state, and explains how to implement structured data transfer for both function and agent nodes using data format schemas and specific instruction syntax.
 
 Beta Release
 

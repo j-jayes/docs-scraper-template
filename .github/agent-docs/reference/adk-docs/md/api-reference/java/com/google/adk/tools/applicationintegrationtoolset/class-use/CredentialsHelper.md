@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.tools.applicationintegrationtoolset](../package-summary.html)
   2. [CredentialsHelper](../CredentialsHelper.html)
@@ -58,7 +62,7 @@ Description
 
 ` `
 
-`[ConnectionsClient](../ConnectionsClient.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.net.http.HttpClient,com.google.adk.tools.applicationintegrationtoolset.CredentialsHelper,com.fasterxml.jackson.databind.ObjectMapper\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") connection, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") serviceAccountJson, [HttpClient](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html "class or interface in java.net.http") httpClient, [CredentialsHelper](../CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset") credentialsHelper, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
+`[ConnectionsClient](../ConnectionsClient.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.net.http.HttpClient,com.google.adk.tools.applicationintegrationtoolset.CredentialsHelper,com.fasterxml.jackson.databind.ObjectMapper\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") project, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") location, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") connection, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") serviceAccountJson, [HttpClient](https://docs.oracle.com/en/java/javase/17/docs/api/java.net.http/java/net/http/HttpClient.html "class in java.net.http") httpClient, [CredentialsHelper](../CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset") credentialsHelper, com.fasterxml.jackson.databind.ObjectMapper objectMapper)`
 
 Initializes the ConnectionsClient.
 

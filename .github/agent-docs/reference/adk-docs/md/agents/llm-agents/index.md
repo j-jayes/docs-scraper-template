@@ -73,6 +73,7 @@ Workflow agents
         * [ Parallel agents  ](../workflow-agents/parallel-agents/)
       * [ Custom agents  ](../custom-agents/)
       * [ Multi-agent systems  ](../multi-agents/)
+      * [ Agent routing  ](../routing/)
       * [ Agent Config  ](../config/)
     * [ Models for Agents  ](../models/)
 
@@ -82,6 +83,7 @@ Models for Agents
       * [ Claude  ](../models/anthropic/)
       * [ Agent Platform hosted  ](../models/agent-platform/)
       * [ Apigee AI Gateway  ](../models/apigee/)
+      * [ Model routing  ](../models/routing/)
       * [ Ollama  ](../models/ollama/)
       * [ vLLM  ](../models/vllm/)
       * [ LiteLLM  ](../models/litellm/)
@@ -112,6 +114,7 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -129,6 +132,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 

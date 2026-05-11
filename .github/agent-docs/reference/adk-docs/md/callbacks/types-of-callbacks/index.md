@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -118,6 +121,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
       * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -272,6 +276,29 @@ Note
 
 The specific method names or return types may vary slightly by SDK language (e.g., return `None` in Python, return `Optional.empty()` or `Maybe.empty()` in Java). Refer to the language-specific API documentation for details.
 
+Python: Use the documented callback parameter names
+
+In Python, callback function parameter names must match the documented names exactly because ADK passes callback arguments by keyword. For example, use `callback_context` for agent and model callbacks, and `tool_context` for tool callbacks. Renaming these parameters to aliases such as `ctx` will cause runtime `TypeError` failures.
+    
+    
+    # Correct
+    def before_agent_callback(callback_context):
+        ...
+    
+    # Incorrect
+    def before_agent_callback(ctx):
+        ...
+    
+
+Callback | Required parameter names  
+---|---  
+`before_agent_callback` | `callback_context`  
+`after_agent_callback` | `callback_context`  
+`before_model_callback` | `callback_context`, `llm_request`  
+`after_model_callback` | `callback_context`, `llm_response`  
+`before_tool_callback` | `tool`, `args`, `tool_context`  
+`after_tool_callback` | `tool`, `args`, `tool_context`, `tool_response`  
+  
 ### Before Agent Callback¶
 
 **When:** Called _immediately before_ the agent's `_run_async_impl` (or `_run_live_impl`) method is executed. It runs after the agent's `InvocationContext` is created but _before_ its core logic begins.

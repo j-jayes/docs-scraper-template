@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../../deprecated-list.html)
   * [Index](../../../../../../../index-all.html)
   * [Search](../../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models.springai.properties](../package-summary.html)
   2. [SpringAIProperties](../SpringAIProperties.html)
@@ -53,25 +57,25 @@ Description
 
 ` `
 
-`[SpringAI](../../SpringAI.html#%3Cinit%3E\(org.springframework.ai.chat.model.ChatModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.chat.model.ChatModel chatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
+`[SpringAI](../../SpringAI.html#%3Cinit%3E\(org.springframework.ai.chat.model.ChatModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.chat.model.ChatModel chatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
 
  
 
 ` `
 
-`[SpringAI](../../SpringAI.html#%3Cinit%3E\(org.springframework.ai.chat.model.ChatModel,org.springframework.ai.chat.model.StreamingChatModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.chat.model.ChatModel chatModel, org.springframework.ai.chat.model.StreamingChatModel streamingChatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
+`[SpringAI](../../SpringAI.html#%3Cinit%3E\(org.springframework.ai.chat.model.ChatModel,org.springframework.ai.chat.model.StreamingChatModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.chat.model.ChatModel chatModel, org.springframework.ai.chat.model.StreamingChatModel streamingChatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
 
  
 
 ` `
 
-`[SpringAI](../../SpringAI.html#%3Cinit%3E\(org.springframework.ai.chat.model.StreamingChatModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.chat.model.StreamingChatModel streamingChatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
+`[SpringAI](../../SpringAI.html#%3Cinit%3E\(org.springframework.ai.chat.model.StreamingChatModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.chat.model.StreamingChatModel streamingChatModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
 
  
 
 ` `
 
-`[SpringAIEmbedding](../../SpringAIEmbedding.html#%3Cinit%3E\(org.springframework.ai.embedding.EmbeddingModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.embedding.EmbeddingModel embeddingModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
+`[SpringAIEmbedding](../../SpringAIEmbedding.html#%3Cinit%3E\(org.springframework.ai.embedding.EmbeddingModel,java.lang.String,com.google.adk.models.springai.properties.SpringAIProperties.Observability\))(org.springframework.ai.embedding.EmbeddingModel embeddingModel, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, [SpringAIProperties.Observability](../SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties") observabilityConfig)`
 
  
 

@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [LlmRegistry](../LlmRegistry.html)
@@ -45,7 +49,7 @@ Description
 
 `static void`
 
-LlmRegistry.`[registerLlm](../LlmRegistry.html#registerLlm\(java.lang.String,com.google.adk.models.LlmRegistry.LlmFactory\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelNamePattern, [LlmRegistry.LlmFactory](../LlmRegistry.LlmFactory.html "interface in com.google.adk.models") factory)`
+LlmRegistry.`[registerLlm](../LlmRegistry.html#registerLlm\(java.lang.String,com.google.adk.models.LlmRegistry.LlmFactory\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelNamePattern, [LlmRegistry.LlmFactory](../LlmRegistry.LlmFactory.html "interface in com.google.adk.models") factory)`
 
 Registers a factory for model names matching the given regex pattern.
 

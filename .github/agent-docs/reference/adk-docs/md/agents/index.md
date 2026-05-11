@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](workflow-agents/parallel-agents/)
       * [ Custom agents  ](custom-agents/)
       * [ Multi-agent systems  ](multi-agents/)
+      * [ Agent routing  ](routing/)
       * [ Agent Config  ](config/)
     * [ Models for Agents  ](models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](models/anthropic/)
       * [ Agent Platform hosted  ](models/agent-platform/)
       * [ Apigee AI Gateway  ](models/apigee/)
+      * [ Model routing  ](models/routing/)
       * [ Ollama  ](models/ollama/)
       * [ vLLM  ](models/vllm/)
       * [ LiteLLM  ](models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
@@ -118,6 +121,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
@@ -317,6 +322,7 @@ Now that you have an overview of the different agent types available in ADK, div
   * [**Workflow Agents:**](workflow-agents/) Learn how to orchestrate tasks using `SequentialAgent`, `ParallelAgent`, and `LoopAgent` for structured and predictable processes.
   * [**Custom Agents:**](custom-agents/) Discover the principles of extending `BaseAgent` to build agents with unique logic and integrations tailored to your specific needs.
   * [**Multi-Agents:**](multi-agents/) Understand how to combine different agent types to create sophisticated, collaborative systems capable of tackling complex problems.
+  * [**Agent Routing:**](routing/) Dynamically select between multiple agents at runtime using router functions for fallback, A/B testing, and auto-routing.
   * [**Models:**](/agents/models/) Learn about the different LLM integrations available and how to select the right model for your agents.
 
 

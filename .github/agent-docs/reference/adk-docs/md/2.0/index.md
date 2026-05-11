@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
+      * [ Agent routing  ](../agents/routing/)
       * [ Agent Config  ](../agents/config/)
     * [ Models for Agents  ](../agents/models/)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -101,23 +103,26 @@ Agent Runtime
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
@@ -194,7 +199,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -241,13 +246,13 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/2.0/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/2.0/index.md "View Markdown source")
 
-# Welcome to ADK 2.0 Alpha¶
+# Welcome to ADK 2.0 Beta¶
 
-Alpha Release
+Beta Release
 
-ADK 2.0 is an Alpha release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
+ADK 2.0 is a Beta release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
-ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available as an Alpha release for Python and includes the following key features:
+ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available as a Beta release for Python and includes the following key features:
 
   * [**Graph-based workflows**](/workflows/): Build deterministic agent workflows with more control over how tasks are routed and executed.
 
@@ -264,15 +269,11 @@ Check out the linked topics above for more information, and try out the new way 
 
 ADK 2.0 is designed to be compatible with agents developed with ADK 1.x releases. However, given the number and diversity of agents built with ADK 1.x, we expect that some agent implementations, particularly advanced and feature-rich agents, will uncover incompatibilities in ADK 2.0. During the current pre-GA release period, we ask your assistance helping us identify these issues so we have a chance to address them. Report any ADK 1.0 to ADK 2.0 incompatibilities you encounter through our [issue tracker](https://github.com/google/adk-python/issues/new?template=bug_report.md&labels=v2).
 
-WARNING: DO NOT MIX ADK 2.0 and ADK 1.0 data storage systems
-
-If you use persistent storage for ADK 2.0 projects, **DO NOT allow ADK 2.0 projects to share storage with ADK 1.0 projects** , including, but not limited to, session storage, memory systems, and evaluation data. Doing so may result in loss of data or make the data unusable in ADK 1.0 projects.
-
 ## Install ADK 2.0¶
 
 While ADK 2.0 is available as a pre-GA release, it is not installed automatically. You must select it as an installation option. This version has the following system requirements:
 
-  * **Python 3.11** or later
+  * **Python 3.10** or later
   * `pip` for installing packages
 
 

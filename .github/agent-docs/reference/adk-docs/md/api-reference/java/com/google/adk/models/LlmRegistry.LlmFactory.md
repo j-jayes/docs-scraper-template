@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](package-summary.html)
   2. [LlmRegistry](LlmRegistry.html)
@@ -20,7 +24,7 @@ Skip navigation links
 
 
 
-Contents 
+Contents  
 
   1. Description
   2. Method Summary
@@ -39,7 +43,7 @@ Functional Interface:
 
 * * *
 
-[@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "class or interface in java.lang") public static interface LlmRegistry.LlmFactory
+[@FunctionalInterface](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/FunctionalInterface.html "annotation interface in java.lang") public static interface LlmRegistry.LlmFactory
 
 The factory interface for creating LLM instances.
 
@@ -55,7 +59,7 @@ Description
 
 `[BaseLlm](BaseLlm.html "class in com.google.adk.models")`
 
-`create([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)`
+`create([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)`
 
  
 
@@ -66,7 +70,7 @@ Description
 
     * ### create
 
-[BaseLlm](BaseLlm.html "class in com.google.adk.models") create([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelName)
+[BaseLlm](BaseLlm.html "class in com.google.adk.models") create([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)
 
 
 

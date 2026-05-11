@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](../package-summary.html)
   2. [LlmResponse](../LlmResponse.html)
@@ -45,7 +49,7 @@ Description
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[avgLogprobs](../LlmResponse.Builder.html#avgLogprobs\(java.lang.Double\))(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class or interface in java.lang") avgLogprobs)`
+LlmResponse.Builder.`[avgLogprobs](../LlmResponse.Builder.html#avgLogprobs\(java.lang.Double\))(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class in java.lang") avgLogprobs)`
 
  
 
@@ -63,7 +67,7 @@ LlmResponse.Builder.`[content](../LlmResponse.Builder.html#content\(com.google.g
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[customMetadata](../LlmResponse.Builder.html#customMetadata\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "class or interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
+LlmResponse.Builder.`[customMetadata](../LlmResponse.Builder.html#customMetadata\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.CustomMetadata> customMetadata)`
 
  
 
@@ -75,7 +79,7 @@ LlmResponse.Builder.`[errorCode](../LlmResponse.Builder.html#errorCode\(com.goog
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[errorMessage](../LlmResponse.Builder.html#errorMessage\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") errorMessage)`
+LlmResponse.Builder.`[errorMessage](../LlmResponse.Builder.html#errorMessage\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") errorMessage)`
 
  
 
@@ -93,19 +97,31 @@ LlmResponse.Builder.`[groundingMetadata](../LlmResponse.Builder.html#groundingMe
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[interrupted](../LlmResponse.Builder.html#interrupted\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") interrupted)`
+LlmResponse.Builder.`[inputTranscription](../LlmResponse.Builder.html#inputTranscription\(com.google.genai.types.Transcription\))(@Nullable com.google.genai.types.Transcription inputTranscription)`
 
  
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[modelVersion](../LlmResponse.Builder.html#modelVersion\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") modelVersion)`
+LlmResponse.Builder.`[interrupted](../LlmResponse.Builder.html#interrupted\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") interrupted)`
 
  
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[partial](../LlmResponse.Builder.html#partial\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") partial)`
+LlmResponse.Builder.`[modelVersion](../LlmResponse.Builder.html#modelVersion\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelVersion)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[outputTranscription](../LlmResponse.Builder.html#outputTranscription\(com.google.genai.types.Transcription\))(@Nullable com.google.genai.types.Transcription outputTranscription)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
+LlmResponse.Builder.`[partial](../LlmResponse.Builder.html#partial\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") partial)`
 
  
 
@@ -123,7 +139,7 @@ LlmResponse.`[toBuilder](../LlmResponse.html#toBuilder\(\))()`
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
-LlmResponse.Builder.`[turnComplete](../LlmResponse.Builder.html#turnComplete\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class or interface in java.lang") turnComplete)`
+LlmResponse.Builder.`[turnComplete](../LlmResponse.Builder.html#turnComplete\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") turnComplete)`
 
  
 

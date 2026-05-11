@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../../deprecated-list.html)
   * [Index](../../../../../../index-all.html)
   * [Search](../../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.a2a.common](../package-summary.html)
   2. [A2AMetadata](../A2AMetadata.html)
@@ -59,7 +63,7 @@ Description
 
 `static [A2AMetadata.Key](../A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")`
 
-A2AMetadata.Key.`[valueOf](../A2AMetadata.Key.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang") name)`
+A2AMetadata.Key.`[valueOf](../A2AMetadata.Key.html#valueOf\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
 
 Returns the enum constant of this class with the specified name.
 
