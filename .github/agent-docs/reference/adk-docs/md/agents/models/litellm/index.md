@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../custom-agents/)
       * [ Multi-agent systems  ](../../multi-agents/)
+      * [ Agent routing  ](../../routing/)
       * [ Agent Config  ](../../config/)
     * [ Models for Agents  ](../)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../google-gemini/)
       * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
-      * [ Vertex AI hosted  ](../vertex/)
+      * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
+      * [ Model routing  ](../routing/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
       * LiteLLM  [ LiteLLM  ](./) Table of contents 
@@ -101,24 +103,28 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../../runtime/cancel/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
 
 Observability 
       * [ Logging  ](../../../observability/logging/)
+      * [ Metrics  ](../../../observability/metrics/)
+      * [ Traces  ](../../../observability/traces/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -195,7 +201,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -250,7 +256,7 @@ ADK Python Security Advisory: LiteLLM supply chain compromise
 
 Unauthorized code was identified in LiteLLM versions 1.82.7 and 1.82.8 on PyPI on March 24, 2026. If you use ADK Python with the `eval` or `extensions` extras, update to the latest version of ADK Python immediately. If you installed or upgraded LiteLLM during this period, rotate all secrets and credentials. For details and required actions, refer to the [ADK security advisory](https://github.com/google/adk-python/issues/5005) and [LiteLLM's Security Update: Suspected Supply Chain Incident](https://docs.litellm.ai/blog/security-update-march-2026).
 
-[LiteLLM](https://docs.litellm.ai/) is a Python library that acts as a translation layer for models and model hosting services, providing a standardized, OpenAI-compatible interface to over 100+ LLMs. ADK provides integration through the LiteLLM library, allowing you to access a vast range of LLMs from providers like OpenAI, Anthropic (non-Vertex AI), Cohere, and many others. You can run open-source models locally or self-host them and integrate them using LiteLLM for operational control, cost savings, privacy, or offline use cases.
+[LiteLLM](https://docs.litellm.ai/) is a Python library that acts as a translation layer for models and model hosting services, providing a standardized, OpenAI-compatible interface to over 100+ LLMs. ADK provides integration through the LiteLLM library, allowing you to access a vast range of LLMs from providers like OpenAI, Anthropic (non-Agent Platform), Cohere, and many others. You can run open-source models locally or self-host them and integrate them using LiteLLM for operational control, cost savings, privacy, or offline use cases.
 
 You can use the LiteLLM library to access remote or locally hosted AI models:
 
@@ -285,7 +291,7 @@ When using ADK agents with LiteLLM on Windows, you might encounter a `UnicodeDec
            export OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
            
 
-     * _Example for Anthropic (non-Vertex AI):_
+     * _Example for Anthropic (non-Agent Platform):_
            
            export ANTHROPIC_API_KEY="YOUR_ANTHROPIC_API_KEY"
            

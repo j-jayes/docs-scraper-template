@@ -29,7 +29,7 @@ The `Event` object to process.
 
 A single string with the combined text.
 
-    * Defined in [core/src/events/event.ts:150](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L150)
+    * Defined in [events/event.ts:155](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L155)
 
 
 

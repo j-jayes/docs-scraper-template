@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
+      * [ Agent routing  ](../agents/routing/)
       * [ Agent Config  ](../agents/config/)
     * [ Models for Agents  ](../agents/models/)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../agents/models/google-gemini/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -101,23 +103,26 @@ Agent Runtime
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../deploy/agent-engine/)
+      * [ Agent Runtime  ](../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../deploy/cloud-run/)
       * [ GKE  ](../deploy/gke/)
     * [ Observability  ](../observability/)
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
@@ -194,7 +199,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../grounding/grounding_with_search/)
   * [ Integrations  ](../integrations/)
 
 Integrations 
@@ -278,7 +283,7 @@ Join the [ADK Community Google Group](https://groups.google.com/g/adk-community)
 
 ## Agent Tutorials and Demos¶
 
-[ Video Tutorial 📖 How to Build a Data Science Agent with ADK A deep dive into building a multi-agent system for database queries, Python analysis, and BigQuery ML. ](https://www.youtube.com/watch?v=efcUXoMX818) [ Video Tutorial 📖 Build a Browser Use Agent with ADK and Selenium Learn to build an agent that enhances a retail website's product data by filling in missing information. ](https://www.youtube.com/watch?v=hPzjkQFV5yI) [ Jupyter Notebook 📖 Build an E-commerce Recommendation Agent A tutorial on creating a simple multi-agent system for generative e-commerce recommendations. ](https://github.com/google/adk-docs/blob/main/examples/python/notebooks/shop_agent.ipynb) [ Blog Post 📖 Google ADK + Vertex AI Live API Go beyond the ADK CLI by building real-time, streaming experiences with the Live API. ](https://medium.com/google-cloud/google-adk-vertex-ai-live-api-125238982d5e) [ Video Demo 📺 Shopper's Concierge Demo See how AI agents can revolutionize shopping with personalized, real-time recommendations. ](https://www.youtube.com/watch?v=LwHPYyw7u6U) [ Gallery 📖 ADK Agent Directory Discover and test production-ready ADK agents for web search, image generation, research, and more. ](https://agentdirectory.folch.ai/)
+[ Video Tutorial 📖 How to Build a Data Science Agent with ADK A deep dive into building a multi-agent system for database queries, Python analysis, and BigQuery ML. ](https://www.youtube.com/watch?v=efcUXoMX818) [ Video Tutorial 📖 Build a Browser Use Agent with ADK and Selenium Learn to build an agent that enhances a retail website's product data by filling in missing information. ](https://www.youtube.com/watch?v=hPzjkQFV5yI) [ Jupyter Notebook 📖 Build an E-commerce Recommendation Agent A tutorial on creating a simple multi-agent system for generative e-commerce recommendations. ](https://github.com/google/adk-docs/blob/main/examples/python/notebooks/shop_agent.ipynb) [ Blog Post 📖 Google ADK + Gemini Live API Go beyond the ADK CLI by building real-time, streaming experiences with the Live API. ](https://medium.com/google-cloud/google-adk-vertex-ai-live-api-125238982d5e) [ Video Demo 📺 Shopper's Concierge Demo See how AI agents can revolutionize shopping with personalized, real-time recommendations. ](https://www.youtube.com/watch?v=LwHPYyw7u6U) [ Gallery 📖 ADK Agent Directory Discover and test production-ready ADK agents for web search, image generation, research, and more. ](https://agentdirectory.folch.ai/)
 
 ## ADK for Java¶
 

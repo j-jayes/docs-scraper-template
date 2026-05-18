@@ -71,6 +71,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -80,6 +81,7 @@ Models for Agents
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -110,6 +112,7 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -127,6 +130,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
       * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
@@ -285,7 +289,7 @@ Create a Python virtual environment:
 
 Activate the Python virtual environment:
 
-Windows CMDWindows PowershellMacOS / Linux
+Windows Command PromptWindows PowerShellMacOS / Linux
     
     
     .venv\Scripts\activate.bat
@@ -345,10 +349,24 @@ This project uses the Gemini API, which requires an API key. If you don't alread
 
 In a terminal window, write your API key into an `.env` file as an environment variable:
 
+MacOS / LinuxWindows PowerShellWindows Command Prompt
+
 Update: my_agent/.env
     
     
     echo 'GOOGLE_API_KEY="YOUR_API_KEY"' > .env
+    
+
+Update: my_agent/.env
+    
+    
+    echo 'GOOGLE_API_KEY="YOUR_API_KEY"' > .env
+    
+
+Update: my_agent/.env
+    
+    
+    echo GOOGLE_API_KEY="YOUR_API_KEY" > .env
     
 
 Using other AI models with ADK

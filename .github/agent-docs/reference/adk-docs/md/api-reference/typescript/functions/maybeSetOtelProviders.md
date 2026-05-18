@@ -42,7 +42,7 @@ OTel resource to use in providers. If empty - default OTel resource detection wi
 
 #### Returns void
 
-    * Defined in [core/src/telemetry/setup.ts:58](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L58)
+    * Defined in [telemetry/setup.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L66)
 
 
 

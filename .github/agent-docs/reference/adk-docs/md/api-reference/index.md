@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
+      * [ Agent routing  ](../agents/routing/)
       * [ Agent Config  ](../agents/config/)
     * [ Models for Agents  ](../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
@@ -118,6 +121,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
       * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
@@ -245,7 +249,7 @@ The Agent Development Kit (ADK) provides comprehensive API references for both P
 
 Explore the complete API documentation for the Python Agent Development Kit. Discover detailed information on all modules, classes, functions, and examples to build sophisticated AI agents with Python.
 
-[ View Python API Docs](python/)   
+[ View Python API Docs](https://adk.dev/api-reference/python/)   
 
 
 
@@ -267,7 +271,7 @@ Explore the complete API documentation for the Go Agent Development Kit. Discove
 
 Access the comprehensive Javadoc for the Java Agent Development Kit. This reference provides detailed specifications for all packages, classes, interfaces, and methods, enabling you to develop robust AI agents using Java.
 
-[ View Java API Docs](java/)   
+[ View Java API Docs](https://adk.dev/api-reference/java/)   
 
 
 
@@ -278,7 +282,7 @@ Access the comprehensive Javadoc for the Java Agent Development Kit. This refere
 
 Access the complete API documentation for the TypeScript Agent Development Kit. Find detailed information on all packages, classes, and methods to build powerful and flexible AI agents with TypeScript.
 
-[ View Typescript API Docs](typescript/)   
+[ View Typescript API Docs](https://adk.dev/api-reference/typescript/)   
 
 
 
@@ -289,7 +293,7 @@ Access the complete API documentation for the TypeScript Agent Development Kit. 
 
 Explore the complete API documentation for the CLI including all of the valid options and subcommands.
 
-[ View CLI Docs](cli/)   
+[ View CLI Docs](https://adk.dev/api-reference/cli/)   
 
 
 
@@ -300,7 +304,7 @@ Explore the complete API documentation for the CLI including all of the valid op
 
 View the full Agent Config syntax for configuring ADK with YAML text files.
 
-[ View Agent Config reference](agentconfig/)   
+[ View Agent Config reference](https://adk.dev/api-reference/agentconfig/)   
 
 
 
@@ -311,7 +315,7 @@ View the full Agent Config syntax for configuring ADK with YAML text files.
 
 Explore the REST API for the ADK web server. This reference provides details on the available endpoints, request and response formats, and more.
 
-[ View REST API Docs](rest/)   
+[ View REST API Docs](https://adk.dev/api-reference/rest/)   
 
 
 

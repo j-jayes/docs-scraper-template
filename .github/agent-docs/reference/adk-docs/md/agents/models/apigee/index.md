@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../custom-agents/)
       * [ Multi-agent systems  ](../../multi-agents/)
+      * [ Agent routing  ](../../routing/)
       * [ Agent Config  ](../../config/)
     * [ Models for Agents  ](../)
 
@@ -69,9 +70,10 @@ Models for Agents
       * [ Gemini  ](../google-gemini/)
       * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
-      * [ Vertex AI hosted  ](../vertex/)
+      * [ Agent Platform hosted  ](../agent-platform/)
       * Apigee AI Gateway  [ Apigee AI Gateway  ](./) Table of contents 
         * Example implementation 
+      * [ Model routing  ](../routing/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
       * [ LiteLLM  ](../litellm/)
@@ -100,24 +102,28 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../../runtime/cancel/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
 
 Observability 
       * [ Logging  ](../../../observability/logging/)
+      * [ Metrics  ](../../../observability/metrics/)
+      * [ Traces  ](../../../observability/traces/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -194,7 +200,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -244,7 +250,7 @@ Table of contents
 
 Supported in ADKPython v1.18.0Java v0.4.0
 
-[Apigee](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee) provides a powerful [AI Gateway](https://cloud.google.com/solutions/apigee-ai), transforming how you manage and govern your generative AI model traffic. By exposing your AI model endpoint (like Vertex AI or the Gemini API) through an Apigee proxy, you immediately gain enterprise-grade capabilities:
+[Apigee](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee) provides a powerful [AI Gateway](https://cloud.google.com/solutions/apigee-ai), transforming how you manage and govern your generative AI model traffic. By exposing your AI model endpoint (like Agent Platform or the Gemini API) through an Apigee proxy, you immediately gain enterprise-grade capabilities:
 
   * **Model Safety:** Implement security policies like Model Armor for threat protection.
 
@@ -259,7 +265,7 @@ Supported in ADKPython v1.18.0Java v0.4.0
 
 Note
 
-The `ApigeeLLM` wrapper is currently designed for use with Vertex AI and the Gemini API (generateContent). We are continually expanding support for other models and interfaces.
+The `ApigeeLLM` wrapper is currently designed for use with Agent Platform and the Gemini API (generateContent). We are continually expanding support for other models and interfaces.
 
 ## Example implementation¶
 
@@ -313,7 +319,7 @@ PythonJava
 
 With this configuration, every API call from your agent will be routed through Apigee first, where all necessary policies (security, rate limiting, logging) are executed before the request is securely forwarded to the underlying AI model endpoint. For a full code example using the Apigee proxy, see [Hello World Apigee LLM](https://github.com/google/adk-python/tree/main/contributing/samples/hello_world_apigeellm).
 
-Back to top  [ Previous  Vertex AI hosted  ](../vertex/) [ Next  Ollama  ](../ollama/)
+Back to top  [ Previous  Agent Platform hosted  ](../agent-platform/) [ Next  Model routing  ](../routing/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

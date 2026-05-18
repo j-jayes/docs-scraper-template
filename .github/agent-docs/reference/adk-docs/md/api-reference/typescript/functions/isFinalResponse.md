@@ -25,7 +25,7 @@ Returns whether the event is the final response of the agent.
 
 #### Returns boolean
 
-    * Defined in [core/src/events/event.ts:88](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L88)
+    * Defined in [events/event.ts:89](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L89)
 
 
 

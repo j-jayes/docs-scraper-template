@@ -17,7 +17,7 @@ Preparing search index...
 
 Registry for LLMs.
 
-  * Defined in [core/src/models/registry.ts:57](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/registry.ts#L57)
+  * Defined in [models/registry.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L58)
 
 
 
@@ -50,7 +50,7 @@ The model name.
 
 The LLM instance.
 
-    * Defined in [core/src/models/registry.ts:70](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/registry.ts#L70)
+    * Defined in [models/registry.ts:71](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L71)
 
 
 
@@ -77,14 +77,14 @@ The class that implements the model.
 
 #### Returns void
 
-    * Defined in [core/src/models/registry.ts:88](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/registry.ts#L88)
+    * Defined in [models/registry.ts:91](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L91)
 
 
 
 
 ### `Static`resolve
 
-  * resolve(model: string): BaseLlmType
+  * resolve(model: string): [BaseLlmType](../types/BaseLlmType.html)
 
 Resolves the model to a BaseLlm subclass.
 
@@ -94,7 +94,7 @@ Resolves the model to a BaseLlm subclass.
 
 The model name.
 
-#### Returns BaseLlmType
+#### Returns [BaseLlmType](../types/BaseLlmType.html)
 
 The BaseLlm subclass.
 
@@ -102,7 +102,7 @@ The BaseLlm subclass.
 
 If the model is not found.
 
-    * Defined in [core/src/models/registry.ts:103](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/models/registry.ts#L103)
+    * Defined in [models/registry.ts:107](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L107)
 
 
 

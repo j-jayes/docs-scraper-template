@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -99,24 +101,28 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -193,7 +199,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -265,7 +271,7 @@ Table of contents
 
 # Dynamic workflows¶
 
-Supported in ADKPython v2.0.0Alpha
+Supported in ADKPython v2.0.0Beta
 
 The ADK framework provides a programmatic way to define workflows as a more flexible and powerful alternative to [graph-based workflows](/workflows/). Using a graph-based approach provides a convenient way to compose multi-step, static process structures with workflow nodes. However, if the logic path for your workflow is more complex, with iterative loops or complex branching logic, a graph-based approach may not suit your needs, or may become too unwieldy to manage.
 
@@ -278,9 +284,9 @@ Dynamic workflows in ADK allow you to put aside graph-based path structures and 
 
 
 
-Alpha Release
+Beta Release
 
-ADK 2.0 is an Alpha release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
+ADK 2.0 is a Beta release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
 For information on installing ADK 2.0 to test this feature, see [Welcome to ADK 2.0](/2.0/).
 
@@ -289,9 +295,9 @@ For information on installing ADK 2.0 to test this feature, see [Welcome to ADK 
 The following dynamic workflow code example shows how to define a basic workflow containing a single node with a function:
     
     
-    from google.adk import Workflow
-    from google.adk import Event
     from google.adk import Context
+    from google.adk import Workflow
+    from google.adk.workflow import node
     from typing import Any
     
     @node(name="hello_node")
@@ -302,7 +308,7 @@ The following dynamic workflow code example shows how to define a basic workflow
     @node(rerun_on_resume=True)
     async def my_workflow(ctx: Context, node_input: str) -> str:
         # run_node executes a node and returns its output
-        result = await ctx.run_node(my_node, input_data="hello")
+        result = await ctx.run_node(my_node, node_input="hello")
         return result
     
     # Run the workflow
@@ -353,8 +359,8 @@ In an ADK dynamic workflow, you use the **_Workflow_** class as a primary contai
     @node(rerun_on_resume=True)
     async def my_workflow(ctx):
         # run_node executes a node and returns its output
-        result = await ctx.run_node(my_function_node, input_data="Hello")
-        result_formatted = await ctx.run_node(my_formatting_node, input_data=result)
+        result = await ctx.run_node(my_function_node, node_input="Hello")
+        result_formatted = await ctx.run_node(my_formatting_node, node_input=result)
         return result_formatted
     
     # Run the workflow
@@ -370,6 +376,7 @@ When using dynamic workflows with ADK, passing data is simpler than [graph-based
     
     
     from google.adk import Context
+    from google.adk.workflow import node
     
     @node(rerun_on_resume=True)
     async def editorial_workflow(ctx: Context, user_request: str):
@@ -387,6 +394,7 @@ You can also pass specific data schemas using defined class and configure input 
     
     from google.adk import Agent
     from google.adk import Context
+    from google.adk.workflow import node
     from pydantic import BaseModel
     
     class CityTime(BaseModel):
@@ -438,6 +446,11 @@ You can create sequential task processing with dynamic workflows in ADK, just as
 For workflows where you want to use an iterative loop for a task, dynamic workflows offer much more flexibility to define the routing logic you need. The following code example shows how to use dynamic workflows to construct a workflow loop for generating, reviewing, and updating code:
     
     
+    from google.adk import Context
+    from google.adk import Event
+    from google.adk.agents import LlmAgent
+    from google.adk.workflow import node
+    
     coder_agent = LlmAgent(
         name="generator_agent",
         model="gemini-flash-latest",
@@ -446,10 +459,14 @@ For workflows where you want to use an iterative loop for a task, dynamic workfl
     )
     
     @node(name="lint_reviewer")
-    compile_lint_check = ApiNode()
+    async def compile_lint_check(ctx: Context, code: str):
+        # Simulate API call or lint check
+        class Response:
+            findings = ""
+        return Response()
     
     fixer_agent = LlmAgent(
-        name="generator_agent",
+        name="fixer_agent",
         model="gemini-flash-latest",
         instruction="""Refactor current code {code}.
             Based on compile & lint review: {findings}""",
@@ -457,13 +474,13 @@ For workflows where you want to use an iterative loop for a task, dynamic workfl
     )
     
     @node # workflow node
-    async def code_workflow(ctx):
-      code = await ctx.run_node(coder_agent)
+    async def code_workflow(ctx: Context, user_request: str):
+      code = await ctx.run_node(coder_agent, user_request)
       check_resp = await ctx.run_node(compile_lint_check, code)
     
       while check_resp.findings:
         yield Event(state={"code": code, "findings": check_resp.findings})
-        code = await ctx.run_node(fixer_agent)
+        code = await ctx.run_node(fixer_agent, {"code": code, "findings": check_resp.findings})
     
         check_resp = await ctx.run_node(compile_lint_check, code)
     
@@ -472,30 +489,28 @@ For workflows where you want to use an iterative loop for a task, dynamic workfl
 
 ### Parallel execution routes¶
 
-Dynamic workflows in ADK can support parallel execution, and you can use standard asynchronous libraries, such as the `asyncio`, to build this functionality. The following code example shows how to build a workflow node that supports parallel execution, which can then be integrated into a larger workflow:
+Dynamic workflows in ADK can support parallel execution, and you can use standard asynchronous libraries, such as `asyncio`, to build this functionality. The following code example shows how to build a workflow node that supports parallel execution using `@node` and `asyncio.gather`:
     
     
-    from google.adk.workflow import BaseNode
-    from google.adk import Context
-    from typing import Any
     import asyncio
+    from typing import Any
+    from google.adk import Context
+    from google.adk.workflow import BaseNode, node
     
-    class ParallelNode(BaseNode):
-        """A supervisor node that runs a worker node in parallel."""
-        real_node: BaseNode
     
-        async def run(self, ctx: Context, node_input: list[Any]):
-            tasks = []
+    @node(rerun_on_resume=True)
+    async def parallel_supervisor(
+        ctx: Context, node_input: list[Any], real_node: BaseNode
+    ):
+        """Runs a worker node in parallel for each item in the input list."""
+        tasks = []
+        for item in node_input:
+            # ctx.run_node returns a future. Append instead of awaiting immediately.
+            tasks.append(ctx.run_node(real_node, item))
     
-            # Dynamically schedule worker nodes for each item in the input list
-            for item in node_input:
-                # ctx.run_node returns an awaitable future for the ephemeral node
-                tasks.append(ctx.run_node(self.real_node, item))
-    
-            # Use asyncio to gather results in parallel
-            results = await asyncio.gather(*tasks)
-    
-            return results
+        # Collect all results in parallel
+        results = await asyncio.gather(*tasks)
+        return results
     
 
 Tip: Resuming parallel nodes
@@ -504,43 +519,34 @@ The workflow framework ensures that if a dynamic workflow is resumed, only faile
 
 ## Human input¶
 
-Dynamic workflows in ADK can also include human input or human in the loop (HITL) steps. You build human input into workflows by creating a **_BaseNode_** subclass that interrupts the workflow, combined with a **_RequestInput_** instance for providing a request to the user and retrieving the response. The following code example shows how to build a human input node and include it in a workflow:
+Dynamic workflows in ADK can also include human input or human in the loop (HITL) steps. You build human input into workflows by yielding a **_RequestInput_** from a node, which pauses the workflow and waits for user input. The following code example shows how to build a human input node and include it in a workflow:
     
     
-    from google.adk.workflow import BaseNode
+    from typing import Any
     from google.adk import Context
     from google.adk.events import RequestInput
-    from typing import Any, AsyncGenerator
+    from google.adk.workflow import node
     
-    class GetInput(BaseNode):
-        """A node that pauses execution and waits for human input."""
-        rerun_on_resume = False  # Ensure the response is yielded as output on resume
     
-        def __init__(self, request: RequestInput, name: str):
-            self.request = request
-            self.name = name
+    @node(rerun_on_resume=False)
+    async def get_user_approval(ctx: Context, node_input: Any):
+        """Yields a RequestInput to pause the workflow and wait for user input."""
+        yield RequestInput(message="Please approve this request (Yes/No)")
     
-        def get_name(self) -> str:
-            return self.name
     
-        async def run(self) -> AsyncGenerator[Any, None]:
-            # Yielding the request tells the workflow to pause and wait for input
-            yield self.request
-    
-    async def approval_process_node(ctx: Context, node_input: Any):
-        """A parent node that coordinates a human approval step."""
-    
-        # Define the request for the user
-        request = RequestInput(message="Please approve this request (Yes/No)")
-    
-        # Invoke the HITL node dynamically. The workflow pauses here.
-        user_response = await ctx.run_node(GetInput(request, name="approval_step"))
+    @node(rerun_on_resume=True)
+    async def handle_process(ctx: Context, node_input: Any):
+        """The orchestrator calling the interactive step."""
+        user_response = await ctx.run_node(get_user_approval)
     
         if user_response.lower() == "yes":
-            return "Request Approved"
-        else:
-            return "Request Denied"
+            return "Approved"
+        return "Denied"
     
+
+Important: Parent nodes with `ctx.run_node`
+
+Parent nodes in dynamic workflows that call `ctx.run_node` must set `rerun_on_resume=True` to handle interruptions properly.
 
 ## Advanced features¶
 
@@ -559,24 +565,33 @@ Warning: Custom execution IDs
 Avoid creating custom execution IDs. Since execution IDs are used to determine the execution order of nodes, custom execution IDs can cause problems when the system attempts to re-run those nodes in your workflow.
     
     
+    from google.adk import Context
+    from google.adk.workflow import node
+    from pydantic import BaseModel
+    from typing import Any
+    import asyncio
+    
     class Order(BaseModel):
       order_id: str
       cart_items: list[Product]
     
-    def shorten_link(ctx, node_input: str):
-    
+    @node(rerun_on_resume=True)
+    async def process_all_orders(ctx: Context, node_input: Any):
       orders = await get_orders()
     
       process_tasks = []
-      for i, order in enumerate(orders):
-        task = ctx.run_node(process_order, order, name=order.order_id))
-    
+      for order in orders:
+        # Use run_id to provide a custom identifier.
+        # Custom run_ids must contain at least one non-numeric character
+        # to avoid collision with auto-generated sequential numeric IDs.
+        task = ctx.run_node(process_order, order, run_id=f"order-{order.order_id}")
         process_tasks.append(task)
     
-      result = asyncio.gather(*process_tasks)
+      results = await asyncio.gather(*process_tasks)
+      return results
     
-      yield result
-    
+
+By default, auto-generated run IDs are sequential integers starting from `"1"` (represented as strings). Custom `run_id` values must contain at least one non-numeric character to avoid collisions with these auto-generated IDs.
 
 Back to top  [ Previous  Collaborative agents  ](../collaboration/)
 

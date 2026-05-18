@@ -25,7 +25,7 @@ metricReaders?: MetricReader[];
 spanProcessors?: SpanProcessor[];  
 }
 
-  * Defined in [core/src/telemetry/setup.ts:30](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L30)
+  * Defined in [telemetry/setup.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L38)
 
 
 
@@ -35,7 +35,7 @@ spanProcessors?: SpanProcessor[];
 
 logRecordProcessors?: LogRecordProcessor[]
 
-  * Defined in [core/src/telemetry/setup.ts:33](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L33)
+  * Defined in [telemetry/setup.ts:41](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L41)
 
 
 
@@ -43,7 +43,7 @@ logRecordProcessors?: LogRecordProcessor[]
 
 metricReaders?: MetricReader[]
 
-  * Defined in [core/src/telemetry/setup.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L32)
+  * Defined in [telemetry/setup.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L40)
 
 
 
@@ -51,7 +51,7 @@ metricReaders?: MetricReader[]
 
 spanProcessors?: SpanProcessor[]
 
-  * Defined in [core/src/telemetry/setup.ts:31](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L31)
+  * Defined in [telemetry/setup.ts:39](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L39)
 
 
 

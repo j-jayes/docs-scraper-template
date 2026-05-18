@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -108,23 +110,26 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -201,7 +206,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -256,7 +261,7 @@ Table of contents
 
 # Get action confirmation for ADK Tools¶
 
-Supported in ADKPython v1.14.0Go v0.3.0Experimental
+Supported in ADKPython v1.14.0TypeScript v0.2.0Go v0.3.0Experimental
 
 Some agent workflows require confirmation for decision making, verification, security, or general oversight. In these cases, you want to get a response from a human or supervising system before proceeding with a workflow. The _Tool Confirmation_ feature in the Agent Development Kit (ADK) allows an ADK Tool to pause its execution and interact with a user or other system for confirmation or to gather structured data before proceeding. You can use Tool Confirmation with an ADK Tool in the following ways:
 
@@ -277,9 +282,11 @@ The following sections describe how to use this feature for the confirmation sce
 
 ## Boolean confirmation¶
 
-When your tool only requires a simple `yes` or `no` from the user, you can append a confirmation step using the `FunctionTool` class as a wrapper. For example, if you have a tool called `reimburse`, you can enable a confirmation step by wrapping it with the `FunctionTool` class and setting the `require_confirmation` parameter to `True`, as shown in the following example:
+When your tool only requires a simple `yes` or `no` from the user, you can append a confirmation step. In Python, Go, and Java, you can enable this by wrapping the tool with the `FunctionTool` class and setting the `require_confirmation` parameter (or equivalent) to `True`. In TypeScript, you implement this logic manually within the `execute` function using the `ToolContext`.
 
-PythonGoJava
+The following examples show how to enable boolean confirmation:
+
+PythonTypeScriptGoJava
     
     
     root_agent = Agent(
@@ -296,6 +303,71 @@ PythonGoJava
     # approvals from the user or confirming system. For a complete example of this
     # approach, see the following code sample for a more detailed example:
     # https://github.com/google/adk-python/blob/main/contributing/samples/human_tool_confirmation/agent.py
+    
+
+Note
+
+ADK for TypeScript currently requires manual implementation of confirmation logic within the tool's `execute` function.
+    
+    
+    /**
+     * A reimbursement tool with dynamic confirmation logic.
+     */
+    export const reimburseTool = new FunctionTool({
+      name: 'reimburse',
+      description: 'Reimburse an amount. Large amounts (>1000) require manager approval.',
+      parameters: z.object({
+        amount: z.coerce.number().describe('The amount to reimburse.'),
+      }),
+      execute: async ({amount}, toolContext) => {
+        // 1. Check if we already have a confirmed response.
+        if (toolContext?.toolConfirmation?.confirmed) {
+          const isLarge = amount > 1000;
+          return {
+            status: 'SUCCESS',
+            message: isLarge 
+              ? `Large reimbursement of ${amount} approved by manager and processed.`
+              : `Reimbursement of ${amount} has been successfully processed.`,
+          };
+        }
+    
+        // 2. Request a tool confirmation.
+        const isLarge = amount > 1000;
+        toolContext?.requestConfirmation({
+          hint: isLarge 
+            ? `The amount ${amount} exceeds the $1000 limit and requires manager approval.`
+            : `Do you want to reimburse ${amount}?`,
+          payload: {amount},
+        });
+    
+        // 3. Return a status that tells the agent we are waiting.
+        // Note: The model won't see this until the turn resumes after confirmation.
+        return {
+          status: isLarge ? 'AWAITING_MANAGER_APPROVAL' : 'AWAITING_CONFIRMATION',
+          message: 'This request requires approval to proceed.',
+        };
+      },
+    });
+    
+    export const rootAgent = new LlmAgent({
+      name: 'Finance_Assistant',
+      model: 'gemini-flash-latest',
+      instruction: `You are a Finance Assistant. 
+      - You MUST use the 'reimburse' tool for ALL reimbursement requests.
+      - MANDATORY: Every tool call MUST be accompanied by a text response in the same message.
+      - THRESHOLD LOGIC:
+        - For amounts <= 1000: Say "I am initiating the reimbursement request for [amount]. Please confirm it to proceed."
+        - For amounts > 1000: Say "I am initiating the reimbursement request for [amount]. Since this exceeds $1000, manager approval is required. Please confirm the request to submit it for review."
+      - EXAMPLES:
+        User: "Reimburse me $45"
+        Model: "I am initiating the reimbursement request for 45. Please confirm it to proceed." [Tool Call: reimburse(amount=45)]
+    
+        User: "Reimburse me $2500"
+        Model: "I am initiating the reimbursement request for 2500. Since this exceeds $1000, manager approval is required. Please confirm the request to submit it for review." [Tool Call: reimburse(amount=2500)]
+      - If the user provides a currency symbol (like $), ignore it and pass only the number to the tool.
+      - In the Web UI, the user will see a 'Confirm' button. In the terminal, the user should simulate a confirmation response.`,
+      tools: [reimburseTool],
+    });
     
     
     
@@ -330,9 +402,9 @@ PythonGoJava
 
 ### Require confirmation function¶
 
-You can modify the behavior of the confirmation requirement by using a function that returns a boolean response based on the tool's input.
+You can modify the behavior of the confirmation requirement by using a function that returns a boolean response based on the tool's input. In TypeScript, this is handled by adding conditional logic to your `execute` function.
 
-PythonGoJava
+PythonTypeScriptGoJava
     
     
     async def confirmation_threshold(
@@ -349,6 +421,13 @@ PythonGoJava
         ],
         # ...
     )
+    
+    
+    
+    /* 
+      Note: In TypeScript, dynamic threshold logic is implemented 
+      directly within the tool's 'execute' function as shown above.
+    */
     
     
     
@@ -417,7 +496,7 @@ For a complete example of this approach, see the [human_tool_confirmation](https
 
 The following code shows an example implementation for a tool that processes time off requests for an employee:
 
-PythonGoJava
+PythonTypeScriptGoJava
     
     
     def request_time_off(days: int, tool_context: ToolContext):
@@ -447,6 +526,81 @@ PythonGoJava
             'status': 'ok',
             'approved_days': approved_days,
         }
+    
+    
+    
+    /**
+     * A tool that requests time off for an employee.
+     * It uses the Advanced Confirmation pattern to request manager approval.
+     */
+    export const requestTimeOffTool = new FunctionTool({
+      name: 'request_time_off',
+      description: 'Request days off for the employee.',
+      parameters: z.object({
+        days: z.number().describe('The number of days requested.'),
+      }),
+      execute: async ({days}, toolContext) => {
+        const confirmation = toolContext?.toolConfirmation;
+    
+        if (!confirmation) {
+          // Step 1: Request confirmation with a payload
+          toolContext?.requestConfirmation({
+            hint:
+              'Please approve or reject the tool call request_time_off() by ' +
+              'responding with a FunctionResponse with an expected ' +
+              'ToolConfirmation payload.',
+            payload: {
+              approved_days: 0,
+            },
+          });
+    
+          // Return a descriptive status to the agent
+          return {
+            status: 'PENDING_MANAGER_APPROVAL',
+            message: `A request for ${days} days is pending manager approval.`,
+          };
+        }
+    
+        // Step 2: Process the confirmation response
+        if (!confirmation.confirmed) {
+          return {
+            status: 'CANCELLED',
+            message: 'The request was cancelled by the user.',
+          };
+        }
+    
+        let approvedDays = (confirmation.payload as any)['approved_days'] as number;
+        approvedDays = Math.min(approvedDays, days);
+    
+        if (approvedDays === 0) {
+          return {
+            status: 'REJECTED',
+            message: 'The time off request was rejected by the manager.',
+            approved_days: 0,
+          };
+        }
+    
+        return {
+          status: 'SUCCESS',
+          message: `The request for ${days} days was approved (Total approved: ${approvedDays}).`,
+          approved_days: approvedDays,
+        };
+      },
+    });
+    
+    export const rootAgent = new LlmAgent({
+      name: 'HR_Assistant',
+      model: 'gemini-flash-latest',
+      instruction: `You are an HR Assistant. 
+      1. Use the 'request_time_off' tool to help employees with leave requests.
+      2. MANDATORY: Every tool call MUST be accompanied by a text response in the same message.
+      3. EXAMPLE:
+         User: "I want 5 days off"
+         Model: "I am initiating your leave request for 5 days. Management approval is required, so please confirm this request." [Tool Call: request_time_off(days=5)]
+      4. In the terminal, if they want to 'confirm', tell them to simulate a confirmation response. 
+      5. Once confirmed, the system will automatically provide the result of the approval.`,
+      tools: [requestTimeOffTool],
+    });
     
     
     

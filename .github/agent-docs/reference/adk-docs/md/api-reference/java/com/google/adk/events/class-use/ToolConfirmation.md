@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../../deprecated-list.html)
   * [Index](../../../../../index-all.html)
   * [Search](../../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.events](../package-summary.html)
   2. [ToolConfirmation](../ToolConfirmation.html)
@@ -60,7 +64,7 @@ Method
 
 Description
 
-`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
 
 EventActions.`[requestedToolConfirmations](../EventActions.html#requestedToolConfirmations\(\))()`
 
@@ -76,13 +80,13 @@ Description
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
-EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#requestedToolConfirmations\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> value)`
+EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#requestedToolConfirmations\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> value)`
 
  
 
 `void`
 
-EventActions.`[setRequestedToolConfirmations](../EventActions.html#setRequestedToolConfirmations\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "class or interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class or interface in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)`
+EventActions.`[setRequestedToolConfirmations](../EventActions.html#setRequestedToolConfirmations\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)`
 
  
 
@@ -96,7 +100,7 @@ Method
 
 Description
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class or interface in java.util")<[ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
 
 ToolContext.`[toolConfirmation](../../tools/ToolContext.html#toolConfirmation\(\))()`
 

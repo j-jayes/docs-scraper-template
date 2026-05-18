@@ -292,7 +292,7 @@ There are several ways to manage authentication and credentials in ADK agents. E
 
 When deploying agents to production hosted environments, your agent's ability to properly authenticate to restricted tools and services becomes more challenging and more important to properly manage. This authentication challenge can become even more complicated when users of your agent have varying levels of access to restricted tools and data.
 
-Rather than writing code to handle the authentication process and credential management for various tools used by your agent, use an _authentication manager_ service that manages _both_ for you. This service should handle the storage of keys and secrets, as well as the acquisition, management, and storage of OAuth access or refresh tokens. Learn more about Agent Identity Authentication Manager for [2-legged OAuth](https://docs.cloud.google.com/iam/docs/auth-with-2lo), [3-legged OAuth](https://docs.cloud.google.com/iam/docs/auth-with-3lo), and [API key](https://docs.cloud.google.com/iam/docs/auth-with-api-key).
+Rather than writing code to handle the authentication process and credential management for various tools used by your agent, use an _authentication manager_ service that manages _both_ for you. This service should handle the storage of keys and secrets, as well as the acquisition, management, and storage of OAuth access or refresh tokens. Learn more about [Agent Identity integration](/integrations/agent-identity/) with ADK.
 
 ### Self-managed authentication¶
 

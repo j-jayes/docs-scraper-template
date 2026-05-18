@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -126,6 +128,7 @@ Agent Runtime
         * Deploy 
         * What's next? 
       * [ Resume Agents  ](../resume/)
+      * [ Cancel Agent Runs  ](../cancel/)
       * [ Runtime Config  ](../runconfig/)
       * [ Event Loop  ](../event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -143,6 +146,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -289,11 +294,11 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/runtime/ambient-agents.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/runtime/ambient-agents.md "View Markdown source")
 
-# Ambient Agents¶
+# Trigger actions with ambient agents¶
 
-Supported in ADKPythonGo
+Supported in ADKPython v1.29.0Go v1.1.0
 
-ADK supports **ambient agents** , autonomous agents that process data, monitor events, and respond asynchronously without human intervention. Use ambient agents to:
+When running an agent workflow, you may want to activate it in response to an event or new data being available, rather than waiting for input from a human. You can configure ADK agents with triggers to respond to events and perform work, known as _ambient agents_. These agents can run as background processes to process data, monitor events, and respond asynchronously without human intervention. You can use ambient agents to:
 
   * **React to cloud events.** Process a file when it's uploaded to [Cloud Storage](https://cloud.google.com/storage), respond to database changes, or handle audit log entries.
   * **Process messages from a queue.** Analyze incoming support tickets, moderate content, classify documents, or run QA as items arrive.

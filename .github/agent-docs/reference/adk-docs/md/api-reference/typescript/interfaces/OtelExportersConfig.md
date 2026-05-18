@@ -21,7 +21,7 @@ enableMetrics?: boolean;
 enableTracing?: boolean;  
 }
 
-  * Defined in [core/src/telemetry/setup.ts:18](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L18)
+  * Defined in [telemetry/setup.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L26)
 
 
 
@@ -31,7 +31,7 @@ enableTracing?: boolean;
 
 enableLogging?: boolean
 
-  * Defined in [core/src/telemetry/setup.ts:21](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L21)
+  * Defined in [telemetry/setup.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L29)
 
 
 
@@ -39,7 +39,7 @@ enableLogging?: boolean
 
 enableMetrics?: boolean
 
-  * Defined in [core/src/telemetry/setup.ts:20](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L20)
+  * Defined in [telemetry/setup.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L28)
 
 
 
@@ -47,7 +47,7 @@ enableMetrics?: boolean
 
 enableTracing?: boolean
 
-  * Defined in [core/src/telemetry/setup.ts:19](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/setup.ts#L19)
+  * Defined in [telemetry/setup.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/setup.ts#L27)
 
 
 

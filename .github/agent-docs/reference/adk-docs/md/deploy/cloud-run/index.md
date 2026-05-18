@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../)
@@ -117,7 +120,7 @@ Agent Runtime
         * Environment variables 
         * Prerequisites 
         * Secret 
-          * Entry for GOOGLE_API_KEY secret 
+          * Cloud Build Permissions 
           * Permissions to read 
         * Deployment payload 
         * Deployment commands 
@@ -169,6 +172,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -285,7 +290,7 @@ Table of contents
   * Environment variables 
   * Prerequisites 
   * Secret 
-    * Entry for GOOGLE_API_KEY secret 
+    * Cloud Build Permissions 
     * Permissions to read 
   * Deployment payload 
   * Deployment commands 
@@ -423,11 +428,19 @@ _(Replace`your-project-id` with your actual GCP project ID and `your-api-key` wi
 
 Please make sure you have created a secret which can be read by your service account.
 
-### Entry for GOOGLE_API_KEY secret¶
+### Cloud Build Permissions¶
 
-You can create your secret manually or use CLI: 
+Since the `adk deploy` command uses Google Cloud Build to automate the build process, you must set your default compute service account to have permission to use Cloud Build. The following command example shows how to grant this permission:
     
     
+    gcloud projects add-iam-policy-binding [PROJECT_ID] \
+        --member="serviceAccount:[PROJECT_NUMBER]-compute@developer.gserviceaccount.com" \
+        --role="roles/cloudbuild.builds.builder"
+    
+    ### Entry for GOOGLE_API_KEY secret
+    
+    You can create your secret manually or use CLI:
+    ```bash
     echo "<<put your GOOGLE_API_KEY here>>" | gcloud secrets create GOOGLE_API_KEY --project=my-project --data-file=-
     
 
@@ -986,12 +999,12 @@ pom.xml
            <dependency>
               <groupId>com.google.adk</groupId>
               <artifactId>google-adk</artifactId>
-              <version>1.0.0</version>
+              <version>1.2.0</version>
            </dependency>
            <dependency>
               <groupId>com.google.adk</groupId>
               <artifactId>google-adk-dev</artifactId>
-              <version>1.0.0</version>
+              <version>1.2.0</version>
            </dependency>
          </dependencies>
          

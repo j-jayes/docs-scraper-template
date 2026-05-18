@@ -29,7 +29,7 @@ The event to get the function calls from.
 
 The ask user confirmation function calls.
 
-    * Defined in [core/src/plugins/security_plugin.ts:185](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L185)
+    * Defined in [plugins/security_plugin.ts:191](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L191)
 
 
 

@@ -17,7 +17,7 @@ Preparing search index...
 
 The outcome of a policy check.
 
-  * Defined in [core/src/plugins/security_plugin.ts:30](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L30)
+  * Defined in [plugins/security_plugin.ts:30](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L30)
 
 
 
@@ -27,7 +27,7 @@ The outcome of a policy check.
 
 ALLOW: "ALLOW"
 
-  * Defined in [core/src/plugins/security_plugin.ts:36](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L36)
+  * Defined in [plugins/security_plugin.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L36)
 
 
 
@@ -35,7 +35,7 @@ ALLOW: "ALLOW"
 
 CONFIRM: "CONFIRM"
 
-  * Defined in [core/src/plugins/security_plugin.ts:34](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L34)
+  * Defined in [plugins/security_plugin.ts:34](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L34)
 
 
 
@@ -43,7 +43,7 @@ CONFIRM: "CONFIRM"
 
 DENY: "DENY"
 
-  * Defined in [core/src/plugins/security_plugin.ts:32](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/plugins/security_plugin.ts#L32)
+  * Defined in [plugins/security_plugin.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L32)
 
 
 

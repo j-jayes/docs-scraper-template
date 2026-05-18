@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../../.. "Agent Development Kit \(ADK\)")
@@ -27,8 +29,6 @@ Initializing search
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../../get-started/)
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../custom-agents/)
       * [ Multi-agent systems  ](../../multi-agents/)
+      * [ Agent routing  ](../../routing/)
       * [ Agent Config  ](../../config/)
     * [ Models for Agents  ](../)
 
@@ -70,9 +71,9 @@ Models for Agents
         * Get started 
         * Gemini model authentication 
           * Google AI Studio 
-          * Google Cloud Vertex AI 
+          * Google Cloud Agent Platform 
           * Method A: User Credentials (for Local Development) 
-          * Method B: Vertex AI Express Mode 
+          * Method B: Agent Platform Express Mode 
           * Method C: Service Account (for Production & Automation) 
         * Troubleshooting 
           * Error Code 429 - RESOURCE_EXHAUSTED 
@@ -80,8 +81,9 @@ Models for Agents
           * Known limitations 
       * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
-      * [ Vertex AI hosted  ](../vertex/)
+      * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
+      * [ Model routing  ](../routing/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
       * [ LiteLLM  ](../litellm/)
@@ -110,29 +112,34 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../../runtime/cancel/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
 
 Observability 
       * [ Logging  ](../../../observability/logging/)
+      * [ Metrics  ](../../../observability/metrics/)
+      * [ Traces  ](../../../observability/traces/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
       * [ Criteria  ](../../../evaluate/criteria/)
       * [ User Simulation  ](../../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../../evaluate/environment_simulation/)
       * [ Custom Metrics  ](../../../evaluate/custom_metrics/)
       * [ Optimization  ](../../../optimize/)
     * [ Safety and Security  ](../../../safety/)
@@ -203,7 +210,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -242,9 +249,9 @@ Table of contents
   * Get started 
   * Gemini model authentication 
     * Google AI Studio 
-    * Google Cloud Vertex AI 
+    * Google Cloud Agent Platform 
     * Method A: User Credentials (for Local Development) 
-    * Method B: Vertex AI Express Mode 
+    * Method B: Agent Platform Express Mode 
     * Method C: Service Account (for Production & Automation) 
   * Troubleshooting 
     * Error Code 429 - RESOURCE_EXHAUSTED 
@@ -253,8 +260,9 @@ Table of contents
 
 
 
-  1. [ Build Agents  ](../../../get-started/)
-  2. [ Models for Agents  ](../)
+  1. [ Home  ](../../..)
+  2. [ Build Agents  ](../../../get-started/)
+  3. [ Models for Agents  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/google-gemini.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/models/google-gemini.md "View Markdown source")
 
@@ -262,7 +270,7 @@ Table of contents
 
 Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.2.0
 
-ADK supports the Google Gemini family of generative AI models that provide a powerful set of models with a wide range of features. ADK provides support for many Gemini features, including [Code Execution](/tools/gemini-api/code-execution/), [Google Search](/tools/gemini-api/google-search/), [Context caching](/context/caching/), [Computer use](/tools/gemini-api/computer-use/) and the Interactions API.
+ADK supports the Google Gemini family of generative AI models that provide a powerful set of models with a wide range of features. ADK provides support for many Gemini features, including [Code Execution](/integrations/code-execution/), [Google Search](/integrations/google-search/), [Context caching](/context/caching/), [Computer use](/integrations/computer-use/) and the Interactions API.
 
 ## Get started¶
 
@@ -276,7 +284,7 @@ PythonTypeScriptGoJava
     # --- Example using a stable Gemini Flash model ---
     agent_gemini_flash = LlmAgent(
         # Use the latest stable Flash model identifier
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         name="gemini_flash_agent",
         instruction="You are a fast and helpful Gemini assistant.",
         # ... other agent parameters
@@ -289,7 +297,7 @@ PythonTypeScriptGoJava
     // --- Example #2: using a powerful Gemini Pro model with API Key in model ---
     export const rootAgent = new LlmAgent({
       name: 'hello_time_agent',
-      model: 'gemini-2.5-flash',
+      model: 'gemini-flash-latest',
       description: 'Gemini flash agent',
       instruction: `You are a fast and helpful Gemini assistant.`,
     });
@@ -324,29 +332,33 @@ PythonTypeScriptGoJava
     LlmAgent agentGeminiFlash =
         LlmAgent.builder()
             // Use the latest stable Flash model identifier
-            .model("gemini-2.5-flash") // Set ENV variables to use this model
+            .model("gemini-flash-latest") // Set ENV variables to use this model
             .name("gemini_flash_agent")
             .instruction("You are a fast and helpful Gemini assistant.")
             // ... other agent parameters
             .build();
     
 
+Note: Gemini model selector `gemini-flash-latest`
+
+Most code examples in ADK documentation use `gemini-flash-latest` to select the [latest available](https://ai.google.dev/gemini-api/docs/models#latest) Gemini Flash version. However, if you access Gemini from a regional endpoint, such as `us-central1`, this selection string may not work. In that case, use a specific model version string from the [Gemini models](https://ai.google.dev/gemini-api/docs/models) page or Google Cloud [Gemini models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models) list.
+
 ## Gemini model authentication¶
 
-This section covers authenticating with Google's Gemini models, either through Google AI Studio for rapid development or Google Cloud Vertex AI for enterprise applications. This is the most direct way to use Google's flagship models within ADK.
+This section covers authenticating with Google's Gemini models, either through Google AI Studio for rapid development or Google Cloud Agent Platform for enterprise applications. This is the most direct way to use Google's flagship models within ADK.
 
 **Integration Method:** Once you are authenticated using one of the below methods, you can pass the model's identifier string directly to the `model` parameter of `LlmAgent`.
 
 Tip
 
-The `google-genai` library, used internally by ADK for Gemini models, can connect through either Google AI Studio or Vertex AI.
+The `google-genai` library, used internally by ADK for Gemini models, can connect through either Google AI Studio or Agent Platform.
 
 **Model support for voice/video streaming**
 
 In order to use voice/video streaming in ADK, you will need to use Gemini models that support the Live API. You can find the **model ID(s)** that support the Gemini Live API in the documentation:
 
   * [Google AI Studio: Gemini Live API](https://ai.google.dev/gemini-api/docs/models#live-api)
-  * [Vertex AI: Gemini Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
+  * [Agent Platform: Gemini Live API](https://cloud.google.com/vertex-ai/generative-ai/docs/live-api)
 
 
 
@@ -373,11 +385,11 @@ Pass these variables during the model initialization via the `Client` (see examp
 
 
 
-### Google Cloud Vertex AI¶
+### Google Cloud Agent Platform¶
 
-For scalable and production-oriented use cases, Vertex AI is the recommended platform. Gemini on Vertex AI supports enterprise-grade features, security, and compliance controls. Based on your development environment and usecase, _choose one of the below methods to authenticate_.
+For scalable and production-oriented use cases, Agent Platform is the recommended platform. Gemini on Agent Platform supports enterprise-grade features, security, and compliance controls. Based on your development environment and usecase, _choose one of the below methods to authenticate_.
 
-**Pre-requisites:** A Google Cloud Project with [Vertex AI enabled](https://console.cloud.google.com/apis/enableflow;apiid=aiplatform.googleapis.com).
+**Pre-requisites:** A Google Cloud Project with [Agent Platform enabled](https://console.cloud.google.com/apis/enableflow;apiid=aiplatform.googleapis.com).
 
 ### **Method A: User Credentials (for Local Development)**¶
 
@@ -393,19 +405,19 @@ For scalable and production-oriented use cases, Vertex AI is the recommended pla
          export GOOGLE_CLOUD_LOCATION="YOUR_VERTEX_AI_LOCATION" # e.g., us-central1
          
 
-Explicitly tell the library to use Vertex AI:
+Explicitly tell the library to use Agent Platform:
          
          export GOOGLE_GENAI_USE_VERTEXAI=TRUE
          
 
-  4. **Models:** Find available model IDs in the [Vertex AI documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models).
+  4. **Models:** Find available model IDs in the [Agent Platform documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models).
 
 
 
 
-### **Method B: Vertex AI Express Mode**¶
+### **Method B: Agent Platform Express Mode**¶
 
-[Vertex AI Express Mode](https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview) offers a simplified, API-key-based setup for rapid prototyping.
+[Agent Platform Express Mode](https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview) offers a simplified, API-key-based setup for rapid prototyping.
 
   1. **Sign up for Express Mode** to get your API key.
   2. **Set environment variables:**
@@ -421,7 +433,7 @@ Explicitly tell the library to use Vertex AI:
 
 For deployed applications, a service account is the standard method.
 
-  1. [**Create a Service Account**](https://cloud.google.com/iam/docs/service-accounts-create#console) and grant it the `Vertex AI User` role.
+  1. [**Create a Service Account**](https://cloud.google.com/iam/docs/service-accounts-create#console) and grant it the `Agent Platform User` role.
   2. **Provide credentials to your application:**
      * **On Google Cloud:** If you are running the agent in Cloud Run, GKE, VM or other Google Cloud services, the environment can automatically provide the service account credentials. You don't have to create a key file.
      * **Elsewhere:** Create a [service account key file](https://cloud.google.com/iam/docs/keys-create-delete#console) and point to it with an environment variable: 
@@ -462,7 +474,7 @@ You would use this option if you are instantiating this model adapter by yoursel
 PythonJava
          
          root_agent = Agent(
-             model='gemini-2.5-flash',
+             model='gemini-flash-latest',
              # ...
              generate_content_config=types.GenerateContentConfig(
                  # ...
@@ -483,7 +495,7 @@ PythonJava
          // ...
          
          LlmAgent rootAgent = LlmAgent.builder()
-             .model("gemini-2.5-flash")
+             .model("gemini-flash-latest")
              // ...
              .generateContentConfig(GenerateContentConfig.builder()
                  // ...
@@ -524,7 +536,7 @@ PythonJava
          
          LlmAgent agent = LlmAgent.builder()
              .model(Gemini.builder()
-                 .modelName("gemini-2.5-flash")
+                 .modelName("gemini-flash-latest")
                  .apiClient(Client.builder()
                      .httpOptions(HttpOptions.builder()
                          .retryOptions(HttpRetryOptions.builder().initialDelay(1.0).attempts(2).build())
@@ -554,7 +566,7 @@ PythonJava
     
     root_agent = Agent(
         model=Gemini(
-            model="gemini-2.5-flash",
+            model="gemini-flash-latest",
             use_interactions_api=True,  # Enable Interactions API
         ),
         name="interactions_test_agent",
@@ -573,7 +585,7 @@ PythonJava
     // Note: Interactions API support in Java ADK is currently under development.
     LlmAgent rootAgent = LlmAgent.builder()
         .model(Gemini.builder()
-            .modelName("gemini-2.5-flash")
+            .modelName("gemini-flash-latest")
             .build())
         .name("interactions_test_agent")
         .tools(
@@ -587,7 +599,7 @@ For a complete code sample, see the [Interactions API sample](https://github.com
 
 ### Known limitations¶
 
-The Interactions API **does not** support mixing custom function calling tools with built-in tools, such as the [Google Search](/tools/built-in-tools/#google-search), tool, within the same agent. You can work around this limitation by configuring the the built-in tool to operate as a custom tool using the `bypass_multi_tools_limit` parameter:
+The Interactions API **does not** support mixing custom function calling tools with built-in tools, such as the [Google Search](/integrations/google-search/), tool, within the same agent. You can work around this limitation by configuring the the built-in tool to operate as a custom tool using the `bypass_multi_tools_limit` parameter:
 
 PythonJava
     

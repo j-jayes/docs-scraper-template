@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../custom-agents/)
       * [ Multi-agent systems  ](../../multi-agents/)
+      * [ Agent routing  ](../../routing/)
       * [ Agent Config  ](../../config/)
     * [ Models for Agents  ](../)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../anthropic/)
       * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
+      * [ Model routing  ](../routing/)
       * Ollama  [ Ollama  ](./) Table of contents 
         * Get started 
         * Model choice 
@@ -105,6 +107,7 @@ Agent Runtime
       * [ API Server  ](../../../runtime/api-server/)
       * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../../runtime/cancel/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
@@ -122,6 +125,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../../../observability/logging/)
+      * [ Metrics  ](../../../observability/metrics/)
+      * [ Traces  ](../../../observability/traces/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -395,7 +400,7 @@ Look for a line like the following:
     -d '{'model': 'mistral-small3.1', 'messages': [{'role': 'system', 'content': ...
     
 
-Back to top  [ Previous  Apigee AI Gateway  ](../apigee/) [ Next  vLLM  ](../vllm/)
+Back to top  [ Previous  Model routing  ](../routing/) [ Next  vLLM  ](../vllm/)
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

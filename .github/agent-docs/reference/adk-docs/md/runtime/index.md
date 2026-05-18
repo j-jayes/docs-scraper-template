@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
+      * [ Agent routing  ](../agents/routing/)
       * [ Agent Config  ](../agents/config/)
     * [ Models for Agents  ](../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](api-server/)
       * [ Ambient Agents  ](ambient-agents/)
       * [ Resume Agents  ](resume/)
+      * [ Cancel Agent Runs  ](cancel/)
       * [ Runtime Config  ](runconfig/)
       * [ Event Loop  ](event-loop/)
     * [ Deployment  ](../deploy/)
@@ -118,6 +121,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
@@ -273,6 +278,14 @@ Use `adk api_server` to expose your agents through a RESTful API.
 
 [ Use the API Server](api-server/)
 
+  * **Ambient Agents**
+
+* * *
+
+Build autonomous agents that process events, monitor systems, and respond asynchronously without human intervention.
+
+[ Use Ambient Agents](ambient-agents/)
+
 
 
 
@@ -282,6 +295,7 @@ For more in-depth information on runtime configuration and behavior, see these p
 
   * **[Event Loop](event-loop/)** : Understand the core event loop that powers ADK, including the yield/pause/resume cycle.
   * **[Resume Agents](resume/)** : Learn how to resume agent execution from a previous state.
+  * **[Cancel Agent Runs](cancel/)** : Gracefully cancel running agent invocations using AbortSignal (TypeScript).
   * **[Runtime Config](runconfig/)** : Configure runtime behavior with RunConfig.
 
 

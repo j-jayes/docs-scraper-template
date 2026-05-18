@@ -16,6 +16,18 @@ Preparing search index...
 # Variable functionsExportedForTestingOnly`Const`
 
 functionsExportedForTestingOnly: {  
+generateAuthEvent: (  
+invocationContext: [InvocationContext](../classes/InvocationContext.html),  
+functionResponseEvent: [Event](../interfaces/Event.html),  
+) => [Event](../interfaces/Event.html) | undefined;  
+generateRequestConfirmationEvent: (  
+__namedParameters: {  
+functionCallEvent: [Event](../interfaces/Event.html);  
+functionResponseEvent: [Event](../interfaces/Event.html);  
+invocationContext: [InvocationContext](../classes/InvocationContext.html);  
+},  
+) => [Event](../interfaces/Event.html)  
+| undefined;  
 handleFunctionCallList: (  
 __namedParameters: {  
 afterToolCallbacks: [SingleAfterToolCallback](../types/SingleAfterToolCallback.html)[];  
@@ -30,6 +42,20 @@ toolsDict: Record<string, [BaseTool](../classes/BaseTool.html)>;
 } = ...
 
 #### Type Declaration
+
+  * ##### generateAuthEvent: (  
+invocationContext: [InvocationContext](../classes/InvocationContext.html),  
+functionResponseEvent: [Event](../interfaces/Event.html),  
+) => [Event](../interfaces/Event.html) | undefined
+
+  * ##### generateRequestConfirmationEvent: (  
+__namedParameters: {  
+functionCallEvent: [Event](../interfaces/Event.html);  
+functionResponseEvent: [Event](../interfaces/Event.html);  
+invocationContext: [InvocationContext](../classes/InvocationContext.html);  
+},  
+) => [Event](../interfaces/Event.html)  
+| undefined
 
   * ##### handleFunctionCallList: (  
 __namedParameters: {  
@@ -46,7 +72,7 @@ toolsDict: Record<string, [BaseTool](../classes/BaseTool.html)>;
 
 
 
-  * Defined in [core/src/agents/functions.ts:27](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/agents/functions.ts#L27)
+  * Defined in [agents/functions.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/functions.ts#L35)
 
 
 

@@ -15,15 +15,55 @@ Preparing search index...
 
 # Function zodObjectToSchema
 
-  * zodObjectToSchema(schema: ZodObject<any>): Schema
+  * zodObjectToSchema(  
+schema:  
+| ZodObject<  
+ZodRawShape,  
+UnknownKeysParam,  
+ZodTypeAny,  
+{ [key: string]: any },  
+{ [key: string]: any },  
+>  
+| ZodObject<  
+Readonly<  
+{  
+[k: string]: $ZodType<  
+unknown,  
+unknown,  
+$ZodTypeInternals<unknown, unknown>,  
+>;  
+},  
+>,  
+$strip,  
+>,  
+): Schema
 
 #### Parameters
 
-    * schema: ZodObject<any>
+    * schema:   
+| ZodObject<  
+ZodRawShape,  
+UnknownKeysParam,  
+ZodTypeAny,  
+{ [key: string]: any },  
+{ [key: string]: any },  
+>  
+| ZodObject<  
+Readonly<  
+{  
+[k: string]: $ZodType<  
+unknown,  
+unknown,  
+$ZodTypeInternals<unknown, unknown>,  
+>;  
+},  
+>,  
+$strip,  
+>
 
 #### Returns Schema
 
-    * Defined in [core/src/utils/simple_zod_to_json.ts:145](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/simple_zod_to_json.ts#L145)
+    * Defined in [utils/simple_zod_to_json.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/simple_zod_to_json.ts#L67)
 
 
 

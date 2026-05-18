@@ -25,7 +25,7 @@ Returns the function responses in the event.
 
 #### Returns FunctionResponse[]
 
-    * Defined in [core/src/events/event.ts:119](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event.ts#L119)
+    * Defined in [events/event.ts:124](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event.ts#L124)
 
 
 

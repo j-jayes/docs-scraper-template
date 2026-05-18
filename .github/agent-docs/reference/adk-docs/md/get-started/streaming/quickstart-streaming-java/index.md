@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -78,6 +78,7 @@ Workflow agents
         * [ Parallel agents  ](../../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../../agents/multi-agents/)
+      * [ Agent routing  ](../../../agents/routing/)
       * [ Agent Config  ](../../../agents/config/)
     * [ Models for Agents  ](../../../agents/models/)
 
@@ -85,8 +86,9 @@ Models for Agents
       * [ Gemini  ](../../../agents/models/google-gemini/)
       * [ Gemma  ](../../../agents/models/google-gemma/)
       * [ Claude  ](../../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
+      * [ Model routing  ](../../../agents/models/routing/)
       * [ Ollama  ](../../../agents/models/ollama/)
       * [ vLLM  ](../../../agents/models/vllm/)
       * [ LiteLLM  ](../../../agents/models/litellm/)
@@ -115,24 +117,28 @@ Agent Runtime
       * [ Web Interface  ](../../../runtime/web-interface/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
+      * [ Ambient Agents  ](../../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../../runtime/cancel/)
       * [ Runtime Config  ](../../../runtime/runconfig/)
       * [ Event Loop  ](../../../runtime/event-loop/)
     * [ Deployment  ](../../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../../deploy/cloud-run/)
       * [ GKE  ](../../../deploy/gke/)
     * [ Observability  ](../../../observability/)
 
 Observability 
       * [ Logging  ](../../../observability/logging/)
+      * [ Metrics  ](../../../observability/metrics/)
+      * [ Traces  ](../../../observability/traces/)
     * [ Evaluation  ](../../../evaluate/)
 
 Evaluation 
@@ -209,7 +215,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../../grounding/grounding_with_search/)
   * [ Integrations  ](../../../integrations/)
 
 Integrations 
@@ -385,7 +391,7 @@ We will use `Dev UI` to run this agent later. For the tool to automatically reco
 To run the server, you’ll need to export two environment variables:
 
   * a Gemini key that you can [get from AI Studio](https://ai.google.dev/gemini-api/docs/api-key),
-  * a variable to specify we’re not using Vertex AI this time.
+  * a variable to specify we’re not using Agent Platform this time.
 
 
     
@@ -470,7 +476,7 @@ Replace your existing pom.xml with the following.
         <auto-value.version>1.11.0</auto-value.version>
         <!-- Main class for exec-maven-plugin -->
         <exec.mainClass>samples.liveaudio.LiveAudioRun</exec.mainClass>
-        <google-adk.version>0.1.0</google-adk.version>
+        <google-adk.version>1.2.0</google-adk.version>
       </properties>
     
       <dependencyManagement>

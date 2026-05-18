@@ -19,7 +19,7 @@ Preparing search index...
 
 #### Returns Resource
 
-    * Defined in [core/src/telemetry/google_cloud.ts:60](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/google_cloud.ts#L60)
+    * Defined in [telemetry/google_cloud.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/google_cloud.ts#L64)
 
 
 

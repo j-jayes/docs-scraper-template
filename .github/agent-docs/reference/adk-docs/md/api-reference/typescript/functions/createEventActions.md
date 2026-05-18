@@ -25,7 +25,7 @@ Creates an EventActions object.
 
 #### Returns [EventActions](../interfaces/EventActions.html)
 
-    * Defined in [core/src/events/event_actions.ts:66](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/events/event_actions.ts#L66)
+    * Defined in [events/event_actions.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/event_actions.ts#L67)
 
 
 

@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../agents/custom-agents/)
       * [ Multi-agent systems  ](../agents/multi-agents/)
+      * [ Agent routing  ](../agents/routing/)
       * [ Agent Config  ](../agents/config/)
     * [ Models for Agents  ](../agents/models/)
 
@@ -71,6 +72,7 @@ Models for Agents
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -101,6 +103,7 @@ Agent Runtime
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
@@ -118,6 +121,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](logging/)
+      * [ Metrics  ](metrics/)
       * [ Traces  ](traces/)
     * [ Evaluation  ](../evaluate/)
 
@@ -239,7 +243,7 @@ Graph-based workflows
 
 Observability for agents enables measurement of a system's internal state, including reasoning traces, tool calls, and latent model outputs, by analyzing its external telemetry and structured logs. When building agents, you may need these features to help debug and diagnose their in-process behavior. Basic input and output monitoring is typically insufficient for agents with any significant level of complexity.
 
-Agent Development Kit (ADK) provides built-in observability through [logging](/observability/logging/) and [traces](/observability/traces/) to help you monitor and debug your agents. However, you may need to consider more advanced [observability ADK Integrations](/integrations/?topic=observability) for monitoring and analysis.
+Agent Development Kit (ADK) provides built-in observability through [logging](/observability/logging/), [metrics](/observability/metrics/), and [traces](/observability/traces/) to help you monitor and debug your agents. However, you may need to consider more advanced [observability ADK Integrations](/integrations/?topic=observability) for monitoring and analysis.
 
 ADK Integrations for observability
 

@@ -23,7 +23,7 @@ Preparing search index...
 
 #### Returns Promise<[OTelHooks](../interfaces/OTelHooks.html)>
 
-    * Defined in [core/src/telemetry/google_cloud.ts:33](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/telemetry/google_cloud.ts#L33)
+    * Defined in [telemetry/google_cloud.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/telemetry/google_cloud.ts#L33)
 
 
 

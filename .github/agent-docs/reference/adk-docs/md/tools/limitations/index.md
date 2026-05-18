@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -62,6 +62,7 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
@@ -69,8 +70,9 @@ Models for Agents
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -102,24 +104,28 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -196,7 +202,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -252,19 +258,19 @@ Some ADK tools have limitations that can impact how you implement them within an
 
 ONLY for Search in ADK Python v1.15.0 and lower
 
-This limitation only applies to the use of Google Search and Vertex AI Search tools in ADK Python v1.15.0 and lower. ADK Python release v1.16.0 and higher provides a built-in workaround to remove this limitation.
+This limitation only applies to the use of Google Search and Agent Search tools in ADK Python v1.15.0 and lower. ADK Python release v1.16.0 and higher provides a built-in workaround to remove this limitation.
 
 In general, you can use more than one tool in an agent, but use of specific tools within an agent excludes the use of any other tools in that agent. The following ADK Tools can only be used by themselves, without any other tools, in a single agent object:
 
-  * [Code Execution](/tools/gemini-api/code-execution/) with Gemini API
-  * [Google Search](/tools/gemini-api/google-search/) with Gemini API
-  * [Vertex AI Search](/tools/google-cloud/vertex-ai-search/)
+  * [Code Execution](/integrations/code-execution/) with Gemini API (Note: in TypeScript, this requires Gemini 2.0+ and does not have this limitation)
+  * [Google Search](/integrations/google-search/) with Gemini API (Note: limitation only applies to Gemini 1.x models in TypeScript)
+  * [Agent Search](/integrations/agent-search/) (Note: currently unavailable in TypeScript)
 
 
 
 For example, the following approach that uses one of these tools along with other tools, within a single agent, is **_not supported_** :
 
-PythonJava
+PythonTypeScriptJava
     
     
     root_agent = Agent(
@@ -274,6 +280,18 @@ PythonJava
         tools=[custom_function],
         code_executor=BuiltInCodeExecutor() # <-- NOT supported when used with tools
     )
+    
+    
+    
+    import {Agent, BuiltInCodeExecutor} from '@google/adk';
+    
+    const rootAgent = new Agent({
+      name: 'RootAgent',
+      model: 'gemini-flash-latest',
+      description: 'Code Agent',
+      tools: [myCustomTool], // Assume myCustomTool is defined
+      codeExecutor: new BuiltInCodeExecutor(), // <-- NOT supported when used with tools
+    });
     
     
     
@@ -288,11 +306,11 @@ PythonJava
 
 ### Workaround #1: AgentTool.create() method¶
 
-Supported in ADKPythonJava
+Supported in ADKPythonTypeScript (v0.6.1+)Java
 
 The following code sample demonstrates how to use multiple built-in tools or how to use built-in tools with other tools by using multiple agents:
 
-PythonJava
+PythonTypeScriptJava
     
     
     from google.adk.tools.agent_tool import AgentTool
@@ -322,6 +340,31 @@ PythonJava
         description="Root Agent",
         tools=[AgentTool(agent=search_agent), AgentTool(agent=coding_agent)],
     )
+    
+    
+    
+    import {Agent, AgentTool, BuiltInCodeExecutor, GOOGLE_SEARCH} from '@google/adk';
+    
+    const searchAgent = new Agent({
+      model: 'gemini-flash-latest',
+      name: 'SearchAgent',
+      instruction: "You're a specialist in Google Search",
+      tools: [GOOGLE_SEARCH],
+    });
+    
+    const codingAgent = new Agent({
+      model: 'gemini-flash-latest', // Built-in code execution requires Gemini 2.0+ in ADK JS
+      name: 'CodeAgent',
+      instruction: "You're a specialist in Code Execution",
+      codeExecutor: new BuiltInCodeExecutor(),
+    });
+    
+    const rootAgent = new Agent({
+      name: 'RootAgent',
+      model: 'gemini-flash-latest',
+      description: 'Root Agent',
+      tools: [new AgentTool({agent: searchAgent}), new AgentTool({agent: codingAgent})],
+    });
     
     
     
@@ -392,7 +435,7 @@ Built-in tools cannot be used within a sub-agent, with the exception of `GoogleS
 
 For example, the following approach that uses built-in tools within sub-agents is **not supported** :
 
-PythonJava
+PythonTypeScriptJava
     
     
     url_context_agent = Agent(
@@ -420,6 +463,31 @@ PythonJava
             coding_agent
         ],
     )
+    
+    
+    
+    import {Agent, BuiltInCodeExecutor} from '@google/adk';
+    
+    const urlContextAgent = new Agent({
+      model: 'gemini-flash-latest',
+      name: 'UrlContextAgent',
+      instruction: "You're a specialist in URL Context",
+      tools: [myCustomTool], // Assume myCustomTool is defined
+    });
+    
+    const codingAgent = new Agent({
+      model: 'gemini-flash-latest',
+      name: 'CodeAgent',
+      instruction: "You're a specialist in Code Execution",
+      codeExecutor: new BuiltInCodeExecutor(),
+    });
+    
+    const rootAgent = new Agent({
+      name: 'RootAgent',
+      model: 'gemini-flash-latest',
+      description: 'Root Agent',
+      subAgents: [urlContextAgent, codingAgent], // NOT supported when sub-agents use built-in tools
+    });
     
     
     

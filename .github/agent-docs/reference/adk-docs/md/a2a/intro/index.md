@@ -1,5 +1,7 @@
 Skip to content 
 
+**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
@@ -13,11 +15,20 @@ Initializing search
 
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
+  * [ Home ](../..)
+  * [ Build Agents ](../../get-started/)
+  * [ Run Agents ](../../runtime/)
+  * [ Components ](../../get-started/about/)
+  * [ Integrations ](../../integrations/)
+  * [ Reference ](../../api-reference/)
+  * [ Community ](../../community/)
+  * [ ADK 2.0 ](../../2.0/)
+
+
+
 [ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home  ](../..)
-
-Home 
   * Build Agents  Build Agents 
     * [ Get Started  ](../../get-started/)
 
@@ -29,7 +40,7 @@ Get Started
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
-      * [ Multi-tool agent  ](../../get-started/quickstart/)
+      * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
       * [ Streaming agent  ](../../get-started/streaming/)
 
@@ -51,14 +62,17 @@ Workflow agents
         * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
       * [ Custom agents  ](../../agents/custom-agents/)
       * [ Multi-agent systems  ](../../agents/multi-agents/)
+      * [ Agent routing  ](../../agents/routing/)
       * [ Agent Config  ](../../agents/config/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+      * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -87,29 +101,36 @@ Agent Runtime
       * [ Web Interface  ](../../runtime/web-interface/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
+      * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
       * [ Criteria  ](../../evaluate/criteria/)
       * [ User Simulation  ](../../evaluate/user-sim/)
+      * [ Environment Simulation  ](../../evaluate/environment_simulation/)
+      * [ Custom Metrics  ](../../evaluate/custom_metrics/)
+      * [ Optimization  ](../../optimize/)
     * [ Safety and Security  ](../../safety/)
 
 Safety and Security 
@@ -169,9 +190,12 @@ A2A Protocol
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../quickstart-exposing/)
         * [ Go  ](../quickstart-exposing-go/)
+        * [ Java  ](../quickstart-exposing-java/)
       * A2A Quickstart (Consuming)  A2A Quickstart (Consuming) 
         * [ Python  ](../quickstart-consuming/)
         * [ Go  ](../quickstart-consuming-go/)
+        * [ Java  ](../quickstart-consuming-java/)
+      * [ A2A Extension  ](../a2a-extension/)
     * [ Gemini Live API Toolkit  ](../../streaming/)
 
 Gemini Live API Toolkit 
@@ -187,9 +211,11 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
+  * [ Integrations  ](../../integrations/)
+
+Integrations 
   * Reference  Reference 
-    * [ Release Notes  ](../../release-notes/)
     * [ API Reference  ](../../api-reference/)
 
 API Reference 
@@ -200,8 +226,22 @@ API Reference
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
-    * [ Community Resources  ](../../community/)
-    * [ Contributing Guide  ](../../contributing-guide/)
+    * [ Release Notes  ](../../release-notes/)
+  * [ Community  ](../../community/)
+
+Community 
+    * [ Contributing Guide  ](../../community/contributing-guide/)
+  * [ ADK 2.0  ](../../2.0/)
+
+ADK 2.0 
+    * [ Graph-based workflows  ](../../workflows/)
+
+Graph-based workflows 
+      * [ Graph routes  ](../../workflows/graph-routes/)
+      * [ Data handling  ](../../workflows/data-handling/)
+      * [ Human input  ](../../workflows/human-input/)
+    * [ Collaborative agents  ](../../workflows/collaboration/)
+    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -222,8 +262,9 @@ Table of contents
 
 
 
-  1. [ Components  ](../../get-started/about/)
-  2. [ A2A Protocol  ](../)
+  1. [ Home  ](../..)
+  2. [ Components  ](../../get-started/about/)
+  3. [ A2A Protocol  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/a2a/intro.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/a2a/intro.md "View Markdown source")
 
@@ -425,7 +466,7 @@ In this setup, first, the Product Catalog Agent needs to be exposed via an A2A S
 
 Now that you understand the "why" of A2A, let's dive into the "how."
 
-  * **Continue to the next guide:** [Quickstart: Exposing Your Agent](../quickstart-exposing/)
+  * **Continue to the next guide:** Quickstart: Exposing Your Agent, [in Python](../quickstart-exposing/), [in Go](../quickstart-exposing-go/), [in Java](../quickstart-exposing-java/)
 
 
 

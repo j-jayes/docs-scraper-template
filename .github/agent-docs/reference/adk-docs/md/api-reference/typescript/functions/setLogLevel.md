@@ -25,7 +25,7 @@ Sets the log level for the logger.
 
 #### Returns void
 
-    * Defined in [core/src/utils/logger.ts:35](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/utils/logger.ts#L35)
+    * Defined in [utils/logger.ts:144](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L144)
 
 
 

@@ -15,11 +15,11 @@ Preparing search index...
 
 # Variable GOOGLE_SEARCH`Const`
 
-GOOGLE_SEARCH: GoogleSearchTool = ...
+GOOGLE_SEARCH: [GoogleSearchTool](../classes/GoogleSearchTool.html) = ...
 
-A global instance of GoogleSearchTool.
+A global instance of [GoogleSearchTool](../classes/GoogleSearchTool.html).
 
-  * Defined in [core/src/tools/google_search_tool.ts:73](https://github.com/google/adk-js/blob/6d1a56a15e0864ce1e83b259bc9964333503ff5a/core/src/tools/google_search_tool.ts#L73)
+  * Defined in [tools/google_search_tool.ts:71](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/google_search_tool.ts#L71)
 
 
 
