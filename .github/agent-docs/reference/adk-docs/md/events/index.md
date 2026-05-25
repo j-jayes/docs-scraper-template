@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Events 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../get-started/typescript/)
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
+      * [ Kotlin  ](../get-started/kotlin/)
+      * [ Installation  ](../get-started/installation/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../visual-builder/)
-      * [ Coding with AI  ](../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../get-started/installation/)
+      * [ Code with AI  ](../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
-      * [ LLM agents  ](../agents/llm-agents/)
-      * [ Workflow agents  ](../agents/workflow-agents/)
+      * [ Simple agents  ](../agents/llm-agents/)
+    * [ Graph Workflows  ](../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../agents/custom-agents/)
-      * [ Multi-agent systems  ](../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../graphs/routes/)
+      * [ Data handling  ](../graphs/data-handling/)
+      * [ Human input  ](../graphs/human-input/)
+      * [ Dynamic workflows  ](../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../workflows/collaboration/)
+      * [ Template workflows  ](../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../agents/custom-agents/)
       * [ Agent routing  ](../agents/routing/)
-      * [ Agent Config  ](../agents/config/)
+      * [ Workflow patterns  ](../workflows/patterns/)
     * [ Models for Agents  ](../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
       * [ LiteRT-LM  ](../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../tools-custom/function-tools/)
-        * [ Tool performance  ](../tools-custom/performance/)
-        * [ Action confirmations  ](../tools-custom/confirmation/)
-      * [ MCP tools  ](../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
-      * [ Authentication  ](../tools-custom/authentication/)
-      * [ Tool limitations  ](../tools/limitations/)
-    * [ Skills for Agents  ](../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../visual-builder/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
@@ -136,38 +133,58 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../get-started/about/)
+    * [ Custom Tools  ](../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../tools-custom/function-tools/)
+        * [ Tool performance  ](../tools-custom/performance/)
+        * [ Action confirmations  ](../tools-custom/confirmation/)
+      * [ MCP tools  ](../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
+      * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
+    * [ Artifacts  ](../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
+    * [ App management  ](../apps/)
+
+App management 
+      * [ Callbacks  ](../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../plugins/)
     * [ Context  ](../context/)
 
 Context 
       * [ Context caching  ](../context/caching/)
       * [ Context compression  ](../context/compaction/)
-    * [ Sessions & Memory  ](../sessions/)
+    * [ Sessions and Memory  ](../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../sessions/session/rewind/)
         * [ Migrate sessions  ](../sessions/session/migrate/)
       * [ State  ](../sessions/state/)
+      * Events  [ Events  ](./) Table of contents 
+        * What Events Are and Why They Matter 
+        * Understanding and Using Events 
+          * Identifying Event Origin and Type 
+          * Extracting Key Information 
+          * Detecting Actions and Side Effects 
+          * Determining if an Event is a "Final" Response 
+        * How Events Flow: Generation and Processing 
+        * Common Event Examples (Illustrative Patterns) 
+        * Additional Context and Event Details 
+        * Best Practices for Working with Events 
       * [ Memory  ](../sessions/memory/)
-    * [ Callbacks  ](../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../artifacts/)
-
-Artifacts 
-    * [ Events  ](./)
-
-Events 
-    * [ Apps  ](../apps/)
-
-Apps 
-    * [ Plugins  ](../plugins/)
-
-Plugins 
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -211,6 +228,7 @@ API Reference
       * [ Typescript ADK  ](../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
+      * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
@@ -222,14 +240,6 @@ Community
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../workflows/graph-routes/)
-      * [ Data handling  ](../workflows/data-handling/)
-      * [ Human input  ](../workflows/human-input/)
-    * [ Collaborative agents  ](../workflows/collaboration/)
-    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
@@ -250,13 +260,13 @@ Table of contents
 
   1. [ Home  ](..)
   2. [ Components  ](../get-started/about/)
-  3. [ Events  ](./)
+  3. [ Sessions and Memory  ](../sessions/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/events/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/events/index.md "View Markdown source")
 
 # Events¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 Events are the fundamental units of information flow within the Agent Development Kit (ADK). They represent every significant occurrence during an agent's interaction lifecycle, from initial user input to the final response and all the steps in between. Understanding events is crucial because they are the primary way components communicate, state is managed, and control flow is directed.
 
@@ -264,7 +274,7 @@ Events are the fundamental units of information flow within the Agent Developmen
 
 An `Event` in ADK is an immutable record representing a specific point in the agent's execution. It captures user messages, agent replies, requests to use tools (function calls), tool results, state changes, control signals, and errors.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
 
 Technically, it's an instance of the `google.adk.events.Event` class, which builds upon the basic `LlmResponse` structure by adding essential ADK-specific metadata and an `actions` payload.
     
@@ -370,6 +380,24 @@ In Java, this is an instance of the `com.google.adk.events.Event` class. It also
     // }
     
 
+In Kotlin, this is an instance of the `com.google.adk.kt.events.Event` class.
+    
+    
+    // Conceptual Structure of an Event (Kotlin)
+    // data class Event(
+    //     val author: String,
+    //     val content: Content? = null,
+    //     val actions: EventActions = EventActions(),
+    //     val invocationId: String? = null,
+    //     val branch: String? = null,
+    //     val timestamp: Long = Clock.System.now().toEpochMilliseconds(),
+    //     val id: String = Uuid.random(),
+    //     val partial: Boolean = false,
+    //     val turnComplete: Boolean = false,
+    //     val longRunningToolIds: Set<String> = emptySet()
+    // )
+    
+
 Events are central to ADK's operation for several key reasons:
 
   1. **Communication:** They serve as the standard message format between the user interface, the `Runner`, agents, the LLM, and tools. Everything flows as an `Event`.
@@ -412,7 +440,7 @@ Quickly determine what an event represents by checking:
 
 
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # Pseudocode: Basic event identification (Python)
@@ -570,6 +598,34 @@ PythonTypeScriptGoJava
     //         System.out.println("  Type: Control Signal or Other");
     //     }
     // });
+    
+    
+    
+    // Pseudocode: Basic event identification (Kotlin)
+    // runner.runAsync(...).collect { event ->
+    //     println("Event from: ${event.author}")
+    //
+    //     val content = event.content
+    //     if (content != null && content.parts.isNotEmpty()) {
+    //         if (event.functionCalls().isNotEmpty()) {
+    //             println("  Type: Tool Call Request")
+    //         } else if (event.functionResponses().isNotEmpty()) {
+    //             println("  Type: Tool Result")
+    //         } else if (content.parts[0].text != null) {
+    //             if (event.partial) {
+    //                 println("  Type: Streaming Text Chunk")
+    //             } else {
+    //                 println("  Type: Complete Text Message")
+    //             }
+    //         } else {
+    //             println("  Type: Other Content (e.g., code result)")
+    //         }
+    //     } else if (event.actions.stateDelta.isNotEmpty() || event.actions.artifactDelta.isNotEmpty()) {
+    //         println("  Type: State/Artifact Update")
+    //     } else {
+    //         println("  Type: Control Signal or Other")
+    //     }
+    // }
     
 
 ### Extracting Key Information¶
@@ -1300,7 +1356,7 @@ When constructing an `Event` in your custom agent logic, set the author, for exa
 
 Treating events as structured messages with clear purposes for their content and actions is key to building, debugging, and managing complex agent behaviors in ADK.
 
-Back to top  [ Previous  Artifacts  ](../artifacts/) [ Next  Apps: workflow management class  ](../apps/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

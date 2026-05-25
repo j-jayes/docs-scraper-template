@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Action confirmations 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
       * [ Agent routing  ](../../agents/routing/)
-      * [ Agent Config  ](../../agents/config/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
@@ -77,35 +88,14 @@ Models for Agents
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../function-tools/)
-        * [ Tool performance  ](../performance/)
-        * Action confirmations  [ Action confirmations  ](./) Table of contents 
-          * Boolean confirmation 
-            * Require confirmation function 
-          * Advanced confirmation 
-            * Confirmation definition 
-          * Remote confirmation with REST API 
-          * Known limitations 
-          * Next steps 
-      * [ MCP tools  ](../mcp-tools/)
-      * [ OpenAPI tools  ](../openapi-tools/)
-      * [ Authentication  ](../authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -143,38 +133,55 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../function-tools/)
+        * [ Tool performance  ](../performance/)
+        * Action confirmations  [ Action confirmations  ](./) Table of contents 
+          * Boolean confirmation 
+            * Require confirmation function 
+          * Advanced confirmation 
+            * Confirmation definition 
+          * Remote confirmation with REST API 
+          * Known limitations 
+          * Next steps 
+      * [ MCP tools  ](../mcp-tools/)
+      * [ OpenAPI tools  ](../openapi-tools/)
+      * [ Authentication  ](../authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -218,6 +225,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -229,14 +237,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -253,7 +253,7 @@ Table of contents
 
 
   1. [ Home  ](../..)
-  2. [ Build Agents  ](../../get-started/)
+  2. [ Components  ](../../get-started/about/)
   3. [ Custom Tools  ](../)
   4. [ Function tools  ](../function-tools/)
 
@@ -278,7 +278,7 @@ You can configure how a request is communicated to a user, and the system can al
 
 **Figure 1.** Example confirmation response request dialog box using an advanced, tool response implementation.
 
-The following sections describe how to use this feature for the confirmation scenarios. For a complete code sample, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) example. There are additional ways to incorporate human input into your agent workflow, for more details, see the [Human-in-the-loop](/agents/multi-agents/#human-in-the-loop-pattern) agent pattern.
+The following sections describe how to use this feature for the confirmation scenarios. For a complete code sample, see the [human_tool_confirmation](https://github.com/google/adk-python/blob/fc90ce968f114f84b14829f8117797a4c256d710/contributing/samples/human_tool_confirmation/agent.py) example. There are additional ways to incorporate human input into your agent workflow, for more details, see the [Human-in-the-loop](/workflows/patterns/#human-in-the-loop) agent pattern.
 
 ## Boolean confirmation¶
 
@@ -725,7 +725,7 @@ The tool confirmation feature has the following limitations:
 
 For more information on building ADK tools for agent workflows, see [Function tools](/tools-custom/function-tools/).
 
-Back to top  [ Previous  Tool performance  ](../performance/) [ Next  MCP tools  ](../mcp-tools/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

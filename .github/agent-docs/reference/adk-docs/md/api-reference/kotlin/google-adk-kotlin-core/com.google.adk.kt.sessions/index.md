@@ -1,0 +1,107 @@
+toggle menu
+
+[ google-adk-kotlin ](../../index.html)
+
+0.1.0 
+
+commonJvmAndroid common
+
+switch theme
+
+search in API
+
+[google-adk-kotlin-core](../index.html)/com.google.adk.kt.sessions
+
+# Package-level declarations
+
+TypesFunctions
+
+## Types
+
+[GetSessionConfig](-get-session-config/index.html)
+
+Link copied to clipboard
+
+data class [GetSessionConfig](-get-session-config/index.html)(val numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val afterTimestamp: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html)? = null)
+
+Configuration for getting a session.
+
+[InMemorySessionService](-in-memory-session-service/index.html)
+
+Link copied to clipboard
+
+class [InMemorySessionService](-in-memory-session-service/index.html) : [SessionService](-session-service/index.html)
+
+An in-memory implementation of [SessionService](-session-service/index.html) assuming [Session](-session/index.html) objects are mutable regarding their state map, events list, and last update time.
+
+[ListEventsResponse](-list-events-response/index.html)
+
+Link copied to clipboard
+
+data class [ListEventsResponse](-list-events-response/index.html)(val events: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)> = emptyList(), val nextPageToken: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null)
+
+Response for listing events.
+
+[ListSessionsResponse](-list-sessions-response/index.html)
+
+Link copied to clipboard
+
+data class [ListSessionsResponse](-list-sessions-response/index.html)(val sessions: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Session](-session/index.html)> = emptyList())
+
+Response for listing sessions.
+
+[Lock](-lock/index.html)
+
+Link copied to clipboard
+
+interface [Lock](-lock/index.html)
+
+A read/write lock.
+
+[Session](-session/index.html)
+
+Link copied to clipboard
+
+data class [Session](-session/index.html)(val key: [SessionKey](-session-key/index.html), val state: [State](-state/index.html) = State(), val events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), var lastUpdateTime: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html) = Instant.fromEpochMilliseconds(0))
+
+A [Session](-session/index.html) object that encapsulates the [State](-state/index.html) and [Event](../com.google.adk.kt.events/-event/index.html)s of a session.
+
+[SessionKey](-session-key/index.html)
+
+Link copied to clipboard
+
+data class [SessionKey](-session-key/index.html)(val appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val userId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val id: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)?)
+
+Composite identifier for a [Session](-session/index.html).
+
+[SessionService](-session-service/index.html)
+
+Link copied to clipboard
+
+interface [SessionService](-session-service/index.html)
+
+Defines the contract for managing [Session](-session/index.html)s and their associated [Event](../com.google.adk.kt.events/-event/index.html)s. Provides methods for creating, retrieving, listing, and deleting sessions, as well as listing and appending events to a session. Implementations of this interface handle the underlying storage and retrieval logic.
+
+[State](-state/index.html)
+
+Link copied to clipboard
+
+class [State](-state/index.html)(initialState: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = emptyMap(), initialDelta: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = emptyMap()) : [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>
+
+A thread-safe state map that maintains the current value and tracks modifications.
+
+## Functions
+
+[Lock](-lock.html)
+
+Link copied to clipboard
+
+commonJvmAndroidcommon
+
+actual fun [Lock](-lock.html)(): [Lock](-lock/index.html)
+
+expect fun [Lock](-lock.html)(): [Lock](-lock/index.html)
+
+Creates a new [Lock](-lock/index.html).
+
+© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)

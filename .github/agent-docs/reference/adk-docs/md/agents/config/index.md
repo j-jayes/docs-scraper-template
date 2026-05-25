@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Agent Config 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,22 +49,7 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
-    * [ Agents  ](../)
-
-Agents 
-      * [ LLM agents  ](../llm-agents/)
-      * [ Workflow agents  ](../workflow-agents/)
-
-Workflow agents 
-        * [ Sequential agents  ](../workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../custom-agents/)
-      * [ Multi-agent systems  ](../multi-agents/)
-      * [ Agent routing  ](../routing/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * Agent Config  [ Agent Config  ](./) Table of contents 
         * Get started 
           * Setup 
@@ -76,6 +63,30 @@ Workflow agents
         * Deploy agent configs 
         * Known limitations 
         * Next steps 
+    * [ Agents  ](../)
+
+Agents 
+      * [ Simple agents  ](../llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
+
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../custom-agents/)
+      * [ Agent routing  ](../routing/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../models/)
 
 Models for Agents 
@@ -89,28 +100,14 @@ Models for Agents
       * [ vLLM  ](../models/vllm/)
       * [ LiteLLM  ](../models/litellm/)
       * [ LiteRT-LM  ](../models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -148,38 +145,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -223,6 +230,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -234,14 +242,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -264,7 +264,7 @@ Table of contents
 
   1. [ Home  ](../..)
   2. [ Build Agents  ](../../get-started/)
-  3. [ Agents  ](../)
+  3. [ Build your Agent  ](../../tutorials/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/config.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/config.md "View Markdown source")
 
@@ -430,7 +430,7 @@ The following example uses a built-in ADK tool function for using google search 
       - name: google_search
     
 
-For more details, see the full code for this sample in the [ADK sample repository](https://github.com/google/adk-python/blob/main/contributing/samples/tool_builtin_config/root_agent.yaml).
+For more details, see the full code for this sample in the [ADK sample repository](https://github.com/google/adk-python/blob/main/contributing/samples/tools/tool_builtin_config/root_agent.yaml).
 
 ### Custom tool example¶
 
@@ -451,7 +451,7 @@ The following example uses a custom tool built with Python code and listed in th
       - name: ma_llm.check_prime
     
 
-For more details, see the full code for this sample in the [ADK sample repository](https://github.com/google/adk-python/blob/main/contributing/samples/multi_agent_llm_config/prime_agent.yaml).
+For more details, see the full code for this sample in the [ADK sample repository](https://github.com/google/adk-python/blob/main/contributing/samples/multi_agent/multi_agent_llm_config/prime_agent.yaml).
 
 ### Sub-agents example¶
 
@@ -477,7 +477,7 @@ The following example shows an agent defined with two sub-agents in the `sub_age
       - config_path: math_tutor_agent.yaml
     
 
-For more details, see the full code for this sample in the [ADK sample repository](https://github.com/google/adk-python/blob/main/contributing/samples/multi_agent_basic_config/root_agent.yaml).
+For more details, see the full code for this sample in the [ADK sample repository](https://github.com/google/adk-python/blob/main/contributing/samples/multi_agent/multi_agent_basic_config/root_agent.yaml).
 
 ## Deploy agent configs¶
 
@@ -512,7 +512,7 @@ The Agent Config feature is experimental and includes the following limitations:
 
 For ideas on how and what to build with ADK Agent Configs, see the yaml-based agent definitions in the ADK [adk-samples](https://github.com/search?q=repo:google/adk-python+path:/%5Econtributing%5C/samples%5C//+root_agent.yaml&type=code) repository. For detailed information on the syntax and settings supported by the Agent Config format, see the [Agent Config syntax reference](/api-reference/agentconfig/).
 
-Back to top  [ Previous  Agent routing  ](../routing/) [ Next  AI Models for ADK agents  ](../models/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

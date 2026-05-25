@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Rewind sessions 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../../..)
   * [ Build Agents ](../../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../../get-started/typescript/)
       * [ Go  ](../../../get-started/go/)
       * [ Java  ](../../../get-started/java/)
+      * [ Kotlin  ](../../../get-started/kotlin/)
+      * [ Installation  ](../../../get-started/installation/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../../visual-builder/)
-      * [ Coding with AI  ](../../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../../get-started/installation/)
+      * [ Code with AI  ](../../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../../agents/config/)
     * [ Agents  ](../../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../../agents/llm-agents/)
-      * [ Workflow agents  ](../../../agents/workflow-agents/)
+      * [ Simple agents  ](../../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../../graphs/routes/)
+      * [ Data handling  ](../../../graphs/data-handling/)
+      * [ Human input  ](../../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../../workflows/collaboration/)
+      * [ Template workflows  ](../../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../../agents/custom-agents/)
       * [ Agent routing  ](../../../agents/routing/)
-      * [ Agent Config  ](../../../agents/config/)
+      * [ Workflow patterns  ](../../../workflows/patterns/)
     * [ Models for Agents  ](../../../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../../../agents/models/vllm/)
       * [ LiteLLM  ](../../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../../tools-custom/performance/)
-        * [ Action confirmations  ](../../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../../tools/limitations/)
-    * [ Skills for Agents  ](../../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../../visual-builder/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Ambient Agents  ](../../../runtime/ambient-agents/)
@@ -136,14 +133,40 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../../get-started/about/)
+    * [ Custom Tools  ](../../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../../tools-custom/performance/)
+        * [ Action confirmations  ](../../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../../tools/limitations/)
+    * [ Artifacts  ](../../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../../apps/)
+
+App management 
+      * [ Callbacks  ](../../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../../plugins/)
     * [ Context  ](../../../context/)
 
 Context 
       * [ Context caching  ](../../../context/caching/)
       * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions & Memory  ](../../)
+    * [ Sessions and Memory  ](../../)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../)
 
 Sessions 
@@ -153,24 +176,8 @@ Sessions
           * Limitations 
         * [ Migrate sessions  ](../migrate/)
       * [ State  ](../../state/)
+      * [ Events  ](../../../events/)
       * [ Memory  ](../../memory/)
-    * [ Callbacks  ](../../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../../events/)
-
-Events 
-    * [ Apps  ](../../../apps/)
-
-Apps 
-    * [ Plugins  ](../../../plugins/)
-
-Plugins 
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -214,6 +221,7 @@ API Reference
       * [ Typescript ADK  ](../../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
+      * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
@@ -225,14 +233,6 @@ Community
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../../workflows/graph-routes/)
-      * [ Data handling  ](../../../workflows/data-handling/)
-      * [ Human input  ](../../../workflows/human-input/)
-    * [ Collaborative agents  ](../../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../../workflows/dynamic/)
 
 
 
@@ -246,7 +246,7 @@ Table of contents
 
   1. [ Home  ](../../..)
   2. [ Components  ](../../../get-started/about/)
-  3. [ Sessions & Memory  ](../../)
+  3. [ Sessions and Memory  ](../../)
   4. [ Sessions  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/session/rewind.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/session/rewind.md "View Markdown source")
@@ -292,7 +292,7 @@ When you rewind a session, you specify a user request, or **_invocation_** , tha
     )
     
 
-When you call the **_rewind_** method, all ADK managed session-level resources are restored to the state they were in _before_ the request you specified with the **_invocation id_**. However, global resources, such as app-level or user-level state and artifacts, are not restored. For a complete example of an agent session rewind, see the [rewind_session](https://github.com/google/adk-python/tree/main/contributing/samples/rewind_session) sample code. For more information on the limitations of the Rewind feature, see Limitations.
+When you call the **_rewind_** method, all ADK managed session-level resources are restored to the state they were in _before_ the request you specified with the **_invocation id_**. However, global resources, such as app-level or user-level state and artifacts, are not restored. For a complete example of an agent session rewind, see the [rewind_session](https://github.com/google/adk-python/tree/main/contributing/samples/context_management/rewind_session) sample code. For more information on the limitations of the Rewind feature, see Limitations.
 
 ## How it works¶
 
@@ -308,7 +308,7 @@ The Rewind feature has some limitations that you should be aware of when using i
 
 
 
-Back to top  [ Previous  Session: Tracking Individual Conversations  ](../) [ Next  Migrate sessions  ](../migrate/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

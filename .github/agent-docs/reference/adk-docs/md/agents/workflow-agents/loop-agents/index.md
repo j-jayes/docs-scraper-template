@@ -1,19 +1,19 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../../.. "Agent Development Kit \(ADK\)")
 
-Loop agents 
+Loop workflow 
+
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../../..)
   * [ Build Agents ](../../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../../get-started/typescript/)
       * [ Go  ](../../../get-started/go/)
       * [ Java  ](../../../get-started/java/)
+      * [ Kotlin  ](../../../get-started/kotlin/)
+      * [ Installation  ](../../../get-started/installation/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -47,26 +49,35 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../../visual-builder/)
-      * [ Coding with AI  ](../../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../../get-started/installation/)
+      * [ Code with AI  ](../../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../config/)
     * [ Agents  ](../../)
 
 Agents 
-      * [ LLM agents  ](../../llm-agents/)
-      * [ Workflow agents  ](../)
+      * [ Simple agents  ](../../llm-agents/)
+    * [ Graph Workflows  ](../../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../sequential-agents/)
-        * Loop agents  [ Loop agents  ](./) Table of contents 
-          * Example 
+Graph Workflows 
+      * [ Graph routes  ](../../../graphs/routes/)
+      * [ Data handling  ](../../../graphs/data-handling/)
+      * [ Human input  ](../../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../../workflows/collaboration/)
+      * [ Template workflows  ](../)
+
+Template workflows 
+        * [ Sequential workflow  ](../sequential-agents/)
+        * Loop workflow  [ Loop workflow  ](./) Table of contents 
+          * Example scenario 
           * How it Works 
           * Full Example: Iterative Document Improvement 
-        * [ Parallel agents  ](../parallel-agents/)
-      * [ Custom agents  ](../../custom-agents/)
-      * [ Multi-agent systems  ](../../multi-agents/)
+        * [ Parallel workflow  ](../parallel-agents/)
+        * [ Custom template workflows  ](../../custom-agents/)
       * [ Agent routing  ](../../routing/)
-      * [ Agent Config  ](../../config/)
+      * [ Workflow patterns  ](../../../workflows/patterns/)
     * [ Models for Agents  ](../../models/)
 
 Models for Agents 
@@ -80,28 +91,14 @@ Models for Agents
       * [ vLLM  ](../../models/vllm/)
       * [ LiteLLM  ](../../models/litellm/)
       * [ LiteRT-LM  ](../../models/litert-lm/)
-    * [ Tools and Integrations  ](../../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../../tools-custom/performance/)
-        * [ Action confirmations  ](../../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../../tools/limitations/)
-    * [ Skills for Agents  ](../../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../../visual-builder/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Ambient Agents  ](../../../runtime/ambient-agents/)
@@ -139,38 +136,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../../get-started/about/)
+    * [ Custom Tools  ](../../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../../tools-custom/performance/)
+        * [ Action confirmations  ](../../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../../tools/limitations/)
+    * [ Artifacts  ](../../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../../apps/)
+
+App management 
+      * [ Callbacks  ](../../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../../plugins/)
     * [ Context  ](../../../context/)
 
 Context 
       * [ Context caching  ](../../../context/caching/)
       * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions & Memory  ](../../../sessions/)
+    * [ Sessions and Memory  ](../../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../../sessions/session/migrate/)
       * [ State  ](../../../sessions/state/)
+      * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
-    * [ Callbacks  ](../../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../../events/)
-
-Events 
-    * [ Apps  ](../../../apps/)
-
-Apps 
-    * [ Plugins  ](../../../plugins/)
-
-Plugins 
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -214,6 +221,7 @@ API Reference
       * [ Typescript ADK  ](../../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
+      * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
@@ -225,20 +233,12 @@ Community
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../../workflows/graph-routes/)
-      * [ Data handling  ](../../../workflows/data-handling/)
-      * [ Human input  ](../../../workflows/human-input/)
-    * [ Collaborative agents  ](../../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../../workflows/dynamic/)
 
 
 
 Table of contents 
 
-  * Example 
+  * Example scenario 
   * How it Works 
   * Full Example: Iterative Document Improvement 
 
@@ -246,26 +246,26 @@ Table of contents
 
   1. [ Home  ](../../..)
   2. [ Build Agents  ](../../../get-started/)
-  3. [ Agents  ](../../)
-  4. [ Workflow agents  ](../)
+  3. [ Multi-Agent Workflows  ](../../../workflows/)
+  4. [ Template workflows  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/workflow-agents/loop-agents.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/workflow-agents/loop-agents.md "View Markdown source")
 
-# Loop agents¶
+# Loop template workflow agent¶
 
 Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.2.0
 
-The `LoopAgent` is a workflow agent that executes its sub-agents in a loop (i.e. iteratively). It **_repeatedly runs_ a sequence of agents** for a specified number of iterations or until a termination condition is met.
+The **_LoopAgent_** class is a [template workflow](/agents/workflow-agents/) agent that executes its sub-agents in a loop for a specified number of iterations or until a termination condition is met. Use the **_LoopAgent_** when your workflow involves repetition or iterative refinement, such as revising code or a document. As with other templated workflows, the execution of a **_LoopAgent_** object is not controlled by an AI model, and is deterministic in how it executes its sub-agents. The sub-agents within the defined loop may or may not utilize AI models, but the overall execution of those sub-agents is ultimately managed by the **_LoopAgent_** object you define.
 
-Use the `LoopAgent` when your workflow involves repetition or iterative refinement, such as revising code.
+Alternative: graph-based workflows
 
-### Example¶
+Starting in ADK 2.0, templated workflows have been superseded
 
-  * You want to build an agent that can generate images of food, but sometimes when you want to generate a specific number of items (e.g. 5 bananas), it generates a different number of those items in the image, such as an image of 7 bananas. You have two tools: `Generate Image`, `Count Food Items`. Because you want to keep generating images until it either correctly generates the specified number of items, or after a certain number of iterations, you should build your agent using a `LoopAgent`.
+by more flexible workflow structures, including [graph-based workflows](/workflows/graphs/) and [dynamic workflows](/workflows/dynamic/).
 
+### Example scenario¶
 
-
-As with other [workflow agents](../), the `LoopAgent` is not powered by an LLM, and is thus deterministic in how it executes. That being said, workflow agents are only concerned with their execution, such as in a loop, and not their internal logic; the tools or sub-agents of a workflow agent may or may not utilize LLMs.
+You want to build an agent that can generate images of food, but sometimes when you want to generate a specific number of items, such as bananas, the agent generates a different number of those items in the image, such as an image of 7 bananas. You have two tools: `Generate Image`, `Count Food Items`. If your goal is to keep generating images until it either correctly generates the specified number of items, or after a certain number of iterations, you can build your agent using a **_LoopAgent_** workflow.
 
 ### How it Works¶
 
@@ -857,7 +857,7 @@ PythonTypescriptGoJava
     }
     
 
-Back to top  [ Previous  Sequential agents  ](../sequential-agents/) [ Next  Parallel agents  ](../parallel-agents/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

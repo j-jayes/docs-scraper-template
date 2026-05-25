@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Gemini 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../../..)
   * [ Build Agents ](../../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../../get-started/typescript/)
       * [ Go  ](../../../get-started/go/)
       * [ Java  ](../../../get-started/java/)
+      * [ Kotlin  ](../../../get-started/kotlin/)
+      * [ Installation  ](../../../get-started/installation/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../../visual-builder/)
-      * [ Coding with AI  ](../../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../../get-started/installation/)
+      * [ Code with AI  ](../../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../config/)
     * [ Agents  ](../../)
 
 Agents 
-      * [ LLM agents  ](../../llm-agents/)
-      * [ Workflow agents  ](../../workflow-agents/)
+      * [ Simple agents  ](../../llm-agents/)
+    * [ Graph Workflows  ](../../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../custom-agents/)
-      * [ Multi-agent systems  ](../../multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../../graphs/routes/)
+      * [ Data handling  ](../../../graphs/data-handling/)
+      * [ Human input  ](../../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../../workflows/collaboration/)
+      * [ Template workflows  ](../../workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../custom-agents/)
       * [ Agent routing  ](../../routing/)
-      * [ Agent Config  ](../../config/)
+      * [ Workflow patterns  ](../../../workflows/patterns/)
     * [ Models for Agents  ](../)
 
 Models for Agents 
@@ -88,28 +99,14 @@ Models for Agents
       * [ vLLM  ](../vllm/)
       * [ LiteLLM  ](../litellm/)
       * [ LiteRT-LM  ](../litert-lm/)
-    * [ Tools and Integrations  ](../../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../../tools-custom/performance/)
-        * [ Action confirmations  ](../../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../../tools/limitations/)
-    * [ Skills for Agents  ](../../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../../visual-builder/)
       * [ Command Line  ](../../../runtime/command-line/)
       * [ API Server  ](../../../runtime/api-server/)
       * [ Ambient Agents  ](../../../runtime/ambient-agents/)
@@ -147,38 +144,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../../get-started/about/)
+    * [ Custom Tools  ](../../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../../tools-custom/performance/)
+        * [ Action confirmations  ](../../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../../tools/limitations/)
+    * [ Artifacts  ](../../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../../apps/)
+
+App management 
+      * [ Callbacks  ](../../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../../plugins/)
     * [ Context  ](../../../context/)
 
 Context 
       * [ Context caching  ](../../../context/caching/)
       * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions & Memory  ](../../../sessions/)
+    * [ Sessions and Memory  ](../../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../../sessions/session/migrate/)
       * [ State  ](../../../sessions/state/)
+      * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
-    * [ Callbacks  ](../../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../../events/)
-
-Events 
-    * [ Apps  ](../../../apps/)
-
-Apps 
-    * [ Plugins  ](../../../plugins/)
-
-Plugins 
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -222,6 +229,7 @@ API Reference
       * [ Typescript ADK  ](../../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
+      * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
       * [ Agent Config Reference  ](../../../api-reference/agentconfig/)
       * [ REST API  ](../../../api-reference/rest/)
@@ -233,14 +241,6 @@ Community
   * [ ADK 2.0  ](../../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../../workflows/graph-routes/)
-      * [ Data handling  ](../../../workflows/data-handling/)
-      * [ Human input  ](../../../workflows/human-input/)
-    * [ Collaborative agents  ](../../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../../workflows/dynamic/)
 
 
 
@@ -268,7 +268,7 @@ Table of contents
 
 # Google Gemini models for ADK agents¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.2.0
+Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.2.0Kotlin v0.1.0
 
 ADK supports the Google Gemini family of generative AI models that provide a powerful set of models with a wide range of features. ADK provides support for many Gemini features, including [Code Execution](/integrations/code-execution/), [Google Search](/integrations/google-search/), [Context caching](/context/caching/), [Computer use](/integrations/computer-use/) and the Interactions API.
 
@@ -276,7 +276,7 @@ ADK supports the Google Gemini family of generative AI models that provide a pow
 
 The following code examples show a basic implementation for using Gemini models in your agents:
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.agents import LlmAgent
@@ -337,6 +337,21 @@ PythonTypeScriptGoJava
             .instruction("You are a fast and helpful Gemini assistant.")
             // ... other agent parameters
             .build();
+    
+    
+    
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.models.Gemini
+    
+    // --- Example using a stable Gemini Flash model ---
+    val agentGeminiFlash = LlmAgent(
+        // Use the latest stable Flash model identifier
+        name = "gemini_flash_agent",
+        model = Gemini(name = "gemini-flash-latest"),
+        instruction = Instruction("You are a fast and helpful Gemini assistant."),
+        // ... other agent parameters
+    )
     
 
 Note: Gemini model selector `gemini-flash-latest`
@@ -467,7 +482,7 @@ To mitigate this, you can do one of the following:
 
 There are two ways you can set retry options:
 
-**Option 1:** Set retry options on the Agent as a part of generate_content_config.
+**Option 1:** Set retry options on the Agent as a part of `generate_content_config`.
 
 You would use this option if you are instantiating this model adapter by yourself.
 
@@ -513,7 +528,7 @@ PythonJava
 
 You would use this option if you were instantiating the instance of adapter by yourself.
 
-PythonJava
+PythonJavaKotlin
          
          from google.genai import types
          
@@ -546,6 +561,30 @@ PythonJava
              .build();
          
 
+In Kotlin, you can achieve this by creating the `Client` instance yourself and passing it to the `Gemini` constructor.
+         
+         import com.google.adk.kt.agents.LlmAgent
+         import com.google.adk.kt.models.Gemini
+         import com.google.genai.Client
+         import com.google.genai.types.HttpOptions
+         import com.google.genai.types.HttpRetryOptions
+         
+         val client = Client.builder()
+             .apiKey("YOUR_API_KEY")
+             .httpOptions(HttpOptions.builder()
+                 .retryOptions(HttpRetryOptions.builder().initialDelay(1.0).attempts(2).build())
+                 .build())
+             .build()
+         
+         val model = Gemini(client = client, name = "gemini-flash-latest")
+         
+         val agent = LlmAgent(
+             name = "my_agent",
+             model = model
+             // ...
+         )
+         
+
 
 
 
@@ -557,7 +596,7 @@ The Gemini [Interactions API](https://ai.google.dev/gemini-api/docs/interactions
 
 You can enable the Interactions API by setting the `use_interactions_api=True` parameter in the Gemini model configuration, as shown in the following code snippet:
 
-PythonJava
+Python
     
     
     from google.adk.agents.llm_agent import Agent
@@ -576,47 +615,23 @@ PythonJava
         ],
     )
     
-    
-    
-    import com.google.adk.agents.LlmAgent;
-    import com.google.adk.models.Gemini;
-    import com.google.adk.tools.GoogleSearchTool;
-    
-    // Note: Interactions API support in Java ADK is currently under development.
-    LlmAgent rootAgent = LlmAgent.builder()
-        .model(Gemini.builder()
-            .modelName("gemini-flash-latest")
-            .build())
-        .name("interactions_test_agent")
-        .tools(
-            GoogleSearchTool.INSTANCE, // Search tool
-            getCurrentWeather // Custom function tool
-        )
-        .build();
-    
 
-For a complete code sample, see the [Interactions API sample](https://github.com/google/adk-python/tree/main/contributing/samples/interactions_api).
+For a complete code sample, see the [Interactions API sample](https://github.com/google/adk-python/tree/main/contributing/samples/models/interactions_api).
 
 ### Known limitations¶
 
 The Interactions API **does not** support mixing custom function calling tools with built-in tools, such as the [Google Search](/integrations/google-search/), tool, within the same agent. You can work around this limitation by configuring the the built-in tool to operate as a custom tool using the `bypass_multi_tools_limit` parameter:
 
-PythonJava
+Python
     
     
     # Use bypass_multi_tools_limit=True to convert google_search to a function tool
     GoogleSearchTool(bypass_multi_tools_limit=True)
     
-    
-    
-    // Note: bypassMultiToolsLimit is Python-specific.
-    // In Java, simply use the tool instance.
-    GoogleSearchTool.INSTANCE;
-    
 
-In this example, this option converts the built-in google_search to a function calling tool (via GoogleSearchAgentTool), which allows it to work alongside custom function tools.
+In this example, this option converts the built-in `google_search` to a function calling tool (via `GoogleSearchAgentTool`), which allows it to work alongside custom function tools.
 
-Back to top  [ Previous  AI Models for ADK agents  ](../) [ Next  Gemma  ](../google-gemma/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
