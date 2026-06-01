@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 1.31.0.
+This page contains the auto-generated command-line reference for ADK 2.0.0.
 
   * adk
 
@@ -21,6 +21,8 @@ This page contains the auto-generated command-line reference for ADK 1.31.0.
     * optimize
 
     * run
+
+    * test
 
     * web
 
@@ -244,20 +246,15 @@ the resource id ‘123’.
 
 \- Use ‘memory://’ to force the in-memory memory service.
 
-\--session_db_url <session_db_url>¶
-    
-
-Deprecated. Use –session_service_uri instead.
-
-\--artifact_storage_uri <artifact_storage_uri>¶
-    
-
-Deprecated. Use –artifact_service_uri instead.
-
 \--auto_create_session¶
     
 
 Automatically create a session if it doesn’t exist when calling /run.
+
+\--with_ui¶
+    
+
+Serve ADK Web UI if set.
 
 Arguments
 
@@ -708,16 +705,6 @@ Options:
 
 DEBUG | INFO | WARNING | ERROR | CRITICAL
 
-\--verbosity <verbosity>¶
-    
-
-Deprecated. Use –log_level instead.
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
 \--adk_version <adk_version>¶
     
 
@@ -726,7 +713,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'1.31.0'`
+`'2.0.0'`
 
 \--a2a¶
     
@@ -814,16 +801,6 @@ name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
 the resource id ‘123’.
 
 \- Use ‘memory://’ to force the in-memory memory service.
-
-\--session_db_url <session_db_url>¶
-    
-
-Deprecated. Use –session_service_uri instead.
-
-\--artifact_storage_uri <artifact_storage_uri>¶
-    
-
-Deprecated. Use –artifact_service_uri instead.
 
 Arguments
 
@@ -951,7 +928,7 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'1.31.0'`
+`'2.0.0'`
 
 \--trigger_sources <trigger_sources>¶
     
@@ -1394,18 +1371,18 @@ Required argument
 
 ### run¶
 
-Runs an interactive CLI for a certain agent.
+Runs an agent. If no query is provided, enters interactive mode.
 
-AGENT: The path to the agent source code folder.
+AGENT: The path to the agent source code folder. QUERY: Optional. The user message to send to the agent for a single-step run.
 
 Example:
 
-> adk run path/to/my_agent
+> adk run path/to/my_agent adk run path/to/my_agent “hello”
 
 Usage
     
     
-    adk run [OPTIONS] AGENT
+    adk run [OPTIONS] AGENT [QUERY]
     
 
 Options
@@ -1512,12 +1489,73 @@ The json file that contains the initial state of the session and user queries. A
 
 The json file that contains a previously saved session (by –save_session option). The previous session will be re-displayed. And user can continue to interact with the agent.
 
+\--state <state>¶
+    
+
+Optional. Initial state for the run as a JSON string.
+
+\--timeout <timeout>¶
+    
+
+Optional. Timeout for a single turn or query (e.g., 30s, 5m).
+
+\--in_memory¶
+    
+
+Optional. Do not persist session data (use in-memory storage).
+
+\--jsonl¶
+    
+
+Optional. Output structured JSONL instead of human-readable text.
+
+\--default_llm_model <default_llm_model>¶
+    
+
+Optional. Sets the default LLM model used when the agent does not set a model explicitly.
+
 Arguments
 
 AGENT¶
     
 
 Required argument
+
+QUERY¶
+    
+
+Optional argument
+
+### test¶
+
+Runs pytest on agent test JSON files under the specified folder.
+
+FOLDER: The path to the folder containing agents and tests. Defaults to the current directory if not specified.
+
+Example:
+    
+
+adk test path/to/agents
+
+Usage
+    
+    
+    adk test [OPTIONS] [FOLDER]
+    
+
+Options
+
+\--rebuild¶
+    
+
+Rebuild test files by running the real agent with user messages.
+
+Arguments
+
+FOLDER¶
+    
+
+Optional argument
 
 ### web¶
 
@@ -1729,15 +1767,10 @@ the resource id ‘123’.
 
 \- Use ‘memory://’ to force the in-memory memory service.
 
-\--session_db_url <session_db_url>¶
+\--default_llm_model <default_llm_model>¶
     
 
-Deprecated. Use –session_service_uri instead.
-
-\--artifact_storage_uri <artifact_storage_uri>¶
-    
-
-Deprecated. Use –artifact_service_uri instead.
+Optional. Sets the default LLM model used when the agent does not set a model explicitly.
 
 Arguments
 

@@ -42,7 +42,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"1.2.0"`
+`"1.3.0"`
 
 
 

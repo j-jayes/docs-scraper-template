@@ -60,6 +60,10 @@ com.google.adk.sessions
 
  
 
+com.google.adk.skills
+
+ 
+
 com.google.adk.tools
 
  
@@ -251,6 +255,22 @@ A [`Session`](../sessions/Session.html "class in com.google.adk.sessions") objec
 `[SessionKey](../sessions/SessionKey.html "class in com.google.adk.sessions")`
 
 Key for a session, composed of appName, userId and session id.
+
+  * ## Uses of [JsonBaseModel](../JsonBaseModel.html "class in com.google.adk") in [com.google.adk.skills](../skills/package-summary.html)
+
+Subclasses of [JsonBaseModel](../JsonBaseModel.html "class in com.google.adk") in [com.google.adk.skills](../skills/package-summary.html)
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[Frontmatter](../skills/Frontmatter.html "class in com.google.adk.skills")`
+
+Frontmatter represents the YAML metadata at the top of a SKILL.md file.
 
   * ## Uses of [JsonBaseModel](../JsonBaseModel.html "class in com.google.adk") in [com.google.adk.tools](../tools/package-summary.html)
 

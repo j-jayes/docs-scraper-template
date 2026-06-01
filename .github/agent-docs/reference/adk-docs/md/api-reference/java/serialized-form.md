@@ -79,6 +79,12 @@ class SessionException extends [RuntimeException](https://docs.oracle.com/en/jav
 
 class SessionNotFoundException extends [SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
 
+  * ## Package [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+
+    * ### Exception Class [com.google.adk.skills.SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+
+class SkillSourceException extends [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
+
   * ## Package [com.google.adk.tools.mcp](com/google/adk/tools/mcp/package-summary.html)
 
     * ### Exception Class [com.google.adk.tools.mcp.McpToolException](com/google/adk/tools/mcp/McpToolException.html "class in com.google.adk.tools.mcp")

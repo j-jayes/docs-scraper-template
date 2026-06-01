@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Check out our blog posts for [ ADK Go 1.0 ](https://developers.googleblog.com/adk-go-10-arrives/) and [ ADK Java 1.0 ](https://developers.googleblog.com/announcing-adk-for-java-100-building-the-future-of-ai-agents-in-java/)
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Build a streaming agent 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../typescript/)
       * [ Go  ](../go/)
       * [ Java  ](../java/)
+      * [ Kotlin  ](../kotlin/)
+      * [ Installation  ](../installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,77 +49,77 @@ Build your Agent
 Streaming agent 
         * [ Python  ](quickstart-streaming/)
         * [ Java  ](quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
-      * [ Agent Config  ](../../agents/config/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
+      * [ Agent routing  ](../../agents/routing/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
-      * [ Vertex AI hosted  ](../../agents/models/vertex/)
+      * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
 
 Deployment 
-      * [ Agent Engine  ](../../deploy/agent-engine/)
+      * [ Agent Runtime  ](../../deploy/agent-runtime/)
 
-Agent Engine 
-        * [ Standard deployment  ](../../deploy/agent-engine/deploy/)
-        * [ Agent Starter Pack  ](../../deploy/agent-engine/asp/)
-        * [ Test deployed agents  ](../../deploy/agent-engine/test/)
+Agent Runtime 
+        * [ Standard deployment  ](../../deploy/agent-runtime/deploy/)
+        * [ agents-cli  ](../../deploy/agent-runtime/agents-cli/)
+        * [ Test deployed agents  ](../../deploy/agent-runtime/test/)
       * [ Cloud Run  ](../../deploy/cloud-run/)
       * [ GKE  ](../../deploy/gke/)
     * [ Observability  ](../../observability/)
 
 Observability 
       * [ Logging  ](../../observability/logging/)
+      * [ Metrics  ](../../observability/metrics/)
+      * [ Traces  ](../../observability/traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -131,38 +133,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -194,7 +206,7 @@ Gemini Live API Toolkit
 
 Grounding 
       * [ Google Search Grounding  ](../../grounding/google_search_grounding/)
-      * [ Vertex AI Search Grounding  ](../../grounding/vertex_ai_search_grounding/)
+      * [ Grounding with Search  ](../../grounding/grounding_with_search/)
   * [ Integrations  ](../../integrations/)
 
 Integrations 
@@ -206,6 +218,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -217,14 +230,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -264,7 +269,7 @@ This example demonstrates how to set up a basic streaming interaction with an ag
 
 
 
-Back to top  [ Previous  Agent team  ](../../tutorials/agent-team/) [ Next  Python  ](quickstart-streaming/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

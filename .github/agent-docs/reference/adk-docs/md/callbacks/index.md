@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Callbacks: Observe, Customize, and Control Agent Behavior 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../get-started/typescript/)
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
+      * [ Kotlin  ](../get-started/kotlin/)
+      * [ Installation  ](../get-started/installation/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../visual-builder/)
-      * [ Coding with AI  ](../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../get-started/installation/)
+      * [ Code with AI  ](../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
-      * [ LLM agents  ](../agents/llm-agents/)
-      * [ Workflow agents  ](../agents/workflow-agents/)
+      * [ Simple agents  ](../agents/llm-agents/)
+    * [ Graph Workflows  ](../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../agents/custom-agents/)
-      * [ Multi-agent systems  ](../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../graphs/routes/)
+      * [ Data handling  ](../graphs/data-handling/)
+      * [ Human input  ](../graphs/human-input/)
+      * [ Dynamic workflows  ](../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../workflows/collaboration/)
+      * [ Template workflows  ](../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../agents/custom-agents/)
       * [ Agent routing  ](../agents/routing/)
-      * [ Agent Config  ](../agents/config/)
+      * [ Workflow patterns  ](../workflows/patterns/)
     * [ Models for Agents  ](../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
       * [ LiteRT-LM  ](../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../tools-custom/function-tools/)
-        * [ Tool performance  ](../tools-custom/performance/)
-        * [ Action confirmations  ](../tools-custom/confirmation/)
-      * [ MCP tools  ](../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
-      * [ Authentication  ](../tools-custom/authentication/)
-      * [ Tool limitations  ](../tools/limitations/)
-    * [ Skills for Agents  ](../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../visual-builder/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
@@ -136,38 +133,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../get-started/about/)
+    * [ Custom Tools  ](../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../tools-custom/function-tools/)
+        * [ Tool performance  ](../tools-custom/performance/)
+        * [ Action confirmations  ](../tools-custom/confirmation/)
+      * [ MCP tools  ](../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
+      * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
+    * [ Artifacts  ](../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
+    * [ App management  ](../apps/)
+
+App management 
+      * [ Callbacks  ](./)
+
+Callbacks 
+        * [ Types of callbacks  ](types-of-callbacks/)
+        * [ Callback patterns  ](design-patterns-and-best-practices/)
+      * [ Plugins  ](../plugins/)
     * [ Context  ](../context/)
 
 Context 
       * [ Context caching  ](../context/caching/)
       * [ Context compression  ](../context/compaction/)
-    * [ Sessions & Memory  ](../sessions/)
+    * [ Sessions and Memory  ](../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../sessions/session/rewind/)
         * [ Migrate sessions  ](../sessions/session/migrate/)
       * [ State  ](../sessions/state/)
+      * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
-    * [ Callbacks  ](./)
-
-Callbacks 
-      * [ Types of callbacks  ](types-of-callbacks/)
-      * [ Callback patterns  ](design-patterns-and-best-practices/)
-    * [ Artifacts  ](../artifacts/)
-
-Artifacts 
-    * [ Events  ](../events/)
-
-Events 
-    * [ Apps  ](../apps/)
-
-Apps 
-    * [ Plugins  ](../plugins/)
-
-Plugins 
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -211,6 +218,7 @@ API Reference
       * [ Typescript ADK  ](../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
+      * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
@@ -222,14 +230,6 @@ Community
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../workflows/graph-routes/)
-      * [ Data handling  ](../workflows/data-handling/)
-      * [ Human input  ](../workflows/human-input/)
-    * [ Collaborative agents  ](../workflows/collaboration/)
-    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
@@ -241,13 +241,14 @@ Table of contents
 
   1. [ Home  ](..)
   2. [ Components  ](../get-started/about/)
-  3. [ Callbacks  ](./)
+  3. [ App management  ](../apps/)
+  4. [ Callbacks  ](./)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/callbacks/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/callbacks/index.md "View Markdown source")
 
 # Callbacks: Observe, Customize, and Control Agent Behavior¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 Callbacks are a cornerstone feature of ADK, providing a powerful mechanism to hook into an agent's execution process. They allow you to observe, customize, and even control the agent's behavior at specific, predefined points without modifying the core ADK framework code.
 
@@ -280,7 +281,7 @@ When implementing security guardrails and policies, use ADK Plugins for better m
 
 Code
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     from google.adk.agents import LlmAgent
@@ -438,6 +439,56 @@ PythonTypescriptGoJava
       }
     }
     
+    
+    
+    val agent =
+        LlmAgent(
+            name = "callback_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            beforeAgentCallbacks =
+                listOf(
+                    BeforeAgentCallback { context ->
+                        println("Before Agent Callback triggered")
+                        CallbackChoice.Continue(context.eventActions)
+                    },
+                ),
+            afterAgentCallbacks =
+                listOf(
+                    AfterAgentCallback { context ->
+                        println("After Agent Callback triggered")
+                        CallbackChoice.Continue(Unit)
+                    },
+                ),
+            beforeModelCallbacks =
+                listOf(
+                    BeforeModelCallback { context, request ->
+                        println("Before Model Callback triggered")
+                        CallbackChoice.Continue(request)
+                    },
+                ),
+            afterModelCallbacks =
+                listOf(
+                    AfterModelCallback { context, response ->
+                        println("After Model Callback triggered")
+                        response
+                    },
+                ),
+            beforeToolCallbacks =
+                listOf(
+                    BeforeToolCallback { context, tool, args ->
+                        println("Before Tool Callback triggered for ${tool.name}")
+                        CallbackChoice.Continue(args)
+                    },
+                ),
+            afterToolCallbacks =
+                listOf(
+                    AfterToolCallback { context, tool, args, result ->
+                        println("After Tool Callback triggered for ${tool.name}")
+                        result
+                    },
+                ),
+        )
+    
 
 ## The Callback Mechanism: Interception and Control¶
 
@@ -449,19 +500,19 @@ When the ADK framework encounters a point where a callback can run (e.g., just b
 
   1. **`return None` (Allow Default Behavior):**
 
-     * The specific return type can vary depending on the language. In Java, the equivalent return type is `Optional.empty()`. Refer to the API documentation for language specific guidance.
-     * This is the standard way to signal that your callback has finished its work (e.g., logging, inspection, minor modifications to _mutable_ input arguments like `llm_request`) and that the ADK agent should **proceed with its normal operation**.
-     * For `before_*` callbacks (`before_agent`, `before_model`, `before_tool`), returning `None` means the next step in the sequence (running the agent logic, calling the LLM, executing the tool) will occur.
-     * For `after_*` callbacks (`after_agent`, `after_model`, `after_tool`), returning `None` means the result just produced by the preceding step (the agent's output, the LLM's response, the tool's result) will be used as is.
+     * The specific return type can vary depending on the language. In Java, the equivalent return type is `Optional.empty()`. In Kotlin, it is `CallbackChoice.Continue(value)` (for `before_*` callbacks) or returning the original object (for `after_*` callbacks). Refer to the API documentation for language specific guidance.
+     * This is the standard way to signal that your callback has finished its work (e.g., logging, inspection, minor modifications to input arguments) and that the ADK agent should **proceed with its normal operation**.
+     * For `before_*` callbacks (`before_agent`, `before_model`, `before_tool`), returning `CallbackChoice.Continue(...)` means the next step in the sequence (running the agent logic, calling the LLM, executing the tool) will occur.
+     * For `after_*` callbacks (`after_agent`, `after_model`, `after_tool`), returning the result just produced (the agent's output, the LLM's response, the tool's result) as is means the framework will continue processing.
   2. **`return<Specific Object>` (Override Default Behavior):**
 
-     * Returning a _specific type of object_ (instead of `None`) is how you **override** the ADK agent's default behavior. The framework will use the object you return and _skip_ the step that would normally follow or _replace_ the result that was just generated.
-     * **`before_agent_callback` → `types.Content`**: Skips the agent's main execution logic (`_run_async_impl` / `_run_live_impl`). The returned `Content` object is immediately treated as the agent's final output for this turn. Useful for handling simple requests directly or enforcing access control.
-     * **`before_model_callback` → `LlmResponse`**: Skips the call to the external Large Language Model. The returned `LlmResponse` object is processed as if it were the actual response from the LLM. Ideal for implementing input guardrails, prompt validation, or serving cached responses.
-     * **`before_tool_callback` → `dict` or `Map`**: Skips the execution of the actual tool function (or sub-agent). The returned `dict` is used as the result of the tool call, which is then typically passed back to the LLM. Perfect for validating tool arguments, applying policy restrictions, or returning mocked/cached tool results.
-     * **`after_agent_callback` → `types.Content`**: _Replaces_ the `Content` that the agent's run logic just produced.
+     * Returning a _specific type of object_ (instead of signaling "Continue") is how you **override** the ADK agent's default behavior. In Kotlin, this is achieved by returning `CallbackChoice.Break(value)` (for `before_*` callbacks) or a replacement object (for `after_*` callbacks). The framework will use the object you return and _skip_ the step that would normally follow or _replace_ the result that was just generated.
+     * **`before_agent_callback` → `CallbackChoice.Break(Content)`**: Skips the agent's main execution logic. The returned `Content` object is immediately treated as the agent's final output for this turn. Useful for handling simple requests directly or enforcing access control.
+     * **`before_model_callback` → `CallbackChoice.Break(LlmResponse)`**: Skips the call to the external Large Language Model. The returned `LlmResponse` object is processed as if it were the actual response from the LLM. Ideal for implementing input guardrails, prompt validation, or serving cached responses.
+     * **`before_tool_callback` → `CallbackChoice.Break(Map<String, Any>)`**: Skips the execution of the actual tool function (or sub-agent). The returned `Map` is used as the result of the tool call, which is then typically passed back to the LLM. Perfect for validating tool arguments, applying policy restrictions, or returning mocked/cached tool results.
+     * **`after_agent_callback` → `Content`**: _Replaces_ the `Content` that the agent's run logic just produced.
      * **`after_model_callback` → `LlmResponse`**: _Replaces_ the `LlmResponse` received from the LLM. Useful for sanitizing outputs, adding standard disclaimers, or modifying the LLM's response structure.
-     * **`after_tool_callback` → `dict` or `Map`**: _Replaces_ the `dict` result returned by the tool. Allows for post-processing or standardization of tool outputs before they are sent back to the LLM.
+     * **`after_tool_callback` → `Map<String, Any>`**: _Replaces_ the `Map` result returned by the tool. Allows for post-processing or standardization of tool outputs before they are sent back to the LLM.
 
 
 
@@ -471,7 +522,7 @@ This example demonstrates the common pattern for a guardrail using `before_model
 
 Code
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Copyright 2025 Google LLC
@@ -945,10 +996,37 @@ PythonTypescriptGoJava
       }
     }
     
+    
+    
+    val guardrailCallback =
+        BeforeModelCallback { context, request ->
+            val userQuery = request.contents.lastOrNull()?.parts?.firstOrNull()?.text ?: ""
+    
+            if (userQuery.contains("sensitive info", ignoreCase = true)) {
+                println("Guardrail triggered: Sensitive information requested.")
+                CallbackChoice.Break(
+                    LlmResponse(
+                        content =
+                            Content(
+                                role = Role.MODEL,
+                                parts =
+                                    listOf(
+                                        Part(
+                                            text = "I'm sorry, I cannot provide sensitive information.",
+                                        ),
+                                    ),
+                            ),
+                    ),
+                )
+            } else {
+                CallbackChoice.Continue(request)
+            }
+        }
+    
 
 By understanding this mechanism of returning `None` versus returning specific objects, you can precisely control the agent's execution path, making callbacks an essential tool for building sophisticated and reliable agents with ADK.
 
-Back to top  [ Previous  Memory  ](../sessions/memory/) [ Next  Types of callbacks  ](types-of-callbacks/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

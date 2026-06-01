@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Visual Builder 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../get-started/typescript/)
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
+      * [ Kotlin  ](../get-started/kotlin/)
+      * [ Installation  ](../get-started/installation/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -47,26 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
-      * Visual Builder  [ Visual Builder  ](./) Table of contents 
-        * Get started 
-        * Workflow component support 
-        * Project code output 
-        * Next steps 
-      * [ Coding with AI  ](../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../get-started/installation/)
+      * [ Code with AI  ](../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
-      * [ LLM agents  ](../agents/llm-agents/)
-      * [ Workflow agents  ](../agents/workflow-agents/)
+      * [ Simple agents  ](../agents/llm-agents/)
+    * [ Graph Workflows  ](../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../agents/custom-agents/)
-      * [ Multi-agent systems  ](../agents/multi-agents/)
-      * [ Agent Config  ](../agents/config/)
+Graph Workflows 
+      * [ Graph routes  ](../graphs/routes/)
+      * [ Data handling  ](../graphs/data-handling/)
+      * [ Human input  ](../graphs/human-input/)
+      * [ Dynamic workflows  ](../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../workflows/collaboration/)
+      * [ Template workflows  ](../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../agents/custom-agents/)
+      * [ Agent routing  ](../agents/routing/)
+      * [ Workflow patterns  ](../workflows/patterns/)
     * [ Models for Agents  ](../agents/models/)
 
 Models for Agents 
@@ -75,36 +83,27 @@ Models for Agents
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
       * [ LiteRT-LM  ](../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../tools-custom/function-tools/)
-        * [ Tool performance  ](../tools-custom/performance/)
-        * [ Action confirmations  ](../tools-custom/confirmation/)
-      * [ MCP tools  ](../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
-      * [ Authentication  ](../tools-custom/authentication/)
-      * [ Tool limitations  ](../tools/limitations/)
-    * [ Skills for Agents  ](../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../runtime/web-interface/)
+
+Web Interface 
+        * Visual Builder  [ Visual Builder  ](./) Table of contents 
+          * Create an agent 
+          * Supported components 
+          * Generated project structure 
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
@@ -122,6 +121,8 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
+      * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
 Evaluation 
@@ -135,38 +136,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../get-started/about/)
+    * [ Custom Tools  ](../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../tools-custom/function-tools/)
+        * [ Tool performance  ](../tools-custom/performance/)
+        * [ Action confirmations  ](../tools-custom/confirmation/)
+      * [ MCP tools  ](../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
+      * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
+    * [ Artifacts  ](../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
+    * [ App management  ](../apps/)
+
+App management 
+      * [ Callbacks  ](../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../plugins/)
     * [ Context  ](../context/)
 
 Context 
       * [ Context caching  ](../context/caching/)
       * [ Context compression  ](../context/compaction/)
-    * [ Sessions & Memory  ](../sessions/)
+    * [ Sessions and Memory  ](../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../sessions/session/rewind/)
         * [ Migrate sessions  ](../sessions/session/migrate/)
       * [ State  ](../sessions/state/)
+      * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
-    * [ Callbacks  ](../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../artifacts/)
-
-Artifacts 
-    * [ Events  ](../events/)
-
-Events 
-    * [ Apps  ](../apps/)
-
-Apps 
-    * [ Plugins  ](../plugins/)
-
-Plugins 
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -210,6 +221,7 @@ API Reference
       * [ Typescript ADK  ](../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
+      * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
@@ -221,53 +233,47 @@ Community
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../workflows/graph-routes/)
-      * [ Data handling  ](../workflows/data-handling/)
-      * [ Human input  ](../workflows/human-input/)
-    * [ Collaborative agents  ](../workflows/collaboration/)
-    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
 Table of contents 
 
-  * Get started 
-  * Workflow component support 
-  * Project code output 
-  * Next steps 
+  * Create an agent 
+  * Supported components 
+  * Generated project structure 
 
 
 
   1. [ Home  ](..)
-  2. [ Build Agents  ](../get-started/)
-  3. [ Build your Agent  ](../tutorials/)
+  2. [ Run Agents  ](../runtime/)
+  3. [ Agent Runtime  ](../runtime/)
+  4. [ Web Interface  ](../runtime/web-interface/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/visual-builder/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/visual-builder/index.md "View Markdown source")
 
-# Visual Builder for agents¶
+# Use the Visual Builder¶
 
 Supported in ADKPython v1.18.0Experimental
 
-The ADK Visual Builder is a web-based tool that provides a visual workflow design environment for creating and managing ADK agents. It allows you to design, build, and test your agents in a beginner-friendly graphical interface, and includes an AI-powered assistant to help you build agents.
+The ADK Visual Builder is a feature of the ADK web interface that provides a visual workflow design environment for creating and managing agents. The Visual Builder allows you to design, build, and test agents in a beginner-friendly graphical interface, and includes an AI-powered assistant to help you build agents.
 
 Experimental
 
 The Visual Builder feature is an experimental release. We welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md)!
 
-## Get started¶
+## Create an agent¶
 
-The Visual Builder interface is part of the ADK Web tool user interface. Make sure you have ADK library [installed](/get-started/installation/#python) and then run the ADK Web user interface.
+To use the Visual Builder, start the ADK web interface:
     
     
-    adk web --port 8000
+    adk web
     
+
+Then follow the steps below to create an agent.
 
 Tip: Run from a code development directory
 
-The Visual Builder tool writes project files to new subdirectories located in the directory where you run the ADK Web tool. Make sure you run this command from a developer directory location where you have write access.
+The Visual Builder tool writes project files to new subdirectories located in the directory where you run ADK Web. Make sure you run this command from a developer directory location where you have write access.
 
 **Figure 1:** ADK Web controls to start the Visual Builder tool.
 
@@ -277,7 +283,7 @@ To create an agent with Visual Builder:
   2. Type a name for your agent application and select **Create**.
   3. Edit your agent by doing any of the following:
      * In the left panel, edit agent component values.
-     * In the central panel, add new agent components .
+     * In the central panel, add new agent components.
      * In the right panel, use prompts to modify the agent or get help.
   4. In bottom left corner, select **Save** to save your agent.
   5. Interact with your new agent to test it.
@@ -285,15 +291,20 @@ To create an agent with Visual Builder:
 
 
 
-Here are few things to note when using Visual Builder:
+Here are a few things to note when using Visual Builder:
 
   * **Create agent and save:** When creating an agent, make sure you select **Save** before exiting the editing interface, otherwise your new agent may not be editable.
   * **Agent editing:** Edit (pencil icon) for agents is _only_ available for agents created with Visual Builder
   * **Add tools:** When adding existing custom Tools to a Visual Builder agent, specify a fully-qualified Python function name.
 
+Try this prompt with the Visual Builder assistant
+    
+    
+    Help me add a dice roll tool to my current agent.
+    Use the default model if you need to configure that.
+    
 
-
-## Workflow component support¶
+## Supported components¶
 
 The Visual Builder tool provides a drag-and-drop user interface for constructing agents, as well as an AI-powered development Assistant that can answer questions and edit your agent workflow. The tool supports all the essential components for building an ADK agent workflow, including:
 
@@ -313,9 +324,9 @@ The Visual Builder tool provides a drag-and-drop user interface for constructing
 
 Some advanced ADK features are not supported by Visual Builder due to limitations of the Agent Config feature. For more information, see the Agent Config [Known limitations](/agents/config/#known-limitations).
 
-## Project code output¶
+## Generated project structure¶
 
-The Visual Builder tool generates code in the [Agent Config](/agents/config/) format, using `.yaml` configuration files for agents and Python code for custom tools. These files are generated in a subfolder of the directory where you ran the ADK Web interface. The following listing shows an example layout for a DiceAgent project:
+The Visual Builder tool generates code in the [Agent Config](/agents/config/) format, using `.yaml` configuration files for agents and Python code for custom tools. These files are generated in a subfolder of the directory where you ran the ADK web interface. The following listing shows an example layout for a DiceAgent project:
     
     
     DiceAgent/
@@ -330,23 +341,9 @@ Editing generated agents
 
 You can edit the generated files in your development environment. However, some changes may not be compatible with Visual Builder.
 
-## Next steps¶
+For more information on the Agent Config code format used by Visual Builder, see [Agent Config](/agents/config/) and [Agent Config YAML schema](/api-reference/agentconfig/).
 
-Using the Visual Builder development Assistant, try building a new agent using this prompt:
-    
-    
-    Help me add a dice roll tool to my current agent.
-    Use the default model if you need to configure that.
-    
-
-Check out more information on the Agent Config code format used by Visual Builder and the available options:
-
-  * [Agent Config](/agents/config/)
-  * [Agent Config YAML schema](/api-reference/agentconfig/)
-
-
-
-Back to top  [ Previous  Java  ](../get-started/streaming/quickstart-streaming-java/) [ Next  Coding with AI  ](../tutorials/coding-with-ai/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Multi-tool agent 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../)
 
 Build your Agent 
@@ -51,11 +53,13 @@ Build your Agent
           * .env 
           * agent.ts 
           * .env 
-          * Create MultiToolAgent.java 
           * agent.go 
           * .env 
+          * Create MultiToolAgent.java 
+          * Create MultiToolAgent.kt 
         * 3\. Set up the model 
         * 4\. Run Your Agent 
+          * Run your Agent 
           * 📝 Example prompts to try 
         * 🎉 Congratulations! 
         * 🛣️ Next steps 
@@ -65,23 +69,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
       * [ Agent routing  ](../../agents/routing/)
-      * [ Agent Config  ](../../agents/config/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
@@ -95,28 +108,14 @@ Models for Agents
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -154,38 +153,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -229,6 +238,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -240,14 +250,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -263,11 +265,13 @@ Table of contents
     * .env 
     * agent.ts 
     * .env 
-    * Create MultiToolAgent.java 
     * agent.go 
     * .env 
+    * Create MultiToolAgent.java 
+    * Create MultiToolAgent.kt 
   * 3\. Set up the model 
   * 4\. Run Your Agent 
+    * Run your Agent 
     * 📝 Example prompts to try 
   * 🎉 Congratulations! 
   * 🛣️ Next steps 
@@ -282,13 +286,15 @@ Table of contents
 
 # Build a multi-tool agent¶
 
-This quickstart guides you through installing the Agent Development Kit (ADK), setting up a basic agent with multiple tools, and running it locally either in the terminal or in the interactive, browser-based dev UI.
+Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
+
+This quickstart guides you through installing Agent Development Kit (ADK), setting up a basic agent with multiple tools, and running it locally either in the terminal or in the interactive, browser-based dev UI.
 
 This quickstart assumes a local IDE (VS Code, PyCharm, IntelliJ IDEA, etc.) with Python 3.10+ or Java 17+ and terminal access. This method runs the application entirely on your machine and is recommended for internal development.
 
 ## 1\. Set up Environment & Install ADK¶
 
-PythonTypeScriptJavaGo
+PythonTypeScriptGoJavaKotlin
 
 Create & Activate Virtual Environment (Recommended):
     
@@ -336,8 +342,6 @@ tsconfig.json
     }
     
 
-To install ADK and setup the environment, proceed to the following steps.
-
 ## Create a new Go module¶
 
 If you are starting a new project, you can create a new Go module:
@@ -358,11 +362,15 @@ To add the ADK to your project, run the following command:
 
 This will add the ADK as a dependency to your `go.mod` file.
 
+To install ADK Java and set up the environment, see the [Java Quickstart](/get-started/java/).
+
+To install ADK Kotlin and set up the environment, see the [Kotlin Quickstart](/get-started/kotlin/).
+
 ## 2\. Create Agent Project¶
 
 ### Project structure¶
 
-PythonTypeScriptJavaGo
+PythonTypeScriptGoJavaKotlin
 
 You will need to create the following project structure:
     
@@ -622,6 +630,104 @@ OS X & LinuxWindows
 
 More instructions about this file are described in the next section on Set up the model.
 
+You will need to create the following project structure:
+    
+    
+    my-adk-agent/
+        agent.go
+        .env
+        go.mod
+    
+
+### `agent.go`¶
+
+Create an `agent.go` file in your project folder:
+
+OS X & LinuxWindows
+    
+    
+    touch agent.go
+    
+    
+    
+    type nul > agent.go
+    
+
+Copy and paste the following code into `agent.go`:
+
+agent.go
+    
+    
+    package main
+    
+    import (
+        "context"
+        "log"
+        "os"
+    
+        "google.golang.org/genai"
+    
+        "google.golang.org/adk/agent"
+        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/cmd/launcher"
+        "google.golang.org/adk/cmd/launcher/full"
+        "google.golang.org/adk/model/gemini"
+        "google.golang.org/adk/tool"
+        "google.golang.org/adk/tool/geminitool"
+    )
+    
+    func main() {
+        ctx := context.Background()
+    
+        // 1. Setup the model.
+        // Note: Authentication is handled via GOOGLE_API_KEY environment variable.
+        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+            APIKey: os.Getenv("GOOGLE_API_KEY"),
+        })
+        if err != nil {
+            log.Fatalf("Failed to create model: %v", err)
+        }
+    
+        // 2. Define the agent.
+        a, err := llmagent.New(llmagent.Config{
+            Name:        "multi_tool_agent",
+            Model:       model,
+            Description: "An agent that can answer questions using Google Search.",
+            Instruction: "You are a helpful assistant. Use the available tools to answer questions.",
+            Tools: []tool.Tool{
+                geminitool.GoogleSearch{},
+            },
+        })
+        if err != nil {
+            log.Fatalf("Failed to create agent: %v", err)
+        }
+    
+        // 3. Configure the launcher and run.
+        config := &launcher.Config{
+            AgentLoader: agent.NewSingleLoader(a),
+        }
+    
+        l := full.NewLauncher()
+        if err = l.Execute(ctx, config, os.Args[1:]); err != nil {
+            log.Fatalf("Run failed: %v\n\n%s", err, l.CommandLineSyntax())
+        }
+    }
+    
+
+### `.env`¶
+
+Create a `.env` file in the same folder:
+
+OS X & LinuxWindows
+    
+    
+    touch .env
+    
+    
+    
+    type nul > .env
+    
+
 Java projects generally feature the following project structure:
     
     
@@ -767,102 +873,152 @@ agents/multitool/MultiToolAgent.java
     }
     
 
-You will need to create the following project structure:
+Kotlin projects generally feature the following project structure:
     
     
-    my-adk-agent/
-        agent.go
-        .env
-        go.mod
-    
-
-### `agent.go`¶
-
-Create an `agent.go` file in your project folder:
-
-OS X & LinuxWindows
-    
-    
-    touch agent.go
-    
-    
-    
-    type nul > agent.go
+    project_folder/
+    ├── build.gradle.kts
+    ├── src/
+    ├── └── main/
+    │       └── kotlin/
+    │           └── agents/
+    │               └── multitool/
     
 
-Copy and paste the following code into `agent.go`:
+### Create `MultiToolAgent.kt`¶
 
-agent.go
+Create a `MultiToolAgent.kt` source file in the `src/main/kotlin/agents/multitool/` directory.
+
+Copy and paste the following code into `MultiToolAgent.kt`:
+
+src/main/kotlin/agents/multitool/MultiToolAgent.kt
     
     
-    package main
+    package agents.multitool
     
-    import (
-        "context"
-        "log"
-        "os"
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.runners.InMemoryRunner
+    import com.google.adk.kt.sessions.InMemorySessionService
+    import com.google.adk.kt.sessions.SessionKey
+    import com.google.adk.kt.types.Content
+    import com.google.adk.kt.types.Part
+    import com.google.adk.kt.types.Role
+    import kotlinx.coroutines.flow.toList
+    import kotlinx.coroutines.runBlocking
+    import java.text.Normalizer
+    import java.time.ZoneId
+    import java.time.ZonedDateTime
+    import java.time.format.DateTimeFormatter
+    import java.util.Scanner
     
-        "google.golang.org/genai"
+    class MultiToolService {
+        @Tool
+        fun getCurrentTime(
+            @Param("The name of the city for which to retrieve the current time") city: String,
+        ): Map<String, String> {
+            val normalizedCity =
+                Normalizer.normalize(city, Normalizer.Form.NFD)
+                    .trim()
+                    .lowercase()
+                    .replace(Regex("(\\p{IsM}+|\\p{IsP}+)"), "")
+                    .replace(Regex("\\s+"), "_")
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/cmd/launcher"
-        "google.golang.org/adk/cmd/launcher/full"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/geminitool"
-    )
+            val zoneId =
+                ZoneId.getAvailableZoneIds()
+                    .firstOrNull { it.lowercase().endsWith("/$normalizedCity") }
     
-    func main() {
-        ctx := context.Background()
-    
-        // 1. Setup the model.
-        // Note: Authentication is handled via GOOGLE_API_KEY environment variable.
-        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
-            APIKey: os.Getenv("GOOGLE_API_KEY"),
-        })
-        if err != nil {
-            log.Fatalf("Failed to create model: %v", err)
+            return if (zoneId != null) {
+                val time =
+                    ZonedDateTime.now(ZoneId.of(zoneId))
+                        .format(DateTimeFormatter.ofPattern("HH:mm"))
+                mapOf(
+                    "status" to "success",
+                    "report" to "The current time in $city is $time.",
+                )
+            } else {
+                mapOf(
+                    "status" to "error",
+                    "report" to "Sorry, I don't have timezone information for $city.",
+                )
+            }
         }
     
-        // 2. Define the agent.
-        a, err := llmagent.New(llmagent.Config{
-            Name:        "multi_tool_agent",
-            Model:       model,
-            Description: "An agent that can answer questions using Google Search.",
-            Instruction: "You are a helpful assistant. Use the available tools to answer questions.",
-            Tools: []tool.Tool{
-                geminitool.GoogleSearch{},
-            },
-        })
-        if err != nil {
-            log.Fatalf("Failed to create agent: %v", err)
-        }
-    
-        // 3. Configure the launcher and run.
-        config := &launcher.Config{
-            AgentLoader: agent.NewSingleLoader(a),
-        }
-    
-        l := full.NewLauncher()
-        if err = l.Execute(ctx, config, os.Args[1:]); err != nil {
-            log.Fatalf("Run failed: %v\n\n%s", err, l.CommandLineSyntax())
+        @Tool
+        fun getWeather(
+            @Param("The name of the city for which to retrieve the weather report") city: String,
+        ): Map<String, String> {
+            return if (city.lowercase() == "new york") {
+                mapOf(
+                    "status" to "success",
+                    "report" to "The weather in New York is sunny with a temperature of " +
+                        "25 degrees Celsius (77 degrees Fahrenheit).",
+                )
+            } else {
+                mapOf(
+                    "status" to "error",
+                    "report" to "Weather information for $city is not available.",
+                )
+            }
         }
     }
     
-
-### `.env`¶
-
-Create a `.env` file in the same folder:
-
-OS X & LinuxWindows
+    fun main() =
+        runBlocking {
+            val model = Gemini(name = "gemini-flash-latest")
     
+            val agent =
+                LlmAgent(
+                    name = "multi_tool_agent",
+                    model = model,
+                    description = "Agent to answer questions about the time and weather in a city.",
+                    instruction =
+                        Instruction(
+                            "You are a helpful agent who can answer user questions about the " +
+                                "time and weather in a city.",
+                        ),
+                    tools = MultiToolService().generatedTools(),
+                )
     
-    touch .env
+            val sessionService = InMemorySessionService()
+            val runner =
+                InMemoryRunner(
+                    agent = agent,
+                    appName = "multi_tool_app",
+                    sessionService = sessionService,
+                )
     
+            val userId = "student"
+            val sessionId = "session_1"
     
+            sessionService.createSession(SessionKey("multi_tool_app", userId, sessionId))
     
-    type nul > .env
+            val scanner = Scanner(System.`in`)
+            while (true) {
+                print("\nYou > ")
+                val userInput = scanner.nextLine()
+                if (userInput.lowercase() == "quit") break
+    
+                val userContent = Content(role = Role.USER, parts = listOf(Part(text = userInput)))
+                val events =
+                    runner.runAsync(
+                        userId = userId,
+                        sessionId = sessionId,
+                        newMessage = userContent,
+                    ).toList()
+    
+                print("\nAgent > ")
+                for (event in events) {
+                    event.content?.parts?.forEach { part ->
+                        part.text?.let { print(it) }
+                    }
+                }
+                println()
+            }
+        }
     
 
 ## 3\. Set up the model¶
@@ -995,7 +1151,7 @@ terminal
 
 ## 4\. Run Your Agent¶
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
 
 Using the terminal, navigate to the parent directory of your agent project (e.g. using `cd ..`):
     
@@ -1249,6 +1405,29 @@ Finally, on the command-line, run the following command:
     gradle runAgent
     
 
+Using the terminal, navigate to your agent project directory:
+    
+    
+    project_folder/                <-- navigate to this directory
+    ├── build.gradle.kts
+    ├── src/
+    ├── └── main/
+    │       └── kotlin/
+    │           └── agents/
+    │               └── multitool/
+    │                   └── MultiToolAgent.kt
+    
+
+### Run your Agent¶
+
+You can run the `main()` method of your Kotlin class using Gradle:
+    
+    
+    ./gradlew run
+    
+
+Or if you are using IntelliJ IDEA, you can just click the green run arrow next to the `main()` function.
+
 ### 📝 Example prompts to try¶
 
   * What is the weather in New York?
@@ -1272,7 +1451,7 @@ You've successfully created and interacted with your first agent using ADK!
 
 
 
-Back to top  [ Previous  Build your agent with ADK  ](../) [ Next  Agent team  ](../agent-team/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

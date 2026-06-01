@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Memory 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
       * [ Agent routing  ](../../agents/routing/)
-      * [ Agent Config  ](../../agents/config/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -136,20 +133,47 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../)
+    * [ Sessions and Memory  ](../)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../session/)
 
 Sessions 
         * [ Rewind sessions  ](../session/rewind/)
         * [ Migrate sessions  ](../session/migrate/)
       * [ State  ](../state/)
+      * [ Events  ](../../events/)
       * Memory  [ Memory  ](./) Table of contents 
         * The MemoryService Role 
         * Choosing the Right Memory Service 
@@ -165,23 +189,6 @@ Sessions
           * How Memory Works in Practice 
           * Can an agent have access to more than one memory service? 
             * Example: Using Two Memory Services 
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -225,6 +232,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -236,14 +244,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -268,13 +268,13 @@ Table of contents
 
   1. [ Home  ](../..)
   2. [ Components  ](../../get-started/about/)
-  3. [ Sessions & Memory  ](../)
+  3. [ Sessions and Memory  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/memory.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/memory.md "View Markdown source")
 
 # Memory: Long-Term Knowledge with `MemoryService`¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 We've seen how `Session` tracks the history (`events`) and temporary data (`state`) for a _single, ongoing conversation_. But what if an agent needs to recall information from _past_ conversations? This is where the concept of **Long-Term Knowledge** and the **`MemoryService`** come into play.
 
@@ -318,7 +318,7 @@ The Python ADK ships three `MemoryService` implementations. Use the table below 
 
 The `InMemoryMemoryService` stores session information in the application's memory and performs basic keyword matching for searches. It requires no setup and is best for prototyping and simple testing scenarios where persistence isn't required.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.memory import InMemoryMemoryService
@@ -346,12 +346,18 @@ PythonTypeScriptGoJava
     
     InMemoryMemoryService memoryService = new InMemoryMemoryService();
     
+    
+    
+    fun instantiateMemoryService() {
+        val memoryService = InMemoryMemoryService()
+    }
+    
 
 **Example: Adding and Searching Memory**
 
 This example demonstrates the basic flow using the `InMemoryMemoryService` for simplicity.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     import asyncio
@@ -707,100 +713,114 @@ PythonTypeScriptGoJava
     
     
     package com.google.adk.examples.sessions;
+    ...
     
-    import com.google.adk.agents.LlmAgent;
-    import com.google.adk.memory.InMemoryMemoryService;
-    import com.google.adk.runner.Runner;
-    import com.google.adk.sessions.InMemorySessionService;
-    import com.google.adk.sessions.Session;
-    import com.google.adk.tools.LoadMemoryTool;
-    import com.google.genai.types.Content;
-    import com.google.genai.types.Part;
-    import java.util.Optional;
     
-    public class MemoryExample {
     
-      private static final String APP_NAME = "memory_example_app";
-      private static final String USER_ID = "mem_user";
-      private static final String MODEL = "gemini-flash-latest";
+    fun main() =
+        runBlocking {
+            // --- Constants ---
+            val appName = "memory_example_app"
+            val userId = "mem_user"
+            val model = Gemini(name = "gemini-flash-latest")
     
-      public static void main(String[] args) {
-        // Services
-        InMemorySessionService sessionService = new InMemorySessionService();
-        InMemoryMemoryService memoryService = new InMemoryMemoryService();
+            // --- Agent Definitions ---
     
-        // Agent 1: Capture
-        LlmAgent infoCaptureAgent = new LlmAgent.Builder()
-            .model(MODEL)
-            .name("InfoCaptureAgent")
-            .instruction("Acknowledge the user's statement.")
-            .build();
+            // Agent 1: Simple agent to capture information
+            val infoCaptureAgent =
+                LlmAgent(
+                    name = "InfoCaptureAgent",
+                    model = model,
+                    instruction = Instruction("Acknowledge the user's statement."),
+                )
     
-        // Agent 2: Recall
-        LlmAgent memoryRecallAgent = new LlmAgent.Builder()
-            .model(MODEL)
-            .name("MemoryRecallAgent")
-            .instruction("Answer the user's question. Use the 'load_memory' tool if the answer might be in past conversations.")
-            .tools(new LoadMemoryTool())
-            .build();
+            // Agent 2: Agent that can use memory
+            val memoryRecallAgent =
+                LlmAgent(
+                    name = "MemoryRecallAgent",
+                    model = model,
+                    instruction =
+                        Instruction(
+                            "Answer the user's question. Use the 'load_memory' tool " +
+                                "if the answer might be in past conversations.",
+                        ),
+                    tools = listOf(LoadMemoryTool()), // Give the agent the tool
+                )
     
-        // Turn 1
-        System.out.println("--- Turn 1: Capturing Information ---");
-        Runner runner1 = new Runner.Builder()
-            .agent(infoCaptureAgent)
-            .appName(APP_NAME)
-            .sessionService(sessionService)
-            .memoryService(memoryService)
-            .build();
+            // --- Services ---
+            // Services must be shared across runners to share state and memory
+            val sessionService = InMemorySessionService()
+            val memoryService = InMemoryMemoryService()
     
-        String session1Id = "session_info";
-        // Create session
-        sessionService.createSession(APP_NAME, USER_ID, null, session1Id).blockingGet();
+            // --- Turn 1: Capturing Information ---
+            println("--- Turn 1: Capturing Information ---")
+            val runner1 =
+                InMemoryRunner(
+                    agent = infoCaptureAgent,
+                    appName = appName,
+                    sessionService = sessionService,
+                    memoryService = memoryService,
+                )
+            val sessionId1 = "session_info"
+            val userInput1 = Content.fromText(Role.USER, "My favorite project is Project Alpha.")
     
-        Content userInput1 = Content.fromParts(Part.fromText("My favorite project is Project Alpha."));
+            // Run the agent
+            runner1
+                .runAsync(
+                    userId = userId,
+                    sessionId = sessionId1,
+                    newMessage = userInput1,
+                ).collect { event ->
+                    event.content?.parts?.forEach { part ->
+                        if (!part.text.isNullOrBlank()) {
+                            println("Agent Response: ${part.text}")
+                        }
+                    }
+                }
     
-        runner1.runAsync(USER_ID, session1Id, userInput1)
-            .blockingForEach(event -> {
-               if (event.finalResponse() && event.content().isPresent()) {
-                 System.out.println("Agent 1 Response: " + event.content().get().parts().get(0).text().get());
-               }
-            });
+            // Get the completed session using SessionKey
+            val session1 = sessionService.getSession(SessionKey(appName, userId, sessionId1))
     
-        // Add to memory
-        System.out.println("\n--- Adding Session 1 to Memory ---");
-        Session completedSession1 = sessionService.getSession(APP_NAME, USER_ID, session1Id, Optional.empty()).blockingGet();
-        memoryService.addSessionToMemory(completedSession1).blockingAwait();
-        System.out.println("Session added to memory.");
+            // Add this session's content to the Memory Service
+            println("\n--- Adding Session 1 to Memory ---")
+            if (session1 != null) {
+                memoryService.addSessionToMemory(session1)
+                println("Session added to memory.")
+            }
     
-        // Turn 2
-        System.out.println("\n--- Turn 2: Recalling Information ---");
-        Runner runner2 = new Runner.Builder()
-            .agent(memoryRecallAgent)
-            .appName(APP_NAME)
-            .sessionService(sessionService)
-            .memoryService(memoryService)
-            .build();
+            // --- Turn 2: Recalling Information ---
+            println("\n--- Turn 2: Recalling Information ---")
+            val runner2 =
+                InMemoryRunner(
+                    agent = memoryRecallAgent,
+                    appName = appName,
+                    sessionService = sessionService, // Reuse the same service
+                    memoryService = memoryService, // Reuse the same service
+                )
+            val sessionId2 = "session_recall"
+            val userInput2 = Content.fromText(Role.USER, "What is my favorite project?")
     
-        String session2Id = "session_recall";
-        sessionService.createSession(APP_NAME, USER_ID, null, session2Id).blockingGet();
-    
-        Content userInput2 = Content.fromParts(Part.fromText("What is my favorite project?"));
-    
-        runner2.runAsync(USER_ID, session2Id, userInput2)
-            .blockingForEach(event -> {
-               if (event.finalResponse() && event.content().isPresent()) {
-                 System.out.println("Agent 2 Response: " + event.content().get().parts().get(0).text().get());
-               }
-            });
-      }
-    }
+            // Run the second agent
+            runner2
+                .runAsync(
+                    userId = userId,
+                    sessionId = sessionId2,
+                    newMessage = userInput2,
+                ).collect { event ->
+                    event.content?.parts?.forEach { part ->
+                        if (!part.text.isNullOrBlank()) {
+                            println("Agent Response: ${part.text}")
+                        }
+                    }
+                }
+        }
     
 
 ### Searching Memory Within a Tool¶
 
 You can also search memory from within a custom tool by using the tool context.
 
-PythonGoTypeScriptJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.tools import ToolContext
@@ -817,6 +837,18 @@ PythonGoTypeScriptJava
                 if part.text
             ]
         }
+    
+    
+    
+    // Within a tool implementation
+    async runAsync({ args, toolContext }: RunAsyncToolRequest) {
+      const query = args['query'] as string;
+      const response = await toolContext.searchMemory(query);
+      // process response
+      return {
+        memories: response.memories.map(m => m.content.parts?.map(p => p.text).join(' ')).join('\n')
+      };
+    }
     
     
     
@@ -852,18 +884,6 @@ PythonGoTypeScriptJava
     
     
     // Within a tool implementation
-    async runAsync({ args, toolContext }: RunAsyncToolRequest) {
-      const query = args['query'] as string;
-      const response = await toolContext.searchMemory(query);
-      // process response
-      return {
-        memories: response.memories.map(m => m.content.parts?.map(p => p.text).join(' ')).join('\n')
-      };
-    }
-    
-    
-    
-    // Within a tool implementation
     public Single<ToolOutput> execute(ToolContext context) {
       String query = ...; // get query from arguments
       return context.searchMemory(query)
@@ -871,6 +891,25 @@ PythonGoTypeScriptJava
               // process response
               return new ToolOutput(response.memories().toString());
           });
+    }
+    
+    
+    
+    suspend fun searchWithinTool(
+        context: ToolContext,
+        args: Map<String, Any>,
+    ): String {
+        val query = args["query"] as String
+        val response =
+            context.invocationContext.memoryService?.searchMemory(
+                appName = context.invocationContext.session.key.appName,
+                userId = context.invocationContext.session.key.userId,
+                query = query,
+            )
+        // process response
+        return response?.memories?.joinToString("\n") {
+            it.content.parts.joinToString(" ") { p -> p.text ?: "" }
+        } ?: ""
     }
     
 
@@ -966,7 +1005,7 @@ When a memory service is configured, your agent can use a tool or callback to re
 
 **Example:**
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.agents import Agent
@@ -1017,10 +1056,22 @@ PythonTypeScriptGoJava
         .tools(new LoadMemoryTool())
         .build();
     
+    
+    
+    fun preloadMemoryAgent(model: Gemini) {
+        val agent =
+            LlmAgent(
+                model = model,
+                name = "weather_sentiment_agent",
+                instruction = Instruction("..."),
+                tools = listOf(PreloadMemoryTool()),
+            )
+    }
+    
 
 To extract memories from your session, you need to call `add_session_to_memory`. For example, you can automate this via a callback:
 
-PythonTypeScriptGo
+PythonTypeScriptGoKotlin
     
     
     from google.adk.agents import Agent
@@ -1083,6 +1134,26 @@ PythonTypeScriptGo
         AfterAgentCallbacks: []agent.AfterAgentCallback{autoSaveSessionToMemoryCallback},
     })
     
+    
+    
+    suspend fun autoSaveSessionToMemoryCallback(
+        context: CallbackContext,
+    ): CallbackChoice<Unit, Content> {
+        context.addSessionToMemory()
+        return CallbackChoice.Continue(Unit)
+    }
+    
+    fun agentWithCallback(model: Gemini) {
+        val agent =
+            LlmAgent(
+                model = model,
+                name = "Generic_QA_Agent",
+                instruction = Instruction("Answer the user's questions"),
+                tools = listOf(PreloadMemoryTool()),
+                afterAgentCallbacks = listOf(AfterAgentCallback(::autoSaveSessionToMemoryCallback)),
+            )
+    }
+    
 
 ## Advanced Concepts¶
 
@@ -1113,7 +1184,7 @@ For example, your agent can use the framework-configured `InMemoryMemoryService`
 
 #### Example: Using Two Memory Services¶
 
-Python
+PythonKotlin
     
     
     from google.adk.agents import Agent
@@ -1156,8 +1227,66 @@ Python
         tools=[search_all_memory],
     )
     
+    
+    
+    /**
+     * Example of using two memory services in Kotlin.
+     */
+    suspend fun searchAllMemory(
+        toolContext: ToolContext,
+        query: String,
+        docsMemory: InMemoryMemoryService,
+    ): Map<String, List<String>> {
+        // Search the conversational memory (configured in the runner)
+        val conversational =
+            toolContext.invocationContext.memoryService?.searchMemory(
+                appName = toolContext.invocationContext.session.key.appName,
+                userId = toolContext.invocationContext.session.key.userId,
+                query = query,
+            )
+    
+        // Search a separate docs knowledge base
+        val docs =
+            docsMemory.searchMemory(
+                appName = "docs",
+                userId = "shared",
+                query = query,
+            )
+    
+        return mapOf(
+            "from_conversations" to
+                (
+                    conversational?.memories?.map {
+                        it.content.parts.joinToString(" ") { p -> p.text ?: "" }
+                    } ?: emptyList()
+                ),
+            "from_docs" to
+                docs.memories.map {
+                    it.content.parts.joinToString(" ") { p -> p.text ?: "" }
+                },
+        )
+    }
+    
+    fun multiMemoryAgent(model: Gemini) {
+        // docs_memory could be any MemoryService implementation
+        val docsMemory = InMemoryMemoryService()
+    
+        val agent =
+            LlmAgent(
+                model = model,
+                name = "multi_memory_agent",
+                instruction =
+                    Instruction(
+                        "Answer questions using both your conversation history and the " +
+                            "docs knowledge base. Use the search_all_memory tool.",
+                    ),
+                // In a real app, you'd wrap searchAllMemory in a @Tool annotated class
+                // and pass docsMemory to its constructor.
+            )
+    }
+    
 
-Back to top  [ Previous  State  ](../state/) [ Next  Callbacks: Observe, Customize, and Control Agent Behavior  ](../../callbacks/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

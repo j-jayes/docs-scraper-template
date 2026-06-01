@@ -78,6 +78,18 @@ Base class for MCP tools.
 
 [AbstractMcpTool(McpSchema.Tool, T, McpSessionManager, ObjectMapper)](com/google/adk/tools/mcp/AbstractMcpTool.html#%3Cinit%3E\(io.modelcontextprotocol.spec.McpSchema.Tool,T,com.google.adk.tools.mcp.McpSessionManager,com.fasterxml.jackson.databind.ObjectMapper\)) \- Constructor for class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
+[AbstractSkillSource<PathT>](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Abstract base class for SkillSource implementations that load skills from path like object.
+
+[AbstractSkillSource()](com/google/adk/skills/AbstractSkillSource.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+     
+[AbstractSkillSource.SkillMdPath](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+A container class that holds a skill's name and the path to its SKILL.md file.
+
 [actionRequest(String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#actionRequest\(java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [actionResponse(String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#actionResponse\(java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
@@ -129,6 +141,12 @@ Provides ADK components that are part of core.
 
 Adds the processed file name to the session state.
 
+[addResource(String, byte[])](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#addResource\(java.lang.String,byte%5B%5D\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+     
+[addResource(String, ByteSource)](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#addResource\(java.lang.String,com.google.common.io.ByteSource\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+     
+[addResource(String, String)](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#addResource\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+     
 [addResourceHandlers(ResourceHandlerRegistry)](com/google/adk/web/AdkWebServer.html#addResourceHandlers\(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry\)) \- Method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
     
 
@@ -523,6 +541,13 @@ AgentTool implements a tool that allows an agent to call another agent.
 
 Returns the value of the `allowCredentials` record component.
 
+[allowedTools()](com/google/adk/skills/Frontmatter.html#allowedTools\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+    
+
+A space-delimited list of tools that are pre-approved to run.
+
+[allowedTools(String)](com/google/adk/skills/Frontmatter.Builder.html#allowedTools\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+     
 [annotations()](com/google/adk/tools/mcp/AbstractMcpTool.html#annotations\(\)) \- Method in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
 [Annotations](com/google/adk/tools/Annotations.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
@@ -733,6 +758,11 @@ A* forward search strategy that explores from preconditions toward the goal, act
      
 [attachCurrentSpan()](com/google/adk/plugins/agentanalytics/TraceManager.html#attachCurrentSpan\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
      
+[audio](com/google/adk/models/chat/ChatCompletionsRequest.html#audio) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20audio%20%3E%20(schema)
+
 [AUTH_ERROR](com/google/adk/models/springai/error/SpringAIErrorMapper.ErrorCategory.html#AUTH_ERROR) \- Enum constant in enum class com.google.adk.models.springai.error.[SpringAIErrorMapper.ErrorCategory](com/google/adk/models/springai/error/SpringAIErrorMapper.ErrorCategory.html "enum class in com.google.adk.models.springai.error")
     
 
@@ -1249,6 +1279,15 @@ Builds the [`Gemini`](com/google/adk/models/Gemini.html "class in com.google.adk
      
 [build()](com/google/adk/sessions/Session.Builder.html#build\(\)) \- Method in class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
      
+[build()](com/google/adk/skills/Frontmatter.Builder.html#build\(\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+     
+[build()](com/google/adk/skills/InMemorySkillSource.Builder.html#build\(\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder](com/google/adk/skills/InMemorySkillSource.Builder.html "class in com.google.adk.skills")
+     
+[build()](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#build\(\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+    
+
+Builds the [`InMemorySkillSource`](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills") containing all configured skills.
+
 [build()](com/google/adk/summarizer/EventsCompactionConfig.Builder.html#build\(\)) \- Method in class com.google.adk.summarizer.[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
      
 [build()](com/google/adk/tools/computeruse/ComputerState.Builder.html#build\(\)) \- Method in class com.google.adk.tools.computeruse.[ComputerState.Builder](com/google/adk/tools/computeruse/ComputerState.Builder.html "class in com.google.adk.tools.computeruse")
@@ -1387,6 +1426,10 @@ Returns a new Builder instance for constructing Gemini objects.
      
 [builder()](com/google/adk/sessions/ListSessionsResponse.html#builder\(\)) \- Static method in class com.google.adk.sessions.[ListSessionsResponse](com/google/adk/sessions/ListSessionsResponse.html "class in com.google.adk.sessions")
      
+[builder()](com/google/adk/skills/Frontmatter.html#builder\(\)) \- Static method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+     
+[builder()](com/google/adk/skills/InMemorySkillSource.html#builder\(\)) \- Static method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
+     
 [builder()](com/google/adk/summarizer/EventsCompactionConfig.html#builder\(\)) \- Static method in record class com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
      
 [builder()](com/google/adk/tools/computeruse/ComputerState.html#builder\(\)) \- Static method in class com.google.adk.tools.computeruse.[ComputerState](com/google/adk/tools/computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")
@@ -1503,6 +1546,10 @@ Creates a new [`Session.Builder`](com/google/adk/sessions/Session.Builder.html "
 [Builder()](com/google/adk/sessions/ListEventsResponse.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.sessions.[ListEventsResponse.Builder](com/google/adk/sessions/ListEventsResponse.Builder.html "class in com.google.adk.sessions")
      
 [Builder()](com/google/adk/sessions/ListSessionsResponse.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.sessions.[ListSessionsResponse.Builder](com/google/adk/sessions/ListSessionsResponse.Builder.html "class in com.google.adk.sessions")
+     
+[Builder()](com/google/adk/skills/Frontmatter.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+     
+[Builder()](com/google/adk/skills/InMemorySkillSource.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.skills.[InMemorySkillSource.Builder](com/google/adk/skills/InMemorySkillSource.Builder.html "class in com.google.adk.skills")
      
 [Builder()](com/google/adk/summarizer/EventsCompactionConfig.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.summarizer.[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
      
@@ -1846,6 +1893,23 @@ Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](co
 
 Returns true if the model supports using output schema together with tools.
 
+[ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") \- Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
+    
+
+An HTTP client for interacting with OpenAI-compatible chat completions endpoints.
+
+[ChatCompletionsHttpClient(HttpOptions)](com/google/adk/models/chat/ChatCompletionsHttpClient.html#%3Cinit%3E\(com.google.genai.types.HttpOptions\)) \- Constructor for class com.google.adk.models.chat.[ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
+    
+
+Constructs a new [`ChatCompletionsHttpClient`](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") that facilitates API interaction with the standard `/chat/completions` REST endpoint.
+
+[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat") \- Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
+    
+
+Data Transfer Objects for Chat Completion API requests.
+
+[ChatCompletionsRequest()](com/google/adk/models/chat/ChatCompletionsRequest.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+     
 [ChatCompletionsResponse](com/google/adk/models/chat/ChatCompletionsResponse.html "class in com.google.adk.models.chat") \- Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
     
 
@@ -2094,6 +2158,8 @@ Frequently used code snippets for collections.
      
 [com.google.adk.codeexecutors](com/google/adk/codeexecutors/package-summary.html) \- package com.google.adk.codeexecutors
      
+[com.google.adk.deploy](com/google/adk/deploy/package-summary.html) \- package com.google.adk.deploy
+     
 [com.google.adk.events](com/google/adk/events/package-summary.html) \- package com.google.adk.events
      
 [com.google.adk.examples](com/google/adk/examples/package-summary.html) \- package com.google.adk.examples
@@ -2145,6 +2211,8 @@ Frequently used code snippets for collections.
 [com.google.adk.samples.a2aagent.agent](com/google/adk/samples/a2aagent/agent/package-summary.html) \- package com.google.adk.samples.a2aagent.agent
      
 [com.google.adk.sessions](com/google/adk/sessions/package-summary.html) \- package com.google.adk.sessions
+     
+[com.google.adk.skills](com/google/adk/skills/package-summary.html) \- package com.google.adk.skills
      
 [com.google.adk.summarizer](com/google/adk/summarizer/package-summary.html) \- package com.google.adk.summarizer
      
@@ -2220,6 +2288,13 @@ Returns the value of the [`compactionInterval`](./com/google/adk/summarizer/Even
 
 [compactionInterval(Integer)](com/google/adk/summarizer/EventsCompactionConfig.Builder.html#compactionInterval\(java.lang.Integer\)) \- Method in class com.google.adk.summarizer.[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
      
+[compatibility()](com/google/adk/skills/Frontmatter.html#compatibility\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+    
+
+Compatibility information for the skill.
+
+[compatibility(String)](com/google/adk/skills/Frontmatter.Builder.html#compatibility\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+     
 [CompiledAgentLoader](com/google/adk/web/CompiledAgentLoader.html "class in com.google.adk.web") \- Class in [com.google.adk.web](com/google/adk/web/package-summary.html)
     
 
@@ -2227,6 +2302,11 @@ CompiledAgentLoader implementation for the dev environment.
 
 [CompiledAgentLoader(AgentLoadingProperties)](com/google/adk/web/CompiledAgentLoader.html#%3Cinit%3E\(com.google.adk.web.config.AgentLoadingProperties\)) \- Constructor for class com.google.adk.web.[CompiledAgentLoader](com/google/adk/web/CompiledAgentLoader.html "class in com.google.adk.web")
      
+[complete(LlmRequest, boolean)](com/google/adk/models/chat/ChatCompletionsHttpClient.html#complete\(com.google.adk.models.LlmRequest,boolean\)) \- Method in class com.google.adk.models.chat.[ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
+    
+
+Generates a conversational response from the chat completions endpoint based on the provided messages.
+
 [ComponentRegistry](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils") \- Class in [com.google.adk.utils](com/google/adk/utils/package-summary.html)
     
 
@@ -2927,6 +3007,11 @@ Gets the one-line description of the agent's capability.
 
 [description()](com/google/adk/agents/BaseAgentConfig.html#description\(\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
+[description()](com/google/adk/skills/Frontmatter.html#description\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+    
+
+What the skill does and when the model should use it.
+
 [description()](com/google/adk/tools/Annotations.Schema.html#description\(\)) \- Element in annotation interface com.google.adk.tools.[Annotations.Schema](com/google/adk/tools/Annotations.Schema.html "annotation interface in com.google.adk.tools")
      
 [description()](com/google/adk/tools/BaseTool.html#description\(\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
@@ -2934,6 +3019,8 @@ Gets the one-line description of the agent's capability.
 [description(String)](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.a2a.agent.[RemoteA2AAgent.Builder](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
      
 [description(String)](com/google/adk/agents/BaseAgent.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")
+     
+[description(String)](com/google/adk/skills/Frontmatter.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
      
 [description(String)](com/google/adk/tools/ExampleTool.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
      
@@ -3452,6 +3539,11 @@ Retry with exponential backoff
 
 [export(Collection)](com/google/adk/web/service/ApiServerSpanExporter.html#export\(java.util.Collection\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
      
+[extraBody](com/google/adk/models/chat/ChatCompletionsRequest.html#extraBody) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+Additional body parameters used for specific models, for example: https://ai.google.dev/gemini-api/docs/openai#extra-body
+
 [extractCodeAndTruncateContent(Content.Builder, List)](com/google/adk/codeexecutors/CodeExecutionUtils.html#extractCodeAndTruncateContent\(com.google.genai.types.Content.Builder,java.util.List\)) \- Static method in class com.google.adk.codeexecutors.[CodeExecutionUtils](com/google/adk/codeexecutors/CodeExecutionUtils.html "class in com.google.adk.codeexecutors")
     
 
@@ -3506,6 +3598,20 @@ Finds an available agent by name.
 
 Find the most similar embedding from a list of candidates.
 
+[findResourcePath(String, String)](com/google/adk/skills/AbstractSkillSource.html#findResourcePath\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+    
+
+Returns the path to the resource for the given skill.
+
+[findResourcePath(String, String)](com/google/adk/skills/LocalSkillSource.html#findResourcePath\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
+     
+[findSkillMdPath(String)](com/google/adk/skills/AbstractSkillSource.html#findSkillMdPath\(java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+    
+
+Returns the path to the SKILL.md file for the given skill.
+
+[findSkillMdPath(String)](com/google/adk/skills/LocalSkillSource.html#findSkillMdPath\(java.lang.String\)) \- Method in class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
+     
 [findSubAgent(String)](com/google/adk/agents/BaseAgent.html#findSubAgent\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
     
 
@@ -3596,6 +3702,11 @@ Retry with fixed delay
 
 [flush()](com/google/adk/web/service/ApiServerSpanExporter.html#flush\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
      
+[frequencyPenalty](com/google/adk/models/chat/ChatCompletionsRequest.html#frequencyPenalty) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20frequency_penalty%20%3E%20(schema)
+
 [fromConfig(BaseAgentConfig, String)](com/google/adk/agents/BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\)) \- Static method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
     
 
@@ -3699,6 +3810,22 @@ Deserializes a Json string to a [`LiveRequest`](com/google/adk/agents/LiveReques
 
 Deserializes a Json string to an object of the given type.
 
+[fromLlmRequest(LlmRequest, boolean)](com/google/adk/models/chat/ChatCompletionsRequest.html#fromLlmRequest\(com.google.adk.models.LlmRequest,boolean\)) \- Static method in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+Converts a standard [`LlmRequest`](com/google/adk/models/LlmRequest.html "class in com.google.adk.models") into a [`ChatCompletionsRequest`](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat") for /chat/completions compatible endpoints.
+
+[frontmatter(Frontmatter)](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#frontmatter\(com.google.adk.skills.Frontmatter\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+     
+[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Frontmatter represents the YAML metadata at the top of a SKILL.md file.
+
+[Frontmatter()](com/google/adk/skills/Frontmatter.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+     
+[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+     
 [func()](com/google/adk/tools/FunctionTool.html#func\(\)) \- Method in class com.google.adk.tools.[FunctionTool](com/google/adk/tools/FunctionTool.html "class in com.google.adk.tools")
     
 
@@ -4743,6 +4870,21 @@ An in-memory implementation of [`BaseSessionService`](com/google/adk/sessions/Ba
 
 Creates a new instance of the in-memory session service with empty storage.
 
+[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+An in-memory implementation of [`SkillSource`](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills").
+
+[InMemorySkillSource.Builder](com/google/adk/skills/InMemorySkillSource.Builder.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Builder for [`InMemorySkillSource`](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills").
+
+[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Builder for a specific skill.
+
 [input()](com/google/adk/examples/Example.html#input\(\)) \- Method in class com.google.adk.examples.[Example](com/google/adk/examples/Example.html "class in com.google.adk.examples")
      
 [input(Content)](com/google/adk/examples/Example.Builder.html#input\(com.google.genai.types.Content\)) \- Method in class com.google.adk.examples.[Example.Builder](com/google/adk/examples/Example.Builder.html "class in com.google.adk.examples")
@@ -4830,6 +4972,8 @@ Returns an instruction dynamically constructed from the given context.
 
 Plain instruction directly provided to the agent.
 
+[instructions(String)](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#instructions\(java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+     
 [Instructions](com/google/adk/flows/llmflows/Instructions.html "class in com.google.adk.flows.llmflows") \- Class in [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-summary.html)
     
 
@@ -5081,6 +5225,13 @@ Presses key combination.
      
 [lastUpdateTimeSeconds(double)](com/google/adk/sessions/Session.Builder.html#lastUpdateTimeSeconds\(double\)) \- Method in class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
      
+[license()](com/google/adk/skills/Frontmatter.html#license\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+    
+
+License for the skill.
+
+[license(String)](com/google/adk/skills/Frontmatter.Builder.html#license\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+     
 [LifeAgent](com/example/LifeAgent.html "class in com.example") \- Class in [com.example](com/example/package-summary.html)
     
 
@@ -5209,10 +5360,28 @@ Response for listing events.
 
 Builder for [`ListEventsResponse`](com/google/adk/sessions/ListEventsResponse.html "class in com.google.adk.sessions").
 
+[listFrontmatters()](com/google/adk/skills/AbstractSkillSource.html#listFrontmatters\(\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+     
+[listFrontmatters()](com/google/adk/skills/InMemorySkillSource.html#listFrontmatters\(\)) \- Method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
+     
+[listFrontmatters()](com/google/adk/skills/SkillSource.html#listFrontmatters\(\)) \- Method in interface com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
+    
+
+Lists all available [`Frontmatter`](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")s for discovered skills.
+
 [listOperation(String, String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#listOperation\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [listOperationRequest()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#listOperationRequest\(\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
+[listResources(String, String)](com/google/adk/skills/InMemorySkillSource.html#listResources\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
+     
+[listResources(String, String)](com/google/adk/skills/LocalSkillSource.html#listResources\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
+     
+[listResources(String, String)](com/google/adk/skills/SkillSource.html#listResources\(java.lang.String,java.lang.String\)) \- Method in interface com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
+    
+
+Lists all resource files for a specific skill within a given directory.
+
 [listSessions(SessionKey)](com/google/adk/sessions/BaseSessionService.html#listSessions\(com.google.adk.sessions.SessionKey\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
     
 
@@ -5249,6 +5418,13 @@ Response for listing sessions.
 
 Builder for [`ListSessionsResponse`](com/google/adk/sessions/ListSessionsResponse.html "class in com.google.adk.sessions").
 
+[listSkills()](com/google/adk/skills/AbstractSkillSource.html#listSkills\(\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+    
+
+Returns a `Flowable` of skills as a pair of skill name and the path to the SKILL.md file.
+
+[listSkills()](com/google/adk/skills/LocalSkillSource.html#listSkills\(\)) \- Method in class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
+     
 [listVersions(SessionKey, String)](com/google/adk/artifacts/BaseArtifactService.html#listVersions\(com.google.adk.sessions.SessionKey,java.lang.String\)) \- Method in interface com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")
      
 [listVersions(String, String, String, String)](com/google/adk/artifacts/BaseArtifactService.html#listVersions\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Method in interface com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")
@@ -5503,6 +5679,24 @@ A tool that loads artifacts and adds them to the session.
 
 Loads a specific version of an artifact.
 
+[loadFrontmatter(String)](com/google/adk/skills/AbstractSkillSource.html#loadFrontmatter\(java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+     
+[loadFrontmatter(String)](com/google/adk/skills/InMemorySkillSource.html#loadFrontmatter\(java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
+     
+[loadFrontmatter(String)](com/google/adk/skills/SkillSource.html#loadFrontmatter\(java.lang.String\)) \- Method in interface com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
+    
+
+Loads the [`Frontmatter`](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills") for a specific skill.
+
+[loadInstructions(String)](com/google/adk/skills/AbstractSkillSource.html#loadInstructions\(java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+     
+[loadInstructions(String)](com/google/adk/skills/InMemorySkillSource.html#loadInstructions\(java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
+     
+[loadInstructions(String)](com/google/adk/skills/SkillSource.html#loadInstructions\(java.lang.String\)) \- Method in interface com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
+    
+
+Loads the instructions (body of SKILL.md) for a specific skill.
+
 [loadMemory(String, ToolContext)](com/google/adk/tools/LoadMemoryTool.html#loadMemory\(java.lang.String,com.google.adk.tools.ToolContext\)) \- Static method in class com.google.adk.tools.[LoadMemoryTool](com/google/adk/tools/LoadMemoryTool.html "class in com.google.adk.tools")
     
 
@@ -5524,6 +5718,22 @@ Creates an instance of a `LoadMemoryResponse` record class.
 A tool that loads memory for the current user.
 
 [LoadMemoryTool()](com/google/adk/tools/LoadMemoryTool.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.tools.[LoadMemoryTool](com/google/adk/tools/LoadMemoryTool.html "class in com.google.adk.tools")
+     
+[loadResource(String, String)](com/google/adk/skills/AbstractSkillSource.html#loadResource\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+     
+[loadResource(String, String)](com/google/adk/skills/InMemorySkillSource.html#loadResource\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
+     
+[loadResource(String, String)](com/google/adk/skills/SkillSource.html#loadResource\(java.lang.String,java.lang.String\)) \- Method in interface com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
+    
+
+Loads a specific resource file content.
+
+[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Loads skills from the local file system.
+
+[LocalSkillSource(Path)](com/google/adk/skills/LocalSkillSource.html#%3Cinit%3E\(java.nio.file.Path\)) \- Constructor for class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
      
 [location()](com/google/adk/models/VertexCredentials.html#location\(\)) \- Method in class com.google.adk.models.[VertexCredentials](com/google/adk/models/VertexCredentials.html "class in com.google.adk.models")
      
@@ -5551,10 +5761,20 @@ A plugin that logs important information at each callback point.
      
 [LoggingPlugin(String)](com/google/adk/plugins/LoggingPlugin.html#%3Cinit%3E\(java.lang.String\)) \- Constructor for class com.google.adk.plugins.[LoggingPlugin](com/google/adk/plugins/LoggingPlugin.html "class in com.google.adk.plugins")
      
+[logitBias](com/google/adk/models/chat/ChatCompletionsRequest.html#logitBias) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20logit_bias%20%3E%20(schema)
+
 [logMultiModalContent()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#logMultiModalContent\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
 [logMultiModalContent(boolean)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#logMultiModalContent\(boolean\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
+[logprobs](com/google/adk/models/chat/ChatCompletionsRequest.html#logprobs) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20logprobs%20%3E%20(schema)
+
 [logRequest(String, String)](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html#logRequest\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html "class in com.google.adk.models.springai.observability")
     
 
@@ -5654,6 +5874,11 @@ Returns the value of the `maxAge` record component.
     
 
 Returns the value of the [`maxAttempts`](./com/google/adk/planner/goap/ReplanPolicy.Replan.html#param-maxAttempts) record component.
+
+[maxCompletionTokens](com/google/adk/models/chat/ChatCompletionsRequest.html#maxCompletionTokens) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20max_completion_tokens%20%3E%20(schema)
 
 [maxContentLength()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#maxContentLength\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
@@ -5976,6 +6201,11 @@ Converts between ADK and Spring AI message formats.
 
 Returns the parts from the context events that should be sent to the agent.
 
+[messages](com/google/adk/models/chat/ChatCompletionsRequest.html#messages) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20messages%20%3E%20(schema)
+
 [messageToContent(Message)](com/google/adk/a2a/converters/PartConverter.html#messageToContent\(io.a2a.spec.Message\)) \- Static method in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
     
 
@@ -5998,6 +6228,18 @@ Converts an A2A message for a failed task to ADK event filling in the error mess
 
 [meta()](com/google/adk/tools/mcp/AbstractMcpTool.html#meta\(\)) \- Method in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
+[metadata](com/google/adk/models/chat/ChatCompletionsRequest.html#metadata) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20metadata%20%3E%20(schema)
+
+[metadata()](com/google/adk/skills/Frontmatter.html#metadata\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+    
+
+Key-value pairs for client-specific properties.
+
+[metadata(Map)](com/google/adk/skills/Frontmatter.Builder.html#metadata\(java.util.Map\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+     
 [methods()](com/google/adk/web/config/AdkWebCorsProperties.html#methods\(\)) \- Method in record class com.google.adk.web.config.[AdkWebCorsProperties](com/google/adk/web/config/AdkWebCorsProperties.html "class in com.google.adk.web.config")
     
 
@@ -6014,6 +6256,16 @@ The mime type of the file (e.g., "image/png").
     
 
 Returns the value of the [`minTokens`](./com/google/adk/agents/ContextCacheConfig.html#param-minTokens) record component.
+
+[modalities](com/google/adk/models/chat/ChatCompletionsRequest.html#modalities) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20modalities%20%3E%20(schema)
+
+[model](com/google/adk/models/chat/ChatCompletionsRequest.html#model) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20model%20%3E%20(schema)
 
 [model()](com/google/adk/agents/LlmAgent.html#model\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
@@ -6107,6 +6359,11 @@ The model version used to generate the response.
 
 ## N
 
+[n](com/google/adk/models/chat/ChatCompletionsRequest.html#n) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20n%20%3E%20(schema)
+
 [name](com/google/adk/agents/BaseAgent.Builder.html#name) \- Variable in class com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")
      
 [name](com/google/adk/plugins/BasePlugin.html#name) \- Variable in class com.google.adk.plugins.[BasePlugin](com/google/adk/plugins/BasePlugin.html "class in com.google.adk.plugins")
@@ -6129,6 +6386,11 @@ Gets the agent's unique name.
 
 The name of the file with file extension (e.g., "file.csv").
 
+[name()](com/google/adk/skills/Frontmatter.html#name\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
+    
+
+Skill name in kebab-case.
+
 [name()](com/google/adk/tools/Annotations.Schema.html#name\(\)) \- Element in annotation interface com.google.adk.tools.[Annotations.Schema](com/google/adk/tools/Annotations.Schema.html "annotation interface in com.google.adk.tools")
      
 [name()](com/google/adk/tools/BaseTool.html#name\(\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
@@ -6144,6 +6406,8 @@ The name of the file with file extension (e.g., "file.csv").
 [name(String)](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.File.Builder](com/google/adk/codeexecutors/CodeExecutionUtils.File.Builder.html "class in com.google.adk.codeexecutors")
      
 [name(String)](com/google/adk/plugins/ContextFilterPlugin.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.plugins.[ContextFilterPlugin.Builder](com/google/adk/plugins/ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
+     
+[name(String)](com/google/adk/skills/Frontmatter.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
      
 [name(String)](com/google/adk/tools/ExampleTool.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
      
@@ -6371,6 +6635,13 @@ Callback executed when a user message is received before an invocation starts.
 
 [onUserMessageCallback(InvocationContext, Content)](com/google/adk/plugins/PluginManager.html#onUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
      
+[openChannel(Path)](com/google/adk/skills/LocalSkillSource.html#openChannel\(java.nio.file.Path\)) \- Method in class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
+     
+[openChannel(PathT)](com/google/adk/skills/AbstractSkillSource.html#openChannel\(PathT\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
+    
+
+Opens a [`InputStream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html "class in java.io") for reading the content of the given path.
+
 [OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config") \- Class in [com.google.adk.web.config](com/google/adk/web/config/package-summary.html)
     
 
@@ -6523,6 +6794,11 @@ A planner that runs all sub-agents in parallel, then completes.
 
 [ParallelPlanner()](com/google/adk/planner/ParallelPlanner.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.planner.[ParallelPlanner](com/google/adk/planner/ParallelPlanner.html "class in com.google.adk.planner")
      
+[parallelToolCalls](com/google/adk/models/chat/ChatCompletionsRequest.html#parallelToolCalls) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20parallel_tool_calls%20%3E%20(schema)
+
 [parentAgent()](com/google/adk/agents/BaseAgent.html#parentAgent\(\)) \- Method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
     
 
@@ -6675,6 +6951,11 @@ Populates the headers (such as Authorization or x-goog-project) in the HttpReque
 
 Post-processes the LLM response after receiving it from the LLM.
 
+[prediction](com/google/adk/models/chat/ChatCompletionsRequest.html#prediction) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20prediction%20%3E%20(schema)
+
 [prepareGenenerateContentRequest(LlmRequest, boolean)](com/google/adk/models/GeminiUtil.html#prepareGenenerateContentRequest\(com.google.adk.models.LlmRequest,boolean\)) \- Static method in class com.google.adk.models.[GeminiUtil](com/google/adk/models/GeminiUtil.html "class in com.google.adk.models")
     
 
@@ -6684,6 +6965,11 @@ Prepares an [`LlmRequest`](com/google/adk/models/LlmRequest.html "class in com.g
     
 
 Prepares an [`LlmRequest`](com/google/adk/models/LlmRequest.html "class in com.google.adk.models") for the GenerateContent API.
+
+[presencePenalty](com/google/adk/models/chat/ChatCompletionsRequest.html#presencePenalty) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20presence_penalty%20%3E%20(schema)
 
 [processLlmRequest(LlmRequest.Builder)](com/google/adk/codeexecutors/BuiltInCodeExecutor.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder\)) \- Method in class com.google.adk.codeexecutors.[BuiltInCodeExecutor](com/google/adk/codeexecutors/BuiltInCodeExecutor.html "class in com.google.adk.codeexecutors")
     
@@ -6766,6 +7052,16 @@ Returns the project ID for Vertex AI APIs.
      
 [projectId(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#projectId\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
+[promptCacheKey](com/google/adk/models/chat/ChatCompletionsRequest.html#promptCacheKey) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20prompt_cache_key%20%3E%20(schema)
+
+[promptCacheRetention](com/google/adk/models/chat/ChatCompletionsRequest.html#promptCacheRetention) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20prompt_cache_retention%20%3E%20(schema)
+
 [Provider(Function)](com/google/adk/agents/Instruction.Provider.html#%3Cinit%3E\(java.util.function.Function\)) \- Constructor for record class com.google.adk.agents.[Instruction.Provider](com/google/adk/agents/Instruction.Provider.html "class in com.google.adk.agents")
     
 
@@ -6814,6 +7110,11 @@ Provides read-only access to the context of an agent run.
      
 [realtime(Blob)](com/google/adk/agents/LiveRequestQueue.html#realtime\(com.google.genai.types.Blob\)) \- Method in class com.google.adk.agents.[LiveRequestQueue](com/google/adk/agents/LiveRequestQueue.html "class in com.google.adk.agents")
      
+[reasoningEffort](com/google/adk/models/chat/ChatCompletionsRequest.html#reasoningEffort) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20reasoning_effort%20%3E%20(schema)
+
 [receive()](com/google/adk/models/BaseLlmConnection.html#receive\(\)) \- Method in interface com.google.adk.models.[BaseLlmConnection](com/google/adk/models/BaseLlmConnection.html "interface in com.google.adk.models")
     
 
@@ -7141,6 +7442,11 @@ Resolves a toolset instance by name from the registry.
     
 
 Utility for converting ADK events to A2A spec messages (and back).
+
+[responseFormat](com/google/adk/models/chat/ChatCompletionsRequest.html#responseFormat) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20response_format%20%3E%20(schema)
 
 [responseModalities()](com/google/adk/agents/RunConfig.html#responseModalities\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
      
@@ -7505,6 +7811,11 @@ Service for creating and caching Runner instances.
 
 ## S
 
+[safetyIdentifier](com/google/adk/models/chat/ChatCompletionsRequest.html#safetyIdentifier) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20safety_identifier%20%3E%20(schema)
+
 [sanitizeRequestForGeminiApi(LlmRequest)](com/google/adk/models/GeminiUtil.html#sanitizeRequestForGeminiApi\(com.google.adk.models.LlmRequest\)) \- Static method in class com.google.adk.models.[GeminiUtil](com/google/adk/models/GeminiUtil.html "class in com.google.adk.models")
     
 
@@ -7647,6 +7958,11 @@ Builder for [`SearchMemoryResponse`](com/google/adk/memory/SearchMemoryResponse.
 
 Strategy for searching a dependency graph to find ordered agent execution groups.
 
+[seed](com/google/adk/models/chat/ChatCompletionsRequest.html#seed) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+Deprecated.
+
 [self()](com/google/adk/agents/BaseAgent.Builder.html#self\(\)) \- Method in class com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")
     
 
@@ -7712,6 +8028,11 @@ Server-side errors from the AI provider
      
 [serviceName](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ConnectionDetails.html#serviceName) \- Variable in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.ConnectionDetails](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ConnectionDetails.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
+[serviceTier](com/google/adk/models/chat/ChatCompletionsRequest.html#serviceTier) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20service_tier%20%3E%20(schema)
+
 [session()](com/google/adk/agents/InvocationContext.html#session\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
     
 
@@ -8153,6 +8474,35 @@ Basic LLM flow with fixed request and response processors.
      
 [size()](com/google/adk/tools/BaseTool.ToolArgsConfig.html#size\(\)) \- Method in class com.google.adk.tools.[BaseTool.ToolArgsConfig](com/google/adk/tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")
      
+[skill(String)](com/google/adk/skills/InMemorySkillSource.Builder.html#skill\(java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder](com/google/adk/skills/InMemorySkillSource.Builder.html "class in com.google.adk.skills")
+    
+
+Returns a [`InMemorySkillSource.Builder.SkillBuilder`](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills") for the specified skill, creating it if it doesn't exist.
+
+[skill(String)](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html#skill\(java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
+    
+
+Switches context to configure another skill, creating it if it doesn't exist.
+
+[SkillMdPath(String, PathT)](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html#%3Cinit%3E\(java.lang.String,PathT\)) \- Constructor for class com.google.adk.skills.[AbstractSkillSource.SkillMdPath](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills")
+    
+
+Constructs a `SkillMdPath`.
+
+[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills") \- Interface in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Interface for getting access to available skills.
+
+[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills") \- Exception Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+    
+
+Exception for [`SkillSource`](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills") implementations to signal recoverable errors that will have the message sending back to the LLM.
+
+[SkillSourceException(String)](com/google/adk/skills/SkillSourceException.html#%3Cinit%3E\(java.lang.String\)) \- Constructor for exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
+[SkillSourceException(String, Throwable)](com/google/adk/skills/SkillSourceException.html#%3Cinit%3E\(java.lang.String,java.lang.Throwable\)) \- Constructor for exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
 [skipSummarization()](com/google/adk/events/EventActions.html#skipSummarization\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [skipSummarization(Boolean)](com/google/adk/events/EventActions.Builder.html#skipSummarization\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
@@ -8430,6 +8780,11 @@ The standard output of the code execution.
 
 [stdout(String)](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.Builder.html#stdout\(java.lang.String\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult.Builder](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.Builder.html "class in com.google.adk.codeexecutors")
      
+[stop](com/google/adk/models/chat/ChatCompletionsRequest.html#stop) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20stop%20%3E%20(schema)
+
 [stop()](com/google/adk/maven/ConfigAgentLoader.html#stop\(\)) \- Method in class com.google.adk.maven.[ConfigAgentLoader](com/google/adk/maven/ConfigAgentLoader.html "class in com.google.adk.maven")
     
 
@@ -8439,6 +8794,16 @@ Stops the hot-loading service.
     
 
 Stop words for keyword extraction, loaded from properties.
+
+[store](com/google/adk/models/chat/ChatCompletionsRequest.html#store) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20store%20%3E%20(schema)
+
+[stream](com/google/adk/models/chat/ChatCompletionsRequest.html#stream) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20stream%20%3E%20(schema)
 
 [stream()](com/google/adk/agents/ActiveStreamingTool.html#stream\(\)) \- Method in class com.google.adk.agents.[ActiveStreamingTool](com/google/adk/agents/ActiveStreamingTool.html "class in com.google.adk.agents")
     
@@ -8484,6 +8849,11 @@ Aggregates streaming responses from Spring AI models.
 
 [StreamingResponseAggregator()](com/google/adk/models/springai/StreamingResponseAggregator.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.springai.[StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai")
      
+[streamOptions](com/google/adk/models/chat/ChatCompletionsRequest.html#streamOptions) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20stream_options%20%3E%20(schema)
+
 [stringifyContent()](com/google/adk/events/Event.html#stringifyContent\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
     
 
@@ -8571,6 +8941,11 @@ Converts an A2A `Task` to an ADK [`Event`](com/google/adk/events/Event.html "cla
 
 [TEMP_PREFIX](com/google/adk/sessions/State.html#TEMP_PREFIX) \- Static variable in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
+[temperature](com/google/adk/models/chat/ChatCompletionsRequest.html#temperature) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20temperature%20%3E%20(schema)
+
 [terminateOnClose()](com/google/adk/tools/mcp/StreamableHttpServerParameters.html#terminateOnClose\(\)) \- Method in class com.google.adk.tools.mcp.[StreamableHttpServerParameters](com/google/adk/tools/mcp/StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp")
      
 [terminateOnClose(boolean)](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html#terminateOnClose\(boolean\)) \- Method in class com.google.adk.tools.mcp.[StreamableHttpServerParameters.Builder](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")
@@ -8754,6 +9129,11 @@ The tool call.
 
 [toolCall(FunctionCall)](com/google/adk/plugins/recordings/ToolRecording.Builder.html#toolCall\(com.google.genai.types.FunctionCall\)) \- Method in class com.google.adk.plugins.recordings.[ToolRecording.Builder](com/google/adk/plugins/recordings/ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")
      
+[toolChoice](com/google/adk/models/chat/ChatCompletionsRequest.html#toolChoice) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20tool_choice%20%3E%20(schema)
+
 [ToolConfig()](com/google/adk/tools/BaseTool.ToolConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
      
 [ToolConfig(String, BaseTool.ToolArgsConfig)](com/google/adk/tools/BaseTool.ToolConfig.html#%3Cinit%3E\(java.lang.String,com.google.adk.tools.BaseTool.ToolArgsConfig\)) \- Constructor for class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
@@ -8848,6 +9228,11 @@ The tool response.
 
 [toolResponse(FunctionResponse)](com/google/adk/plugins/recordings/ToolRecording.Builder.html#toolResponse\(com.google.genai.types.FunctionResponse\)) \- Method in class com.google.adk.plugins.recordings.[ToolRecording.Builder](com/google/adk/plugins/recordings/ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")
      
+[tools](com/google/adk/models/chat/ChatCompletionsRequest.html#tools) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20tools%20%3E%20(schema)
+
 [tools()](com/google/adk/agents/LlmAgent.html#tools\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
 [tools()](com/google/adk/agents/LlmAgentConfig.html#tools\(\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
@@ -8867,6 +9252,16 @@ Returns a map of tools available to the LLM.
      
 [toolsUnion()](com/google/adk/agents/LlmAgent.html#toolsUnion\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
+[topLogprobs](com/google/adk/models/chat/ChatCompletionsRequest.html#topLogprobs) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20top_logprobs%20%3E%20(schema)
+
+[topP](com/google/adk/models/chat/ChatCompletionsRequest.html#topP) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20top_p%20%3E%20(schema)
+
 [toServerParameters()](com/google/adk/tools/mcp/StdioServerParameters.html#toServerParameters\(\)) \- Method in class com.google.adk.tools.mcp.[StdioServerParameters](com/google/adk/tools/mcp/StdioServerParameters.html "class in com.google.adk.tools.mcp")
     
 
@@ -8963,6 +9358,8 @@ Returns a string representation of this record class.
 Returns a string representation of this record class.
 
 [toTextPart(Part)](com/google/adk/a2a/converters/PartConverter.html#toTextPart\(io.a2a.spec.Part\)) \- Static method in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
+     
+[toXml()](com/google/adk/skills/Frontmatter.html#toXml\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
      
 [trace(String)](com/google/adk/telemetry/Tracing.html#trace\(java.lang.String\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     
@@ -9129,6 +9526,11 @@ Usage metadata about the response(s).
      
 [usageMetadata(GenerateContentResponseUsageMetadata)](com/google/adk/models/LlmResponse.Builder.html#usageMetadata\(com.google.genai.types.GenerateContentResponseUsageMetadata\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
      
+[user](com/google/adk/models/chat/ChatCompletionsRequest.html#user) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+Deprecated, use safety_identifier and prompt_cache_key instead.
+
 [USER_PREFIX](com/google/adk/sessions/State.html#USER_PREFIX) \- Static variable in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
 [USER_STATE_COLLECTION](com/google/adk/utils/Constants.html#USER_STATE_COLLECTION) \- Static variable in class com.google.adk.utils.[Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils")
@@ -9322,6 +9724,11 @@ Returns an array containing the constants of this enum class, in the order they 
 
 Returns an array containing the constants of this enum class, in the order they are declared.
 
+[verbosity](com/google/adk/models/chat/ChatCompletionsRequest.html#verbosity) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20verbosity%20%3E%20(schema)
+
 [Version](com/google/adk/Version.html "class in com.google.adk") \- Class in [com.google.adk](com/google/adk/package-summary.html)
     
 
@@ -9440,6 +9847,11 @@ Maven plugin goal that starts the Google ADK Web Server with user-provided agent
 
 [WebMojo()](com/google/adk/maven/WebMojo.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.maven.[WebMojo](com/google/adk/maven/WebMojo.html "class in com.google.adk.maven")
      
+[webSearchOptions](com/google/adk/models/chat/ChatCompletionsRequest.html#webSearchOptions) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+    
+
+See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20web_search_options%20%3E%20(schema)
+
 [WebSocketConfig](com/google/adk/web/websocket/WebSocketConfig.html "class in com.google.adk.web.websocket") \- Class in [com.google.adk.web.websocket](com/google/adk/web/websocket/package-summary.html)
     
 

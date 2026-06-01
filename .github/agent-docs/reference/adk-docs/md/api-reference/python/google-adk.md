@@ -1,59 +1,90 @@
 Contents Menu Expand Light mode Dark mode Auto light/dark, in light mode Auto light/dark, in dark mode Skip to content
 
-[Agent Development Kit documentation](index.html)
+[Agent Development Kit 2.0.0 documentation](index.html)
 
-[ Agent Development Kit documentation ](index.html)
+[ Agent Development Kit 2.0.0 documentation ](index.html)
 
   * Submodules
   * google.adk.a2a module
   * google.adk.agents module
+  * google.adk.apps module
   * google.adk.artifacts module
-  * google.adk.apps package
   * google.adk.auth module
-  * google.adk.cli commands
-  * google.adk.cli.cli module
-  * google.adk.cli.cli_tools_click module
   * google.adk.code_executors module
+  * google.adk.environment module
   * google.adk.errors module
   * google.adk.evaluation module
   * google.adk.events module
   * google.adk.examples module
   * google.adk.flows module
+  * google.adk.integrations.agent_identity module
+  * google.adk.integrations.agent_registry module
+  * google.adk.integrations.api_registry module
+  * google.adk.integrations.bigquery module
+  * google.adk.integrations.crewai module
+  * google.adk.integrations.firestore module
+  * google.adk.integrations.langchain module
+  * google.adk.integrations.parameter_manager module
+  * google.adk.integrations.secret_manager module
+  * google.adk.integrations.skill_registry module
+  * google.adk.integrations.slack module
+  * google.adk.integrations.vmaas module
+  * google.adk.labs.openai module
   * google.adk.memory module
   * google.adk.models module
+  * google.adk.optimization module
   * google.adk.planners module
   * google.adk.platform module
   * google.adk.plugins module
   * google.adk.runners module
   * google.adk.sessions module
+  * google.adk.skills module
   * google.adk.telemetry module
-  * google.adk.tools package
+  * google.adk.tools module
+  * google.adk.tools.agent_simulator module
   * google.adk.tools.agent_tool module
+  * google.adk.tools.api_registry module
   * google.adk.tools.apihub_tool module
   * google.adk.tools.application_integration_tool module
   * google.adk.tools.authenticated_function_tool module
   * google.adk.tools.base_authenticated_tool module
   * google.adk.tools.base_tool module
   * google.adk.tools.base_toolset module
+  * google.adk.tools.bash_tool module
   * google.adk.tools.bigquery module
+  * google.adk.tools.bigtable module
+  * google.adk.tools.computer_use module
   * google.adk.tools.crewai_tool module
+  * google.adk.tools.data_agent module
+  * google.adk.tools.discovery_engine_search_tool module
   * google.adk.tools.enterprise_search_tool module
+  * google.adk.tools.environment module
+  * google.adk.tools.environment_simulation module
   * google.adk.tools.example_tool module
   * google.adk.tools.exit_loop_tool module
   * google.adk.tools.function_tool module
   * google.adk.tools.get_user_choice_tool module
   * google.adk.tools.google_api_tool module
   * google.adk.tools.google_maps_grounding_tool module
+  * google.adk.tools.google_search_agent_tool module
   * google.adk.tools.google_search_tool module
+  * google.adk.tools.google_tool module
   * google.adk.tools.langchain_tool module
   * google.adk.tools.load_artifacts_tool module
+  * google.adk.tools.load_mcp_resource_tool module
   * google.adk.tools.load_memory_tool module
   * google.adk.tools.load_web_page module
   * google.adk.tools.long_running_tool module
   * google.adk.tools.mcp_tool module
   * google.adk.tools.openapi_tool module
   * google.adk.tools.preload_memory_tool module
+  * google.adk.tools.pubsub module
   * google.adk.tools.retrieval module
+  * google.adk.tools.set_model_response_tool module
+  * google.adk.tools.skill_toolset module
+  * google.adk.tools.spanner module
+  * google.adk.tools.tool_configs module
+  * google.adk.tools.tool_confirmation module
   * google.adk.tools.tool_context module
   * google.adk.tools.toolbox_toolset module
   * google.adk.tools.transfer_to_agent_tool module
@@ -61,6 +92,7 @@ Contents Menu Expand Light mode Dark mode Auto light/dark, in light mode Auto li
   * google.adk.tools.vertex_ai_search_tool module
   * google.adk.utils module
   * google.adk.version module
+  * google.adk.workflow module
 
 
 
@@ -82,7 +114,7 @@ alias of `LlmAgent`
 _pydantic model _google.adk.agents.BaseAgent¶
     
 
-Bases: `BaseModel`
+Bases: `BaseNode`
 
 Base class for all agents in Agent Development Kit.
 
@@ -103,6 +135,81 @@ Show JSON schema
                    "default": "",
                    "title": "Description",
                    "type": "string"
+                },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
                 },
                 "parent_agent": {
                    "anyOf": [
@@ -138,6 +245,457 @@ Show JSON schema
              ],
              "title": "BaseAgent",
              "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
           }
        },
        "$ref": "#/$defs/BaseAgent"
@@ -163,6 +721,8 @@ Fields:
 
 Validators:
     
+
+  * `_validate_name` » `name`
 
   * `validate_name` » `name`
 
@@ -238,6 +798,8 @@ Agent name must be a Python identifier and unique within the agent tree. Agent n
 Validated by:
     
 
+  * `_validate_name`
+
   * `validate_name`
 
 
@@ -264,37 +826,6 @@ Validated by:
 
 
 
-
-config_type¶
-    
-
-alias of `BaseAgentConfig`
-
-_classmethod _from_config(_cls_ , _config_ , _config_abs_path_)¶
-    
-
-Creates an agent from a config.
-
-If sub-classes uses a custom agent config, override _from_config_kwargs method to return an updated kwargs for agent constructor.
-
-Return type:
-    
-
-`TypeVar`(`SelfAgent`, bound= BaseAgent)
-
-Parameters:
-    
-
-  * **config** – The config to create the agent from.
-
-  * **config_abs_path** – The absolute path to the config file that contains the agent config.
-
-
-
-Returns:
-    
-
-The created agent.
 
 _validator _validate_name _ » __name_¶
     
@@ -448,12 +979,14 @@ _property _root_agent _: BaseAgent_¶
 
 Gets the root agent of this agent.
 
-_class _google.adk.agents.Context(_invocation_context_ , _*_ , _event_actions =None_, _function_call_id =None_, _tool_confirmation =None_)¶
+_class _google.adk.agents.Context(_invocation_context_ , _*_ , _event_actions =None_, _function_call_id =None_, _tool_confirmation =None_, _parent_ctx =None_, _node =None_, _node_path =None_, _run_id =''_, _resume_inputs =None_, _attempt_count =1_, _use_as_output =False_)¶
     
 
 Bases: `ReadonlyContext`
 
 The context within an agent run.
+
+When used in a workflow, additional fields under the `Workflow-specific fields` section are available.
 
 Initializes the Context.
 
@@ -467,6 +1000,20 @@ Parameters:
   * **function_call_id** – The function call id of the current tool call. Required for tool-specific methods like request_credential and request_confirmation.
 
   * **tool_confirmation** – The tool confirmation of the current tool call.
+
+  * **parent_ctx** – The parent node’s Context.
+
+  * **node** – The current node.
+
+  * **node_path** – The path of the current node in the workflow graph. If not provided, it will be derived from parent_ctx and node.
+
+  * **run_id** – The execution ID of the current node.
+
+  * **resume_inputs** – Inputs for resuming node, keyed by interrupt id.
+
+  * **attempt_count** – Number of times this node has been attempted.
+
+  * **use_as_output** – If True, this node’s output also represents the parent node’s output.
 
 
 
@@ -553,6 +1100,30 @@ Example
 
 ```
 
+_property _attempt_count _: int_¶
+    
+
+Returns the current attempt number (1-based).
+
+_property _error _: Exception | None_¶
+    
+
+The exception raised by the node, if any.
+
+_property _error_node_path _: str_¶
+    
+
+The path of the node that failed.
+
+_property _event_author _: str_¶
+    
+
+Author name stamped on events emitted by this node.
+
+Set by the orchestrator to override the default (node name). For example, Workflow sets this to its own name so all child events appear under the workflow’s author.
+
+Empty string means use the node’s own name (default).
+
 _property _function_call_id _: str | None_¶
     
 
@@ -603,6 +1174,32 @@ Returns:
     
 
 The auth credential from the auth response, or None if not found.
+
+get_invocation_context()¶
+    
+
+Returns a copy of the invocation context with the proxy session.
+
+Return type:
+    
+
+`InvocationContext`
+
+_property _interrupt_ids _: set[str]_¶
+    
+
+Interrupt IDs accumulated during this execution. Read-only.
+
+Set by the framework when the node yields an Event with long_running_tool_ids.
+
+_property _isolation_scope _: str | None_¶
+    
+
+Scope tag inherited from parent or set explicitly via override.
+
+See `Event.isolation_scope` for format.
+
+⚠️ DO NOT USE THIS DIRECTLY. Internal mechanism, may change.
 
 _async _list_artifacts()¶
     
@@ -657,6 +1254,32 @@ Returns:
     
 
 The loaded credential, or None if not found.
+
+_property _node _: BaseNode | None_¶
+    
+
+Returns the node instance of this context.
+
+_property _node_path _: str_¶
+    
+
+Returns the path of the current node in the workflow graph.
+
+_property _output _: Any_¶
+    
+
+The node’s result value. Source of truth for node output.
+
+Set once per run. Also set by the framework when the node yields Event(output=X) or yields a raw value. If the value was set via yield, the output Event is already enqueued. If set directly, the framework emits the output Event after _run_impl returns.
+
+Raises ValueError if: \- Set a second time (at most one output per execution). \- Set when interrupt_ids is non-empty (output and interrupt
+
+> are mutually exclusive).
+
+_property _parent_ctx _: Context | None_¶
+    
+
+Returns the parent node’s Context.
 
 render_ui_widget(_ui_widget_)¶
     
@@ -722,6 +1345,59 @@ Raises:
     
 
 **ValueError** – If function_call_id is not set.
+
+_property _resume_inputs _: dict[str, Any]_¶
+    
+
+Returns inputs for resuming node, keyed by interrupt id.
+
+_property _route _: bool | int | str | list[bool | int | str] | None_¶
+    
+
+Routing value for conditional edges.
+
+Read by the orchestrator to decide which downstream edge to follow. Can be set independently of output.
+
+_property _run_id _: str_¶
+    
+
+Returns the execution ID of the current node.
+
+_async _run_node(_node_ , _node_input =None_, _*_ , _use_as_output =False_, _run_id =None_, _use_sub_branch =False_, _override_branch =None_, _override_isolation_scope =None_, _raise_on_wait =False_)¶
+    
+
+Executes a node dynamically.
+
+This method allows a node within a workflow to trigger the run of another node (or a callable that can be built into a node) and asynchronously wait for its result. The dynamically executed node becomes a child run of the current node in the workflow.
+
+IMPORTANT: Always `await` this method directly. Wrapping it in `asyncio.create_task()` means the task runs unsupervised — errors are silently swallowed and the task is not cancelled if the parent node is interrupted (e.g. via HITL).
+
+Return type:
+    
+
+`Any`
+
+Parameters:
+    
+
+  * **node** – The node to be executed. This can be a BaseNode instance or a callable that can be built into a node.
+
+  * **node_input** – The input data to be passed to the dynamically executed node. Defaults to None.
+
+  * **use_as_output** – If True, the dynamic node’s output is used as the calling node’s output. The calling node’s own output event is suppressed to avoid duplication.
+
+  * **run_id** – An optional custom run ID for the dynamic node execution. If not provided, a default run ID is generated. Useful for correlating events across runs.
+
+  * **use_sub_branch** – If True, the dynamic node will be executed in a sub-branch to isolate its state and events from the main branch.
+
+  * **override_branch** – An optional branch to use instead of parent’s branch.
+
+
+
+Returns:
+    
+
+The output of the dynamically executed node, once it finishes executing.
 
 _async _save_artifact(_filename_ , _artifact_ , _custom_metadata =None_)¶
     
@@ -789,12 +1465,22 @@ Raises:
 
 **ValueError** – If memory service is not available.
 
+_property _session _: Session_¶
+    
+
+Returns the current session for this invocation.
+
 _property _state _: State_¶
     
 
 The delta-aware state of the current session.
 
 For any state change, you can mutate this object directly, e.g. ctx.state[‘foo’] = ‘bar’
+
+_property _telemetry_context _: TelemetryContext_¶
+    
+
+Returns the telemetry context.
 
 _property _tool_confirmation _: ToolConfirmation | None_¶
     
@@ -914,8 +1600,32 @@ Show JSON schema
              "default": null,
              "title": "Branch"
           },
+          "isolation_scope": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Isolation Scope"
+          },
           "agent": {
-             "$ref": "#/$defs/BaseAgent"
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/BaseAgent"
+                },
+                {
+                   "$ref": "#/$defs/BaseNode"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Agent"
           },
           "user_content": {
              "anyOf": [
@@ -930,6 +1640,18 @@ Show JSON schema
           },
           "session": {
              "$ref": "#/$defs/Session"
+          },
+          "node_path": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Node Path"
           },
           "agent_states": {
              "additionalProperties": {
@@ -1438,6 +2160,81 @@ Show JSON schema
                    "title": "Description",
                    "type": "string"
                 },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                },
                 "parent_agent": {
                    "anyOf": [
                       {
@@ -1471,6 +2268,100 @@ Show JSON schema
                 "name"
              ],
              "title": "BaseAgent",
+             "type": "object"
+          },
+          "BaseNode": {
+             "description": "A base class for all nodes in the workflow graph.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                },
+                "description": {
+                   "default": "",
+                   "title": "Description",
+                   "type": "string"
+                },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "BaseNode",
              "type": "object"
           },
           "Blob": {
@@ -2163,11 +3054,25 @@ Show JSON schema
                    "type": "string"
                 },
                 "author": {
+                   "default": "",
                    "title": "Author",
                    "type": "string"
                 },
                 "actions": {
                    "$ref": "#/$defs/EventActions"
+                },
+                "output": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output"
+                },
+                "nodeInfo": {
+                   "$ref": "#/$defs/NodeInfo"
                 },
                 "longRunningToolIds": {
                    "anyOf": [
@@ -2197,6 +3102,18 @@ Show JSON schema
                    "default": null,
                    "title": "Branch"
                 },
+                "isolationScope": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Isolationscope"
+                },
                 "id": {
                    "default": "",
                    "title": "Id",
@@ -2207,9 +3124,6 @@ Show JSON schema
                    "type": "number"
                 }
              },
-             "required": [
-                "author"
-             ],
              "title": "Event",
              "type": "object"
           },
@@ -2327,6 +3241,40 @@ Show JSON schema
                    "default": null,
                    "title": "Rewindbeforeinvocationid"
                 },
+                "route": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "boolean"
+                               },
+                               {
+                                  "type": "integer"
+                               },
+                               {
+                                  "type": "string"
+                               }
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Route"
+                },
                 "renderUiWidgets": {
                    "anyOf": [
                       {
@@ -2341,6 +3289,16 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Renderuiwidgets"
+                },
+                "setModelResponse": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Setmodelresponse"
                 }
              },
              "title": "EventActions",
@@ -3631,6 +4589,32 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Name of the `FileSearchStore` containing the document. Example: `fileSearchStores/123`. This field is not supported in Vertex AI.",
                    "title": "Filesearchstore"
+                },
+                "pageNumber": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Page number of the retrieved context. This field is not supported in Vertex AI.",
+                   "title": "Pagenumber"
+                },
+                "mediaId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Media ID. This field is not supported in Vertex AI.",
+                   "title": "Mediaid"
                 }
              },
              "title": "GroundingChunkRetrievedContext",
@@ -4370,6 +5354,45 @@ Show JSON schema
              "title": "MultiSpeakerVoiceConfig",
              "type": "object"
           },
+          "NodeInfo": {
+             "description": "Workflow node metadata attached to an Event.",
+             "properties": {
+                "path": {
+                   "default": "",
+                   "title": "Path",
+                   "type": "string"
+                },
+                "outputFor": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Outputfor"
+                },
+                "messageAsOutput": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Messageasoutput"
+                }
+             },
+             "title": "NodeInfo",
+             "type": "object"
+          },
           "OAuth2": {
              "additionalProperties": true,
              "properties": {
@@ -4570,6 +5593,30 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "codeVerifier": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codeverifier"
+                },
+                "codeChallengeMethod": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codechallengemethod"
                 },
                 "tokenEndpointAuthMethod": {
                    "anyOf": [
@@ -5515,6 +6562,99 @@ Show JSON schema
              "title": "RetrievalMetadata",
              "type": "object"
           },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
           "RunConfig": {
              "additionalProperties": false,
              "description": "Configs for runtime behavior of agents.\n\nThe configs here will be overridden by agent-specific configurations.",
@@ -5702,6 +6842,349 @@ Show JSON schema
                 }
              },
              "title": "RunConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
              "type": "object"
           },
           "SearchEntryPoint": {
@@ -6379,6 +7862,21 @@ Show JSON schema
              "title": "TurnCoverage",
              "type": "string"
           },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          },
           "UiWidget": {
              "additionalProperties": false,
              "description": "Rendering metadata for a UI widget associated with an event.\n\nWhen present on an Event.actions, the UI renders the widget using the\nspecified provider's renderer component.",
@@ -6508,7 +8006,6 @@ Show JSON schema
        "additionalProperties": false,
        "required": [
           "invocation_id",
-          "agent",
           "session"
        ]
     }
@@ -6519,7 +8016,7 @@ Fields:
 
   * `active_streaming_tools (dict[str, google.adk.agents.active_streaming_tool.ActiveStreamingTool] | None)`
 
-  * `agent (google.adk.agents.base_agent.BaseAgent)`
+  * `agent (google.adk.agents.base_agent.BaseAgent | google.adk.workflow._base_node.BaseNode | None)`
 
   * `agent_states (dict[str, dict[str, Any]])`
 
@@ -6539,11 +8036,13 @@ Fields:
 
   * `end_of_agents (dict[str, bool])`
 
-  * `events_compaction_config (google.adk.apps.app.EventsCompactionConfig | None)`
+  * `events_compaction_config (google.adk.apps._configs.EventsCompactionConfig | None)`
 
   * `input_realtime_cache (list[google.adk.agents.invocation_context.RealtimeCacheEntry] | None)`
 
   * `invocation_id (str)`
+
+  * `isolation_scope (str | None)`
 
   * `live_request_queue (google.adk.agents.live_request_queue.LiveRequestQueue | None)`
 
@@ -6551,11 +8050,13 @@ Fields:
 
   * `memory_service (google.adk.memory.base_memory_service.BaseMemoryService | None)`
 
+  * `node_path (str | None)`
+
   * `output_realtime_cache (list[google.adk.agents.invocation_context.RealtimeCacheEntry] | None)`
 
   * `plugin_manager (google.adk.plugins.plugin_manager.PluginManager)`
 
-  * `resumability_config (google.adk.apps.app.ResumabilityConfig | None)`
+  * `resumability_config (google.adk.apps._configs.ResumabilityConfig | None)`
 
   * `run_config (google.adk.agents.run_config.RunConfig | None)`
 
@@ -6577,10 +8078,12 @@ _field _active_streaming_tools _: Optional[dict[str, ActiveStreamingTool]]__ = N
 
 The running streaming tools of this invocation.
 
-_field _agent _: BaseAgent_ _[Required]_¶
+_field _agent _: Optional[BaseAgent | BaseNode]__ = None_¶
     
 
-The current agent of this invocation context. Readonly.
+The current agent of this invocation context.
+
+None when Runner drives a BaseNode (not a BaseAgent).
 
 _field _agent_states _: dict[str, dict[str, Any]]__[Optional]_¶
     
@@ -6642,6 +8145,15 @@ _field _invocation_id _: str_ _[Required]_¶
 
 The id of this invocation context. Readonly.
 
+_field _isolation_scope _: Optional[str]__ = None_¶
+    
+
+Scope tag for filtering session events visible to this agent.
+
+When set, the LLM content-builder restricts session events to those whose `event.isolation_scope` matches. One usage today is the Task API: task-mode and single_turn-mode agents are scoped under the originating function-call id; chat coordinators are unscoped and see only unscoped events.
+
+⚠️ DO NOT USE THIS FIELD DIRECTLY. It is an internal mechanism that may change without notice.
+
 _field _live_request_queue _: Optional[LiveRequestQueue]__ = None_¶
     
 
@@ -6654,6 +8166,13 @@ The handle for live session resumption.
 
 _field _memory_service _: Optional[BaseMemoryService]__ = None_¶
     
+
+_field _node_path _: Optional[str]__ = None_¶
+    
+
+The path of the current agent in the workflow call stack.
+
+Used by workflow agents to track their position in nested agent hierarchies. Format: “agent_1/agent_2/agent_3” where agent_1 is the outermost workflow. None for non-workflow agents.
 
 _field _output_realtime_cache _: Optional[list[RealtimeCacheEntry]]__ = None_¶
     
@@ -6808,9 +8327,7 @@ Return type:
 Should meet all following conditions to pause an invocation:
     
 
-  1. The app is resumable.
-
-  2. The current event has a long running function call.
+  1. The current event has a long running function call.
 
 
 
@@ -8045,6 +9562,75 @@ Show JSON schema
              "title": "Description",
              "type": "string"
           },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
           "parent_agent": {
              "anyOf": [
                 {
@@ -8143,6 +9729,35 @@ Show JSON schema
              "default": null,
              "title": "Generate Content Config"
           },
+          "mode": {
+             "anyOf": [
+                {
+                   "enum": [
+                      "chat",
+                      "task",
+                      "single_turn"
+                   ],
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Mode"
+          },
+          "parallel_worker": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Parallel Worker"
+          },
           "disallow_transfer_to_parent": {
              "default": false,
              "title": "Disallow Transfer To Parent",
@@ -8161,32 +9776,6 @@ Show JSON schema
              ],
              "title": "Include Contents",
              "type": "string"
-          },
-          "input_schema": {
-             "anyOf": [
-                {},
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null,
-             "title": "Input Schema"
-          },
-          "output_schema": {
-             "anyOf": [
-                {
-                   "additionalProperties": true,
-                   "type": "object"
-                },
-                {
-                   "$ref": "#/$defs/Schema"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null,
-             "title": "Output Schema"
           },
           "output_key": {
              "anyOf": [
@@ -8259,6 +9848,81 @@ Show JSON schema
                    "default": "",
                    "title": "Description",
                    "type": "string"
+                },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
                 },
                 "parent_agent": {
                    "anyOf": [
@@ -9514,6 +11178,99 @@ Show JSON schema
              "title": "PartialArg",
              "type": "object"
           },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
           "Schema": {
              "additionalProperties": false,
              "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
@@ -10061,6 +11818,8 @@ Fields:
 
   * `instruction (Union[str, InstructionProvider])`
 
+  * `mode (Literal['chat', 'task', 'single_turn'] | None)`
+
   * `model (Union[str, BaseLlm])`
 
   * `on_model_error_callback (Optional[OnModelErrorCallback])`
@@ -10070,6 +11829,8 @@ Fields:
   * `output_key (Optional[str])`
 
   * `output_schema (Optional[SchemaType])`
+
+  * `parallel_worker (bool | None)`
 
   * `planner (Optional[BasePlanner])`
 
@@ -10348,6 +12109,26 @@ Validated by:
 
 
 
+_field _mode _: Literal['chat', 'task', 'single_turn'] | None_ _ = None_¶
+    
+
+The delegation mode for this agent.
+
+Options:
+    
+
+chat: Standard chat agent reachable via transfer_to_agent. task: Task agent that chats with the user to accomplish a task. single_turn: Agents that complete a task without chatting with the user.
+
+Default value is chat as a sub-agent, single_turn as a node in a workflow.
+
+Validated by:
+    
+
+  * `__model_validator_after`
+
+
+
+
 _field _model _: Union[str, BaseLlm]__ = ''_¶
     
 
@@ -10465,7 +12246,20 @@ Supports all schema types that the underlying Google GenAI API supports:
 
 Note
 
-When this is set, agent can ONLY reply and CANNOT use any tools, such as function tools, RAGs, agent transfer, etc.
+The ADK supports using output_schema and tools together. It works by exposing tools during the thought loop and enforcing structure only on the final output.
+
+Validated by:
+    
+
+  * `__model_validator_after`
+
+
+
+
+_field _parallel_worker _: bool | None_ _ = None_¶
+    
+
+Whether to run the agent in parallel worker mode.
 
 Validated by:
     
@@ -10544,10 +12338,15 @@ Validated by:
 
 
 
-config_type¶
+_classmethod _set_default_live_model(_model_)¶
     
 
-alias of `LlmAgentConfig`
+Overrides the default model used for live mode when an agent has no model set.
+
+Return type:
+    
+
+`None`
 
 _classmethod _set_default_model(_model_)¶
     
@@ -10633,6 +12432,11 @@ Return type:
 
 `None`
 
+DEFAULT_LIVE_MODEL _: ClassVar[str]__ = 'gemini-live-2.5-flash-native-audio'_¶
+    
+
+System default model used for live mode when no model is set on an agent.
+
 DEFAULT_MODEL _: ClassVar[str]__ = 'gemini-2.5-flash'_¶
     
 
@@ -10663,6 +12467,13 @@ _property _canonical_before_tool_callbacks _: list[Callable[[BaseTool, dict[str,
     
 
 The resolved self.before_tool_callback field as a list of BeforeToolCallback.
+
+This method is only for use by Agent Development Kit.
+
+_property _canonical_live_model _: BaseLlm_¶
+    
+
+The resolved self.model field as BaseLlm for live mode.
 
 This method is only for use by Agent Development Kit.
 
@@ -10712,6 +12523,81 @@ Show JSON schema
              "default": "",
              "title": "Description",
              "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
           },
           "parent_agent": {
              "anyOf": [
@@ -10768,6 +12654,81 @@ Show JSON schema
                    "title": "Description",
                    "type": "string"
                 },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                },
                 "parent_agent": {
                    "anyOf": [
                       {
@@ -10802,9 +12763,461 @@ Show JSON schema
              ],
              "title": "BaseAgent",
              "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
           }
        },
        "additionalProperties": false,
+       "deprecated": true,
        "required": [
           "name"
        ]
@@ -10827,11 +13240,6 @@ _field _max_iterations _: Optional[int]__ = None_¶
 The maximum number of iterations to run the loop agent.
 
 If not set, the loop agent will run indefinitely until a sub-agent escalates.
-
-config_type¶
-    
-
-alias of `LoopAgentConfig`
 
 _class _google.adk.agents.McpInstructionProvider(_connection_params_ , _prompt_name_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_)¶
     
@@ -10887,6 +13295,81 @@ Show JSON schema
              "title": "Description",
              "type": "string"
           },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
           "parent_agent": {
              "anyOf": [
                 {
@@ -10930,6 +13413,81 @@ Show JSON schema
                    "title": "Description",
                    "type": "string"
                 },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                },
                 "parent_agent": {
                    "anyOf": [
                       {
@@ -10964,9 +13522,461 @@ Show JSON schema
              ],
              "title": "BaseAgent",
              "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
           }
        },
        "additionalProperties": false,
+       "deprecated": true,
        "required": [
           "name"
        ]
@@ -10978,11 +13988,6 @@ Fields:
 
 Validators:
     
-
-config_type¶
-    
-
-alias of `ParallelAgentConfig`
 
 _pydantic model _google.adk.agents.RunConfig¶
     
@@ -12279,6 +15284,81 @@ Show JSON schema
              "title": "Description",
              "type": "string"
           },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
           "parent_agent": {
              "anyOf": [
                 {
@@ -12322,6 +15402,81 @@ Show JSON schema
                    "title": "Description",
                    "type": "string"
                 },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                },
                 "parent_agent": {
                    "anyOf": [
                       {
@@ -12356,9 +15511,461 @@ Show JSON schema
              ],
              "title": "BaseAgent",
              "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
           }
        },
        "additionalProperties": false,
+       "deprecated": true,
        "required": [
           "name"
        ]
@@ -12371,10 +15978,7 @@ Fields:
 Validators:
     
 
-config_type¶
-    
-
-alias of `SequentialAgentConfig`
+# google.adk.apps module¶
 
 # google.adk.artifacts module¶
 
@@ -12587,3859 +16191,7 @@ Returns:
 
 The revision ID. The first version of the artifact has a revision ID of 0. This is incremented by 1 after each successful save.
 
-_class _google.adk.artifacts.FileArtifactService(_root_dir_)¶
-    
-
-Bases: `BaseArtifactService`
-
-Stores filesystem-backed artifacts beneath a configurable root directory.
-
-Initializes the file-based artifact service.
-
-Parameters:
-    
-
-**root_dir** – The directory that will contain artifact data.
-
-_async _delete_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Deletes an artifact.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. Leave unset for user-scoped artifacts.
-
-
-
-
-_async _get_artifact_version(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_, _version =None_)¶
-    
-
-Gets metadata for a specific artifact version.
-
-Return type:
-    
-
-`Optional`[`ArtifactVersion`]
-
-_async _list_artifact_keys(_*_ , _app_name_ , _user_id_ , _session_id =None_)¶
-    
-
-Lists all the artifact filenames within a session.
-
-Return type:
-    
-
-`list`[`str`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **session_id** – The ID of the session.
-
-
-
-Returns:
-    
-
-A list of artifact filenames. If session_id is provided, returns both session-scoped and user-scoped artifact filenames. If session_id is None, returns user-scoped artifact filenames.
-
-_async _list_artifact_versions(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Lists metadata for each artifact version on disk.
-
-Return type:
-    
-
-`list`[`ArtifactVersion`]
-
-_async _list_versions(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Lists all versions stored for an artifact.
-
-Return type:
-    
-
-`list`[`int`]
-
-_async _load_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_, _version =None_)¶
-    
-
-Gets an artifact from the artifact service storage.
-
-The artifact is a file identified by the app name, user ID, session ID, and filename.
-
-Return type:
-    
-
-`Optional`[`Part`]
-
-Parameters:
-    
-
-  * **app_name** – The app name.
-
-  * **user_id** – The user ID.
-
-  * **filename** – The filename of the artifact.
-
-  * **session_id** – The session ID. If None, load the user-scoped artifact.
-
-  * **version** – The version of the artifact. If None, the latest version will be returned.
-
-
-
-Returns:
-    
-
-The artifact or None if not found.
-
-_async _save_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _artifact_ , _session_id =None_, _custom_metadata =None_)¶
-    
-
-Persists an artifact to disk.
-
-Filenames may be simple (`"report.txt"`), nested (`"images/photo.png"`), or explicitly user-scoped (`"user:shared/diagram.png"`). All values are interpreted relative to the computed scope root; absolute paths or inputs that traverse outside that root (for example `"../../secret.txt"`) raise `ValueError`.
-
-Return type:
-    
-
-`int`
-
-_class _google.adk.artifacts.GcsArtifactService(_bucket_name_ , _** kwargs_)¶
-    
-
-Bases: `BaseArtifactService`
-
-An artifact service implementation using Google Cloud Storage (GCS).
-
-Initializes the GcsArtifactService.
-
-Parameters:
-    
-
-  * **bucket_name** – The name of the bucket to use.
-
-  * ****kwargs** – Keyword arguments to pass to the Google Cloud Storage client.
-
-
-
-
-_async _delete_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Deletes an artifact.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, delete the user-scoped artifact.
-
-
-
-
-_async _get_artifact_version(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_, _version =None_)¶
-    
-
-Gets the metadata for a specific version of an artifact.
-
-Return type:
-    
-
-`Optional`[`ArtifactVersion`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, the artifact will be fetched from the user-scoped artifacts. Otherwise, it will be fetched from the specified session.
-
-  * **version** – The version number of the artifact to retrieve. If None, the latest version will be returned.
-
-
-
-Returns:
-    
-
-An ArtifactVersion object containing the metadata of the specified artifact version, or None if the artifact version is not found.
-
-_async _list_artifact_keys(_*_ , _app_name_ , _user_id_ , _session_id =None_)¶
-    
-
-Lists all the artifact filenames within a session.
-
-Return type:
-    
-
-`list`[`str`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **session_id** – The ID of the session.
-
-
-
-Returns:
-    
-
-A list of artifact filenames. If session_id is provided, returns both session-scoped and user-scoped artifact filenames. If session_id is None, returns user-scoped artifact filenames.
-
-_async _list_artifact_versions(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Lists all versions and their metadata for a specific artifact.
-
-Return type:
-    
-
-`list`[`ArtifactVersion`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, lists versions of the user-scoped artifact. Otherwise, lists versions of the artifact within the specified session.
-
-
-
-Returns:
-    
-
-A list of ArtifactVersion objects, each representing a version of the artifact and its associated metadata.
-
-_async _list_versions(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Lists all versions of an artifact.
-
-Return type:
-    
-
-`list`[`int`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, only list the user-scoped artifacts versions.
-
-
-
-Returns:
-    
-
-A list of all available versions of the artifact.
-
-_async _load_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_, _version =None_)¶
-    
-
-Gets an artifact from the artifact service storage.
-
-The artifact is a file identified by the app name, user ID, session ID, and filename.
-
-Return type:
-    
-
-`Optional`[`Part`]
-
-Parameters:
-    
-
-  * **app_name** – The app name.
-
-  * **user_id** – The user ID.
-
-  * **filename** – The filename of the artifact.
-
-  * **session_id** – The session ID. If None, load the user-scoped artifact.
-
-  * **version** – The version of the artifact. If None, the latest version will be returned.
-
-
-
-Returns:
-    
-
-The artifact or None if not found.
-
-_async _save_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _artifact_ , _session_id =None_, _custom_metadata =None_)¶
-    
-
-Saves an artifact to the artifact service storage.
-
-The artifact is a file identified by the app name, user ID, session ID, and filename. After saving the artifact, a revision ID is returned to identify the artifact version.
-
-Return type:
-    
-
-`int`
-
-Parameters:
-    
-
-  * **app_name** – The app name.
-
-  * **user_id** – The user ID.
-
-  * **filename** – The filename of the artifact.
-
-  * **artifact** – The artifact to save. Accepts a `types.Part` instance or a plain dictionary (camelCase or snake_case keys) which will be normalized via `ensure_part`. If the artifact consists of `file_data`, the artifact service assumes its content has been uploaded separately, and this method will associate the `file_data` with the artifact if necessary.
-
-  * **session_id** – The session ID. If None, the artifact is user-scoped.
-
-  * **custom_metadata** – custom metadata to associate with the artifact.
-
-
-
-Returns:
-    
-
-The revision ID. The first version of the artifact has a revision ID of 0. This is incremented by 1 after each successful save.
-
-_pydantic model _google.adk.artifacts.InMemoryArtifactService¶
-    
-
-Bases: `BaseArtifactService`, `BaseModel`
-
-An in-memory implementation of the artifact service.
-
-It is not suitable for multi-threaded production environments. Use it for testing and development only.
-
-Show JSON schema
-    
-    
-    {
-       "title": "InMemoryArtifactService",
-       "description": "An in-memory implementation of the artifact service.\n\nIt is not suitable for multi-threaded production environments. Use it for\ntesting and development only.",
-       "type": "object",
-       "properties": {
-          "artifacts": {
-             "additionalProperties": {
-                "items": {
-                   "$ref": "#/$defs/_ArtifactEntry"
-                },
-                "type": "array"
-             },
-             "title": "Artifacts",
-             "type": "object"
-          }
-       },
-       "$defs": {
-          "ArtifactVersion": {
-             "description": "Metadata describing a specific version of an artifact.",
-             "properties": {
-                "version": {
-                   "description": "Monotonically increasing identifier for the artifact version.",
-                   "title": "Version",
-                   "type": "integer"
-                },
-                "canonicalUri": {
-                   "description": "Canonical URI referencing the persisted artifact payload.",
-                   "title": "Canonicaluri",
-                   "type": "string"
-                },
-                "customMetadata": {
-                   "additionalProperties": true,
-                   "description": "Optional user-supplied metadata stored with the artifact.",
-                   "title": "Custommetadata",
-                   "type": "object"
-                },
-                "createTime": {
-                   "description": "Unix timestamp (seconds) when the version record was created.",
-                   "title": "Createtime",
-                   "type": "number"
-                },
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "MIME type when the artifact payload is stored as binary data.",
-                   "title": "Mimetype"
-                }
-             },
-             "required": [
-                "version",
-                "canonicalUri"
-             ],
-             "title": "ArtifactVersion",
-             "type": "object"
-          },
-          "Blob": {
-             "additionalProperties": false,
-             "description": "A content blob.\n\nA Blob contains data of a specific media type. It is used to represent images,\naudio, and video.",
-             "properties": {
-                "data": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The raw bytes of the data.",
-                   "title": "Data"
-                },
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server-side tools (`code_execution`, `google_search`, and `url_context`) are enabled. This field is not supported in Gemini API.",
-                   "title": "Displayname"
-                },
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The IANA standard MIME type of the source data.",
-                   "title": "Mimetype"
-                }
-             },
-             "title": "Blob",
-             "type": "object"
-          },
-          "CodeExecutionResult": {
-             "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
-             "properties": {
-                "outcome": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Outcome"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. Outcome of the code execution."
-                },
-                "output": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Contains stdout when code execution is successful, stderr or other description otherwise.",
-                   "title": "Output"
-                },
-                "id": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
-                   "title": "Id"
-                }
-             },
-             "title": "CodeExecutionResult",
-             "type": "object"
-          },
-          "ExecutableCode": {
-             "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
-             "properties": {
-                "code": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The code to be executed.",
-                   "title": "Code"
-                },
-                "language": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Language"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. Programming language of the `code`."
-                },
-                "id": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
-                   "title": "Id"
-                }
-             },
-             "title": "ExecutableCode",
-             "type": "object"
-          },
-          "FileData": {
-             "additionalProperties": false,
-             "description": "URI-based data.\n\nA FileData message contains a URI pointing to data of a specific media type.\nIt is used to represent images, audio, and video stored in Google Cloud\nStorage.",
-             "properties": {
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The display name of the file. Used to provide a label or filename to distinguish files. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server side tools (`code_execution`, `google_search`, and `url_context`) are enabled. This field is not supported in Gemini API.",
-                   "title": "Displayname"
-                },
-                "fileUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The URI of the file in Google Cloud Storage.",
-                   "title": "Fileuri"
-                },
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The IANA standard MIME type of the source data.",
-                   "title": "Mimetype"
-                }
-             },
-             "title": "FileData",
-             "type": "object"
-          },
-          "FunctionCall": {
-             "additionalProperties": false,
-             "description": "A function call.",
-             "properties": {
-                "id": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
-                   "title": "Id"
-                },
-                "args": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": true,
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
-                   "title": "Args"
-                },
-                "name": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
-                   "title": "Name"
-                },
-                "partialArgs": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "$ref": "#/$defs/PartialArg"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
-                   "title": "Partialargs"
-                },
-                "willContinue": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
-                   "title": "Willcontinue"
-                }
-             },
-             "title": "FunctionCall",
-             "type": "object"
-          },
-          "FunctionResponse": {
-             "additionalProperties": false,
-             "description": "A function response.",
-             "properties": {
-                "willContinue": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
-                   "title": "Willcontinue"
-                },
-                "scheduling": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionResponseScheduling"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
-                },
-                "parts": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "$ref": "#/$defs/FunctionResponsePart"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
-                   "title": "Parts"
-                },
-                "id": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The id of the function call this response is for. Populated by the client to match the corresponding function call `id`.",
-                   "title": "Id"
-                },
-                "name": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
-                   "title": "Name"
-                },
-                "response": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": true,
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The function response in JSON object format. Use \"output\" key to specify function output and \"error\" key to specify error details (if any). If \"output\" and \"error\" keys are not specified, then whole \"response\" is treated as function output.",
-                   "title": "Response"
-                }
-             },
-             "title": "FunctionResponse",
-             "type": "object"
-          },
-          "FunctionResponseBlob": {
-             "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
-             "properties": {
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The IANA standard MIME type of the source data.",
-                   "title": "Mimetype"
-                },
-                "data": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. Inline media bytes.",
-                   "title": "Data"
-                },
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
-                   "title": "Displayname"
-                }
-             },
-             "title": "FunctionResponseBlob",
-             "type": "object"
-          },
-          "FunctionResponseFileData": {
-             "additionalProperties": false,
-             "description": "URI based data for function response.",
-             "properties": {
-                "fileUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. URI.",
-                   "title": "Fileuri"
-                },
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The IANA standard MIME type of the source data.",
-                   "title": "Mimetype"
-                },
-                "displayName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
-                   "title": "Displayname"
-                }
-             },
-             "title": "FunctionResponseFileData",
-             "type": "object"
-          },
-          "FunctionResponsePart": {
-             "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
-             "properties": {
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionResponseBlob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Inline media bytes."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionResponseFileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. URI based data."
-                }
-             },
-             "title": "FunctionResponsePart",
-             "type": "object"
-          },
-          "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
-             "enum": [
-                "SCHEDULING_UNSPECIFIED",
-                "SILENT",
-                "WHEN_IDLE",
-                "INTERRUPT"
-             ],
-             "title": "FunctionResponseScheduling",
-             "type": "string"
-          },
-          "Language": {
-             "description": "Programming language of the `code`.",
-             "enum": [
-                "LANGUAGE_UNSPECIFIED",
-                "PYTHON"
-             ],
-             "title": "Language",
-             "type": "string"
-          },
-          "Outcome": {
-             "description": "Outcome of the code execution.",
-             "enum": [
-                "OUTCOME_UNSPECIFIED",
-                "OUTCOME_OK",
-                "OUTCOME_FAILED",
-                "OUTCOME_DEADLINE_EXCEEDED"
-             ],
-             "title": "Outcome",
-             "type": "string"
-          },
-          "Part": {
-             "additionalProperties": false,
-             "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
-             "properties": {
-                "mediaResolution": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/PartMediaResolution"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Media resolution for the input media.\n    "
-                },
-                "codeExecutionResult": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/CodeExecutionResult"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The result of executing the ExecutableCode."
-                },
-                "executableCode": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ExecutableCode"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Code generated by the model that is intended to be executed."
-                },
-                "fileData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FileData"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The URI-based data of the part. This can be used to include files from Google Cloud Storage."
-                },
-                "functionCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. A predicted function call returned from the model. This contains the name of the function to call and the arguments to pass to the function."
-                },
-                "functionResponse": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/FunctionResponse"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The result of a function call. This is used to provide the model with the result of a function call that it predicted."
-                },
-                "inlineData": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/Blob"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The inline data content of the part. This can be used to include images, audio, or video in a request."
-                },
-                "text": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The text content of the part. When sent from the VSCode Gemini Code Assist extension, references to @mentioned items will be converted to markdown boldface text. For example `@my-repo` will be converted to and sent as `**my-repo**` by the IDE agent.",
-                   "title": "Text"
-                },
-                "thought": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Indicates whether the `part` represents the model's thought process or reasoning.",
-                   "title": "Thought"
-                },
-                "thoughtSignature": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
-                   "title": "Thoughtsignature"
-                },
-                "videoMetadata": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VideoMetadata"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
-                },
-                "toolCall": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ToolCall"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Server-side tool call. This field is populated when the model predicts a tool invocation that should be executed on the server. The client is expected to echo this message back to the API."
-                },
-                "toolResponse": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ToolResponse"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The output from a server-side ToolCall execution. This field is populated by the client with the results of executing the corresponding ToolCall."
-                },
-                "partMetadata": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": true,
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
-                   "title": "Partmetadata"
-                }
-             },
-             "title": "Part",
-             "type": "object"
-          },
-          "PartMediaResolution": {
-             "additionalProperties": false,
-             "description": "Media resolution for the input media.",
-             "properties": {
-                "level": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/PartMediaResolutionLevel"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The tokenization quality used for given media.\n    "
-                },
-                "numTokens": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Specifies the required sequence length for media tokenization.\n    ",
-                   "title": "Numtokens"
-                }
-             },
-             "title": "PartMediaResolution",
-             "type": "object"
-          },
-          "PartMediaResolutionLevel": {
-             "description": "The tokenization quality used for given media.",
-             "enum": [
-                "MEDIA_RESOLUTION_UNSPECIFIED",
-                "MEDIA_RESOLUTION_LOW",
-                "MEDIA_RESOLUTION_MEDIUM",
-                "MEDIA_RESOLUTION_HIGH",
-                "MEDIA_RESOLUTION_ULTRA_HIGH"
-             ],
-             "title": "PartMediaResolutionLevel",
-             "type": "string"
-          },
-          "PartialArg": {
-             "additionalProperties": false,
-             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
-             "properties": {
-                "boolValue": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Represents a boolean value.",
-                   "title": "Boolvalue"
-                },
-                "jsonPath": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
-                   "title": "Jsonpath"
-                },
-                "nullValue": {
-                   "anyOf": [
-                      {
-                         "const": "NULL_VALUE",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Represents a null value.",
-                   "title": "Nullvalue"
-                },
-                "numberValue": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Represents a double value.",
-                   "title": "Numbervalue"
-                },
-                "stringValue": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Represents a string value.",
-                   "title": "Stringvalue"
-                },
-                "willContinue": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
-                   "title": "Willcontinue"
-                }
-             },
-             "title": "PartialArg",
-             "type": "object"
-          },
-          "ToolCall": {
-             "additionalProperties": false,
-             "description": "A predicted server-side `ToolCall` returned from the model.\n\nThis message contains information about a tool that the model wants to invoke.\nThe client is NOT expected to execute this `ToolCall`. Instead, the\nclient should pass this `ToolCall` back to the API in a subsequent turn\nwithin a `Content` message, along with the corresponding `ToolResponse`.",
-             "properties": {
-                "id": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Unique identifier of the tool call. The server returns the tool response with the matching `id`.",
-                   "title": "Id"
-                },
-                "toolType": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ToolType"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The type of tool that was called."
-                },
-                "args": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": true,
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The tool call arguments. Example: {\"arg1\": \"value1\", \"arg2\": \"value2\"}.",
-                   "title": "Args"
-                }
-             },
-             "title": "ToolCall",
-             "type": "object"
-          },
-          "ToolResponse": {
-             "additionalProperties": false,
-             "description": "The output from a server-side `ToolCall` execution.\n\nThis message contains the results of a tool invocation that was initiated by a\n`ToolCall` from the model. The client should pass this `ToolResponse` back to\nthe API in a subsequent turn within a `Content` message, along with the\ncorresponding `ToolCall`.",
-             "properties": {
-                "id": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The identifier of the tool call this response is for.",
-                   "title": "Id"
-                },
-                "toolType": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ToolType"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The type of tool that was called, matching the tool_type in the corresponding ToolCall."
-                },
-                "response": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": true,
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The tool response.",
-                   "title": "Response"
-                }
-             },
-             "title": "ToolResponse",
-             "type": "object"
-          },
-          "ToolType": {
-             "description": "The type of tool in the function call.",
-             "enum": [
-                "TOOL_TYPE_UNSPECIFIED",
-                "GOOGLE_SEARCH_WEB",
-                "GOOGLE_SEARCH_IMAGE",
-                "URL_CONTEXT",
-                "GOOGLE_MAPS",
-                "FILE_SEARCH"
-             ],
-             "title": "ToolType",
-             "type": "string"
-          },
-          "VideoMetadata": {
-             "additionalProperties": false,
-             "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
-             "properties": {
-                "endOffset": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The end offset of the video.",
-                   "title": "Endoffset"
-                },
-                "fps": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0].",
-                   "title": "Fps"
-                },
-                "startOffset": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The start offset of the video.",
-                   "title": "Startoffset"
-                }
-             },
-             "title": "VideoMetadata",
-             "type": "object"
-          },
-          "_ArtifactEntry": {
-             "properties": {
-                "data": {
-                   "$ref": "#/$defs/Part"
-                },
-                "artifact_version": {
-                   "$ref": "#/$defs/ArtifactVersion"
-                }
-             },
-             "required": [
-                "data",
-                "artifact_version"
-             ],
-             "title": "_ArtifactEntry",
-             "type": "object"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `artifacts (dict[str, list[google.adk.artifacts.in_memory_artifact_service._ArtifactEntry]])`
-
-
-
-
-_field _artifacts _: dict[str, list[_ArtifactEntry]]__[Optional]_¶
-    
-
-_async _delete_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Deletes an artifact.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, delete the user-scoped artifact.
-
-
-
-
-_async _get_artifact_version(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_, _version =None_)¶
-    
-
-Gets the metadata for a specific version of an artifact.
-
-Return type:
-    
-
-`Optional`[`ArtifactVersion`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, the artifact will be fetched from the user-scoped artifacts. Otherwise, it will be fetched from the specified session.
-
-  * **version** – The version number of the artifact to retrieve. If None, the latest version will be returned.
-
-
-
-Returns:
-    
-
-An ArtifactVersion object containing the metadata of the specified artifact version, or None if the artifact version is not found.
-
-_async _list_artifact_keys(_*_ , _app_name_ , _user_id_ , _session_id =None_)¶
-    
-
-Lists all the artifact filenames within a session.
-
-Return type:
-    
-
-`list`[`str`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **session_id** – The ID of the session.
-
-
-
-Returns:
-    
-
-A list of artifact filenames. If session_id is provided, returns both session-scoped and user-scoped artifact filenames. If session_id is None, returns user-scoped artifact filenames.
-
-_async _list_artifact_versions(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Lists all versions and their metadata for a specific artifact.
-
-Return type:
-    
-
-`list`[`ArtifactVersion`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, lists versions of the user-scoped artifact. Otherwise, lists versions of the artifact within the specified session.
-
-
-
-Returns:
-    
-
-A list of ArtifactVersion objects, each representing a version of the artifact and its associated metadata.
-
-_async _list_versions(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_)¶
-    
-
-Lists all versions of an artifact.
-
-Return type:
-    
-
-`list`[`int`]
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **filename** – The name of the artifact file.
-
-  * **session_id** – The ID of the session. If None, only list the user-scoped artifacts versions.
-
-
-
-Returns:
-    
-
-A list of all available versions of the artifact.
-
-_async _load_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _session_id =None_, _version =None_)¶
-    
-
-Gets an artifact from the artifact service storage.
-
-The artifact is a file identified by the app name, user ID, session ID, and filename.
-
-Return type:
-    
-
-`Optional`[`Part`]
-
-Parameters:
-    
-
-  * **app_name** – The app name.
-
-  * **user_id** – The user ID.
-
-  * **filename** – The filename of the artifact.
-
-  * **session_id** – The session ID. If None, load the user-scoped artifact.
-
-  * **version** – The version of the artifact. If None, the latest version will be returned.
-
-
-
-Returns:
-    
-
-The artifact or None if not found.
-
-_async _save_artifact(_*_ , _app_name_ , _user_id_ , _filename_ , _artifact_ , _session_id =None_, _custom_metadata =None_)¶
-    
-
-Saves an artifact to the artifact service storage.
-
-The artifact is a file identified by the app name, user ID, session ID, and filename. After saving the artifact, a revision ID is returned to identify the artifact version.
-
-Return type:
-    
-
-`int`
-
-Parameters:
-    
-
-  * **app_name** – The app name.
-
-  * **user_id** – The user ID.
-
-  * **filename** – The filename of the artifact.
-
-  * **artifact** – The artifact to save. Accepts a `types.Part` instance or a plain dictionary (camelCase or snake_case keys) which will be normalized via `ensure_part`. If the artifact consists of `file_data`, the artifact service assumes its content has been uploaded separately, and this method will associate the `file_data` with the artifact if necessary.
-
-  * **session_id** – The session ID. If None, the artifact is user-scoped.
-
-  * **custom_metadata** – custom metadata to associate with the artifact.
-
-
-
-Returns:
-    
-
-The revision ID. The first version of the artifact has a revision ID of 0. This is incremented by 1 after each successful save.
-
-# google.adk.apps package¶
-
-_pydantic model _google.adk.apps.App¶
-    
-
-Bases: `BaseModel`
-
-Represents an LLM-backed agentic application.
-
-An App is the top-level container for an agentic system powered by LLMs. It manages a root agent (root_agent), which serves as the root of an agent tree, enabling coordination and communication across all agents in the hierarchy. The plugins are application-wide components that provide shared capabilities and services to the entire system.
-
-Show JSON schema
-    
-    
-    {
-       "title": "App",
-       "type": "object",
-       "properties": {
-          "name": {
-             "title": "Name",
-             "type": "string"
-          },
-          "root_agent": {
-             "$ref": "#/$defs/BaseAgent"
-          },
-          "plugins": {
-             "default": null,
-             "title": "Plugins"
-          },
-          "events_compaction_config": {
-             "default": null,
-             "title": "Events Compaction Config"
-          },
-          "context_cache_config": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/ContextCacheConfig"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
-          },
-          "resumability_config": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/ResumabilityConfig"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
-          }
-       },
-       "$defs": {
-          "BaseAgent": {
-             "additionalProperties": false,
-             "description": "Base class for all agents in Agent Development Kit.",
-             "properties": {
-                "name": {
-                   "title": "Name",
-                   "type": "string"
-                },
-                "description": {
-                   "default": "",
-                   "title": "Description",
-                   "type": "string"
-                },
-                "parent_agent": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/BaseAgent"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "sub_agents": {
-                   "items": {
-                      "$ref": "#/$defs/BaseAgent"
-                   },
-                   "title": "Sub Agents",
-                   "type": "array"
-                },
-                "before_agent_callback": {
-                   "default": null,
-                   "title": "Before Agent Callback",
-                   "type": "null"
-                },
-                "after_agent_callback": {
-                   "default": null,
-                   "title": "After Agent Callback",
-                   "type": "null"
-                }
-             },
-             "required": [
-                "name"
-             ],
-             "title": "BaseAgent",
-             "type": "object"
-          },
-          "ContextCacheConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for context caching across all agents in an app.\n\nThis configuration enables and controls context caching behavior for\nall LLM agents in an app. When this config is present on an app, context\ncaching is enabled for all agents. When absent (None), context caching\nis disabled.\n\nContext caching can significantly reduce costs and improve response times\nby reusing previously processed context across multiple requests.\n\nAttributes:\n    cache_intervals: Maximum number of invocations to reuse the same cache before refreshing it\n    ttl_seconds: Time-to-live for cache in seconds\n    min_tokens: Minimum tokens required to enable caching",
-             "properties": {
-                "cache_intervals": {
-                   "default": 10,
-                   "description": "Maximum number of invocations to reuse the same cache before refreshing it",
-                   "maximum": 100,
-                   "minimum": 1,
-                   "title": "Cache Intervals",
-                   "type": "integer"
-                },
-                "ttl_seconds": {
-                   "default": 1800,
-                   "description": "Time-to-live for cache in seconds",
-                   "exclusiveMinimum": 0,
-                   "title": "Ttl Seconds",
-                   "type": "integer"
-                },
-                "min_tokens": {
-                   "default": 0,
-                   "description": "Minimum estimated request tokens required to enable caching. This compares against the estimated total tokens of the request (system instruction + tools + contents). Context cache storage may have cost. Set higher to avoid caching small requests where overhead may exceed benefits.",
-                   "minimum": 0,
-                   "title": "Min Tokens",
-                   "type": "integer"
-                }
-             },
-             "title": "ContextCacheConfig",
-             "type": "object"
-          },
-          "ResumabilityConfig": {
-             "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long-running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
-             "properties": {
-                "is_resumable": {
-                   "default": false,
-                   "title": "Is Resumable",
-                   "type": "boolean"
-                }
-             },
-             "title": "ResumabilityConfig",
-             "type": "object"
-          }
-       },
-       "additionalProperties": false,
-       "required": [
-          "name",
-          "root_agent"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `context_cache_config (google.adk.agents.context_cache_config.ContextCacheConfig | None)`
-
-  * `events_compaction_config (google.adk.apps.app.EventsCompactionConfig | None)`
-
-  * `name (str)`
-
-  * `plugins (list[google.adk.plugins.base_plugin.BasePlugin])`
-
-  * `resumability_config (google.adk.apps.app.ResumabilityConfig | None)`
-
-  * `root_agent (google.adk.agents.base_agent.BaseAgent)`
-
-
-
-Validators:
-    
-
-  * `_validate_name` » `all fields`
-
-
-
-
-_field _context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
-    
-
-Context cache configuration that applies to all LLM agents in the app.
-
-Validated by:
-    
-
-  * `_validate_name`
-
-
-
-
-_field _events_compaction_config _: Optional[EventsCompactionConfig]__ = None_¶
-    
-
-The config of event compaction for the application.
-
-Validated by:
-    
-
-  * `_validate_name`
-
-
-
-
-_field _name _: str_ _[Required]_¶
-    
-
-The name of the application.
-
-Validated by:
-    
-
-  * `_validate_name`
-
-
-
-
-_field _plugins _: list[BasePlugin]__[Optional]_¶
-    
-
-The plugins in the application.
-
-Validated by:
-    
-
-  * `_validate_name`
-
-
-
-
-_field _resumability_config _: Optional[ResumabilityConfig]__ = None_¶
-    
-
-The config of the resumability for the application. If configured, will be applied to all agents in the app.
-
-Validated by:
-    
-
-  * `_validate_name`
-
-
-
-
-_field _root_agent _: BaseAgent_ _[Required]_¶
-    
-
-The root agent in the application. One app can only have one root agent.
-
-Validated by:
-    
-
-  * `_validate_name`
-
-
-
-
-_pydantic model _google.adk.apps.ResumabilityConfig¶
-    
-
-Bases: `BaseModel`
-
-The config of the resumability for an application.
-
-The “resumability” in ADK refers to the ability to: 1\. pause an invocation upon a long-running function call. 2\. resume an invocation from the last event, if it’s paused or failed midway through.
-
-Note: ADK resumes the invocation in a best-effort manner: 1\. Tool call to resume needs to be idempotent because we only guarantee an at-least-once behavior once resumed. 2\. Any temporary / in-memory state will be lost upon resumption.
-
-Show JSON schema
-    
-    
-    {
-       "title": "ResumabilityConfig",
-       "description": "The config of the resumability for an application.\n\nThe \"resumability\" in ADK refers to the ability to:\n1. pause an invocation upon a long-running function call.\n2. resume an invocation from the last event, if it's paused or failed midway\nthrough.\n\nNote: ADK resumes the invocation in a best-effort manner:\n1. Tool call to resume needs to be idempotent because we only guarantee\nan at-least-once behavior once resumed.\n2. Any temporary / in-memory state will be lost upon resumption.",
-       "type": "object",
-       "properties": {
-          "is_resumable": {
-             "default": false,
-             "title": "Is Resumable",
-             "type": "boolean"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `is_resumable (bool)`
-
-
-
-
-_field _is_resumable _: bool_ _ = False_¶
-    
-
-Whether the app supports agent resumption. If enabled, the feature will be enabled for all agents in the app.
-
 # google.adk.auth module¶
-
-# google.adk.cli commands¶
-
-## adk¶
-
-Agent Development Kit CLI tools.
-
-Usage
-    
-    
-    adk [OPTIONS] COMMAND [ARGS]...
-    
-
-Options
-
-\--version¶
-    
-
-Show the version and exit.
-
-### api_server¶
-
-Starts a FastAPI server for agents.
-
-AGENTS_DIR: The directory of agents, where each subdirectory is a single agent, containing at least __init__.py and agent.py files.
-
-Example:
-
-> adk api_server –session_service_uri=[uri] –port=[port] path/to/agents_dir
-
-Usage
-    
-    
-    adk api_server [OPTIONS] [AGENTS_DIR]
-    
-
-Options
-
-\--enable_features <enable_features>¶
-    
-
-Optional. Comma-separated list of feature names to enable. This provides an alternative to environment variables for enabling experimental features. Example: –enable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--disable_features <disable_features>¶
-    
-
-Optional. Comma-separated list of feature names to disable. This provides an alternative to environment variables for disabling features. Example: –disable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--host <host>¶
-    
-
-Optional. The binding host of the server
-
-Default:
-    
-
-`'127.0.0.1'`
-
-\--port <port>¶
-    
-
-Optional. The port of the server
-
-\--allow_origins <allow_origins>¶
-    
-
-Optional. Origins to allow for CORS. Can be literal origins (e.g., ‘<https://example.com>’) or regex patterns prefixed with ‘regex:’ (e.g., ‘regex:https://.*.example.com’).
-
--v, \--verbose¶
-    
-
-Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
-
-Default:
-    
-
-`False`
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-\--trace_to_cloud¶
-    
-
-Optional. Whether to enable cloud trace for telemetry.
-
-Default:
-    
-
-`False`
-
-\--otel_to_cloud¶
-    
-
-Optional. Whether to write OTel data to Google Cloud Observability services - Cloud Trace and Cloud Logging.
-
-Default:
-    
-
-`False`
-
-\--reload, \--no-reload¶
-    
-
-Optional. Whether to enable auto reload for server. Not supported for Cloud Run.
-
-\--a2a¶
-    
-
-Optional. Whether to enable A2A endpoint.
-
-Default:
-    
-
-`False`
-
-\--reload_agents¶
-    
-
-Optional. Whether to enable live reload for agents changes.
-
-Default:
-    
-
-`False`
-
-\--eval_storage_uri <eval_storage_uri>¶
-    
-
-Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
-
-\--extra_plugins <extra_plugins>¶
-    
-
-Optional. Comma-separated list of extra plugin classes or instances to enable (e.g., my.module.MyPluginClass or my.module.my_plugin_instance).
-
-\--url_prefix <url_prefix>¶
-    
-
-Optional. URL path prefix when the application is mounted behind a reverse proxy or API gateway (e.g., ‘/api/v1’, ‘/adk’). This ensures generated URLs and redirects work correctly when the app is not served at the root path. Must start with ‘/’ if provided.
-
-\--trigger_sources <trigger_sources>¶
-    
-
-Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /apps/{app_name}/trigger/* endpoints for batch and event-driven agent invocations.
-
-\--session_service_uri <session_service_uri>¶
-    
-
-Optional. The URI of the session service. If set, ADK uses this service.
-
-If unset, ADK chooses a default session service (see
-
-–use_local_storage).
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to run with the in-memory session service.
-
-\- Use ‘sqlite://<path_to_sqlite_file>’ to connect to a SQLite DB.
-
-\- See <https://docs.sqlalchemy.org/en/20/core/engines.html#backend-specific-urls>
-
-for supported database URIs.
-
-\--artifact_service_uri <artifact_service_uri>¶
-    
-
-Optional. The URI of the artifact service. If set, ADK uses this service.
-
-If unset, ADK chooses a default artifact service (see
-
-–use_local_storage).
-
-\- Use ‘gs://<bucket_name>’ to connect to the GCS artifact service.
-
-\- Use ‘memory://’ to force the in-memory artifact service.
-
-\- Use ‘[file:/](file:/)/<path>’ to store artifacts in a custom local directory.
-
-\--use_local_storage, \--no_use_local_storage¶
-    
-
-Optional. Whether to use local .adk storage when –session_service_uri and –artifact_service_uri are unset. Cannot be combined with explicit service URIs. When the agents directory isn’t writable (common in Cloud Run/Kubernetes), ADK falls back to in-memory unless overridden by ADK_FORCE_LOCAL_STORAGE=1 or ADK_DISABLE_LOCAL_STORAGE=1.
-
-Default:
-    
-
-`True`
-
-\--memory_service_uri <memory_service_uri>¶
-    
-
-Optional. The URI of the memory service.
-
-\- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to force the in-memory memory service.
-
-\--session_db_url <session_db_url>¶
-    
-
-Deprecated. Use –session_service_uri instead.
-
-\--artifact_storage_uri <artifact_storage_uri>¶
-    
-
-Deprecated. Use –artifact_service_uri instead.
-
-\--auto_create_session¶
-    
-
-Automatically create a session if it doesn’t exist when calling /run.
-
-Arguments
-
-AGENTS_DIR¶
-    
-
-Optional argument
-
-### conformance¶
-
-Conformance testing tools for ADK.
-
-Usage
-    
-    
-    adk conformance [OPTIONS] COMMAND [ARGS]...
-    
-
-#### record¶
-
-Generate ADK conformance test YAML files from TestCaseInput specifications.
-
-NOTE: this is work in progress.
-
-This command reads TestCaseInput specifications from input.yaml files, executes the specified test cases against agents, and generates conformance test files with recorded agent interactions as test.yaml files.
-
-Expected directory structure: category/name/input.yaml (TestCaseInput) -> category/name/test.yaml (TestCase)
-
-PATHS: One or more directories containing test case specifications. If no paths are provided, defaults to ‘tests/’ directory.
-
-Examples:
-
-Use default directory: adk conformance record
-
-Custom directories: adk conformance record tests/core tests/tools
-
-Usage
-    
-    
-    adk conformance record [OPTIONS] [PATHS]... {none|sse|bidi}
-    
-
-Arguments
-
-PATHS¶
-    
-
-Optional argument(s)
-
-STREAMING_MODE¶
-    
-
-Required argument
-
-#### test¶
-
-Run conformance tests to verify agent behavior consistency.
-
-Validates that agents produce consistent outputs by comparing against recorded interactions or evaluating live execution results.
-
-PATHS can be any number of folder paths. Each folder can either: \- Contain a spec.yaml file directly (single test case) \- Contain subdirectories with spec.yaml files (multiple test cases)
-
-If no paths are provided, defaults to searching for the ‘tests’ folder.
-
-TEST MODES:
-
-replay : Verifies agent interactions match previously recorded behaviors
-
-exactly. Compares LLM requests/responses and tool calls/results.
-
-live : Runs evaluation-based verification (not yet implemented)
-
-DIRECTORY STRUCTURE:
-
-Test cases must follow this structure:
-
-category/
-
-test_name/
-
-spec.yaml # Test specification
-
-generated-recordings.yaml # Recorded interactions (replay mode)
-
-generated-session.yaml # Session data (replay mode)
-
-generated-recordings-sse.yaml # Recorded SSE interactions (replay mode)
-
-generated-session-sse.yaml # SSE Session data (replay mode)
-
-REPORT GENERATION:
-
-Use –generate_report to create a Markdown report of test results. Use –report_dir to specify where the report should be saved.
-
-EXAMPLES:
-
-# Run all tests in current directory’s ‘tests’ folder
-
-adk conformance test
-
-# Run tests from specific folders
-
-adk conformance test tests/core tests/tools
-
-# Run a single test case
-
-adk conformance test tests/core/description_001
-
-# Run in live mode (when available)
-
-adk conformance test –mode=live tests/core
-
-# Generate a test report
-
-adk conformance test –generate_report
-
-# Generate a test report in a specific directory
-
-adk conformance test –generate_report –report_dir=reports
-
-Usage
-    
-    
-    adk conformance test [OPTIONS] [PATHS]...
-    
-
-Options
-
-\--mode <mode>¶
-    
-
-Test mode: ‘replay’ verifies against recorded interactions, ‘live’ runs evaluation-based verification.
-
-Default:
-    
-
-`'replay'`
-
-Options:
-    
-
-replay | live
-
-\--generate_report¶
-    
-
-Optional. Whether to generate a Markdown report of the test results.
-
-Default:
-    
-
-`False`
-
-\--report_dir <report_dir>¶
-    
-
-Optional. Directory to store the generated report. Defaults to current directory.
-
-\--streaming-mode <streaming_mode>¶
-    
-
-Options:
-    
-
-None | sse | bidi
-
-Arguments
-
-PATHS¶
-    
-
-Optional argument(s)
-
-### create¶
-
-Creates a new app in the current folder with prepopulated agent template.
-
-APP_NAME: required, the folder of the agent source code.
-
-Example:
-
-> adk create path/to/my_app
-
-Usage
-    
-    
-    adk create [OPTIONS] APP_NAME
-    
-
-Options
-
-\--model <model>¶
-    
-
-Optional. The model used for the root agent.
-
-\--api_key <api_key>¶
-    
-
-Optional. The API Key needed to access the model, e.g. Google AI API Key.
-
-\--project <project>¶
-    
-
-Optional. The Google Cloud Project for using VertexAI as backend.
-
-\--region <region>¶
-    
-
-Optional. The Google Cloud Region for using VertexAI as backend.
-
-Arguments
-
-APP_NAME¶
-    
-
-Required argument
-
-### deploy¶
-
-Deploys agent to hosted environments.
-
-Usage
-    
-    
-    adk deploy [OPTIONS] COMMAND [ARGS]...
-    
-
-#### agent_engine¶
-
-Deploys an agent to Agent Engine.
-
-Example:
-
->  # With Express Mode API Key adk deploy agent_engine –api_key=[api_key] my_agent
-> 
->  # With Google Cloud Project and Region adk deploy agent_engine –project=[project] –region=[region]
->
->> –display_name=[app_name] my_agent
-
-Usage
-    
-    
-    adk deploy agent_engine [OPTIONS] AGENT
-    
-
-Options
-
-\--api_key <api_key>¶
-    
-
-Optional. The API key to use for Express Mode. If not provided, the API key from the GOOGLE_API_KEY environment variable will be used. It will only be used if GOOGLE_GENAI_USE_VERTEXAI is true. (It will override GOOGLE_API_KEY in the .env file if it exists.)
-
-\--project <project>¶
-    
-
-Optional. Google Cloud project to deploy the agent. It will override GOOGLE_CLOUD_PROJECT in the .env file (if it exists). It will be ignored if api_key is set.
-
-\--region <region>¶
-    
-
-Optional. Google Cloud region to deploy the agent. It will override GOOGLE_CLOUD_LOCATION in the .env file (if it exists). It will be ignored if api_key is set.
-
-\--staging_bucket <staging_bucket>¶
-    
-
-Deprecated. This argument is no longer required or used.
-
-\--agent_engine_id <agent_engine_id>¶
-    
-
-Optional. ID of the Agent Engine instance to update if it exists (default: None, which means a new instance will be created). If project and region are set, this should be the resource ID, and the corresponding resource name in Agent Engine will be: projects/{project}/locations/{region}/reasoningEngines/{agent_engine_id}. If api_key is set, then agent_engine_id is required to be the full resource name (i.e. projects/*/locations/*/reasoningEngines/*).
-
-\--trace_to_cloud, \--no-trace_to_cloud¶
-    
-
-Optional. Whether to enable Cloud Trace for Agent Engine.
-
-\--otel_to_cloud¶
-    
-
-Optional. Whether to enable OpenTelemetry for Agent Engine.
-
-\--display_name <display_name>¶
-    
-
-Optional. Display name of the agent in Agent Engine.
-
-Default:
-    
-
-`''`
-
-\--description <description>¶
-    
-
-Optional. Description of the agent in Agent Engine.
-
-Default:
-    
-
-`''`
-
-\--adk_app <adk_app>¶
-    
-
-Optional. Python file for defining the ADK application (default: a file named agent_engine_app.py)
-
-\--temp_folder <temp_folder>¶
-    
-
-Optional. Temp folder for the generated Agent Engine source files. If the folder already exists, its contents will be removed. (default: a timestamped folder in the current working directory).
-
-\--adk_app_object <adk_app_object>¶
-    
-
-Optional. Python object corresponding to the root ADK agent or app. It can only be root_agent or app. (default: root_agent)
-
-\--env_file <env_file>¶
-    
-
-Optional. The filepath to the .env file for environment variables. (default: the .env file in the agent directory, if any.)
-
-\--requirements_file <requirements_file>¶
-    
-
-Optional. The filepath to the requirements.txt file to use. (default: the requirements.txt file in the agent directory, if any.)
-
-\--absolutize_imports <absolutize_imports>¶
-    
-
-NOTE: This flag is deprecated and will be removed in the future.
-
-\--agent_engine_config_file <agent_engine_config_file>¶
-    
-
-Optional. The filepath to the .agent_engine_config.json file to use. The values in this file will be overridden by the values set by other flags. (default: the .agent_engine_config.json file in the agent directory, if any.)
-
-\--validate-agent-import, \--no-validate-agent-import¶
-    
-
-Optional. Validate that the agent module can be imported before deployment. This requires your local environment to have the same dependencies as the deployment environment. (default: disabled)
-
-\--skip-agent-import-validation¶
-    
-
-Optional. Skip pre-deployment import validation of agent.py. This is the default; use –validate-agent-import to enable validation.
-
-Arguments
-
-AGENT¶
-    
-
-Required argument
-
-#### cloud_run¶
-
-Deploys an agent to Cloud Run.
-
-AGENT: The path to the agent source code folder.
-
-Use ‘–’ to separate gcloud arguments from adk arguments.
-
-Examples:
-
-> adk deploy cloud_run –project=[project] –region=[region] path/to/my_agent
-> 
-> adk deploy cloud_run –project=[project] –region=[region] path/to/my_agent
->     
-> 
-> – –no-allow-unauthenticated –min-instances=2
-
-Usage
-    
-    
-    adk deploy cloud_run [OPTIONS] AGENT
-    
-
-Options
-
-\--project <project>¶
-    
-
-Required. Google Cloud project to deploy the agent. When absent, default project from gcloud config is used.
-
-\--region <region>¶
-    
-
-Required. Google Cloud region to deploy the agent. When absent, gcloud run deploy will prompt later.
-
-\--service_name <service_name>¶
-    
-
-Optional. The service name to use in Cloud Run (default: ‘adk-default-service-name’).
-
-\--app_name <app_name>¶
-    
-
-Optional. App name of the ADK API server (default: the folder name of the AGENT source code).
-
-\--port <port>¶
-    
-
-Optional. The port of the ADK API server (default: 8000).
-
-\--trace_to_cloud¶
-    
-
-Optional. Whether to enable Cloud Trace export for Cloud Run deployments.
-
-Default:
-    
-
-`False`
-
-\--otel_to_cloud¶
-    
-
-Optional. Whether to enable OpenTelemetry export to GCP for Cloud Run deployments.
-
-Default:
-    
-
-`False`
-
-\--with_ui¶
-    
-
-Optional. Deploy ADK Web UI if set. (default: deploy ADK API server only). WARNING: The web UI is for development and testing only — do not use in production.
-
-Default:
-    
-
-`False`
-
-\--temp_folder <temp_folder>¶
-    
-
-Optional. Temp folder for the generated Cloud Run source files (default: a timestamped folder in the system temp directory).
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-\--verbosity <verbosity>¶
-    
-
-Deprecated. Use –log_level instead.
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-\--adk_version <adk_version>¶
-    
-
-Optional. The ADK version used in Cloud Run deployment. (default: the version in the dev environment)
-
-Default:
-    
-
-`'1.31.0'`
-
-\--a2a¶
-    
-
-Optional. Whether to enable A2A endpoint.
-
-Default:
-    
-
-`False`
-
-\--trigger_sources <trigger_sources>¶
-    
-
-Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /trigger/* endpoints for batch and event-driven agent invocations.
-
-\--allow_origins <allow_origins>¶
-    
-
-Optional. Origins to allow for CORS. Can be literal origins (e.g., ‘<https://example.com>’) or regex patterns prefixed with ‘regex:’ (e.g., ‘regex:https://.*.example.com’).
-
-\--session_service_uri <session_service_uri>¶
-    
-
-Optional. The URI of the session service. If set, ADK uses this service.
-
-If unset, ADK chooses a default session service (see
-
-–use_local_storage).
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to run with the in-memory session service.
-
-\- Use ‘sqlite://<path_to_sqlite_file>’ to connect to a SQLite DB.
-
-\- See <https://docs.sqlalchemy.org/en/20/core/engines.html#backend-specific-urls>
-
-for supported database URIs.
-
-\--artifact_service_uri <artifact_service_uri>¶
-    
-
-Optional. The URI of the artifact service. If set, ADK uses this service.
-
-If unset, ADK chooses a default artifact service (see
-
-–use_local_storage).
-
-\- Use ‘gs://<bucket_name>’ to connect to the GCS artifact service.
-
-\- Use ‘memory://’ to force the in-memory artifact service.
-
-\- Use ‘[file:/](file:/)/<path>’ to store artifacts in a custom local directory.
-
-\--use_local_storage, \--no_use_local_storage¶
-    
-
-Optional. Whether to use local .adk storage when –session_service_uri and –artifact_service_uri are unset. Cannot be combined with explicit service URIs. When the agents directory isn’t writable (common in Cloud Run/Kubernetes), ADK falls back to in-memory unless overridden by ADK_FORCE_LOCAL_STORAGE=1 or ADK_DISABLE_LOCAL_STORAGE=1.
-
-Default:
-    
-
-`False`
-
-\--memory_service_uri <memory_service_uri>¶
-    
-
-Optional. The URI of the memory service.
-
-\- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to force the in-memory memory service.
-
-\--session_db_url <session_db_url>¶
-    
-
-Deprecated. Use –session_service_uri instead.
-
-\--artifact_storage_uri <artifact_storage_uri>¶
-    
-
-Deprecated. Use –artifact_service_uri instead.
-
-Arguments
-
-AGENT¶
-    
-
-Required argument
-
-#### gke¶
-
-Deploys an agent to GKE.
-
-AGENT: The path to the agent source code folder.
-
-Example:
-
-> adk deploy gke –project=[project] –region=[region]
->     
-> 
-> –cluster_name=[cluster_name] path/to/my_agent
-
-Usage
-    
-    
-    adk deploy gke [OPTIONS] AGENT
-    
-
-Options
-
-\--project <project>¶
-    
-
-Required. Google Cloud project to deploy the agent. When absent, default project from gcloud config is used.
-
-\--region <region>¶
-    
-
-Required. Google Cloud region to deploy the agent. When absent, gcloud run deploy will prompt later.
-
-\--cluster_name <cluster_name>¶
-    
-
-Required. The name of the GKE cluster.
-
-\--service_name <service_name>¶
-    
-
-Optional. The service name to use in GKE (default: ‘adk-default-service-name’).
-
-\--app_name <app_name>¶
-    
-
-Optional. App name of the ADK API server (default: the folder name of the AGENT source code).
-
-\--port <port>¶
-    
-
-Optional. The port of the ADK API server (default: 8000).
-
-\--trace_to_cloud¶
-    
-
-Optional. Whether to enable Cloud Trace for GKE.
-
-Default:
-    
-
-`False`
-
-\--otel_to_cloud¶
-    
-
-Optional. Whether to enable OpenTelemetry for GKE.
-
-Default:
-    
-
-`False`
-
-\--with_ui¶
-    
-
-Optional. Deploy ADK Web UI if set. (default: deploy ADK API server only). WARNING: The web UI is for development and testing only — do not use in production.
-
-Default:
-    
-
-`False`
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-\--service_type <service_type>¶
-    
-
-Optional. The Kubernetes Service type for the deployed agent. ClusterIP (default) keeps the service cluster-internal; use LoadBalancer to expose a public IP.
-
-Default:
-    
-
-`'ClusterIP'`
-
-Options:
-    
-
-ClusterIP | LoadBalancer
-
-\--temp_folder <temp_folder>¶
-    
-
-Optional. Temp folder for the generated GKE source files (default: a timestamped folder in the system temp directory).
-
-\--adk_version <adk_version>¶
-    
-
-Optional. The ADK version used in GKE deployment. (default: the version in the dev environment)
-
-Default:
-    
-
-`'1.31.0'`
-
-\--trigger_sources <trigger_sources>¶
-    
-
-Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /trigger/* endpoints for batch and event-driven agent invocations.
-
-\--session_service_uri <session_service_uri>¶
-    
-
-Optional. The URI of the session service. If set, ADK uses this service.
-
-If unset, ADK chooses a default session service (see
-
-–use_local_storage).
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to run with the in-memory session service.
-
-\- Use ‘sqlite://<path_to_sqlite_file>’ to connect to a SQLite DB.
-
-\- See <https://docs.sqlalchemy.org/en/20/core/engines.html#backend-specific-urls>
-
-for supported database URIs.
-
-\--artifact_service_uri <artifact_service_uri>¶
-    
-
-Optional. The URI of the artifact service. If set, ADK uses this service.
-
-If unset, ADK chooses a default artifact service (see
-
-–use_local_storage).
-
-\- Use ‘gs://<bucket_name>’ to connect to the GCS artifact service.
-
-\- Use ‘memory://’ to force the in-memory artifact service.
-
-\- Use ‘[file:/](file:/)/<path>’ to store artifacts in a custom local directory.
-
-\--use_local_storage, \--no_use_local_storage¶
-    
-
-Optional. Whether to use local .adk storage when –session_service_uri and –artifact_service_uri are unset. Cannot be combined with explicit service URIs. When the agents directory isn’t writable (common in Cloud Run/Kubernetes), ADK falls back to in-memory unless overridden by ADK_FORCE_LOCAL_STORAGE=1 or ADK_DISABLE_LOCAL_STORAGE=1.
-
-Default:
-    
-
-`False`
-
-\--memory_service_uri <memory_service_uri>¶
-    
-
-Optional. The URI of the memory service.
-
-\- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to force the in-memory memory service.
-
-Arguments
-
-AGENT¶
-    
-
-Required argument
-
-### eval¶
-
-Evaluates an agent given the eval sets.
-
-AGENT_MODULE_FILE_PATH: The path to the __init__.py file that contains a module by the name “agent”. “agent” module contains a root_agent.
-
-EVAL_SET_FILE_PATH_OR_ID: You can specify one or more eval set file paths or eval set id.
-
-Mixing of eval set file paths with eval set ids is not allowed.
-
-_Eval Set File Path_ For each file, all evals will be run by default.
-
-If you want to run only specific evals from an eval set, first create a comma separated list of eval names and then add that as a suffix to the eval set file name, demarcated by a :.
-
-For example, we have sample_eval_set_file.json file that has following the eval cases: sample_eval_set_file.json:
-
-> |……. eval_1 |……. eval_2 |……. eval_3 |……. eval_4 |……. eval_5
-
-sample_eval_set_file.json:eval_1,eval_2,eval_3
-
-This will only run eval_1, eval_2 and eval_3 from sample_eval_set_file.json.
-
-_Eval Set ID_ For each eval set, all evals will be run by default.
-
-If you want to run only specific evals from an eval set, first create a comma separated list of eval names and then add that as a suffix to the eval set file name, demarcated by a :.
-
-For example, we have sample_eval_set_id that has following the eval cases: sample_eval_set_id:
-
-> |……. eval_1 |……. eval_2 |……. eval_3 |……. eval_4 |……. eval_5
-
-If we did:
-    
-
-sample_eval_set_id:eval_1,eval_2,eval_3
-
-This will only run eval_1, eval_2 and eval_3 from sample_eval_set_id.
-
-CONFIG_FILE_PATH: The path to config file.
-
-PRINT_DETAILED_RESULTS: Prints detailed results on the console.
-
-Usage
-    
-    
-    adk eval [OPTIONS] AGENT_MODULE_FILE_PATH [EVAL_SET_FILE_PATH_OR_ID]...
-    
-
-Options
-
-\--enable_features <enable_features>¶
-    
-
-Optional. Comma-separated list of feature names to enable. This provides an alternative to environment variables for enabling experimental features. Example: –enable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--disable_features <disable_features>¶
-    
-
-Optional. Comma-separated list of feature names to disable. This provides an alternative to environment variables for disabling features. Example: –disable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--config_file_path <config_file_path>¶
-    
-
-Optional. The path to config file.
-
-\--print_detailed_results¶
-    
-
-Optional. Whether to print detailed results on console or not.
-
-Default:
-    
-
-`False`
-
-\--eval_storage_uri <eval_storage_uri>¶
-    
-
-Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-Arguments
-
-AGENT_MODULE_FILE_PATH¶
-    
-
-Required argument
-
-EVAL_SET_FILE_PATH_OR_ID¶
-    
-
-Optional argument(s)
-
-### eval_set¶
-
-Manage Eval Sets.
-
-Usage
-    
-    
-    adk eval_set [OPTIONS] COMMAND [ARGS]...
-    
-
-#### add_eval_case¶
-
-Adds eval cases to the given eval set.
-
-There are several ways that an eval case can be created, for now this method only supports adding one using a conversation scenarios file.
-
-If an eval case for the generated id already exists, then we skip adding it.
-
-Usage
-    
-    
-    adk eval_set add_eval_case [OPTIONS] AGENT_MODULE_FILE_PATH EVAL_SET_ID
-    
-
-Options
-
-\--scenarios_file <scenarios_file>¶
-    
-
-**Required** A path to file containing JSON serialized ConversationScenarios.
-
-\--session_input_file <session_input_file>¶
-    
-
-**Required** Path to session file containing SessionInput in JSON format.
-
-\--eval_storage_uri <eval_storage_uri>¶
-    
-
-Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-Arguments
-
-AGENT_MODULE_FILE_PATH¶
-    
-
-Required argument
-
-EVAL_SET_ID¶
-    
-
-Required argument
-
-#### create¶
-
-Creates an empty EvalSet given the agent_module_file_path and eval_set_id.
-
-Usage
-    
-    
-    adk eval_set create [OPTIONS] AGENT_MODULE_FILE_PATH EVAL_SET_ID
-    
-
-Options
-
-\--eval_storage_uri <eval_storage_uri>¶
-    
-
-Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-Arguments
-
-AGENT_MODULE_FILE_PATH¶
-    
-
-Required argument
-
-EVAL_SET_ID¶
-    
-
-Required argument
-
-#### generate_eval_cases¶
-
-Generates eval cases dynamically and adds them to the given eval set.
-
-Uses Vertex AI Eval SDK to generate conversation scenarios based on an Agent’s info and definitions. It will automatically create the empty eval_set if it has not been created in advance.
-
-Args:
-    
-
-agent_module_file_path: The path to the agent module file. eval_set_id: The id of the eval set to generate cases for. user_simulation_config_file: The path to the user simulation config file. eval_storage_uri: The eval storage uri. log_level: The log level.
-
-Usage
-    
-    
-    adk eval_set generate_eval_cases [OPTIONS] AGENT_MODULE_FILE_PATH EVAL_SET_ID
-    
-
-Options
-
-\--user_simulation_config_file <user_simulation_config_file>¶
-    
-
-**Required** A path to file containing JSON serialized UserScenarioGenerationConfig dict.
-
-\--eval_storage_uri <eval_storage_uri>¶
-    
-
-Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-Arguments
-
-AGENT_MODULE_FILE_PATH¶
-    
-
-Required argument
-
-EVAL_SET_ID¶
-    
-
-Required argument
-
-### migrate¶
-
-ADK migration commands.
-
-Usage
-    
-    
-    adk migrate [OPTIONS] COMMAND [ARGS]...
-    
-
-#### session¶
-
-Migrates a session database to the latest schema version.
-
-Usage
-    
-    
-    adk migrate session [OPTIONS]
-    
-
-Options
-
-\--source_db_url <source_db_url>¶
-    
-
-**Required** SQLAlchemy URL of source database in database session service, e.g. sqlite:///source.db.
-
-\--dest_db_url <dest_db_url>¶
-    
-
-**Required** SQLAlchemy URL of destination database in database session service, e.g. sqlite:///dest.db.
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-### optimize¶
-
-Optimizes the root agent instructions using the GEPA optimizer.
-
-AGENT_MODULE_FILE_PATH: The path to the __init__.py file that contains a module by the name “agent”. “agent” module contains a root_agent.
-
-SAMPLER_CONFIG_FILE_PATH: The path to the config for the LocalEvalSampler, which contains the eval config and the eval sets to use for training and validation during optimization.
-
-OPTIMIZER_CONFIG_FILE_PATH: Optional. The path to the config for the GEPARootAgentPromptOptimizer. If not provided, the default config will be used.
-
-PRINT_DETAILED_RESULTS: Optional. Enables printing detailed results exposed by the GEPA optimizer to the console.
-
-LOG_LEVEL: Optional. Set the logging level.
-
-Usage
-    
-    
-    adk optimize [OPTIONS] AGENT_MODULE_FILE_PATH
-    
-
-Options
-
-\--sampler_config_file_path <sampler_config_file_path>¶
-    
-
-**Required** The path to the local eval sampler config file.
-
-\--optimizer_config_file_path <optimizer_config_file_path>¶
-    
-
-Optional. The path to the GEPA optimizer config file. If not provided, the default config will be used.
-
-\--print_detailed_results¶
-    
-
-Optional. Set to enable detailed printing of GEPA optimization results to the console.
-
-Default:
-    
-
-`False`
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Default:
-    
-
-`'INFO'`
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-Arguments
-
-AGENT_MODULE_FILE_PATH¶
-    
-
-Required argument
-
-### run¶
-
-Runs an interactive CLI for a certain agent.
-
-AGENT: The path to the agent source code folder.
-
-Example:
-
-> adk run path/to/my_agent
-
-Usage
-    
-    
-    adk run [OPTIONS] AGENT
-    
-
-Options
-
-\--enable_features <enable_features>¶
-    
-
-Optional. Comma-separated list of feature names to enable. This provides an alternative to environment variables for enabling experimental features. Example: –enable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--disable_features <disable_features>¶
-    
-
-Optional. Comma-separated list of feature names to disable. This provides an alternative to environment variables for disabling features. Example: –disable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--session_service_uri <session_service_uri>¶
-    
-
-Optional. The URI of the session service. If set, ADK uses this service.
-
-If unset, ADK chooses a default session service (see
-
-–use_local_storage).
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to run with the in-memory session service.
-
-\- Use ‘sqlite://<path_to_sqlite_file>’ to connect to a SQLite DB.
-
-\- See <https://docs.sqlalchemy.org/en/20/core/engines.html#backend-specific-urls>
-
-for supported database URIs.
-
-\--artifact_service_uri <artifact_service_uri>¶
-    
-
-Optional. The URI of the artifact service. If set, ADK uses this service.
-
-If unset, ADK chooses a default artifact service (see
-
-–use_local_storage).
-
-\- Use ‘gs://<bucket_name>’ to connect to the GCS artifact service.
-
-\- Use ‘memory://’ to force the in-memory artifact service.
-
-\- Use ‘[file:/](file:/)/<path>’ to store artifacts in a custom local directory.
-
-\--use_local_storage, \--no_use_local_storage¶
-    
-
-Optional. Whether to use local .adk storage when –session_service_uri and –artifact_service_uri are unset. Cannot be combined with explicit service URIs. When the agents directory isn’t writable (common in Cloud Run/Kubernetes), ADK falls back to in-memory unless overridden by ADK_FORCE_LOCAL_STORAGE=1 or ADK_DISABLE_LOCAL_STORAGE=1.
-
-Default:
-    
-
-`True`
-
-\--memory_service_uri <memory_service_uri>¶
-    
-
-Optional. The URI of the memory service.
-
-\- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to force the in-memory memory service.
-
-\--save_session¶
-    
-
-Optional. Whether to save the session to a json file on exit.
-
-Default:
-    
-
-`False`
-
-\--session_id <session_id>¶
-    
-
-Optional. The session ID to save the session to on exit when –save_session is set to true. User will be prompted to enter a session ID if not set.
-
-\--replay <replay>¶
-    
-
-The json file that contains the initial state of the session and user queries. A new session will be created using this state. And user queries are run against the newly created session. Users cannot continue to interact with the agent.
-
-\--resume <resume>¶
-    
-
-The json file that contains a previously saved session (by –save_session option). The previous session will be re-displayed. And user can continue to interact with the agent.
-
-Arguments
-
-AGENT¶
-    
-
-Required argument
-
-### web¶
-
-Starts a FastAPI server with Web UI for agents.
-
-AGENTS_DIR: The directory of agents, where each subdirectory is a single agent, containing at least __init__.py and agent.py files.
-
-Example:
-
-> adk web –session_service_uri=[uri] –port=[port] path/to/agents_dir
-
-Usage
-    
-    
-    adk web [OPTIONS] [AGENTS_DIR]
-    
-
-Options
-
-\--enable_features <enable_features>¶
-    
-
-Optional. Comma-separated list of feature names to enable. This provides an alternative to environment variables for enabling experimental features. Example: –enable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--disable_features <disable_features>¶
-    
-
-Optional. Comma-separated list of feature names to disable. This provides an alternative to environment variables for disabling features. Example: –disable_features=JSON_SCHEMA_FOR_FUNC_DECL,PROGRESSIVE_SSE_STREAMING
-
-\--host <host>¶
-    
-
-Optional. The binding host of the server
-
-Default:
-    
-
-`'127.0.0.1'`
-
-\--port <port>¶
-    
-
-Optional. The port of the server
-
-\--allow_origins <allow_origins>¶
-    
-
-Optional. Origins to allow for CORS. Can be literal origins (e.g., ‘<https://example.com>’) or regex patterns prefixed with ‘regex:’ (e.g., ‘regex:https://.*.example.com’).
-
--v, \--verbose¶
-    
-
-Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
-
-Default:
-    
-
-`False`
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
-
-\--trace_to_cloud¶
-    
-
-Optional. Whether to enable cloud trace for telemetry.
-
-Default:
-    
-
-`False`
-
-\--otel_to_cloud¶
-    
-
-Optional. Whether to write OTel data to Google Cloud Observability services - Cloud Trace and Cloud Logging.
-
-Default:
-    
-
-`False`
-
-\--reload, \--no-reload¶
-    
-
-Optional. Whether to enable auto reload for server. Not supported for Cloud Run.
-
-\--a2a¶
-    
-
-Optional. Whether to enable A2A endpoint.
-
-Default:
-    
-
-`False`
-
-\--reload_agents¶
-    
-
-Optional. Whether to enable live reload for agents changes.
-
-Default:
-    
-
-`False`
-
-\--eval_storage_uri <eval_storage_uri>¶
-    
-
-Optional. The evals storage URI to store agent evals, supported URIs: gs://<bucket name>.
-
-\--extra_plugins <extra_plugins>¶
-    
-
-Optional. Comma-separated list of extra plugin classes or instances to enable (e.g., my.module.MyPluginClass or my.module.my_plugin_instance).
-
-\--url_prefix <url_prefix>¶
-    
-
-Optional. URL path prefix when the application is mounted behind a reverse proxy or API gateway (e.g., ‘/api/v1’, ‘/adk’). This ensures generated URLs and redirects work correctly when the app is not served at the root path. Must start with ‘/’ if provided.
-
-\--trigger_sources <trigger_sources>¶
-    
-
-Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /apps/{app_name}/trigger/* endpoints for batch and event-driven agent invocations.
-
-\--logo-text <logo_text>¶
-    
-
-Optional. The text to display in the logo of the web UI.
-
-\--logo-image-url <logo_image_url>¶
-    
-
-Optional. The URL of the image to display in the logo of the web UI.
-
-\--session_service_uri <session_service_uri>¶
-    
-
-Optional. The URI of the session service. If set, ADK uses this service.
-
-If unset, ADK chooses a default session service (see
-
-–use_local_storage).
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to run with the in-memory session service.
-
-\- Use ‘sqlite://<path_to_sqlite_file>’ to connect to a SQLite DB.
-
-\- See <https://docs.sqlalchemy.org/en/20/core/engines.html#backend-specific-urls>
-
-for supported database URIs.
-
-\--artifact_service_uri <artifact_service_uri>¶
-    
-
-Optional. The URI of the artifact service. If set, ADK uses this service.
-
-If unset, ADK chooses a default artifact service (see
-
-–use_local_storage).
-
-\- Use ‘gs://<bucket_name>’ to connect to the GCS artifact service.
-
-\- Use ‘memory://’ to force the in-memory artifact service.
-
-\- Use ‘[file:/](file:/)/<path>’ to store artifacts in a custom local directory.
-
-\--use_local_storage, \--no_use_local_storage¶
-    
-
-Optional. Whether to use local .adk storage when –session_service_uri and –artifact_service_uri are unset. Cannot be combined with explicit service URIs. When the agents directory isn’t writable (common in Cloud Run/Kubernetes), ADK falls back to in-memory unless overridden by ADK_FORCE_LOCAL_STORAGE=1 or ADK_DISABLE_LOCAL_STORAGE=1.
-
-Default:
-    
-
-`True`
-
-\--memory_service_uri <memory_service_uri>¶
-    
-
-Optional. The URI of the memory service.
-
-\- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
-
-\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
-
-sessions. <agent_engine> can either be the full qualified resource
-
-name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
-
-the resource id ‘123’.
-
-\- Use ‘memory://’ to force the in-memory memory service.
-
-\--session_db_url <session_db_url>¶
-    
-
-Deprecated. Use –session_service_uri instead.
-
-\--artifact_storage_uri <artifact_storage_uri>¶
-    
-
-Deprecated. Use –artifact_service_uri instead.
-
-Arguments
-
-AGENTS_DIR¶
-    
-
-Optional argument
-
-# google.adk.cli.cli module¶
-
-_pydantic model _google.adk.cli.cli.InputFile¶
-    
-
-Bases: `BaseModel`
-
-Show JSON schema
-    
-    
-    {
-       "title": "InputFile",
-       "type": "object",
-       "properties": {
-          "state": {
-             "additionalProperties": true,
-             "title": "State",
-             "type": "object"
-          },
-          "queries": {
-             "items": {
-                "type": "string"
-             },
-             "title": "Queries",
-             "type": "array"
-          }
-       },
-       "required": [
-          "state",
-          "queries"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `queries (list[str])`
-
-  * `state (dict[str, object])`
-
-
-
-
-_field _queries _: list[str]__[Required]_¶
-    
-
-_field _state _: dict[str, object]__[Required]_¶
-    
-
-_async _google.adk.cli.cli.run_cli(_*_ , _agent_parent_dir_ , _agent_folder_name_ , _input_file =None_, _saved_session_file =None_, _save_session_ , _session_id =None_, _session_service_uri =None_, _artifact_service_uri =None_, _memory_service_uri =None_, _use_local_storage =True_)¶
-    
-
-Runs an interactive CLI for a certain agent.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **agent_parent_dir** – str, the absolute path of the parent folder of the agent folder.
-
-  * **agent_folder_name** – str, the name of the agent folder.
-
-  * **input_file** – Optional[str], the absolute path to the json file that contains the initial session state and user queries, exclusive with saved_session_file.
-
-  * **saved_session_file** – Optional[str], the absolute path to the json file that contains a previously saved session, exclusive with input_file.
-
-  * **save_session** – bool, whether to save the session on exit.
-
-  * **session_id** – Optional[str], the session ID to save the session to on exit.
-
-  * **session_service_uri** – Optional[str], custom session service URI.
-
-  * **artifact_service_uri** – Optional[str], custom artifact service URI.
-
-  * **memory_service_uri** – Optional[str], custom memory service URI.
-
-  * **use_local_storage** – bool, whether to use local .adk storage by default.
-
-
-
-
-_async _google.adk.cli.cli.run_input_file(_app_name_ , _user_id_ , _agent_or_app_ , _artifact_service_ , _session_service_ , _credential_service_ , _input_path_ , _memory_service =None_)¶
-    
-
-Return type:
-    
-
-`Session`
-
-_async _google.adk.cli.cli.run_interactively(_root_agent_or_app_ , _artifact_service_ , _session_ , _session_service_ , _credential_service_ , _memory_service =None_)¶
-    
-
-Return type:
-    
-
-`None`
-
-# google.adk.cli.cli_tools_click module¶
-
-_class _google.adk.cli.cli_tools_click.HelpfulCommand(_* args_, _** kwargs_)¶
-    
-
-Bases: `Command`
-
-Command that shows full help on error instead of just the error message.
-
-A custom Click Command class that overrides the default error handling behavior to display the full help text when a required argument is missing, followed by the error message. This provides users with better context about command usage without needing to run a separate –help command.
-
-Parameters:
-    
-
-  * ***args** – Variable length argument list to pass to the parent class.
-
-  * ****kwargs** – Arbitrary keyword arguments to pass to the parent class.
-
-
-
-Returns:
-    
-
-None. Inherits behavior from the parent Click Command class.
-
-Returns:
-
-parse_args(_ctx_ , _args_)¶
-    
-
-Override the parse_args method to show help text on error.
-
-Parameters:
-    
-
-  * **ctx** – Click context object for the current command.
-
-  * **args** – List of command-line arguments to parse.
-
-
-
-Returns:
-    
-
-The parsed arguments as returned by the parent class’s parse_args method.
-
-Raises:
-    
-
-**click.MissingParameter** – When a required parameter is missing, but this is caught and handled by displaying the help text before exiting.
-
-google.adk.cli.cli_tools_click.adk_services_options(_*_ , _default_use_local_storage =True_)¶
-    
-
-Decorator to add ADK services options to click commands.
-
-google.adk.cli.cli_tools_click.deprecated_adk_services_options()¶
-    
-
-Deprecated ADK services options.
-
-google.adk.cli.cli_tools_click.eval_options()¶
-    
-
-Decorator to add common eval options to click commands.
-
-google.adk.cli.cli_tools_click.fast_api_common_options()¶
-    
-
-Decorator to add common fast api options to click commands.
-
-google.adk.cli.cli_tools_click.feature_options()¶
-    
-
-Decorator to add feature override options to click commands.
-
-google.adk.cli.cli_tools_click.validate_exclusive(_ctx_ , _param_ , _value_)¶
-    
-
-google.adk.cli.cli_tools_click.web_options()¶
-    
-
-Decorator to add web UI options to click commands.
 
 # google.adk.code_executors module¶
 
@@ -17085,6 +16837,281 @@ Returns:
 
 The code execution result.
 
+# google.adk.environment module¶
+
+Agent environments.
+
+_class _google.adk.environment.BaseEnvironment(_* args_, _** kwargs_)¶
+    
+
+Bases: `ABC`
+
+Abstract base class for code execution environments.
+
+An environment provides the ability to execute shell commands, read files, and write files within a working directory. Concrete implementations include local subprocess execution, sandboxed execution, container environments, and cloud-hosted environments.
+
+Lifecycle:
+    
+
+  1. Construct the environment (`__init__`).
+
+  2. Call `initialize()` before first use.
+
+  3. Use `execute`, `read_file`, `write_file`.
+
+  4. Call `close()` when done.
+
+
+
+
+_async _close()¶
+    
+
+Release resources held by the environment.
+
+Called when the environment is no longer needed. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_abstractmethod async _execute(_command_ , _*_ , _timeout =None_)¶
+    
+
+Execute a shell command in the working directory.
+
+Return type:
+    
+
+`ExecutionResult`
+
+Parameters:
+    
+
+  * **command** – The shell command string to execute.
+
+  * **timeout** – Maximum execution time in seconds. `None` means no limit.
+
+
+
+Returns:
+    
+
+An `ExecutionResult` with exit code, stdout, stderr, and timeout status.
+
+_async _initialize()¶
+    
+
+Initialize the environment (e.g. create working directory).
+
+Called before first use. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_abstractmethod async _read_file(_path_)¶
+    
+
+Read a file from the environment filesystem.
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**path** – Absolute or working-dir-relative path to the file.
+
+Returns:
+    
+
+The raw file contents as bytes.
+
+Raises:
+    
+
+**FileNotFoundError** – If the file does not exist.
+
+_abstract property _working_dir _: Path_¶
+    
+
+The absolute path to the environment’s working directory.
+
+_abstractmethod async _write_file(_path_ , _content_)¶
+    
+
+Write content to a file in the environment’s filesystem.
+
+Parent directories are created automatically if they do not exist.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **path** – Absolute or working-dir-relative path to the file.
+
+  * **content** – The string or raw bytes to write.
+
+
+
+
+_class _google.adk.environment.ExecutionResult(_exit_code =0_, _stdout =''_, _stderr =''_, _timed_out =False_)¶
+    
+
+Bases: `object`
+
+Result of a command execution.
+
+exit_code _: `int`_ _ = 0_¶
+    
+
+The exit code of the process.
+
+stderr _: `str`_ _ = ''_¶
+    
+
+Standard error captured from the process.
+
+stdout _: `str`_ _ = ''_¶
+    
+
+Standard output captured from the process.
+
+timed_out _: `bool`_ _ = False_¶
+    
+
+Whether the execution exceeded the timeout.
+
+_class _google.adk.environment.LocalEnvironment(_*_ , _working_dir =None_, _env_vars =None_)¶
+    
+
+Bases: `BaseEnvironment`
+
+Execute commands via local `asyncio` subprocesses.
+
+When `working_dir` is not specified, a temporary directory is created on `initialize()` and removed on `close()`.
+
+Create a local environment.
+
+Parameters:
+    
+
+  * **working_dir** – Absolute path to the workspace directory. If `None`, a temporary directory is created during `initialize()`.
+
+  * **env_vars** – Extra environment variables merged into the subprocess environment.
+
+
+
+
+_async _close()¶
+    
+
+Release resources held by the environment.
+
+Called when the environment is no longer needed. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _execute(_command_ , _*_ , _timeout =None_)¶
+    
+
+Execute a shell command in the working directory.
+
+Return type:
+    
+
+`ExecutionResult`
+
+Parameters:
+    
+
+  * **command** – The shell command string to execute.
+
+  * **timeout** – Maximum execution time in seconds. `None` means no limit.
+
+
+
+Returns:
+    
+
+An `ExecutionResult` with exit code, stdout, stderr, and timeout status.
+
+_async _initialize()¶
+    
+
+Initialize the environment (e.g. create working directory).
+
+Called before first use. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _read_file(_path_)¶
+    
+
+Read a file from the environment filesystem.
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**path** – Absolute or working-dir-relative path to the file.
+
+Returns:
+    
+
+The raw file contents as bytes.
+
+Raises:
+    
+
+**FileNotFoundError** – If the file does not exist.
+
+_property _working_dir _: Path_¶
+    
+
+The absolute path to the environment’s working directory.
+
+_async _write_file(_path_ , _content_)¶
+    
+
+Write content to a file in the environment’s filesystem.
+
+Parent directories are created automatically if they do not exist.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **path** – Absolute or working-dir-relative path to the file.
+
+  * **content** – The string or raw bytes to write.
+
+
+
+
 # google.adk.errors module¶
 
 # google.adk.evaluation module¶
@@ -17169,6 +17196,13 @@ Bases: `LlmResponse`
 Represents an event in a conversation between agents and users.
 
 It is used to store the content of the conversation, as well as the actions taken by the agents like function calls, etc.
+
+Initializes the event.
+
+Supports convenience kwargs routed to actions or node_info:
+    
+
+message: ContentUnion -> content (alias, converted via t_content) state: dict -> actions.state_delta route: value -> actions.route node_path: str -> node_info.path
 
 Show JSON schema
     
@@ -17426,11 +17460,25 @@ Show JSON schema
              "type": "string"
           },
           "author": {
+             "default": "",
              "title": "Author",
              "type": "string"
           },
           "actions": {
              "$ref": "#/$defs/EventActions"
+          },
+          "output": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output"
+          },
+          "nodeInfo": {
+             "$ref": "#/$defs/NodeInfo"
           },
           "longRunningToolIds": {
              "anyOf": [
@@ -17459,6 +17507,18 @@ Show JSON schema
              ],
              "default": null,
              "title": "Branch"
+          },
+          "isolationScope": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Isolationscope"
           },
           "id": {
              "default": "",
@@ -18113,6 +18173,40 @@ Show JSON schema
                    "default": null,
                    "title": "Rewindbeforeinvocationid"
                 },
+                "route": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "boolean"
+                               },
+                               {
+                                  "type": "integer"
+                               },
+                               {
+                                  "type": "string"
+                               }
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Route"
+                },
                 "renderUiWidgets": {
                    "anyOf": [
                       {
@@ -18127,6 +18221,16 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Renderuiwidgets"
+                },
+                "setModelResponse": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Setmodelresponse"
                 }
              },
              "title": "EventActions",
@@ -19386,6 +19490,32 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Name of the `FileSearchStore` containing the document. Example: `fileSearchStores/123`. This field is not supported in Vertex AI.",
                    "title": "Filesearchstore"
+                },
+                "pageNumber": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Page number of the retrieved context. This field is not supported in Vertex AI.",
+                   "title": "Pagenumber"
+                },
+                "mediaId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Media ID. This field is not supported in Vertex AI.",
+                   "title": "Mediaid"
                 }
              },
              "title": "GroundingChunkRetrievedContext",
@@ -20101,6 +20231,45 @@ Show JSON schema
              "title": "ModalityTokenCount",
              "type": "object"
           },
+          "NodeInfo": {
+             "description": "Workflow node metadata attached to an Event.",
+             "properties": {
+                "path": {
+                   "default": "",
+                   "title": "Path",
+                   "type": "string"
+                },
+                "outputFor": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Outputfor"
+                },
+                "messageAsOutput": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Messageasoutput"
+                }
+             },
+             "title": "NodeInfo",
+             "type": "object"
+          },
           "OAuth2": {
              "additionalProperties": true,
              "properties": {
@@ -20301,6 +20470,30 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "codeVerifier": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codeverifier"
+                },
+                "codeChallengeMethod": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codechallengemethod"
                 },
                 "tokenEndpointAuthMethod": {
                    "anyOf": [
@@ -21556,10 +21749,7 @@ Show JSON schema
              "title": "VideoMetadata",
              "type": "object"
           }
-       },
-       "required": [
-          "author"
-       ]
+       }
     }
     
 
@@ -21576,7 +21766,13 @@ Fields:
 
   * `invocation_id (str)`
 
+  * `isolation_scope (str | None)`
+
   * `long_running_tool_ids (set[str] | None)`
+
+  * `node_info (google.adk.events.event.NodeInfo)`
+
+  * `output (Any | None)`
 
   * `timestamp (float)`
 
@@ -21588,12 +21784,12 @@ _field _actions _: EventActions_ _[Optional]_¶
 
 The actions taken by the agent.
 
-_field _author _: str_ _[Required]_¶
+_field _author _: str_ _ = ''_¶
     
 
 ‘user’ or the name of the agent, indicating who appended the event to the session.
 
-_field _branch _: Optional[str]__ = None_¶
+_field _branch _: str | None_ _ = None_¶
     
 
 The branch of the event.
@@ -21612,10 +21808,29 @@ _field _invocation_id _: str_ _ = ''__(alias 'invocationId')_¶
 
 The invocation ID of the event. Should be non-empty before appending to a session.
 
-_field _long_running_tool_ids _: Optional[set[str]]__ = None_ _(alias 'longRunningToolIds')_¶
+_field _isolation_scope _: str | None_ _ = None_ _(alias 'isolationScope')_¶
+    
+
+Scope tag indicating which logical context this event belongs to.
+
+When set, the LLM content-builder restricts session events visible to an agent to those whose `isolation_scope` matches the agent’s own scope. One usage today is the Task API: a delegated task agent is scoped under the originating function-call id (`<fc_id>`) so it sees only its own task’s events, isolated from the chat coordinator’s broader conversation.
+
+⚠️ DO NOT USE THIS FIELD DIRECTLY. It is an internal mechanism that may change without notice. External code should not read, write, or rely on its semantics.
+
+_field _long_running_tool_ids _: set[str] | None_ _ = None_ _(alias 'longRunningToolIds')_¶
     
 
 Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. only valid for function call event
+
+_field _node_info _: NodeInfo_ _[Optional]__(alias 'nodeInfo')_¶
+    
+
+Workflow node metadata (path, run_id, etc.).
+
+_field _output _: Any | None_ _ = None_¶
+    
+
+Generic data output from a workflow node.
 
 _field _timestamp _: float_ _[Optional]_¶
     
@@ -21678,6 +21893,16 @@ model_post_init(__Event__context_)¶
     
 
 Post initialization logic for the event.
+
+_property _message _: Content | None_¶
+    
+
+Alias for content. Returns the user-facing message of the event.
+
+_property _node_name _: str_¶
+    
+
+The name of the node that generated the event.
 
 _pydantic model _google.adk.events.EventActions¶
     
@@ -21804,6 +22029,40 @@ Show JSON schema
              "default": null,
              "title": "Rewindbeforeinvocationid"
           },
+          "route": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "string"
+                },
+                {
+                   "items": {
+                      "anyOf": [
+                         {
+                            "type": "boolean"
+                         },
+                         {
+                            "type": "integer"
+                         },
+                         {
+                            "type": "string"
+                         }
+                      ]
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Route"
+          },
           "renderUiWidgets": {
              "anyOf": [
                 {
@@ -21818,6 +22077,16 @@ Show JSON schema
              ],
              "default": null,
              "title": "Renderuiwidgets"
+          },
+          "setModelResponse": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Setmodelresponse"
           }
        },
        "$defs": {
@@ -22944,6 +23213,30 @@ Show JSON schema
                    "default": null,
                    "title": "Audience"
                 },
+                "codeVerifier": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codeverifier"
+                },
+                "codeChallengeMethod": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codechallengemethod"
+                },
                 "tokenEndpointAuthMethod": {
                    "anyOf": [
                       {
@@ -23995,9 +24288,13 @@ Fields:
 
   * `rewind_before_invocation_id (str | None)`
 
+  * `route (bool | int | str | list[bool | int | str] | None)`
+
+  * `set_model_response (Any | None)`
+
   * `skip_summarization (bool | None)`
 
-  * `state_delta (dict[str, object])`
+  * `state_delta (dict[str, Any])`
 
   * `transfer_to_agent (str | None)`
 
@@ -24051,6 +24348,16 @@ _field _rewind_before_invocation_id _: Optional[str]__ = None_ _(alias 'rewindBe
 
 The invocation id to rewind to. This is only set for rewind event.
 
+_field _route _: Optional[Union[bool, int, str, list[Union[bool, int, str]]]]__ = None_¶
+    
+
+Route or list of routes for workflow graph edge matching.
+
+_field _set_model_response _: Optional[Any]__ = None_ _(alias 'setModelResponse')_¶
+    
+
+The model response structured output.
+
 _field _skip_summarization _: Optional[bool]__ = None_ _(alias 'skipSummarization')_¶
     
 
@@ -24058,7 +24365,7 @@ If true, it won’t call model to summarize function response.
 
 Only used for function_response event.
 
-_field _state_delta _: dict[str, object]__[Optional]__(alias 'stateDelta')_¶
+_field _state_delta _: dict[str, Any]__[Optional]__(alias 'stateDelta')_¶
     
 
 Indicates that the event is updating the state with the given delta.
@@ -24067,6 +24374,470 @@ _field _transfer_to_agent _: Optional[str]__ = None_ _(alias 'transferToAgent')_
     
 
 If set, the event transfers to the specified agent.
+
+_pydantic model _google.adk.events.RequestInput¶
+    
+
+Bases: `BaseModel`
+
+Represents a request for input from the user.
+
+Show JSON schema
+    
+    
+    {
+       "title": "RequestInput",
+       "description": "Represents a request for input from the user.",
+       "type": "object",
+       "properties": {
+          "interruptId": {
+             "description": "The ID of the interrupt, usually a function call ID. This is used to identify the interrupt that the input is for.",
+             "title": "Interruptid",
+             "type": "string"
+          },
+          "payload": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Payload"
+          },
+          "message": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "A message to display to the user when requesting input.",
+             "title": "Message"
+          },
+          "responseSchema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "The expected schema of the response. Accepts a Python type (e.g. a Pydantic BaseModel class), a generic alias (e.g. list[str]), or a raw JSON Schema dict. If None, it defaults to Any.",
+             "title": "Responseschema"
+          }
+       },
+       "$defs": {
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `interrupt_id (str)`
+
+  * `message (str | None)`
+
+  * `payload (Any | None)`
+
+  * `response_schema (dict[Any, Any] | type | google.genai.types.Schema | types.GenericAlias | types.UnionType | _UnionGenericAlias | None)`
+
+
+
+
+_field _interrupt_id _: str_ _[Optional]__(alias 'interruptId')_¶
+    
+
+The ID of the interrupt, usually a function call ID.
+
+Reusing the same interrupt_id across loop iterations (e.g. a rejection/retry cycle) is supported — the framework matches function calls and responses by count. Using unique IDs per iteration is still recommended for clarity in event logs.
+
+The ID of the interrupt, usually a function call ID. This is used to identify the interrupt that the input is for.
+
+_field _message _: Optional[str]__ = None_¶
+    
+
+A message to display to the user when requesting input.
+
+_field _payload _: Optional[Any]__ = None_¶
+    
+
+Custom payload to be provided for resuming.
+
+_field _response_schema _: Optional[SchemaType]__ = None_ _(alias 'responseSchema')_¶
+    
+
+The expected schema of the response.
+
+The expected schema of the response. Accepts a Python type (e.g. a Pydantic BaseModel class), a generic alias (e.g. list[str]), or a raw JSON Schema dict. If None, it defaults to Any.
 
 # google.adk.examples module¶
 
@@ -25212,6 +25983,1656 @@ A list of Example objects.
 
 # google.adk.flows module¶
 
+# google.adk.integrations.agent_identity module¶
+
+_class _google.adk.integrations.agent_identity.GcpAuthProvider(_client =None_)¶
+    
+
+Bases: `BaseAuthProvider`
+
+An auth provider that uses the Agent Identity Credentials service to generate access tokens.
+
+_async _get_auth_credential(_auth_config_ , _context =None_)¶
+    
+
+Retrieves credentials using the Agent Identity Credentials service.
+
+Return type:
+    
+
+`AuthCredential`
+
+Parameters:
+    
+
+  * **auth_config** – The authentication configuration.
+
+  * **context** – Optional context for the callback.
+
+
+
+Returns:
+    
+
+An AuthCredential instance.
+
+Raises:
+    
+
+  * **ValueError** – If auth_scheme is not a GcpAuthProviderScheme.
+
+  * **RuntimeError** – If credential retrieval or polling fails.
+
+
+
+
+_property _supported_auth_schemes _: tuple[type[GcpAuthProviderScheme], ...]_¶
+    
+
+The AuthScheme types supported by this provider.
+
+Subclasses can override this to return a tuple of scheme types, enabling 1-parameter registration.
+
+_pydantic model _google.adk.integrations.agent_identity.GcpAuthProviderScheme¶
+    
+
+Bases: `CustomAuthScheme`
+
+The Agent Identity authentication scheme for Google Cloud Platform.
+
+name¶
+    
+
+The name of the GCP Auth Provider resource to use.
+
+scopes¶
+    
+
+Optional. A list of OAuth2 scopes to request.
+
+continue_uri¶
+    
+
+Optional. A type of redirect URI. It is distinct from the standard OAuth2 redirect URI. Its purpose is to reauthenticate the user to prevent phishing attacks and to finalize the managed OAuth flow. The standard, Google-hosted OAuth2 redirect URI will redirect the user to this continue URI. The agent will include this URI in every 3-legged OAuth request sent to the upstream Agent Identity Credential service. Developers must ensure this URI is hosted (e.g. on GCP, a third-party cloud, on-prem), preferably alongside the agent client’s web server. TODO: Add public documentation link for more information once available.
+
+type_¶
+    
+
+The type of the security scheme, always “gcpAuthProviderScheme”.
+
+Show JSON schema
+    
+    
+    {
+       "title": "GcpAuthProviderScheme",
+       "description": "The Agent Identity authentication scheme for Google Cloud Platform.\n\nAttributes:\n  name: The name of the GCP Auth Provider resource to use.\n  scopes: Optional. A list of OAuth2 scopes to request.\n  continue_uri: Optional. A type of redirect URI. It is distinct from the\n    standard OAuth2 redirect URI. Its purpose is to reauthenticate the user to\n    prevent phishing attacks and to finalize the managed OAuth flow. The\n    standard, Google-hosted OAuth2 redirect URI will redirect the user to this\n    continue URI. The agent will include this URI in every 3-legged OAuth\n    request sent to the upstream Agent Identity Credential service. Developers\n    must ensure this URI is hosted (e.g. on GCP, a third-party cloud,\n    on-prem), preferably alongside the agent client's web server.\n    TODO: Add public documentation link for more information once available.\n  type_: The type of the security scheme, always \"gcpAuthProviderScheme\".",
+       "type": "object",
+       "properties": {
+          "type": {
+             "const": "gcpAuthProviderScheme",
+             "default": "gcpAuthProviderScheme",
+             "title": "Type",
+             "type": "string"
+          },
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          },
+          "continueUri": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Continueuri"
+          }
+       },
+       "additionalProperties": true,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `continue_uri (str | None)`
+
+  * `name (str)`
+
+  * `scopes (List[str] | None)`
+
+  * `type_ (Literal['gcpAuthProviderScheme'])`
+
+
+
+
+_field _continue_uri _: Optional[str]__ = None_ _(alias 'continueUri')_¶
+    
+
+_field _name _: str_ _[Required]_¶
+    
+
+_field _scopes _: Optional[List[str]]__ = None_¶
+    
+
+_field _type__: Literal['gcpAuthProviderScheme']__ = 'gcpAuthProviderScheme'__(alias 'type')_¶
+    
+
+# google.adk.integrations.agent_registry module¶
+
+_class _google.adk.integrations.agent_registry.AgentRegistry(_project_id =None_, _location =None_, _header_provider =None_)¶
+    
+
+Bases: `object`
+
+Client for interacting with the Google Cloud Agent Registry service.
+
+Unlike a standard REST client library, this class provides higher-level abstractions for ADK integration. It surfaces the agent registry service methods along with helper methods like get_mcp_toolset and get_remote_a2a_agent that automatically resolve connection details and handle authentication to produce ready-to-use ADK components.
+
+Initializes the AgentRegistry client.
+
+Parameters:
+    
+
+  * **project_id** – The Google Cloud project ID.
+
+  * **location** – The Google Cloud location (region).
+
+  * **header_provider** – Optional provider for custom headers.
+
+
+
+
+get_agent_info(_name_)¶
+    
+
+Retrieves detailed metadata of a specific A2A Agent.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+get_endpoint(_name_)¶
+    
+
+Retrieves details of a specific Endpoint.
+
+Return type:
+    
+
+`Endpoint`
+
+get_mcp_server(_name_)¶
+    
+
+Retrieves details of a specific MCP Server.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+get_mcp_toolset(_mcp_server_name_ , _auth_scheme =None_, _auth_credential =None_, _*_ , _continue_uri =None_)¶
+    
+
+Constructs an McpToolset from a registered MCP Server.
+
+If auth_scheme is omitted, it is automatically resolved from the server’s IAM bindings via GcpAuthProviderScheme.
+
+Return type:
+    
+
+`McpToolset`
+
+Parameters:
+    
+
+  * **mcp_server_name** – Resource name of the MCP Server.
+
+  * **auth_scheme** – Optional auth scheme. Resolved via bindings if omitted.
+
+  * **auth_credential** – Optional auth credential.
+
+  * **continue_uri** – Optional continue URI to override what is in the auth provider.
+
+
+
+Returns:
+    
+
+An McpToolset for the MCP server.
+
+get_model_name(_endpoint_name_)¶
+    
+
+Retrieves and parses an endpoint into a model resource name.
+
+Return type:
+    
+
+`str`
+
+Parameters:
+    
+
+**endpoint_name** – The full resource name of the endpoint.
+
+Returns:
+    
+
+The resolved model resource name string (e.g. projects/…/locations/…/publishers/google/models/…).
+
+get_remote_a2a_agent(_agent_name_ , _*_ , _httpx_client =None_)¶
+    
+
+Creates a RemoteA2aAgent instance for a registered A2A Agent.
+
+Return type:
+    
+
+`RemoteA2aAgent`
+
+list_agents(_filter_str =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Fetches a list of registered A2A Agents.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+list_endpoints(_filter_str =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Fetches a list of Endpoints.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+list_mcp_servers(_filter_str =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Fetches a list of MCP Servers.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+# google.adk.integrations.api_registry module¶
+
+_class _google.adk.integrations.api_registry.ApiRegistry(_api_registry_project_id_ , _location ='global'_, _header_provider =None_)¶
+    
+
+Bases: `object`
+
+Registry that provides McpToolsets for MCP servers registered in API Registry.
+
+Initialize the API Registry.
+
+Parameters:
+    
+
+  * **api_registry_project_id** – The project ID for the Google Cloud API Registry.
+
+  * **location** – The location of the API Registry resources.
+
+  * **header_provider** – Optional function to provide additional headers for MCP server calls.
+
+
+
+
+get_toolset(_mcp_server_name_ , _tool_filter =None_, _tool_name_prefix =None_)¶
+    
+
+Return the MCP Toolset based on the params.
+
+Return type:
+    
+
+`McpToolset`
+
+Parameters:
+    
+
+  * **mcp_server_name** – Filter to select the MCP server name to get tools from.
+
+  * **tool_filter** – Optional filter to select specific tools. Can be a list of tool names or a ToolPredicate function.
+
+  * **tool_name_prefix** – Optional prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+Returns:
+    
+
+A toolset for the MCP server specified.
+
+Return type:
+    
+
+McpToolset
+
+# google.adk.integrations.bigquery module¶
+
+BigQuery Integration.
+
+This module provides tools and skills for interacting with BigQuery.
+
+# google.adk.integrations.crewai module¶
+
+_class _google.adk.integrations.crewai.CrewaiTool(_tool_ , _*_ , _name_ , _description =''_)¶
+    
+
+Bases: `FunctionTool`
+
+Use this class to wrap a CrewAI tool.
+
+If the original tool name and description are not suitable, you can override them in the constructor.
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`CrewaiTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Override run_async to handle CrewAI-specific parameter filtering.
+
+CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
+
+Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
+
+Return type:
+    
+
+`Any`
+
+tool _: CrewaiBaseTool_¶
+    
+
+The wrapped CrewAI tool.
+
+_pydantic model _google.adk.integrations.crewai.CrewaiToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "CrewaiToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the CrewAI tool instance.
+
+# google.adk.integrations.firestore module¶
+
+# google.adk.integrations.langchain module¶
+
+_class _google.adk.integrations.langchain.LangchainTool(_tool_ , _name =None_, _description =None_)¶
+    
+
+Bases: `FunctionTool`
+
+Adapter class that wraps a Langchain tool for use with ADK.
+
+This adapter converts Langchain tools into a format compatible with Google’s generative AI function calling interface. It preserves the tool’s name, description, and functionality while adapting its schema.
+
+The original tool’s name and description can be overridden if needed.
+
+Parameters:
+    
+
+  * **tool** – A Langchain tool to wrap (BaseTool or a tool with a .run method)
+
+  * **name** – Optional override for the tool’s name
+
+  * **description** – Optional override for the tool’s description
+
+
+
+
+Examples:
+    
+    
+    from langchain.tools import DuckDuckGoSearchTool
+    from google.adk.integrations.langchain import LangchainTool
+    
+    search_tool = DuckDuckGoSearchTool()
+    wrapped_tool = LangchainTool(search_tool)
+    
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`LangchainTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+_pydantic model _google.adk.integrations.langchain.LangchainToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "LangchainToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the Langchain tool instance.
+
+# google.adk.integrations.parameter_manager module¶
+
+_class _google.adk.integrations.parameter_manager.ParameterManagerClient(_service_account_json =None_, _auth_token =None_, _location =None_)¶
+    
+
+Bases: `object`
+
+A client for interacting with Google Cloud Parameter Manager.
+
+This class provides a simplified interface for retrieving parameters from Parameter Manager, handling authentication using either a service account JSON keyfile (passed as a string), a preexisting authorization token, or default credentials.
+
+_credentials¶
+    
+
+Google Cloud credentials object (ServiceAccountCredentials or Credentials).
+
+_client¶
+    
+
+Parameter Manager client instance.
+
+Initializes the ParameterManagerClient.
+
+If neither service_account_json nor auth_token is provided, default credentials are used.
+
+Parameters:
+    
+
+  * **service_account_json** – The content of a service account JSON keyfile (as a string), not the file path. Must be valid JSON.
+
+  * **auth_token** – An existing Google Cloud authorization token.
+
+  * **location** – The Google Cloud location (region) to use for the Parameter Manager service. If not provided, the global endpoint is used.
+
+
+
+Raises:
+    
+
+  * **ValueError** – If both ‘service_account_json’ and ‘auth_token’ are
+
+  * **provided. Also raised if the 'service_account_json' is not valid JSON.** – 
+
+  * **google.auth.exceptions.GoogleAuthError** – If authentication fails.
+
+
+
+
+get_parameter(_resource_name_)¶
+    
+
+Retrieves a rendered parameter value from Google Cloud Parameter Manager.
+
+Return type:
+    
+
+`str`
+
+Parameters:
+    
+
+**resource_name** – The full resource name of the parameter version, in the format “projects/_/locations/_ /parameters/_/versions/_ ”. Usually you want the “latest” version, e.g., “projects/my-project/locations/global/parameters/my-param/versions/latest”.
+
+Returns:
+    
+
+The rendered parameter value as a string.
+
+Raises:
+    
+
+**google.api_core.exceptions.GoogleAPIError** – If the Parameter Manager API returns an error (e.g., parameter not found, permission denied).
+
+# google.adk.integrations.secret_manager module¶
+
+_class _google.adk.integrations.secret_manager.SecretManagerClient(_service_account_json =None_, _auth_token =None_, _location =None_)¶
+    
+
+Bases: `object`
+
+A client for interacting with Google Cloud Secret Manager.
+
+This class provides a simplified interface for retrieving secrets from Secret Manager, handling authentication using either a service account JSON keyfile (passed as a string) or a preexisting authorization token.
+
+_credentials¶
+    
+
+Google Cloud credentials object (ServiceAccountCredentials or Credentials).
+
+_client¶
+    
+
+Secret Manager client instance.
+
+Initializes the SecretManagerClient.
+
+Parameters:
+    
+
+  * **service_account_json** – The content of a service account JSON keyfile (as a string), not the file path. Must be valid JSON.
+
+  * **auth_token** – An existing Google Cloud authorization token.
+
+  * **location** – The Google Cloud location (region) to use for the Secret Manager service. If not provided, the global endpoint is used.
+
+
+
+Raises:
+    
+
+  * **ValueError** – If neither service_account_json nor auth_token is
+
+  * **provided****,** – or if both are provided. Also raised if the service_account_json is not valid JSON.
+
+  * **google.auth.exceptions.GoogleAuthError** – If authentication fails.
+
+
+
+
+get_secret(_resource_name_)¶
+    
+
+Retrieves a secret from Google Cloud Secret Manager.
+
+Return type:
+    
+
+`str`
+
+Parameters:
+    
+
+**resource_name** – The full resource name of the secret, in the format “projects/_/secrets/_ /versions/*”. Usually you want the “latest” version, e.g., “projects/my-project/secrets/my-secret/versions/latest”.
+
+Returns:
+    
+
+The secret payload as a string.
+
+Raises:
+    
+
+  * **google.api_core.exceptions.GoogleAPIError** – If the Secret Manager API returns an error (e.g., secret not found, permission denied).
+
+  * **Exception** – For other unexpected errors.
+
+
+
+
+# google.adk.integrations.skill_registry module¶
+
+Skill Registry integrations.
+
+_class _google.adk.integrations.skill_registry.GCPSkillRegistry(_*_ , _project_id =None_, _location =None_)¶
+    
+
+Bases: `SkillRegistry`
+
+GCP implementation of SkillRegistry using GCP Skill Registry API.
+
+Initializes the GCP Skill Registry.
+
+Parameters:
+    
+
+  * **project_id** – Optional GCP project ID. If omitted, loads from environment.
+
+  * **location** – Optional GCP location. If omitted, loads from environment.
+
+
+
+
+_async _get_skill(_*_ , _name_)¶
+    
+
+Fetches a skill from the registry.
+
+Return type:
+    
+
+`Skill`
+
+Parameters:
+    
+
+**name** – The name of the skill.
+
+Returns:
+    
+
+A Skill object.
+
+_async _search_skills(_*_ , _query_)¶
+    
+
+Searches for skills in the registry.
+
+Return type:
+    
+
+`list`[`Frontmatter`]
+
+Parameters:
+    
+
+**query** – The search query.
+
+Returns:
+    
+
+A list of Frontmatter objects for discovery.
+
+# google.adk.integrations.slack module¶
+
+_class _google.adk.integrations.slack.SlackRunner(_runner_ , _slack_app_)¶
+    
+
+Bases: `object`
+
+Runner for ADK agents on Slack.
+
+_async _start(_app_token_)¶
+    
+
+Starts the Slack app using Socket Mode.
+
+# google.adk.integrations.vmaas module¶
+
+Vertex AI Agent Engine Computer Use Sandbox integration.
+
+This module provides a BaseComputer implementation that uses Vertex AI Agent Engine Computer Use Sandbox as the remote browser environment.
+
+Example
+
+```python from google.adk.integrations.vmaas import AgentEngineSandboxComputer from google.adk.tools.computer_use import ComputerUseToolset
+
+computer = AgentEngineSandboxComputer(
+    
+
+project_id=”my-project”, service_account_email=”[sa@my-project.iam.gserviceaccount.com](mailto:sa%40my-project.iam.gserviceaccount.com)”,
+
+) toolset = ComputerUseToolset(computer=computer) agent = Agent(tools=[toolset], …) ```
+
+_class _google.adk.integrations.vmaas.AgentEngineSandboxComputer(_*_ , _project_id =None_, _location ='us-central1'_, _service_account_email =None_, _sandbox_name =None_, _sandbox_ttl_seconds =3600_, _search_engine_url ='https://www.google.com'_, _vertexai_client =None_)¶
+    
+
+Bases: `BaseComputer`
+
+Computer implementation using Vertex AI Agent Engine Sandbox.
+
+This class provides a remote browser environment backed by Vertex AI Computer Use Sandbox. It supports: \- Auto-provisioning of agent engines and sandboxes \- Bring-your-own-sandbox (BYOS) mode \- Session-aware resource sharing via session_state property \- Automatic token refresh on expiry
+
+When used with ComputerUseToolset, the session_state property is automatically bound to tool_context.state before each tool call, enabling state sharing across invocations and agent server instances.
+
+Example usage:
+    
+
+```python from google.adk.integrations.vmaas import AgentEngineSandboxComputer from google.adk.tools.computer_use import ComputerUseToolset
+
+computer = AgentEngineSandboxComputer(
+    
+
+project_id=”my-project”, service_account_email=”[sa@my-project.iam.gserviceaccount.com](mailto:sa%40my-project.iam.gserviceaccount.com)”,
+
+) toolset = ComputerUseToolset(computer=computer) agent = Agent(tools=[toolset], …) ```
+
+Initialize the sandbox computer.
+
+Parameters:
+    
+
+  * **project_id** – GCP project ID. If None, uses Application Default Credentials project.
+
+  * **location** – Vertex AI location (default: us-central1).
+
+  * **service_account_email** – Service account email for token generation. Must have roles/iam.serviceAccountTokenCreator permission. If None, attempts to use ADC service account.
+
+  * **sandbox_name** – Existing sandbox resource name (BYOS mode). If provided, the agent engine name is extracted from it. If None, creates new agent engine and sandbox on demand. Format: projects/{project}/locations/{location}/reasoningEngines/{id}/sandboxEnvironments/{id}
+
+  * **sandbox_ttl_seconds** – TTL for auto-created sandboxes (default: 1 hour).
+
+  * **search_engine_url** – URL to navigate to for search() method.
+
+  * **vertexai_client** – Optional Vertex AI client instance. If None, creates one lazily using project_id and location.
+
+
+
+
+_async _click_at(_x_ , _y_)¶
+    
+
+Clicks at a specific x, y coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _close()¶
+    
+
+Cleanup resources.
+
+Note: Sandboxes are cleaned up via TTL by the sandbox service. This method does not delete the sandbox to preserve state across agent restarts within the TTL window.
+
+Return type:
+    
+
+`None`
+
+_async _current_state()¶
+    
+
+Returns the current state.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _drag_and_drop(_x_ , _y_ , _destination_x_ , _destination_y_)¶
+    
+
+Drag and drop from one coordinate to another.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _environment()¶
+    
+
+Returns the environment type.
+
+Return type:
+    
+
+`ComputerEnvironment`
+
+_async _go_back()¶
+    
+
+Navigates back in browser history.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _go_forward()¶
+    
+
+Navigates forward in browser history.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _hover_at(_x_ , _y_)¶
+    
+
+Hovers at a specific x, y coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _initialize()¶
+    
+
+Initialize the computer.
+
+This is a no-op for sandbox as provisioning happens lazily on first use.
+
+Return type:
+    
+
+`None`
+
+_async _key_combination(_keys_)¶
+    
+
+Presses a combination of keys.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _navigate(_url_)¶
+    
+
+Navigates to a URL.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _open_web_browser()¶
+    
+
+Opens the web browser.
+
+For sandbox, the browser is always running. This is effectively a no-op that returns the current state.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _prepare(_tool_context_)¶
+    
+
+Bind session state for sandbox resource sharing.
+
+Return type:
+    
+
+`None`
+
+_async _screen_size()¶
+    
+
+Returns the screen size of the environment.
+
+Return type:
+    
+
+`tuple`[`int`, `int`]
+
+_async _scroll_at(_x_ , _y_ , _direction_ , _magnitude_)¶
+    
+
+Scrolls at a specific coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _scroll_document(_direction_)¶
+    
+
+Scrolls the entire webpage.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _search()¶
+    
+
+Navigates to the search engine home page.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _type_text_at(_x_ , _y_ , _text_ , _press_enter =True_, _clear_before_typing =True_)¶
+    
+
+Types text at a specific x, y coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _wait(_seconds_)¶
+    
+
+Waits for n seconds.
+
+Return type:
+    
+
+`ComputerState`
+
+_class _google.adk.integrations.vmaas.SandboxClient(_vertexai_client_ , _sandbox_ , _access_token_)¶
+    
+
+Bases: `object`
+
+Client for interacting with Vertex AI Computer Use Sandbox via SDK.
+
+Initialize the sandbox client.
+
+Parameters:
+    
+
+  * **vertexai_client** – The Vertex AI client instance.
+
+  * **sandbox** – The sandbox object from vertexai SDK (SandboxEnvironment).
+
+  * **access_token** – The access token for authenticating with the sandbox.
+
+
+
+
+_async _click_at(_x_ , _y_)¶
+    
+
+Click at a specific coordinate.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate.
+
+  * **y** – The y-coordinate.
+
+
+
+
+_async _drag_and_drop(_x1_ , _y1_ , _x2_ , _y2_)¶
+    
+
+Drag from one coordinate to another.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x1** – Starting x-coordinate.
+
+  * **y1** – Starting y-coordinate.
+
+  * **x2** – Ending x-coordinate.
+
+  * **y2** – Ending y-coordinate.
+
+
+
+
+_async _get_current_url(_max_retries =3_)¶
+    
+
+Get the URL of the currently active tab.
+
+This method includes retry logic to handle transient errors that can occur during page navigation (e.g., “Execution context was destroyed”).
+
+Return type:
+    
+
+`str` | `None`
+
+Parameters:
+    
+
+**max_retries** – Maximum number of retry attempts (default: 3).
+
+Returns:
+    
+
+The current URL, or None if no active tab.
+
+_async _get_screenshot(_max_retries =3_)¶
+    
+
+Capture a screenshot of the current page.
+
+This method includes retry logic to handle transient errors that can occur during page navigation (e.g., “Execution context was destroyed”).
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**max_retries** – Maximum number of retry attempts (default: 3).
+
+Returns:
+    
+
+The screenshot as PNG bytes.
+
+_async _go_back()¶
+    
+
+Navigate back in browser history.
+
+Return type:
+    
+
+`bool`
+
+Returns:
+    
+
+True if navigation was successful, False if at beginning of history.
+
+_async _go_forward()¶
+    
+
+Navigate forward in browser history.
+
+Return type:
+    
+
+`bool`
+
+Returns:
+    
+
+True if navigation was successful, False if at end of history.
+
+_async _health_check()¶
+    
+
+Check if the sandbox is healthy.
+
+Return type:
+    
+
+`bool`
+
+Returns:
+    
+
+True if healthy, False otherwise.
+
+_async _hover_at(_x_ , _y_)¶
+    
+
+Hover at a specific coordinate.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate.
+
+  * **y** – The y-coordinate.
+
+
+
+
+_async _key_combination(_keys_)¶
+    
+
+Press a combination of keys.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**keys** – List of keys to press (e.g., [“control”, “c”]).
+
+_async _make_cdp_batch_request(_commands_ , _stop_on_error =True_)¶
+    
+
+Execute multiple CDP commands.
+
+First tries the batch endpoint (/cdps), falls back to sequential execution if batch is not available.
+
+Return type:
+    
+
+`list`[`dict`[`str`, `Any`]]
+
+Parameters:
+    
+
+  * **commands** – List of CDP commands, each with “command” and “params” keys.
+
+  * **stop_on_error** – Whether to stop processing on first error.
+
+
+
+Returns:
+    
+
+List of results for each command.
+
+_async _make_cdp_request(_command_ , _params =None_)¶
+    
+
+Make a single CDP request to the sandbox.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+  * **command** – The CDP command to execute (e.g., “Page.navigate”).
+
+  * **params** – Optional parameters for the CDP command.
+
+
+
+Returns:
+    
+
+The CDP command response.
+
+Raises:
+    
+
+**Exception** – If the request fails.
+
+_async _navigate(_url_)¶
+    
+
+Navigate to a URL.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+**url** – The URL to navigate to.
+
+Returns:
+    
+
+The CDP response.
+
+_async _scroll_at(_x_ , _y_ , _direction_ , _magnitude_)¶
+    
+
+Scroll at a specific coordinate.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate.
+
+  * **y** – The y-coordinate.
+
+  * **direction** – The scroll direction.
+
+  * **magnitude** – The scroll amount in pixels.
+
+
+
+
+_async _type_text(_text_ , _press_enter =False_, _clear_before_typing =False_)¶
+    
+
+Type text at the currently focused element.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **text** – The text to type.
+
+  * **press_enter** – Whether to press Enter after typing.
+
+  * **clear_before_typing** – Whether to clear existing content first.
+
+
+
+
+_async _type_text_at(_x_ , _y_ , _text_ , _press_enter =False_, _clear_before_typing =False_)¶
+    
+
+Click at a coordinate and type text.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate to click.
+
+  * **y** – The y-coordinate to click.
+
+  * **text** – The text to type.
+
+  * **press_enter** – Whether to press Enter after typing.
+
+  * **clear_before_typing** – Whether to clear existing content first.
+
+
+
+
+update_access_token(_access_token_)¶
+    
+
+Update the access token.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**access_token** – The new access token.
+
+# google.adk.labs.openai module¶
+
+_pydantic model _google.adk.labs.openai.OpenAILlm¶
+    
+
+Bases: `BaseLlm`
+
+Integration with OpenAI models.
+
+model¶
+    
+
+The name of the OpenAI model.
+
+max_tokens¶
+    
+
+The maximum number of tokens to generate.
+
+Show JSON schema
+    
+    
+    {
+       "title": "OpenAILlm",
+       "description": "Integration with OpenAI models.\n\nAttributes:\n    model: The name of the OpenAI model.\n    max_tokens: The maximum number of tokens to generate.",
+       "type": "object",
+       "properties": {
+          "model": {
+             "default": "gpt-4o",
+             "title": "Model",
+             "type": "string"
+          },
+          "max_tokens": {
+             "default": 4096,
+             "title": "Max Tokens",
+             "type": "integer"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `max_tokens (int)`
+
+  * `model (str)`
+
+
+
+
+_field _max_tokens _: int_ _ = 4096_¶
+    
+
+_field _model _: str_ _ = 'gpt-4o'_¶
+    
+
+The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
+
+_classmethod _supported_models()¶
+    
+
+Returns a list of supported models in regex for LlmRegistry.
+
+Return type:
+    
+
+`list`[`str`]
+
+_async _generate_content_async(_llm_request_ , _stream =False_)¶
+    
+
+Generates content for a single model turn.
+
+> This method handles Server-Sent Events (SSE) streaming for unidirectional content generation. For bidirectional streaming (e.g., Gemini Live API), use the connect() method instead.
+> 
+> Args:
+>     
+> 
+> llm_request: LlmRequest, the request to send to the LLM. stream: bool = False, whether to enable SSE streaming mode.
+> 
+> Yields:
+>     
+> 
+> LlmResponse objects representing the model’s response for one turn.
+> 
+> **Non-streaming mode (stream=False):**
+>
+>> Yields exactly one LlmResponse containing the complete model output (text, function calls, bytes, etc.). This response has partial=False.
+> 
+> **Streaming mode (stream=True):**
+>
+>> Yields multiple LlmResponse objects as chunks arrive:
+>> 
+>>   * Intermediate chunks: partial=True (progressive updates)
+>> 
+>>   * Final chunk: partial=False (aggregated content from entire turn, identical to stream=False output)
+>> 
+>>   * Text consolidation: Consecutive text parts of the same type (thought/non-thought) SHOULD merge without separator, but client code must not rely on this - unconsolidated parts are unusual but also valid
+>> 
+>> 
+
+> 
+> **Common content in partial chunks:**
+>
+>> All intermediate chunks have partial=True regardless of content type. Common examples include:
+>> 
+>>   * Text: Streams incrementally as tokens arrive
+>> 
+>>   * Function calls: May arrive in separate chunks
+>> 
+>>   * Bytes (e.g., images): Typically arrive as single chunk, interleaved with text
+>> 
+>>   * Thoughts: Stream incrementally when thinking_config is enabled
+>> 
+>> 
+
+> 
+> **Examples:**
+> 
+>   1. Simple text streaming:
+>          
+>          LlmResponse(partial=True,  parts=["The weather"])
+>          LlmResponse(partial=True,  parts=[" in Tokyo is"])
+>          LlmResponse(partial=True,  parts=[" sunny."])
+>          LlmResponse(partial=False, parts=["The weather in Tokyo is sunny."])
+>          
+> 
+>   2. Text + function call:
+>          
+>          LlmResponse(partial=True,  parts=[Text("Let me check...")])
+>          LlmResponse(partial=True,  parts=[FunctionCall("get_weather", ...)])
+>          LlmResponse(partial=False, parts=[Text("Let me check..."),
+>                                            FunctionCall("get_weather", ...)])
+>          
+> 
+>   3. Parallel function calls across chunks:
+>          
+>          LlmResponse(partial=True,  parts=[Text("Checking both cities...")])
+>          LlmResponse(partial=True,  parts=[FunctionCall("get_weather", Tokyo)])
+>          LlmResponse(partial=True,  parts=[FunctionCall("get_weather", NYC)])
+>          LlmResponse(partial=False, parts=[Text("Checking both cities..."),
+>                                            FunctionCall("get_weather", Tokyo),
+>                                            FunctionCall("get_weather", NYC)])
+>          
+> 
+>   4. Text + bytes (image generation with gemini-2.5-flash-image):
+>          
+>          LlmResponse(partial=True,  parts=[Text("Here's an image of a dog.")])
+>          LlmResponse(partial=True,  parts=[Text("
+>          
+> 
+> 
+
+
+“)])
+    
+
+LlmResponse(partial=True, parts=[Blob(image/png, 1.6MB)]) LlmResponse(partial=True, parts=[Text(“It carries a bone”)]) LlmResponse(partial=True, parts=[Text(” and running around.”)]) LlmResponse(partial=False, parts=[Text(“Here’s an image of a dog.
+
+“),
+    
+
+> > Blob(image/png, 1.6MB), Text(“It carries a bone and running around.”)])
+> 
+> Note: Consecutive text parts before and after blob merge separately.
+
+  5. Text with thinking (gemini-2.5-flash with thinking_config):
+         
+         LlmResponse(partial=True,  parts=[Thought("Let me analyze...")])
+         LlmResponse(partial=True,  parts=[Thought("The user wants...")])
+         LlmResponse(partial=True,  parts=[Text("Based on my analysis,")])
+         LlmResponse(partial=True,  parts=[Text(" the answer is 42.")])
+         LlmResponse(partial=False, parts=[Thought("Let me analyze...The user wants..."),
+                                           Text("Based on my analysis, the answer is 42.")])
+         
+
+Note: Consecutive parts of same type merge (thoughts→thought, text→text).
+
+
+
+
+**Important:** All yielded responses represent one logical model turn. The final response with partial=False should be identical to the response that would be received with stream=False.
+
+Return type:
+    
+
+`AsyncGenerator`[`LlmResponse`, `None`]
+
 # google.adk.memory module¶
 
 _class _google.adk.memory.BaseMemoryService¶
@@ -25321,248 +27742,6 @@ Returns:
     
 
 A SearchMemoryResponse containing the matching memories.
-
-_class _google.adk.memory.InMemoryMemoryService¶
-    
-
-Bases: `BaseMemoryService`
-
-An in-memory memory service for prototyping purpose only.
-
-Uses keyword matching instead of semantic search.
-
-This class is thread-safe, however, it should be used for testing and development only.
-
-_async _add_events_to_memory(_*_ , _app_name_ , _user_id_ , _events_ , _session_id =None_, _custom_metadata =None_)¶
-    
-
-Adds an explicit list of events to the memory service.
-
-This is intended for cases where callers want to persist only a subset of events (e.g., the latest turn), rather than re-ingesting the full session.
-
-Implementations should treat events as an incremental update (delta) and must not assume it represents the full session. Implementations may ignore session_id if it is not applicable.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **app_name** – The application name for memory scope.
-
-  * **user_id** – The user ID for memory scope.
-
-  * **events** – The events to add to memory.
-
-  * **session_id** – Optional session ID for memory scope/partitioning.
-
-  * **custom_metadata** – Optional, portable metadata for memory generation. Prefer this for service-specific fields (e.g., TTL) that may later become first-class API parameters. Supported keys are implementation-defined by each memory service.
-
-
-
-
-_async _add_session_to_memory(_session_)¶
-    
-
-Adds a session to the memory service.
-
-A session may be added multiple times during its lifetime.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-**session** – The session to add.
-
-_async _search_memory(_*_ , _app_name_ , _user_id_ , _query_)¶
-    
-
-Searches for sessions that match the query.
-
-Return type:
-    
-
-`SearchMemoryResponse`
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The id of the user.
-
-  * **query** – The query to search for.
-
-
-
-Returns:
-    
-
-A SearchMemoryResponse containing the matching memories.
-
-_class _google.adk.memory.VertexAiMemoryBankService(_project =None_, _location =None_, _agent_engine_id =None_, _*_ , _express_mode_api_key =None_)¶
-    
-
-Bases: `BaseMemoryService`
-
-Implementation of the BaseMemoryService using Vertex AI Memory Bank.
-
-Initializes a VertexAiMemoryBankService.
-
-Parameters:
-    
-
-  * **project** – The project ID of the Memory Bank to use.
-
-  * **location** – The location of the Memory Bank to use.
-
-  * **agent_engine_id** – The ID of the agent engine to use for the Memory Bank, e.g. ‘456’ in ‘projects/my-project/locations/us-central1/reasoningEngines/456’. To extract from api_resource.name, use: `agent_engine.api_resource.name.split('/')[-1]`
-
-  * **express_mode_api_key** – The API key to use for Express Mode. If not provided, the API key from the GOOGLE_API_KEY environment variable will be used. It will only be used if GOOGLE_GENAI_USE_VERTEXAI is true. Do not use Google AI Studio API key for this field. For more details, visit <https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview>
-
-
-
-
-_async _add_events_to_memory(_*_ , _app_name_ , _user_id_ , _events_ , _session_id =None_, _custom_metadata =None_)¶
-    
-
-Adds events to Vertex AI Memory Bank.
-
-Uses `memories.ingest_events` by default. If `custom_metadata` contains keys supported only by `memories.generate` (e.g. `ttl`, `revision_ttl`, `metadata`, `wait_for_completion`), the generate path is used instead.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **app_name** – The application name for memory scope.
-
-  * **user_id** – The user ID for memory scope.
-
-  * **events** – The events to process for memory generation.
-
-  * **session_id** – Optional session ID. Currently unused.
-
-  * **custom_metadata** – 
-
-Optional service-specific metadata. Supported keys depend on the API path chosen:
-
-**IngestEvents keys** (default path):
-    
-
-stream_id: Identifier for the event stream. force_flush: If True, forces flushing buffered events. generation_trigger_config: Configuration for triggering memory
-
-> generation, e.g. `{"generation_rule": {"idle_duration": "60s"}}`.
-
-**GenerateMemories keys** (used when any of these are present):
-    
-
-ttl: Time-to-live for generated memories, e.g. `"6000s"`. revision_ttl: Time-to-live for memory revisions. metadata: A mapping of custom metadata key-value pairs. wait_for_completion: Whether to wait for generation to complete. disable_consolidation: Disable memory consolidation. disable_memory_revisions: Disable memory revisions.
-
-
-
-
-_async _add_memory(_*_ , _app_name_ , _user_id_ , _memories_ , _custom_metadata =None_)¶
-    
-
-Adds explicit memory items using Vertex Memory Bank.
-
-By default, this writes directly via memories.create. If custom_metadata[“enable_consolidation”] is set to True, this uses memories.generate with direct_memories_source so provided memories are consolidated server-side.
-
-Return type:
-    
-
-`None`
-
-_async _add_session_to_memory(_session_)¶
-    
-
-Adds a session to the memory service.
-
-A session may be added multiple times during its lifetime.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-**session** – The session to add.
-
-_async _search_memory(_*_ , _app_name_ , _user_id_ , _query_)¶
-    
-
-Searches for sessions that match the query.
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The id of the user.
-
-  * **query** – The query to search for.
-
-
-
-Returns:
-    
-
-A SearchMemoryResponse containing the matching memories.
-
-_class _google.adk.memory.VertexAiRagMemoryService(_rag_corpus =None_, _similarity_top_k =None_, _vector_distance_threshold =10_)¶
-    
-
-Bases: `BaseMemoryService`
-
-A memory service that uses Vertex AI RAG for storage and retrieval.
-
-Initializes a VertexAiRagMemoryService.
-
-Parameters:
-    
-
-  * **rag_corpus** – The name of the Vertex AI RAG corpus to use. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus_id}` or `{rag_corpus_id}`
-
-  * **similarity_top_k** – The number of contexts to retrieve.
-
-  * **vector_distance_threshold** – Only returns contexts with vector distance smaller than the threshold.
-
-
-
-
-_async _add_session_to_memory(_session_)¶
-    
-
-Adds a session to the memory service.
-
-A session may be added multiple times during its lifetime.
-
-Parameters:
-    
-
-**session** – The session to add.
-
-_async _search_memory(_*_ , _app_name_ , _user_id_ , _query_)¶
-    
-
-Searches for sessions that match the query using rag.retrieval_query.
-
-Return type:
-    
-
-`SearchMemoryResponse`
 
 # google.adk.models module¶
 
@@ -25757,1142 +27936,6 @@ Return type:
 
 `AsyncGenerator`[`LlmResponse`, `None`]
 
-_pydantic model _google.adk.models.Claude¶
-    
-
-Bases: `AnthropicLlm`
-
-Integration with Claude models served from Vertex AI.
-
-model¶
-    
-
-The name of the Claude model.
-
-max_tokens¶
-    
-
-The maximum number of tokens to generate.
-
-Show JSON schema
-    
-    
-    {
-       "title": "Claude",
-       "description": "Integration with Claude models served from Vertex AI.\n\nAttributes:\n  model: The name of the Claude model.\n  max_tokens: The maximum number of tokens to generate.",
-       "type": "object",
-       "properties": {
-          "model": {
-             "default": "claude-3-5-sonnet-v2@20241022",
-             "title": "Model",
-             "type": "string"
-          },
-          "max_tokens": {
-             "default": 8192,
-             "title": "Max Tokens",
-             "type": "integer"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `model (str)`
-
-
-
-
-_field _model _: str_ _ = 'claude-3-5-sonnet-v2@20241022'_¶
-    
-
-The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
-
-_pydantic model _google.adk.models.Gemini¶
-    
-
-Bases: `BaseLlm`
-
-Integration for Gemini models.
-
-model¶
-    
-
-The name of the Gemini model.
-
-use_interactions_api¶
-    
-
-Whether to use the interactions API for model invocation.
-
-Show JSON schema
-    
-    
-    {
-       "title": "Gemini",
-       "description": "Integration for Gemini models.\n\nAttributes:\n  model: The name of the Gemini model.\n  use_interactions_api: Whether to use the interactions API for model\n    invocation.",
-       "type": "object",
-       "properties": {
-          "model": {
-             "default": "gemini-2.5-flash",
-             "title": "Model",
-             "type": "string"
-          },
-          "base_url": {
-             "anyOf": [
-                {
-                   "type": "string"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null,
-             "title": "Base Url"
-          },
-          "speech_config": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/SpeechConfig"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
-          },
-          "use_interactions_api": {
-             "default": false,
-             "title": "Use Interactions Api",
-             "type": "boolean"
-          },
-          "retry_options": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/HttpRetryOptions"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
-          }
-       },
-       "$defs": {
-          "HttpRetryOptions": {
-             "additionalProperties": false,
-             "description": "HTTP retry options to be used in each of the requests.",
-             "properties": {
-                "attempts": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
-                   "title": "Attempts"
-                },
-                "initialDelay": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
-                   "title": "Initialdelay"
-                },
-                "maxDelay": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
-                   "title": "Maxdelay"
-                },
-                "expBase": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
-                   "title": "Expbase"
-                },
-                "jitter": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Randomness factor for the delay. If not specified, default to 1.0.",
-                   "title": "Jitter"
-                },
-                "httpStatusCodes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "integer"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "List of HTTP status codes that should trigger a retry.\n      If not specified, a default set of retryable codes (408, 429, and 5xx) may be used.",
-                   "title": "Httpstatuscodes"
-                }
-             },
-             "title": "HttpRetryOptions",
-             "type": "object"
-          },
-          "MultiSpeakerVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a multi-speaker text-to-speech request.",
-             "properties": {
-                "speakerVoiceConfigs": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "$ref": "#/$defs/SpeakerVoiceConfig"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
-                   "title": "Speakervoiceconfigs"
-                }
-             },
-             "title": "MultiSpeakerVoiceConfig",
-             "type": "object"
-          },
-          "PrebuiltVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a prebuilt voice.",
-             "properties": {
-                "voiceName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The name of the prebuilt voice to use.",
-                   "title": "Voicename"
-                }
-             },
-             "title": "PrebuiltVoiceConfig",
-             "type": "object"
-          },
-          "ReplicatedVoiceConfig": {
-             "additionalProperties": false,
-             "description": "The configuration for the replicated voice to use.",
-             "properties": {
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The mimetype of the voice sample. The only currently supported\n      value is `audio/wav`. This represents 16-bit signed little-endian wav\n      data, with a 24kHz sampling rate.\n      ",
-                   "title": "Mimetype"
-                },
-                "voiceSampleAudio": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The sample of the custom voice.\n      ",
-                   "title": "Voicesampleaudio"
-                },
-                "consentAudio": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Recorded consent verifying ownership of the voice. This\n      represents 16-bit signed little-endian wav data, with a 24kHz sampling\n      rate.",
-                   "title": "Consentaudio"
-                },
-                "voiceConsentSignature": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConsentSignature"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Signature of a previously verified consent audio. This should be\n      populated with a signature generated by the server for a previous\n      request containing the consent_audio field. When provided, the\n      signature is verified instead of the consent_audio field to reduce\n      latency. Requests will fail if the signature is invalid or expired."
-                }
-             },
-             "title": "ReplicatedVoiceConfig",
-             "type": "object"
-          },
-          "SpeakerVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a single speaker in a multi-speaker setup.",
-             "properties": {
-                "speaker": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
-                   "title": "Speaker"
-                },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The configuration for the voice of this speaker."
-                }
-             },
-             "title": "SpeakerVoiceConfig",
-             "type": "object"
-          },
-          "SpeechConfig": {
-             "additionalProperties": false,
-             "description": "Config for speech generation and transcription.",
-             "properties": {
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration in case of single-voice output."
-                },
-                "languageCode": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The language code (ISO 639-1) for the speech synthesis.",
-                   "title": "Languagecode"
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
-                }
-             },
-             "title": "SpeechConfig",
-             "type": "object"
-          },
-          "VoiceConfig": {
-             "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
-             "properties": {
-                "replicatedVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ReplicatedVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a replicated voice, which is a clone of a\n      user's voice that can be used for speech synthesis. If this is unset, a\n      default voice is used."
-                },
-                "prebuiltVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/PrebuiltVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a prebuilt voice."
-                }
-             },
-             "title": "VoiceConfig",
-             "type": "object"
-          },
-          "VoiceConsentSignature": {
-             "additionalProperties": false,
-             "description": "The signature of the voice consent check.",
-             "properties": {
-                "signature": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The signature string.\n      ",
-                   "title": "Signature"
-                }
-             },
-             "title": "VoiceConsentSignature",
-             "type": "object"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `base_url (Optional[str])`
-
-  * `model (str)`
-
-  * `retry_options (Optional[types.HttpRetryOptions])`
-
-  * `speech_config (Optional[types.SpeechConfig])`
-
-  * `use_interactions_api (bool)`
-
-
-
-
-_field _base_url _: Optional[str]__ = None_¶
-    
-
-The base URL for the AI platform service endpoint.
-
-_field _model _: str_ _ = 'gemini-2.5-flash'_¶
-    
-
-The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
-
-_field _retry_options _: Optional[types.HttpRetryOptions]__ = None_¶
-    
-
-Allow Gemini to retry failed responses.
-
-Sample: ```python from google.genai import types
-
-# …
-
-agent = Agent(
-    
-
-model=Gemini(
-    
-
-retry_options=types.HttpRetryOptions(initial_delay=1, attempts=2),
-
-)
-
-## )¶
-
-_field _speech_config _: Optional[types.SpeechConfig]__ = None_¶
-    
-
-_field _use_interactions_api _: bool_ _ = False_¶
-    
-
-Whether to use the interactions API for model invocation.
-
-When enabled, uses the interactions API (client.aio.interactions.create()) instead of the traditional generate_content API. The interactions API provides stateful conversation capabilities, allowing you to chain interactions using previous_interaction_id instead of sending full history. The response format will be converted to match the existing LlmResponse structure for compatibility.
-
-Sample: ```python agent = Agent(
-
-> model=Gemini(use_interactions_api=True)
-
-## )¶
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-Return type:
-    
-
-`list`[`str`]
-
-Returns:
-    
-
-A list of supported models.
-
-connect(_llm_request_)¶
-    
-
-Connects to the Gemini model and returns an llm connection.
-
-Return type:
-    
-
-`BaseLlmConnection`
-
-Parameters:
-    
-
-**llm_request** – LlmRequest, the request to send to the Gemini model.
-
-Yields:
-    
-
-BaseLlmConnection, the connection to the Gemini model.
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Sends a request to the Gemini model.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send to the Gemini model.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-_property _api_client _: Client_¶
-    
-
-Provides the api client.
-
-Returns:
-    
-
-The api client.
-
-_pydantic model _google.adk.models.Gemma¶
-    
-
-Bases: `GemmaFunctionCallingMixin`, `Gemini`
-
-Integration for Gemma models exposed via the Gemini API.
-
-For agentic use cases, use of gemma-3-27b-it, gemma-3-12b-it, and gemma-4-31b-it are strongly recommended.
-
-For full documentation, see: <https://ai.google.dev/gemma/docs/core/>
-
-NOTE: Gemma does **NOT** support system instructions. Any system instructions will be replaced with an initial _user_ prompt in the LLM request. If system instructions change over the course of agent execution, the initial content **SHOULD** be replaced. Special care is warranted here. See: <https://ai.google.dev/gemma/docs/core/prompt-structure#system-instructions>
-
-NOTE: Gemma’s function calling support is limited. It does not have full access to the same built-in tools as Gemini. It also does not have special API support for tools and functions. Rather, tools must be passed in via a user prompt, and extracted from model responses based on approximate shape.
-
-NOTE: Vertex AI API support for Gemma is not currently included. This **ONLY** supports usage via the Gemini API.
-
-Show JSON schema
-    
-    
-    {
-       "title": "Gemma",
-       "description": "Integration for Gemma models exposed via the Gemini API.\n\nFor agentic use cases, use of gemma-3-27b-it, gemma-3-12b-it, and\ngemma-4-31b-it are strongly recommended.\n\nFor full documentation, see: https://ai.google.dev/gemma/docs/core/\n\nNOTE: Gemma does **NOT** support system instructions. Any system instructions\nwill be replaced with an initial *user* prompt in the LLM request. If system\ninstructions change over the course of agent execution, the initial content\n**SHOULD** be replaced. Special care is warranted here.\nSee:\nhttps://ai.google.dev/gemma/docs/core/prompt-structure#system-instructions\n\nNOTE: Gemma's function calling support is limited. It does not have full\naccess to the\nsame built-in tools as Gemini. It also does not have special API support for\ntools and\nfunctions. Rather, tools must be passed in via a `user` prompt, and extracted\nfrom model\nresponses based on approximate shape.\n\nNOTE: Vertex AI API support for Gemma is not currently included. This **ONLY**\nsupports\nusage via the Gemini API.",
-       "type": "object",
-       "properties": {
-          "model": {
-             "default": "gemma-3-27b-it",
-             "title": "Model",
-             "type": "string"
-          },
-          "base_url": {
-             "anyOf": [
-                {
-                   "type": "string"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null,
-             "title": "Base Url"
-          },
-          "speech_config": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/SpeechConfig"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
-          },
-          "use_interactions_api": {
-             "default": false,
-             "title": "Use Interactions Api",
-             "type": "boolean"
-          },
-          "retry_options": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/HttpRetryOptions"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
-          }
-       },
-       "$defs": {
-          "HttpRetryOptions": {
-             "additionalProperties": false,
-             "description": "HTTP retry options to be used in each of the requests.",
-             "properties": {
-                "attempts": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
-                   "title": "Attempts"
-                },
-                "initialDelay": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
-                   "title": "Initialdelay"
-                },
-                "maxDelay": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
-                   "title": "Maxdelay"
-                },
-                "expBase": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
-                   "title": "Expbase"
-                },
-                "jitter": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Randomness factor for the delay. If not specified, default to 1.0.",
-                   "title": "Jitter"
-                },
-                "httpStatusCodes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "integer"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "List of HTTP status codes that should trigger a retry.\n      If not specified, a default set of retryable codes (408, 429, and 5xx) may be used.",
-                   "title": "Httpstatuscodes"
-                }
-             },
-             "title": "HttpRetryOptions",
-             "type": "object"
-          },
-          "MultiSpeakerVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a multi-speaker text-to-speech request.",
-             "properties": {
-                "speakerVoiceConfigs": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "$ref": "#/$defs/SpeakerVoiceConfig"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
-                   "title": "Speakervoiceconfigs"
-                }
-             },
-             "title": "MultiSpeakerVoiceConfig",
-             "type": "object"
-          },
-          "PrebuiltVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a prebuilt voice.",
-             "properties": {
-                "voiceName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The name of the prebuilt voice to use.",
-                   "title": "Voicename"
-                }
-             },
-             "title": "PrebuiltVoiceConfig",
-             "type": "object"
-          },
-          "ReplicatedVoiceConfig": {
-             "additionalProperties": false,
-             "description": "The configuration for the replicated voice to use.",
-             "properties": {
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The mimetype of the voice sample. The only currently supported\n      value is `audio/wav`. This represents 16-bit signed little-endian wav\n      data, with a 24kHz sampling rate.\n      ",
-                   "title": "Mimetype"
-                },
-                "voiceSampleAudio": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The sample of the custom voice.\n      ",
-                   "title": "Voicesampleaudio"
-                },
-                "consentAudio": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Recorded consent verifying ownership of the voice. This\n      represents 16-bit signed little-endian wav data, with a 24kHz sampling\n      rate.",
-                   "title": "Consentaudio"
-                },
-                "voiceConsentSignature": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConsentSignature"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Signature of a previously verified consent audio. This should be\n      populated with a signature generated by the server for a previous\n      request containing the consent_audio field. When provided, the\n      signature is verified instead of the consent_audio field to reduce\n      latency. Requests will fail if the signature is invalid or expired."
-                }
-             },
-             "title": "ReplicatedVoiceConfig",
-             "type": "object"
-          },
-          "SpeakerVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a single speaker in a multi-speaker setup.",
-             "properties": {
-                "speaker": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
-                   "title": "Speaker"
-                },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The configuration for the voice of this speaker."
-                }
-             },
-             "title": "SpeakerVoiceConfig",
-             "type": "object"
-          },
-          "SpeechConfig": {
-             "additionalProperties": false,
-             "description": "Config for speech generation and transcription.",
-             "properties": {
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration in case of single-voice output."
-                },
-                "languageCode": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The language code (ISO 639-1) for the speech synthesis.",
-                   "title": "Languagecode"
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
-                }
-             },
-             "title": "SpeechConfig",
-             "type": "object"
-          },
-          "VoiceConfig": {
-             "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
-             "properties": {
-                "replicatedVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ReplicatedVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a replicated voice, which is a clone of a\n      user's voice that can be used for speech synthesis. If this is unset, a\n      default voice is used."
-                },
-                "prebuiltVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/PrebuiltVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a prebuilt voice."
-                }
-             },
-             "title": "VoiceConfig",
-             "type": "object"
-          },
-          "VoiceConsentSignature": {
-             "additionalProperties": false,
-             "description": "The signature of the voice consent check.",
-             "properties": {
-                "signature": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The signature string.\n      ",
-                   "title": "Signature"
-                }
-             },
-             "title": "VoiceConsentSignature",
-             "type": "object"
-          }
-       }
-    }
-    
-
-Fields:
-    
-
-  * `model (str)`
-
-
-
-
-_field _model _: str_ _ = 'gemma-3-27b-it'_¶
-    
-
-The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-Returns: A list of supported models.
-
-Return type:
-    
-
-`list`[`str`]
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Sends a request to the Gemma model.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send to the Gemini model.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-_pydantic model _google.adk.models.Gemma3Ollama¶
-    
-
-Bases: `GemmaFunctionCallingMixin`, `LiteLlm`
-
-Integration for Gemma 3 models running locally via Ollama.
-
-This enables fully local agent workflows using Gemma 3 models. Requires Ollama to be running with a Gemma 3 model pulled.
-
-Example
-
-ollama pull gemma3:12b model = Gemma3Ollama(model=”ollama/gemma3:12b”)
-
-Show JSON schema
-    
-    
-    {
-       "title": "Gemma3Ollama",
-       "type": "object",
-       "properties": {
-          "model": {
-             "title": "Model",
-             "type": "string"
-          },
-          "llm_client": {
-             "default": null,
-             "title": "Llm Client"
-          }
-       },
-       "required": [
-          "model"
-       ]
-    }
-    
-
-Fields:
-    
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
-
-Return type:
-    
-
-`list`[`str`]
-
-Returns:
-    
-
-A list of supported models.
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Sends a request to Gemma via Ollama/LiteLLM.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-model_post_init(_context_ , _/_)¶
-    
-
-This function is meant to behave like a BaseModel method to initialise private attributes.
-
-It takes context as an argument since that’s what pydantic-core passes when calling it.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **self** – The BaseModel instance.
-
-  * **context** – The context.
-
-
-
-
 _class _google.adk.models.LLMRegistry¶
     
 
@@ -26955,143 +27998,7 @@ Raises:
 
 **ValueError** – If the model is not found.
 
-_pydantic model _google.adk.models.LiteLlm¶
-    
-
-Bases: `BaseLlm`
-
-Wrapper around litellm.
-
-This wrapper can be used with any of the models supported by litellm. The environment variable(s) needed for authenticating with the model endpoint must be set prior to instantiating this class.
-
-Example usage: ``` os.environ[“VERTEXAI_PROJECT”] = “your-gcp-project-id” os.environ[“VERTEXAI_LOCATION”] = “your-gcp-location”
-
-agent = Agent(
-    
-
-model=LiteLlm(model=”[vertex_ai/claude-3-7-sonnet@20250219](mailto:vertex_ai/claude-3-7-sonnet%4020250219)”), …
-
-## )¶
-
-model¶
-    
-
-The name of the LiteLlm model.
-
-llm_client¶
-    
-
-The LLM client to use for the model.
-
-Initializes the LiteLlm class.
-
-param model:
-    
-
-The name of the LiteLlm model.
-
-param **kwargs:
-    
-
-Additional arguments to pass to the litellm completion api.
-
-Show JSON schema
-    
-    
-    {
-       "title": "LiteLlm",
-       "type": "object",
-       "properties": {
-          "model": {
-             "title": "Model",
-             "type": "string"
-          },
-          "llm_client": {
-             "default": null,
-             "title": "Llm Client"
-          }
-       },
-       "required": [
-          "model"
-       ]
-    }
-    
-
-Fields:
-    
-
-  * `llm_client (LiteLLMClient)`
-
-
-
-
-_field _llm_client _: LiteLLMClient_ _[Optional]_¶
-    
-
-The LLM client to use for the model.
-
-_classmethod _supported_models()¶
-    
-
-Provides the list of supported models.
-
-This registers common provider prefixes. LiteLlm can handle many more, but these patterns activate the integration for the most common use cases. See <https://docs.litellm.ai/docs/providers> for a full list.
-
-Return type:
-    
-
-`list`[`str`]
-
-Returns:
-    
-
-A list of supported models.
-
-_async _generate_content_async(_llm_request_ , _stream =False_)¶
-    
-
-Generates content asynchronously.
-
-Return type:
-    
-
-`AsyncGenerator`[`LlmResponse`, `None`]
-
-Parameters:
-    
-
-  * **llm_request** – LlmRequest, the request to send to the LiteLlm model.
-
-  * **stream** – bool = False, whether to do streaming call.
-
-
-
-Yields:
-    
-
-_LlmResponse_ – The model response.
-
-model_post_init(_context_ , _/_)¶
-    
-
-This function is meant to behave like a BaseModel method to initialise private attributes.
-
-It takes context as an argument since that’s what pydantic-core passes when calling it.
-
-Return type:
-    
-
-`None`
-
-Parameters:
-    
-
-  * **self** – The BaseModel instance.
-
-  * **context** – The context.
-
-
-
+# google.adk.optimization module¶
 
 # google.adk.planners module¶
 
@@ -27683,327 +28590,6 @@ Returns:
 
 An optional types.Content to be returned to the ADK. Returning a value to replace the user message. Returning None to proceed normally.
 
-_class _google.adk.plugins.DebugLoggingPlugin(_*_ , _name ='debug_logging_plugin'_, _output_path ='adk_debug.yaml'_, _include_session_state =True_, _include_system_instruction =True_)¶
-    
-
-Bases: `BasePlugin`
-
-A plugin that captures complete debug information to a file.
-
-This plugin records detailed interaction data including: \- LLM requests (model, system instruction, contents, tools) \- LLM responses (content, usage metadata, errors) \- Function calls with arguments \- Function responses with results \- Events yielded from the runner \- Session state at the end of each invocation
-
-The output is written as YAML format for human readability. Each invocation is appended to the file as a separate YAML document (separated by —). This format is easy to read and can be shared for debugging purposes.
-
-Example
-    
-    
-    >>> debug_plugin = DebugLoggingPlugin(output_path="/tmp/adk_debug.yaml")
-    >>> runner = Runner(
-    ...     agent=my_agent,
-    ...     plugins=[debug_plugin],
-    ... )
-    
-
-output_path¶
-    
-
-Path to the output file. Defaults to “adk_debug.yaml”.
-
-include_session_state¶
-    
-
-Whether to include session state in the output.
-
-include_system_instruction¶
-    
-
-Whether to include system instructions.
-
-Initialize the debug logging plugin.
-
-Parameters:
-    
-
-  * **name** – The name of the plugin instance.
-
-  * **output_path** – Path to the output file. Defaults to “adk_debug.yaml”.
-
-  * **include_session_state** – Whether to include session state snapshot.
-
-  * **include_system_instruction** – Whether to include full system instructions.
-
-
-
-
-_async _after_agent_callback(_*_ , _agent_ , _callback_context_)¶
-    
-
-Log agent execution completion.
-
-Return type:
-    
-
-`Content` | `None`
-
-_async _after_model_callback(_*_ , _callback_context_ , _llm_response_)¶
-    
-
-Log LLM response after receiving from model.
-
-Return type:
-    
-
-`LlmResponse` | `None`
-
-_async _after_run_callback(_*_ , _invocation_context_)¶
-    
-
-Finalize and write debug data to file.
-
-Return type:
-    
-
-`None`
-
-_async _after_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _result_)¶
-    
-
-Log tool execution completion.
-
-Return type:
-    
-
-`dict`[`str`, `Any`] | `None`
-
-_async _before_agent_callback(_*_ , _agent_ , _callback_context_)¶
-    
-
-Log agent execution start.
-
-Return type:
-    
-
-`Content` | `None`
-
-_async _before_model_callback(_*_ , _callback_context_ , _llm_request_)¶
-    
-
-Log LLM request before sending to model.
-
-Return type:
-    
-
-`LlmResponse` | `None`
-
-_async _before_run_callback(_*_ , _invocation_context_)¶
-    
-
-Initialize debug state for this invocation.
-
-Return type:
-    
-
-`Content` | `None`
-
-_async _before_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_)¶
-    
-
-Log tool execution start.
-
-Return type:
-    
-
-`dict`[`str`, `Any`] | `None`
-
-_async _on_event_callback(_*_ , _invocation_context_ , _event_)¶
-    
-
-Log events yielded from the runner.
-
-Return type:
-    
-
-`Event` | `None`
-
-_async _on_model_error_callback(_*_ , _callback_context_ , _llm_request_ , _error_)¶
-    
-
-Log LLM error.
-
-Return type:
-    
-
-`LlmResponse` | `None`
-
-_async _on_tool_error_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _error_)¶
-    
-
-Log tool error.
-
-Return type:
-    
-
-`dict`[`str`, `Any`] | `None`
-
-_async _on_user_message_callback(_*_ , _invocation_context_ , _user_message_)¶
-    
-
-Log user message and invocation start.
-
-Return type:
-    
-
-`Content` | `None`
-
-_class _google.adk.plugins.LoggingPlugin(_name ='logging_plugin'_)¶
-    
-
-Bases: `BasePlugin`
-
-A plugin that logs important information at each callback point.
-
-This plugin helps print all critical events in the console. It is not a replacement of existing logging in ADK. It rather helps terminal based debugging by showing all logs in the console, and serves as a simple demo for everyone to leverage when developing new plugins.
-
-This plugin helps users track the invocation status by logging: \- User messages and invocation context \- Agent execution flow \- LLM requests and responses \- Tool calls with arguments and results \- Events and final responses \- Errors during model and tool execution
-
-Example
-    
-    
-    >>> logging_plugin = LoggingPlugin()
-    >>> runner = Runner(
-    ...     agents=[my_agent],
-    ...     # ...
-    ...     plugins=[logging_plugin],
-    ... )
-    
-
-Initialize the logging plugin.
-
-Parameters:
-    
-
-**name** – The name of the plugin instance.
-
-_async _after_agent_callback(_*_ , _agent_ , _callback_context_)¶
-    
-
-Log agent execution completion.
-
-Return type:
-    
-
-`Optional`[`Content`]
-
-_async _after_model_callback(_*_ , _callback_context_ , _llm_response_)¶
-    
-
-Log LLM response after receiving from model.
-
-Return type:
-    
-
-`Optional`[`LlmResponse`]
-
-_async _after_run_callback(_*_ , _invocation_context_)¶
-    
-
-Log invocation completion.
-
-Return type:
-    
-
-`None`
-
-_async _after_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _result_)¶
-    
-
-Log tool execution completion.
-
-Return type:
-    
-
-`Optional`[`dict`]
-
-_async _before_agent_callback(_*_ , _agent_ , _callback_context_)¶
-    
-
-Log agent execution start.
-
-Return type:
-    
-
-`Optional`[`Content`]
-
-_async _before_model_callback(_*_ , _callback_context_ , _llm_request_)¶
-    
-
-Log LLM request before sending to model.
-
-Return type:
-    
-
-`Optional`[`LlmResponse`]
-
-_async _before_run_callback(_*_ , _invocation_context_)¶
-    
-
-Log invocation start.
-
-Return type:
-    
-
-`Optional`[`Content`]
-
-_async _before_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_)¶
-    
-
-Log tool execution start.
-
-Return type:
-    
-
-`Optional`[`dict`]
-
-_async _on_event_callback(_*_ , _invocation_context_ , _event_)¶
-    
-
-Log events yielded from the runner.
-
-Return type:
-    
-
-`Optional`[`Event`]
-
-_async _on_model_error_callback(_*_ , _callback_context_ , _llm_request_ , _error_)¶
-    
-
-Log LLM error.
-
-Return type:
-    
-
-`Optional`[`LlmResponse`]
-
-_async _on_tool_error_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _error_)¶
-    
-
-Log tool error.
-
-Return type:
-    
-
-`Optional`[`dict`]
-
-_async _on_user_message_callback(_*_ , _invocation_context_ , _user_message_)¶
-    
-
-Log user message and invocation start.
-
-Return type:
-    
-
-`Optional`[`Content`]
-
 _class _google.adk.plugins.PluginManager(_plugins =None_, _close_timeout =5.0_)¶
     
 
@@ -28202,168 +28788,9 @@ Return type:
 
 `Optional`[`Content`]
 
-_class _google.adk.plugins.ReflectAndRetryToolPlugin(_name ='reflect_retry_tool_plugin'_, _max_retries =3_, _throw_exception_if_retry_exceeded =True_, _tracking_scope =TrackingScope.INVOCATION_)¶
-    
-
-Bases: `BasePlugin`
-
-Provides self-healing, concurrent-safe error recovery for tool failures.
-
-This plugin intercepts tool failures, provides structured guidance to the LLM for reflection and correction, and retries the operation up to a configurable limit.
-
-**Key Features:**
-
-  * **Concurrency Safe:** Uses locking to safely handle parallel tool
-
-
-
-
-executions \- **Configurable Scope:** Tracks failures per-invocation (default) or globally
-
-> using the TrackingScope enum.
-
-  * **Extensible Scoping:** The _get_scope_key method can be overridden to implement custom tracking logic (e.g., per-user or per-session).
-
-  * **Granular Tracking:** Failure counts are tracked per-tool within the defined scope. A success with one tool resets its counter without affecting others.
-
-  * **Custom Error Extraction:** Supports detecting errors in normal tool
-
-
-
-
-responses that
-
-> don’t throw exceptions, by overriding the extract_error_from_result method.
-
-**Example:** ```python from my_project.plugins import ReflectAndRetryToolPlugin, TrackingScope
-
-# Example 1: (MOST COMMON USAGE): # Track failures only within the current agent invocation (default). error_handling_plugin = ReflectAndRetryToolPlugin(max_retries=3)
-
-# Example 2: # Track failures globally across all turns and users. global_error_handling_plugin = ReflectAndRetryToolPlugin(max_retries=5, scope=TrackingScope.GLOBAL)
-
-# Example 3: # Retry on failures but do not throw exceptions. error_handling_plugin =
-
-> ReflectAndRetryToolPlugin(max_retries=3, throw_exception_if_retry_exceeded=False)
-
-# Example 4: # Track failures in successful tool responses that contain errors. class CustomRetryPlugin(ReflectAndRetryToolPlugin):
-
-> async def extract_error_from_result(self, *, tool, tool_args,tool_context, result):
->
->> # Detect error based on response content if result.get(‘status’) == ‘error’:
->>
->>> return result
->> 
->> return None # No error detected
-
-error_handling_plugin = CustomRetryPlugin(max_retries=5) ```
-
-Initializes the ReflectAndRetryToolPlugin.
-
-Parameters:
-    
-
-  * **name** – Plugin instance identifier.
-
-  * **max_retries** – Maximum consecutive failures before giving up (0 = no retries).
-
-  * **throw_exception_if_retry_exceeded** – If True, raises the final exception when the retry limit is reached. If False, returns guidance instead.
-
-  * **tracking_scope** – Determines the lifecycle of the error tracking state. Defaults to TrackingScope.INVOCATION tracking per-invocation.
-
-
-
-
-_async _after_tool_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _result_)¶
-    
-
-Handles successful tool calls or extracts and processes errors.
-
-Return type:
-    
-
-`Optional`[`dict`[`str`, `Any`]]
-
-Parameters:
-    
-
-  * **tool** – The tool that was called.
-
-  * **tool_args** – The arguments passed to the tool.
-
-  * **tool_context** – The context of the tool call.
-
-  * **result** – The result of the tool call.
-
-
-
-Returns:
-    
-
-An optional dictionary containing reflection guidance if an error is detected, or None if the tool call was successful or the response is already a reflection message.
-
-_async _extract_error_from_result(_*_ , _tool_ , _tool_args_ , _tool_context_ , _result_)¶
-    
-
-Extracts an error from a successful tool result and triggers retry logic.
-
-This is useful when tool call finishes successfully but the result contains an error object like {“error”: …} that should be handled by the plugin.
-
-By overriding this method, you can trigger retry logic on these successful results that contain errors.
-
-Return type:
-    
-
-`Optional`[`dict`[`str`, `Any`]]
-
-Parameters:
-    
-
-  * **tool** – The tool that was called.
-
-  * **tool_args** – The arguments passed to the tool.
-
-  * **tool_context** – The context of the tool call.
-
-  * **result** – The result of the tool call.
-
-
-
-Returns:
-    
-
-The extracted error if any, or None if no error was detected.
-
-_async _on_tool_error_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _error_)¶
-    
-
-Handles tool exceptions by providing reflection guidance.
-
-Return type:
-    
-
-`Optional`[`dict`[`str`, `Any`]]
-
-Parameters:
-    
-
-  * **tool** – The tool that was called.
-
-  * **tool_args** – The arguments passed to the tool.
-
-  * **tool_context** – The context of the tool call.
-
-  * **error** – The exception raised by the tool.
-
-
-
-Returns:
-    
-
-An optional dictionary containing reflection guidance for the error.
-
 # google.adk.runners module¶
 
-_class _google.adk.runners.InMemoryRunner(_agent =None_, _*_ , _app_name =None_, _plugins =None_, _app =None_, _plugin_close_timeout =5.0_)¶
+_class _google.adk.runners.InMemoryRunner(_agent =None_, _*_ , _node =None_, _app_name =None_, _plugins =None_, _app =None_, _plugin_close_timeout =5.0_)¶
     
 
 Bases: `Runner`
@@ -28389,6 +28816,8 @@ Parameters:
 
   * **agent** – The root agent to run.
 
+  * **node** – The root node to run.
+
   * **app_name** – The application name of the runner. Defaults to ‘InMemoryRunner’.
 
   * **plugins** – Optional list of plugins for the runner.
@@ -28400,7 +28829,7 @@ Parameters:
 
 
 
-_class _google.adk.runners.Runner(_*_ , _app =None_, _app_name =None_, _agent =None_, _plugins =None_, _artifact_service =None_, _session_service_ , _memory_service =None_, _credential_service =None_, _plugin_close_timeout =5.0_, _auto_create_session =False_)¶
+_class _google.adk.runners.Runner(_*_ , _app =None_, _app_name =None_, _agent =None_, _node =None_, _plugins =None_, _artifact_service =None_, _session_service_ , _memory_service =None_, _credential_service =None_, _plugin_close_timeout =5.0_, _auto_create_session =False_)¶
     
 
 Bases: `object`
@@ -28456,16 +28885,18 @@ The resumability config for the application.
 
 Initializes the Runner.
 
-Developers should provide either an app instance or both app_name and agent. When app is provided, app_name can optionally override the app’s name (useful for deployment scenarios like Agent Engine where the resource name differs from the app’s identifier). However, agent should not be provided when app is provided. Providing app is the recommended way to create a runner.
+Exactly one of app, agent, or node must be provided. When agent or node is provided, the Runner wraps it into an App internally. Providing app is the recommended way to create a runner. When app is provided, app_name can optionally override the app’s name.
 
 Parameters:
     
 
-  * **app** – An optional App instance. If provided, agent should not be specified. app_name can optionally override app.name.
+  * **app** – An App instance. Mutually exclusive with agent and node.
 
-  * **app_name** – The application name of the runner. Required if app is not provided. If app is provided, this can optionally override app.name (e.g., for deployment scenarios where a resource name differs from the app identifier).
+  * **app_name** – The application name. Required when agent is provided. Optional override for app.name when app is provided. Defaults to node.name when only node is provided.
 
-  * **agent** – The root agent to run. Required if app is not provided. Should not be provided when app is provided.
+  * **agent** – The root agent to run. Mutually exclusive with app and node.
+
+  * **node** – The root node to run. Mutually exclusive with app and agent.
 
   * **plugins** – Deprecated. A list of plugins for the runner. Please use the app argument to provide plugins instead.
 
@@ -28486,22 +28917,22 @@ Parameters:
 Raises:
     
 
-**ValueError** – If app is provided along with agent or plugins, or if app is not provided but either app_name or agent is missing.
+**ValueError** – If more than one of app, agent, or node is provided, or if none is provided, or if agent is provided without app_name.
 
 Self _ = typing.Self_¶
     
 
-agent _: `BaseAgent`_¶
+agent _: Optional[BaseAgent | 'BaseNode']__ = None_¶
     
 
-The root agent to run.
+The root agent or node to run.
 
-app_name _: `str`_¶
+app_name _: str_¶
     
 
 The app name of the runner.
 
-artifact_service _: `Optional`[`BaseArtifactService`]__ = None_¶
+artifact_service _: Optional[BaseArtifactService]__ = None_¶
     
 
 The artifact service for the runner.
@@ -28511,27 +28942,27 @@ _async _close()¶
 
 Closes the runner.
 
-context_cache_config _: `Optional`[`ContextCacheConfig`]__ = None_¶
+context_cache_config _: Optional[ContextCacheConfig]__ = None_¶
     
 
 The context cache config for the runner.
 
-credential_service _: `Optional`[`BaseCredentialService`]__ = None_¶
+credential_service _: Optional[BaseCredentialService]__ = None_¶
     
 
 The credential service for the runner.
 
-memory_service _: `Optional`[`BaseMemoryService`]__ = None_¶
+memory_service _: Optional[BaseMemoryService]__ = None_¶
     
 
 The memory service for the runner.
 
-plugin_manager _: `PluginManager`_¶
+plugin_manager _: PluginManager_¶
     
 
 The plugin manager for the runner.
 
-resumability_config _: `Optional`[`ResumabilityConfig`]__ = None_¶
+resumability_config _: Optional[ResumabilityConfig]__ = None_¶
     
 
 The resumability config for the application.
@@ -28580,7 +29011,7 @@ Yields:
 
 The events generated by the agent.
 
-_async _run_async(_*_ , _user_id_ , _session_id_ , _invocation_id =None_, _new_message =None_, _state_delta =None_, _run_config =None_)¶
+_async _run_async(_*_ , _user_id_ , _session_id_ , _invocation_id =None_, _new_message =None_, _state_delta =None_, _run_config =None_, _yield_user_message =False_)¶
     
 
 Main entry method to run the agent in this runner.
@@ -28606,6 +29037,8 @@ Parameters:
   * **state_delta** – Optional state changes to apply to the session.
 
   * **run_config** – The run config for the agent.
+
+  * **yield_user_message** – If True, yield the user message event before agent/node events.
 
 
 
@@ -28757,7 +29190,7 @@ Note
 
 Either session or both user_id and session_id must be provided.
 
-session_service _: `BaseSessionService`_¶
+session_service _: BaseSessionService_¶
     
 
 The session service for the runner.
@@ -28826,6 +29259,13 @@ Return type:
 
 `None`
 
+_async _flush()¶
+    
+
+Flushes any buffered events.
+
+For non-buffering implementations, this can be a no-op.
+
 _abstractmethod async _get_session(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
     
 
@@ -28859,134 +29299,6 @@ Returns:
     
 
 A ListSessionsResponse containing the sessions.
-
-_class _google.adk.sessions.InMemorySessionService¶
-    
-
-Bases: `BaseSessionService`
-
-An in-memory implementation of the session service.
-
-It is not suitable for multi-threaded production environments. Use it for testing and development only.
-
-_async _append_event(_session_ , _event_)¶
-    
-
-Appends an event to a session object.
-
-Return type:
-    
-
-`Event`
-
-_async _create_session(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_)¶
-    
-
-Creates a new session.
-
-Return type:
-    
-
-`Session`
-
-Parameters:
-    
-
-  * **app_name** – the name of the app.
-
-  * **user_id** – the id of the user.
-
-  * **state** – the initial state of the session.
-
-  * **session_id** – the client-provided id of the session. If not provided, a generated ID will be used.
-
-
-
-Returns:
-    
-
-The newly created session instance.
-
-Return type:
-    
-
-session
-
-create_session_sync(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_)¶
-    
-
-Return type:
-    
-
-`Session`
-
-_async _delete_session(_*_ , _app_name_ , _user_id_ , _session_id_)¶
-    
-
-Deletes a session.
-
-Return type:
-    
-
-`None`
-
-delete_session_sync(_*_ , _app_name_ , _user_id_ , _session_id_)¶
-    
-
-Return type:
-    
-
-`None`
-
-_async _get_session(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
-    
-
-Gets a session.
-
-Return type:
-    
-
-`Optional`[`Session`]
-
-get_session_sync(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
-    
-
-Return type:
-    
-
-`Optional`[`Session`]
-
-_async _list_sessions(_*_ , _app_name_ , _user_id =None_)¶
-    
-
-Lists all the sessions for a user.
-
-Return type:
-    
-
-`ListSessionsResponse`
-
-Parameters:
-    
-
-  * **app_name** – The name of the app.
-
-  * **user_id** – The ID of the user. If not provided, lists all sessions for all users.
-
-
-
-Returns:
-    
-
-A ListSessionsResponse containing the sessions.
-
-list_sessions_sync(_*_ , _app_name_ , _user_id =None_)¶
-    
-
-Return type:
-    
-
-`ListSessionsResponse`
 
 _pydantic model _google.adk.sessions.Session¶
     
@@ -29813,11 +30125,25 @@ Show JSON schema
                    "type": "string"
                 },
                 "author": {
+                   "default": "",
                    "title": "Author",
                    "type": "string"
                 },
                 "actions": {
                    "$ref": "#/$defs/EventActions"
+                },
+                "output": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output"
+                },
+                "nodeInfo": {
+                   "$ref": "#/$defs/NodeInfo"
                 },
                 "longRunningToolIds": {
                    "anyOf": [
@@ -29847,6 +30173,18 @@ Show JSON schema
                    "default": null,
                    "title": "Branch"
                 },
+                "isolationScope": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Isolationscope"
+                },
                 "id": {
                    "default": "",
                    "title": "Id",
@@ -29857,9 +30195,6 @@ Show JSON schema
                    "type": "number"
                 }
              },
-             "required": [
-                "author"
-             ],
              "title": "Event",
              "type": "object"
           },
@@ -29977,6 +30312,40 @@ Show JSON schema
                    "default": null,
                    "title": "Rewindbeforeinvocationid"
                 },
+                "route": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "boolean"
+                               },
+                               {
+                                  "type": "integer"
+                               },
+                               {
+                                  "type": "string"
+                               }
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Route"
+                },
                 "renderUiWidgets": {
                    "anyOf": [
                       {
@@ -29991,6 +30360,16 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Renderuiwidgets"
+                },
+                "setModelResponse": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Setmodelresponse"
                 }
              },
              "title": "EventActions",
@@ -31250,6 +31629,32 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. Name of the `FileSearchStore` containing the document. Example: `fileSearchStores/123`. This field is not supported in Vertex AI.",
                    "title": "Filesearchstore"
+                },
+                "pageNumber": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Page number of the retrieved context. This field is not supported in Vertex AI.",
+                   "title": "Pagenumber"
+                },
+                "mediaId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Media ID. This field is not supported in Vertex AI.",
+                   "title": "Mediaid"
                 }
              },
              "title": "GroundingChunkRetrievedContext",
@@ -31965,6 +32370,45 @@ Show JSON schema
              "title": "ModalityTokenCount",
              "type": "object"
           },
+          "NodeInfo": {
+             "description": "Workflow node metadata attached to an Event.",
+             "properties": {
+                "path": {
+                   "default": "",
+                   "title": "Path",
+                   "type": "string"
+                },
+                "outputFor": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Outputfor"
+                },
+                "messageAsOutput": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Messageasoutput"
+                }
+             },
+             "title": "NodeInfo",
+             "type": "object"
+          },
           "OAuth2": {
              "additionalProperties": true,
              "properties": {
@@ -32165,6 +32609,30 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "codeVerifier": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codeverifier"
+                },
+                "codeChallengeMethod": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codechallengemethod"
                 },
                 "tokenEndpointAuthMethod": {
                    "anyOf": [
@@ -33500,7 +33968,7 @@ Parameters:
 
 
 
-_class _google.adk.sessions.State(_value_ , _delta_)¶
+_class _google.adk.sessions.State(_value_ , _delta_ , _schema =None_)¶
     
 
 Bases: `object`
@@ -33513,6 +33981,8 @@ Parameters:
   * **value** – The current value of the state dict.
 
   * **delta** – The delta change to the current value that hasn’t been committed.
+
+  * **schema** – Optional Pydantic model declaring the expected state keys and types. When set, mutations are validated against this schema.
 
 
 
@@ -33571,114 +34041,833 @@ update(_delta_)¶
 
 Updates the state dict with the given delta.
 
-_class _google.adk.sessions.VertexAiSessionService(_project =None_, _location =None_, _agent_engine_id =None_, _*_ , _express_mode_api_key =None_)¶
-    
-
-Bases: `BaseSessionService`
-
-Connects to the Vertex AI Agent Engine Session Service using Agent Engine SDK.
-
-<https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/sessions/overview>
-
-Initializes the VertexAiSessionService.
-
-Parameters:
-    
-
-  * **project** – The project id of the project to use.
-
-  * **location** – The location of the project to use.
-
-  * **agent_engine_id** – The resource ID of the agent engine to use.
-
-  * **express_mode_api_key** – The API key to use for Express Mode. If not provided, the API key from the GOOGLE_API_KEY environment variable will be used. It will only be used if GOOGLE_GENAI_USE_VERTEXAI is true. Do not use Google AI Studio API key for this field. For more details, visit <https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview>
-
-
-
-
-_async _append_event(_session_ , _event_)¶
-    
-
-Appends an event to a session object.
-
-Return type:
-    
-
-`Event`
-
-_async _create_session(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_, _** kwargs_)¶
-    
-
-Creates a new session.
-
-Return type:
-    
-
-`Session`
-
-Parameters:
-    
-
-  * **app_name** – The name of the application.
-
-  * **user_id** – The ID of the user.
-
-  * **state** – The initial state of the session.
-
-  * **session_id** – The ID of the session.
-
-  * ****kwargs** – Additional arguments to pass to the session creation. E.g. set expire_time=’2025-10-01T00:00:00Z’ to set the session expiration time. See <https://cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions> for more details.
-
-
-
-Returns:
-    
-
-The created session.
-
-_async _delete_session(_*_ , _app_name_ , _user_id_ , _session_id_)¶
-    
-
-Deletes a session.
-
 Return type:
     
 
 `None`
 
-_async _get_session(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
+_exception _google.adk.sessions.StateSchemaError¶
     
 
-Gets a session.
+Bases: `TypeError`
+
+Raised when a state mutation violates the declared state_schema.
+
+# google.adk.skills module¶
+
+Agent Development Kit - Skills.
+
+_pydantic model _google.adk.skills.Frontmatter¶
+    
+
+Bases: `BaseModel`
+
+L1 skill content: metadata parsed from SKILL.md for skill discovery.
+
+name¶
+    
+
+Skill name in kebab-case or snake_case (required).
+
+description¶
+    
+
+What the skill does and when the model should use it (required).
+
+license¶
+    
+
+License for the skill (optional).
+
+compatibility¶
+    
+
+Compatibility information for the skill (optional).
+
+allowed_tools¶
+    
+
+A space-delimited list of tools that are pre-approved to run (optional, experimental). Accepts both `allowed_tools` and the YAML-friendly `allowed-tools` key. For more details, see <https://agentskills.io/specification#allowed-tools-field>.
+
+metadata¶
+    
+
+Key-value pairs for client-specific properties (defaults to empty dict). For example, to include additional tools, use the `adk_additional_tools` key with a list of tools.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Frontmatter",
+       "description": "L1 skill content: metadata parsed from SKILL.md for skill discovery.\n\nAttributes:\n    name: Skill name in kebab-case or snake_case (required).\n    description: What the skill does and when the model should use it\n      (required).\n    license: License for the skill (optional).\n    compatibility: Compatibility information for the skill (optional).\n    allowed_tools: A space-delimited list of tools that are pre-approved to\n      run (optional, experimental). Accepts both ``allowed_tools`` and the\n      YAML-friendly ``allowed-tools`` key. For more details, see\n      https://agentskills.io/specification#allowed-tools-field.\n    metadata: Key-value pairs for client-specific properties (defaults to\n      empty dict). For example, to include additional tools, use the\n      ``adk_additional_tools`` key with a list of tools.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "title": "Description",
+             "type": "string"
+          },
+          "license": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "License"
+          },
+          "compatibility": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Compatibility"
+          },
+          "allowed-tools": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Allowed-Tools"
+          },
+          "metadata": {
+             "additionalProperties": true,
+             "default": {},
+             "title": "Metadata",
+             "type": "object"
+          }
+       },
+       "additionalProperties": true,
+       "required": [
+          "name",
+          "description"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `allowed_tools (str | None)`
+
+  * `compatibility (str | None)`
+
+  * `description (str)`
+
+  * `license (str | None)`
+
+  * `metadata (dict[str, Any])`
+
+  * `name (str)`
+
+
+
+Validators:
+    
+
+  * `_validate_compatibility` » `compatibility`
+
+  * `_validate_description` » `description`
+
+  * `_validate_metadata` » `metadata`
+
+  * `_validate_name` » `name`
+
+
+
+
+_field _allowed_tools _: Optional[str]__ = None_ _(alias 'allowed-tools')_¶
+    
+
+_field _compatibility _: Optional[str]__ = None_¶
+    
+
+Validated by:
+    
+
+  * `_validate_compatibility`
+
+
+
+
+_field _description _: str_ _[Required]_¶
+    
+
+Validated by:
+    
+
+  * `_validate_description`
+
+
+
+
+_field _license _: Optional[str]__ = None_¶
+    
+
+_field _metadata _: dict[str, Any]__ = {}_¶
+    
+
+Validated by:
+    
+
+  * `_validate_metadata`
+
+
+
+
+_field _name _: str_ _[Required]_¶
+    
+
+Validated by:
+    
+
+  * `_validate_name`
+
+
+
+
+_pydantic model _google.adk.skills.Resources¶
+    
+
+Bases: `BaseModel`
+
+L3 skill content: additional instructions, assets, and scripts.
+
+references¶
+    
+
+Additional markdown files with instructions, workflows, or guidance.
+
+assets¶
+    
+
+Resource materials like database schemas, API documentation, templates, or examples.
+
+scripts¶
+    
+
+Executable scripts that can be run via bash.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Resources",
+       "description": "L3 skill content: additional instructions, assets, and scripts.\n\nAttributes:\n    references: Additional markdown files with instructions, workflows, or\n      guidance.\n    assets: Resource materials like database schemas, API documentation,\n      templates, or examples.\n    scripts: Executable scripts that can be run via bash.",
+       "type": "object",
+       "properties": {
+          "references": {
+             "additionalProperties": {
+                "anyOf": [
+                   {
+                      "type": "string"
+                   },
+                   {
+                      "format": "binary",
+                      "type": "string"
+                   }
+                ]
+             },
+             "default": {},
+             "title": "References",
+             "type": "object"
+          },
+          "assets": {
+             "additionalProperties": {
+                "anyOf": [
+                   {
+                      "type": "string"
+                   },
+                   {
+                      "format": "binary",
+                      "type": "string"
+                   }
+                ]
+             },
+             "default": {},
+             "title": "Assets",
+             "type": "object"
+          },
+          "scripts": {
+             "additionalProperties": {
+                "$ref": "#/$defs/Script"
+             },
+             "default": {},
+             "title": "Scripts",
+             "type": "object"
+          }
+       },
+       "$defs": {
+          "Script": {
+             "description": "Wrapper for script content.",
+             "properties": {
+                "src": {
+                   "title": "Src",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "src"
+             ],
+             "title": "Script",
+             "type": "object"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `assets (dict[str, str | bytes])`
+
+  * `references (dict[str, str | bytes])`
+
+  * `scripts (dict[str, google.adk.skills.models.Script])`
+
+
+
+
+_field _assets _: dict[str, str | bytes]__ = {}_¶
+    
+
+_field _references _: dict[str, str | bytes]__ = {}_¶
+    
+
+_field _scripts _: dict[str, Script]__ = {}_¶
+    
+
+get_asset(_asset_id_)¶
+    
+
+Get content of an asset file.
 
 Return type:
     
 
-`Optional`[`Session`]
-
-_async _list_sessions(_*_ , _app_name_ , _user_id =None_)¶
-    
-
-Lists all the sessions for a user.
-
-Return type:
-    
-
-`ListSessionsResponse`
+`Union`[`str`, `bytes`, `None`]
 
 Parameters:
     
 
-  * **app_name** – The name of the app.
+**asset_id** – Unique path or name of the asset file.
 
-  * **user_id** – The ID of the user. If not provided, lists all sessions for all users.
+Returns:
+    
+
+Asset content as string or bytes, or None if not found
+
+get_reference(_reference_id_)¶
+    
+
+Get content of a reference file.
+
+Return type:
+    
+
+`Union`[`str`, `bytes`, `None`]
+
+Parameters:
+    
+
+**reference_id** – Unique path or name of the reference file.
+
+Returns:
+    
+
+Reference content as string or bytes, or None if not found
+
+get_script(_script_id_)¶
+    
+
+Get content of a script file.
+
+Return type:
+    
+
+`Optional`[`Script`]
+
+Parameters:
+    
+
+**script_id** – Unique path or name of the script file.
+
+Returns:
+    
+
+Script object, or None if not found
+
+list_assets()¶
+    
+
+List all available asset paths.
+
+Return type:
+    
+
+`list`[`str`]
+
+list_references()¶
+    
+
+List all available reference paths.
+
+Return type:
+    
+
+`list`[`str`]
+
+list_scripts()¶
+    
+
+List all available script paths.
+
+Return type:
+    
+
+`list`[`str`]
+
+_pydantic model _google.adk.skills.Script¶
+    
+
+Bases: `BaseModel`
+
+Wrapper for script content.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Script",
+       "description": "Wrapper for script content.",
+       "type": "object",
+       "properties": {
+          "src": {
+             "title": "Src",
+             "type": "string"
+          }
+       },
+       "required": [
+          "src"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `src (str)`
+
+
+
+
+_field _src _: str_ _[Required]_¶
+    
+
+_pydantic model _google.adk.skills.Skill¶
+    
+
+Bases: `BaseModel`
+
+Complete skill representation including frontmatter, instructions, and resources.
+
+A skill combines: \- L1: Frontmatter for discovery (name, description). \- L2: Instructions from SKILL.md body, loaded when skill is triggered. \- L3: Resources including additional instructions, assets, and scripts, loaded as needed.
+
+frontmatter¶
+    
+
+Parsed skill frontmatter from SKILL.md.
+
+instructions¶
+    
+
+L2 skill content: markdown instruction from SKILL.md body.
+
+resources¶
+    
+
+L3 skill content: additional instructions, assets, and scripts.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Skill",
+       "description": "Complete skill representation including frontmatter, instructions, and resources.\n\nA skill combines:\n- L1: Frontmatter for discovery (name, description).\n- L2: Instructions from SKILL.md body, loaded when skill is triggered.\n- L3: Resources including additional instructions, assets, and scripts,\nloaded as needed.\n\nAttributes:\n    frontmatter: Parsed skill frontmatter from SKILL.md.\n    instructions: L2 skill content: markdown instruction from SKILL.md body.\n    resources: L3 skill content: additional instructions, assets, and scripts.",
+       "type": "object",
+       "properties": {
+          "frontmatter": {
+             "$ref": "#/$defs/Frontmatter"
+          },
+          "instructions": {
+             "title": "Instructions",
+             "type": "string"
+          },
+          "resources": {
+             "$ref": "#/$defs/Resources",
+             "default": {
+                "references": {},
+                "assets": {},
+                "scripts": {}
+             }
+          }
+       },
+       "$defs": {
+          "Frontmatter": {
+             "additionalProperties": true,
+             "description": "L1 skill content: metadata parsed from SKILL.md for skill discovery.\n\nAttributes:\n    name: Skill name in kebab-case or snake_case (required).\n    description: What the skill does and when the model should use it\n      (required).\n    license: License for the skill (optional).\n    compatibility: Compatibility information for the skill (optional).\n    allowed_tools: A space-delimited list of tools that are pre-approved to\n      run (optional, experimental). Accepts both ``allowed_tools`` and the\n      YAML-friendly ``allowed-tools`` key. For more details, see\n      https://agentskills.io/specification#allowed-tools-field.\n    metadata: Key-value pairs for client-specific properties (defaults to\n      empty dict). For example, to include additional tools, use the\n      ``adk_additional_tools`` key with a list of tools.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                },
+                "description": {
+                   "title": "Description",
+                   "type": "string"
+                },
+                "license": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "License"
+                },
+                "compatibility": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Compatibility"
+                },
+                "allowed-tools": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Allowed-Tools"
+                },
+                "metadata": {
+                   "additionalProperties": true,
+                   "default": {},
+                   "title": "Metadata",
+                   "type": "object"
+                }
+             },
+             "required": [
+                "name",
+                "description"
+             ],
+             "title": "Frontmatter",
+             "type": "object"
+          },
+          "Resources": {
+             "description": "L3 skill content: additional instructions, assets, and scripts.\n\nAttributes:\n    references: Additional markdown files with instructions, workflows, or\n      guidance.\n    assets: Resource materials like database schemas, API documentation,\n      templates, or examples.\n    scripts: Executable scripts that can be run via bash.",
+             "properties": {
+                "references": {
+                   "additionalProperties": {
+                      "anyOf": [
+                         {
+                            "type": "string"
+                         },
+                         {
+                            "format": "binary",
+                            "type": "string"
+                         }
+                      ]
+                   },
+                   "default": {},
+                   "title": "References",
+                   "type": "object"
+                },
+                "assets": {
+                   "additionalProperties": {
+                      "anyOf": [
+                         {
+                            "type": "string"
+                         },
+                         {
+                            "format": "binary",
+                            "type": "string"
+                         }
+                      ]
+                   },
+                   "default": {},
+                   "title": "Assets",
+                   "type": "object"
+                },
+                "scripts": {
+                   "additionalProperties": {
+                      "$ref": "#/$defs/Script"
+                   },
+                   "default": {},
+                   "title": "Scripts",
+                   "type": "object"
+                }
+             },
+             "title": "Resources",
+             "type": "object"
+          },
+          "Script": {
+             "description": "Wrapper for script content.",
+             "properties": {
+                "src": {
+                   "title": "Src",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "src"
+             ],
+             "title": "Script",
+             "type": "object"
+          }
+       },
+       "required": [
+          "frontmatter",
+          "instructions"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `frontmatter (google.adk.skills.models.Frontmatter)`
+
+  * `instructions (str)`
+
+  * `resources (google.adk.skills.models.Resources)`
+
+
+
+
+_field _frontmatter _: Frontmatter_ _[Required]_¶
+    
+
+_field _instructions _: str_ _[Required]_¶
+    
+
+_field _resources _: Resources_ _ = Resources(references={}, assets={}, scripts={})_¶
+    
+
+_property _description _: str_¶
+    
+
+Convenience property to access skill description.
+
+_property _name _: str_¶
+    
+
+Convenience property to access skill name.
+
+_class _google.adk.skills.SkillRegistry¶
+    
+
+Bases: `ABC`
+
+Interface for a skill registry.
+
+_abstractmethod async _get_skill(_*_ , _name_)¶
+    
+
+Fetches a skill from the registry.
+
+Return type:
+    
+
+`Skill`
+
+Parameters:
+    
+
+**name** – The name of the skill.
+
+Returns:
+    
+
+A Skill object.
+
+Raises:
+    
+
+**Exception** – If the skill with the specified name does not exist.
+
+_abstractmethod async _search_skills(_*_ , _query_)¶
+    
+
+Searches for skills in the registry.
+
+Return type:
+    
+
+`list`[`Frontmatter`]
+
+Parameters:
+    
+
+**query** – The search query.
+
+Returns:
+    
+
+A list of Frontmatter objects for discovery.
+
+search_tool_description()¶
+    
+
+Returns the description for the search_skills tool.
+
+Registries can define this to provide specialized instructions to the model on how to use their specific search capabilities.
+
+Return type:
+    
+
+`str` | `None`
+
+google.adk.skills.list_skills_in_dir(_skills_base_path_)¶
+    
+
+List skills in a local directory.
+
+Return type:
+    
+
+`dict`[`str`, `Frontmatter`]
+
+Parameters:
+    
+
+**skills_base_path** – Path to the base directory containing skills.
+
+Returns:
+    
+
+Dictionary mapping skill IDs to their frontmatter.
+
+google.adk.skills.list_skills_in_gcs_dir(_bucket_name_ , _skills_base_path =''_, _project_id =None_, _credentials =None_)¶
+    
+
+List skills in a GCS directory.
+
+Return type:
+    
+
+`Dict`[`str`, `Frontmatter`]
+
+Parameters:
+    
+
+  * **bucket_name** – Name of the GCS bucket.
+
+  * **skills_base_path** – Base directory within the bucket (e.g., ‘path/to/skills’).
 
 
 
 Returns:
     
 
-A ListSessionsResponse containing the sessions.
+Dictionary mapping skill IDs to their frontmatter.
+
+google.adk.skills.load_skill_from_dir(_skill_dir_)¶
+    
+
+Load a complete skill from a directory.
+
+Return type:
+    
+
+`Skill`
+
+Parameters:
+    
+
+**skill_dir** – Path to the skill directory.
+
+Returns:
+    
+
+Skill object with all components loaded.
+
+Raises:
+    
+
+  * **FileNotFoundError** – If the skill directory or SKILL.md is not found.
+
+  * **ValueError** – If SKILL.md is invalid or the skill name does not match the directory name.
+
+
+
+
+google.adk.skills.load_skill_from_gcs_dir(_bucket_name_ , _skill_id_ , _skills_base_path =''_, _project_id =None_, _credentials =None_)¶
+    
+
+Load a complete skill from a GCS directory.
+
+Return type:
+    
+
+`Skill`
+
+Parameters:
+    
+
+  * **bucket_name** – Name of the GCS bucket.
+
+  * **skill_id** – The ID of the skill (directory name).
+
+  * **skills_base_path** – Base directory within the bucket (e.g., ‘path/to/skills’).
+
+  * **project_id** – Project ID to use for GCS client.
+
+  * **credentials** – Credentials to use for GCS client.
+
+
+
+Returns:
+    
+
+Skill object with all components loaded.
+
+Raises:
+    
+
+  * **FileNotFoundError** – If the skill directory or SKILL.md is not found.
+
+  * **ValueError** – If SKILL.md is invalid or the skill name does not match the directory name.
+
+
+
 
 # google.adk.telemetry module¶
 
@@ -33760,7 +34949,7 @@ Parameters:
 
 
 
-# google.adk.tools package¶
+# google.adk.tools module¶
 
 _class _google.adk.tools.APIHubToolset(_*_ , _apihub_resource_name_ , _access_token =None_, _service_account_json =None_, _name =''_, _description =''_, _lazy_load_spec =False_, _auth_scheme =None_, _auth_credential =None_, _apihub_client =None_, _tool_filter =None_)¶
     
@@ -33869,18 +35058,6 @@ Performs cleanup and releases resources held by the toolset.
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
-
-get_auth_config()¶
-    
-
-Returns the auth config for this toolset.
-
-ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
-
-Return type:
-    
-
-`Optional`[`AuthConfig`]
 
 _async _get_tools(_readonly_context =None_)¶
     
@@ -34627,6 +35804,30 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Audience"
+                },
+                "codeVerifier": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codeverifier"
+                },
+                "codeChallengeMethod": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codechallengemethod"
                 },
                 "tokenEndpointAuthMethod": {
                    "anyOf": [
@@ -35492,10 +36693,12 @@ Parameters:
 
   * **sampling_capabilities** – Optional capabilities for sampling.
 
+  * **credential_key** – A user specified key used to load and save this credential in a credential service. Used with auth_scheme.
 
 
 
-_class _google.adk.tools.McpToolset(_*_ , _connection_params_ , _tool_filter=None_ , _tool_name_prefix=None_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_, _auth_scheme=None_ , _auth_credential=None_ , _require_confirmation=False_ , _header_provider=None_ , _progress_callback=None_ , _use_mcp_resources=False_ , _sampling_callback=None_ , _sampling_capabilities=None_)¶
+
+_class _google.adk.tools.McpToolset(_*_ , _connection_params_ , _tool_filter=None_ , _tool_name_prefix=None_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_, _auth_scheme=None_ , _auth_credential=None_ , _require_confirmation=False_ , _header_provider=None_ , _progress_callback=None_ , _use_mcp_resources=False_ , _sampling_callback=None_ , _sampling_capabilities=None_ , _credential_key=None_)¶
     
 
 Bases: `BaseToolset`
@@ -35557,6 +36760,8 @@ Parameters:
   * **sampling_callback** – Optional callback to handle sampling requests from the MCP server.
 
   * **sampling_capabilities** – Optional capabilities for sampling.
+
+  * **credential_key** – A user specified key used to load and save this credential in a credential service. Used with auth_scheme.
 
 
 
@@ -35664,7 +36869,7 @@ Returns:
 
 List of contents of the resource.
 
-_class _google.adk.tools.SearchResultMode(_* values_)¶
+_class _google.adk.tools.SearchResultMode(_value_)¶
     
 
 Bases: `Enum`
@@ -35824,6 +37029,13 @@ Parameters:
     
 
 **agent_name** – the agent name to transfer to.
+
+# google.adk.tools.agent_simulator module¶
+
+google.adk.tools.agent_simulator.AgentSimulatorFactory¶
+    
+
+alias of `EnvironmentSimulationFactory`
 
 # google.adk.tools.agent_tool module¶
 
@@ -36015,6 +37227,8 @@ _field _skip_summarization _: bool_ _ = False_¶
 
 Whether to skip summarization of the agent output.
 
+# google.adk.tools.api_registry module¶
+
 # google.adk.tools.apihub_tool module¶
 
 _class _google.adk.tools.apihub_tool.APIHubToolset(_*_ , _apihub_resource_name_ , _access_token =None_, _service_account_json =None_, _name =''_, _description =''_, _lazy_load_spec =False_, _auth_scheme =None_, _auth_credential =None_, _apihub_client =None_, _tool_filter =None_)¶
@@ -36124,18 +37338,6 @@ Performs cleanup and releases resources held by the toolset.
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
-
-get_auth_config()¶
-    
-
-Returns the auth config for this toolset.
-
-ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
-
-Return type:
-    
-
-`Optional`[`AuthConfig`]
 
 _async _get_tools(_readonly_context =None_)¶
     
@@ -36249,18 +37451,6 @@ Return type:
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
-
-get_auth_config()¶
-    
-
-Returns the auth config for this toolset.
-
-ADK will populate exchanged_auth_credential on this config before calling get_tools(). The toolset can then access the ready-to-use credential via self._auth_config.exchanged_auth_credential.
-
-Return type:
-    
-
-`Optional`[`AuthConfig`]
 
 _async _get_tools(_readonly_context =None_)¶
     
@@ -36766,6 +37956,79 @@ Base class for a predicate that defines the interface to decide whether a
 
 tool should be exposed to LLM. Toolset implementer could consider whether to accept such instance in the toolset’s constructor and apply the predicate in get_tools method.
 
+# google.adk.tools.bash_tool module¶
+
+Tool to execute bash commands.
+
+_class _google.adk.tools.bash_tool.BashToolPolicy(_allowed_command_prefixes =('*',)_, _blocked_operators =()_, _timeout_seconds =30_, _max_memory_bytes =None_, _max_file_size_bytes =None_, _max_child_processes =None_)¶
+    
+
+Bases: `object`
+
+Configuration for allowed bash commands and resource limits.
+
+Set allowed_command_prefixes to (“*”,) to allow all commands (default), or explicitly list allowed prefixes.
+
+Values for max_memory_bytes, max_file_size_bytes, and max_child_processes will be enforced upon the spawned subprocess.
+
+allowed_command_prefixes _: `tuple`[`str`, `...`]__ = ('*',)_¶
+    
+
+blocked_operators _: `tuple`[`str`, `...`]__ = ()_¶
+    
+
+max_child_processes _: `Optional`[`int`]__ = None_¶
+    
+
+max_file_size_bytes _: `Optional`[`int`]__ = None_¶
+    
+
+max_memory_bytes _: `Optional`[`int`]__ = None_¶
+    
+
+timeout_seconds _: `Optional`[`int`]__ = 30_¶
+    
+
+_class _google.adk.tools.bash_tool.ExecuteBashTool(_*_ , _workspace =None_, _policy =None_)¶
+    
+
+Bases: `BaseTool`
+
+Tool to execute a validated bash command within a workspace directory.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+`Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
 # google.adk.tools.bigquery module¶
 
 BigQuery Tools.
@@ -36783,12 +38046,20 @@ BigQuery Tools under this module are hand crafted and customized while the tools
 
 
 
-_pydantic model _google.adk.tools.bigquery.BigQueryCredentialsConfig¶
+# google.adk.tools.bigtable module¶
+
+Bigtable Tools (Experimental).
+
+Bigtable tools under this module are hand crafted and customized while the tools under google.adk.tools.google_api_tool are auto generated based on API definition. The rationales to have customized tool are:
+
+1\. A dedicated Bigtable toolset to provide an easier, integrated way to interact with Bigtable for building AI Agent applications quickly. 2\. We want to provide extra access guardrails and controls in those tools. 3\. Use Bigtable Toolset for more customization and control to interact with Bigtable tables.
+
+_pydantic model _google.adk.tools.bigtable.BigtableCredentialsConfig¶
     
 
 Bases: `BaseGoogleCredentialsConfig`
 
-BigQuery Credentials Configuration for Google API tools.
+Bigtable Credentials Configuration for Google API tools (Experimental).
 
 Please do not use this in production, as it may be deprecated later.
 
@@ -36796,7 +38067,7 @@ Show JSON schema
     
     
     {
-       "title": "BigQueryCredentialsConfig",
+       "title": "BigtableCredentialsConfig",
        "type": "object",
        "properties": {
           "credentials": {
@@ -36892,12 +38163,313 @@ Parameters:
 
 
 
-_class _google.adk.tools.bigquery.BigQueryToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _bigquery_tool_config =None_)¶
+_class _google.adk.tools.bigtable.BigtableToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _bigtable_tool_settings =None_)¶
     
 
 Bases: `BaseToolset`
 
-BigQuery Toolset contains tools for interacting with BigQuery data and metadata.
+Bigtable Toolset contains tools for interacting with Bigtable data and metadata.
+
+The tool names are:
+    
+
+  * bigtable_list_instances
+
+  * bigtable_get_instance_info
+
+  * bigtable_list_tables
+
+  * bigtable_get_table_info
+
+  * bigtable_list_clusters
+
+  * bigtable_get_cluster_info
+
+  * bigtable_execute_sql
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`List`[`BaseTool`]
+
+# google.adk.tools.computer_use module¶
+
+# google.adk.tools.crewai_tool module¶
+
+_class _google.adk.tools.crewai_tool.CrewaiTool(_tool_ , _*_ , _name_ , _description =''_)¶
+    
+
+Bases: `FunctionTool`
+
+Use this class to wrap a CrewAI tool.
+
+If the original tool name and description are not suitable, you can override them in the constructor.
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+description _: str_¶
+    
+
+The description of the tool.
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`CrewaiTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+name _: str_¶
+    
+
+The name of the tool.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Override run_async to handle CrewAI-specific parameter filtering.
+
+CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
+
+Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
+
+Return type:
+    
+
+`Any`
+
+tool _: CrewaiBaseTool_¶
+    
+
+The wrapped CrewAI tool.
+
+_pydantic model _google.adk.tools.crewai_tool.CrewaiToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "CrewaiToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the CrewAI tool instance.
+
+# google.adk.tools.data_agent module¶
+
+Data Agent Tools.
+
+_pydantic model _google.adk.tools.data_agent.DataAgentCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+Data Agent Credentials Configuration for Google API tools.
+
+Show JSON schema
+    
+    
+    {
+       "title": "DataAgentCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+  * `__post_init__` » `all fields`
+
+
+
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_class _google.adk.tools.data_agent.DataAgentToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _data_agent_tool_config =None_)¶
+    
+
+Bases: `BaseToolset`
+
+Data Agent Toolset contains tools for interacting with data agents.
 
 Initialize the toolset.
 
@@ -36923,14 +38495,99 @@ This method is invoked, for example, at the end of an agent server’s lifecycle
 _async _get_tools(_readonly_context =None_)¶
     
 
-Get tools from the toolset.
+Return all tools in the toolset based on the provided context.
 
 Return type:
     
 
 `List`[`BaseTool`]
 
-# google.adk.tools.crewai_tool module¶
+Parameters:
+    
+
+**readonly_context** (_ReadonlyContext_ _,__optional_) – Context used to filter tools available to the agent. If None, all tools in the toolset are returned.
+
+Returns:
+    
+
+A list of tools available under the specified context.
+
+Return type:
+    
+
+list[BaseTool]
+
+# google.adk.tools.discovery_engine_search_tool module¶
+
+_class _google.adk.tools.discovery_engine_search_tool.DiscoveryEngineSearchTool(_data_store_id =None_, _data_store_specs =None_, _search_engine_id =None_, _filter =None_, _max_results =None_, _*_ , _search_result_mode =None_, _location =None_)¶
+    
+
+Bases: `FunctionTool`
+
+Tool for searching the discovery engine.
+
+Initializes the DiscoveryEngineSearchTool.
+
+Parameters:
+    
+
+  * **data_store_id** – The Vertex AI search data store resource ID in the format of “projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}”.
+
+  * **data_store_specs** – Specifications that define the specific DataStores to be searched. It should only be set if engine is used.
+
+  * **search_engine_id** – The Vertex AI search engine resource ID in the format of “projects/{project}/locations/{location}/collections/{collection}/engines/{engine}”.
+
+  * **filter** – The filter to be applied to the search request. Default is None.
+
+  * **max_results** – The maximum number of results to return. Default is None.
+
+  * **search_result_mode** – The search result mode. When None (default), automatically detects the correct mode by trying CHUNKS first and falling back to DOCUMENTS if the datastore requires it. Set explicitly to CHUNKS or DOCUMENTS to skip auto-detection.
+
+  * **location** – 
+
+Optional endpoint location override. Examples: “global”, “us”, “eu”. If not specified, location is inferred
+
+> from data_store_id or search_engine_id and defaults to “global”.
+
+
+
+
+discovery_engine_search(_query_)¶
+    
+
+Search through Vertex AI Search’s discovery engine search API.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+**query** – The search query.
+
+Returns:
+    
+
+A dictionary containing the status of the request and the list of search results, which contains the title, url and content.
+
+_class _google.adk.tools.discovery_engine_search_tool.SearchResultMode(_value_)¶
+    
+
+Bases: `Enum`
+
+Search result mode for discovery engine search.
+
+CHUNKS _ = 'CHUNKS'_¶
+    
+
+Results as chunks (default). Works for unstructured data.
+
+DOCUMENTS _ = 'DOCUMENTS'_¶
+    
+
+Results as documents. Required for structured datastores.
 
 # google.adk.tools.enterprise_search_tool module¶
 
@@ -36968,6 +38625,145 @@ Parameters:
 
 
 
+
+# google.adk.tools.environment module¶
+
+Environment toolset for command execution and file I/O.
+
+_class _google.adk.tools.environment.EnvironmentToolset(_*_ , _environment_ , _max_output_chars =None_, _** kwargs_)¶
+    
+
+Bases: `BaseToolset`
+
+Toolset providing tools to interact with an environment.
+
+Tools provided:
+    
+
+  * **Execute** – run shell commands
+
+  * **ReadFile** – read file contents
+
+  * **EditFile** – surgical text replacement
+
+  * **WriteFile**q – create/overwrite files
+
+
+
+
+The toolset injects an environment-level system instruction on each LLM call that establishes environment identity and tool selection rules.
+
+Create an environment toolset.
+
+Parameters:
+    
+
+  * **environment** – The environment used to execute commands and perform file I/O.
+
+  * **max_output_chars** – Maximum character limit for stdout/stderr/file truncation.
+
+  * ****kwargs** – Forwarded to `BaseToolset.__init__`.
+
+
+
+
+_async _close()¶
+    
+
+Performs cleanup and releases resources held by the toolset.
+
+Return type:
+    
+
+`None`
+
+Note
+
+This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Return all tools in the toolset based on the provided context.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+Parameters:
+    
+
+**readonly_context** (_ReadonlyContext_ _,__optional_) – Context used to filter tools available to the agent. If None, all tools in the toolset are returned.
+
+Returns:
+    
+
+A list of tools available under the specified context.
+
+Return type:
+    
+
+list[BaseTool]
+
+_async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
+    
+
+Inject environment-level system instruction.
+
+Return type:
+    
+
+`None`
+
+# google.adk.tools.environment_simulation module¶
+
+_class _google.adk.tools.environment_simulation.EnvironmentSimulationFactory(_* args_, _** kwargs_)¶
+    
+
+Bases: `object`
+
+Factory for creating EnvironmentSimulation instances.
+
+_static _create_callback(_config_)¶
+    
+
+Creates a callback function for EnvironmentSimulation.
+
+Return type:
+    
+
+`Callable`[[`BaseTool`, `Dict`[`str`, `Any`], `Any`], `Awaitable`[`Optional`[`Dict`[`str`, `Any`]]]]
+
+Parameters:
+    
+
+**config** – The configuration for the EnvironmentSimulation.
+
+Returns:
+    
+
+A callable that can be used as a before_tool_callback or after_tool_callback.
+
+_static _create_plugin(_config_)¶
+    
+
+Creates an ADK Plugin for EnvironmentSimulation.
+
+Return type:
+    
+
+`EnvironmentSimulationPlugin`
+
+Parameters:
+    
+
+**config** – The configuration for the EnvironmentSimulation.
+
+Returns:
+    
+
+An instance of EnvironmentSimulationPlugin that can be used as an ADK plugin.
 
 # google.adk.tools.example_tool module¶
 
@@ -38598,6 +40394,32 @@ Parameters:
 
 
 
+# google.adk.tools.google_search_agent_tool module¶
+
+_class _google.adk.tools.google_search_agent_tool.GoogleSearchAgentTool(_agent_)¶
+    
+
+Bases: `AgentTool`
+
+A tool that wraps a sub-agent that only uses google_search tool.
+
+This is a workaround to support using google_search tool with other tools. TODO(b/448114567): Remove once the workaround is no longer needed.
+
+model¶
+    
+
+The model to use for the sub-agent.
+
+google.adk.tools.google_search_agent_tool.create_google_search_agent(_model_)¶
+    
+
+Create a sub-agent that only uses google_search tool.
+
+Return type:
+    
+
+`LlmAgent`
+
 # google.adk.tools.google_search_tool module¶
 
 _class _google.adk.tools.google_search_tool.GoogleSearchTool(_*_ , _bypass_multi_tools_limit =False_, _model =None_)¶
@@ -38642,6 +40464,45 @@ Parameters:
 
 
 
+
+# google.adk.tools.google_tool module¶
+
+_class _google.adk.tools.google_tool.GoogleTool(_func_ , _*_ , _credentials_config =None_, _tool_settings =None_)¶
+    
+
+Bases: `FunctionTool`
+
+GoogleTool class for tools that call Google APIs.
+
+This class is for developers to handcraft customized Google API tools rather than auto generate Google API tools based on API specs.
+
+This class handles all the OAuth complexity, credential management, and common Google API patterns so subclasses can focus on their specific functionality.
+
+Initialize the Google API tool.
+
+Parameters:
+    
+
+  * **func** – callable that implements the tool’s logic, can accept one ‘credential” parameter
+
+  * **credentials_config** – credentials config used to call Google API. If None, then we don’t handle the auth logic
+
+  * **tool_settings** – Tool-specific settings. This settings should be provided by each toolset that uses this class to create customized tools.
+
+
+
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Main entry point for tool execution with credential handling.
+
+This method handles all the OAuth complexity and then delegates to the subclass’s run_async_with_credential method.
+
+Return type:
+    
+
+`Any`
 
 # google.adk.tools.langchain_tool module¶
 
@@ -38817,6 +40678,70 @@ Return type:
     
 
 `Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
+# google.adk.tools.load_mcp_resource_tool module¶
+
+_class _google.adk.tools.load_mcp_resource_tool.LoadMcpResourceTool(_mcp_toolset_)¶
+    
+
+Bases: `BaseTool`
+
+A tool that loads the MCP resources and adds them to the session.
+
+_async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
+    
+
+Processes the outgoing LLM request for this tool.
+
+Use cases: \- Most common use case is adding this tool to the LLM request. \- Some tools may just preprocess the LLM request before it’s sent out.
+
+Return type:
+    
+
+None
+
+Parameters:
+    
+
+  * **tool_context** – The context of the tool.
+
+  * **llm_request** – The outgoing LLM request, mutable this method.
+
+
+
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+Any
 
 Note
 
@@ -40148,6 +42073,8 @@ Parameters:
 
   * **sampling_capabilities** – Optional capabilities for sampling.
 
+  * **credential_key** – A user specified key used to load and save this credential in a credential service. Used with auth_scheme.
+
 
 
 
@@ -40256,7 +42183,7 @@ _property _visibility _: List[str]_¶
 
 Returns the visibility if this MCP tool meta has one.
 
-_class _google.adk.tools.mcp_tool.McpToolset(_*_ , _connection_params_ , _tool_filter=None_ , _tool_name_prefix=None_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_, _auth_scheme=None_ , _auth_credential=None_ , _require_confirmation=False_ , _header_provider=None_ , _progress_callback=None_ , _use_mcp_resources=False_ , _sampling_callback=None_ , _sampling_capabilities=None_)¶
+_class _google.adk.tools.mcp_tool.McpToolset(_*_ , _connection_params_ , _tool_filter=None_ , _tool_name_prefix=None_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_, _auth_scheme=None_ , _auth_credential=None_ , _require_confirmation=False_ , _header_provider=None_ , _progress_callback=None_ , _use_mcp_resources=False_ , _sampling_callback=None_ , _sampling_capabilities=None_ , _credential_key=None_)¶
     
 
 Bases: `BaseToolset`
@@ -40318,6 +42245,8 @@ Parameters:
   * **sampling_callback** – Optional callback to handle sampling requests from the MCP server.
 
   * **sampling_capabilities** – Optional capabilities for sampling.
+
+  * **credential_key** – A user specified key used to load and save this credential in a credential service. Used with auth_scheme.
 
 
 
@@ -40938,18 +42867,6 @@ Parameters:
 
 **ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
 
-get_auth_config()¶
-    
-
-Returns the auth config for this toolset.
-
-Note: This returns a copy so any exchanged credentials populated by the ADK framework do not persist on the toolset instance across invocations.
-
-Return type:
-    
-
-`Optional`[`AuthConfig`]
-
 get_tool(_tool_name_)¶
     
 
@@ -41212,12 +43129,1034 @@ Parameters:
 
 
 
+# google.adk.tools.pubsub module¶
+
+Pub/Sub Tools (Experimental).
+
+Pub/Sub Tools under this module are handcrafted and customized while the tools under google.adk.tools.google_api_tool are auto generated based on API definition. The rationales to have customized tool are:
+
+  1. Better handling of base64 encoding for published messages.
+
+  2. A richer subscribe-side API that reflects how users may want to pull/ack messages.
+
+
+
+
+_pydantic model _google.adk.tools.pubsub.PubSubCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+Pub/Sub Credentials Configuration for Google API tools (Experimental).
+
+Please do not use this in production, as it may be deprecated later.
+
+Show JSON schema
+    
+    
+    {
+       "title": "PubSubCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+  * `__post_init__` » `all fields`
+
+
+
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_pydantic model _google.adk.tools.pubsub.PubSubToolConfig¶
+    
+
+Bases: `BaseModel`
+
+Configuration for Pub/Sub tools.
+
+Show JSON schema
+    
+    
+    {
+       "title": "PubSubToolConfig",
+       "description": "Configuration for Pub/Sub tools.",
+       "type": "object",
+       "properties": {
+          "project_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Project Id"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+  * `project_id (str | None)`
+
+
+
+
+_field _project_id _: str | None_ _ = None_¶
+    
+
+GCP project ID to use for the Pub/Sub operations.
+
+If not set, the project ID will be inferred from the environment or credentials.
+
+_class _google.adk.tools.pubsub.PubSubToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _pubsub_tool_config =None_)¶
+    
+
+Bases: `BaseToolset`
+
+Pub/Sub Toolset contains tools for interacting with Pub/Sub topics and subscriptions.
+
+Initializes the PubSubToolset.
+
+Parameters:
+    
+
+  * **tool_filter** – A predicate or list of tool names to filter the tools in the toolset. If None, all tools are included.
+
+  * **credentials_config** – The credentials configuration to use for authenticating with Google Cloud.
+
+  * **pubsub_tool_config** – The configuration for the Pub/Sub tools.
+
+
+
+
+_async _close()¶
+    
+
+Clean up resources used by the toolset.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
 # google.adk.tools.retrieval module¶
 
 _class _google.adk.tools.retrieval.BaseRetrievalTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_)¶
     
 
 Bases: `BaseTool`
+
+# google.adk.tools.set_model_response_tool module¶
+
+Tool for setting model response when using output_schema with other tools.
+
+_class _google.adk.tools.set_model_response_tool.SetModelResponseTool(_output_schema_)¶
+    
+
+Bases: `BaseTool`
+
+Internal tool used for output schema workaround.
+
+This tool allows the model to set its final response when output_schema is configured alongside other tools. The model should use this tool to provide its final structured response instead of outputting text directly.
+
+Initialize the tool with the expected output schema.
+
+Parameters:
+    
+
+**output_schema** – The output schema. Supports all types from SchemaUnion: \- type[BaseModel]: A pydantic model class (e.g., MySchema) \- list[type[BaseModel]]: A generic list type (e.g., list[MySchema]) \- list[primitive]: e.g., list[str], list[int] \- dict: Raw dict schemas \- Schema: Google’s Schema type
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Process the model’s response and return the validated data.
+
+Return type:
+    
+
+`Any`
+
+Parameters:
+    
+
+  * **args** – The structured response data matching the output schema.
+
+  * **tool_context** – Tool execution context.
+
+
+
+Returns:
+    
+
+  * dict for BaseModel
+
+  * list of dicts for list[BaseModel]
+
+  * raw value for other schema types (list[str], dict, etc.)
+
+
+
+
+Return type:
+    
+
+The validated response. Type depends on the output_schema
+
+# google.adk.tools.skill_toolset module¶
+
+Toolset for discovering, viewing, and executing agent skills.
+
+_class _google.adk.tools.skill_toolset.ListSkillsTool(_toolset_)¶
+    
+
+Bases: `BaseTool`
+
+Tool to list all available skills.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+`Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
+_class _google.adk.tools.skill_toolset.LoadSkillResourceTool(_toolset_)¶
+    
+
+Bases: `BaseTool`
+
+Tool to load resources (references, assets, or scripts) from a skill.
+
+_async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
+    
+
+Injects binary content into the LLM request if the model viewed it.
+
+Return type:
+    
+
+`None`
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+`Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
+_class _google.adk.tools.skill_toolset.LoadSkillTool(_toolset_)¶
+    
+
+Bases: `BaseTool`
+
+Tool to load a skill’s instructions.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+`Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
+_class _google.adk.tools.skill_toolset.RunSkillScriptTool(_toolset_)¶
+    
+
+Bases: `BaseTool`
+
+Tool to execute scripts from a skill’s scripts/ directory.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+`Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
+_class _google.adk.tools.skill_toolset.SearchSkillsTool(_toolset_)¶
+    
+
+Bases: `BaseTool`
+
+Tool to search for relevant skills in the registry.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Runs the tool with the given arguments and context.
+
+Return type:
+    
+
+`Any`
+
+Note
+
+  * Required if this tool needs to run at the client side.
+
+  * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+
+
+
+
+Parameters:
+    
+
+  * **args** – The LLM-filled arguments.
+
+  * **tool_context** – The context of the tool.
+
+
+
+Returns:
+    
+
+The result of running the tool.
+
+_class _google.adk.tools.skill_toolset.SkillToolset(_skills =None_, _*_ , _registry =None_, _code_executor =None_, _script_timeout =300_, _additional_tools =None_)¶
+    
+
+Bases: `BaseToolset`
+
+A toolset for managing and interacting with agent skills.
+
+Initializes the SkillToolset.
+
+Parameters:
+    
+
+  * **skills** – List of skills to register.
+
+  * **registry** – Optional skill registry for dynamic loading.
+
+  * **code_executor** – Optional code executor for script execution.
+
+  * **script_timeout** – Timeout in seconds for shell script execution via subprocess.run. Defaults to 300 seconds. Does not apply to Python scripts executed via exec().
+
+  * **additional_tools** – Optional list of BaseTool or BaseToolset instances to be made available to the agent when certain skills are activated.
+
+
+
+
+_async _close()¶
+    
+
+Performs cleanup and releases resources held by the toolset.
+
+Return type:
+    
+
+`None`
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Returns the list of tools in this toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+_async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
+    
+
+Processes the outgoing LLM request to include available skills.
+
+Return type:
+    
+
+`None`
+
+# google.adk.tools.spanner module¶
+
+Spanner Tools (Experimental).
+
+Spanner Tools under this module are hand crafted and customized while the tools under google.adk.tools.google_api_tool are auto generated based on API definition. The rationales to have customized tool are:
+
+1\. A dedicated Spanner toolset to provide an easier, integrated way to interact with Spanner database and tables for building AI Agent applications quickly. 2\. We want to provide more high-level tools like Search, ML.Predict, and Graph etc. 3\. We want to provide extra access guardrails and controls in those tools. For example, execute_sql can’t arbitrarily mutate existing data. 4\. We want to provide Spanner best practices and knowledge assistants for ad-hoc analytics queries. 5\. Use Spanner Toolset for more customization and control to interact with Spanner database and tables.
+
+_class _google.adk.tools.spanner.SpannerAdminToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _spanner_tool_settings =None_)¶
+    
+
+Bases: `BaseToolset`
+
+A toolset containing tools for interacting with Spanner admin tasks.
+
+The tool names are:
+    
+
+  * spanner_list_instances
+
+  * spanner_get_instance
+
+  * spanner_create_database
+
+  * spanner_list_databases
+
+  * spanner_create_instance
+
+  * spanner_list_instance_configs
+
+  * spanner_get_instance_config
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _close()¶
+    
+
+Performs cleanup and releases resources held by the toolset.
+
+Note
+
+This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+_pydantic model _google.adk.tools.spanner.SpannerCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+Spanner Credentials Configuration for Google API tools (Experimental).
+
+Please do not use this in production, as it may be deprecated later.
+
+Show JSON schema
+    
+    
+    {
+       "title": "SpannerCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+  * `__post_init__` » `all fields`
+
+
+
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_class _google.adk.tools.spanner.SpannerToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _spanner_tool_settings =None_)¶
+    
+
+Bases: `BaseToolset`
+
+Spanner Toolset contains tools for interacting with Spanner data, database and table information.
+
+The tool names are:
+    
+
+  * spanner_list_table_names
+
+  * spanner_list_table_indexes
+
+  * spanner_list_table_index_columns
+
+  * spanner_list_named_schemas
+
+  * spanner_get_table_schema
+
+  * spanner_execute_sql
+
+  * spanner_similarity_search
+
+  * spanner_vector_store_similarity_search
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _close()¶
+    
+
+Performs cleanup and releases resources held by the toolset.
+
+Note
+
+This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`List`[`BaseTool`]
+
+# google.adk.tools.tool_configs module¶
+
+_pydantic model _google.adk.tools.tool_configs.BaseToolConfig¶
+    
+
+Bases: `BaseModel`
+
+The base class for all tool configs.
+
+Show JSON schema
+    
+    
+    {
+       "title": "BaseToolConfig",
+       "description": "The base class for all tool configs.",
+       "type": "object",
+       "properties": {},
+       "additionalProperties": false
+    }
+    
+
+_pydantic model _google.adk.tools.tool_configs.ToolArgsConfig¶
+    
+
+Bases: `BaseModel`
+
+Config to host free key-value pairs for the args in ToolConfig.
+
+Show JSON schema
+    
+    
+    {
+       "title": "ToolArgsConfig",
+       "description": "Config to host free key-value pairs for the args in ToolConfig.",
+       "type": "object",
+       "properties": {},
+       "additionalProperties": true
+    }
+    
+
+_pydantic model _google.adk.tools.tool_configs.ToolConfig¶
+    
+
+Bases: `BaseModel`
+
+The configuration for a tool.
+
+The config supports these types of tools: 1\. ADK built-in tools 2\. User-defined tool instances 3\. User-defined tool classes 4\. User-defined functions that generate tool instances 5\. User-defined function tools
+
+For examples:
+
+> 1\. For ADK built-in tool instances or classes in google.adk.tools package, they can be referenced directly with the name and optionally with args.
+> 
+> ``` tools:
+>
+>>   * name: google_search
+>> 
+>>   * name: AgentTool args:
+>>
+>>> agent: ./another_agent.yaml skip_summarization: true
+>> 
+>> 
+
+> 
+> ```
+> 
+> 2\. For user-defined tool instances, the name is the fully qualified path to the tool instance.
+> 
+> ``` tools:
+>
+>>   * name: my_package.my_module.my_tool
+>> 
+>> 
+
+> 
+> ```
+> 
+> 3\. For user-defined tool classes (custom tools), the name is the fully qualified path to the tool class and args is the arguments for the tool.
+> 
+> ``` tools:
+>
+>>   * name: my_package.my_module.my_tool_class args:
+>>
+>>> my_tool_arg1: value1 my_tool_arg2: value2
+>> 
+>> 
+
+> 
+> ```
+> 
+> 4\. For user-defined functions that generate tool instances, the name is the fully qualified path to the function and args is passed to the function as arguments.
+> 
+> ``` tools:
+>
+>>   * name: my_package.my_module.my_tool_function args:
+>>
+>>> my_function_arg1: value1 my_function_arg2: value2
+>> 
+>> 
+
+> 
+> ```
+> 
+> The function must have the following signature: ``` def my_function(args: ToolArgsConfig) -> BaseTool:
+>
+>> …
+> 
+> ```
+> 
+> 5\. For user-defined function tools, the name is the fully qualified path to the function.
+> 
+> ``` tools:
+>
+>>   * name: my_package.my_module.my_function_tool
+>> 
+>> 
+
+> 
+> ```
+> 
+> If the above use cases don’t suffice, users can define a custom tool config by extending BaseToolConfig and override from_config() in the custom tool.
+
+Show JSON schema
+    
+    
+    {
+       "title": "ToolConfig",
+       "description": "The configuration for a tool.\n\nThe config supports these types of tools:\n1. ADK built-in tools\n2. User-defined tool instances\n3. User-defined tool classes\n4. User-defined functions that generate tool instances\n5. User-defined function tools\n\nFor examples:\n\n  1. For ADK built-in tool instances or classes in `google.adk.tools` package,\n  they can be referenced directly with the `name` and optionally with\n  `args`.\n\n  ```\n  tools:\n    - name: google_search\n    - name: AgentTool\n      args:\n        agent: ./another_agent.yaml\n        skip_summarization: true\n  ```\n\n  2. For user-defined tool instances, the `name` is the fully qualified path\n  to the tool instance.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_tool\n  ```\n\n  3. For user-defined tool classes (custom tools), the `name` is the fully\n  qualified path to the tool class and `args` is the arguments for the tool.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_tool_class\n      args:\n        my_tool_arg1: value1\n        my_tool_arg2: value2\n  ```\n\n  4. For user-defined functions that generate tool instances, the `name` is\n  the fully qualified path to the function and `args` is passed to the\n  function as arguments.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_tool_function\n      args:\n        my_function_arg1: value1\n        my_function_arg2: value2\n  ```\n\n  The function must have the following signature:\n  ```\n  def my_function(args: ToolArgsConfig) -> BaseTool:\n    ...\n  ```\n\n  5. For user-defined function tools, the `name` is the fully qualified path\n  to the function.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_function_tool\n  ```\n\n  If the above use cases don't suffice, users can define a custom tool config\n  by extending BaseToolConfig and override from_config() in the custom tool.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "description": "The name of the tool.\n\nFor ADK built-in tools, `name` is the name of the tool, e.g. `google_search`\nor `AgentTool`.\n\nFor user-defined tools, the name is the fully qualified path to the tool, e.g.\n`my_package.my_module.my_tool`.",
+             "title": "Name",
+             "type": "string"
+          },
+          "args": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/ToolArgsConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "The args for the tool."
+          }
+       },
+       "$defs": {
+          "ToolArgsConfig": {
+             "additionalProperties": true,
+             "description": "Config to host free key-value pairs for the args in ToolConfig.",
+             "properties": {},
+             "title": "ToolArgsConfig",
+             "type": "object"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `args (google.adk.tools.tool_configs.ToolArgsConfig | None)`
+
+  * `name (str)`
+
+
+
+
+_field _args _: Optional[ToolArgsConfig]__ = None_¶
+    
+
+The args for the tool.
+
+_field _name _: str_ _[Required]_¶
+    
+
+The name of the tool.
+
+For ADK built-in tools, name is the name of the tool, e.g. google_search or AgentTool.
+
+For user-defined tools, the name is the fully qualified path to the tool, e.g. my_package.my_module.my_tool.
+
+# google.adk.tools.tool_confirmation module¶
+
+_pydantic model _google.adk.tools.tool_confirmation.ToolConfirmation¶
+    
+
+Bases: `BaseModel`
+
+Represents a tool confirmation configuration.
+
+Show JSON schema
+    
+    
+    {
+       "title": "ToolConfirmation",
+       "description": "Represents a tool confirmation configuration.",
+       "type": "object",
+       "properties": {
+          "hint": {
+             "default": "",
+             "title": "Hint",
+             "type": "string"
+          },
+          "confirmed": {
+             "default": false,
+             "title": "Confirmed",
+             "type": "boolean"
+          },
+          "payload": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Payload"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+  * `confirmed (bool)`
+
+  * `hint (str)`
+
+  * `payload (Any | None)`
+
+
+
+
+_field _confirmed _: bool_ _ = False_¶
+    
+
+Whether the tool execution is confirmed.
+
+_field _hint _: str_ _ = ''_¶
+    
+
+The hint text for why the input is needed.
+
+_field _payload _: Optional[Any]__ = None_¶
+    
+
+The custom data payload needed from the user to continue the flow. It should be JSON serializable.
 
 # google.adk.tools.tool_context module¶
 
@@ -41475,9 +44414,5382 @@ Parameters:
 
 # google.adk.version module¶
 
+# google.adk.workflow module¶
+
+_pydantic model _google.adk.workflow.BaseNode¶
+    
+
+Bases: `BaseModel`
+
+A base class for all nodes in the workflow graph.
+
+Show JSON schema
+    
+    
+    {
+       "title": "BaseNode",
+       "description": "A base class for all nodes in the workflow graph.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          }
+       },
+       "$defs": {
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       },
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `input_schema (dict[Any, Any] | type | google.genai.types.Schema | types.GenericAlias | types.UnionType | _UnionGenericAlias | None)`
+
+  * `name (str)`
+
+  * `output_schema (dict[Any, Any] | type | google.genai.types.Schema | types.GenericAlias | types.UnionType | _UnionGenericAlias | None)`
+
+  * `rerun_on_resume (bool)`
+
+  * `retry_config (google.adk.workflow._retry_config.RetryConfig | None)`
+
+  * `state_schema (type[pydantic.main.BaseModel] | None)`
+
+  * `timeout (float | None)`
+
+  * `wait_for_output (bool)`
+
+
+
+Validators:
+    
+
+  * `_validate_name` » `name`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+A human-readable description of what this node does.
+
+_field _input_schema _: SchemaType | None_ _ = None_¶
+    
+
+Schema to validate and coerce node input data.
+
+Supports all `SchemaType` variants. Validation uses `TypeAdapter` and runs centrally in the node runner before `node.run()` is called.
+
+`None` means no input validation (the default).
+
+_field _name _: str_ _[Required]_¶
+    
+
+The unique name of the node within the workflow graph.
+
+Validated by:
+    
+
+  * `_validate_name`
+
+
+
+
+_field _output_schema _: SchemaType | None_ _ = None_¶
+    
+
+Schema to validate and coerce node output data.
+
+Supports all `SchemaType` variants (Pydantic `BaseModel` subclass, generic aliases like `list[str]`, raw `dict` schemas, etc.).
+
+When set to a `BaseModel` subclass, the node’s output data is validated:
+    
+
+  * dict → `output_schema.model_validate(data).model_dump()`
+
+  * BaseModel instance → `data.model_dump()` (already converted)
+
+
+
+
+`None` means no output validation (the default).
+
+_field _rerun_on_resume _: bool_ _ = False_¶
+    
+
+Controls behavior when resuming after an interrupt.
+
+If True, the node reruns from scratch. If False, it completes immediately using the user’s resuming input as the node’s output.
+
+_field _retry_config _: RetryConfig | None_ _ = None_¶
+    
+
+Configuration for retrying the node on failure.
+
+If set, exceptions raised by the node will trigger retries according to the specified policy.
+
+_field _state_schema _: type[BaseModel] | None_ _ = None_¶
+    
+
+Optional Pydantic model declaring the expected state keys and types.
+
+When set, `ctx.state` mutations are validated at runtime against this schema. Child nodes inherit the schema from their parent (via InvocationContext) unless they declare their own.
+
+Prefixed keys (`app:`, `user:`, `temp:`) bypass validation.
+
+_field _timeout _: float | None_ _ = None_¶
+    
+
+Maximum time in seconds for this node to complete.
+
+If the node does not finish within this duration, it is cancelled and treated as a failure (raising `NodeTimeoutError`). This integrates with `retry_config` — a timed-out node can be retried if retries are configured.
+
+`None` means no timeout (the node runs until completion).
+
+_field _wait_for_output _: bool_ _ = False_¶
+    
+
+If True, node only transitions to COMPLETED upon yielding output or route.
+
+Without output/route, the node enters WAITING state and downstream nodes are not triggered, allowing predecessors to re-trigger it. This is useful for nodes like `JoinNode` that run multiple times before producing a final output.
+
+WARNING: Completing execution without ever yielding output/route causes an indefinite WAITING state (deadlock). This is considered a user configuration error.
+
+_async _run(_*_ , _ctx_ , _node_input_)¶
+    
+
+Public entry point. Calls _run_impl, normalizes yields to Event.
+
+Normalization rules: \- None -> skipped \- Event -> pass through \- RequestInput -> convert to interrupt Event \- Any other value -> Event(output=value)
+
+Return type:
+    
+
+`AsyncGenerator`[`Event`, `None`]
+
+_pydantic model _google.adk.workflow.Edge¶
+    
+
+Bases: `BaseModel`
+
+An edge in the workflow graph.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Edge",
+       "description": "An edge in the workflow graph.",
+       "type": "object",
+       "properties": {
+          "from_node": {
+             "$ref": "#/$defs/BaseNode"
+          },
+          "to_node": {
+             "$ref": "#/$defs/BaseNode"
+          },
+          "route": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "string"
+                },
+                {
+                   "items": {
+                      "anyOf": [
+                         {
+                            "type": "boolean"
+                         },
+                         {
+                            "type": "integer"
+                         },
+                         {
+                            "type": "string"
+                         }
+                      ]
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "The route(s) that this edge is associated with. A single value or a list of values. The edge is followed when the emitted route matches any value in the list.",
+             "title": "Route"
+          }
+       },
+       "$defs": {
+          "BaseNode": {
+             "description": "A base class for all nodes in the workflow graph.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                },
+                "description": {
+                   "default": "",
+                   "title": "Description",
+                   "type": "string"
+                },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "BaseNode",
+             "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "from_node",
+          "to_node"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `from_node (google.adk.workflow._base_node.BaseNode)`
+
+  * `route (bool | int | str | list[bool | int | str] | None)`
+
+  * `to_node (google.adk.workflow._base_node.BaseNode)`
+
+
+
+
+_field _from_node _: Annotated[BaseNode, SerializeAsAny()]__[Required]_¶
+    
+
+The from node.
+
+_field _route _: RouteValue | list[RouteValue] | None_ _ = None_¶
+    
+
+The route(s) that this edge is associated with. A single value or a list of values. The edge is followed when the emitted route matches any value in the list.
+
+_field _to_node _: Annotated[BaseNode, SerializeAsAny()]__[Required]_¶
+    
+
+The to node.
+
+_pydantic model _google.adk.workflow.FunctionNode¶
+    
+
+Bases: `BaseNode`
+
+A node that wraps a Python sync/async function or generator.
+
+Type coercions applied to function parameters (via `TypeAdapter`):
+    
+
+  * `dict` → `BaseModel` when the annotation is a Pydantic model.
+
+  * `list[dict]` → `list[BaseModel]`, `dict[K, dict]` → `dict[K, BaseModel]`, etc.
+
+  * `types.Content` → `str` when the annotation expects `str` (including `Optional[str]` / `Union[str, ...]`).
+
+  * All other values are validated/coerced by Pydantic’s `TypeAdapter`.
+
+
+
+
+Initializes FunctionNode.
+
+Parameters:
+    
+
+  * **func** – A sync/async function or sync/async generator function that forms the node’s logic. It can accept ‘ctx: Context’ and ‘node_input: Any’ as arguments, depending on its signature. If the function is not a generator, its return value will be wrapped in an Event, unless the return value is None.
+
+  * **name** – The name of the node. If None, it defaults to func.__name__.
+
+  * **rerun_on_resume** – If True, the node will be rerun after being interrupted and resumed. If False, the node will be marked as completed and the resuming input will be treated as the node’s output.
+
+  * **retry_config** – If provided, the node will be retried on failure based on this configuration.
+
+  * **timeout** – Maximum time in seconds for this node to complete.
+
+  * **auth_config** – If provided, the framework requests user authentication before running the node. Requires rerun_on_resume=True (the node must rerun after credentials are provided).
+
+  * **parameter_binding** – How function parameters are bound. `'state'` (default) binds parameters from `ctx.state`. `'node_input'` binds parameters from `node_input` dict and infers `input_schema` / `output_schema` from the function signature (used when the node acts as an agent’s tool).
+
+
+
+
+Show JSON schema
+    
+    
+    {
+       "title": "FunctionNode",
+       "description": "A node that wraps a Python sync/async function or generator.\n\nType coercions applied to function parameters (via ``TypeAdapter``):\n  - ``dict`` \u2192 ``BaseModel`` when the annotation is a Pydantic model.\n  - ``list[dict]`` \u2192 ``list[BaseModel]``, ``dict[K, dict]`` \u2192\n    ``dict[K, BaseModel]``, etc.\n  - ``types.Content`` \u2192 ``str`` when the annotation expects ``str``\n    (including ``Optional[str]`` / ``Union[str, ...]``).\n  - All other values are validated/coerced by Pydantic's ``TypeAdapter``.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
+          "auth_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/AuthConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "parameter_binding": {
+             "default": "state",
+             "enum": [
+                "state",
+                "node_input"
+             ],
+             "title": "Parameter Binding",
+             "type": "string"
+          }
+       },
+       "$defs": {
+          "APIKey": {
+             "additionalProperties": true,
+             "properties": {
+                "type": {
+                   "$ref": "#/$defs/SecuritySchemeType",
+                   "default": "apiKey"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Description"
+                },
+                "in": {
+                   "$ref": "#/$defs/APIKeyIn"
+                },
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "in",
+                "name"
+             ],
+             "title": "APIKey",
+             "type": "object"
+          },
+          "APIKeyIn": {
+             "enum": [
+                "query",
+                "header",
+                "cookie"
+             ],
+             "title": "APIKeyIn",
+             "type": "string"
+          },
+          "AuthConfig": {
+             "additionalProperties": true,
+             "description": "The auth config sent by tool asking client to collect auth credentials and\n\nadk and client will help to fill in the response",
+             "properties": {
+                "authScheme": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/APIKey"
+                      },
+                      {
+                         "$ref": "#/$defs/HTTPBase"
+                      },
+                      {
+                         "$ref": "#/$defs/OAuth2"
+                      },
+                      {
+                         "$ref": "#/$defs/OpenIdConnect"
+                      },
+                      {
+                         "$ref": "#/$defs/HTTPBearer"
+                      },
+                      {
+                         "$ref": "#/$defs/OpenIdConnectWithConfig"
+                      },
+                      {
+                         "$ref": "#/$defs/CustomAuthScheme"
+                      }
+                   ],
+                   "title": "Authscheme"
+                },
+                "rawAuthCredential": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthCredential"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "exchangedAuthCredential": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthCredential"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "credentialKey": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Credentialkey"
+                }
+             },
+             "required": [
+                "authScheme"
+             ],
+             "title": "AuthConfig",
+             "type": "object"
+          },
+          "AuthCredential": {
+             "additionalProperties": true,
+             "description": "Data class representing an authentication credential.\n\nTo exchange for the actual credential, please use\nCredentialExchanger.exchange_credential().\n\nExamples: API Key Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    api_key=\"1234\",\n)\n\nExample: HTTP Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"basic\",\n        credentials=HttpCredentials(username=\"user\", password=\"password\"),\n    ),\n)\n\nExample: OAuth2 Bearer Token in HTTP Header\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"bearer\",\n        credentials=HttpCredentials(token=\"eyAkaknabna....\"),\n    ),\n)\n\nExample: OAuth2 Auth with Authorization Code Flow\nAuthCredential(\n    auth_type=AuthCredentialTypes.OAUTH2,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n    ),\n)\n\nExample: OpenID Connect Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.OPEN_ID_CONNECT,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n        redirect_uri=\"https://example.com\",\n        scopes=[\"scope1\", \"scope2\"],\n    ),\n)\n\nExample: Auth with resource reference\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    resource_ref=\"projects/1234/locations/us-central1/resources/resource1\",\n)",
+             "properties": {
+                "authType": {
+                   "$ref": "#/$defs/AuthCredentialTypes"
+                },
+                "resourceRef": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Resourceref"
+                },
+                "apiKey": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Apikey"
+                },
+                "http": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/HttpAuth"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "serviceAccount": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ServiceAccount"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "oauth2": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/OAuth2Auth"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                }
+             },
+             "required": [
+                "authType"
+             ],
+             "title": "AuthCredential",
+             "type": "object"
+          },
+          "AuthCredentialTypes": {
+             "description": "Represents the type of authentication credential.",
+             "enum": [
+                "apiKey",
+                "http",
+                "oauth2",
+                "openIdConnect",
+                "serviceAccount"
+             ],
+             "title": "AuthCredentialTypes",
+             "type": "string"
+          },
+          "CustomAuthScheme": {
+             "additionalProperties": true,
+             "description": "A flexible model for custom authentication schemes.\n\nThe subclasses must define a `default` for the `type_` field, if using OAuth2\nuser consent flow, to ensure correct rehydration.",
+             "properties": {
+                "type": {
+                   "title": "Type",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "type"
+             ],
+             "title": "CustomAuthScheme",
+             "type": "object"
+          },
+          "HTTPBase": {
+             "additionalProperties": true,
+             "properties": {
+                "type": {
+                   "$ref": "#/$defs/SecuritySchemeType",
+                   "default": "http"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Description"
+                },
+                "scheme": {
+                   "title": "Scheme",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "scheme"
+             ],
+             "title": "HTTPBase",
+             "type": "object"
+          },
+          "HTTPBearer": {
+             "additionalProperties": true,
+             "properties": {
+                "type": {
+                   "$ref": "#/$defs/SecuritySchemeType",
+                   "default": "http"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Description"
+                },
+                "scheme": {
+                   "const": "bearer",
+                   "default": "bearer",
+                   "title": "Scheme",
+                   "type": "string"
+                },
+                "bearerFormat": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Bearerformat"
+                }
+             },
+             "title": "HTTPBearer",
+             "type": "object"
+          },
+          "HttpAuth": {
+             "additionalProperties": true,
+             "description": "The credentials and metadata for HTTP authentication.",
+             "properties": {
+                "scheme": {
+                   "title": "Scheme",
+                   "type": "string"
+                },
+                "credentials": {
+                   "$ref": "#/$defs/HttpCredentials"
+                },
+                "additionalHeaders": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Additionalheaders"
+                }
+             },
+             "required": [
+                "scheme",
+                "credentials"
+             ],
+             "title": "HttpAuth",
+             "type": "object"
+          },
+          "HttpCredentials": {
+             "additionalProperties": true,
+             "description": "Represents the secret token value for HTTP authentication, like user name, password, oauth token, etc.",
+             "properties": {
+                "username": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Username"
+                },
+                "password": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Password"
+                },
+                "token": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Token"
+                }
+             },
+             "title": "HttpCredentials",
+             "type": "object"
+          },
+          "OAuth2": {
+             "additionalProperties": true,
+             "properties": {
+                "type": {
+                   "$ref": "#/$defs/SecuritySchemeType",
+                   "default": "oauth2"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Description"
+                },
+                "flows": {
+                   "$ref": "#/$defs/OAuthFlows"
+                }
+             },
+             "required": [
+                "flows"
+             ],
+             "title": "OAuth2",
+             "type": "object"
+          },
+          "OAuth2Auth": {
+             "additionalProperties": true,
+             "description": "Represents credential value and its metadata for a OAuth2 credential.",
+             "properties": {
+                "clientId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Clientid"
+                },
+                "clientSecret": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Clientsecret"
+                },
+                "authUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Authuri"
+                },
+                "nonce": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Nonce"
+                },
+                "state": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State"
+                },
+                "redirectUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Redirecturi"
+                },
+                "authResponseUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Authresponseuri"
+                },
+                "authCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Authcode"
+                },
+                "accessToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Accesstoken"
+                },
+                "refreshToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Refreshtoken"
+                },
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Idtoken"
+                },
+                "expiresAt": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Expiresat"
+                },
+                "expiresIn": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Expiresin"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
+                },
+                "codeVerifier": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codeverifier"
+                },
+                "codeChallengeMethod": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Codechallengemethod"
+                },
+                "tokenEndpointAuthMethod": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "client_secret_basic",
+                            "client_secret_post",
+                            "client_secret_jwt",
+                            "private_key_jwt"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": "client_secret_basic",
+                   "title": "Tokenendpointauthmethod"
+                }
+             },
+             "title": "OAuth2Auth",
+             "type": "object"
+          },
+          "OAuthFlowAuthorizationCode": {
+             "additionalProperties": true,
+             "properties": {
+                "refreshUrl": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Refreshurl"
+                },
+                "scopes": {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "default": {},
+                   "title": "Scopes",
+                   "type": "object"
+                },
+                "authorizationUrl": {
+                   "title": "Authorizationurl",
+                   "type": "string"
+                },
+                "tokenUrl": {
+                   "title": "Tokenurl",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "authorizationUrl",
+                "tokenUrl"
+             ],
+             "title": "OAuthFlowAuthorizationCode",
+             "type": "object"
+          },
+          "OAuthFlowClientCredentials": {
+             "additionalProperties": true,
+             "properties": {
+                "refreshUrl": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Refreshurl"
+                },
+                "scopes": {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "default": {},
+                   "title": "Scopes",
+                   "type": "object"
+                },
+                "tokenUrl": {
+                   "title": "Tokenurl",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "tokenUrl"
+             ],
+             "title": "OAuthFlowClientCredentials",
+             "type": "object"
+          },
+          "OAuthFlowImplicit": {
+             "additionalProperties": true,
+             "properties": {
+                "refreshUrl": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Refreshurl"
+                },
+                "scopes": {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "default": {},
+                   "title": "Scopes",
+                   "type": "object"
+                },
+                "authorizationUrl": {
+                   "title": "Authorizationurl",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "authorizationUrl"
+             ],
+             "title": "OAuthFlowImplicit",
+             "type": "object"
+          },
+          "OAuthFlowPassword": {
+             "additionalProperties": true,
+             "properties": {
+                "refreshUrl": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Refreshurl"
+                },
+                "scopes": {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "default": {},
+                   "title": "Scopes",
+                   "type": "object"
+                },
+                "tokenUrl": {
+                   "title": "Tokenurl",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "tokenUrl"
+             ],
+             "title": "OAuthFlowPassword",
+             "type": "object"
+          },
+          "OAuthFlows": {
+             "additionalProperties": true,
+             "properties": {
+                "implicit": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/OAuthFlowImplicit"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "password": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/OAuthFlowPassword"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "clientCredentials": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/OAuthFlowClientCredentials"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "authorizationCode": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/OAuthFlowAuthorizationCode"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                }
+             },
+             "title": "OAuthFlows",
+             "type": "object"
+          },
+          "OpenIdConnect": {
+             "additionalProperties": true,
+             "properties": {
+                "type": {
+                   "$ref": "#/$defs/SecuritySchemeType",
+                   "default": "openIdConnect"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Description"
+                },
+                "openIdConnectUrl": {
+                   "title": "Openidconnecturl",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "openIdConnectUrl"
+             ],
+             "title": "OpenIdConnect",
+             "type": "object"
+          },
+          "OpenIdConnectWithConfig": {
+             "additionalProperties": true,
+             "properties": {
+                "type": {
+                   "$ref": "#/$defs/SecuritySchemeType",
+                   "default": "openIdConnect"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Description"
+                },
+                "authorization_endpoint": {
+                   "title": "Authorization Endpoint",
+                   "type": "string"
+                },
+                "token_endpoint": {
+                   "title": "Token Endpoint",
+                   "type": "string"
+                },
+                "userinfo_endpoint": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Userinfo Endpoint"
+                },
+                "revocation_endpoint": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Revocation Endpoint"
+                },
+                "token_endpoint_auth_methods_supported": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Token Endpoint Auth Methods Supported"
+                },
+                "grant_types_supported": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Grant Types Supported"
+                },
+                "scopes": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
+                }
+             },
+             "required": [
+                "authorization_endpoint",
+                "token_endpoint"
+             ],
+             "title": "OpenIdConnectWithConfig",
+             "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "SecuritySchemeType": {
+             "enum": [
+                "apiKey",
+                "http",
+                "oauth2",
+                "openIdConnect"
+             ],
+             "title": "SecuritySchemeType",
+             "type": "string"
+          },
+          "ServiceAccount": {
+             "additionalProperties": true,
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
+             "properties": {
+                "serviceAccountCredential": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ServiceAccountCredential"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "scopes": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Scopes"
+                },
+                "useDefaultCredential": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Usedefaultcredential"
+                },
+                "useIdToken": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": false,
+                   "title": "Useidtoken"
+                },
+                "audience": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Audience"
+                }
+             },
+             "title": "ServiceAccount",
+             "type": "object"
+          },
+          "ServiceAccountCredential": {
+             "additionalProperties": true,
+             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  type: The type should be \"service_account\".\n  project_id: The project ID.\n  private_key_id: The ID of the private key.\n  private_key: The private key.\n  client_email: The client email.\n  client_id: The client ID.\n  auth_uri: The authorization URI.\n  token_uri: The token URI.\n  auth_provider_x509_cert_url: URL for auth provider's X.509 cert.\n  client_x509_cert_url: URL for the client's X.509 cert.\n  universe_domain: The universe domain.\n\nExample:\n\n    config = ServiceAccountCredential(\n        type_=\"service_account\",\n        project_id=\"your_project_id\",\n        private_key_id=\"your_private_key_id\",\n        private_key=\"-----BEGIN PRIVATE KEY-----...\",\n        client_email=\"...@....iam.gserviceaccount.com\",\n        client_id=\"your_client_id\",\n        auth_uri=\"https://accounts.google.com/o/oauth2/auth\",\n        token_uri=\"https://oauth2.googleapis.com/token\",\n        auth_provider_x509_cert_url=\"https://www.googleapis.com/oauth2/v1/certs\",\n        client_x509_cert_url=\"https://www.googleapis.com/robot/v1/metadata/x509/...\",\n        universe_domain=\"googleapis.com\"\n    )\n\n\n    config = ServiceAccountConfig.model_construct(**{\n        ...service account config dict\n    })",
+             "properties": {
+                "type": {
+                   "default": "",
+                   "title": "Type",
+                   "type": "string"
+                },
+                "projectId": {
+                   "title": "Projectid",
+                   "type": "string"
+                },
+                "privateKeyId": {
+                   "title": "Privatekeyid",
+                   "type": "string"
+                },
+                "privateKey": {
+                   "title": "Privatekey",
+                   "type": "string"
+                },
+                "clientEmail": {
+                   "title": "Clientemail",
+                   "type": "string"
+                },
+                "clientId": {
+                   "title": "Clientid",
+                   "type": "string"
+                },
+                "authUri": {
+                   "title": "Authuri",
+                   "type": "string"
+                },
+                "tokenUri": {
+                   "title": "Tokenuri",
+                   "type": "string"
+                },
+                "authProviderX509CertUrl": {
+                   "title": "Authproviderx509Certurl",
+                   "type": "string"
+                },
+                "clientX509CertUrl": {
+                   "title": "Clientx509Certurl",
+                   "type": "string"
+                },
+                "universeDomain": {
+                   "title": "Universedomain",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "projectId",
+                "privateKeyId",
+                "privateKey",
+                "clientEmail",
+                "clientId",
+                "authUri",
+                "tokenUri",
+                "authProviderX509CertUrl",
+                "clientX509CertUrl",
+                "universeDomain"
+             ],
+             "title": "ServiceAccountCredential",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       },
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `auth_config (AuthConfig | None)`
+
+  * `parameter_binding (Literal['state', 'node_input'])`
+
+
+
+Validators:
+    
+
+_field _auth_config _: AuthConfig | None_ _ = None_¶
+    
+
+If set, the framework requests user authentication before running.
+
+When the node runs for the first time and no credential is found in session state, it yields an `adk_request_credential` event and interrupts. On resume, the credential is stored and the node re-runs with the credential available via `AuthHandler(auth_config).get_auth_response(ctx.state)`.
+
+_field _parameter_binding _: Literal['state', 'node_input']__ = 'state'_¶
+    
+
+How function parameters are bound.
+
+`'state'` (default) binds parameters from `ctx.state`. `'node_input'` binds parameters from `node_input` dict and infers `input_schema` / `output_schema` from the function signature (used when the node acts as an agent’s tool).
+
+model_copy(_*_ , _update =None_, _deep =False_)¶
+    
+
+Return type:
+    
+
+`FunctionNode`
+
+!!! abstract “Usage Documentation”
+    
+
+[model_copy](../concepts/models.md#model-copy)
+
+Returns a copy of the model.
+
+!!! note
+    
+
+The underlying instance’s [__dict__][object.__dict__] attribute is copied. This might have unexpected side effects if you store anything in it, on top of the model fields (e.g. the value of [cached properties][functools.cached_property]).
+
+Parameters:
+    
+
+  * **update** – Values to change/add in the new model. Note: the data is not validated before creating the new model. You should trust this data.
+
+  * **deep** – Set to True to make a deep copy of the model.
+
+
+
+Returns:
+    
+
+New model instance.
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_pydantic model _google.adk.workflow.JoinNode¶
+    
+
+Bases: `BaseNode`
+
+A node that waits for all specified predecessors to trigger it before outputting.
+
+Show JSON schema
+    
+    
+    {
+       "title": "JoinNode",
+       "description": "A node that waits for all specified predecessors to trigger it before\noutputting.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          }
+       },
+       "$defs": {
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       },
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+_pydantic model _google.adk.workflow.Node¶
+    
+
+Bases: `BaseNode`
+
+A node class designed for subclassing.
+
+Subclasses can directly benefit from advanced flags like parallel_worker by implementing the run_node_impl() method.
+
+Show JSON schema
+    
+    
+    {
+       "title": "Node",
+       "description": "A node class designed for subclassing.\n\nSubclasses can directly benefit from advanced flags like parallel_worker\nby implementing the run_node_impl() method.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
+          "parallel_worker": {
+             "default": false,
+             "title": "Parallel Worker",
+             "type": "boolean"
+          }
+       },
+       "$defs": {
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       },
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `parallel_worker (bool)`
+
+
+
+Validators:
+    
+
+_field _parallel_worker _: bool_ _ = False_¶
+    
+
+model_copy(_*_ , _update =None_, _deep =False_)¶
+    
+
+Clones the node with updated fields.
+
+Return type:
+    
+
+`Any`
+
+model_post_init(__Node__context_)¶
+    
+
+Override this method to perform additional initialization after __init__ and model_construct. This is useful if you want to do some validation that requires the entire model to be initialized.
+
+Return type:
+    
+
+`None`
+
+_async _run_node_impl(_*_ , _ctx_ , _node_input_)¶
+    
+
+Implement this method when designing a child class that inherits from Node.
+
+Subclasses can directly benefit from advanced flags like parallel_worker by providing their custom execution logic here.
+
+Return type:
+    
+
+`AsyncGenerator`[`Any`, `None`]
+
+_exception _google.adk.workflow.NodeTimeoutError(_*_ , _node_name_ , _timeout_)¶
+    
+
+Bases: `Exception`
+
+Raised when a node exceeds its configured timeout.
+
+This is a regular `Exception` (not `BaseException`) so it is compatible with `retry_config` — a timed-out node can be retried.
+
+_pydantic model _google.adk.workflow.RetryConfig¶
+    
+
+Bases: `BaseModel`
+
+Configuration for retrying a node.
+
+Show JSON schema
+    
+    
+    {
+       "title": "RetryConfig",
+       "description": "Configuration for retrying a node.",
+       "type": "object",
+       "properties": {
+          "max_attempts": {
+             "anyOf": [
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+             "title": "Max Attempts"
+          },
+          "initial_delay": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+             "title": "Initial Delay"
+          },
+          "max_delay": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+             "title": "Max Delay"
+          },
+          "backoff_factor": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+             "title": "Backoff Factor"
+          },
+          "jitter": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+             "title": "Jitter"
+          },
+          "exceptions": {
+             "anyOf": [
+                {
+                   "items": {
+                      "anyOf": [
+                         {
+                            "type": "string"
+                         },
+                         {}
+                      ]
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+             "title": "Exceptions"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `backoff_factor (float | None)`
+
+  * `exceptions (list[str | type[BaseException]] | None)`
+
+  * `initial_delay (float | None)`
+
+  * `jitter (float | None)`
+
+  * `max_attempts (int | None)`
+
+  * `max_delay (float | None)`
+
+
+
+Validators:
+    
+
+  * `_normalize_exceptions` » `exceptions`
+
+
+
+
+_field _backoff_factor _: float | None_ _ = None_¶
+    
+
+Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.
+
+_field _exceptions _: list[str | type[BaseException]] | None_ _ = None_¶
+    
+
+Exceptions to retry on. Accepts exception class names as strings (e.g. `['ValueError']`) or exception classes directly (e.g. `[ValueError]`). `None` means retry on all exceptions.
+
+Validated by:
+    
+
+  * `_normalize_exceptions`
+
+
+
+
+_field _initial_delay _: float | None_ _ = None_¶
+    
+
+Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.
+
+_field _jitter _: float | None_ _ = None_¶
+    
+
+Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.
+
+_field _max_attempts _: int | None_ _ = None_¶
+    
+
+Maximum number of attempts, including the original request. If 0 or 1, it means no retries. If not specified, default to 5.
+
+_field _max_delay _: float | None_ _ = None_¶
+    
+
+Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.
+
+_pydantic model _google.adk.workflow.Workflow¶
+    
+
+Bases: `BaseNode`
+
+A graph-based workflow node.
+
+_run_impl() IS the graph orchestration loop: \- SETUP: build graph, seed triggers \- LOOP: schedule ready nodes via NodeRunner, handle completions \- FINALIZE: collect terminal outputs
+
+Show JSON schema
+    
+    
+    {
+       "title": "Workflow",
+       "description": "A graph-based workflow node.\n\n_run_impl() IS the graph orchestration loop:\n- SETUP: build graph, seed triggers\n- LOOP: schedule ready nodes via NodeRunner, handle completions\n- FINALIZE: collect terminal outputs",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": true,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
+          "edges": {
+             "description": "Edges to build the workflow graph.",
+             "items": {
+                "anyOf": [
+                   {
+                      "$ref": "#/$defs/Edge"
+                   },
+                   {
+                      "items": {
+                         "anyOf": [
+                            {
+                               "$ref": "#/$defs/BaseNode"
+                            },
+                            {
+                               "const": "START",
+                               "type": "string"
+                            },
+                            {
+                               "items": {
+                                  "anyOf": [
+                                     {
+                                        "$ref": "#/$defs/BaseNode"
+                                     },
+                                     {
+                                        "const": "START",
+                                        "type": "string"
+                                     }
+                                  ]
+                               },
+                               "type": "array"
+                            },
+                            {
+                               "additionalProperties": {
+                                  "anyOf": [
+                                     {
+                                        "$ref": "#/$defs/BaseNode"
+                                     },
+                                     {
+                                        "const": "START",
+                                        "type": "string"
+                                     },
+                                     {
+                                        "items": {
+                                           "anyOf": [
+                                              {
+                                                 "$ref": "#/$defs/BaseNode"
+                                              },
+                                              {
+                                                 "const": "START",
+                                                 "type": "string"
+                                              }
+                                           ]
+                                        },
+                                        "type": "array"
+                                     }
+                                  ]
+                               },
+                               "type": "object"
+                            }
+                         ]
+                      },
+                      "type": "array"
+                   }
+                ]
+             },
+             "title": "Edges",
+             "type": "array"
+          },
+          "max_concurrency": {
+             "anyOf": [
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Max Concurrency"
+          },
+          "graph": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/Graph"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "The compiled workflow graph."
+          }
+       },
+       "$defs": {
+          "BaseNode": {
+             "description": "A base class for all nodes in the workflow graph.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                },
+                "description": {
+                   "default": "",
+                   "title": "Description",
+                   "type": "string"
+                },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "BaseNode",
+             "type": "object"
+          },
+          "Edge": {
+             "additionalProperties": false,
+             "description": "An edge in the workflow graph.",
+             "properties": {
+                "from_node": {
+                   "$ref": "#/$defs/BaseNode"
+                },
+                "to_node": {
+                   "$ref": "#/$defs/BaseNode"
+                },
+                "route": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "boolean"
+                               },
+                               {
+                                  "type": "integer"
+                               },
+                               {
+                                  "type": "string"
+                               }
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The route(s) that this edge is associated with. A single value or a list of values. The edge is followed when the emitted route matches any value in the list.",
+                   "title": "Route"
+                }
+             },
+             "required": [
+                "from_node",
+                "to_node"
+             ],
+             "title": "Edge",
+             "type": "object"
+          },
+          "Graph": {
+             "additionalProperties": false,
+             "description": "A workflow graph.",
+             "properties": {
+                "nodes": {
+                   "items": {
+                      "$ref": "#/$defs/BaseNode"
+                   },
+                   "title": "Nodes",
+                   "type": "array"
+                },
+                "edges": {
+                   "items": {
+                      "$ref": "#/$defs/Edge"
+                   },
+                   "title": "Edges",
+                   "type": "array"
+                }
+             },
+             "title": "Graph",
+             "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          }
+       },
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `edges (list[EdgeItem])`
+
+  * `graph (Graph | None)`
+
+  * `max_concurrency (int | None)`
+
+  * `rerun_on_resume (bool)`
+
+
+
+Validators:
+    
+
+_field _edges _: list[EdgeItem]__[Optional]_¶
+    
+
+Edges to build the workflow graph.
+
+_field _graph _: Graph | None_ _ = None_¶
+    
+
+The compiled workflow graph.
+
+_field _max_concurrency _: int | None_ _ = None_¶
+    
+
+Maximum parallel graph-scheduled nodes. None means unlimited.
+
+Only applies to nodes triggered by graph edges. Dynamic nodes (via ctx.run_node()) are excluded — they are awaited inline by their parent and throttling them would cause deadlock.
+
+_field _rerun_on_resume _: bool_ _ = True_¶
+    
+
+Controls behavior when resuming after an interrupt.
+
+If True, the node reruns from scratch. If False, it completes immediately using the user’s resuming input as the node’s output.
+
+model_post_init(_context_)¶
+    
+
+Override this method to perform additional initialization after __init__ and model_construct. This is useful if you want to do some validation that requires the entire model to be initialized.
+
+Return type:
+    
+
+`None`
+
+google.adk.workflow.node(_node_like =None_, _*_ , _name =None_, _rerun_on_resume =None_, _retry_config =None_, _timeout =None_, _parallel_worker =False_, _auth_config =None_)¶
+    
+
+Decorator or function to wrap a NodeLike in a node or override its properties.
+
+This can be used as a decorator on a function: @node async def my_func(): …
+
+@node() async def my_func2(): …
+
+@node(name=’my_node’, rerun_on_resume=True) async def my_func3(): …
+
+Or as a function on a NodeLike: my_node = node(my_func, name=’other_name’)
+
+Return type:
+    
+
+`Any`
+
+Parameters:
+    
+
+  * **node_like** – The item to be wrapped as a node. Can be a BaseNode, BaseAgent, BaseTool, or callable.
+
+  * **name** – If provided, overrides the name of the wrapped node.
+
+  * **rerun_on_resume** – If provided, overrides the rerun_on_resume property of the wrapped node.
+
+  * **retry_config** – If provided, overrides the retry_config property of the wrapped node.
+
+  * **timeout** – If provided, overrides the timeout property of the wrapped node.
+
+  * **parallel_worker** – If True, wraps the node in a _ParallelWorker.
+
+  * **auth_config** – If provided, the framework requests user authentication before running the node. Requires rerun_on_resume=True.
+
+
+
+Returns:
+    
+
+If used as a decorator factory (@node() or @node(…)), returns a decorator. If used as a decorator (@node) or function (node(node_like, …)), returns a BaseNode instance.
+
 [ Previous Home ](index.html)
 
-Copyright (C) 2025, Google 
+Copyright (C) 2026, Google 
 
 Made with [Sphinx](https://www.sphinx-doc.org/) and [@pradyunsg](https://pradyunsg.me)'s [Furo](https://github.com/pradyunsg/furo)
   *[*]: Keyword-only parameters separator (PEP 3102)

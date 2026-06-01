@@ -1,19 +1,19 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
 
-Overview 
+Welcome to ADK 2.0 
+
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../get-started/typescript/)
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
+      * [ Kotlin  ](../get-started/kotlin/)
+      * [ Installation  ](../get-started/installation/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../visual-builder/)
-      * [ Coding with AI  ](../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../get-started/installation/)
+      * [ Code with AI  ](../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
-      * [ LLM agents  ](../agents/llm-agents/)
-      * [ Workflow agents  ](../agents/workflow-agents/)
+      * [ Simple agents  ](../agents/llm-agents/)
+    * [ Graph Workflows  ](../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../agents/custom-agents/)
-      * [ Multi-agent systems  ](../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../graphs/routes/)
+      * [ Data handling  ](../graphs/data-handling/)
+      * [ Human input  ](../graphs/human-input/)
+      * [ Dynamic workflows  ](../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../workflows/collaboration/)
+      * [ Template workflows  ](../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../agents/custom-agents/)
       * [ Agent routing  ](../agents/routing/)
-      * [ Agent Config  ](../agents/config/)
+      * [ Workflow patterns  ](../workflows/patterns/)
     * [ Models for Agents  ](../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
       * [ LiteRT-LM  ](../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../tools-custom/function-tools/)
-        * [ Tool performance  ](../tools-custom/performance/)
-        * [ Action confirmations  ](../tools-custom/confirmation/)
-      * [ MCP tools  ](../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
-      * [ Authentication  ](../tools-custom/authentication/)
-      * [ Tool limitations  ](../tools/limitations/)
-    * [ Skills for Agents  ](../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../visual-builder/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
@@ -136,38 +133,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../get-started/about/)
+    * [ Custom Tools  ](../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../tools-custom/function-tools/)
+        * [ Tool performance  ](../tools-custom/performance/)
+        * [ Action confirmations  ](../tools-custom/confirmation/)
+      * [ MCP tools  ](../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
+      * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
+    * [ Artifacts  ](../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
+    * [ App management  ](../apps/)
+
+App management 
+      * [ Callbacks  ](../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../plugins/)
     * [ Context  ](../context/)
 
 Context 
       * [ Context caching  ](../context/caching/)
       * [ Context compression  ](../context/compaction/)
-    * [ Sessions & Memory  ](../sessions/)
+    * [ Sessions and Memory  ](../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../sessions/session/rewind/)
         * [ Migrate sessions  ](../sessions/session/migrate/)
       * [ State  ](../sessions/state/)
+      * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
-    * [ Callbacks  ](../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../artifacts/)
-
-Artifacts 
-    * [ Events  ](../events/)
-
-Events 
-    * [ Apps  ](../apps/)
-
-Apps 
-    * [ Plugins  ](../plugins/)
-
-Plugins 
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -211,6 +218,7 @@ API Reference
       * [ Typescript ADK  ](../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
+      * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
@@ -222,21 +230,17 @@ Community
   * [ ADK 2.0  ](./)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../workflows/graph-routes/)
-      * [ Data handling  ](../workflows/data-handling/)
-      * [ Human input  ](../workflows/human-input/)
-    * [ Collaborative agents  ](../workflows/collaboration/)
-    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
 Table of contents 
 
-  * ADK 1.0 compatibility 
-  * Install ADK 2.0 
+  * ADK Python 1.x compatibility 
+    * Event Schema & Custom Session Databases 
+    * Agent Execution: BaseAgent to BaseNode 
+    * Context & Callbacks: In-Place Mutation 
+    * Error Handling & Automatic Retries 
+    * Installing ADK Python 1.x 
   * Next steps 
 
 
@@ -246,45 +250,94 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/2.0/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/2.0/index.md "View Markdown source")
 
-# Welcome to ADK 2.0 Beta¶
+# Welcome to ADK 2.0¶
 
-Beta Release
+ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available for Python and includes the following key features:
 
-ADK 2.0 is a Beta release and may cause breaking changes when used with prior versions of ADK. Do not use ADK 2.0 if you require backwards compatibility, such as in production environments. We encourage you to test this release and we welcome your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
+  * [**Graph-based workflows**](/graphs/): Build deterministic agent workflows with more control over how tasks are routed and executed.
 
-ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available as a Beta release for Python and includes the following key features:
+  * [**Dynamic workflows**](/graphs/dynamic/): Use code-based logic for building more complex workflows including iterative loops and complex decision-based branching.
 
-  * [**Graph-based workflows**](/workflows/): Build deterministic agent workflows with more control over how tasks are routed and executed.
-
-  * [**Collaborative agents**](/workflows/collaboration/): Build complex agent architectures with coordinator agents and multiple subagents working together.
-
-  * [**Dynamic workflows**](/workflows/dynamic/): Use code-based logic for building more complex workflows including iterative loops and complex decision-based branching.
+  * [**Collaborative workflows**](/workflows/collaboration/): Build complex agent architectures with coordinator agents and multiple subagents working together.
 
 
 
 
 Check out the linked topics above for more information, and try out the new way to build agents with ADK 2.0!
 
-## ADK 1.0 compatibility¶
+ADK Python v2.0.0 GA release
 
-ADK 2.0 is designed to be compatible with agents developed with ADK 1.x releases. However, given the number and diversity of agents built with ADK 1.x, we expect that some agent implementations, particularly advanced and feature-rich agents, will uncover incompatibilities in ADK 2.0. During the current pre-GA release period, we ask your assistance helping us identify these issues so we have a chance to address them. Report any ADK 1.0 to ADK 2.0 incompatibilities you encounter through our [issue tracker](https://github.com/google/adk-python/issues/new?template=bug_report.md&labels=v2).
+ADK Python 2.0 is released for general availability as of May 19, 2026.
 
-## Install ADK 2.0¶
+## ADK Python 1.x compatibility¶
 
-While ADK 2.0 is available as a pre-GA release, it is not installed automatically. You must select it as an installation option. This version has the following system requirements:
+ADK 2.0 is designed to be compatible with agents developed with ADK 1.x releases. However, there are a few breaking changes you should be aware of before upgrading an ADK 1.x project to ADK 2.0.
+
+Breaking changes: ADK Python 1.x to 2.0 incompatibilities
+
+There are several known incompatibilities and breaking changes introduced with ADK Python v2.0.0. Before upgrading, review these changes and take mitigation steps, if necessary.
+
+The ADK 2.0 release introduces the Workflow Runtime, transitioning ADK from a hierarchical agent executor to a graph-based execution engine. In this new architecture, your Agents, Tools, and Functions are evaluated as individual _nodes_ within a workflow graph. If you are upgrading from ADK 1.x, review the following breaking changes and migration steps to ensure a smooth transition for your production applications.
+
+### Event Schema & Custom Session Databases¶
+
+ADK 2.0 introduces new fields `node_info` and `output` to the core **_Event_** schema to track graph state and workflow outputs.
+
+  * **Custom Session storage:** If you have implemented a custom `BaseSessionService`, such as storing sessions in your own SQL or NoSQL databases using rigid columns, your underlying database schema must be updated to accommodate these new fields. Inserting a 2.0 **_Event_** into a rigid 1.x database table causes insertion or ORM deserialization failures. _However, if your custom session service stores events as serialized JSON blobs rather than mapping them to explicit columns, you do not need to update your schema._
+  * **Strict JSON validation:** If your deployment includes downstream API gateways, mobile clients, or web frontends that perform strict JSON schema validation, including setting `additionalProperties: false`, then validation will reject 2.0 events until their expected schemas are updated.
+
+
+
+**Migration action:** Update your database schemas and downstream client validators to expect and store the `node_info` and `output` fields on all Event payloads. Ensure all reader applications are updated to handle the 2.0 format before writing 2.0 sessions to a shared database.
+
+### Agent Execution: BaseAgent to BaseNode¶
+
+In ADK 1.x, Agents were standalone executors. In ADK 2.0, the **_BaseAgent_** class now subclasses **_BaseNode_**. Agents are now evaluated as individual _nodes_ within the new Workflow Graph engine.
+
+  * **Execution driver custom overrides:** The ABC contract has changed. Custom overrides of 1.x abstract methods, such as `_run_async_impl()` or `generate_content()`, are no longer the correct way to drive execution. The Workflow Graph engine completely bypasses these legacy overrides. If you inject custom telemetry or state management by overriding these methods, those calls are silently ignored.
+
+
+
+**Migration action:** Move custom execution logic out of `run()` overrides. Instead, utilize the standardized `BeforeAgentCallback` and `AfterAgentCallback` interfaces to safely inject custom logic into the execution lifecycle.
+
+### Context & Callbacks: In-Place Mutation¶
+
+Bypassing the framework to manually append events is no longer safe.
+
+  * **Direct appending of events:** In ADK 1.x, some developers forcefully appended events to the session via `context.session.events.append(custom_event)`. In ADK 2.0, the Workflow runner needs strict control over event emission to manage state, graph routing, and streaming. Manually appending to the session list circumvents the graph engine and breaks determinism.
+
+
+
+**Migration action:** Do not append events directly to the session, and do not use `enqueue_event` directly. You must now explicitly yield the event from within your node or agent so that the framework can manage its persistence, routing, and streaming natively.
+
+### Error Handling & Automatic Retries¶
+
+The ADK 2.0 framework now automatically catches exceptions to enable automatic retries, telemetry, and Human-in-the-Loop (HITL) pauses.
+
+  * **`Try...except` and `BaseException`:** In ADK 1.x, the framework did not have native automatic retries, so developers often wrote manual `try...except` loops inside their tools to prevent crashes. In ADK 2.0, if you migrate a tool and leave a broad `except Exception:` block inside it, this code masks the failure from the framework, permanently disabling the new 2.0 automatic retry mechanisms for that step. Furthermore, catching `BaseException` inadvertently traps `NodeInterruptedError`, which breaks the framework's ability to pause the workflow for Human-in-the-Loop (HITL) input.
+
+
+
+**Migration Action:** Allow standard exceptions to propagate out of your tools so the framework can evaluate them against your configured **_RetryConfig_** , such as `RetryConfig(max_attempts=3)`. Never catch **_BaseException_** unless you are explicitly re-raising the exception.
+
+If you encounter additional ADK 1.0 to ADK 2.0 incompatibilities, report them through the [issue tracker](https://github.com/google/adk-python/issues/new?template=bug_report.md&labels=v2).
+
+### Installing ADK Python 1.x¶
+
+If you want to update ADK, but are not yet ready to update to ADK 2.0, make sure to specify an ADK version during installation or use the compatible release `~=` operator as shown below. ADK 1.0 has the following system requirements:
 
   * **Python 3.10** or later
   * `pip` for installing packages
 
 
 
-To install ADK 2.0, follow these steps:
+To install the latest version of ADK 1.x, follow these steps:
 
   1. Enable a Python virtual environment. See below for instructions.
 
-  2. Install the package using pip using `--pre` to select the current, pre-GA version of ADK 2.0:
+  2. Install the package using pip using compatible release `~=` operator for ADK 1.x:
          
-         pip install google-adk --pre
+         pip install "google-adk~=1.0"
          
 
 
@@ -312,17 +365,13 @@ Windows CMDWindows PowershellMacOS / Linux
     source .venv/bin/activate
     
 
-Note: Updating existing ADK 1.0 projects
-
-The `--pre` option does not install the ADK 2.0 libraries if you already have ADK 1.0 libraries installed in a Python environment. You can force installation of the ADK 2.0 library by adding the `--force` option to the install command shown above. Remember to use Python virtual environments for ADK 2.0, and **ensure you have backups of ADK 1.0 projects _before_ updating them to use ADK 2.0 libraries.**
-
 ## Next steps¶
 
 Read the developer guides for building agents with ADK 2.0 features:
 
-  * [**Graph-based workflows**](/workflows/)
+  * [**Graph-based workflows**](/graphs/)
   * [**Collaborative agents**](/workflows/collaboration/)
-  * [**Dynamic workflows**](/workflows/dynamic/)
+  * [**Dynamic workflows**](/graphs/dynamic/)
 
 
 
@@ -335,7 +384,7 @@ Check out these ADK 2.0 code samples for testing and inspiration:
 
 Thanks for checking out ADK 2.0! We look forward to your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
 
-Back to top  [ Previous  Contributing Guide  ](../community/contributing-guide/) [ Next  Graph-based agent workflows  ](../workflows/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

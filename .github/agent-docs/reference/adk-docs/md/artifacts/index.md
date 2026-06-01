@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Artifacts 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../get-started/typescript/)
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
+      * [ Kotlin  ](../get-started/kotlin/)
+      * [ Installation  ](../get-started/installation/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../visual-builder/)
-      * [ Coding with AI  ](../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../get-started/installation/)
+      * [ Code with AI  ](../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
-      * [ LLM agents  ](../agents/llm-agents/)
-      * [ Workflow agents  ](../agents/workflow-agents/)
+      * [ Simple agents  ](../agents/llm-agents/)
+    * [ Graph Workflows  ](../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../agents/custom-agents/)
-      * [ Multi-agent systems  ](../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../graphs/routes/)
+      * [ Data handling  ](../graphs/data-handling/)
+      * [ Human input  ](../graphs/human-input/)
+      * [ Dynamic workflows  ](../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../workflows/collaboration/)
+      * [ Template workflows  ](../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../agents/custom-agents/)
       * [ Agent routing  ](../agents/routing/)
-      * [ Agent Config  ](../agents/config/)
+      * [ Workflow patterns  ](../workflows/patterns/)
     * [ Models for Agents  ](../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
       * [ LiteRT-LM  ](../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../tools-custom/function-tools/)
-        * [ Tool performance  ](../tools-custom/performance/)
-        * [ Action confirmations  ](../tools-custom/confirmation/)
-      * [ MCP tools  ](../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
-      * [ Authentication  ](../tools-custom/authentication/)
-      * [ Tool limitations  ](../tools/limitations/)
-    * [ Skills for Agents  ](../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../visual-builder/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
@@ -136,38 +133,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../get-started/about/)
+    * [ Custom Tools  ](../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../tools-custom/function-tools/)
+        * [ Tool performance  ](../tools-custom/performance/)
+        * [ Action confirmations  ](../tools-custom/confirmation/)
+      * [ MCP tools  ](../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
+      * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
+    * [ Artifacts  ](./)
+
+Artifacts 
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
+    * [ App management  ](../apps/)
+
+App management 
+      * [ Callbacks  ](../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../plugins/)
     * [ Context  ](../context/)
 
 Context 
       * [ Context caching  ](../context/caching/)
       * [ Context compression  ](../context/compaction/)
-    * [ Sessions & Memory  ](../sessions/)
+    * [ Sessions and Memory  ](../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../sessions/session/rewind/)
         * [ Migrate sessions  ](../sessions/session/migrate/)
       * [ State  ](../sessions/state/)
+      * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
-    * [ Callbacks  ](../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](./)
-
-Artifacts 
-    * [ Events  ](../events/)
-
-Events 
-    * [ Apps  ](../apps/)
-
-Apps 
-    * [ Plugins  ](../plugins/)
-
-Plugins 
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -211,6 +218,7 @@ API Reference
       * [ Typescript ADK  ](../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
+      * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
@@ -222,14 +230,6 @@ Community
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../workflows/graph-routes/)
-      * [ Data handling  ](../workflows/data-handling/)
-      * [ Human input  ](../workflows/human-input/)
-    * [ Collaborative agents  ](../workflows/collaboration/)
-    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
@@ -266,7 +266,7 @@ Table of contents
 
 # Artifacts¶
 
-Supported in ADKPython v0.1.0TypeScript v0.6.1Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.6.1Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 In ADK, **Artifacts** represent a crucial mechanism for managing named, versioned binary data associated either with a specific user interaction session or persistently with a user across multiple sessions. They allow your agents and tools to handle data beyond simple text strings, enabling richer interactions involving files, images, audio, and other binary formats.
 
@@ -285,7 +285,7 @@ The specific parameters or method names for the primitives may vary slightly by 
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Example of how an artifact might be represented as a types.Part
@@ -368,6 +368,25 @@ PythonTypescriptGoJava
         }
     }
     
+    
+    
+    fun artifactRepresentationExample() {
+        // Assume 'imageBytes' contains the binary data of a PNG image
+        val imageBytes = byteArrayOf(0x89.toByte(), 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A)
+    
+        val imageArtifact =
+            Part(
+                inlineData =
+                    Blob(
+                        mimeType = "image/png",
+                        data = imageBytes,
+                    ),
+            )
+    
+        println("Artifact MIME Type: ${imageArtifact.inlineData?.mimeType}")
+        println("Artifact Data (first 8 bytes): ${imageArtifact.inlineData?.data?.take(8)}")
+    }
+    
 
   * **Persistence & Management:** Artifacts are not stored directly within the agent or session state. Their storage and retrieval are managed by a dedicated **Artifact Service** (an implementation of `BaseArtifactService`, defined in `google.adk.artifacts`. ADK provides various implementations, such as:
     * An in-memory service for testing or temporary storage (e.g., `InMemoryArtifactService` in Python, defined in `google.adk.artifacts.in_memory_artifact_service.py`).
@@ -433,7 +452,7 @@ Understanding artifacts involves grasping a few key components: the service that
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     from google.adk.runners import Runner
@@ -551,6 +570,23 @@ PythonTypescriptGoJava
     Runner runner = new Runner(myAgent, "my_artifact_app", artifactService, sessionService); // Provide the service instance here
     // Now, contexts within runs managed by this runner can use artifact methods
     
+    
+    
+    fun configureRunnerExample() {
+        val myAgent =
+            LlmAgent(name = "artifact_user_agent", model = Gemini(name = "gemini-flash-latest"))
+        val artifactService = InMemoryArtifactService()
+        val sessionService = InMemorySessionService()
+    
+        val runner =
+            InMemoryRunner(
+                agent = myAgent,
+                appName = "my_artifact_app",
+                sessionService = sessionService,
+                artifactService = artifactService,
+            )
+    }
+    
 
 ### Artifact Data¶
 
@@ -563,7 +599,7 @@ PythonTypescriptGoJava
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     import google.genai.types as types
@@ -656,6 +692,24 @@ PythonTypescriptGoJava
       }
     }
     
+    
+    
+    fun artifactDataExample() {
+        val pdfBytes = "%PDF-1.4...".toByteArray()
+        val pdfMimeType = "application/pdf"
+    
+        val pdfArtifact =
+            Part(
+                inlineData =
+                    Blob(
+                        data = pdfBytes,
+                        mimeType = pdfMimeType,
+                    ),
+            )
+    
+        println("Created Kotlin artifact with MIME type: ${pdfArtifact.inlineData?.mimeType}")
+    }
+    
 
 ### Filename¶
 
@@ -687,7 +741,7 @@ PythonTypescriptGoJava
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Example illustrating namespace difference (conceptual)
@@ -758,6 +812,16 @@ PythonTypescriptGoJava
     // and scope it to app_name and user_id, making it accessible across sessions for that user.
     // artifactService.saveArtifact(appName, userId, sessionId1, userConfigFilename, someData);
     
+    
+    
+    fun namespacingExample() {
+        // Session-specific artifact filename
+        val sessionReportFilename = "summary.txt"
+    
+        // User-specific artifact filename
+        val userConfigFilename = "user:settings.json"
+    }
+    
 
 These core concepts work together to provide a flexible system for managing binary data within the ADK framework.
 
@@ -771,7 +835,7 @@ _(Note: In TypeScript,`CallbackContext` and `ToolContext` are unified into a sin
 
 Before you can use any artifact methods via the context objects, you **must** provide an instance of a `BaseArtifactService` implementation (like `InMemoryArtifactService` or `GcsArtifactService`) when initializing your `Runner`.
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
 
 In Python, you provide this instance when initializing your `Runner`.
     
@@ -912,6 +976,27 @@ In Java, you would instantiate a `BaseArtifactService` implementation and then e
     }
     
 
+In Kotlin, you provide this instance when initializing your `Runner`.
+    
+    
+    fun configureRunnerExample() {
+        val myAgent =
+            LlmAgent(name = "artifact_user_agent", model = Gemini(name = "gemini-flash-latest"))
+        val artifactService = InMemoryArtifactService()
+        val sessionService = InMemorySessionService()
+    
+        val runner =
+            InMemoryRunner(
+                agent = myAgent,
+                appName = "my_artifact_app",
+                sessionService = sessionService,
+                artifactService = artifactService,
+            )
+    }
+    
+
+If no `artifactService` is configured, calling `saveArtifact`, `loadArtifact`, or `listArtifacts` on the context objects will throw an exception.
+
 ### Accessing Methods¶
 
 The artifact interaction methods are available directly on instances of `CallbackContext` (passed to agent and model callbacks) and `ToolContext` (passed to tool callbacks) in Python, Go, and Java and available on the unified `Context` in TypeScript.
@@ -920,7 +1005,7 @@ The artifact interaction methods are available directly on instances of `Callbac
 
   * **Code Example:**
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
         
         import google.genai.types as types
         from google.adk.agents.callback_context import CallbackContext # Or ToolContext
@@ -1051,6 +1136,37 @@ PythonTypescriptGoJava
         }
         
 
+In Kotlin, you access the `ArtifactService` from the `ToolContext` (or `CallbackContext` via `invocationContext`) to save an artifact.
+        
+        suspend fun saveGeneratedReport(
+            context: ToolContext,
+            reportBytes: ByteArray,
+        ) {
+            val reportArtifact =
+                Part(
+                    inlineData =
+                        Blob(
+                            data = reportBytes,
+                            mimeType = "application/pdf",
+                        ),
+                )
+            val filename = "generated_report.pdf"
+        
+            val service = context.invocationContext.artifactService
+            if (service != null) {
+                val version =
+                    service.saveArtifact(
+                        context.invocationContext.session.key,
+                        filename,
+                        reportArtifact,
+                    )
+                println("Successfully saved Kotlin artifact '$filename' as version $version.")
+            } else {
+                println("Artifact service not available.")
+            }
+        }
+        
+
 
 
 
@@ -1058,7 +1174,7 @@ PythonTypescriptGoJava
 
   * **Code Example:**
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
         
         import google.genai.types as types
         from google.adk.agents.callback_context import CallbackContext # Or ToolContext
@@ -1250,6 +1366,23 @@ PythonTypescriptGoJava
         }
         
 
+In Kotlin, you can load an artifact directly from the `ToolContext` (or `CallbackContext`) using `context.loadArtifact(name)`.
+        
+        suspend fun processLatestReport(context: ToolContext) {
+            val filename = "generated_report.pdf"
+            val reportArtifact = context.loadArtifact(filename)
+        
+            if (reportArtifact != null && reportArtifact.inlineData != null) {
+                println("Successfully loaded latest Kotlin artifact '$filename'.")
+                println("MIME Type: ${reportArtifact.inlineData?.mimeType}")
+                val pdfBytes = reportArtifact.inlineData?.data
+                println("Report size: ${pdfBytes?.size} bytes.")
+            } else {
+                println("Kotlin artifact '$filename' not found.")
+            }
+        }
+        
+
 
 
 
@@ -1259,7 +1392,7 @@ You can add `LoadArtifactsTool` when the model should decide which available art
 
 `LoadArtifactsTool` lists available artifacts in the model instructions. When the model calls the `load_artifacts` tool, ADK temporarily appends the selected artifact contents to that request so the model can answer with the file content in context. The loaded artifact content is not permanently saved back into the session history, so the model should call the tool again when it needs the same artifact in a later turn.
 
-PythonGo
+PythonGoKotlin
     
     
     from google.adk.agents import LlmAgent
@@ -1299,6 +1432,24 @@ Make sure the `Runner` for this agent is configured with an `artifact_service`; 
     
 
 Make sure the `runner.Config` for this agent includes an `ArtifactService`; otherwise artifact listing and loading will fail.
+    
+    
+    fun loadArtifactsToolExample() {
+        val rootAgent =
+            LlmAgent(
+                name = "artifact_reader",
+                model = Gemini(name = "gemini-flash-latest"),
+                instruction =
+                    Instruction(
+                        "Answer questions about available user files. " +
+                            "Call load_artifacts before answering when you need file contents.",
+                    ),
+                tools = listOf(LoadArtifactsTool()),
+            )
+    }
+    
+
+Make sure the `Runner` for this agent is configured with an `artifactService`; otherwise artifact listing and loading will fail.
 
 #### Listing Artifact Filenames¶
 
@@ -1482,6 +1633,20 @@ PythonTypescriptGoJava
 
 
 
+Kotlin
+    
+    
+    suspend fun listUserFiles(context: ToolContext): String {
+        val availableFiles = context.listArtifacts()
+        if (availableFiles.isEmpty()) {
+            return "You have no saved artifacts."
+        } else {
+            val fileListStr = availableFiles.joinToString("\n") { "- $it" }
+            return "Here are your available Kotlin artifacts:\n$fileListStr"
+        }
+    }
+    
+
 These methods for saving, loading, and listing provide a convenient and consistent way to manage binary data persistence within ADK, whether using Python's context objects or directly interacting with the `BaseArtifactService` in Java, regardless of the chosen backend storage implementation.
 
 ## Available Implementations¶
@@ -1502,7 +1667,7 @@ ADK provides concrete implementations of the `BaseArtifactService` interface, of
     * Suitable for short-lived demonstrations or scenarios where artifact data is purely temporary within a single run of the application.
   * **Instantiation:**
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
         
         from google.adk.artifacts import InMemoryArtifactService
         
@@ -1560,13 +1725,16 @@ PythonTypescriptGoJava
             }
         }
         
-
-
-
+        
+        fun inMemoryServiceExample() {
+            val inMemoryService = InMemoryArtifactService()
+        }
+        
 
 ### GcsArtifactService¶
 
   * **Storage Mechanism:** Leverages Google Cloud Storage (GCS) for persistent artifact storage. Each version of an artifact is stored as a separate object (blob) within a specified GCS bucket.
+
   * **Object Naming Convention:** It constructs GCS object names (blob names) using a hierarchical path structure.
   * **Key Features:**
     * **Persistence:** Artifacts stored in GCS persist across application restarts and deployments.
@@ -1579,7 +1747,7 @@ PythonTypescriptGoJava
     * Applications needing long-term storage and retrieval of user or session data.
   * **Instantiation:**
 
-PythonTypescriptJava
+PythonTypescriptJavaKotlin
         
         from google.adk.artifacts import GcsArtifactService
         
@@ -1658,11 +1826,24 @@ PythonTypescriptJava
           }
         }
         
-
-
-
+        
+        fun gcsServiceExample() {
+            val gcsBucketName = "your-gcs-bucket-for-adk-artifacts"
+            try {
+                // Initialize the GCS Storage client (usually uses Application Default Credentials)
+                val storage = com.google.cloud.storage.StorageOptions.getDefaultInstance().service
+                val gcsService = GcsArtifactService(bucketName = gcsBucketName, storageClient = storage)
+                println("Kotlin GcsArtifactService initialized for bucket: $gcsBucketName")
+            } catch (e: Exception) {
+                println("Error initializing Kotlin GcsArtifactService: ${e.message}")
+            }
+        }
+        
 
 Choosing the appropriate `ArtifactService` implementation depends on your application's requirements for data persistence, scalability, and operational environment.
+
+
+
 
 ## Best Practices¶
 
@@ -1685,7 +1866,7 @@ To use artifacts effectively and maintainably:
 
 
 
-Back to top  [ Previous  Callback patterns  ](../callbacks/design-patterns-and-best-practices/) [ Next  Events  ](../events/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

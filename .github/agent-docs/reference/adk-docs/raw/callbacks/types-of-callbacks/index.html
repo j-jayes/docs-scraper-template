@@ -7604,7 +7604,11 @@ runtime <code>TypeError</code> failures.</p>
 </ul>
 <h3 id="after-agent-callback">After Agent Callback<a class="headerlink" href="#after-agent-callback" title="Permanent link">&para;</a></h3>
 <p><strong>When:</strong> Called <em>immediately after</em> the agent's <code>_run_async_impl</code> (or <code>_run_live_impl</code>) method successfully completes. It does <em>not</em> run if the agent was skipped due to <code>before_agent_callback</code> returning content or if <code>end_invocation</code> was set during the agent's run.</p>
-<p><strong>Purpose:</strong> Useful for cleanup tasks, post-execution validation, logging the completion of an agent's activity, modifying final state, or augmenting the agent's final output.</p>
+<p><strong>Purpose:</strong> Useful for cleanup tasks, post-execution validation, logging the completion of an agent's activity, or modifying final state.</p>
+<div class="admonition note">
+<p class="admonition-title">After Agent Callback output modification limitations</p>
+<p>The <code>after_agent_callback</code> can not fully alter the response output because the agent may have called AI models multiple times and omitted multiple events. So modifying the output is not allowed, although you can <em>append</em> additional content. If you want to change an AI model response, consider <code>after_model_callback</code>.</p>
+</div>
 <details>
 <summary>Code</summary>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="python_1" name="__tabbed_2" type="radio" /><input id="typescript_1" name="__tabbed_2" type="radio" /><input id="go_1" name="__tabbed_2" type="radio" /><input id="java_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="python_1">Python</label><label for="typescript_1">Typescript</label><label for="go_1">Go</label><label for="java_1">Java</label></div>

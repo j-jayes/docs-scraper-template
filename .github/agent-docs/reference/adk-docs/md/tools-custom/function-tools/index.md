@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Overview 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
       * [ Agent routing  ](../../agents/routing/)
-      * [ Agent Config  ](../../agents/config/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
@@ -77,51 +88,14 @@ Models for Agents
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * Overview  [ Overview  ](./) Table of contents 
-          * Function Tools 
-            * How it Works 
-            * Defining Function Signatures 
-              * Parameters 
-                * Required Parameters 
-                * Optional Parameters 
-                * Optional Parameters with typing.Optional 
-                * Variadic Parameters (*args and **kwargs) 
-              * Return Type 
-              * Docstrings 
-            * Passing Data Between Tools 
-            * Example 
-            * Best Practices 
-          * Long Running Function Tools 
-            * How it Works 
-            * Creating the Tool 
-            * Intermediate / Final result Updates 
-              * Key aspects of this example 
-          * Agent-as-a-Tool 
-            * Key difference from sub-agents 
-            * Usage 
-            * Customization 
-            * How it works 
-        * [ Tool performance  ](../performance/)
-        * [ Action confirmations  ](../confirmation/)
-      * [ MCP tools  ](../mcp-tools/)
-      * [ OpenAPI tools  ](../openapi-tools/)
-      * [ Authentication  ](../authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -159,38 +133,71 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * Overview  [ Overview  ](./) Table of contents 
+          * Function Tools 
+            * How it Works 
+            * Defining Function Signatures 
+              * Parameters 
+                * Required Parameters 
+                * Optional Parameters 
+                * Optional Parameters with typing.Optional 
+                * Variadic Parameters (*args and **kwargs) 
+              * Return Type 
+              * Docstrings 
+            * Passing Data Between Tools 
+            * Example 
+            * Best Practices 
+          * Long Running Function Tools 
+            * How it Works 
+            * Creating the Tool 
+            * Intermediate / Final result Updates 
+              * Key aspects of this example 
+          * Agent-as-a-Tool 
+            * Key difference from sub-agents 
+            * Usage 
+            * Customization 
+            * How it works 
+        * [ Tool performance  ](../performance/)
+        * [ Action confirmations  ](../confirmation/)
+      * [ MCP tools  ](../mcp-tools/)
+      * [ OpenAPI tools  ](../openapi-tools/)
+      * [ Authentication  ](../authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -234,6 +241,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -245,14 +253,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -285,7 +285,7 @@ Table of contents
 
 
   1. [ Home  ](../..)
-  2. [ Build Agents  ](../../get-started/)
+  2. [ Components  ](../../get-started/about/)
   3. [ Custom Tools  ](../)
   4. [ Function tools  ](./)
 
@@ -293,7 +293,7 @@ Table of contents
 
 # Function tools¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 When pre-built ADK tools don't meet your requirements, you can create custom _function tools_. Building function tools allows you to create tailored functionality, such as connecting to proprietary databases or implementing unique algorithms. For example, a function tool, `myfinancetool`, might be a function that calculates a specific financial metric. ADK also supports long-running functions, so if that calculation takes a while, the agent can continue working on other tasks.
 
@@ -321,7 +321,7 @@ A well-defined function signature is crucial for the LLM to use your tool correc
 
 ##### Required Parameters¶
 
-PythonGoJava
+PythonGoJavaKotlin
 
 A parameter is considered **required** if it has a type hint but **no default value**. The LLM must provide a value for this argument when it calls the tool. The parameter's description is taken from the function's docstring.
 
@@ -386,9 +386,33 @@ Example: Required Parameters
 
 In this example, both `location` and `unit` are mandatory.
 
+In Kotlin, parameters are considered **required** by default if they are of a non-nullable type and have no default value. The LLM must provide a value for these arguments.
+
+The `@Param` annotation is used to provide the argument's description. This is crucial for the LLM to understand what the argument is for.
+
+Example: Required Parameters
+    
+    
+    class WeatherService {
+        /**
+         * Retrieves the weather for a city in the specified unit.
+         */
+        @Tool
+        fun getWeather(
+            @Param("The city and state, e.g., San Francisco, CA") location: String,
+            @Param("The temperature unit, either 'Celsius' or 'Fahrenheit'") unit: String,
+        ): String {
+            // ... function logic ...
+            return "Weather for $location is sunny in $unit."
+        }
+    }
+    
+
+In this example, both `location` and `unit` are mandatory.
+
 ##### Optional Parameters¶
 
-PythonGoJava
+PythonGoJavaKotlin
 
 A parameter is considered **optional** if you provide a **default value**. This is the standard Python way to define optional arguments. You can also mark a parameter as optional using `typing.Optional[SomeType]` or the `| None` syntax (Python 3.10+).
 
@@ -463,6 +487,33 @@ Example: Optional Parameters
 
 Here, `flexibleDays` is optional. The LLM can choose to provide it, but it's not required.
 
+In Kotlin, a parameter is considered **optional** if it is of a **nullable type** or if it has a **default value**.
+
+Example: Optional Parameters
+    
+    
+    class FlightService {
+        /**
+         * Searches for flights.
+         */
+        @Tool
+        fun searchFlights(
+            @Param("The destination city.") destination: String,
+            @Param("The desired departure date.") departureDate: String,
+            @Param("Number of flexible days for the search. Defaults to 0.") flexibleDays: Int? = 0,
+        ): String {
+            // ... function logic ...
+            val days = flexibleDays ?: 0
+            if (days > 0) {
+                return "Found flexible flights to $destination."
+            }
+            return "Found flights to $destination on $departureDate."
+        }
+    }
+    
+
+Here, `flexibleDays` is optional. The LLM can choose to provide it, but it's not required.
+
 ##### Optional Parameters with `typing.Optional`¶
 
 You can also mark a parameter as optional using `typing.Optional[SomeType]` or the `| None` syntax (Python 3.10+). This signals that the parameter can be `None`. When combined with a default value of `None`, it behaves as a standard optional parameter.
@@ -494,13 +545,13 @@ While you can include `*args` (variable positional arguments) and `**kwargs` (va
 
 #### Return Type¶
 
-The preferred return type for a Function Tool is a **dictionary** in Python, a **Map** or custom **Record or POJO** in Java, or an **object** in TypeScript. This allows you to structure the response with key-value pairs, providing context and clarity to the LLM. If your function returns a type other than a dictionary or map, the framework automatically wraps it into a dictionary with a single key named **"result"**.
+The preferred return type for a Function Tool is a **dictionary** in Python, a **Map** or custom **Record or POJO** in Java, an **object** in TypeScript, or a **Map** or **Data Class** in Kotlin. This allows you to structure the response with key-value pairs, providing context and clarity to the LLM. If your function returns a type other than a dictionary or map, the framework automatically wraps it into a dictionary with a single key named **"result"**.
 
 Strive to make your return values as descriptive as possible. _For example,_ instead of returning a numeric error code, return a dictionary with an "error_message" key containing a human-readable explanation. **Remember that the LLM** , not a piece of code, needs to understand the result. As a best practice, include a "status" key in your return dictionary to indicate the overall outcome (e.g., "success", "error", "pending"), providing the LLM with a clear signal about the operation's state.
 
 #### Docstrings¶
 
-The docstring of your function serves as the tool's **description** and is sent to the LLM. Therefore, a well-written and comprehensive docstring is crucial for the LLM to understand how to use the tool effectively. Clearly explain the purpose of the function, the meaning of its parameters, and the expected return values. In Java, you can use Javadoc comments or the `@Schema(description="...")` annotation on your method to serve as this description.
+The docstring of your function serves as the tool's **description** and is sent to the LLM. Therefore, a well-written and comprehensive docstring is crucial for the LLM to understand how to use the tool effectively. Clearly explain the purpose of the function, the meaning of its parameters, and the expected return values. In Java, you can use Javadoc comments or the `@Schema(description="...")` annotation on your method to serve as this description. In Kotlin, you can use KDoc comments or the `@Tool(description="...")` and `@Param(description="...")` annotations to provide these descriptions.
 
 ### Passing Data Between Tools¶
 
@@ -516,7 +567,7 @@ All tool calls within a single agent turn share the same `InvocationContext`. Th
 
 Example
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
 
 This tool is a python function which obtains the Stock price of a given Stock ticker/ symbol.
 
@@ -1074,6 +1125,47 @@ The return value from this tool will be wrapped into a Map.
     For input `GOOG`: {"symbol": "GOOG", "price": "1.0"}
     
 
+This tool retrieves the mocked value of a stock price.
+    
+    
+    data class StockPrice(val symbol: String, val price: Double)
+    
+    class StockService {
+        /**
+         * Retrieves the stock price for a given symbol.
+         */
+        @Tool
+        fun getStockPrice(
+            @Param("The stock symbol, e.g. GOOG") symbol: String,
+        ): StockPrice {
+            // In a real app, you would call a stock price API here.
+            return StockPrice(symbol = symbol, price = 123.45)
+        }
+    }
+    
+    fun main() =
+        runBlocking {
+            val stockService = StockService()
+    
+            val agent =
+                LlmAgent(
+                    name = "stock_agent",
+                    model = Gemini(name = "gemini-flash-latest"),
+                    instruction = Instruction("You are a helpful stock assistant."),
+                    // .generatedTools() is used to get the tools from the annotated class.
+                    tools = stockService.generatedTools(),
+                )
+    
+            // ... use the agent ...
+        }
+    
+
+The return value from this tool will be a Map.
+    
+    
+    For input `GOOG`: {"symbol": "GOOG", "price": 123.45}
+    
+
 ### Best Practices¶
 
 While you have considerable flexibility in defining your function, remember that simplicity enhances usability for the LLM. Consider these guidelines:
@@ -1118,7 +1210,7 @@ In Python, you wrap a function with `LongRunningFunctionTool`. In Java, you pass
 
 Define your tool function and wrap it using the `LongRunningFunctionTool` class:
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # 1. Define the long running function
@@ -1268,6 +1360,50 @@ PythonTypeScriptGoJava
                 .tools(approveTool)
                 .build();
       }
+    }
+    
+
+In Kotlin, you can create a long-running function tool by setting the `isLongRunning` property to `true` in the `@Tool` annotation.
+    
+    
+    data class ReimbursementApproval(
+        val status: String,
+        val approver: String,
+        val purpose: String,
+        val amount: Double,
+        val ticketId: String,
+    )
+    
+    class ReimbursementService {
+        /**
+         * Asks for approval for the reimbursement.
+         */
+        @Tool(isLongRunning = true)
+        fun askForApproval(
+            @Param("The purpose of the reimbursement.") purpose: String,
+            @Param("The amount to be reimbursed.") amount: Double,
+        ): ReimbursementApproval {
+            // Simulate creating a ticket and sending a notification.
+            // This tool returns the initial result and then the agent pauses.
+            return ReimbursementApproval(
+                status = "pending",
+                approver = "Sean Zhou",
+                purpose = purpose,
+                amount = amount,
+                ticketId = "approval-ticket-1",
+            )
+        }
+    }
+    
+    fun main() {
+        val service = ReimbursementService()
+        val agent =
+            LlmAgent(
+                name = "approver_agent",
+                model = Gemini(name = "gemini-flash-latest"),
+                instruction = Instruction("You are a helpful reimbursement assistant."),
+                tools = service.generatedTools(),
+            )
     }
     
 
@@ -2035,7 +2171,7 @@ It's important to distinguish an Agent-as-a-Tool from a Sub-Agent.
 
 To use an agent as a tool, wrap the agent with the AgentTool class.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     tools=[AgentTool(agent=agent_b)]
@@ -2052,16 +2188,20 @@ PythonTypeScriptGoJava
     
     AgentTool.create(agent)
     
+    
+    
+    AgentTool(agent = agentB)
+    
 
 ### Customization¶
 
 The `AgentTool` class provides the following attributes for customizing its behavior:
 
-  * **skip_summarization: bool:** If set to True, the framework will **bypass the LLM-based summarization** of the tool agent's response. This can be useful when the tool's response is already well-formatted and requires no further processing.
+  * **skip_summarization** (Python/TypeScript) / **skipSummarization** (Kotlin/Java): (boolean) If set to True, the framework will **bypass the LLM-based summarization** of the tool agent's response. This can be useful when the tool's response is already well-formatted and requires no further processing.
 
 Example
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # Copyright 2025 Google LLC
@@ -2370,6 +2510,82 @@ PythonTypeScriptGoJava
       }
     }
     
+    
+    
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.runners.InMemoryRunner
+    import com.google.adk.kt.tools.AgentTool
+    import com.google.adk.kt.types.Content
+    import com.google.adk.kt.types.Part
+    import kotlinx.coroutines.runBlocking
+    
+    fun main() =
+        runBlocking {
+            val appName = "summary_agent"
+            val userId = "user1234"
+    
+            // Define a specialized agent to be used as a tool
+            val summaryAgent =
+                LlmAgent(
+                    name = "summary_agent",
+                    model = Gemini(name = "gemini-flash-latest"),
+                    description = "Agent to summarize text",
+                    instruction =
+                        Instruction(
+                            "You are an expert summarizer. Please read the following text and provide a concise summary.",
+                        ),
+                )
+    
+            // Wrap the agent in an AgentTool with skipSummarization = true
+            val summaryTool =
+                AgentTool(
+                    agent = summaryAgent,
+                    skipSummarization = true,
+                )
+    
+            // Define the root agent that uses the summary tool
+            val rootAgent =
+                LlmAgent(
+                    name = "root_agent",
+                    model = Gemini(name = "gemini-flash-latest"),
+                    instruction =
+                        Instruction(
+                            "You are a helpful assistant. When the user provides a text, use the 'summary_agent' tool to generate a summary. Always forward the user's message exactly as received to the 'summary_agent' tool. Present the response from the tool to the user.",
+                        ),
+                    tools = listOf(summaryTool),
+                )
+    
+            // Create an InMemoryRunner
+            val runner = InMemoryRunner(agent = rootAgent, appName = appName)
+    
+            val sessionId = "session_001"
+    
+            val longText =
+                """
+                Quantum computing represents a fundamentally different approach to computation, 
+                leveraging the bizarre principles of quantum mechanics to process information. Unlike classical computers 
+                that rely on bits representing either 0 or 1, quantum computers use qubits which can exist in a state of superposition - effectively 
+                being 0, 1, or a combination of both simultaneously. Furthermore, qubits can become entangled, 
+                meaning their fates are intertwined regardless of distance, allowing for complex correlations. This parallelism and 
+                interconnectedness grant quantum computers the potential to solve specific types of incredibly complex problems - such 
+                as drug discovery, materials science, complex system optimization, and breaking certain types of cryptography - far 
+                faster than even the most powerful classical supercomputers could ever achieve, although the technology is still largely in its developmental stages.
+                """.trimIndent()
+    
+            val userMessage = Content(parts = listOf(Part(text = longText)))
+    
+            // Run the agent and collect events
+            runner.runAsync(userId = userId, sessionId = sessionId, newMessage = userMessage).collect {
+                    event ->
+                if (event.isFinalResponse) {
+                    val finalResponse = event.content?.parts?.firstOrNull()?.text
+                    println("Agent Response: $finalResponse")
+                }
+            }
+        }
+    
 
 ### How it works¶
 
@@ -2382,7 +2598,7 @@ PythonTypeScriptGoJava
 
 
 
-Back to top  [ Previous  Custom Tools for ADK  ](../) [ Next  Tool performance  ](../performance/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

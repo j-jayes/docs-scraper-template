@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Optimization 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../get-started/typescript/)
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
+      * [ Kotlin  ](../get-started/kotlin/)
+      * [ Installation  ](../get-started/installation/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -47,22 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../visual-builder/)
-      * [ Coding with AI  ](../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../get-started/installation/)
+      * [ Code with AI  ](../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
-      * [ LLM agents  ](../agents/llm-agents/)
-      * [ Workflow agents  ](../agents/workflow-agents/)
+      * [ Simple agents  ](../agents/llm-agents/)
+    * [ Graph Workflows  ](../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../agents/custom-agents/)
-      * [ Multi-agent systems  ](../agents/multi-agents/)
-      * [ Agent Config  ](../agents/config/)
+Graph Workflows 
+      * [ Graph routes  ](../graphs/routes/)
+      * [ Data handling  ](../graphs/data-handling/)
+      * [ Human input  ](../graphs/human-input/)
+      * [ Dynamic workflows  ](../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../workflows/collaboration/)
+      * [ Template workflows  ](../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../agents/custom-agents/)
+      * [ Agent routing  ](../agents/routing/)
+      * [ Workflow patterns  ](../workflows/patterns/)
     * [ Models for Agents  ](../agents/models/)
 
 Models for Agents 
@@ -71,36 +83,24 @@ Models for Agents
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
+      * [ Model routing  ](../agents/models/routing/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
       * [ LiteRT-LM  ](../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../tools-custom/function-tools/)
-        * [ Tool performance  ](../tools-custom/performance/)
-        * [ Action confirmations  ](../tools-custom/confirmation/)
-      * [ MCP tools  ](../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
-      * [ Authentication  ](../tools-custom/authentication/)
-      * [ Tool limitations  ](../tools/limitations/)
-    * [ Skills for Agents  ](../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../visual-builder/)
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
       * [ Resume Agents  ](../runtime/resume/)
+      * [ Cancel Agent Runs  ](../runtime/cancel/)
       * [ Runtime Config  ](../runtime/runconfig/)
       * [ Event Loop  ](../runtime/event-loop/)
     * [ Deployment  ](../deploy/)
@@ -118,6 +118,7 @@ Agent Runtime
 
 Observability 
       * [ Logging  ](../observability/logging/)
+      * [ Metrics  ](../observability/metrics/)
       * [ Traces  ](../observability/traces/)
     * [ Evaluation  ](../evaluate/)
 
@@ -148,38 +149,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../get-started/about/)
+    * [ Custom Tools  ](../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../tools-custom/function-tools/)
+        * [ Tool performance  ](../tools-custom/performance/)
+        * [ Action confirmations  ](../tools-custom/confirmation/)
+      * [ MCP tools  ](../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
+      * [ Authentication  ](../tools-custom/authentication/)
+      * [ Tool limitations  ](../tools/limitations/)
+    * [ Artifacts  ](../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../skills/)
+
+Skills for Agents 
+    * [ App management  ](../apps/)
+
+App management 
+      * [ Callbacks  ](../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../plugins/)
     * [ Context  ](../context/)
 
 Context 
       * [ Context caching  ](../context/caching/)
       * [ Context compression  ](../context/compaction/)
-    * [ Sessions & Memory  ](../sessions/)
+    * [ Sessions and Memory  ](../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../sessions/session/rewind/)
         * [ Migrate sessions  ](../sessions/session/migrate/)
       * [ State  ](../sessions/state/)
+      * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
-    * [ Callbacks  ](../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../artifacts/)
-
-Artifacts 
-    * [ Events  ](../events/)
-
-Events 
-    * [ Apps  ](../apps/)
-
-Apps 
-    * [ Plugins  ](../plugins/)
-
-Plugins 
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -223,6 +234,7 @@ API Reference
       * [ Typescript ADK  ](../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
+      * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
       * [ Agent Config Reference  ](../api-reference/agentconfig/)
       * [ REST API  ](../api-reference/rest/)
@@ -234,14 +246,6 @@ Community
   * [ ADK 2.0  ](../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../workflows/graph-routes/)
-      * [ Data handling  ](../workflows/data-handling/)
-      * [ Human input  ](../workflows/human-input/)
-    * [ Collaborative agents  ](../workflows/collaboration/)
-    * [ Dynamic workflows  ](../workflows/dynamic/)
 
 
 
@@ -287,13 +291,13 @@ ADK provides an extendable framework for automated agent optimization based on e
 
 ## Example - Optimize a Simple Agent with `adk optimize`¶
 
-In this example, we will use the `adk optimize` command to update the instructions of the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/hello_world) sample agent based on evaluation results over a small eval set.
+In this example, we will use the `adk optimize` command to update the instructions of the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) sample agent based on evaluation results over a small eval set.
 
 ### Step 1: Specify the Example Dataset¶
 
 The default `hello_world` agent instructions describe how to determine whether a number is prime. The eval set for this example adds another aspect that the agent does not have instructions for: numbers can be "good" or "bad" depending on their primality. The optimizer is expected to derive this new rule and add it to the agent instructions.
 
-Create a file `train_eval_set.evalset.json` in [`contributing/samples/hello_world/`](https://github.com/google/adk-python/tree/main/contributing/samples/hello_world) with the following contents:
+Create a file `train_eval_set.evalset.json` in [`contributing/samples/core/hello_world/`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) with the following contents:
     
     
     {
@@ -368,7 +372,7 @@ Create a file `train_eval_set.evalset.json` in [`contributing/samples/hello_worl
 
 The sampler config controls the process for evaluating candidate optimized agents. For example, it specifies the correctness criterion for the agent output and also specifies the eval set to use for optimizing the agent.
 
-The full list of configuration options is available below; for now, simply create a file `sampler_config.json` in [`contributing/samples/hello_world/`](https://github.com/google/adk-python/tree/main/contributing/samples/hello_world) with the following contents:
+The full list of configuration options is available below; for now, simply create a file `sampler_config.json` in [`contributing/samples/core/hello_world/`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) with the following contents:
     
     
     {
@@ -387,8 +391,8 @@ The full list of configuration options is available below; for now, simply creat
 Run the `adk optimize` command, pointing it to the `hello_world` agent's directory and passing the configuration file created above.
     
     
-    adk optimize contributing/samples/hello_world \
-    --sampler_config_file_path contributing/samples/hello_world/sampler_config.json
+    adk optimize contributing/samples/core/hello_world \
+    --sampler_config_file_path contributing/samples/core/hello_world/sampler_config.json
     
 
 The final output varies, but might look similar to the following:
@@ -414,7 +418,7 @@ The final output varies, but might look similar to the following:
     adk optimize [OPTIONS] AGENT_MODULE_FILE_PATH
     
 
-  * `AGENT_MODULE_FILE_PATH`: The path to the `__init__.py` file that contains a module by the name `agent`. The `agent` module must contain a `root_agent`. For an example of a valid setup, examine the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/hello_world) agent.
+  * `AGENT_MODULE_FILE_PATH`: The path to the `__init__.py` file that contains a module by the name `agent`. The `agent` module must contain a `root_agent`. For an example of a valid setup, examine the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) agent.
   * `--sampler_config_file_path PATH`: The path to the config for the sampler. The sampler implementation and config format are described below.
   * `--optimizer_config_file_path PATH` (optional): The path to the config for the agent optimizer. If not provided, the default config will be used. The optimizer implementation, config format, and default config are described below.
   * `--print_detailed_results` (optional): Enables printing some detailed metrics measured by the agent optimizer.
@@ -509,7 +513,7 @@ To create a custom agent optimizer, you must create a class that extends the [`A
 
 ### Optimizing an Agent Programmatically¶
 
-The `adk optimize` command uses the `LocalEvalSampler` and the `GEPARootAgentPromptOptimizer`. When using custom samplers and agent optimizers, you will have to optimize the agent programmatically. The following reference code replicates the functionality of the `adk optimize` command for the above example. To use it, create the dataset as shown in the example and run this code from a Python script within the [same directory](https://github.com/google/adk-python/tree/main/contributing/samples/hello_world):
+The `adk optimize` command uses the `LocalEvalSampler` and the `GEPARootAgentPromptOptimizer`. When using custom samplers and agent optimizers, you will have to optimize the agent programmatically. The following reference code replicates the functionality of the `adk optimize` command for the above example. To use it, create the dataset as shown in the example and run this code from a Python script within the [same directory](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world):
     
     
     import asyncio
@@ -564,7 +568,7 @@ The `adk optimize` command uses the `LocalEvalSampler` and the `GEPARootAgentPro
     )
     
 
-Back to top  [ Previous  Custom Metrics  ](../evaluate/custom_metrics/) [ Next  Safety and Security for AI Agents  ](../safety/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

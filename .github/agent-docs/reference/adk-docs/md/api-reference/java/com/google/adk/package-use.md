@@ -59,6 +59,10 @@ com.google.adk.sessions
 
  
 
+com.google.adk.skills
+
+ 
+
 com.google.adk.tools
 
  
@@ -138,6 +142,16 @@ Class
 Description
 
 [JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.sessions)
+
+The base class for the types that needs JSON serialization/deserialization capability.
+
+  * Classes in [com.google.adk](package-summary.html) used by [com.google.adk.skills](skills/package-summary.html)
+
+Class
+
+Description
+
+[JsonBaseModel](class-use/JsonBaseModel.html#com.google.adk.skills)
 
 The base class for the types that needs JSON serialization/deserialization capability.
 

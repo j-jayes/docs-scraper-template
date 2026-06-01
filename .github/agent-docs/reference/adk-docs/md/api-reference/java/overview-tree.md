@@ -36,6 +36,7 @@ Package Hierarchies:
   * [com.google.adk.apps](com/google/adk/apps/package-tree.html), 
   * [com.google.adk.artifacts](com/google/adk/artifacts/package-tree.html), 
   * [com.google.adk.codeexecutors](com/google/adk/codeexecutors/package-tree.html), 
+  * [com.google.adk.deploy](com/google/adk/deploy/package-tree.html), 
   * [com.google.adk.events](com/google/adk/events/package-tree.html), 
   * [com.google.adk.examples](com/google/adk/examples/package-tree.html), 
   * [com.google.adk.flows](com/google/adk/flows/package-tree.html), 
@@ -62,6 +63,7 @@ Package Hierarchies:
   * [com.google.adk.samples.a2aagent](com/google/adk/samples/a2aagent/package-tree.html), 
   * [com.google.adk.samples.a2aagent.agent](com/google/adk/samples/a2aagent/agent/package-tree.html), 
   * [com.google.adk.sessions](com/google/adk/sessions/package-tree.html), 
+  * [com.google.adk.skills](com/google/adk/skills/package-tree.html), 
   * [com.google.adk.summarizer](com/google/adk/summarizer/package-tree.html), 
   * [com.google.adk.telemetry](com/google/adk/telemetry/package-tree.html), 
   * [com.google.adk.tools](com/google/adk/tools/package-tree.html), 
@@ -89,6 +91,9 @@ Package Hierarchies:
     * org.apache.maven.plugin.AbstractMojo (implements org.apache.maven.plugin.ContextEnabled, org.apache.maven.plugin.Mojo) 
       * com.google.adk.google_adk_maven_plugin.[HelpMojo](com/google/adk/google_adk_maven_plugin/HelpMojo.html "class in com.google.adk.google_adk_maven_plugin")
       * com.google.adk.maven.[WebMojo](com/google/adk/maven/WebMojo.html "class in com.google.adk.maven")
+    * com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")<PathT> (implements com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")) 
+      * com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
+    * com.google.adk.skills.[AbstractSkillSource.SkillMdPath](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills")
     * org.springframework.web.socket.handler.AbstractWebSocketHandler (implements org.springframework.web.socket.WebSocketHandler) 
       * org.springframework.web.socket.handler.TextWebSocketHandler 
         * com.google.adk.web.websocket.[LiveWebSocketHandler](com/google/adk/web/websocket/LiveWebSocketHandler.html "class in com.google.adk.web.websocket")
@@ -189,6 +194,8 @@ Package Hierarchies:
     * com.google.adk.a2a.executor.[Callbacks](com/google/adk/a2a/executor/Callbacks.html "class in com.google.adk.a2a.executor")
     * com.google.adk.agents.[Callbacks](com/google/adk/agents/Callbacks.html "class in com.google.adk.agents")
     * com.google.adk.agents.[CallbackUtil](com/google/adk/agents/CallbackUtil.html "class in com.google.adk.agents")
+    * com.google.adk.models.chat.[ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
+    * com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
     * com.google.adk.models.chat.[ChatCompletionsResponse](com/google/adk/models/chat/ChatCompletionsResponse.html "class in com.google.adk.models.chat")
     * com.google.adk.tutorials.[CityTimeWeather](com/google/adk/tutorials/CityTimeWeather.html "class in com.google.adk.tutorials")
     * com.google.adk.flows.llmflows.[CodeExecution](com/google/adk/flows/llmflows/CodeExecution.html "class in com.google.adk.flows.llmflows")
@@ -240,6 +247,7 @@ Package Hierarchies:
     * com.google.adk.memory.[FirestoreMemoryService](com/google/adk/memory/FirestoreMemoryService.html "class in com.google.adk.memory") (implements com.google.adk.memory.[BaseMemoryService](com/google/adk/memory/BaseMemoryService.html "interface in com.google.adk.memory"))
     * com.google.adk.utils.[FirestoreProperties](com/google/adk/utils/FirestoreProperties.html "class in com.google.adk.utils")
     * com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions"))
+    * com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
     * com.google.adk.tools.[FunctionCallingUtils](com/google/adk/tools/FunctionCallingUtils.html "class in com.google.adk.tools")
     * com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.artifacts.[GcsArtifactService](com/google/adk/artifacts/GcsArtifactService.html "class in com.google.adk.artifacts") (implements com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts"))
@@ -260,6 +268,9 @@ Package Hierarchies:
     * com.google.adk.artifacts.[InMemoryArtifactService](com/google/adk/artifacts/InMemoryArtifactService.html "class in com.google.adk.artifacts") (implements com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts"))
     * com.google.adk.memory.[InMemoryMemoryService](com/google/adk/memory/InMemoryMemoryService.html "class in com.google.adk.memory") (implements com.google.adk.memory.[BaseMemoryService](com/google/adk/memory/BaseMemoryService.html "interface in com.google.adk.memory"))
     * com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions"))
+    * com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills") (implements com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills"))
+    * com.google.adk.skills.[InMemorySkillSource.Builder](com/google/adk/skills/InMemorySkillSource.Builder.html "class in com.google.adk.skills")
+    * com.google.adk.skills.[InMemorySkillSource.Builder.SkillBuilder](com/google/adk/skills/InMemorySkillSource.Builder.SkillBuilder.html "class in com.google.adk.skills")
     * com.google.adk.flows.llmflows.[Instructions](com/google/adk/flows/llmflows/Instructions.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.utils.[InstructionUtils](com/google/adk/utils/InstructionUtils.html "class in com.google.adk.utils")
     * com.google.adk.tools.applicationintegrationtoolset.[IntegrationClient](com/google/adk/tools/applicationintegrationtoolset/IntegrationClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
@@ -278,6 +289,7 @@ Package Hierarchies:
       * com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
       * com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
       * com.google.adk.examples.[Example](com/google/adk/examples/Example.html "class in com.google.adk.examples")
+      * com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
       * com.google.adk.agents.[LiveRequest](com/google/adk/agents/LiveRequest.html "class in com.google.adk.agents")
       * com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
       * com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
@@ -397,6 +409,7 @@ Package Hierarchies:
           * com.google.adk.plugins.[ReplayVerificationError](com/google/adk/plugins/ReplayVerificationError.html "class in com.google.adk.plugins")
           * com.google.adk.sessions.[SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions")
             * com.google.adk.sessions.[SessionNotFoundException](com/google/adk/sessions/SessionNotFoundException.html "class in com.google.adk.sessions")
+        * com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
     * com.google.adk.events.[ToolConfirmation.Builder](com/google/adk/events/ToolConfirmation.Builder.html "class in com.google.adk.events")
     * com.google.adk.tools.[ToolContext.Builder](com/google/adk/tools/ToolContext.Builder.html "class in com.google.adk.tools")
     * com.google.adk.models.springai.[ToolConverter](com/google/adk/models/springai/ToolConverter.html "class in com.google.adk.models.springai")
@@ -475,6 +488,7 @@ Package Hierarchies:
   * com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows")
   * com.google.adk.flows.llmflows.[ResponseProcessor](com/google/adk/flows/llmflows/ResponseProcessor.html "interface in com.google.adk.flows.llmflows")
   * com.google.adk.planner.goap.[SearchStrategy](com/google/adk/planner/goap/SearchStrategy.html "interface in com.google.adk.planner.goap")
+  * com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
   * com.google.adk.tools.[ToolPredicate](com/google/adk/tools/ToolPredicate.html "interface in com.google.adk.tools")
 
 

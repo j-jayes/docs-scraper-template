@@ -1,19 +1,19 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
 
-LLM agents 
+Simple agents 
+
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,34 +49,43 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../config/)
     * [ Agents  ](../)
 
 Agents 
-      * LLM agents  [ LLM agents  ](./) Table of contents 
-        * Defining the Agent's Identity and Purpose 
-        * Guiding the Agent: Instructions (instruction) 
-        * Equipping the Agent: Tools (tools) 
+      * Simple agents  [ Simple agents  ](./) Table of contents 
+        * Define agent identity and purpose 
+        * Guide the Agent: Instructions 
+        * Equip the Agent: Tools 
         * Advanced Configuration & Control 
-          * Fine-Tuning LLM Generation (generate_content_config) 
-          * Structuring Data (input_schema, output_schema, output_key) 
-          * Managing Context (include_contents) 
+          * Fine-tune AI model operation 
+          * Structure data input and output 
+          * Manage agent context 
           * Planner 
           * Code Execution 
-        * Putting It Together: Example 
-        * Related Concepts (Deferred Topics) 
-      * [ Workflow agents  ](../workflow-agents/)
+        * Code example 
+        * Additional features 
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../custom-agents/)
-      * [ Multi-agent systems  ](../multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../custom-agents/)
       * [ Agent routing  ](../routing/)
-      * [ Agent Config  ](../config/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../models/)
 
 Models for Agents 
@@ -88,28 +99,14 @@ Models for Agents
       * [ vLLM  ](../models/vllm/)
       * [ LiteLLM  ](../models/litellm/)
       * [ LiteRT-LM  ](../models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -147,38 +144,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -222,6 +229,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -233,30 +241,22 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
 Table of contents 
 
-  * Defining the Agent's Identity and Purpose 
-  * Guiding the Agent: Instructions (instruction) 
-  * Equipping the Agent: Tools (tools) 
+  * Define agent identity and purpose 
+  * Guide the Agent: Instructions 
+  * Equip the Agent: Tools 
   * Advanced Configuration & Control 
-    * Fine-Tuning LLM Generation (generate_content_config) 
-    * Structuring Data (input_schema, output_schema, output_key) 
-    * Managing Context (include_contents) 
+    * Fine-tune AI model operation 
+    * Structure data input and output 
+    * Manage agent context 
     * Planner 
     * Code Execution 
-  * Putting It Together: Example 
-  * Related Concepts (Deferred Topics) 
+  * Code example 
+  * Additional features 
 
 
 
@@ -266,17 +266,15 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/agents/llm-agents.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/llm-agents.md "View Markdown source")
 
-# LLM Agent¶
+# Simple agents with LlmAgent¶
 
-Supported in ADK Python v0.1.0 Typescript v0.2.0 Go v0.1.0 Java v0.1.0
+Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
-The `LlmAgent` (often aliased simply as `Agent`) is a core component in ADK, acting as the "thinking" part of your application. It leverages the power of a Large Language Model (LLM) for reasoning, understanding natural language, making decisions, generating responses, and interacting with tools.
-
-Unlike deterministic [Workflow Agents](../workflow-agents/) that follow predefined execution paths, `LlmAgent` behavior is non-deterministic. It uses the LLM to interpret instructions and context, deciding dynamically how to proceed, which tools to use (if any), or whether to transfer control to another agent.
+The `LlmAgent` class, often aliased simply as `Agent`, is a core component in ADK, acting as the core part of your agent application. It leverages the power of a Large Language Model (LLM) or generative AI model for reasoning, understanding natural language, making decisions, generating responses, and interacting with tools. Since this type of agent uses an AI model interpret instructions and context, the AI model dynamically decides how to proceed, which tools to use (if any), and what output to provide. As such, the behavior of this type of agent is non-deterministic and must be built and evaluated with this behavior in mind.
 
 Building an effective `LlmAgent` involves defining its identity, clearly guiding its behavior through instructions, and equipping it with the necessary tools and capabilities.
 
-## Defining the Agent's Identity and Purpose¶
+## Define agent identity and purpose¶
 
 First, you need to establish what the agent _is_ and what it's _for_.
 
@@ -289,7 +287,7 @@ First, you need to establish what the agent _is_ and what it's _for_.
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Example: Defining the basic identity
@@ -331,8 +329,17 @@ PythonTypescriptGoJava
             // instruction and tools will be added next
             .build();
     
+    
+    
+    val capitalAgent =
+        LlmAgent(
+            name = "capital_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            description = "Answers user questions about the capital city of a given country.",
+        )
+    
 
-## Guiding the Agent: Instructions (`instruction`)¶
+## Guide the Agent: Instructions¶
 
 The `instruction` parameter is arguably the most critical for shaping an `LlmAgent`'s behavior. It's a string (or a function returning a string) that tells the agent:
 
@@ -362,7 +369,7 @@ The `instruction` parameter is arguably the most critical for shaping an `LlmAge
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Example: Adding instructions
@@ -437,23 +444,43 @@ PythonTypescriptGoJava
             // tools will be added next
             .build();
     
+    
+    
+    val instructedAgent =
+        LlmAgent(
+            name = "capital_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            instruction =
+                Instruction(
+                    """
+                    You are an agent that provides the capital city of a country.
+                    When a user asks for the capital of a country:
+                    1. Identify the country name from the user's query.
+                    2. Use the `getCapitalCity` tool to find the capital.
+                    3. Respond clearly to the user, stating the capital city.
+                    Example Query: "What's the capital of {country}?"
+                    Example Response: "The capital of France is Paris."
+                    """.trimIndent(),
+                ),
+        )
+    
 
-_(Note: For instructions that apply to_ all _agents in a system, consider using`global_instruction` on the root agent, detailed further in the [Multi-Agents](../multi-agents/) section.)_
+**Note:** For instructions that apply to _all_ agents in a system, consider using `global_instruction` on the root agent.
 
-## Equipping the Agent: Tools (`tools`)¶
+## Equip the Agent: Tools¶
 
 Tools give your `LlmAgent` capabilities beyond the LLM's built-in knowledge or reasoning. They allow the agent to interact with the outside world, perform calculations, fetch real-time data, or execute specific actions.
 
   * **`tools` (Optional):** Provide a list of tools the agent can use. Each item in the list can be:
-    * A native function or method (wrapped as a `FunctionTool`). Python ADK automatically wraps the native function into a `FunctionTool` whereas, you must explicitly wrap your Java methods using `FunctionTool.create(...)`
+    * A native function or method (wrapped as a `FunctionTool`). Python ADK automatically wraps the native function into a `FunctionTool` whereas, you must explicitly wrap your Java methods using `FunctionTool.create(...)`. In Kotlin, you can use the `@Tool` annotation to automatically generate a `FunctionTool` at compile-time.
     * An instance of a class inheriting from `BaseTool`.
-    * An instance of another agent (`AgentTool`, enabling agent-to-agent delegation - see [Multi-Agents](../multi-agents/)).
+    * An instance of another agent (`AgentTool`, enabling agent-to-agent delegation - see [Custom agent workflows](/agents/custom-agents/#delegation)).
 
 
 
 The LLM uses the function/tool names, descriptions (from docstrings or the `description` field), and parameter schemas to decide which tool to call based on the conversation and its instructions.
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Define a tool function
@@ -576,6 +603,27 @@ PythonTypescriptGoJava
             .tools(capitalTool) // Provide the function wrapped as a FunctionTool
             .build();
     
+    
+    
+    class CapitalService {
+        @Tool(description = "Retrieves the capital city for a given country.")
+        fun getCapitalCity(
+            @Param("The country to get capital for.") country: String,
+        ): String {
+            val capitals = mapOf("france" to "Paris", "japan" to "Tokyo", "canada" to "Ottawa")
+            return capitals[country.lowercase()] ?: "Sorry, I don't know the capital of $country."
+        }
+    }
+    
+    // Add the tool to the agent
+    // Note: generatedTools() is generated by KSP for classes containing @Tool annotated functions.
+    // In a real project, you would need to set up the ADK KSP processor.
+    // val agentWithTools = LlmAgent(
+    //     name = "capital_agent",
+    //     model = Gemini(name = "gemini-flash-latest"),
+    //     tools = capitalService.generatedTools()
+    // )
+    
 
 Learn more about Tools in [Custom Tools](/tools-custom/).
 
@@ -583,15 +631,15 @@ Learn more about Tools in [Custom Tools](/tools-custom/).
 
 Beyond the core parameters, `LlmAgent` offers several options for finer control:
 
-### Fine-Tuning LLM Generation (`generate_content_config`)¶
+### Fine-tune AI model operation¶
 
-You can adjust how the underlying LLM generates responses using `generate_content_config`.
+You can adjust how the underlying AI model generates responses using `generate_content_config`.
 
   * **`generate_content_config` (Optional):** Pass an instance of [`google.genai.types.GenerateContentConfig`](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentConfig) to control parameters like `temperature` (randomness), `max_output_tokens` (response length), `top_p`, `top_k`, and safety settings.
 
 
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     from google.genai import types
@@ -651,8 +699,21 @@ PythonTypescriptGoJava
                 .build())
             .build();
     
+    
+    
+    val agentWithConfig =
+        LlmAgent(
+            name = "capital_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            generateContentConfig =
+                GenerateContentConfig(
+                    temperature = 0.2f,
+                    maxOutputTokens = 250,
+                ),
+        )
+    
 
-### Structuring Data (`input_schema`, `output_schema`, `output_key`)¶
+### Structure data input and output¶
 
 For scenarios requiring structured data exchange with an `LLM Agent`, the ADK provides mechanisms to define expected input and desired output formats using schema definitions.
 
@@ -771,7 +832,7 @@ The input and output schema is a `google.genai.types.Schema` object.
             .build();
     
 
-### Managing Context (`include_contents`)¶
+### Manage agent context¶
 
 Control whether the agent receives the prior conversation history.
 
@@ -1237,13 +1298,15 @@ PythonJava
     }
     
 
-## Putting It Together: Example¶
+## Code example¶
+
+This following example demonstrates the core concepts discussed in this page. More complex agents might incorporate schemas, context control, and planning.
 
 Code
 
 Here's the complete basic `capital_agent`:
 
-PythonTypescriptGoJava
+PythonTypescriptGoJavaKotlin
     
     
     # Copyright 2025 Google LLC
@@ -2001,19 +2064,49 @@ PythonTypescriptGoJava
       }
     }
     
+    
+    
+    val finalAgent =
+        LlmAgent(
+            name = "capital_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            description = "Answers user questions about the capital city of a given country.",
+            instruction =
+                Instruction(
+                    "You are an agent that provides the capital city of a country...",
+                ),
+            // tools = capitalService.generatedTools() // Assuming tools are added
+        )
+    
+    val sessionService = InMemorySessionService()
+    val runner = InMemoryRunner(finalAgent, "capital_app", sessionService)
+    
+    val userMessage = Content(parts = listOf(Part(text = "What is the capital of France?")))
+    
+    // Use runAsync to get a Flow of events
+    runner.runAsync(
+        userId = "user123",
+        sessionId = "session456",
+        newMessage = userMessage,
+    ).collect {
+            event ->
+        if (event.isFinalResponse) {
+            val finalResponse = event.content?.parts?.firstOrNull()?.text
+            println(finalResponse)
+        }
+    }
+    
 
-_(This example demonstrates the core concepts. More complex agents might incorporate schemas, context control, planning, etc.)_
+## Additional features¶
 
-## Related Concepts (Deferred Topics)¶
+ADK provides additonal features for agents not covered in this guide, including the following:
 
-While this page covers the core configuration of `LlmAgent`, several related concepts provide more advanced control and are detailed elsewhere:
-
-  * **Callbacks:** Intercepting execution points (before/after model calls, before/after tool calls) using `before_model_callback`, `after_model_callback`, etc. See [Callbacks](../../callbacks/types-of-callbacks/).
-  * **Multi-Agent Control:** Advanced strategies for agent interaction, including planning (`planner`), controlling agent transfer (`disallow_transfer_to_parent`, `disallow_transfer_to_peers`), and system-wide instructions (`global_instruction`). See [Multi-Agents](../multi-agents/).
+  * **Callbacks:** Add more controls by intercepting agent execution points, including before and after model calls, and before and after tool calls with [Callbacks](/callbacks/types-of-callbacks/).
+  * **Multi-Agent Control:** Advanced strategies for agent interaction, including planning (`planner`), controlling agent transfer (`disallow_transfer_to_parent`, `disallow_transfer_to_peers`), and system-wide instructions (`global_instruction`). See [Custom agent workflows](/agents/custom-agents/).
 
 
 
-Back to top  [ Previous  Agents  ](../) [ Next  Workflow Agents  ](../workflow-agents/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 

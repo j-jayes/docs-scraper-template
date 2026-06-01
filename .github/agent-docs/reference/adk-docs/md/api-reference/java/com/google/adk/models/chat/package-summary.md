@@ -60,6 +60,14 @@ Class
 
 Description
 
+[ChatCompletionsHttpClient](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
+
+An HTTP client for interacting with OpenAI-compatible chat completions endpoints.
+
+[ChatCompletionsRequest](ChatCompletionsRequest.html "class in com.google.adk.models.chat")
+
+Data Transfer Objects for Chat Completion API requests.
+
 [ChatCompletionsResponse](ChatCompletionsResponse.html "class in com.google.adk.models.chat")
 
 Data Transfer Objects for Chat Completion and Chat Completion Chunk API responses.

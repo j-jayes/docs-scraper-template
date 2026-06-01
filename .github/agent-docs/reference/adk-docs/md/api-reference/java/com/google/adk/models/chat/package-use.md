@@ -25,7 +25,28 @@ LightDarkSystem Setting
 # Uses of Package  
 com.google.adk.models.chat
 
-No usage of com.google.adk.models.chat 
+Packages that use [com.google.adk.models.chat](package-summary.html)
+
+Package
+
+Description
+
+com.google.adk.models.chat
+
+ 
+
+  * Classes in [com.google.adk.models.chat](package-summary.html) used by [com.google.adk.models.chat](package-summary.html)
+
+Class
+
+Description
+
+[ChatCompletionsRequest](class-use/ChatCompletionsRequest.html#com.google.adk.models.chat)
+
+Data Transfer Objects for Chat Completion API requests.
+
+
+
 
 * * *
 

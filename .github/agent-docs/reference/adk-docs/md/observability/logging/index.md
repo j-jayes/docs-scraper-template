@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 Logging 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,22 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
-      * [ Agent Config  ](../../agents/config/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
+      * [ Agent routing  ](../../agents/routing/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
@@ -71,36 +83,24 @@ Models for Agents
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
+      * [ Model routing  ](../../agents/models/routing/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
       * [ Resume Agents  ](../../runtime/resume/)
+      * [ Cancel Agent Runs  ](../../runtime/cancel/)
       * [ Runtime Config  ](../../runtime/runconfig/)
       * [ Event Loop  ](../../runtime/event-loop/)
     * [ Deployment  ](../../deploy/)
@@ -118,21 +118,33 @@ Agent Runtime
 
 Observability 
       * Logging  [ Logging  ](./) Table of contents 
-        * Logging Philosophy 
-        * Configuring Logging in Python 
-          * Example Configuration 
-          * Configuring Logging with the ADK CLI (Python) 
-          * Log Levels (Python) 
-        * Note: It is recommended to use INFO or WARNING in production environments. Only enable DEBUG when actively troubleshooting an issue, as DEBUG logs can be very verbose and may contain sensitive information. 
-        * Configuring Logging in Go 
-          * OpenTelemetry Logging 
-            * Enabling Prompt Logging 
-            * Programmatic Configuration 
-          * General Logging 
-          * Configuring Logging with the ADK Go Launcher 
-        * Reading and Understanding the Logs 
-          * Sample Python Log Entry 
-          * Debugging with Logs: A Practical Example (Python) 
+        * Logging philosophy 
+        * Logging schema 
+          * Structured GenAI logs 
+          * Log levels (Python) 
+        * Logging setup 
+          * Logging in ADK Web 
+            * Logging level 
+            * Capture prompt content 
+            * OTLP export 
+            * GCP export setup 
+          * Python programmatic setup 
+            * Logging level 
+            * Capture prompt content 
+            * OTLP export 
+            * GCP export setup 
+          * Kotlin programmatic setup 
+            * Capture prompt content 
+            * Activity logging with Plugins 
+          * Go programmatic setup 
+            * Capture prompt content 
+            * OTLP export 
+            * GCP export setup 
+        * Understanding log output 
+          * Sample Python log entry 
+          * Debugging example 
+      * [ Metrics  ](../metrics/)
+      * [ Traces  ](../traces/)
     * [ Evaluation  ](../../evaluate/)
 
 Evaluation 
@@ -146,38 +158,48 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../../sessions/)
+    * [ Sessions and Memory  ](../../sessions/)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
         * [ Rewind sessions  ](../../sessions/session/rewind/)
         * [ Migrate sessions  ](../../sessions/session/migrate/)
       * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -221,6 +243,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -232,34 +255,36 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
 Table of contents 
 
-  * Logging Philosophy 
-  * Configuring Logging in Python 
-    * Example Configuration 
-    * Configuring Logging with the ADK CLI (Python) 
-    * Log Levels (Python) 
-  * Note: It is recommended to use INFO or WARNING in production environments. Only enable DEBUG when actively troubleshooting an issue, as DEBUG logs can be very verbose and may contain sensitive information. 
-  * Configuring Logging in Go 
-    * OpenTelemetry Logging 
-      * Enabling Prompt Logging 
-      * Programmatic Configuration 
-    * General Logging 
-    * Configuring Logging with the ADK Go Launcher 
-  * Reading and Understanding the Logs 
-    * Sample Python Log Entry 
-    * Debugging with Logs: A Practical Example (Python) 
+  * Logging philosophy 
+  * Logging schema 
+    * Structured GenAI logs 
+    * Log levels (Python) 
+  * Logging setup 
+    * Logging in ADK Web 
+      * Logging level 
+      * Capture prompt content 
+      * OTLP export 
+      * GCP export setup 
+    * Python programmatic setup 
+      * Logging level 
+      * Capture prompt content 
+      * OTLP export 
+      * GCP export setup 
+    * Kotlin programmatic setup 
+      * Capture prompt content 
+      * Activity logging with Plugins 
+    * Go programmatic setup 
+      * Capture prompt content 
+      * OTLP export 
+      * GCP export setup 
+  * Understanding log output 
+    * Sample Python log entry 
+    * Debugging example 
 
 
 
@@ -271,11 +296,11 @@ Table of contents
 
 # Agent activity logging¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0Go v0.1.0Kotlin v0.1.0
 
-Agent Development Kit (ADK) provides flexible and powerful logging capabilities to monitor agent behavior and debug issues effectively. Understanding how to configure and interpret these logs is crucial for monitoring agent behavior and debugging issues effectively.
+Agent Development Kit (ADK) provides flexible and powerful logging capabilities to monitor agent behavior and debug issues effectively.
 
-## Logging Philosophy¶
+## Logging philosophy¶
 
 ADK's approach to logging is to provide detailed diagnostic information without being overly verbose by default. It is designed to be configured by the application developer, allowing you to tailor the log output to your specific needs, whether in a development or production environment.
 
@@ -285,46 +310,19 @@ ADK's approach to logging is to provide detailed diagnostic information without 
 
 
 
-* * *
+## Logging schema¶
 
-## Configuring Logging in Python¶
+ADK emits logs using standard library facilities and structured GenAI events via OpenTelemetry.
 
-In Python, ADK uses the standard `logging` module.
+### Structured GenAI logs¶
 
-### Example Configuration¶
+Structured GenAI logs emitted via OpenTelemetry follow the [Semantic Conventions for GenAI](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/gen-ai-events.md).
 
-To enable detailed logging, including `DEBUG` level messages, add the following to the top of your script:
-    
-    
-    import logging
-    
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
-    )
-    
+By default prompt content is elided in logs for security. You can enable prompt logging using environment variables or programmatic configuration (see Setup section below).
 
-### Configuring Logging with the ADK CLI (Python)¶
+### Log levels (Python)¶
 
-When running Python agents using the ADK's built-in web or API servers, you can easily control the log verbosity directly from the command line. The `adk web`, `adk api_server`, and `adk deploy cloud_run` commands all accept a `--log_level` option.
-
-To start the web server with `DEBUG` level logging, run:
-    
-    
-    adk web --log_level DEBUG path/to/your/agents_dir
-    
-
-The available log levels for the `--log_level` option are:
-
-  * `DEBUG`
-  * `INFO` (default)
-  * `WARNING`
-  * `ERROR`
-  * `CRITICAL`
-
-
-
-### Log Levels (Python)¶
+The following table describes what is logged at different levels in Python when using the standard logger:
 
 Level | Description | Type of Information Logged  
 ---|---|---  
@@ -356,28 +354,150 @@ Level | Description | Type of Information Logged
 
   
   
-## **Note:** It is recommended to use `INFO` or `WARNING` in production environments. Only enable `DEBUG` when actively troubleshooting an issue, as `DEBUG` logs can be very verbose and may contain sensitive information.¶
+Note
 
-## Configuring Logging in Go¶
+It is recommended to use `INFO` or `WARNING` in production environments. Only enable `DEBUG` when actively troubleshooting an issue, as `DEBUG` logs can be very verbose and may contain sensitive information.
 
-In Go, ADK uses the standard `log` package for general events and OpenTelemetry for GenAI activity logging.
+## Logging setup¶
 
-### OpenTelemetry Logging¶
+### Logging in ADK Web¶
 
-ADK Go uses OpenTelemetry (OTel) to log GenAI requests and responses. By default, prompt content is elided in logs for security. You can enable prompt logging using environment variables or programmatic configuration.
+When running agents using the ADK's `adk web`, `adk api_server`, `adk deploy cloud_run` and `adk deploy gke` commands, you can control the log verbosity or destination.
 
-#### Enabling Prompt Logging¶
+#### Logging level¶
 
-Set the following environment variable to `true` to include full prompts in your OTel logs:
+To start the web server with `DEBUG` level logging, run:
+    
+    
+    adk web --log_level DEBUG path/to/your/agents_dir
+    
+
+The available log levels for the `--log_level` option are: `DEBUG`, `INFO` (default), `WARNING`, `ERROR`, `CRITICAL`.
+
+#### Capture prompt content¶
+
+By default a prompt content is elided in logs for security. You can enable prompt logging using the environment variable:
     
     
     export OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
     
 
-#### Programmatic Configuration¶
+Warning
 
-You can configure telemetry providers using the `google.golang.org/adk/telemetry` package.
+The `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` setting logs the full content of user prompts and agent responses. This is useful for debugging but may capture sensitive data or PII. In production, set this to false or ensure you have appropriate data handling policies in place.
+
+#### OTLP export¶
+
+To export logs to an OTLP-compatible backend, set the standard OTel environment variables:
     
+    
+    export OTEL_EXPORTER_OTLP_LOGS_ENDPOINT="http://your-collector:4318/v1/logs"
+    adk web path/to/your/agents_dir
+    
+
+Note
+
+You can also set the general `OTEL_EXPORTER_OTLP_ENDPOINT` environment variable if you would like to send metrics and traces to the same endpoint in addition to logs.
+
+#### GCP export setup¶
+
+You can enable GCP export using the `--otel_to_cloud` flag:
+    
+    
+    adk web --otel_to_cloud path/to/your/agents_dir
+    
+
+### Python programmatic setup¶
+
+In Python, ADK uses the standard `logging` module and OpenTelemetry for structured GenAI logs.
+
+#### Logging level¶
+
+To enable detailed logging, including `DEBUG` level messages, add the following to the top of your script:
+    
+    
+    import logging
+    
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+    )
+    
+
+#### Capture prompt content¶
+
+You can enable full prompt logging programmatically by setting an environment variable:
+    
+    
+    import os
+    
+    os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "true"
+    
+
+#### OTLP export¶
+
+To export logs to an OpenTelemetry Collector (or an OTLP-compatible backend) programmatically:
+    
+    
+    from google.adk.telemetry.setup import maybe_set_otel_providers
+    import os
+    
+    os.environ["OTEL_EXPORTER_OTLP_LOGS_ENDPOINT"] = "http://your-collector:4318/v1/logs"
+    os.environ["OTEL_SERVICE_NAME"] = "your-adk-agent"
+    os.environ["OTEL_RESOURCE_ATTRIBUTES"] = "key1=value1,key2=value2"
+    maybe_set_otel_providers()
+    
+
+#### GCP export setup¶
+
+To export logs to Google Cloud Logging programmatically, use the OpenTelemetry Google Cloud exporter. Here is an example in Python:
+    
+    
+    from google.adk.telemetry.google_cloud import get_gcp_exporters
+    from google.adk.telemetry.setup import maybe_set_otel_providers
+    import os
+    
+    gcp_exporters = get_gcp_exporters(
+      enable_cloud_logging = True,
+    )
+    os.environ["OTEL_SERVICE_NAME"] = "your-adk-agent"
+    os.environ["OTEL_RESOURCE_ATTRIBUTES"] = "key1=value1,key2=value2"
+    maybe_set_otel_providers([gcp_exporters])
+    
+
+### Kotlin programmatic setup¶
+
+In Kotlin, ADK uses standard JVM logging facilities (defaulting to Flogger) and OpenTelemetry for structured GenAI logs.
+
+#### Capture prompt content¶
+
+You can enable full prompt logging by configuring the global `TelemetryConfig`:
+    
+    
+    --8<-- "examples/kotlin/snippets/observability/LoggingExamples.kt:
+    capture_content"
+    
+
+#### Activity logging with Plugins¶
+
+To get detailed logs of agent activity (user messages, model requests/responses, tool calls) in the console, use the `LoggingPlugin`:
+    
+    
+    // Use the LoggingPlugin for structured activity logging to the console
+    val runner =
+        InMemoryRunner(agent = agent, pluginManager = PluginManager(listOf(LoggingPlugin())))
+    
+
+### Go programmatic setup¶
+
+In Go, ADK uses the `google.golang.org/adk/telemetry` package for OpenTelemetry configuration and the standard `log` package for general events.
+
+#### Capture prompt content¶
+
+You can enable full prompt logging programmatically when initializing telemetry:
+    
+    
+    package main
     
     import (
         "context"
@@ -386,87 +506,82 @@ You can configure telemetry providers using the `google.golang.org/adk/telemetry
     
     func main() {
         ctx := context.Background()
-    
-        // Initialize telemetry with prompt content logging enabled
-        tp, err := telemetry.New(ctx, 
+        tp, err := telemetry.New(ctx,
             telemetry.WithGenAICaptureMessageContent(true),
-            // Add other options like WithOtelToCloud(true) for GCP export
         )
         if err != nil {
             // handle error
         }
         defer tp.Shutdown(ctx)
-    
-        // Register as global OTel providers
         tp.SetGlobalOtelProviders()
-    
-        // Your ADK agent code follows...
     }
     
 
-### General Logging¶
+#### OTLP export¶
+
+To export logs to an OTLP-compatible backend, configure the standard OpenTelemetry environment variables (e.g., `OTEL_EXPORTER_OTLP_ENDPOINT` or `OTEL_EXPORTER_OTLP_LOGS_ENDPOINT`). The ADK telemetry package will automatically use these settings when initialized.
+
+#### GCP export setup¶
+
+To export logs to Google Cloud Logging, use the `WithOtelToCloud` option:
+    
+    
+    package main
+    
+    import (
+        "context"
+        "google.golang.org/adk/telemetry"
+    )
+    
+    func main() {
+        ctx := context.Background()
+        tp, err := telemetry.New(ctx,
+            telemetry.WithOtelToCloud(true),
+        )
+        if err != nil {
+            // handle error
+        }
+        defer tp.Shutdown(ctx)
+        tp.SetGlobalOtelProviders()
+    }
+    
+
+If using the Go launcher, you can also enable GCP export via the CLI flag:
+    
+    
+    go run main.go web -otel_to_cloud
+    
 
 General events (like server startup or HTTP requests) are logged using the standard Go `log` package. These logs are written to `stderr` by default.
 
-### Configuring Logging with the ADK Go Launcher¶
+## Understanding log output¶
 
-When using the ADK Go `full.Launcher` or `prod.Launcher`, telemetry is automatically initialized. You can enable GCP export using the `-otel_to_cloud` flag:
-    
-    
-    go run main.go web -otel_to_cloud a2a
-    
-
-* * *
-
-## Reading and Understanding the Logs¶
-
-The structure of logs depends on your configuration. Structured GenAI logs emitted via OpenTelemetry follow the [Semantic Conventions for GenAI](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/gen-ai-events.md).
-
-### Sample Python Log Entry¶
+### Sample Python log entry¶
     
     
     2025-07-08 11:22:33,456 - DEBUG - google_adk.models.google_llm - LLM Request: contents { ... }
     
 
-| Log Segment | Format Specifier | Meaning | | ------------------------------- | ---------------- | ---------------------------------------------- | | `2025-07-08 11:22:33,456` | `%(asctime)s` | Timestamp | | `DEBUG` | `%(levelname)s` | Severity level | | `google_adk.models.google_llm` | `%(name)s` | Logger name (the module that produced the log) | | `LLM Request: contents { ... }` | `%(message)s` | The actual log message | By reading the logger name, you can immediately pinpoint the source of the log and understand its context within the agent's architecture.
+Log Segment | Format Specifier | Meaning  
+---|---|---  
+`2025-07-08 11:22:33,456` | `%(asctime)s` | Timestamp  
+`DEBUG` | `%(levelname)s` | Severity level  
+`google_adk.models.google_llm` | `%(name)s` | Logger name (the module that produced the log)  
+`LLM Request: contents { ... }` | `%(message)s` | The actual log message  
+  
+By reading the logger name, you can immediately pinpoint the source of the log and understand its context within the agent's architecture.
 
-### Debugging with Logs: A Practical Example (Python)¶
+### Debugging example¶
 
-**Scenario:** Your agent is not producing the expected output, and you suspect the prompt being sent to the LLM is incorrect. **Steps:** 1\. **Enable DEBUG Logging:** In your `main.py`, set the logging level to `DEBUG` as shown in the configuration example. 
+After enabling `DEBUG` logging (see Logging level above), run your agent and look for messages from the `google.adk.models.google_llm` logger. The output shows the full LLM request and response:
     
     
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format='%(asctime)s - %(levelname)s - %(name)s - %(message)s'
-    )
-    
-
-2\. **Run Your Agent:** Execute your agent's task as you normally would. 3\. **Inspect the Logs:** Look through the console output for a message from the `google.adk.models.google_llm` logger that starts with `LLM Request:`. 
-    
-    
-    ...
-    2025-07-10 15:26:13,778 - DEBUG - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-flash-latest, backend: GoogleLLMVariant.GEMINI_API, stream: False
     2025-07-10 15:26:13,778 - DEBUG - google_adk.google.adk.models.google_llm -
     LLM Request:
     -----------------------------------------------------------
     System Instruction:
           You roll dice and answer questions about the outcome of the dice rolls.
-          You can roll dice of different sizes.
-          You can use multiple tools in parallel by calling functions in parallel(in one request and in one round).
-          It is ok to discuss previous dice roles, and comment on the dice rolls.
-          When you are asked to roll a die, you must call the roll_die tool with the number of sides. Be sure to pass in an integer. Do not pass in a string.
-          You should never roll a die on your own.
-          When checking prime numbers, call the check_prime tool with a list of integers. Be sure to pass in a list of integers. You should never pass in a string.
-          You should not check prime numbers before calling the tool.
-          When you are asked to roll a die and check prime numbers, you should always make the following two function calls:
-          1. You should first call the roll_die tool to get a roll. Wait for the function response before calling the check_prime tool.
-          2. After you get the function response from roll_die tool, you should call the check_prime tool with the roll_die result.
-            2.1 If user asks you to check primes based on previous rolls, make sure you include the previous rolls in the list.
-          3. When you respond, you must include the roll_die result from step 1.
-          You should always perform the previous 3 steps when asking for a roll and checking prime numbers.
-          You should not rely on the previous history on prime results.
-    You are an agent. Your internal name is "hello_world_agent".
-    The description about you is "hello world agent that can roll a dice of 8 sides and check prime numbers."
+          ...
     -----------------------------------------------------------
     Contents:
     {"parts":[{"text":"Roll a 6 sided dice"}],"role":"user"}
@@ -477,7 +592,6 @@ The structure of logs depends on your configuration. Structured GenAI logs emitt
     roll_die: {'sides': {'type': <Type.INTEGER: 'INTEGER'>}}
     check_prime: {'nums': {'items': {'type': <Type.INTEGER: 'INTEGER'>}, 'type': <Type.ARRAY: 'ARRAY'>}}
     -----------------------------------------------------------
-    2025-07-10 15:26:13,779 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
     2025-07-10 15:26:14,309 - INFO - google_adk.google.adk.models.google_llm -
     LLM Response:
     -----------------------------------------------------------
@@ -486,11 +600,17 @@ The structure of logs depends on your configuration. Structured GenAI logs emitt
     ...
     
 
-4\. **Analyze the Prompt:** By examining the `System Instruction`, `contents`, `functions` sections of the logged request, you can verify: \- Is the system instruction correct? \- Is the conversation history (`user` and `model` turns) accurate? \- Is the most recent user query included? \- Are the correct tools being provided to the model? \- Are the tools correctly called by the model? \- How long it takes for the model to respond?
+From this output you can verify:
 
-This detailed output allows you to diagnose a wide range of issues, from incorrect prompt engineering to problems with tool definitions, directly from the log files.
+  * Is the system instruction correct?
+  * Is the conversation history (`user` and `model` turns) accurate?
+  * Are the correct tools being provided to the model?
+  * Are the tools correctly called by the model?
+  * How long it takes for the model to respond?
 
-Back to top  [ Previous  Observability for agents  ](../) [ Next  Why Evaluate Agents  ](../../evaluate/)
+
+
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
