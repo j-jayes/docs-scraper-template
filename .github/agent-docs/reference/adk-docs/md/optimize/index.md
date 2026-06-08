@@ -137,6 +137,9 @@ Evaluation
         * Available Samplers and Agent Optimizers 
           * LocalEvalSampler 
           * GEPARootAgentPromptOptimizer 
+          * SimplePromptOptimizer 
+          * Configuration 
+          * Implementation Example 
         * Key Data Types 
           * Sampler Results 
           * Agent Optimizer Results 
@@ -260,6 +263,9 @@ Table of contents
   * Available Samplers and Agent Optimizers 
     * LocalEvalSampler 
     * GEPARootAgentPromptOptimizer 
+    * SimplePromptOptimizer 
+    * Configuration 
+    * Implementation Example 
   * Key Data Types 
     * Sampler Results 
     * Agent Optimizer Results 
@@ -428,11 +434,11 @@ The final output varies, but might look similar to the following:
 
 ## Available Samplers and Agent Optimizers¶
 
-The following samplers and agent optimizers are provided with ADK. The `adk optimize` command uses the `LocalEvalSampler` and `GEPARootAgentPromptOptimizer` described below. You can also use these samplers and agent optimizers in your own scripts.
+ADK provides several samplers and agent optimizers which you can run using the `adk optimize` command line. The available options are as follows: 
 
 ### `LocalEvalSampler`¶
 
-The [`LocalEvalSampler`](https://github.com/google/adk-python/blob/main/src/google/adk/optimization/local_eval_sampler.py) evaluates candidate agents using the ADK's [`LocalEvalService`](https://github.com/google/adk-python/blob/main/src/google/adk/evaluation/local_eval_service.py). It provides eval results as an `UnstructuredSamplingResult`. You can configure the `LocalEvalSampler` with a `LocalEvalSamplerConfig` that contains the following fields:
+The [`LocalEvalSampler`](https://github.com/google/adk-python/blob/main/src/google/adk/optimization/local_eval_sampler.py) evaluates candidate agents using ADK's [`LocalEvalService`](https://github.com/google/adk-python/blob/main/src/google/adk/evaluation/local_eval_service.py). It provides eval results as an `UnstructuredSamplingResult`. You can configure the `LocalEvalSampler` with a `LocalEvalSamplerConfig` that contains the following fields:
 
   * `eval_config`: An [`EvalConfig`](https://github.com/google/adk-python/blob/main/src/google/adk/evaluation/eval_config.py) which provides the evaluation criteria and user simulation options.
   * `app_name`: The app name to use for evaluation.
@@ -460,6 +466,50 @@ You can configure the `GEPARootAgentPromptOptimizer` with a `GEPARootAgentPrompt
   * `run_dir` (optional): The directory to save intermediate and final optimization results if desired. Facilitates warm starts.
 
 
+
+### `SimplePromptOptimizer`¶
+
+The `SimplePromptOptimizer` is an automated, iterative prompt-tuning component designed to systematically improve an agent's root system instructions using empirical evaluation data. Unlike the GEPA-based optimizers that maintain a diverse Pareto frontier of multiple candidate agents, the `SimplePromptOptimizer` executes a direct, sequential optimization loop focused entirely on refining a single primary prompt across a series of specified iterations.
+
+The optimizer automatically executes an asynchronous, four-stage feedback loop:
+
+  1. **Execute:** The target agent processes a specific batch of evaluation tasks managed by an implementation of the `Sampler` class. 
+  2. **Evaluate** : The Sampler scores the agent's outputs against your evaluation datasets and returns a structured `SamplingResult`. 
+  3. **Critique** : An underlying optimization large language model (LLM) (defaulting to Gemini-2.5-flash) analyzes the historical evaluation scores alongside the current prompt to isolate specific behavioral weaknesses or gaps. 
+  4. **Rewrite** : The optimization model generates an updated variation of the system prompt tailored to address the discovered weaknesses. This new prompt is then fed directly into the next iteration.
+
+
+
+**Note:** The optimization loop does not mutate your initial agent instance in place. Upon completion, it returns an `OptimizerResult` containing the highest-scoring agent variation extracted during the process.
+
+### Configuration¶
+
+Configure the behavior of the loop by passing a `SimplePromptOptimizerConfig` instance to the optimizer.
+
+Parameter | Type | Default | Description  
+---|---|---|---  
+`num_iterations` | int | _Required_ | The total number of optimization rounds to execute.  
+`batch_size` | int | _Required_ | The number of evaluation sample cases processed by the sampler during each individual iteration.  
+  
+### Implementation Example¶
+
+Once your configuration is defined, run the optimization with:
+    
+    
+    from google.adk.optimization import SimplePromptOptimizer, SimplePromptOptimizerConfig
+    
+    # Define your Agent and Sampler first...
+    
+    # Configure the optimizer
+    config = SimplePromptOptimizerConfig(
+        num_iterations=5,
+        batch_size=10
+    )
+    
+    # Run optimization
+    optimizer = SimplePromptOptimizer(config=config)
+    optimized_result = await optimizer.optimize(agent, sampler)
+    
 
 ## Key Data Types¶
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.1.0 
+0.2.0 
 
 common
 
@@ -24,7 +24,7 @@ Link copied to clipboard
 
 class [LoggingPlugin](-logging-plugin/index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "logging_plugin") : [Plugin](-plugin/index.html)
 
-A plugin that logs important information at each callback point.
+A plugin that logs a high volume of requests and responses handled by the agent at each callback point.
 
 [Plugin](-plugin/index.html)
 

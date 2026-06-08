@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.1.0 
+0.2.0 
 
-commonJvmAndroid common jvm
+commonJvmAndroid common
 
 switch theme
 
@@ -54,8 +54,6 @@ Represents a compile-time generated tool that wraps a function annotated with [c
 
 Link copied to clipboard
 
-jvm
-
 class [GoogleMapsTool](-google-maps-tool/index.html)(val model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null) : [BaseTool](-base-tool/index.html)
 
 A built-in tool that is automatically invoked by Gemini 2 models to retrieve search results from Google Maps.
@@ -63,8 +61,6 @@ A built-in tool that is automatically invoked by Gemini 2 models to retrieve sea
 [GoogleSearchTool](-google-search-tool/index.html)
 
 Link copied to clipboard
-
-jvm
 
 class [GoogleSearchTool](-google-search-tool/index.html)(val bypassMultiToolsLimit: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null) : [BaseTool](-base-tool/index.html)
 
@@ -149,8 +145,6 @@ Base interface for toolsets.
 [VertexAiSearchTool](-vertex-ai-search-tool/index.html)
 
 Link copied to clipboard
-
-jvm
 
 class [VertexAiSearchTool](-vertex-ai-search-tool/index.html)(val dataStoreId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val dataStoreSpecs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../com.google.adk.kt.types/-vertex-a-i-search-data-store-spec/index.html)>? = null, val searchEngineId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val filter: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val maxResults: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null) : [BaseTool](-base-tool/index.html)
 

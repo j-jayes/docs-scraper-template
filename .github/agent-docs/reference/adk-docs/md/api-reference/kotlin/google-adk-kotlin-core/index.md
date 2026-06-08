@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../index.html)
 
-0.1.0 
+0.2.0 
 
 android commonJvmAndroid common jvm
 
@@ -143,8 +143,6 @@ Link copied to clipboard
 common
 
 commonJvmAndroid
-
-jvm
 
 [com.google.adk.kt.tools.mcp](com.google.adk.kt.tools.mcp/index.html)
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.1.0 
+0.2.0 
 
 common
 
@@ -26,17 +26,17 @@ Abstract base class for defining and executing tools.
 
 [FunctionTool](../-function-tool/index.html)
 
+[GoogleMapsTool](../-google-maps-tool/index.html)
+
+[GoogleSearchTool](../-google-search-tool/index.html)
+
 [LoadArtifactsTool](../-load-artifacts-tool/index.html)
 
 [LoadMemoryTool](../-load-memory-tool/index.html)
 
 [PreloadMemoryTool](../-preload-memory-tool/index.html)
 
-[GoogleMapsTool](../../../google-adk-kotlin-core/com.google.adk.kt.tools/-google-maps-tool/index.html)
-
-[GoogleSearchTool](../../../google-adk-kotlin-core/com.google.adk.kt.tools/-google-search-tool/index.html)
-
-[VertexAiSearchTool](../../../google-adk-kotlin-core/com.google.adk.kt.tools/-vertex-ai-search-tool/index.html)
+[VertexAiSearchTool](../-vertex-ai-search-tool/index.html)
 
 [McpTool](../../../google-adk-kotlin-core/com.google.adk.kt.tools.mcp/-mcp-tool/index.html)
 

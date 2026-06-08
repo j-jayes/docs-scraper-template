@@ -313,6 +313,14 @@ Kotlin
 
 `com.google.adk:google-adk-kotlin-core` 📋
 
+Agents CLI
+
+## Build agents _with_ agents.
+
+Go from idea to coded ADK agent in minutes. Use your favorite AI-enabled developer environment to scaffold, build, test, evaluate, and deploy with Agents CLI.
+
+[Learn more](tutorials/coding-with-ai/#agents-cli)
+
 Graph Workflows
 
 ## Reliable logic. Intelligent reasoning.
@@ -336,14 +344,6 @@ Ecosystem
 ADK's open integration partners connect your agents with existing apps, a wide range of AI models, and extend agent capabilities to access data, add resilience, and evaluate performance.
 
 [Learn more](integrations/)
-
-AI Dev Tools
-
-## Build agents _with_ agents.
-
-ADK agents are designed to be written by humans and AI. Connect your AI-powered development tools to our ADK coding resources and generate robust, capable agents in seconds.
-
-[Code with AI](tutorials/coding-with-ai/)
 
 ## Ready to build agents?
 

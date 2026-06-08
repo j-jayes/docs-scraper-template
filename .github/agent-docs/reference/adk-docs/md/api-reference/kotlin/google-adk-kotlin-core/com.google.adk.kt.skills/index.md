@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.1.0 
+0.2.0 
 
 common jvm
 

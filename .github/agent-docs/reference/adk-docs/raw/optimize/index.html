@@ -3700,6 +3700,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#simplepromptoptimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SimplePromptOptimizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Example
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6949,6 +6982,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#simplepromptoptimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SimplePromptOptimizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Example
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7320,14 +7386,11 @@ Default is <code>INFO</code>.
 Valid options are <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, and <code>CRITICAL</code>.</li>
 </ul>
 <h2 id="available-samplers-and-agent-optimizers">Available Samplers and Agent Optimizers<a class="headerlink" href="#available-samplers-and-agent-optimizers" title="Permanent link">&para;</a></h2>
-<p>The following samplers and agent optimizers are provided with ADK.
-The <code>adk optimize</code> command uses the <code>LocalEvalSampler</code> and
-<code>GEPARootAgentPromptOptimizer</code> described below.
-You can also use these samplers and agent optimizers in your own scripts.</p>
+<p>ADK provides several samplers and agent optimizers which you can run using the <code>adk optimize</code> command line. The available options are as follows: </p>
 <h3 id="localevalsampler"><code>LocalEvalSampler</code><a class="headerlink" href="#localevalsampler" title="Permanent link">&para;</a></h3>
 <p>The
 <a href="https://github.com/google/adk-python/blob/main/src/google/adk/optimization/local_eval_sampler.py"><code>LocalEvalSampler</code></a>
-evaluates candidate agents using the ADK's
+evaluates candidate agents using ADK's
 <a href="https://github.com/google/adk-python/blob/main/src/google/adk/evaluation/local_eval_service.py"><code>LocalEvalService</code></a>.
 It provides eval results as an <a href="#sampler-results"><code>UnstructuredSamplingResult</code></a>.
 You can configure the <code>LocalEvalSampler</code> with a <code>LocalEvalSamplerConfig</code> that
@@ -7384,6 +7447,62 @@ Defaults to 3.</li>
 optimization results if desired.
 Facilitates warm starts.</li>
 </ul>
+<h3 id="simplepromptoptimizer"><code>SimplePromptOptimizer</code><a class="headerlink" href="#simplepromptoptimizer" title="Permanent link">&para;</a></h3>
+<p>The <code>SimplePromptOptimizer</code> is an automated, iterative prompt-tuning component designed
+to systematically improve an agent's root system instructions using empirical evaluation data.
+Unlike the GEPA-based optimizers that maintain a diverse Pareto frontier of multiple candidate 
+agents, the <code>SimplePromptOptimizer</code> executes a direct, sequential optimization loop focused entirely on 
+refining a single primary prompt across a series of specified iterations.</p>
+<p>The optimizer automatically executes an asynchronous, four-stage feedback loop:</p>
+<ol>
+<li><strong>Execute:</strong> The target agent processes a specific batch of evaluation tasks managed by an implementation of the <code>Sampler</code> class.  </li>
+<li><strong>Evaluate</strong>: The Sampler scores the agent's outputs against your evaluation datasets and returns a structured <code>SamplingResult</code>.  </li>
+<li><strong>Critique</strong>: An underlying optimization large language model (LLM) (defaulting to Gemini-2.5-flash) analyzes the historical evaluation scores alongside the current prompt to isolate specific behavioral weaknesses or gaps.  </li>
+<li><strong>Rewrite</strong>: The optimization model generates an updated variation of the system prompt tailored to address the discovered weaknesses. This new prompt is then fed directly into the next iteration.</li>
+</ol>
+<p><strong>Note:</strong> The optimization loop does not mutate your initial agent instance in place. Upon completion, it returns an <code>OptimizerResult</code> containing the highest-scoring agent variation extracted during the process.</p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<p>Configure the behavior of the loop by passing a <code>SimplePromptOptimizerConfig</code> instance to the optimizer.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>num_iterations</code></td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;"><em>Required</em></td>
+<td style="text-align: left;">The total number of optimization rounds to execute.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>batch_size</code></td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;"><em>Required</em></td>
+<td style="text-align: left;">The number of evaluation sample cases processed by the sampler during each individual iteration.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="implementation-example">Implementation Example<a class="headerlink" href="#implementation-example" title="Permanent link">&para;</a></h3>
+<p>Once your configuration is defined, run the optimization with:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimplePromptOptimizer</span><span class="p">,</span> <span class="n">SimplePromptOptimizerConfig</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Define your Agent and Sampler first...</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Configure the optimizer</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">config</span> <span class="o">=</span> <span class="n">SimplePromptOptimizerConfig</span><span class="p">(</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">num_iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># Run optimization</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">SimplePromptOptimizer</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">optimized_result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="n">sampler</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="key-data-types">Key Data Types<a class="headerlink" href="#key-data-types" title="Permanent link">&para;</a></h2>
 <p>ADK defines several base data types in
 <a href="https://github.com/google/adk-python/blob/main/src/google/adk/optimization/data_types.py"><code>optimization/data_types.py</code></a>
@@ -7500,56 +7619,56 @@ command for the above <a href="#example">example</a>.
 To use it, create the <a href="#exampledataset">dataset</a> as shown in the example and run
 this code from a Python script within the
 <a href="https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world">same directory</a>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">agent</span>  <span class="c1"># the hello_world agent</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.cli.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">envs</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.cli.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">logs</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.evaluation.eval_config</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvalConfig</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.evaluation.local_eval_sets_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalEvalSetsManager</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.gepa_root_agent_prompt_optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">GEPARootAgentPromptOptimizer</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.gepa_root_agent_prompt_optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">GEPARootAgentPromptOptimizerConfig</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.local_eval_sampler</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalEvalSampler</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.local_eval_sampler</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalEvalSamplerConfig</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1"># setup environment variables (API keys, etc.) and logging</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">envs</span><span class="o">.</span><span class="n">load_dotenv_for_agent</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">logs</span><span class="o">.</span><span class="n">setup_adk_logger</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1"># create the sampler</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="n">sampler_config</span> <span class="o">=</span> <span class="n">LocalEvalSamplerConfig</span><span class="p">(</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="n">eval_config</span><span class="o">=</span><span class="n">EvalConfig</span><span class="p">(</span><span class="n">criteria</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;response_match_score&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">}),</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;hello_world&quot;</span><span class="p">,</span>  <span class="c1"># typically the name of the directory containing the agent</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="n">train_eval_set</span><span class="o">=</span><span class="s2">&quot;train_eval_set&quot;</span><span class="p">,</span>  <span class="c1"># from the example</span>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="p">)</span>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="n">eval_sets_manager</span> <span class="o">=</span> <span class="n">LocalEvalSetsManager</span><span class="p">(</span>
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="n">agents_dir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()),</span>
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="p">)</span>
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="n">sampler</span> <span class="o">=</span> <span class="n">LocalEvalSampler</span><span class="p">(</span><span class="n">sampler_config</span><span class="p">,</span> <span class="n">eval_sets_manager</span><span class="p">)</span>
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="c1"># create the optimizer</span>
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="n">opt_config</span> <span class="o">=</span> <span class="n">GEPARootAgentPromptOptimizerConfig</span><span class="p">()</span>
-</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">GEPARootAgentPromptOptimizer</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">opt_config</span><span class="p">)</span>
-</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>
-</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="c1"># optimize the root agent</span>
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="n">initial_agent</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">root_agent</span>
-</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="n">result</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">initial_agent</span><span class="p">,</span> <span class="n">sampler</span><span class="p">)</span>
-</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="p">)</span>
-</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>
-</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="c1"># show the results</span>
-</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="n">best_idx</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">gepa_result</span><span class="p">[</span><span class="s2">&quot;best_idx&quot;</span><span class="p">]</span>
-</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>    <span class="s2">&quot;Validation score:&quot;</span><span class="p">,</span>
-</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>    <span class="n">result</span><span class="o">.</span><span class="n">optimized_agents</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span><span class="o">.</span><span class="n">overall_score</span><span class="p">,</span>
-</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>    <span class="s2">&quot;Optimized prompt:&quot;</span><span class="p">,</span>
-</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>    <span class="n">result</span><span class="o">.</span><span class="n">optimized_agents</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span><span class="o">.</span><span class="n">optimized_agent</span><span class="o">.</span><span class="n">instruction</span><span class="p">,</span>
-</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>    <span class="s2">&quot;GEPA metrics:&quot;</span><span class="p">,</span>
-</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>    <span class="n">result</span><span class="o">.</span><span class="n">gepa_result</span><span class="p">,</span>
-</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">agent</span>  <span class="c1"># the hello_world agent</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.cli.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">envs</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.cli.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">logs</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.evaluation.eval_config</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvalConfig</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.evaluation.local_eval_sets_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalEvalSetsManager</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.gepa_root_agent_prompt_optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">GEPARootAgentPromptOptimizer</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.gepa_root_agent_prompt_optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">GEPARootAgentPromptOptimizerConfig</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.local_eval_sampler</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalEvalSampler</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.optimization.local_eval_sampler</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalEvalSamplerConfig</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># setup environment variables (API keys, etc.) and logging</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="n">envs</span><span class="o">.</span><span class="n">load_dotenv_for_agent</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">logs</span><span class="o">.</span><span class="n">setup_adk_logger</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1"># create the sampler</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">sampler_config</span> <span class="o">=</span> <span class="n">LocalEvalSamplerConfig</span><span class="p">(</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="n">eval_config</span><span class="o">=</span><span class="n">EvalConfig</span><span class="p">(</span><span class="n">criteria</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;response_match_score&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">}),</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;hello_world&quot;</span><span class="p">,</span>  <span class="c1"># typically the name of the directory containing the agent</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    <span class="n">train_eval_set</span><span class="o">=</span><span class="s2">&quot;train_eval_set&quot;</span><span class="p">,</span>  <span class="c1"># from the example</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="p">)</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="n">eval_sets_manager</span> <span class="o">=</span> <span class="n">LocalEvalSetsManager</span><span class="p">(</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>    <span class="n">agents_dir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()),</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="p">)</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="n">sampler</span> <span class="o">=</span> <span class="n">LocalEvalSampler</span><span class="p">(</span><span class="n">sampler_config</span><span class="p">,</span> <span class="n">eval_sets_manager</span><span class="p">)</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="c1"># create the optimizer</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="n">opt_config</span> <span class="o">=</span> <span class="n">GEPARootAgentPromptOptimizerConfig</span><span class="p">()</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">GEPARootAgentPromptOptimizer</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">opt_config</span><span class="p">)</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="c1"># optimize the root agent</span>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="n">initial_agent</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">root_agent</span>
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="n">result</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">initial_agent</span><span class="p">,</span> <span class="n">sampler</span><span class="p">)</span>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="p">)</span>
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="c1"># show the results</span>
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="n">best_idx</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">gepa_result</span><span class="p">[</span><span class="s2">&quot;best_idx&quot;</span><span class="p">]</span>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>    <span class="s2">&quot;Validation score:&quot;</span><span class="p">,</span>
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    <span class="n">result</span><span class="o">.</span><span class="n">optimized_agents</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span><span class="o">.</span><span class="n">overall_score</span><span class="p">,</span>
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>    <span class="s2">&quot;Optimized prompt:&quot;</span><span class="p">,</span>
+</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>    <span class="n">result</span><span class="o">.</span><span class="n">optimized_agents</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span><span class="o">.</span><span class="n">optimized_agent</span><span class="o">.</span><span class="n">instruction</span><span class="p">,</span>
+</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>    <span class="s2">&quot;GEPA metrics:&quot;</span><span class="p">,</span>
+</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>    <span class="n">result</span><span class="o">.</span><span class="n">gepa_result</span><span class="p">,</span>
+</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a><span class="p">)</span>
 </span></code></pre></div>
 
 
