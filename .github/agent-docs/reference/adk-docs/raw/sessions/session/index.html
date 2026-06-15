@@ -6693,6 +6693,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="DatabaseSessionService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-and-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency and locking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -7185,6 +7202,19 @@ the storage backend that best suits your needs:</p>
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">db_url</span> <span class="o">=</span> <span class="s2">&quot;sqlite+aiosqlite:///./my_agent_data.db&quot;</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">session_service</span> <span class="o">=</span> <span class="n">DatabaseSessionService</span><span class="p">(</span><span class="n">db_url</span><span class="o">=</span><span class="n">db_url</span><span class="p">)</span>
 </span></code></pre></div>
+<h4 id="concurrency-and-locking">Concurrency and locking<a class="headerlink" href="#concurrency-and-locking" title="Permanent link">&para;</a></h4>
+<p>The <code>DatabaseSessionService</code> ensures data integrity during concurrent operations through a
+two-tiered locking architecture:</p>
+<ul>
+<li><strong>In-Process locking:</strong> The service uses an internal, in-process lock to
+        serialize <code>append_event</code> calls for the same session. This prevents race
+        conditions when multiple requests try to update the same session
+        simultaneously within the same process.</li>
+<li><strong>Row-Level locking:</strong> For PostgreSQL, MySQL, and MariaDB, the service
+        uses row-level locking (via <code>SELECT ... FOR UPDATE</code>) to prevent race
+        conditions when multiple processes or replicas try to update the same
+        session simultaneously.</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Async Driver Requirement</p>
 <p><code>DatabaseSessionService</code> requires an async database driver. When using SQLite,

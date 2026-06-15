@@ -242,6 +242,7 @@ Table of contents
     * InMemorySessionService 
     * VertexAiSessionService 
     * DatabaseSessionService 
+      * Concurrency and locking 
   * The Session Lifecycle 
 
 
@@ -576,6 +577,15 @@ Supported in ADKPython v0.1.0Go v0.1.0
     db_url = "sqlite+aiosqlite:///./my_agent_data.db"
     session_service = DatabaseSessionService(db_url=db_url)
     
+
+#### Concurrency and locking¶
+
+The `DatabaseSessionService` ensures data integrity during concurrent operations through a two-tiered locking architecture:
+
+  * **In-Process locking:** The service uses an internal, in-process lock to serialize `append_event` calls for the same session. This prevents race conditions when multiple requests try to update the same session simultaneously within the same process.
+  * **Row-Level locking:** For PostgreSQL, MySQL, and MariaDB, the service uses row-level locking (via `SELECT ... FOR UPDATE`) to prevent race conditions when multiple processes or replicas try to update the same session simultaneously.
+
+
 
 Async Driver Requirement
 

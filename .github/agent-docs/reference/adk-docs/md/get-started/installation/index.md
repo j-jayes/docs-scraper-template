@@ -335,13 +335,13 @@ pom.xml
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk</artifactId>
-                <version>1.3.0</version>
+                <version>1.4.0</version>
             </dependency>
             <!-- The ADK dev web UI to debug your agent -->
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk-dev</artifactId>
-                <version>1.3.0</version>
+                <version>1.4.0</version>
             </dependency>
         </dependencies>
     
@@ -356,8 +356,8 @@ build.gradle
     
     
     dependencies {
-        implementation 'com.google.adk:google-adk:1.3.0'
-        implementation 'com.google.adk:google-adk-dev:1.3.0'
+        implementation 'com.google.adk:google-adk:1.4.0'
+        implementation 'com.google.adk:google-adk-dev:1.4.0'
     }
     
 

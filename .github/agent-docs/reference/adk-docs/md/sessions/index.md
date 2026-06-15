@@ -6,7 +6,7 @@ Skip to content
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
 
-Introduction to Conversational Context: Session, State, and Memory 
+Conversational Context: Session, State, and Memory 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
@@ -247,7 +247,7 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/index.md "View Markdown source")
 
-# Introduction to Conversational Context: Session, State, and Memory¶
+# Conversational Context: Session, State, and Memory¶
 
 Supported in ADKPythonTypeScriptGoJavaKotlin v0.1.0
 

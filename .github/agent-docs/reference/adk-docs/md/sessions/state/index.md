@@ -1,6 +1,6 @@
 Skip to content 
 
-**New Releases!** Explore [ ADK Python 2.0 Beta ](/2.0/) with workflows and agent teams, and [ ADK TypeScript 1.0 ](https://github.com/google/adk-js/releases/tag/adk-v1.0.0) is now available 
+[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -8,12 +8,12 @@ Skip to content
 
 State 
 
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
+
 Initializing search 
 
 
 
-
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -26,7 +26,7 @@ Initializing search
 
 
 
-[ adk-python  ](https://github.com/google/adk-python "adk-python") [ adk-js  ](https://github.com/google/adk-js "adk-js") [ adk-go  ](https://github.com/google/adk-go "adk-go") [ adk-java  ](https://github.com/google/adk-java "adk-java")
+[ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
   * [ Home  ](../..)
   * Build Agents  Build Agents 
@@ -37,6 +37,8 @@ Get Started
       * [ TypeScript  ](../../get-started/typescript/)
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
+      * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Installation  ](../../get-started/installation/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -47,23 +49,32 @@ Build your Agent
 Streaming agent 
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
-      * [ Visual Builder  ](../../visual-builder/)
-      * [ Coding with AI  ](../../tutorials/coding-with-ai/)
-      * [ Advanced setup  ](../../get-started/installation/)
+      * [ Code with AI  ](../../tutorials/coding-with-ai/)
+      * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
-      * [ LLM agents  ](../../agents/llm-agents/)
-      * [ Workflow agents  ](../../agents/workflow-agents/)
+      * [ Simple agents  ](../../agents/llm-agents/)
+    * [ Graph Workflows  ](../../graphs/)
 
-Workflow agents 
-        * [ Sequential agents  ](../../agents/workflow-agents/sequential-agents/)
-        * [ Loop agents  ](../../agents/workflow-agents/loop-agents/)
-        * [ Parallel agents  ](../../agents/workflow-agents/parallel-agents/)
-      * [ Custom agents  ](../../agents/custom-agents/)
-      * [ Multi-agent systems  ](../../agents/multi-agents/)
+Graph Workflows 
+      * [ Graph routes  ](../../graphs/routes/)
+      * [ Data handling  ](../../graphs/data-handling/)
+      * [ Human input  ](../../graphs/human-input/)
+      * [ Dynamic workflows  ](../../graphs/dynamic/)
+    * [ Multi-Agent Workflows  ](../../workflows/)
+
+Multi-Agent Workflows 
+      * [ Collaborative workflows  ](../../workflows/collaboration/)
+      * [ Template workflows  ](../../agents/workflow-agents/)
+
+Template workflows 
+        * [ Sequential workflow  ](../../agents/workflow-agents/sequential-agents/)
+        * [ Loop workflow  ](../../agents/workflow-agents/loop-agents/)
+        * [ Parallel workflow  ](../../agents/workflow-agents/parallel-agents/)
+        * [ Custom template workflows  ](../../agents/custom-agents/)
       * [ Agent routing  ](../../agents/routing/)
-      * [ Agent Config  ](../../agents/config/)
+      * [ Workflow patterns  ](../../workflows/patterns/)
     * [ Models for Agents  ](../../agents/models/)
 
 Models for Agents 
@@ -77,28 +88,14 @@ Models for Agents
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
       * [ LiteRT-LM  ](../../agents/models/litert-lm/)
-    * [ Tools and Integrations  ](../../integrations/)
-
-Tools and Integrations 
-    * [ Custom Tools  ](../../tools-custom/)
-
-Custom Tools 
-      * Function tools  Function tools 
-        * [ Overview  ](../../tools-custom/function-tools/)
-        * [ Tool performance  ](../../tools-custom/performance/)
-        * [ Action confirmations  ](../../tools-custom/confirmation/)
-      * [ MCP tools  ](../../tools-custom/mcp-tools/)
-      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
-      * [ Authentication  ](../../tools-custom/authentication/)
-      * [ Tool limitations  ](../../tools/limitations/)
-    * [ Skills for Agents  ](../../skills/)
-
-Skills for Agents 
   * Run Agents  Run Agents 
     * [ Agent Runtime  ](../../runtime/)
 
 Agent Runtime 
       * [ Web Interface  ](../../runtime/web-interface/)
+
+Web Interface 
+        * [ Visual Builder  ](../../visual-builder/)
       * [ Command Line  ](../../runtime/command-line/)
       * [ API Server  ](../../runtime/api-server/)
       * [ Ambient Agents  ](../../runtime/ambient-agents/)
@@ -136,14 +133,40 @@ Evaluation
 Safety and Security 
   * Components  Components 
     * [ Technical Overview  ](../../get-started/about/)
+    * [ Custom Tools  ](../../tools-custom/)
+
+Custom Tools 
+      * Function tools  Function tools 
+        * [ Overview  ](../../tools-custom/function-tools/)
+        * [ Tool performance  ](../../tools-custom/performance/)
+        * [ Action confirmations  ](../../tools-custom/confirmation/)
+      * [ MCP tools  ](../../tools-custom/mcp-tools/)
+      * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
+      * [ Authentication  ](../../tools-custom/authentication/)
+      * [ Tool limitations  ](../../tools/limitations/)
+    * [ Artifacts  ](../../artifacts/)
+
+Artifacts 
+    * [ Skills for Agents  ](../../skills/)
+
+Skills for Agents 
+    * [ App management  ](../../apps/)
+
+App management 
+      * [ Callbacks  ](../../callbacks/)
+
+Callbacks 
+        * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
+        * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
+      * [ Plugins  ](../../plugins/)
     * [ Context  ](../../context/)
 
 Context 
       * [ Context caching  ](../../context/caching/)
       * [ Context compression  ](../../context/compaction/)
-    * [ Sessions & Memory  ](../)
+    * [ Sessions and Memory  ](../)
 
-Sessions & Memory 
+Sessions and Memory 
       * [ Sessions  ](../session/)
 
 Sessions 
@@ -160,24 +183,8 @@ Sessions
           * How State is Updated: Recommended Methods 
           * ⚠️ A Warning About Direct State Modification 
           * Best Practices for State Design Recap 
+      * [ Events  ](../../events/)
       * [ Memory  ](../memory/)
-    * [ Callbacks  ](../../callbacks/)
-
-Callbacks 
-      * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
-      * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
-    * [ Artifacts  ](../../artifacts/)
-
-Artifacts 
-    * [ Events  ](../../events/)
-
-Events 
-    * [ Apps  ](../../apps/)
-
-Apps 
-    * [ Plugins  ](../../plugins/)
-
-Plugins 
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -221,6 +228,7 @@ API Reference
       * [ Typescript ADK  ](../../api-reference/typescript/)
       * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
+      * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
       * [ Agent Config Reference  ](../../api-reference/agentconfig/)
       * [ REST API  ](../../api-reference/rest/)
@@ -232,14 +240,6 @@ Community
   * [ ADK 2.0  ](../../2.0/)
 
 ADK 2.0 
-    * [ Graph-based workflows  ](../../workflows/)
-
-Graph-based workflows 
-      * [ Graph routes  ](../../workflows/graph-routes/)
-      * [ Data handling  ](../../workflows/data-handling/)
-      * [ Human input  ](../../workflows/human-input/)
-    * [ Collaborative agents  ](../../workflows/collaboration/)
-    * [ Dynamic workflows  ](../../workflows/dynamic/)
 
 
 
@@ -260,13 +260,13 @@ Table of contents
 
   1. [ Home  ](../..)
   2. [ Components  ](../../get-started/about/)
-  3. [ Sessions & Memory  ](../)
+  3. [ Sessions and Memory  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/state.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/state.md "View Markdown source")
 
 # State: The Session's Scratchpad¶
 
-Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 Within each `Session` (our conversation thread), the **`state`** attribute acts like the agent's dedicated scratchpad for that specific interaction. While `session.events` holds the full history, `session.state` is where the agent stores and updates dynamic details needed _during_ the conversation.
 
@@ -354,7 +354,7 @@ To inject a value from the session state, enclose the key of the desired state v
 
 **Example:**
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.agents import LlmAgent
@@ -433,13 +433,31 @@ PythonTypeScriptGoJava
     
     LlmAgent storyGenerator = LlmAgent.builder()
         .name("StoryGenerator")
-        .model("gemini-flash-latest")
+        .model(geminiModel)
         .instruction("Write a short story about a cat, focusing on the theme: " + topic)
         .build();
     
     // Assuming session.state().put("topic", "friendship"), the LLM
     // will receive the following instruction:
     // "Write a short story about a cat, focusing on the theme: friendship."
+    
+    
+    
+    fun instructionTemplating(model: Gemini) {
+        val storyGenerator =
+            LlmAgent(
+                name = "StoryGenerator",
+                model = model,
+                instruction =
+                    Instruction(
+                        "Write a short story about a cat, focusing on the theme: {topic}.",
+                    ),
+            )
+    
+        // Assuming session.state["topic"] is set to "friendship", the LLM
+        // will receive the following instruction:
+        // "Write a short story about a cat, focusing on the theme: friendship."
+    }
     
 
 #### Important Considerations¶
@@ -462,7 +480,7 @@ To achieve this, provide a function to the `instruction` parameter instead of a 
 
 The `InstructionProvider` function receives a `ReadonlyContext` object, which you can use to access session state or other contextual information if you need to build the instruction dynamically.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.agents import LlmAgent
@@ -525,6 +543,31 @@ PythonTypeScriptGoJava
         .name("template_helper_agent")
         .instruction(myInstructionProvider)
         .build();
+    
+    
+    
+    fun instructionProvider(model: Gemini) {
+        // This is an Instruction.Provider
+        val myInstructionProvider =
+            Instruction { context: ReadonlyContext ->
+                // No state injection occurs — curly braces are treated as literal text.
+                Content(
+                    parts =
+                        listOf(
+                            Part(
+                                text = "Format your output as JSON: {\"city\": \"<name>\", \"population\": <number>}",
+                            ),
+                        ),
+                )
+            }
+    
+        val agent =
+            LlmAgent(
+                model = model,
+                name = "template_helper_agent",
+                instruction = myInstructionProvider,
+            )
+    }
     
 
 If you want to both use an `InstructionProvider` _and_ inject state into your instructions, you can use the `inject_session_state` utility function. Only `{key}` placeholders matching valid state variable names will be replaced; other text (including curly braces that don't match valid identifiers) will be left as-is.
@@ -829,7 +872,7 @@ Behind the scenes, the `Runner` uses the `output_key` to create the necessary `E
 
 For more complex scenarios (updating multiple keys, non-string values, specific scopes like `user:` or `app:`, or updates not tied directly to the agent's final text), you manually construct the `state_delta` within `EventActions`.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     from google.adk.sessions import InMemorySessionService, Session
@@ -1064,6 +1107,96 @@ PythonTypeScriptGoJava
       }
     }
     
+    
+    
+    fun main() =
+        runBlocking {
+            // --- Constants ---
+            val appName = "state_example_app"
+            val userId = "state_user"
+            val model = Gemini(name = "gemini-flash-latest")
+    
+            // --- Services ---
+            val sessionService = InMemorySessionService()
+    
+            // --- 1. Instruction Templating ---
+            // Inject state values into agent instructions using {key} syntax.
+            val templateAgent =
+                LlmAgent(
+                    name = "TemplateAgent",
+                    model = model,
+                    instruction =
+                        Instruction(
+                            "Greet the user and mention their favorite color: {favorite_color}.",
+                        ),
+                )
+    
+            // --- 2. State Updates in Callbacks ---
+            // Update state directly in a callback using context.updateState()
+            val logTurnCallback =
+                AfterAgentCallback { context ->
+                    val turnCount = context.state["turn_count"] as? Int ?: 0
+                    context.updateState("turn_count", turnCount + 1)
+                    println("Turn #$turnCount logged in callback.")
+                    CallbackChoice.Continue(Unit)
+                }
+    
+            val callbackAgent =
+                LlmAgent(
+                    name = "CallbackAgent",
+                    model = model,
+                    instruction = Instruction("Answer concisely."),
+                    afterAgentCallbacks = listOf(logTurnCallback),
+                )
+    
+            // --- 3. Manual State Updates via EventActions ---
+            println("--- Manual State Update ---")
+            val sessionId = "manual_session"
+            val sessionKey = SessionKey(appName, userId, sessionId)
+            val session =
+                sessionService.createSession(
+                    key = sessionKey,
+                    state = mapOf("favorite_color" to "blue", "turn_count" to 0),
+                )
+    
+            val stateUpdateEvent =
+                Event(
+                    invocationId = "manual_update",
+                    author = "system",
+                    actions =
+                        EventActions(
+                            stateDelta = mutableMapOf("user:preferred_language" to "en"),
+                        ),
+                    timestamp = System.currentTimeMillis(),
+                )
+            val unused = sessionService.appendEvent(session, stateUpdateEvent)
+    
+            val updatedSession = sessionService.getSession(sessionKey)
+            println("Updated State: ${updatedSession?.state}")
+    
+            // --- 4. Running with Templating ---
+            println("\n--- Running with Templating ---")
+            val runner =
+                InMemoryRunner(
+                    agent = templateAgent,
+                    appName = appName,
+                    sessionService = sessionService,
+                )
+            val userMessage = Content.fromText(Role.USER, "Hello!")
+    
+            runner.runAsync(
+                userId = userId,
+                sessionId = sessionId,
+                newMessage = userMessage,
+            ).collect { event ->
+                event.content?.parts?.forEach { part ->
+                    if (!part.text.isNullOrBlank()) {
+                        println("Agent Response: ${part.text}")
+                    }
+                }
+            }
+        }
+    
 
 **3\. Via`CallbackContext` or `ToolContext` (Recommended for Callbacks and Tools)**
 
@@ -1082,7 +1215,7 @@ This method abstracts away the manual creation of `EventActions` and `state_delt
 
 For more comprehensive details on context objects, refer to the [Context documentation](../../context/).
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # In an agent callback or tool function
@@ -1220,6 +1353,29 @@ PythonTypeScriptGoJava
         }
     }
     
+    
+    
+    fun myCallbackFunction(context: CallbackContext) {
+        // Update existing state using updateState helper
+        val count = context.state["user_action_count"] as? Int ?: 0
+        context.updateState("user_action_count", count + 1)
+    
+        // Add new state
+        context.updateState("temp:last_operation_status", "success")
+    }
+    
+    suspend fun myToolFunction(
+        context: ToolContext,
+        args: Map<String, Any>,
+    ) {
+        // Access state via context.context.state
+        val count = context.context.state["user_action_count"] as? Int ?: 0
+    
+        // Update state via context.actions.stateDelta
+        context.actions.stateDelta["user_action_count"] = count + 1
+        context.actions.stateDelta["temp:last_operation_status"] = "success"
+    }
+    
 
 **What`append_event` Does:**
 
@@ -1258,7 +1414,7 @@ State modifications _within_ callbacks or tools using `CallbackContext.state` or
 
 
 
-Back to top  [ Previous  Migrate sessions  ](../session/migrate/) [ Next  Memory  ](../memory/)
+Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies
 
