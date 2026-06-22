@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.1.0 
+0.2.0 
 
-jvm
+common
 
 switch theme
 
@@ -13,8 +13,6 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.tools](../index.html)/[GoogleMapsTool](index.html)/GoogleMapsTool
 
 # GoogleMapsTool
-
-jvm
 
 constructor(model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null)
 

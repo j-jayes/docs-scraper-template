@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.1.0 
+0.2.0 
 
-jvm
+common
 
 switch theme
 
@@ -13,8 +13,6 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.tools](../index.html)/[VertexAiSearchTool](index.html)/dataStoreSpecs
 
 # dataStoreSpecs
-
-jvm
 
 val [dataStoreSpecs](data-store-specs.html): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../../com.google.adk.kt.types/-vertex-a-i-search-data-store-spec/index.html)>? = null
 

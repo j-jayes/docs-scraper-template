@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.1.0 
+0.2.0 
 
-jvm
+common
 
 switch theme
 
@@ -13,8 +13,6 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.tools](../index.html)/[VertexAiSearchTool](index.html)/processLlmRequest
 
 # processLlmRequest
-
-jvm
 
 open suspend override fun [processLlmRequest](process-llm-request.html)(toolContext: [ToolContext](../-tool-context/index.html), llmRequest: [LlmRequest](../../com.google.adk.kt.models/-llm-request/index.html)): [LlmRequest](../../com.google.adk.kt.models/-llm-request/index.html)
 

@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.1.0 
+0.2.0 
 
-jvm
+common
 
 switch theme
 
@@ -13,8 +13,6 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.tools](../index.html)/[VertexAiSearchTool](index.html)/run
 
 # run
-
-jvm
 
 open suspend override fun [run](run.html)(context: [ToolContext](../-tool-context/index.html), args: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)
 

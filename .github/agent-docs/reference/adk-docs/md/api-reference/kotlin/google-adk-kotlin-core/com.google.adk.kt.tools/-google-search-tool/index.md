@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.1.0 
+0.2.0 
 
-jvm
+common
 
 switch theme
 
@@ -13,8 +13,6 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.tools](../index.html)/GoogleSearchTool
 
 # GoogleSearchTool
-
-jvm
 
 class [GoogleSearchTool](index.html)(val bypassMultiToolsLimit: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null) : [BaseTool](../-base-tool/index.html)
 
@@ -30,8 +28,6 @@ Members
 
 Link copied to clipboard
 
-jvm
-
 constructor(bypassMultiToolsLimit: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null)
 
 ## Properties
@@ -40,15 +36,11 @@ constructor(bypassMultiToolsLimit: [Boolean](https://kotlinlang.org/api/latest/j
 
 Link copied to clipboard
 
-jvm
-
 val [bypassMultiToolsLimit](bypass-multi-tools-limit.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false
 
 [customMetadata](../-base-tool/custom-metadata.html)
 
 Link copied to clipboard
-
-jvm
 
 val [customMetadata](../-base-tool/custom-metadata.html): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>
 
@@ -58,8 +50,6 @@ The custom metadata of the tool.
 
 Link copied to clipboard
 
-jvm
-
 val [description](../-base-tool/description.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
 
 The description of the tool.
@@ -67,8 +57,6 @@ The description of the tool.
 [isLongRunning](../-base-tool/is-long-running.html)
 
 Link copied to clipboard
-
-jvm
 
 val [isLongRunning](../-base-tool/is-long-running.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false
 
@@ -78,15 +66,11 @@ Whether the tool's final result will be delivered out-of-band. When `true`, the 
 
 Link copied to clipboard
 
-jvm
-
 val [model](model.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
 
 [name](../-base-tool/name.html)
 
 Link copied to clipboard
-
-jvm
 
 val [name](../-base-tool/name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
 
@@ -98,15 +82,11 @@ The name of the tool.
 
 Link copied to clipboard
 
-jvm
-
 open override fun [close](../-base-tool/close.html)()
 
 [declaration](declaration.html)
 
 Link copied to clipboard
-
-jvm
 
 open override fun [declaration](declaration.html)(): [FunctionDeclaration](../../com.google.adk.kt.types/-function-declaration/index.html)?
 
@@ -116,8 +96,6 @@ Returns the underlying function declaration.
 
 Link copied to clipboard
 
-jvm
-
 open suspend override fun [processLlmRequest](process-llm-request.html)(toolContext: [ToolContext](../-tool-context/index.html), llmRequest: [LlmRequest](../../com.google.adk.kt.models/-llm-request/index.html)): [LlmRequest](../../com.google.adk.kt.models/-llm-request/index.html)
 
 Processes the LLM request before it is sent.
@@ -125,8 +103,6 @@ Processes the LLM request before it is sent.
 [run](run.html)
 
 Link copied to clipboard
-
-jvm
 
 open suspend override fun [run](run.html)(context: [ToolContext](../-tool-context/index.html), args: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)
 

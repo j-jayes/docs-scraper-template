@@ -377,11 +377,13 @@ The subsequent rows of the **_edges_** arrays after the START keyword define add
 
 ## Parallel tasks: fan out and join paths¶
 
-You can create graphs that split execution across multiple, parallel nodes, and typically you need to assemble the output of each node for further processing. You accomplish this by using a **_JoinNode_** object, which waits for each parallel task to complete and then passes the collection of outputs from these nodes to the next node.
+You can create graphs that split execution across multiple, parallel nodes, and typically you need to assemble the output of each node for further processing. This task execution pattern has two stages. The workflow first fans out when it starts multiple parallel tasks, and then it re-joins those paths when those those tasks are completed before proceeding to the next step.
+
+You accomplish the join step by using a **_JoinNode_** object, which waits for each parallel task to complete and then passes the collection of outputs from these nodes to the next node.
 
 **Figure 2.** The output of parallel task nodes can be assembled using a JoinNode object.
 
-The following code snippet shows how to implement a basic **_JoinNode_** object and use it to assemble output of all the nodes:
+The following code snippet shows how to start three parallel tasks from **_START_** and use a basic **_JoinNode_** object to join their outputs before running the final task:
     
     
     ​​from google.adk.workflow import JoinNode
