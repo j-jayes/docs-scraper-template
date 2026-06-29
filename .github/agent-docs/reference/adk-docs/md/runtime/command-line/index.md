@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -352,6 +353,7 @@ Option | Description | Default
 ---|---|---  
 `--session_service_uri` | Custom session storage URI | SQLite under `.adk/session.db`  
 `--artifact_service_uri` | Custom artifact storage URI | Local `.adk/artifacts`  
+`--memory_service_uri` | Custom memory service URI | In-memory  
   
 ### Example with storage options¶
     
@@ -369,6 +371,7 @@ Option | Description
 `--replay` | Path to an input file for non-interactive replay  
 `--session_service_uri` | Custom session storage URI  
 `--artifact_service_uri` | Custom artifact storage URI  
+`--memory_service_uri` | Custom memory service URI  
   
 Back to top 
 

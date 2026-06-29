@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../../get-started/java/)
       * [ Kotlin  ](../../../get-started/kotlin/)
       * [ Installation  ](../../../get-started/installation/)
+      * [ Google Cloud  ](../../../get-started/google-cloud/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -259,7 +260,7 @@ Table of contents
 
 # Deploy to Agent Runtime with Agents CLI¶
 
-Supported in ADKPython
+Supported in ADKPythonGo v1.2.0
 
 This deployment procedure describes how to perform a deployment using [Agents CLI in Agent Platform](https://google.github.io/agents-cli/) and the ADK. Deploying to Agent Runtime via Agents CLI provides an accelerated path to a production-ready environment. Agents CLI automatically configures Google Cloud resources, CI/CD pipelines, and Infrastructure-as-Code (Terraform) to support the entire development lifecycle. As a best practice, always ensure you review the generated configurations to align with your organization’s security and compliance standards before production deployment.
 

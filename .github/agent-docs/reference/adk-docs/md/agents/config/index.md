@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -346,7 +347,7 @@ You can get an API key from the Google AI Studio [API Keys](https://aistudio.goo
             GOOGLE_CLOUD_LOCATION=us-central1
             
 
-For information on creating a Cloud Project, see the Google Cloud docs for [Creating and managing projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+For information on creating a Cloud Project, see the Google Cloud docs for [Creating and managing projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects). For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
   3. Using text editor, edit the Agent Config file `my_agent/root_agent.yaml`, as shown below:
 

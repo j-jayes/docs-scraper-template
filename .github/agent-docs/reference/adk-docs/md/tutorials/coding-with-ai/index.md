@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../)
 
 Build your Agent 
@@ -50,9 +51,7 @@ Streaming agent
         * [ Python  ](../../get-started/streaming/quickstart-streaming/)
         * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * Code with AI  [ Code with AI  ](./) Table of contents 
-        * agents-cli 
-          * CLI Commands 
-          * Development Skills 
+        * Agents CLI 
         * ADK Docs MCP Server 
           * Gemini CLI 
           * Antigravity 
@@ -245,9 +244,7 @@ ADK 2.0
 
 Table of contents 
 
-  * agents-cli 
-    * CLI Commands 
-    * Development Skills 
+  * Agents CLI 
   * ADK Docs MCP Server 
     * Gemini CLI 
     * Antigravity 
@@ -274,9 +271,19 @@ You can use AI coding assistants to build agents with Agent Development Kit (ADK
 
 
 
-## agents-cli¶
+## Agents CLI¶
 
-[Agents CLI in Agent Platform](https://google.github.io/agents-cli/) is the command-line tool for ADK development. It provides scaffolding commands, deployment tools, and development skills that work with any compatible coding assistant, including Gemini CLI, Antigravity, Claude Code, and Cursor.
+The [Agents CLI](https://google.github.io/agents-cli/) tool set lets you plug ADK agent expertise into your favorite AI-coding environments including Antigravity, Gemini CLI, Claude Code, and Cursor. Install Agents CLI into your current AI-powered development environment to scaffold, build, test, evaluate, and deploy ADK agents. Enable your development environment with these Agents CLI Skills:
+
+  * Development lifecycle and coding guidelines
+  * Project scaffolding
+  * Evaluation methodology and scoring
+  * Agent Runtime, Cloud Run, and GKE deployment
+  * Gemini Enterprise agent publishing
+  * Trace, logging, and integrations
+  * Python API quick reference and docs index
+
+
 
 To install Agents CLI and set up ADK development skills:
     
@@ -284,32 +291,8 @@ To install Agents CLI and set up ADK development skills:
     uvx google-agents-cli setup
     
 
-This installs both the CLI and coding skills. Browse the [Agents CLI documentation](https://google.github.io/agents-cli/) for more details.
+For more information on installing Agents CLI and using it in your development environment, see the [Agents CLI documentation](https://google.github.io/agents-cli/).
 
-### CLI Commands¶
-
-Command | Description  
----|---  
-`agents-cli scaffold create` | Create a new ADK agent project  
-`agents-cli scaffold enhance` | Add deployment to existing project  
-`agents-cli eval` | Run agent evaluations  
-`agents-cli deploy` | Deploy to Agent Runtime, Cloud Run, or GKE  
-`agents-cli publish` | Publish to Gemini Enterprise  
-  
-### Development Skills¶
-
-After setup, the following skills are available in your coding tool:
-
-Skill | Description  
----|---  
-`google-agents-cli-workflow` | Development lifecycle and coding guidelines  
-`google-agents-cli-adk-code` | Python API quick reference and docs index  
-`google-agents-cli-scaffold` | Project scaffolding  
-`google-agents-cli-eval` | Evaluation methodology and scoring  
-`google-agents-cli-deploy` | Agent Runtime, Cloud Run, and GKE deployment  
-`google-agents-cli-publish` | Gemini Enterprise registration  
-`google-agents-cli-observability` | Tracing, logging, and integrations  
-  
 ## ADK Docs MCP Server¶
 
 You can configure your coding tool to search and read ADK documentation using an MCP server. Below are setup instructions for popular tools.

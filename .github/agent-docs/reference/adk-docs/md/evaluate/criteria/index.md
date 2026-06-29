@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -697,7 +698,7 @@ This criterion assesses whether the agent's response contains any harmful conten
 
 ### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly. For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum safety score for a response to be considered passing.
 
@@ -768,7 +769,7 @@ This criterion takes into account all the turns of the multi-turn conversation t
 
 #### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly. For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum score for the conversation to be considered a success.
 
@@ -800,7 +801,7 @@ This criterion is a reference-free metric that assesses the quality of the inter
 
 #### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly. For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum trajectory quality score to be considered passing.
 
@@ -832,7 +833,7 @@ This metric is reference-free and evaluates the function calling behavior withou
 
 #### How To Use This Criterion?¶
 
-Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly.
+Using this criterion requires a Google Cloud Project. You must have `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` environment variables set, typically in an `.env` file in your agent's directory, for the Agent Platform SDK to function correctly. For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 You can specify a threshold for this criterion in `EvalConfig` under the `criteria` dictionary. The value should be a float between 0.0 and 1.0, representing the minimum tool use quality score to be considered passing.
 

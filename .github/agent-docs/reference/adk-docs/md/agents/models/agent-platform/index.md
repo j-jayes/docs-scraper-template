@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../../get-started/java/)
       * [ Kotlin  ](../../../get-started/kotlin/)
       * [ Installation  ](../../../get-started/installation/)
+      * [ Google Cloud  ](../../../get-started/google-cloud/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -262,26 +263,7 @@ For enterprise-grade scalability, reliability, and integration with Google Cloud
 
 ## Agent Platform Setup¶
 
-Ensure your environment is configured for Agent Platform:
-
-  1. **Authentication:** Use Application Default Credentials (ADC):
-         
-         gcloud auth application-default login
-         
-
-  2. **Environment Variables:** Set your project and location:
-         
-         export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"
-         export GOOGLE_CLOUD_LOCATION="YOUR_VERTEX_AI_LOCATION" # e.g., us-central1
-         
-
-  3. **Enable Agent Platform Backend:** Crucially, ensure the `google-genai` library targets Agent Platform:
-         
-         export GOOGLE_GENAI_USE_VERTEXAI=TRUE
-         
-
-
-
+For more details on connecting ADK agents to Google Cloud hosted models and services, including Gemini Enterprise Agent Platform, see the [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/) guide.
 
 ## Model Garden Deployments¶
 

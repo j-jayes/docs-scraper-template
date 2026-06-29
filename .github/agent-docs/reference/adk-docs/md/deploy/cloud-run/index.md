@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -401,18 +402,7 @@ Set your environment variables as described in the [Setup and Installation](../.
     export GOOGLE_GENAI_USE_VERTEXAI=True
     
 
-_(Replace`your-project-id` with your actual GCP project ID)_
-
-Alternatively you can also use an API key from AI Studio
-    
-    
-    export GOOGLE_CLOUD_PROJECT=your-project-id
-    export GOOGLE_CLOUD_LOCATION=us-central1 # Or your preferred location
-    export GOOGLE_GENAI_USE_VERTEXAI=FALSE
-    export GOOGLE_API_KEY=your-api-key
-    
-
-_(Replace`your-project-id` with your actual GCP project ID and `your-api-key` with your actual API key from AI Studio)_
+For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 ## Prerequisites¶
 
@@ -420,7 +410,7 @@ _(Replace`your-project-id` with your actual GCP project ID and `your-api-key` wi
      1. Project name (i.e. "my-project")
      2. Project location (i.e. "us-central1")
      3. Service account (i.e. "1234567890-compute@developer.gserviceaccount.com")
-     4. GOOGLE_API_KEY 
+     4. GOOGLE_API_KEY
 
 
 

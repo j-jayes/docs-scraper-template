@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
       * [ Installation  ](../get-started/installation/)
+      * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -259,7 +260,7 @@ The following is a quick guide to the multiple methods for building workflows fo
 
   * [**Graph-based workflows:**](/graphs/) (ADK 2.0 and higher) This workflow type allows you to compose both AI-powered agents and deterministic execution nodes into a flexible execution graph that can include decision branching.
 
-  * [**Dynamic workflows:**](/workflows/collaboration/) (ADK 2.0 and higher) This workflow type allows you to compose AI-powered agents and deterministic execution nodes using full programmatic code logic.
+  * [**Dynamic workflows:**](/graphs/dynamic/) (ADK 2.0 and higher) This workflow type allows you to compose AI-powered agents and deterministic execution nodes using full programmatic code logic.
 
   * [**Collaborative workflows:**](/workflows/collaboration/) (ADK 2.0 and higher) This workflow type allows a single agent to act in a dynamic coordinator role to accomplish tasks with a set of specified sub-agents.
 

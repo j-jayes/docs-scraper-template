@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../index.html)
 
-0.1.0 
+0.2.0 
 
 jvm
 
@@ -14,7 +14,25 @@ search in API
 
 ## Packages
 
+[com.google.adk.kt.examples.artifacts](com.google.adk.kt.examples.artifacts/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.callbacks](com.google.adk.kt.examples.callbacks/index.html)
+
+Link copied to clipboard
+
+jvm
+
 [com.google.adk.kt.examples.hello](com.google.adk.kt.examples.hello/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.structural](com.google.adk.kt.examples.structural/index.html)
 
 Link copied to clipboard
 

@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../java/)
       * [ Kotlin  ](../kotlin/)
       * [ Installation  ](./)
+      * [ Google Cloud  ](../google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 

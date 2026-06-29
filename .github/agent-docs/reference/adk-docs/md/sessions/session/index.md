@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -557,6 +558,8 @@ PythonGoJava
             .createSession(reasoningEngineAppName, userId, initialState, Optional.of(sessionId))
             .blockingGet();
     
+
+For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 ### `DatabaseSessionService`¶
 

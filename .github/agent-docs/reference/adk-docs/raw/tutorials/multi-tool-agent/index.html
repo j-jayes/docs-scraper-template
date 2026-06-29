@@ -796,6 +796,8 @@
       
         
       
+        
+      
     
     
     
@@ -1008,6 +1010,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/google-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Cloud
   
 
     
@@ -1345,6 +1375,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Set up the model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-connection-and-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model connection and authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7047,6 +7094,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Set up the model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-connection-and-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model connection and authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -7911,116 +7975,47 @@ in the <code>src/main/java/agents/multitool/</code> directory.</p>
 <p><img alt="intro_components.png" src="../../assets/quickstart-flow-tool.png" /></p>
 <h2 id="set-up-the-model">3. Set up the model<a class="headerlink" href="#set-up-the-model" title="Permanent link">&para;</a></h2>
 <p>Your agent's ability to understand user requests and generate responses is
-powered by a Large Language Model (LLM). Your agent needs to make secure calls
-to this external LLM service, which <strong>requires authentication credentials</strong>. Without
-valid authentication, the LLM service will deny the agent's requests, and the
-agent will be unable to function.</p>
-<div class="admonition tip">
-<p class="admonition-title">Model Authentication guide</p>
-<p>For a detailed guide on authenticating to different models, see the <a href="/agents/models/google-gemini#google-ai-studio">Authentication guide</a>.
-This is a critical step to ensure your agent can make calls to the LLM service.</p>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="gemini---google-ai-studio" name="__tabbed_9" type="radio" /><input id="gemini---google-cloud-agent-platform" name="__tabbed_9" type="radio" /><input id="gemini---google-cloud-agent-platform-with-express-mode" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="gemini---google-ai-studio">Gemini - Google AI Studio</label><label for="gemini---google-cloud-agent-platform">Gemini - Google Cloud Agent Platform</label><label for="gemini---google-cloud-agent-platform-with-express-mode">Gemini - Google Cloud Agent Platform with Express Mode</label></div>
+powered by a generative AI model or Large Language Model (LLM). This guide uses Gemini models as
+examples, but ADK is compatible with many AI models from Google and other
+providers. For more information on available models and how to configure
+them, see <a href="/agents/models/">AI Models for ADK agents</a>.</p>
+<h3 id="model-connection-and-authentication">Model connection and authentication<a class="headerlink" href="#model-connection-and-authentication" title="Permanent link">&para;</a></h3>
+<p>When using an AI model through a service, such as the Gemini API or Gemini
+Enterprise Agent Platform on Google Cloud, you must provide an API key or
+authenticate with the service. The most direct way to provide this information
+is to use environment variables or an <code>.env</code> file. The following examples show
+the most common way to configure an agent for use with the Gemini API or Gemini
+Enterprise Agent Platform.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="gemini-api" name="__tabbed_9" type="radio" /><input id="google-cloud-agent-platform" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="gemini-api">Gemini API</label><label for="google-cloud-agent-platform">Google Cloud Agent Platform</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<ol>
-<li>Get an API key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a>.</li>
-<li>
-<p>When using Python, open the <strong><code>.env</code></strong> file located inside (<code>multi_tool_agent/</code>)
-and copy-paste the following code.</p>
-<div class="language-text highlight"><span class="filename">multi_tool_agent/.env</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>GOOGLE_GENAI_USE_VERTEXAI=FALSE
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a># .env configuration file
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>GOOGLE_API_KEY=&quot;PASTE_YOUR_GEMINI_API_KEY_HERE&quot;
 </span></code></pre></div>
-<p>When using Java, define environment variables:</p>
-<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="go">export GOOGLE_GENAI_USE_VERTEXAI=FALSE</span>
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="go">export GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE</span>
-</span></code></pre></div>
-<p>When using TypeScript, the <code>.env</code> file is automatically loaded by the <code>import 'dotenv/config';</code> line at the top of your <code>agent.ts</code> file.</p>
-<div class="language-text highlight"><span class="filename">multi_tool_agent/.env</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>GOOGLE_GENAI_USE_VERTEXAI=FALSE
-</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>GOOGLE_GENAI_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE
-</span></code></pre></div>
-<p>When using Go, define environment variables in your terminal or use a <code>.env</code> file:</p>
-<div class="language-bash highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_GENAI_USE_VERTEXAI</span><span class="o">=</span>FALSE
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_API_KEY</span><span class="o">=</span>PASTE_YOUR_ACTUAL_API_KEY_HERE
-</span></code></pre></div>
-</li>
-<li>
-<p>Replace <code>PASTE_YOUR_ACTUAL_API_KEY_HERE</code> with your actual <code>API KEY</code>.</p>
-</li>
-</ol>
 </div>
 <div class="tabbed-block">
-<ol>
-<li>Set up a <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart-multimodal#setup-gcp">Google Cloud project</a> and <a href="https://console.cloud.google.com/flows/enableapi?apiid=aiplatform.googleapis.com">enable the Agent Platform API</a>.</li>
-<li>Set up the <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart-multimodal#setup-local">gcloud CLI</a>.</li>
-<li>Authenticate to Google Cloud from the terminal by running <code>gcloud auth application-default login</code>.</li>
-<li>
-<p>When using Python, open the <strong><code>.env</code></strong> file located inside (<code>multi_tool_agent/</code>). Copy-paste
-the following code and update the project ID and location.</p>
-<div class="language-text highlight"><span class="filename">multi_tool_agent/.env</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>GOOGLE_GENAI_USE_VERTEXAI=TRUE
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>GOOGLE_CLOUD_LOCATION=LOCATION
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a># .env configuration file
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>GOOGLE_CLOUD_PROJECT=your-project-id
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>GOOGLE_CLOUD_LOCATION=location-code        # example: us-central1
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>GOOGLE_GENAI_USE_ENTERPRISE=True
 </span></code></pre></div>
-<p>When using Java, define environment variables:</p>
-<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="go">export GOOGLE_GENAI_USE_VERTEXAI=TRUE</span>
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="go">export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID</span>
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="go">export GOOGLE_CLOUD_LOCATION=LOCATION</span>
-</span></code></pre></div>
-<p>When using TypeScript, the <code>.env</code> file is automatically loaded by the <code>import 'dotenv/config';</code> line at the top of your <code>agent.ts</code> file.</p>
-<div class="language-text highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>GOOGLE_GENAI_USE_VERTEXAI=TRUE
-</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
-</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>GOOGLE_CLOUD_LOCATION=LOCATION
-</span></code></pre></div>
-<p>When using Go, define environment variables in your terminal or use a <code>.env</code> file:</p>
-<div class="language-bash highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_GENAI_USE_VERTEXAI</span><span class="o">=</span>TRUE
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_CLOUD_PROJECT</span><span class="o">=</span>YOUR_PROJECT_ID
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_CLOUD_LOCATION</span><span class="o">=</span>LOCATION
-</span></code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>You can sign up for a free Google Cloud project and use Gemini for free with an eligible account!<ul>
-<li>Set up a
-  <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview">Google Cloud project with Agent Platform Express Mode</a></li>
-<li>Get an API key from your Express mode project. This key can be used with ADK to use Gemini models for free, as well as access to Agent Runtime services.</li>
-</ul>
-</li>
-<li>
-<p>When using Python, open the <strong><code>.env</code></strong> file located inside (<code>multi_tool_agent/</code>). Copy-paste
-the following code and update the project ID and location.</p>
-<div class="language-text highlight"><span class="filename">multi_tool_agent/.env</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>GOOGLE_GENAI_USE_VERTEXAI=TRUE
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_EXPRESS_MODE_API_KEY_HERE
-</span></code></pre></div>
-<p>When using Java, define environment variables:</p>
-<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="go">export GOOGLE_GENAI_USE_VERTEXAI=TRUE</span>
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="go">export GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_EXPRESS_MODE_API_KEY_HERE</span>
-</span></code></pre></div>
-<p>When using TypeScript, the <code>.env</code> file is automatically loaded by the <code>import 'dotenv/config';</code> line at the top of your <code>agent.ts</code> file.</p>
-<div class="language-text highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>GOOGLE_GENAI_USE_VERTEXAI=TRUE
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>GOOGLE_GENAI_API_KEY=PASTE_YOUR_ACTUAL_EXPRESS_MODE_API_KEY_HERE
-</span></code></pre></div>
-<p>When using Go, define environment variables in your terminal or use a <code>.env</code> file:</p>
-<div class="language-bash highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_GENAI_USE_VERTEXAI</span><span class="o">=</span>TRUE
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_API_KEY</span><span class="o">=</span>PASTE_YOUR_ACTUAL_EXPRESS_MODE_API_KEY_HERE
-</span></code></pre></div>
-</li>
-</ol>
 </div>
 </div>
 </div>
+<p>For more details on connecting ADK agents to Google Cloud hosted models and services,
+including Gemini Enterprise Agent Platform, see the
+<a href="/get-started/google-cloud/">Connect to Google Cloud and Agent Platform</a> guide.</p>
 <h2 id="run-your-agent">4. Run Your Agent<a class="headerlink" href="#run-your-agent" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:5"><input checked="checked" id="python_2" name="__tabbed_10" type="radio" /><input id="typescript_2" name="__tabbed_10" type="radio" /><input id="go_2" name="__tabbed_10" type="radio" /><input id="java_2" name="__tabbed_10" type="radio" /><input id="kotlin_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="python_2">Python</label><label for="typescript_2">TypeScript</label><label for="go_2">Go</label><label for="java_2">Java</label><label for="kotlin_2">Kotlin</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Using the terminal, navigate to the parent directory of your agent project
 (e.g. using <code>cd ..</code>):</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="go">parent_folder/      &lt;-- navigate to this directory</span>
-</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="go">    multi_tool_agent/</span>
-</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="go">        __init__.py</span>
-</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="go">        agent.py</span>
-</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="go">        .env</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="go">parent_folder/      &lt;-- navigate to this directory</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="go">    multi_tool_agent/</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="go">        __init__.py</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="go">        agent.py</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="go">        .env</span>
 </span></code></pre></div>
 <p>There are multiple ways to interact with your agent:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="dev-ui-adk-web" name="__tabbed_11" type="radio" /><input id="terminal-adk-run" name="__tabbed_11" type="radio" /><input id="api-server-adk-api_server" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="dev-ui-adk-web">Dev UI (adk web)</label><label for="terminal-adk-run">Terminal (adk run)</label><label for="api-server-adk-api_server">API Server (adk api_server)</label></div>
@@ -8030,12 +8025,12 @@ the following code and update the project ID and location.</p>
 <p class="admonition-title">Authentication Setup for Agent Platform Users</p>
 <p>If you selected <strong>"Gemini - Google Cloud Agent Platform"</strong> in the previous step, you must authenticate with Google Cloud before launching the dev UI.</p>
 <p>Run this command and follow the prompts:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>gcloud<span class="w"> </span>auth<span class="w"> </span>application-default<span class="w"> </span>login
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>gcloud<span class="w"> </span>auth<span class="w"> </span>application-default<span class="w"> </span>login
 </span></code></pre></div></p>
 <p><strong>Note:</strong> Skip this step if you're using "Gemini - Google AI Studio".</p>
 </div>
 <p>Run the following command to launch the <strong>dev UI</strong>.</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>adk<span class="w"> </span>web
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>adk<span class="w"> </span>web
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Caution: ADK Web for development only</p>
@@ -8073,10 +8068,10 @@ actions:</p>
 <li><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/live-api">Agent Platform: Gemini Live API</a></li>
 </ul>
 <p>You can then replace the <code>model</code> string in <code>root_agent</code> in the <code>agent.py</code> file you created earlier (<a href="#agentpy">jump to section</a>). Your code should look something like:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">root_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;weather_time_agent&quot;</span><span class="p">,</span>
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;replace-me-with-model-id&quot;</span><span class="p">,</span> <span class="c1">#e.g. gemini-2.0-flash-live-001</span>
-</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>    <span class="o">...</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">root_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;weather_time_agent&quot;</span><span class="p">,</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;replace-me-with-model-id&quot;</span><span class="p">,</span> <span class="c1">#e.g. gemini-2.0-flash-live-001</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>    <span class="o">...</span>
 </span></code></pre></div>
 </div>
 <p><img alt="adk-web-dev-ui-audio.png" src="../../assets/adk-web-dev-ui-audio.png" /></p>
@@ -8086,11 +8081,11 @@ actions:</p>
 <p class="admonition-title">Tip</p>
 <p>When using <code>adk run</code> you can inject prompts into the agent to start by
 piping text to the command like so:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Please start by listing files&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>adk<span class="w"> </span>run<span class="w"> </span>file_listing_agent
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Please start by listing files&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>adk<span class="w"> </span>run<span class="w"> </span>file_listing_agent
 </span></code></pre></div>
 </div>
 <p>Run the following command, to chat with your Weather agent.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>adk run multi_tool_agent
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>adk run multi_tool_agent
 </span></code></pre></div>
 <p><img alt="adk-run.png" src="../../assets/adk-run.png" /></p>
 <p>To exit, use Cmd/Ctrl+C.</p>
@@ -8108,18 +8103,18 @@ agent.</p>
 </div>
 <div class="tabbed-block">
 <p>Using the terminal, navigate to your agent project directory:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="go">my-adk-agent/      &lt;-- navigate to this directory</span>
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="go">    agent.ts</span>
-</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="go">    .env</span>
-</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="go">    package.json</span>
-</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="go">    tsconfig.json</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="go">my-adk-agent/      &lt;-- navigate to this directory</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="go">    agent.ts</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="go">    .env</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="go">    package.json</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="go">    tsconfig.json</span>
 </span></code></pre></div>
 <p>There are multiple ways to interact with your agent:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="dev-ui-adk-web_1" name="__tabbed_12" type="radio" /><input id="terminal-adk-run_1" name="__tabbed_12" type="radio" /><input id="api-server-adk-api_server_1" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="dev-ui-adk-web_1">Dev UI (adk web)</label><label for="terminal-adk-run_1">Terminal (adk run)</label><label for="api-server-adk-api_server_1">API Server (adk api_server)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command to launch the <strong>dev UI</strong>.</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>npx<span class="w"> </span>adk<span class="w"> </span>web
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>npx<span class="w"> </span>adk<span class="w"> </span>web
 </span></code></pre></div>
 <p><strong>Step 1:</strong> Open the URL provided (usually <code>http://localhost:8000</code> or
 <code>http://127.0.0.1:8000</code>) directly in your browser.</p>
@@ -8140,7 +8135,7 @@ actions:</p>
 </div>
 <div class="tabbed-block">
 <p>Run the following command to chat with your agent.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>npx adk run agent.ts
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>npx adk run agent.ts
 </span></code></pre></div>
 <p><img alt="adk-run.png" src="../../assets/adk-run.png" /></p>
 <p>To exit, use Cmd/Ctrl+C.</p>
@@ -8158,17 +8153,17 @@ agent.</p>
 </div>
 <div class="tabbed-block">
 <p>Using the terminal, navigate to your agent project directory:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="go">my-adk-agent/      &lt;-- navigate to this directory</span>
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="go">    agent.go</span>
-</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="go">    .env</span>
-</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="go">    go.mod</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="go">my-adk-agent/      &lt;-- navigate to this directory</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="go">    agent.go</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="go">    .env</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="go">    go.mod</span>
 </span></code></pre></div>
 <p>There are multiple ways to interact with your agent:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="dev-ui-web" name="__tabbed_13" type="radio" /><input id="terminal-console" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="dev-ui-web">Dev UI (web)</label><label for="terminal-console">Terminal (console)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command to launch the <strong>dev UI</strong>. You must specify which sub-launchers to activate (e.g., <code>webui</code>, <code>api</code>).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>go<span class="w"> </span>run<span class="w"> </span>agent.go<span class="w"> </span>web<span class="w"> </span>webui<span class="w"> </span>api
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>go<span class="w"> </span>run<span class="w"> </span>agent.go<span class="w"> </span>web<span class="w"> </span>webui<span class="w"> </span>api
 </span></code></pre></div>
 <p><strong>Step 1:</strong> Open the URL provided (usually <code>http://localhost:8080</code>) directly in your browser.</p>
 <p><strong>Step 2.</strong> In the top-left corner of the UI, select your agent from the dropdown. It should be "weather_time_agent".</p>
@@ -8176,7 +8171,7 @@ agent.</p>
 </div>
 <div class="tabbed-block">
 <p>Run the following command to chat with your agent in the terminal.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>go<span class="w"> </span>run<span class="w"> </span>agent.go<span class="w"> </span>console
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>go<span class="w"> </span>run<span class="w"> </span>agent.go<span class="w"> </span>console
 </span></code></pre></div>
 <p><strong>Note:</strong> If <code>console</code> is the first sublauncher in your code (as it is with <code>full.NewLauncher()</code>), you can also just run <code>go run agent.go</code>.</p>
 <p>To exit, use Cmd/Ctrl+C.</p>
@@ -8187,25 +8182,25 @@ agent.</p>
 <div class="tabbed-block">
 <p>Using the terminal, navigate to the parent directory of your agent project
 (e.g. using <code>cd ..</code>):</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="go">project_folder/                &lt;-- navigate to this directory</span>
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="go">├── pom.xml (or build.gradle)</span>
-</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="go">├── src/</span>
-</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="go">├── └── main/</span>
-</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="go">│       └── java/</span>
-</span><span id="__span-55-6"><a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="go">│           └── agents/</span>
-</span><span id="__span-55-7"><a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="go">│               └── multitool/</span>
-</span><span id="__span-55-8"><a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="go">│                   └── MultiToolAgent.java</span>
-</span><span id="__span-55-9"><a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="go">└── test/</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="go">project_folder/                &lt;-- navigate to this directory</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="go">├── pom.xml (or build.gradle)</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="go">├── src/</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="go">├── └── main/</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="go">│       └── java/</span>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="go">│           └── agents/</span>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="go">│               └── multitool/</span>
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="go">│                   └── MultiToolAgent.java</span>
+</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="go">└── test/</span>
 </span></code></pre></div>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="dev-ui" name="__tabbed_14" type="radio" /><input id="maven" name="__tabbed_14" type="radio" /><input id="gradle" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="dev-ui">Dev UI</label><label for="maven">Maven</label><label for="gradle">Gradle</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command from the terminal to launch the Dev UI.</p>
 <p><strong>DO NOT change the main class name of the Dev UI server.</strong></p>
-<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="go">mvn exec:java \</span>
-</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="go">    -Dexec.mainClass=&quot;com.google.adk.web.AdkWebServer&quot; \</span>
-</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="go">    -Dexec.args=&quot;--adk.agents.source-dir=src/main/java&quot; \</span>
-</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="go">    -Dexec.classpathScope=&quot;compile&quot;</span>
+<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="go">mvn exec:java \</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="go">    -Dexec.mainClass=&quot;com.google.adk.web.AdkWebServer&quot; \</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="go">    -Dexec.args=&quot;--adk.agents.source-dir=src/main/java&quot; \</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="go">    -Dexec.classpathScope=&quot;compile&quot;</span>
 </span></code></pre></div>
 <p><strong>Step 1:</strong> Open the URL provided (usually <code>http://localhost:8080</code> or
 <code>http://127.0.0.1:8080</code>) directly in your browser.</p>
@@ -8231,26 +8226,26 @@ use ADK Web for development and debugging purposes only.</p>
 <div class="tabbed-block">
 <p>With Maven, run the <code>main()</code> method of your Java class
 with the following command:</p>
-<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="go">mvn compile exec:java -Dexec.mainClass=&quot;agents.multitool.MultiToolAgent&quot;</span>
+<div class="language-console highlight"><span class="filename">terminal</span><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="go">mvn compile exec:java -Dexec.mainClass=&quot;agents.multitool.MultiToolAgent&quot;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>With Gradle, the <code>build.gradle</code> or <code>build.gradle.kts</code> build file
 should have the following Java plugin in its <code>plugins</code> section:</p>
-<div class="language-groovy highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="n">plugins</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">    </span><span class="n">id</span><span class="o">(</span><span class="s1">&#39;java&#39;</span><span class="o">)</span>
-</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">    </span><span class="c1">// other plugins</span>
-</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="o">}</span>
+<div class="language-groovy highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="n">plugins</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">    </span><span class="n">id</span><span class="o">(</span><span class="s1">&#39;java&#39;</span><span class="o">)</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">    </span><span class="c1">// other plugins</span>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="o">}</span>
 </span></code></pre></div>
 <p>Then, elsewhere in the build file, at the top-level,
 create a new task to run the <code>main()</code> method of your agent:</p>
-<div class="language-groovy highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">tasks</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="s1">&#39;runAgent&#39;</span><span class="o">,</span><span class="w"> </span><span class="n">JavaExec</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">    </span><span class="n">classpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">.</span><span class="na">runtimeClasspath</span>
-</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">    </span><span class="n">mainClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;agents.multitool.MultiToolAgent&#39;</span>
-</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="o">}</span>
+<div class="language-groovy highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="n">tasks</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="s1">&#39;runAgent&#39;</span><span class="o">,</span><span class="w"> </span><span class="n">JavaExec</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">    </span><span class="n">classpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">.</span><span class="na">runtimeClasspath</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="n">mainClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;agents.multitool.MultiToolAgent&#39;</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="o">}</span>
 </span></code></pre></div>
 <p>Finally, on the command-line, run the following command:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="go">gradle runAgent</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="go">gradle runAgent</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -8258,18 +8253,18 @@ create a new task to run the <code>main()</code> method of your agent:</p>
 </div>
 <div class="tabbed-block">
 <p>Using the terminal, navigate to your agent project directory:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="go">project_folder/                &lt;-- navigate to this directory</span>
-</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="go">├── build.gradle.kts</span>
-</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="go">├── src/</span>
-</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="go">├── └── main/</span>
-</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="go">│       └── kotlin/</span>
-</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="go">│           └── agents/</span>
-</span><span id="__span-61-7"><a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a><span class="go">│               └── multitool/</span>
-</span><span id="__span-61-8"><a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a><span class="go">│                   └── MultiToolAgent.kt</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="go">project_folder/                &lt;-- navigate to this directory</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="go">├── build.gradle.kts</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="go">├── src/</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="go">├── └── main/</span>
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="go">│       └── kotlin/</span>
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="go">│           └── agents/</span>
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="go">│               └── multitool/</span>
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="go">│                   └── MultiToolAgent.kt</span>
 </span></code></pre></div>
 <h3 id="run-your-agent_1">Run your Agent<a class="headerlink" href="#run-your-agent_1" title="Permanent link">&para;</a></h3>
 <p>You can run the <code>main()</code> method of your Kotlin class using Gradle:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="go">./gradlew run</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="go">./gradlew run</span>
 </span></code></pre></div>
 <p>Or if you are using IntelliJ IDEA, you can just click the green run arrow next to the <code>main()</code> function.</p>
 </div>

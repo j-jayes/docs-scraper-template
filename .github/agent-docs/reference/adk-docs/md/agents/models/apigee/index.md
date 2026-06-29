@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../../get-started/java/)
       * [ Kotlin  ](../../../get-started/kotlin/)
       * [ Installation  ](../../../get-started/installation/)
+      * [ Google Cloud  ](../../../get-started/google-cloud/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -83,7 +84,9 @@ Models for Agents
       * [ Claude  ](../anthropic/)
       * [ Agent Platform hosted  ](../agent-platform/)
       * Apigee AI Gateway  [ Apigee AI Gateway  ](./) Table of contents 
-        * Example implementation 
+        * Implementation example 
+        * Compatibility with OpenAI 
+          * Implementation example 
       * [ Model routing  ](../routing/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
@@ -236,7 +239,9 @@ ADK 2.0
 
 Table of contents 
 
-  * Example implementation 
+  * Implementation example 
+  * Compatibility with OpenAI 
+    * Implementation example 
 
 
 
@@ -263,11 +268,9 @@ Supported in ADKPython v1.18.0Java v0.4.0
 
 
 
-Note
+The `ApigeeLLM` wrapper is designed for use with Agent Platform and the Gemini API (generateContent). We are continually expanding support for other models and interfaces. For OpenAI compatible models, including self-hosted or other providers, use the `CompletionsHTTPClient` to route traffic through your Apigee proxy.
 
-The `ApigeeLLM` wrapper is currently designed for use with Agent Platform and the Gemini API (generateContent). We are continually expanding support for other models and interfaces.
-
-## Example implementation¶
+## Implementation example¶
 
 Integrate Apigee's governance into your agent's workflow by instantiating the `ApigeeLlm` wrapper object and pass it to an `LlmAgent` or other agent type.
 
@@ -318,6 +321,46 @@ PythonJava
     
 
 With this configuration, every API call from your agent will be routed through Apigee first, where all necessary policies (security, rate limiting, logging) are executed before the request is securely forwarded to the underlying AI model endpoint. For a full code example using the Apigee proxy, see [Hello World Apigee LLM](https://github.com/google/adk-python/tree/main/contributing/samples/models/hello_world_apigeellm).
+
+## Compatibility with OpenAI¶
+
+The `CompletionsHTTPClient` is a generic HTTP client designed for compatibility with the OpenAI API format. It allows you to route requests through proxies (such as Apigee) that expect standard OpenAI-compatible `/chat/completions` endpoints, rather than native Gemini or Vertex AI protocols. This client handles:
+
+  * **Payload construction** : Converts LlmRequest objects into the format required by OpenAI-compatible APIs.
+  * **Response handling** : Manages streaming and non-streaming responses from the proxy.
+  * **Reliability** : Uses `tenacity` for built-in retry logic.
+  * **Normalization** : Parses responses and streaming chunks into the standard format expected by the rest of the ADK framework.
+
+
+
+### Implementation example¶
+    
+    
+    import asyncio
+    from google.adk.models.apigee_llm import CompletionsHTTPClient
+    from google.adk.models.llm_request import LlmRequest
+    from google.genai import types
+    
+    async def test_client():
+        # 1. Initialize the client
+        client = CompletionsHTTPClient(
+            base_url="https://your-apigee-proxy-url.com/v1",
+            headers={"Authorization": "Bearer YOUR_API_KEY"}
+        )
+    
+        # 2. Construct a minimal request
+        request = LlmRequest(
+            model="gpt-4o",  # Replace with your target model ID
+            contents=[types.Content(role="user", parts=[types.Part.from_text(text="Hello!")])]
+        )
+    
+        # 3. Execute a non-streaming generation
+        async for response in client.generate_content_async(request, stream=False):
+            print(f"Response: {response.text}")
+    
+    if __name__ == "__main__":
+        asyncio.run(test_client())
+    
 
 Back to top 
 

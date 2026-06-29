@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
       * [ Installation  ](../get-started/installation/)
+      * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -235,12 +236,16 @@ ADK 2.0
 
 Table of contents 
 
-  * The Different types of Context 
-  * Common Tasks Using Context 
-    * Accessing Information 
-    * Managing State 
-    * Working with Artifacts 
-    * Handling Tool Authentication 
+  * Types of context 
+    * InvocationContext 
+    * ReadonlyContext 
+    * CallbackContext and Context 
+    * ToolContext 
+  * Common tasks using context 
+    * Access information 
+    * Manage state 
+    * Work with artifacts 
+    * Handle tool authentication 
     * Leveraging Memory 
     * Advanced: Direct InvocationContext Usage 
   * Key Takeaways & Best Practices 
@@ -397,246 +402,285 @@ PythonTypeScriptGoJava
     }
     
 
-## The Different types of Context¶
+## Types of context¶
 
-While `InvocationContext` acts as the comprehensive internal container, ADK provides specialized context objects tailored to specific situations. This ensures you have the right tools and permissions for the task at hand without needing to handle the full complexity of the internal context everywhere. Here are the different "flavors" you'll encounter:
+ADK uses the `Context` class as the central mechanism to manage an agent's environment, state, and resources. While `Context` serves as the foundational base for all agent interactions, it manifests in specialized "flavors" designed to provide the right balance of capabilities and permissions depending on where they are used in the agent's execution flow. If you use these specific context types, ADK ensures that your agent has access to necessary information, such as memory, session state, or credentials, exactly when and where you need them. Here are the primary context flavors you will encounter:
 
-  1. **`InvocationContext`**
+  * **`InvocationContext`** : Used during core agent runs (`_run_async_impl`, `_run_live_impl`) to provide a comprehensive view of the entire invocation, including service references and lifecycle management.
 
-     * **Where Used:** Received as the `ctx` argument directly within an agent's core implementation methods (`_run_async_impl`, `_run_live_impl`).
-     * **Purpose:** Provides access to the _entire_ state of the current invocation. This is the most comprehensive context object.
-     * **Key Contents:** Direct access to `session` (including `state` and `events`), the current `agent` instance, `invocation_id`, initial `user_content`, references to configured services (`artifact_service`, `memory_service`, `session_service`), and fields related to live/streaming modes.
-     * **Use Case:** Primarily used when the agent's core logic needs direct access to the overall session or services, though often state and artifact interactions are delegated to callbacks/tools which use their own contexts. Also used to control the invocation itself (e.g., setting `ctx.end_invocation = True`).
+  * **`ReadonlyContext`** : A lightweight, restricted view of fundamental contextual details used in scenarios where mutation is disallowed, such as within instruction providers.
+
+  * **`Context`** : Used in agent lifecycle and model callbacks. It provides a robust set of features for reading/writing session state, managing artifacts, and injecting data into the memory service.
+
+  * **`ToolContext`** : Tailored for tool execution and tool-related callbacks. In addition to the capabilities of Context, it includes specialized methods for authentication flows, memory searching, and artifact discovery.
+
+
+
+
+Note
+
+**About compatibility** : In Python and TypeScript, `CallbackContext` and `ToolContext` have been replaced by the `Context` type. The `CallbackContext` class is maintained as an alias for `Context` to ensure backward compatibility. While you may encounter `CallbackContext` in existing codebases, **you should use the`Context` class** for all new development to take advantage of the full, unified feature set.
+
+### `InvocationContext`¶
+
+  * **Where Used:** Received as the `ctx` argument directly within an agent's core implementation methods (`_run_async_impl`, `_run_live_impl`).
+  * **Purpose:** Provides access to the entire state of the current invocation. This is the most comprehensive context object.
+  * **Key Contents:** Direct access to `session` (including `state` and `events`), the current `agent` instance, `invocation_id`, initial `user_content`, references to configured services (`artifact_service`, `memory_service`, `session_service`), and fields related to live/streaming modes.
+  * **Use Case:** Primarily used when the agent's core logic needs direct access to the overall session or services, though often state and artifact interactions are delegated to callbacks/tools which use their own contexts. Also used to control the invocation itself (e.g., setting `ctx.end_invocation = True`).
 
 PythonTypeScriptGoJava
-    
-    # Agent implementation receiving InvocationContext
-    from google.adk.agents import BaseAgent
-    from google.adk.agents.invocation_context import InvocationContext
-    from google.adk.events import Event
-    from typing import AsyncGenerator
-    
-    class MyAgent(BaseAgent):
-        async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
-            # Direct access example
-            agent_name = ctx.agent.name
-            session_id = ctx.session.id
-            print(f"Agent {agent_name} running in session {session_id} for invocation {ctx.invocation_id}")
-            # ... agent logic using ctx ...
-            yield # ... event ...
-    
-    
-    // Pseudocode: Agent implementation receiving InvocationContext
-    import { BaseAgent, InvocationContext, Event } from '@google/adk';
-    
-    class MyAgent extends BaseAgent {
-      async *runAsyncImpl(ctx: InvocationContext): AsyncGenerator<Event, void, undefined> {
-        // Direct access example
-        const agentName = ctx.agent.name;
-        const sessionId = ctx.session.id;
-        console.log(`Agent ${agentName} running in session ${sessionId} for invocation ${ctx.invocationId}`);
-        // ... agent logic using ctx ...
-        yield; // ... event ...
-      }
-    }
-    
-    
-    import (
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/session"
-    )
-    
-    // Pseudocode: Agent implementation receiving InvocationContext
-    type MyAgent struct {
-    }
-    
-    func (a *MyAgent) Run(ctx agent.InvocationContext) iter.Seq2[*session.Event, error] {
-        return func(yield func(*session.Event, error) bool) {
+        
+        # Agent implementation receiving InvocationContext
+        from google.adk.agents import BaseAgent
+        from google.adk.agents.invocation_context import InvocationContext
+        from google.adk.events import Event
+        from typing import AsyncGenerator
+        
+        class MyAgent(BaseAgent):
+            async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
+                # Direct access example
+                agent_name = ctx.agent.name
+                session_id = ctx.session.id
+                print(f"Agent {agent_name} running in session {session_id} for invocation {ctx.invocation_id}")
+                # ... agent logic using ctx ...
+                yield # ... event ...
+        
+        
+        // Pseudocode: Agent implementation receiving InvocationContext
+        import { BaseAgent, InvocationContext, Event } from '@google/adk';
+        
+        class MyAgent extends BaseAgent {
+          async *runAsyncImpl(ctx: InvocationContext): AsyncGenerator<Event, void, undefined> {
             // Direct access example
-            agentName := ctx.Agent().Name()
-            sessionID := ctx.Session().ID()
-            fmt.Printf("Agent %s running in session %s for invocation %s\n", agentName, sessionID, ctx.InvocationID())
+            const agentName = ctx.agent.name;
+            const sessionId = ctx.session.id;
+            console.log(`Agent ${agentName} running in session ${sessionId} for invocation ${ctx.invocationId}`);
             // ... agent logic using ctx ...
-            yield(&session.Event{Author: agentName}, nil)
+            yield; // ... event ...
+          }
         }
-    }
-    
-    
-    // Example: Agent implementation receiving InvocationContext
-    import com.google.adk.agents.BaseAgent;
-    import com.google.adk.agents.InvocationContext;
-    import com.google.adk.events.Event;
-    import io.reactivex.rxjava3.core.Flowable;
-    
-    public class MyAgent extends BaseAgent {
-        @Override
-        protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
-            // Direct access example
-            String agentName = invocationContext.agent().name();
-            String sessionId = invocationContext.session().id();
-            String invocationId = invocationContext.invocationId();
-            System.out.println("Agent " + agentName + " running in session " + sessionId + " for invocation " + invocationId);
-            // ... agent logic using invocationContext ...
-            return Flowable.empty();
+        
+        
+        import (
+            "google.golang.org/adk/agent"
+            "google.golang.org/adk/session"
+        )
+        
+        // Pseudocode: Agent implementation receiving InvocationContext
+        type MyAgent struct {
         }
-    }
-    
+        
+        func (a *MyAgent) Run(ctx agent.InvocationContext) iter.Seq2[*session.Event, error] {
+            return func(yield func(*session.Event, error) bool) {
+                // Direct access example
+                agentName := ctx.Agent().Name()
+                sessionID := ctx.Session().ID()
+                fmt.Printf("Agent %s running in session %s for invocation %s\n", agentName, sessionID, ctx.InvocationID())
+                // ... agent logic using ctx ...
+                yield(&session.Event{Author: agentName}, nil)
+            }
+        }
+        
+        
+        // Example: Agent implementation receiving InvocationContext
+        import com.google.adk.agents.BaseAgent;
+        import com.google.adk.agents.InvocationContext;
+        import com.google.adk.events.Event;
+        import io.reactivex.rxjava3.core.Flowable;
+        
+        public class MyAgent extends BaseAgent {
+            @Override
+            protected Flowable<Event> runAsyncImpl(InvocationContext invocationContext) {
+                // Direct access example
+                String agentName = invocationContext.agent().name();
+                String sessionId = invocationContext.session().id();
+                String invocationId = invocationContext.invocationId();
+                System.out.println("Agent " + agentName + " running in session " + sessionId + " for invocation " + invocationId);
+                // ... agent logic using invocationContext ...
+                return Flowable.empty();
+            }
+        }
+        
 
-  2. **`ReadonlyContext`**
 
-     * **Where Used:** Provided in scenarios where only read access to basic information is needed and mutation is disallowed (e.g., `InstructionProvider` functions). It's also the base class for other contexts.
-     * **Purpose:** Offers a safe, read-only view of fundamental contextual details.
-     * **Key Contents:** `invocation_id`, `agent_name`, and a read-only _view_ of the current `state`.
+
+
+### `ReadonlyContext`¶
+
+  * **Where Used:** Provided in scenarios where only read access to basic information is needed and mutation is disallowed (e.g., `InstructionProvider` functions). It's also the base class for other contexts.
+  * **Purpose:** Offers a safe, read-only view of fundamental contextual details.
+  * **Key Contents:** `invocation_id`, `agent_name`, and a read-only _view_ of the current `state`.
 
 PythonTypeScriptGoJava
-    
-    # Example: Instruction provider receiving ReadonlyContext
-    from google.adk.agents.readonly_context import ReadonlyContext
-    
-    def my_instruction_provider(context: ReadonlyContext) -> str:
-        # Read-only access example
-        # The state property provides a read-only MappingProxyType view of the state
-        user_tier = context.state.get("user_tier", "standard")
-        # context.state['new_key'] = 'value' # TypeError: 'mappingproxy' object does not support item assignment
-        return f"Process the request for a {user_tier} user."
-    
-    
-    // Pseudocode: Instruction provider receiving ReadonlyContext
-    import { ReadonlyContext } from '@google/adk';
-    
-    function myInstructionProvider(context: ReadonlyContext): string {
-      // Read-only access example
-      // The state object is read-only
-      const userTier = context.state.get('user_tier') ?? 'standard';
-      // context.state.set('new_key', 'value'); // This would fail or throw an error
-      return `Process the request for a ${userTier} user.`;
-    }
-    
-    
-    import "google.golang.org/adk/agent"
-    
-    // Pseudocode: Instruction provider receiving ReadonlyContext
-    func myInstructionProvider(ctx agent.ReadonlyContext) (string, error) {
-        // Read-only access example
-        userTier, err := ctx.ReadonlyState().Get("user_tier")
-        if err != nil {
-            userTier = "standard" // Default value
+        
+        # Example: Instruction provider receiving ReadonlyContext
+        from google.adk.agents.readonly_context import ReadonlyContext
+        
+        def my_instruction_provider(context: ReadonlyContext) -> str:
+            # Read-only access example
+            # The state property provides a read-only MappingProxyType view of the state
+            user_tier = context.state.get("user_tier", "standard")
+            # context.state['new_key'] = 'value' # TypeError: 'mappingproxy' object does not support item assignment
+            return f"Process the request for a {user_tier} user."
+        
+        
+        // Pseudocode: Instruction provider receiving ReadonlyContext
+        import { ReadonlyContext } from '@google/adk';
+        
+        function myInstructionProvider(context: ReadonlyContext): string {
+          // Read-only access example
+          // The state object is read-only
+          const userTier = context.state.get('user_tier') ?? 'standard';
+          // context.state.set('new_key', 'value'); // This would fail or throw an error
+          return `Process the request for a ${userTier} user.`;
         }
-        // ctx.ReadonlyState() has no Set method since State() is read-only.
-        return fmt.Sprintf("Process the request for a %v user.", userTier), nil
-    }
-    
-    
-    // Example: Instruction provider receiving ReadonlyContext
-    import com.google.adk.agents.ReadonlyContext;
-    
-    public String myInstructionProvider(ReadonlyContext context) {
-        // Read-only access example
-        // state() returns an unmodifiable view of the session state
-        String userTier = (String) context.state().getOrDefault("user_tier", "standard");
-        // context.state().put("new_key", "value"); // UnsupportedOperationException
-        return "Process the request for a " + userTier + " user.";
-    }
-    
-
-  3. **`CallbackContext`**
-
-     * **Where Used:** Passed as `callback_context` to agent lifecycle callbacks (`before_agent_callback`, `after_agent_callback`) and model interaction callbacks (`before_model_callback`, `after_model_callback`).
-     * **Purpose:** Facilitates inspecting and modifying state, interacting with artifacts, and accessing invocation details _specifically within callbacks_.
-     * **Key Capabilities (Adds to`ReadonlyContext`):**
-       * **Mutable`state` Property:** Allows reading _and writing_ to session state. Changes made here (`callback_context.state['key'] = value`) are tracked and associated with the event generated by the framework after the callback.
-       * **Artifact Methods:** `load_artifact(filename)` and `save_artifact(filename, part)` methods for interacting with the configured `artifact_service`.
-       * Direct `user_content` access.
-
-_(Note: In TypeScript,`CallbackContext` and `ToolContext` are unified into a single `Context` type.)_
-
-PythonTypeScriptGoJava
-    
-    # Example: Callback receiving Context (CallbackContext is unified into Context)
-    from google.adk.agents.context import Context
-    from google.adk.models import LlmRequest
-    from google.genai import types
-    from typing import Optional
-    
-    def my_before_model_cb(context: Context, request: LlmRequest) -> Optional[types.Content]:
-        # Read/Write state example
-        call_count = context.state.get("model_calls", 0)
-        context.state["model_calls"] = call_count + 1 # Modify state (tracks delta)
-    
-        # Optionally load an artifact
-        # config_part = context.load_artifact("model_config.json")
-        print(f"Preparing model call #{call_count + 1} for invocation {context.invocation_id}")
-        return None # Allow model call to proceed
-    
-    
-    // Pseudocode: Callback receiving Context
-    import { Context, LlmRequest } from '@google/adk';
-    import { Content } from '@google/genai';
-    
-    function myBeforeModelCb(context: Context, request: LlmRequest): Content | undefined {
-      // Read/Write state example
-      const callCount = (context.state.get('model_calls') as number) || 0;
-      context.state.set('model_calls', callCount + 1); // Modify state
-    
-      // Optionally load an artifact
-      // const configPart = await context.loadArtifact('model_config.json');
-      console.log(`Preparing model call #${callCount + 1} for invocation ${context.invocationId}`);
-      return undefined; // Allow model call to proceed
-    }
-    
-    
-    import (
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/model"
-    )
-    
-    // Pseudocode: Callback receiving CallbackContext
-    func myBeforeModelCb(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
-        // Read/Write state example
-        callCount, err := ctx.State().Get("model_calls")
-        if err != nil {
-            callCount = 0 // Default value
+        
+        
+        import "google.golang.org/adk/agent"
+        
+        // Pseudocode: Instruction provider receiving ReadonlyContext
+        func myInstructionProvider(ctx agent.ReadonlyContext) (string, error) {
+            // Read-only access example
+            userTier, err := ctx.ReadonlyState().Get("user_tier")
+            if err != nil {
+                userTier = "standard" // Default value
+            }
+            // ctx.ReadonlyState() has no Set method since State() is read-only.
+            return fmt.Sprintf("Process the request for a %v user.", userTier), nil
         }
-        newCount := callCount.(int) + 1
-        if err := ctx.State().Set("model_calls", newCount); err != nil {
-            return nil, err
+        
+        
+        // Example: Instruction provider receiving ReadonlyContext
+        import com.google.adk.agents.ReadonlyContext;
+        
+        public String myInstructionProvider(ReadonlyContext context) {
+            // Read-only access example
+            // state() returns an unmodifiable view of the session state
+            String userTier = (String) context.state().getOrDefault("user_tier", "standard");
+            // context.state().put("new_key", "value"); // UnsupportedOperationException
+            return "Process the request for a " + userTier + " user.";
+        }
+        
+
+
+
+
+### `CallbackContext` and `Context`¶
+
+  * **Where Used:** Passed as `callback_context` to agent lifecycle callbacks (`before_agent_callback`, `after_agent_callback`) and model interaction callbacks (`before_model_callback`, `after_model_callback`).
+  * **Purpose:** Facilitates inspecting and modifying state, interacting with artifacts, and accessing invocation details _specifically within callbacks_.
+  * **Key Capabilities (Adds to`ReadonlyContext`):**
+    * **Mutable`state` Property:** Allows reading and writing to session state. Changes made here (`callback_context.state['key'] = value`) are tracked and associated with the event generated by the framework after the callback.
+    * **Artifact Methods:** `load_artifact(filename)` and `save_artifact(filename, part)` methods for interacting with the configured `artifact_service`.
+    * Direct `user_content` access.
+
+
+
+Note
+
+In Python and TypeScript, `CallbackContext` and `ToolContext` have been replaced by the `Context` type.
+    
+    
+    === "Python"
+    
+        ```python
+        # Example: Callback receiving Context (CallbackContext is unified into Context)
+        from google.adk.agents.context import Context
+        from google.adk.models import LlmRequest
+        from google.genai import types
+        from typing import Optional
+    
+        def my_before_model_cb(context: Context, request: LlmRequest) -> Optional[types.Content]:
+            # Read/Write state example
+            call_count = context.state.get("model_calls", 0)
+            context.state["model_calls"] = call_count + 1 # Modify state (tracks delta)
+    
+            # Optionally load an artifact
+            # config_part = context.load_artifact("model_config.json")
+            print(f"Preparing model call #{call_count + 1} for invocation {context.invocation_id}")
+            return None # Allow model call to proceed
+        ```
+    
+    === "TypeScript"
+    
+        ```typescript
+        // Pseudocode: Callback receiving Context
+        import { Context, LlmRequest } from '@google/adk';
+        import { Content } from '@google/genai';
+    
+        function myBeforeModelCb(context: Context, request: LlmRequest): Content | undefined {
+          // Read/Write state example
+          const callCount = (context.state.get('model_calls') as number) || 0;
+          context.state.set('model_calls', callCount + 1); // Modify state
+    
+          // Optionally load an artifact
+          // const configPart = await context.loadArtifact('model_config.json');
+          console.log(`Preparing model call #${callCount + 1} for invocation ${context.invocationId}`);
+          return undefined; // Allow model call to proceed
+        }
+        ```
+    
+    === "Go"
+    
+        ```go
+        import (
+            "google.golang.org/adk/agent"
+            "google.golang.org/adk/model"
+        )
+    
+        // Pseudocode: Callback receiving CallbackContext
+        func myBeforeModelCb(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+            // Read/Write state example
+            callCount, err := ctx.State().Get("model_calls")
+            if err != nil {
+                callCount = 0 // Default value
+            }
+            newCount := callCount.(int) + 1
+            if err := ctx.State().Set("model_calls", newCount); err != nil {
+                return nil, err
+            }
+    
+            // Optionally load an artifact
+            // configPart, err := ctx.Artifacts().Load("model_config.json")
+            fmt.Printf("Preparing model call #%d for invocation %s\n", newCount, ctx.InvocationID())
+            return nil, nil // Allow model call to proceed
         }
     
-        // Optionally load an artifact
-        // configPart, err := ctx.Artifacts().Load("model_config.json")
-        fmt.Printf("Preparing model call #%d for invocation %s\n", newCount, ctx.InvocationID())
-        return nil, nil // Allow model call to proceed
-    }
+        ```
     
+    === "Java"
     
-    // Example: Callback receiving CallbackContext
-    import com.google.adk.agents.CallbackContext;
-    import com.google.adk.models.LlmRequest;
-    import com.google.adk.models.LlmResponse;
-    import io.reactivex.rxjava3.core.Maybe;
+        ```java
+        // Example: Callback receiving CallbackContext
+        import com.google.adk.agents.CallbackContext;
+        import com.google.adk.models.LlmRequest;
+        import com.google.adk.models.LlmResponse;
+        import io.reactivex.rxjava3.core.Maybe;
     
-    public Maybe<LlmResponse> myBeforeModelCb(CallbackContext callbackContext, LlmRequest request) {
-        // Read/Write state example
-        int callCount = (int) callbackContext.state().getOrDefault("model_calls", 0);
-        callbackContext.state().put("model_calls", callCount + 1); // Modify state (tracks delta)
+        public Maybe<LlmResponse> myBeforeModelCb(CallbackContext callbackContext, LlmRequest request) {
+            // Read/Write state example
+            int callCount = (int) callbackContext.state().getOrDefault("model_calls", 0);
+            callbackContext.state().put("model_calls", callCount + 1); // Modify state (tracks delta)
     
-        // Optionally load an artifact
-        // Maybe<Part> configPart = callbackContext.loadArtifact("model_config.json");
-        System.out.println("Preparing model call " + (callCount + 1) + " for invocation " + callbackContext.invocationId());
-        return Maybe.empty(); // Allow model call to proceed
-    }
+            // Optionally load an artifact
+            // Maybe<Part> configPart = callbackContext.loadArtifact("model_config.json");
+            System.out.println("Preparing model call " + (callCount + 1) + " for invocation " + callbackContext.invocationId());
+            return Maybe.empty(); // Allow model call to proceed
+        }
+        ```
     
 
-  4. **`ToolContext`**
+### `ToolContext`¶
 
-     * **Where Used:** Passed as `tool_context` to the functions backing `FunctionTool`s and to tool execution callbacks (`before_tool_callback`, `after_tool_callback`).
-     * **Purpose:** Provides everything `CallbackContext` does, plus specialized methods essential for tool execution, like handling authentication, searching memory, and listing artifacts.
-     * **Key Capabilities (Adds to`CallbackContext`):**
-       * **Authentication Methods:** `request_credential(auth_config)` to trigger an auth flow, and `get_auth_response(auth_config)` to retrieve credentials provided by the user/system.
-       * **Artifact Listing:** `list_artifacts()` to discover available artifacts in the session.
-       * **Memory Search:** `search_memory(query)` to query the configured `memory_service`.
-       * **`function_call_id` Property:** Identifies the specific function call from the LLM that triggered this tool execution, crucial for linking authentication requests or responses back correctly.
-       * **`actions` Property:** Direct access to the `EventActions` object for this step, allowing the tool to signal state changes, auth requests, etc.
+  * **Where Used:** Passed as `tool_context` to the functions backing `FunctionTool`s and to tool execution callbacks (`before_tool_callback`, `after_tool_callback`).
+  * **Purpose:** Provides everything `CallbackContext` does, plus specialized methods essential for tool execution, like handling authentication, searching memory, and listing artifacts.
+  * **Key Capabilities (Adds to`CallbackContext`):**
+
+    * **Authentication Methods:** `request_credential(auth_config)` to trigger an auth flow, and `get_auth_response(auth_config)` to retrieve credentials provided by the user/system.
+    * **Artifact Listing:** `list_artifacts()` to discover available artifacts in the session.
+    * **Memory Search:** `search_memory(query)` to query the configured `memory_service`.
+    * **`function_call_id` Property:** Identifies the specific function call from the LLM that triggered this tool execution, crucial for linking authentication requests or responses back correctly.
+    * **`actions` Property:** Direct access to the `EventActions` object for this step, allowing the tool to signal state changes, auth requests, etc.
 
 PythonTypeScriptGoJava
     
@@ -748,15 +792,15 @@ PythonTypeScriptGoJava
 
 Understanding these different context objects and when to use them is key to effectively managing state, accessing services, and controlling the flow of your ADK application. The next section will detail common tasks you can perform using these contexts.
 
-## Common Tasks Using Context¶
+## Common tasks using context¶
 
 Now that you understand the different context objects, let's focus on how to use them for common tasks when building your agents and tools.
 
-### Accessing Information¶
+### Access information¶
 
 You'll frequently need to read information stored within the context.
 
-  * **Reading Session State:** Access data saved in previous steps or user/app-level settings. Use dictionary-like access on the `state` property.
+  * **Read session state:** Access data saved in previous steps or user/app-level settings. Use dictionary-like access on the `state` property.
 
 PythonTypeScriptGoJava
         
@@ -882,7 +926,7 @@ PythonTypeScriptGoJava
         }
         
 
-  * **Getting Current Identifiers:** Useful for logging or custom logic based on the current operation.
+  * **Get current identifiers:** Useful for logging or custom logic based on the current operation.
 
 PythonTypeScriptGoJava
         
@@ -938,7 +982,7 @@ PythonTypeScriptGoJava
         }
         
 
-  * **Accessing the Initial User Input:** Refer back to the message that started the current invocation.
+  * **Access the initial user input:** Refer back to the message that started the current invocation.
 
 PythonTypeScriptGoJava
         
@@ -1008,13 +1052,13 @@ PythonTypeScriptGoJava
 
 
 
-### Managing State¶
+### Manage state¶
 
 State is crucial for memory and data flow. When you modify state using `CallbackContext` or `ToolContext`, the changes are automatically tracked and persisted by the framework.
 
   * **How it Works:** Writing to `callback_context.state['my_key'] = my_value` or `tool_context.state['my_key'] = my_value` adds this change to the `EventActions.state_delta` associated with the current step's event. The `SessionService` then applies these deltas when persisting the event.
 
-  * **Passing Data Between Tools**
+  * **Pass data between tools**
 
 PythonTypeScriptGoJava
         
@@ -1125,7 +1169,7 @@ PythonTypeScriptGoJava
         }
         
 
-  * **Updating User Preferences:**
+  * **Update user preferences:**
 
 PythonTypeScriptGoJava
         
@@ -1187,16 +1231,16 @@ PythonTypeScriptGoJava
         }
         
 
-  * **State Prefixes:** While basic state is session-specific, prefixes like `app:` and `user:` can be used with persistent `SessionService` implementations (like `DatabaseSessionService` or `VertexAiSessionService`) to indicate broader scope (app-wide or user-wide across sessions). `temp:` can denote data only relevant within the current invocation.
+  * **State prefixes:** While basic state is session-specific, prefixes like `app:` and `user:` can be used with persistent `SessionService` implementations (like `DatabaseSessionService` or `VertexAiSessionService`) to indicate broader scope (app-wide or user-wide across sessions). `temp:` can denote data only relevant within the current invocation.
 
 
 
 
-### Working with Artifacts¶
+### Work with artifacts¶
 
 Use artifacts to handle files or large data blobs associated with the session. Common use case: processing uploaded documents.
 
-  * **Document Summarizer Example Flow:**
+  * **Document summarizer example flow:**
 
     1. **Ingest Reference (e.g., in a Setup Tool or Callback):** Save the _path or URI_ of the document, not the entire content, as an artifact.
 
@@ -1491,7 +1535,7 @@ PythonTypeScriptGoJava
            }
            
 
-  * **Listing Artifacts:** Discover what files are available.
+  * **List Artifacts:** Discover what files are available.
 
 PythonTypeScriptGoJava
         
@@ -1560,7 +1604,7 @@ PythonTypeScriptGoJava
 
 
 
-### Handling Tool Authentication¶
+### Handle tool authentication¶
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0Java v0.2.0
 

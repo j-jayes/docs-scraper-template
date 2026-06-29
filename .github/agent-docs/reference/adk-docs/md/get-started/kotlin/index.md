@@ -48,6 +48,7 @@ Get Started
           * Run with web interface 
         * Next: Build your agent 
       * [ Installation  ](../installation/)
+      * [ Google Cloud  ](../google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 

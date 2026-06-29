@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -125,12 +126,12 @@ Observability
 Evaluation 
       * [ Criteria  ](../criteria/)
       * User Simulation  [ User Simulation  ](./) Table of contents 
-        * User Personas 
+        * User personas 
         * Pre-built Personas 
-        * Example: Evaluating the hello_world agent with conversation scenarios 
+        * Example: Evaluate the hello_world agent with conversation scenarios 
         * User simulator configuration 
-        * Custom Personas 
-        * Generating Evaluation Cases via User Simulation 
+        * Custom personas 
+        * Generate evaluation cases via user simulation 
           * Command Syntax 
           * Configuration File Format 
           * Configuration Fields 
@@ -244,12 +245,12 @@ ADK 2.0
 
 Table of contents 
 
-  * User Personas 
+  * User personas 
   * Pre-built Personas 
-  * Example: Evaluating the hello_world agent with conversation scenarios 
+  * Example: Evaluate the hello_world agent with conversation scenarios 
   * User simulator configuration 
-  * Custom Personas 
-  * Generating Evaluation Cases via User Simulation 
+  * Custom personas 
+  * Generate evaluation cases via user simulation 
     * Command Syntax 
     * Configuration File Format 
     * Configuration Fields 
@@ -262,7 +263,7 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/evaluate/user-sim.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/evaluate/user-sim.md "View Markdown source")
 
-# User Simulation¶
+# User simulation¶
 
 Supported in ADKPython v1.18.0
 
@@ -305,7 +306,9 @@ Try it in Colab
 
 Test this entire workflow yourself in an interactive notebook on [Simulating User Conversations to Dynamically Evaluate ADK Agents](https://github.com/google/adk-samples/blob/main/python/notebooks/evaluation/user_simulation_in_adk_evals.ipynb). You'll define a conversation scenario, run a "dry run" to check the dialogue, and then perform a full evaluation to score the agent's responses.
 
-## User Personas¶
+## User personas¶
+
+Supported in ADKPython v1.26.0
 
 A User Persona is a role that the simulated user adopts during the conversation. It is defined by a set of **behaviors** that dictate how the user interacts with the agent, such as their communication style, how they provide information, and how they react to errors.
 
@@ -338,7 +341,7 @@ Behavior | **EXPERT** persona | **NOVICE** persona | **EVALUATOR** persona
 **Troubleshoot Agent Errors** | Once | Never | Never  
 **Tone** | Professional | Conversational | Conversational  
   
-## Example: Evaluating the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) agent with conversation scenarios¶
+## Example: Evaluate the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) agent with conversation scenarios¶
 
 To add evaluation cases containing conversation scenarios to a new or existing [`EvalSet`](https://github.com/google/adk-python/blob/main/src/google/adk/evaluation/eval_set.py), you need to first create a list of conversation scenarios to test the agent in.
 
@@ -447,7 +450,7 @@ You can override the default user simulator configuration to change the model, i
 
 
 
-## Custom Personas¶
+## Custom personas¶
 
 You can define your own custom persona by providing a `UserPersona` object in the `ConversationScenario`.
 
@@ -478,7 +481,7 @@ Example of a custom persona definition:
     }
     
 
-## Generating Evaluation Cases via User Simulation¶
+## Generate evaluation cases via user simulation¶
 
 Writing evaluation cases manually can be time-consuming and may not cover all potential failure modes. ADK provides a command to automatically generate diverse and realistic conversation scenarios based on your agent's definition using the Agent Platform Eval SDK.
 

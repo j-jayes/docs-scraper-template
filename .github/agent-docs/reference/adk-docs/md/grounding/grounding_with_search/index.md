@@ -39,6 +39,7 @@ Get Started
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
       * [ Installation  ](../../get-started/installation/)
+      * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -298,6 +299,8 @@ Before creating a grounded agent, you must have an existing Agent Search Data St
     GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
     GOOGLE_CLOUD_LOCATION=LOCATION
     
+
+For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 ## Creating a Grounded Agent¶
 
