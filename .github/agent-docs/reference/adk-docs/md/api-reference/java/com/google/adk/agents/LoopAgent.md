@@ -51,7 +51,28 @@ public class LoopAgent extends [BaseAgent](BaseAgent.html "class in com.google.a
 
 An agent that runs its sub-agents sequentially in a loop. 
 
-The loop continues until a sub-agent escalates, or until the maximum number of iterations is reached (if specified).
+The loop continues until a sub-agent escalates, or until the maximum number of iterations is reached (if specified). 
+
+**Composition with[`LlmAgent`](LlmAgent.html "class in com.google.adk.agents")s:** a `LoopAgent` does not transfer control back to a parent [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents"). To react to loop results, place the `LoopAgent` and the follow-up [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents") as siblings inside a [`SequentialAgent`](SequentialAgent.html "class in com.google.adk.agents"). Loop sub-agents publish via `outputKey` and the follow-up reads via `{key}` placeholders in its instruction: 
+    
+    
+    var refiner =
+        LlmAgent.builder()
+            .name("refiner")
+            .model("gemini-flash-latest")
+            .instruction("Refine: {draft?}")
+            .outputKey("draft")
+            .build();
+    var publisher =
+        LlmAgent.builder()
+            .name("publisher")
+            .model("gemini-flash-latest")
+            .instruction("Publish: {draft}")
+            .build();
+    var loop =
+        LoopAgent.builder().name("loop").subAgents(refiner).maxIterations(3).build();
+    var root = SequentialAgent.builder().name("root").subAgents(loop, publisher).build();
+    
 
   * ## Nested Class Summary
 

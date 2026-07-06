@@ -85,6 +85,12 @@ class SessionNotFoundException extends [SessionException](com/google/adk/session
 
 class SkillSourceException extends [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
 
+      * #### Serialized Fields
+
+        * ##### errorCode
+              
+              [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") errorCode
+
   * ## Package [com.google.adk.tools.mcp](com/google/adk/tools/mcp/package-summary.html)
 
     * ### Exception Class [com.google.adk.tools.mcp.McpToolException](com/google/adk/tools/mcp/McpToolException.html "class in com.google.adk.tools.mcp")

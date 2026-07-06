@@ -290,7 +290,7 @@ Streaming mode for the runner.
 
 [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
 
-Tool execution mode for the runner, when they are multiple tools requested (by the models or callbacks).
+Execution mode when the model requests multiple tools.
 
 [SequentialAgent](SequentialAgent.html "class in com.google.adk.agents")
 

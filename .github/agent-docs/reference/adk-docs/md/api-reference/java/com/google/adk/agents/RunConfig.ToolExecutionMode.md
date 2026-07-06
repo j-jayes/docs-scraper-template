@@ -34,6 +34,7 @@ Contents
      1. NONE
      2. SEQUENTIAL
      3. PARALLEL
+     4. PARALLEL_SUBSCRIBE
   6. Method Details
      1. values()
      2. valueOf(String)
@@ -58,13 +59,15 @@ Enclosing class:
 
 public static enum RunConfig.ToolExecutionMode extends [Enum](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html "class in java.lang")<[RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")>
 
-Tool execution mode for the runner, when they are multiple tools requested (by the models or callbacks). 
+Execution mode when the model requests multiple tools. 
 
-NONE: default to PARALLEL. 
+NONE: defaults to PARALLEL. 
 
-SEQUENTIAL: Multiple tools are executed in the order they are requested. 
+SEQUENTIAL: tools execute strictly in request order on the caller thread; each tool must complete (including any asynchronous work) before the next one is subscribed to. 
 
-PARALLEL: Multiple tools are executed in parallel.
+PARALLEL: tools are subscribed to eagerly on the caller thread (i.e. all are kicked off up-front), but no worker threads are introduced. Tools that are truly asynchronous (e.g. they return a `Single` backed by I/O or another scheduler) will run concurrently; tools that block the subscribing thread (e.g. `Single.fromCallable` that performs blocking work) will still execute sequentially. This preserves the historical default behavior. 
+
+PARALLEL_SUBSCRIBE: like `PARALLEL`, but every tool is additionally subscribed on a worker thread, so blocking tools also run concurrently. Tool implementations must be thread-safe. The worker is the agent's executor when set, otherwise the RxJava IO scheduler.
 
   * ## Nested Class Summary
 
@@ -85,6 +88,10 @@ Description
  
 
 `PARALLEL`
+
+ 
+
+`PARALLEL_SUBSCRIBE`
 
  
 
@@ -138,6 +145,10 @@ public static final [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.ht
     * ### PARALLEL
 
 public static final [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") PARALLEL
+
+    * ### PARALLEL_SUBSCRIBE
+
+public static final [RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") PARALLEL_SUBSCRIBE
 
   * ## Method Details
 

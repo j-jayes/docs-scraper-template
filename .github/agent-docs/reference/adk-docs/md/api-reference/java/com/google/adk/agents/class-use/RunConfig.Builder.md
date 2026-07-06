@@ -53,6 +53,12 @@ RunConfig.Builder.`[autoCreateSession](../RunConfig.Builder.html#autoCreateSessi
 
  
 
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[avatarConfig](../RunConfig.Builder.html#avatarConfig\(com.google.genai.types.AvatarConfig\))(@Nullable com.google.genai.types.AvatarConfig avatarConfig)`
+
+ 
+
 `static [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
 RunConfig.`[builder](../RunConfig.html#builder\(\))()`

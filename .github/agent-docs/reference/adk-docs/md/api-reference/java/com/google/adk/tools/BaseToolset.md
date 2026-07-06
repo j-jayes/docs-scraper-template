@@ -28,9 +28,10 @@ Contents
   1. Description
   2. Method Summary
   3. Method Details
-     1. getTools(ReadonlyContext)
-     2. close()
-     3. isToolSelected(BaseTool, Object, ReadonlyContext)
+     1. processLlmRequest(LlmRequest.Builder, ToolContext)
+     2. getTools(ReadonlyContext)
+     3. close()
+     4. isToolSelected(BaseTool, Object, ReadonlyContext)
 
 Hide sidebar  Show sidebar
 
@@ -40,7 +41,7 @@ All Superinterfaces:
     `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`
 
 All Known Implementing Classes:
-    `[ApplicationIntegrationToolset](applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset"), [ComputerUseToolset](computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse"), [McpAsyncToolset](mcp/McpAsyncToolset.html "class in com.google.adk.tools.mcp"), [McpToolset](mcp/McpToolset.html "class in com.google.adk.tools.mcp")`
+    `[ApplicationIntegrationToolset](applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset"), [ComputerUseToolset](computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse"), [McpAsyncToolset](mcp/McpAsyncToolset.html "class in com.google.adk.tools.mcp"), [McpToolset](mcp/McpToolset.html "class in com.google.adk.tools.mcp"), [SkillToolset](skills/SkillToolset.html "class in com.google.adk.tools.skills")`
 
 * * *
 
@@ -76,10 +77,22 @@ Return all tools in the toolset based on the provided context.
 
 Checks if a tool should be selected based on a filter.
 
+`default io.reactivex.rxjava3.core.Completable`
+
+`processLlmRequest([LlmRequest.Builder](../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html "class in com.google.adk.models").
+
 
 
 
   * ## Method Details
+
+    * ### processLlmRequest
+
+default io.reactivex.rxjava3.core.Completable processLlmRequest([LlmRequest.Builder](../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](ToolContext.html "class in com.google.adk.tools") toolContext)
+
+Processes the outgoing [`LlmRequest.Builder`](../models/LlmRequest.Builder.html "class in com.google.adk.models").
 
     * ### getTools
 
@@ -90,7 +103,7 @@ Return all tools in the toolset based on the provided context.
 Parameters:
     `readonlyContext` \- Context used to filter tools available to the agent.
 Returns:
-    A Single emitting a list of tools available under the specified context.
+    A Flowable emitting tools available under the specified context.
 
     * ### close
 

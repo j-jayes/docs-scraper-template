@@ -11,8 +11,12 @@ Skip navigation links
   * [Deprecated](../../../../deprecated-list.html)
   * [Index](../../../../index-all.html)
   * [Search](../../../../search.html)
+  * 
 
 
+Select Theme
+
+LightDarkSystem Setting
 
   1. [com.google.adk.models](package-summary.html)
 
@@ -43,11 +47,19 @@ com.google.adk.models
 
  
 
+com.google.adk.models.chat
+
+ 
+
 com.google.adk.models.langchain4j
 
  
 
 com.google.adk.models.springai
+
+ 
+
+com.google.adk.planner
 
  
 
@@ -80,6 +92,10 @@ com.google.adk.tools.computeruse
  
 
 com.google.adk.tools.retrieval
+
+ 
+
+com.google.adk.tools.skills
 
  
 
@@ -203,6 +219,20 @@ Credentials for accessing Gemini models through Vertex.
 
 Builder for [`VertexCredentials`](VertexCredentials.html "class in com.google.adk.models").
 
+  * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.models.chat](chat/package-summary.html)
+
+Class
+
+Description
+
+[LlmRequest](class-use/LlmRequest.html#com.google.adk.models.chat)
+
+Represents a request to be sent to the LLM.
+
+[LlmResponse](class-use/LlmResponse.html#com.google.adk.models.chat)
+
+Represents a response received from the LLM.
+
   * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.models.langchain4j](langchain4j/package-summary.html)
 
 Class
@@ -246,6 +276,16 @@ Represents a request to be sent to the LLM.
 [LlmResponse](class-use/LlmResponse.html#com.google.adk.models.springai)
 
 Represents a response received from the LLM.
+
+  * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.planner](../planner/package-summary.html)
+
+Class
+
+Description
+
+[BaseLlm](class-use/BaseLlm.html#com.google.adk.planner)
+
+Abstract base class for Large Language Models (LLMs).
 
   * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.plugins](../plugins/package-summary.html)
 
@@ -344,6 +384,16 @@ Class
 Description
 
 [LlmRequest.Builder](class-use/LlmRequest.Builder.html#com.google.adk.tools.retrieval)
+
+Builder for constructing [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") instances.
+
+  * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.tools.skills](../tools/skills/package-summary.html)
+
+Class
+
+Description
+
+[LlmRequest.Builder](class-use/LlmRequest.Builder.html#com.google.adk.tools.skills)
 
 Builder for constructing [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") instances.
 

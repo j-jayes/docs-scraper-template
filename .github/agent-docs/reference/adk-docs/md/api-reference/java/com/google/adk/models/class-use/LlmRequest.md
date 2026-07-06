@@ -44,6 +44,10 @@ com.google.adk.models
 
  
 
+com.google.adk.models.chat
+
+ 
+
 com.google.adk.models.langchain4j
 
  
@@ -291,6 +295,28 @@ Removes client-side function call IDs from the request.
 GeminiUtil.`[sanitizeRequestForGeminiApi](../GeminiUtil.html#sanitizeRequestForGeminiApi\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
 Sanitizes the request to ensure it is compatible with the Gemini API backend.
+
+  * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.models.chat](../chat/package-summary.html)
+
+Methods in [com.google.adk.models.chat](../chat/package-summary.html) with parameters of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+ChatCompletionsHttpClient.`[complete](../chat/ChatCompletionsHttpClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
+
+Generates a conversational response from the chat completions endpoint based on the provided messages.
+
+`static [ChatCompletionsRequest](../chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")`
+
+ChatCompletionsRequest.`[fromLlmRequest](../chat/ChatCompletionsRequest.html#fromLlmRequest\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean responseStreaming)`
+
+Converts a standard [`LlmRequest`](../LlmRequest.html "class in com.google.adk.models") into a [`ChatCompletionsRequest`](../chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat") for /chat/completions compatible endpoints.
 
   * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.models.langchain4j](../langchain4j/package-summary.html)
 

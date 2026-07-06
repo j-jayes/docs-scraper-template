@@ -39,6 +39,10 @@ com.example.a2a_basic
 
  
 
+com.example.github
+
+ 
+
 com.example.helloworld
 
  
@@ -67,6 +71,10 @@ com.google.adk.plugins.agentanalytics
 
  
 
+com.google.adk.telemetry
+
+ 
+
 com.google.adk.tools
 
  
@@ -84,6 +92,10 @@ com.google.adk.tools.mcp
  
 
 com.google.adk.tools.retrieval
+
+ 
+
+com.google.adk.tools.skills
 
  
 
@@ -126,6 +138,16 @@ Description
 [ToolContext](class-use/ToolContext.html#com.example.a2a_basic)
 
 ToolContext object provides a structured context for executing tools or functions.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.github](../../../example/github/package-summary.html)
+
+Class
+
+Description
+
+[Annotations.Schema](class-use/Annotations.Schema.html#com.example.github)
+
+The annotation for binding the 'Schema' input.
 
   * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.helloworld](../../../example/helloworld/package-summary.html)
 
@@ -224,6 +246,16 @@ The base class for all ADK tools.
 [ToolContext](class-use/ToolContext.html#com.google.adk.plugins.agentanalytics)
 
 ToolContext object provides a structured context for executing tools or functions.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.telemetry](../telemetry/package-summary.html)
+
+Class
+
+Description
+
+[BaseTool](class-use/BaseTool.html#com.google.adk.telemetry)
+
+The base class for all ADK tools.
 
   * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.tools](package-summary.html)
 
@@ -400,6 +432,24 @@ Description
 The base class for all ADK tools.
 
 [ToolContext](class-use/ToolContext.html#com.google.adk.tools.retrieval)
+
+ToolContext object provides a structured context for executing tools or functions.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.google.adk.tools.skills](skills/package-summary.html)
+
+Class
+
+Description
+
+[BaseTool](class-use/BaseTool.html#com.google.adk.tools.skills)
+
+The base class for all ADK tools.
+
+[BaseToolset](class-use/BaseToolset.html#com.google.adk.tools.skills)
+
+Base interface for toolsets.
+
+[ToolContext](class-use/ToolContext.html#com.google.adk.tools.skills)
 
 ToolContext object provides a structured context for executing tools or functions.
 

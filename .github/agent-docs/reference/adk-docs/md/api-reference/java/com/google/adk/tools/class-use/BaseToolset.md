@@ -48,6 +48,10 @@ com.google.adk.tools.mcp
 
  
 
+com.google.adk.tools.skills
+
+ 
+
 com.google.adk.utils
 
  
@@ -121,6 +125,22 @@ Connects to a MCP Server, and retrieves MCP Tools into ADK Tools.
 `[McpToolset](../mcp/McpToolset.html "class in com.google.adk.tools.mcp")`
 
 Connects to a MCP Server, and retrieves MCP Tools into ADK Tools.
+
+  * ## Uses of [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools") in [com.google.adk.tools.skills](../skills/package-summary.html)
+
+Classes in [com.google.adk.tools.skills](../skills/package-summary.html) that implement [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")
+
+Modifier and Type
+
+Class
+
+Description
+
+`class `
+
+`[SkillToolset](../skills/SkillToolset.html "class in com.google.adk.tools.skills")`
+
+A toolset for managing and interacting with agent skills.
 
   * ## Uses of [BaseToolset](../BaseToolset.html "interface in com.google.adk.tools") in [com.google.adk.utils](../../utils/package-summary.html)
 

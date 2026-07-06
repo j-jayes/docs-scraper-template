@@ -41,6 +41,9 @@ Contents
      10. PARTIAL_ARGS_KEY
      11. SCHEDULING_KEY
      12. PARTS_KEY
+     13. A2A_DATA_PART_START_TAG
+     14. A2A_DATA_PART_END_TAG
+     15. A2A_DATA_PART_TEXT_MIME_TYPE
   5. Method Details
      1. toTextPart(Part)
      2. toGenaiPart(Part)
@@ -72,6 +75,24 @@ Modifier and Type
 Field
 
 Description
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`A2A_DATA_PART_END_TAG`
+
+ 
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`A2A_DATA_PART_START_TAG`
+
+ 
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`A2A_DATA_PART_TEXT_MIME_TYPE`
+
+ 
 
 `static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
@@ -295,6 +316,30 @@ public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/
 See Also:
     
       * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.PARTS_KEY)
+
+    * ### A2A_DATA_PART_START_TAG
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") A2A_DATA_PART_START_TAG
+
+See Also:
+    
+      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.A2A_DATA_PART_START_TAG)
+
+    * ### A2A_DATA_PART_END_TAG
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") A2A_DATA_PART_END_TAG
+
+See Also:
+    
+      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.A2A_DATA_PART_END_TAG)
+
+    * ### A2A_DATA_PART_TEXT_MIME_TYPE
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") A2A_DATA_PART_TEXT_MIME_TYPE
+
+See Also:
+    
+      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.a2a.converters.PartConverter.A2A_DATA_PART_TEXT_MIME_TYPE)
 
   * ## Method Details
 

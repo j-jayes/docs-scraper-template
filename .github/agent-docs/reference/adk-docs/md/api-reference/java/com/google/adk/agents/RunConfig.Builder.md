@@ -36,21 +36,22 @@ Contents
      2. speechConfig(SpeechConfig)
      3. setResponseModalities(Iterable)
      4. responseModalities(Iterable)
-     5. setSaveInputBlobsAsArtifacts(boolean)
-     6. saveInputBlobsAsArtifacts(boolean)
-     7. setStreamingMode(RunConfig.StreamingMode)
-     8. streamingMode(RunConfig.StreamingMode)
-     9. setToolExecutionMode(RunConfig.ToolExecutionMode)
-     10. toolExecutionMode(RunConfig.ToolExecutionMode)
-     11. setOutputAudioTranscription(AudioTranscriptionConfig)
-     12. outputAudioTranscription(AudioTranscriptionConfig)
-     13. setInputAudioTranscription(AudioTranscriptionConfig)
-     14. inputAudioTranscription(AudioTranscriptionConfig)
-     15. setMaxLlmCalls(int)
-     16. maxLlmCalls(int)
-     17. setAutoCreateSession(boolean)
-     18. autoCreateSession(boolean)
-     19. build()
+     5. avatarConfig(AvatarConfig)
+     6. setSaveInputBlobsAsArtifacts(boolean)
+     7. saveInputBlobsAsArtifacts(boolean)
+     8. setStreamingMode(RunConfig.StreamingMode)
+     9. streamingMode(RunConfig.StreamingMode)
+     10. setToolExecutionMode(RunConfig.ToolExecutionMode)
+     11. toolExecutionMode(RunConfig.ToolExecutionMode)
+     12. setOutputAudioTranscription(AudioTranscriptionConfig)
+     13. outputAudioTranscription(AudioTranscriptionConfig)
+     14. setInputAudioTranscription(AudioTranscriptionConfig)
+     15. inputAudioTranscription(AudioTranscriptionConfig)
+     16. setMaxLlmCalls(int)
+     17. maxLlmCalls(int)
+     18. setAutoCreateSession(boolean)
+     19. autoCreateSession(boolean)
+     20. build()
 
 Hide sidebar  Show sidebar
 
@@ -94,6 +95,12 @@ Description
 `abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
 `autoCreateSession(boolean autoCreateSession)`
+
+ 
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`avatarConfig(@Nullable com.google.genai.types.AvatarConfig avatarConfig)`
 
  
 
@@ -239,6 +246,10 @@ Deprecated.
     * ### responseModalities
 
 @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") responseModalities([Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<com.google.genai.types.Modality> responseModalities)
+
+    * ### avatarConfig
+
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") avatarConfig(@Nullable com.google.genai.types.AvatarConfig avatarConfig)
 
     * ### setSaveInputBlobsAsArtifacts
 

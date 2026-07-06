@@ -50,6 +50,10 @@ Description
 
  
 
+[com.example.github](../github/package-summary.html)
+
+ 
+
 [com.example.mcpfilesystem](../mcpfilesystem/package-summary.html)
 
  

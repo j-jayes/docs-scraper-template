@@ -56,6 +56,10 @@ com.google.adk.plugins.agentanalytics
 
  
 
+com.google.adk.telemetry
+
+ 
+
 com.google.adk.tools
 
  
@@ -73,6 +77,10 @@ com.google.adk.tools.mcp
  
 
 com.google.adk.tools.retrieval
+
+ 
+
+com.google.adk.tools.skills
 
  
 
@@ -345,6 +353,42 @@ BigQueryAgentAnalyticsPlugin.`[beforeToolCallback](../../plugins/agentanalytics/
 `io.reactivex.rxjava3.core.Maybe<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>>`
 
 BigQueryAgentAnalyticsPlugin.`[onToolErrorCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onToolErrorCallback\(com.google.adk.tools.BaseTool,java.util.Map,com.google.adk.tools.ToolContext,java.lang.Throwable\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> toolArgs, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+ 
+
+  * ## Uses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
+
+Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [BaseTool](../BaseTool.html "class in com.google.adk.tools")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [Instrumentation.ToolExecution](../../telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordToolExecution](../../telemetry/Instrumentation.html#recordToolExecution\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs)`
+
+Creates a ToolExecution context to record tool execution telemetry.
+
+`static [Instrumentation.ToolExecution](../../telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordToolExecution](../../telemetry/Instrumentation.html#recordToolExecution\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map,io.opentelemetry.context.Context\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)`
+
+ 
+
+Constructors in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [BaseTool](../BaseTool.html "class in com.google.adk.tools")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[ToolExecution](../../telemetry/Instrumentation.ToolExecution.html#%3Cinit%3E\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map,io.opentelemetry.context.Context\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)`
 
  
 
@@ -653,6 +697,22 @@ Base class for retrieval tools.
 `[VertexAiRagRetrieval](../retrieval/VertexAiRagRetrieval.html "class in com.google.adk.tools.retrieval")`
 
 A retrieval tool that fetches context from Vertex AI RAG.
+
+  * ## Uses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.tools.skills](../skills/package-summary.html)
+
+Methods in [com.google.adk.tools.skills](../skills/package-summary.html) that return types with arguments of type [BaseTool](../BaseTool.html "class in com.google.adk.tools")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Flowable<[BaseTool](../BaseTool.html "class in com.google.adk.tools")>`
+
+SkillToolset.`[getTools](../skills/SkillToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+ 
 
   * ## Uses of [BaseTool](../BaseTool.html "class in com.google.adk.tools") in [com.google.adk.utils](../../utils/package-summary.html)
 

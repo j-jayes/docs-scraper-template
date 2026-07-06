@@ -30,6 +30,7 @@ Contents
   3. Method Summary
   4. Constructor Details
      1. ApiServerSpanExporter()
+     2. ApiServerSpanExporter(ApiServerSpanExporterConfig)
   5. Method Details
      1. getEventTraceAttributes(String)
      2. getSessionToTraceIdsMap()
@@ -64,6 +65,10 @@ Constructor
 Description
 
 `ApiServerSpanExporter()`
+
+ 
+
+`ApiServerSpanExporter([ApiServerSpanExporterConfig](ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") config)`
 
  
 
@@ -129,6 +134,10 @@ Description
     * ### ApiServerSpanExporter
 
 public ApiServerSpanExporter()
+
+    * ### ApiServerSpanExporter
+
+public ApiServerSpanExporter([ApiServerSpanExporterConfig](ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") config)
 
   * ## Method Details
 

@@ -58,6 +58,10 @@ Description
 
  
 
+[com.google.adk.tools.skills](../skills/package-summary.html)
+
+ 
+
   * Classes
 
 Class

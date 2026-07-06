@@ -42,7 +42,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"1.3.0"`
+`"1.5.0"`
 
 
 
@@ -73,6 +73,24 @@ Modifier and Type
 Constant Field
 
 Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[A2A_DATA_PART_END_TAG](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_END_TAG)`
+
+`"</a2a_datapart_json>"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[A2A_DATA_PART_START_TAG](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_START_TAG)`
+
+`"<a2a_datapart_json>"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[A2A_DATA_PART_TEXT_MIME_TYPE](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_TEXT_MIME_TYPE)`
+
+`"text/plain"`
 
 `public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
@@ -211,6 +229,46 @@ Value
 `[USER_PREFIX](com/google/adk/sessions/State.html#USER_PREFIX)`
 
 `"user:"`
+
+
+
+  * com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[RESOURCE_LOAD_ERROR](com/google/adk/skills/SkillSourceException.html#RESOURCE_LOAD_ERROR)`
+
+`"RESOURCE_LOAD_ERROR"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[RESOURCE_NOT_FOUND](com/google/adk/skills/SkillSourceException.html#RESOURCE_NOT_FOUND)`
+
+`"RESOURCE_NOT_FOUND"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[SKILL_FORMAT_ERROR](com/google/adk/skills/SkillSourceException.html#SKILL_FORMAT_ERROR)`
+
+`"SKILL_FORMAT_ERROR"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[SKILL_LOAD_ERROR](com/google/adk/skills/SkillSourceException.html#SKILL_LOAD_ERROR)`
+
+`"SKILL_LOAD_ERROR"`
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[SKILL_NOT_FOUND](com/google/adk/skills/SkillSourceException.html#SKILL_NOT_FOUND)`
+
+`"SKILL_NOT_FOUND"`
 
 
 

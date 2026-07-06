@@ -34,16 +34,17 @@ Contents
   6. Method Details
      1. speechConfig()
      2. responseModalities()
-     3. saveInputBlobsAsArtifacts()
-     4. streamingMode()
-     5. toolExecutionMode()
-     6. outputAudioTranscription()
-     7. inputAudioTranscription()
-     8. maxLlmCalls()
-     9. autoCreateSession()
-     10. toBuilder()
-     11. builder()
-     12. builder(RunConfig)
+     3. avatarConfig()
+     4. saveInputBlobsAsArtifacts()
+     5. streamingMode()
+     6. toolExecutionMode()
+     7. outputAudioTranscription()
+     8. inputAudioTranscription()
+     9. maxLlmCalls()
+     10. autoCreateSession()
+     11. toBuilder()
+     12. builder()
+     13. builder(RunConfig)
 
 Hide sidebar  Show sidebar
 
@@ -85,7 +86,7 @@ Streaming mode for the runner.
 
 `[RunConfig.ToolExecutionMode](RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")`
 
-Tool execution mode for the runner, when they are multiple tools requested (by the models or callbacks).
+Execution mode when the model requests multiple tools.
 
   * ## Constructor Summary
 
@@ -112,6 +113,12 @@ Description
 `abstract boolean`
 
 `autoCreateSession()`
+
+ 
+
+`abstract @Nullable com.google.genai.types.AvatarConfig`
+
+`avatarConfig()`
 
  
 
@@ -203,6 +210,10 @@ public abstract @Nullable com.google.genai.types.SpeechConfig speechConfig()
     * ### responseModalities
 
 public abstract com.google.common.collect.ImmutableList<com.google.genai.types.Modality> responseModalities()
+
+    * ### avatarConfig
+
+public abstract @Nullable com.google.genai.types.AvatarConfig avatarConfig()
 
     * ### saveInputBlobsAsArtifacts
 

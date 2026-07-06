@@ -48,7 +48,27 @@ com.google.adk.agents.SequentialAgent
 
 public class SequentialAgent extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")
 
-An agent that runs its sub-agents sequentially.
+An agent that runs its sub-agents sequentially. 
+
+**Composition with[`LlmAgent`](LlmAgent.html "class in com.google.adk.agents")s:** a `SequentialAgent` does not transfer control back to a parent [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents"). Use it as the root or transferred-to agent and place any follow-up [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents") as the next sibling. Upstream publishes via `outputKey` and downstream reads via `{key}` placeholders in its instruction: 
+    
+    
+    var draft =
+        LlmAgent.builder()
+            .name("draft")
+            .model("gemini-flash-latest")
+            .instruction("Draft a summary.")
+            .outputKey("draft")
+            .build();
+    var reviewer =
+        LlmAgent.builder()
+            .name("reviewer")
+            .model("gemini-flash-latest")
+            .instruction("Polish the draft: {draft}")
+            .build();
+    var pipeline =
+        SequentialAgent.builder().name("pipeline").subAgents(draft, reviewer).build();
+    
 
   * ## Nested Class Summary
 

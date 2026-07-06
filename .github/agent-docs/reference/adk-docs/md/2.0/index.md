@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -217,7 +217,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
       * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -237,11 +239,17 @@ ADK 2.0
 Table of contents 
 
   * ADK Python 1.x compatibility 
-    * Event Schema & Custom Session Databases 
+    * Event Schema & Custom Session Storage 
     * Agent Execution: BaseAgent to BaseNode 
     * Context & Callbacks: In-Place Mutation 
     * Error Handling & Automatic Retries 
     * Installing ADK Python 1.x 
+  * ADK Go 1.x compatibility 
+    * Module import path 
+    * Agent Execution: Agent interface changes 
+    * Event Construction: session.NewEvent signature change 
+    * Event Schema & Custom Session Storage 
+    * Installing ADK Go 1.x 
   * Next steps 
 
 
@@ -253,7 +261,9 @@ Table of contents
 
 # Welcome to ADK 2.0¶
 
-ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available for Python and includes the following key features:
+Supported in ADKPython v2.0.0Go v2.0.0
+
+ADK 2.0 introduces powerful tools for building sophisticated AI agents, and helps you structure agents to execute challenging tasks with more control, predictability, and reliability. ADK 2.0 is available for Python and Go and includes the following key features:
 
   * [**Graph-based workflows**](/graphs/): Build deterministic agent workflows with more control over how tasks are routed and executed.
 
@@ -270,6 +280,10 @@ ADK Python v2.0.0 GA release
 
 ADK Python 2.0 is released for general availability as of May 19, 2026.
 
+ADK Go v2.0.0 GA release
+
+ADK Go 2.0 is released for general availability as of June 30, 2026.
+
 ## ADK Python 1.x compatibility¶
 
 ADK 2.0 is designed to be compatible with agents developed with ADK 1.x releases. However, there are a few breaking changes you should be aware of before upgrading an ADK 1.x project to ADK 2.0.
@@ -280,7 +294,7 @@ There are several known incompatibilities and breaking changes introduced with A
 
 The ADK 2.0 release introduces the Workflow Runtime, transitioning ADK from a hierarchical agent executor to a graph-based execution engine. In this new architecture, your Agents, Tools, and Functions are evaluated as individual _nodes_ within a workflow graph. If you are upgrading from ADK 1.x, review the following breaking changes and migration steps to ensure a smooth transition for your production applications.
 
-### Event Schema & Custom Session Databases¶
+### Event Schema & Custom Session Storage¶
 
 ADK 2.0 introduces new fields `node_info` and `output` to the core **_Event_** schema to track graph state and workflow outputs.
 
@@ -321,7 +335,7 @@ The ADK 2.0 framework now automatically catches exceptions to enable automatic r
 
 **Migration Action:** Allow standard exceptions to propagate out of your tools so the framework can evaluate them against your configured **_RetryConfig_** , such as `RetryConfig(max_attempts=3)`. Never catch **_BaseException_** unless you are explicitly re-raising the exception.
 
-If you encounter additional ADK 1.0 to ADK 2.0 incompatibilities, report them through the [issue tracker](https://github.com/google/adk-python/issues/new?template=bug_report.md&labels=v2).
+If you encounter additional ADK Python 1.0 to ADK 2.0 incompatibilities, report them through the [issue tracker](https://github.com/google/adk-python/issues/new?template=bug_report.md&labels=v2).
 
 ### Installing ADK Python 1.x¶
 
@@ -366,6 +380,83 @@ Windows CMDWindows PowershellMacOS / Linux
     source .venv/bin/activate
     
 
+## ADK Go 1.x compatibility¶
+
+ADK Go 2.0 is designed to be compatible with agents developed with ADK Go 1.x releases. However, there are a few breaking changes you should be aware of before upgrading an ADK Go 1.x project to ADK Go 2.0.
+
+Breaking changes: ADK Go 1.x to 2.0 incompatibilities
+
+There are several known incompatibilities and breaking changes introduced with ADK Go v2.0.0. Before upgrading, review these changes and take mitigation steps, if necessary.
+
+The ADK Go 2.0 release introduces the Workflow Runtime, transitioning ADK Go from a hierarchical agent executor to a graph-based execution engine. In this new architecture, your Agents, Tools, and Functions are evaluated as individual _nodes_ within a workflow graph. If you are upgrading from ADK Go 1.x, review the following breaking changes and migration steps.
+
+### Module import path¶
+
+ADK Go 2.0 uses a new major version module path. You must update all import paths in your Go source files and your `go.mod` file.
+
+  * **1.x import path:** `google.golang.org/adk`
+  * **2.0 import path:** `google.golang.org/adk/v2`
+
+
+
+**Migration action:** Run `go get google.golang.org/adk/v2` and update all import statements in your source files from `google.golang.org/adk/...` to `google.golang.org/adk/v2/...`.
+
+### Agent Execution: Agent interface changes¶
+
+In ADK Go 1.x, agents implemented the `agent.Agent` interface by providing a `Run` method. In ADK Go 2.0, agents are evaluated as individual _nodes_ within the new Workflow Graph engine.
+
+  * **Execution driver custom overrides:** Custom agent types that override internal execution behavior may no longer work as expected. The Workflow Graph engine manages execution scheduling and event emission, and custom implementations that bypass these mechanisms are silently ignored.
+
+
+
+**Migration action:** Move custom execution logic into standardized `BeforeAgentCallback` and `AfterAgentCallback` hooks to safely inject custom logic into the execution lifecycle.
+
+### Event Construction: `session.NewEvent` signature change¶
+
+`session.NewEvent` now requires a `context.Context` as its first argument:
+    
+    
+    // Before (ADK Go 1.x)
+    ev := session.NewEvent(ctx.InvocationID())
+    // or
+    ev := session.NewEventWithContext(ctx, ctx.InvocationID())
+    
+    // After (ADK Go 2.0)
+    ev := session.NewEvent(ctx, ctx.InvocationID())
+    
+
+The event ID and timestamp are now obtained through the `platform` package, so a time or UUID provider installed on `ctx` controls them. This lets workflow engines produce deterministic, replay-safe events. The previous parameterless-context form and the temporary `NewEventWithContext` helper are removed.
+
+**Migration action:** Pass the context already in scope as the first argument to `session.NewEvent`. Any `context.Context` works — the `ctx` of an agent, tool, or callback (which embed `context.Context`), a request context, or in tests, `t.Context()`. If a helper that calls `NewEvent` does not yet receive a context, add a `ctx context.Context` parameter and thread it down from the caller. Avoid creating a new `context.Background()` mid-call-chain; reserve that for `main`, `init`, and top-level test setup.
+
+### Event Schema & Custom Session Storage¶
+
+ADK Go 2.0 adds five new fields to the core **_Event_** struct to support graph routing, workflow state, and human-in-the-loop pausing:
+
+Go field | Serialized name | Purpose  
+---|---|---  
+`IsolationScope string` | `isolationScope` (`json:"isolationScope,omitempty"`) | Restricts which agent contexts see this event in LLM prompt history.  
+`Routes []string` | `Routes` (no JSON tag) | Routing keys emitted by a node to drive conditional edge dispatch.  
+`RequestedInput *RequestInput` | `RequestedInput` (no JSON tag) | Signals that a workflow node is pausing for human input.  
+`Output any` | `Output` (no JSON tag) | Generic data output from a workflow node.  
+`NodeInfo *NodeInfo` | `nodeInfo` (`json:"nodeInfo,omitempty"`) | Workflow-node metadata identifying which node emitted the event.  
+  
+  * **Custom session storage:** If you have implemented a custom `session.Service`, such as storing sessions in your own SQL or NoSQL databases with rigid schemas, your underlying database schema must be updated to accommodate all five new fields. Inserting a 2.0 **_Event_** into a rigid 1.x database table causes insertion or deserialization failures. _However, if your custom session service stores events as serialized JSON blobs, you do not need to update your schema._
+
+
+
+**Migration action:** Update your database schemas and downstream client validators to expect and store the five new fields on all Event payloads. Pay particular attention to `Routes`, `RequestedInput`, and `Output`, which have no JSON struct tags and therefore serialize under their Go field names exactly as shown above.
+
+If you encounter additional ADK Go 1.0 to ADK 2.0 incompatibilities, report them through the [issue tracker](https://github.com/google/adk-go/issues/new?template=bug_report.md&labels=v2).
+
+### Installing ADK Go 1.x¶
+
+If you want to continue using ADK Go 1.x and are not yet ready to upgrade to ADK Go 2.0, pin your dependency to the 1.x release line:
+    
+    
+    go get google.golang.org/adk@v1
+    
+
 ## Next steps¶
 
 Read the developer guides for building agents with ADK 2.0 features:
@@ -378,12 +469,19 @@ Read the developer guides for building agents with ADK 2.0 features:
 
 Check out these ADK 2.0 code samples for testing and inspiration:
 
-  * [**Workflow samples**](https://github.com/google/adk-python/tree/v2/contributing/workflow_samples)
-  * [**Collaborative task samples**](https://github.com/google/adk-python/tree/v2/contributing/task_samples)
+PythonGo
+
+  * [**Workflow samples**](https://github.com/google/adk-python/tree/main/contributing/samples/workflows)
+  * [**Collaborative task samples**](https://github.com/google/adk-python/tree/main/contributing/samples/multi_agent)
 
 
 
-Thanks for checking out ADK 2.0! We look forward to your [feedback](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=v2)!
+  * [**All workflow agents samples**](https://github.com/google/adk-go/tree/main/examples/workflow)
+  * [**Collaborative task sample**](https://github.com/google/adk-go/tree/main/examples/multiagent/collaboration)
+
+
+
+Thanks for checking out ADK 2.0! We look forward to your feedback — let us know on [ADK Go](https://github.com/google/adk-go/issues/new) or [ADK Python](https://github.com/google/adk-python/issues/new).
 
 Back to top 
 

@@ -50,7 +50,35 @@ public class ParallelAgent extends [BaseAgent](BaseAgent.html "class in com.goog
 
 A shell agent that runs its sub-agents in parallel in isolated manner. 
 
-This approach is beneficial for scenarios requiring multiple perspectives or attempts on a single task, such as running different algorithms simultaneously or generating multiple responses for review by a subsequent evaluation agent.
+This approach is beneficial for scenarios requiring multiple perspectives or attempts on a single task, such as running different algorithms simultaneously or generating multiple responses for review by a subsequent evaluation agent. 
+
+**Composition with[`LlmAgent`](LlmAgent.html "class in com.google.adk.agents")s:** a `ParallelAgent` does not transfer control back to a parent [`LlmAgent`](LlmAgent.html "class in com.google.adk.agents"). To follow a fan-out with an aggregation step, wrap both in a [`SequentialAgent`](SequentialAgent.html "class in com.google.adk.agents") (used as the root or transferred-to agent). Each parallel sub-agent publishes via `outputKey` and the aggregator reads via `{key}` placeholders in its instruction: 
+    
+    
+    var contacts =
+        LlmAgent.builder()
+            .name("contacts")
+            .model("gemini-flash-latest")
+            .instruction("List contacts.")
+            .outputKey("contacts")
+            .build();
+    var schedule =
+        LlmAgent.builder()
+            .name("schedule")
+            .model("gemini-flash-latest")
+            .instruction("List schedule.")
+            .outputKey("schedule")
+            .build();
+    var writer =
+        LlmAgent.builder()
+            .name("writer")
+            .model("gemini-flash-latest")
+            .instruction("Write: contacts={contacts}, schedule={schedule}")
+            .build();
+    var gather =
+        ParallelAgent.builder().name("gather").subAgents(contacts, schedule).build();
+    var root = SequentialAgent.builder().name("root").subAgents(gather, writer).build();
+    
 
   * ## Nested Class Summary
 

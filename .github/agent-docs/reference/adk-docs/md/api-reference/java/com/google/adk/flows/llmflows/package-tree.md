@@ -45,6 +45,7 @@ Package Hierarchies:
     * com.google.adk.flows.llmflows.[Identity](Identity.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[Instructions](Instructions.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[OutputSchema](OutputSchema.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
+    * com.google.adk.flows.llmflows.[PersistBarrier](PersistBarrier.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.flows.llmflows.[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.flows.llmflows.[ResponseProcessor.ResponseProcessingResult](ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")

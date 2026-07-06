@@ -100,6 +100,10 @@ Utility class for handling function calls.
 
 Processor that handles output schema for agents with tools.
 
+[PersistBarrier](PersistBarrier.html "class in com.google.adk.flows.llmflows")
+
+Lets [`BaseLlmFlow`](BaseLlmFlow.html "class in com.google.adk.flows.llmflows")'s multi-step loop wait until the `Runner` \-- the sole event persister -- has appended the current step's events, so the next step's request (built from `session.events()` by [`Contents`](Contents.html "class in com.google.adk.flows.llmflows")) is not assembled from a stale session.
+
 [RequestConfirmationLlmRequestProcessor](RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows")
 
 Handles tool confirmation information to build the LLM request.

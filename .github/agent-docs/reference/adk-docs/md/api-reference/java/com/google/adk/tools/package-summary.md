@@ -62,6 +62,10 @@ Description
 
  
 
+[com.google.adk.tools.skills](skills/package-summary.html)
+
+ 
+
   * All Classes and InterfacesInterfacesClassesRecord ClassesAnnotation Interfaces
 
 Class

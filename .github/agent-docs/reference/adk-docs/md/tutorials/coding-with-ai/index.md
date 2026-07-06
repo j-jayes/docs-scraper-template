@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -53,7 +53,6 @@ Streaming agent
       * Code with AI  [ Code with AI  ](./) Table of contents 
         * Agents CLI 
         * ADK Docs MCP Server 
-          * Gemini CLI 
           * Antigravity 
           * Claude Code 
           * Cursor 
@@ -225,7 +224,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -246,7 +247,6 @@ Table of contents
 
   * Agents CLI 
   * ADK Docs MCP Server 
-    * Gemini CLI 
     * Antigravity 
     * Claude Code 
     * Cursor 
@@ -273,7 +273,7 @@ You can use AI coding assistants to build agents with Agent Development Kit (ADK
 
 ## Agents CLI¶
 
-The [Agents CLI](https://google.github.io/agents-cli/) tool set lets you plug ADK agent expertise into your favorite AI-coding environments including Antigravity, Gemini CLI, Claude Code, and Cursor. Install Agents CLI into your current AI-powered development environment to scaffold, build, test, evaluate, and deploy ADK agents. Enable your development environment with these Agents CLI Skills:
+The [Agents CLI](https://google.github.io/agents-cli/) tool set lets you plug ADK agent expertise into your favorite AI-coding environments including Antigravity, Claude Code, Cursor, and other AI coding tools. Install Agents CLI into your current AI-powered development environment to scaffold, build, test, evaluate, and deploy ADK agents. Enable your development environment with these Agents CLI Skills:
 
   * Development lifecycle and coding guidelines
   * Project scaffolding
@@ -296,14 +296,6 @@ For more information on installing Agents CLI and using it in your development e
 ## ADK Docs MCP Server¶
 
 You can configure your coding tool to search and read ADK documentation using an MCP server. Below are setup instructions for popular tools.
-
-### Gemini CLI¶
-
-To add the ADK docs MCP server to [Gemini CLI](https://geminicli.com/), install the [ADK Docs Extension](https://github.com/derailed-dash/adk-docs-ext):
-    
-    
-    gemini extensions install https://github.com/derailed-dash/adk-docs-ext
-    
 
 ### Antigravity¶
 

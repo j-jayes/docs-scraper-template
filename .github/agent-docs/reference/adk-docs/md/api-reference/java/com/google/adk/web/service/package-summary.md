@@ -72,6 +72,14 @@ Description
 
 A custom SpanExporter that stores relevant span data.
 
+[ApiServerSpanExporterConfig](ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")
+
+Configuration for [`ApiServerSpanExporter`](ApiServerSpanExporter.html "class in com.google.adk.web.service").
+
+[ApiServerSpanExporterConfig.Builder](ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
+
+Builder for [`ApiServerSpanExporterConfig`](ApiServerSpanExporterConfig.html "class in com.google.adk.web.service").
+
 [RunnerService](RunnerService.html "class in com.google.adk.web.service")
 
 Service for creating and caching Runner instances.

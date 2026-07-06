@@ -28,6 +28,12 @@ A B C D E F G H I J K L M N O P Q R S T U V W
 
 [A2A](com/google/adk/utils/AgentEnums.AgentOrigin.html#A2A) \- Enum constant in enum class com.google.adk.utils.[AgentEnums.AgentOrigin](com/google/adk/utils/AgentEnums.AgentOrigin.html "enum class in com.google.adk.utils")
      
+[A2A_DATA_PART_END_TAG](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_END_TAG) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
+     
+[A2A_DATA_PART_START_TAG](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_START_TAG) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
+     
+[A2A_DATA_PART_TEXT_MIME_TYPE](com/google/adk/a2a/converters/PartConverter.html#A2A_DATA_PART_TEXT_MIME_TYPE) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
+     
 [A2AAgent](com/example/a2a_basic/A2AAgent.html "class in com.example.a2a_basic") \- Class in [com.example.a2a_basic](com/example/a2a_basic/package-summary.html)
     
 
@@ -85,7 +91,7 @@ Abstract base class for SkillSource implementations that load skills from path l
 
 [AbstractSkillSource()](com/google/adk/skills/AbstractSkillSource.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
      
-[AbstractSkillSource.SkillMdPath](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
+[AbstractSkillSource.SkillMdPath<PathT>](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
     
 
 A container class that holds a skill's name and the path to its SKILL.md file.
@@ -122,6 +128,8 @@ Manages streaming tool related resources during invocation.
 
 Returns a map of tool call IDs to active streaming tools for the current invocation.
 
+[addEvent(Event)](com/google/adk/telemetry/Instrumentation.AgentInvocation.html#addEvent\(com.google.adk.events.Event\)) \- Method in class com.google.adk.telemetry.[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
+     
 [addExample(Example)](com/google/adk/tools/ExampleTool.Builder.html#addExample\(com.google.adk.examples.Example\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
      
 [addInputFiles(List)](com/google/adk/codeexecutors/CodeExecutorContext.html#addInputFiles\(java.util.List\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutorContext](com/google/adk/codeexecutors/CodeExecutorContext.html "class in com.google.adk.codeexecutors")
@@ -195,6 +203,8 @@ Service provider interface for ADK components to be registered in [`ComponentReg
 
 Enum for the type of ADK metadata.
 
+[adkreleasedocs](adkreleasedocs/package-summary.html) \- package adkreleasedocs
+     
 [adkToMcpToolType(BaseTool)](com/google/adk/tools/mcp/ConversionUtils.html#adkToMcpToolType\(com.google.adk.tools.BaseTool\)) \- Method in class com.google.adk.tools.mcp.[ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
      
 [AdkWebCorsConfig](com/google/adk/web/config/AdkWebCorsConfig.html "class in com.google.adk.web.config") \- Class in [com.google.adk.web.config](com/google/adk/web/config/package-summary.html)
@@ -436,6 +446,8 @@ Utility class to generate Graphviz DOT representations of Agent structures.
 
 [AgentGraphGenerator()](com/google/adk/web/AgentGraphGenerator.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.web.[AgentGraphGenerator](com/google/adk/web/AgentGraphGenerator.html "class in com.google.adk.web")
      
+[AgentInvocation(InvocationContext, BaseAgent, Context)](com/google/adk/telemetry/Instrumentation.AgentInvocation.html#%3Cinit%3E\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\)) \- Constructor for class com.google.adk.telemetry.[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
+     
 [AgentLoader](com/google/adk/maven/AgentLoader.html "interface in com.google.adk.maven") \- Interface in [com.google.adk.maven](com/google/adk/maven/package-summary.html)
     
 
@@ -597,7 +609,7 @@ The API response contains a response to a call to the GenAI APIs.
 
 [ApiResponse()](com/google/adk/sessions/ApiResponse.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.sessions.[ApiResponse](com/google/adk/sessions/ApiResponse.html "class in com.google.adk.sessions")
      
-[apiServerSpanExporter()](com/google/adk/web/config/OpenTelemetryConfig.html#apiServerSpanExporter\(\)) \- Method in class com.google.adk.web.config.[OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config")
+[apiServerSpanExporter(ApiServerSpanExporterConfig)](com/google/adk/web/config/OpenTelemetryConfig.html#apiServerSpanExporter\(com.google.adk.web.service.ApiServerSpanExporterConfig\)) \- Method in class com.google.adk.web.config.[OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config")
      
 [ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service") \- Class in [com.google.adk.web.service](com/google/adk/web/service/package-summary.html)
     
@@ -606,6 +618,22 @@ A custom SpanExporter that stores relevant span data.
 
 [ApiServerSpanExporter()](com/google/adk/web/service/ApiServerSpanExporter.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
      
+[ApiServerSpanExporter(ApiServerSpanExporterConfig)](com/google/adk/web/service/ApiServerSpanExporter.html#%3Cinit%3E\(com.google.adk.web.service.ApiServerSpanExporterConfig\)) \- Constructor for class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
+     
+[apiServerSpanExporterConfig(Optional)](com/google/adk/web/config/OpenTelemetryConfig.html#apiServerSpanExporterConfig\(java.util.Optional\)) \- Method in class com.google.adk.web.config.[OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config")
+     
+[ApiServerSpanExporterConfig](com/google/adk/web/service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") \- Class in [com.google.adk.web.service](com/google/adk/web/service/package-summary.html)
+    
+
+Configuration for [`ApiServerSpanExporter`](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service").
+
+[ApiServerSpanExporterConfig()](com/google/adk/web/service/ApiServerSpanExporterConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.web.service.[ApiServerSpanExporterConfig](com/google/adk/web/service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")
+     
+[ApiServerSpanExporterConfig.Builder](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service") \- Class in [com.google.adk.web.service](com/google/adk/web/service/package-summary.html)
+    
+
+Builder for [`ApiServerSpanExporterConfig`](com/google/adk/web/service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service").
+
 [app(App)](com/google/adk/a2a/executor/AgentExecutor.Builder.html#app\(com.google.adk.apps.App\)) \- Method in class com.google.adk.a2a.executor.[AgentExecutor.Builder](com/google/adk/a2a/executor/AgentExecutor.Builder.html "class in com.google.adk.a2a.executor")
      
 [app(App)](com/google/adk/runner/Runner.Builder.html#app\(com.google.adk.apps.App\)) \- Method in class com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
@@ -807,6 +835,10 @@ LLM flow with automatic agent transfer support.
 
 Returns the sub-agents available for the planner to select from.
 
+[avatarConfig()](com/google/adk/agents/RunConfig.html#avatarConfig\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
+[avatarConfig(AvatarConfig)](com/google/adk/agents/RunConfig.Builder.html#avatarConfig\(com.google.genai.types.AvatarConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+     
 [avgLogprobs()](com/google/adk/events/Event.html#avgLogprobs\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [avgLogprobs()](com/google/adk/models/LlmResponse.html#avgLogprobs\(\)) \- Method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
@@ -818,6 +850,10 @@ Error code if the response is an error.
      
 [avgLogprobs(Double)](com/google/adk/models/LlmResponse.Builder.html#avgLogprobs\(java.lang.Double\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
      
+[awaitPersisted(InvocationContext, List)](com/google/adk/flows/llmflows/PersistBarrier.html#awaitPersisted\(com.google.adk.agents.InvocationContext,java.util.List\)) \- Static method in class com.google.adk.flows.llmflows.[PersistBarrier](com/google/adk/flows/llmflows/PersistBarrier.html "class in com.google.adk.flows.llmflows")
+    
+
+Completes once every event in `events` has been [`PersistBarrier.markPersisted(InvocationContext, String)`](com/google/adk/flows/llmflows/PersistBarrier.html#markPersisted\(com.google.adk.agents.InvocationContext,java.lang.String\)), or fails if any was [`PersistBarrier.markFailed(InvocationContext, String, Throwable)`](com/google/adk/flows/llmflows/PersistBarrier.html#markFailed\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.Throwable\)); completes immediately if the barrier was never [`PersistBarrier.enable(InvocationContext)`](com/google/adk/flows/llmflows/PersistBarrier.html#enable\(com.google.adk.agents.InvocationContext\))d.
 
 ## B
 
@@ -1076,6 +1112,13 @@ Callback executed before the ADK runner runs.
      
 [beforeRunCallback(InvocationContext)](com/google/adk/plugins/ReplayPlugin.html#beforeRunCallback\(com.google.adk.agents.InvocationContext\)) \- Method in class com.google.adk.plugins.[ReplayPlugin](com/google/adk/plugins/ReplayPlugin.html "class in com.google.adk.plugins")
      
+[beforeSpanEnd()](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#beforeSpanEnd\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+    
+
+Hook for subclasses to run code before span ends.
+
+[beforeSpanEnd()](com/google/adk/telemetry/Instrumentation.ToolExecution.html#beforeSpanEnd\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ToolExecution](com/google/adk/telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")
+     
 [beforeToolCallback()](com/google/adk/agents/LlmAgent.html#beforeToolCallback\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
 [beforeToolCallback(Callbacks.BeforeToolCallback)](com/google/adk/agents/LlmAgent.Builder.html#beforeToolCallback\(com.google.adk.agents.Callbacks.BeforeToolCallback\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
@@ -1314,6 +1357,8 @@ Builds a new [`StdioServerParameters`](com/google/adk/tools/mcp/StdioServerParam
      
 [build()](com/google/adk/tools/VertexAiSearchTool.Builder.html#build\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
      
+[build()](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html#build\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporterConfig.Builder](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
+     
 [build(Object)](com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html#build\(java.lang.Object\)) \- Method in class com.google.adk.tools.mcp.[DefaultMcpTransportBuilder](com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html "class in com.google.adk.tools.mcp")
      
 [build(Object)](com/google/adk/tools/mcp/McpTransportBuilder.html#build\(java.lang.Object\)) \- Method in interface com.google.adk.tools.mcp.[McpTransportBuilder](com/google/adk/tools/mcp/McpTransportBuilder.html "interface in com.google.adk.tools.mcp")
@@ -1454,6 +1499,8 @@ Creates a new builder for [`StdioServerParameters`](com/google/adk/tools/mcp/Std
      
 [builder()](com/google/adk/tools/VertexAiSearchTool.html#builder\(\)) \- Static method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
+[builder()](com/google/adk/web/service/ApiServerSpanExporterConfig.html#builder\(\)) \- Static method in class com.google.adk.web.service.[ApiServerSpanExporterConfig](com/google/adk/web/service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")
+     
 [builder(InvocationContext)](com/google/adk/tools/ToolContext.html#builder\(com.google.adk.agents.InvocationContext\)) \- Static method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
 [builder(RunConfig)](com/google/adk/agents/RunConfig.html#builder\(com.google.adk.agents.RunConfig\)) \- Static method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
@@ -1568,6 +1615,8 @@ Creates a new [`Session.Builder`](com/google/adk/sessions/Session.Builder.html "
 [Builder()](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.tools.mcp.[StreamableHttpServerParameters.Builder](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")
      
 [Builder()](com/google/adk/tools/VertexAiSearchTool.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
+     
+[Builder()](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.web.service.[ApiServerSpanExporterConfig.Builder](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
      
 [Builder(SessionKey)](com/google/adk/sessions/Session.Builder.html#%3Cinit%3E\(com.google.adk.sessions.SessionKey\)) \- Constructor for class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
     
@@ -1893,6 +1942,8 @@ Constructs the list of tools for this agent based on the [`LlmAgent.tools()`](co
 
 Returns true if the model supports using output schema together with tools.
 
+[caughtError](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#caughtError) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
 [ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") \- Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
     
 
@@ -2021,6 +2072,8 @@ Closes all plugins, code executors, and releases any resources.
 
 Closes the Http response.
 
+[close()](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#close\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
 [close()](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html#close\(\)) \- Method in class com.google.adk.tools.applicationintegrationtoolset.[ApplicationIntegrationToolset](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [close()](com/google/adk/tools/BaseToolset.html#close\(\)) \- Method in interface com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools")
@@ -2039,6 +2092,8 @@ Cleanup resources.
      
 [close()](com/google/adk/tools/mcp/McpToolset.html#close\(\)) \- Method in class com.google.adk.tools.mcp.[McpToolset](com/google/adk/tools/mcp/McpToolset.html "class in com.google.adk.tools.mcp")
      
+[close()](com/google/adk/tools/skills/SkillToolset.html#close\(\)) \- Method in class com.google.adk.tools.skills.[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills")
+     
 [close(Boolean)](com/google/adk/agents/LiveRequest.Builder.html#close\(java.lang.Boolean\)) \- Method in class com.google.adk.agents.[LiveRequest.Builder](com/google/adk/agents/LiveRequest.Builder.html "class in com.google.adk.agents")
      
 [close(Throwable)](com/google/adk/models/BaseLlmConnection.html#close\(java.lang.Throwable\)) \- Method in interface com.google.adk.models.[BaseLlmConnection](com/google/adk/models/BaseLlmConnection.html "interface in com.google.adk.models")
@@ -2047,6 +2102,8 @@ Cleanup resources.
 Closes the connection with an error.
 
 [close(Throwable)](com/google/adk/models/GeminiLlmConnection.html#close\(java.lang.Throwable\)) \- Method in class com.google.adk.models.[GeminiLlmConnection](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models")
+     
+[closed](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#closed) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
      
 [closeSession(Session)](com/google/adk/sessions/BaseSessionService.html#closeSession\(com.google.adk.sessions.Session\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
     
@@ -2227,6 +2284,8 @@ Frequently used code snippets for collections.
 [com.google.adk.tools.mcp](com/google/adk/tools/mcp/package-summary.html) \- package com.google.adk.tools.mcp
      
 [com.google.adk.tools.retrieval](com/google/adk/tools/retrieval/package-summary.html) \- package com.google.adk.tools.retrieval
+     
+[com.google.adk.tools.skills](com/google/adk/tools/skills/package-summary.html) \- package com.google.adk.tools.skills
      
 [com.google.adk.tutorials](com/google/adk/tutorials/package-summary.html) \- package com.google.adk.tutorials
      
@@ -2548,6 +2607,8 @@ Returns the list of content sent to the LLM.
 
 Converts a GenAI Content object to a list of A2A Parts.
 
+[context()](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#context\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
 [CONTEXT_ID](com/google/adk/a2a/converters/AdkMetadataKey.html#CONTEXT_ID) \- Enum constant in enum class com.google.adk.a2a.converters.[AdkMetadataKey](com/google/adk/a2a/converters/AdkMetadataKey.html "enum class in com.google.adk.a2a.converters")
      
 [contextCacheConfig()](com/google/adk/agents/InvocationContext.html#contextCacheConfig\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
@@ -2729,9 +2790,13 @@ Placeholder for creating an evaluation set.
 
 Create a final model response event from set_model_response JSON.
 
+[createIssue(String, String, String, String)](com/example/github/GitHubTools.html#createIssue\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
 [createOperation(String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperation\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [createOperationRequest(String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperationRequest\(java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
+     
+[createPullRequest(String, String, String, List, List, String, String)](com/example/github/GitHubTools.html#createPullRequest\(java.lang.String,java.lang.String,java.lang.String,java.util.List,java.util.List,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
      
 [createRequest(String)](com/google/adk/models/springai/EmbeddingConverter.html#createRequest\(java.lang.String\)) \- Static method in class com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     
@@ -3069,6 +3134,11 @@ Creates an instance of a `DoneWithResult` record class.
 
 Drag and drop.
 
+[dryRun](com/example/github/GitHubTools.html#dryRun) \- Static variable in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+    
+
+When true, `create_issue`/`create_pull_request` return a preview instead of writing.
+
 ## E
 
 [embed(String)](com/google/adk/models/springai/SpringAIEmbedding.html#embed\(java.lang.String\)) \- Method in class com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
@@ -3090,6 +3160,11 @@ Utility class for converting between embedding formats and performing vector ope
     
 
 Generate embeddings using a full EmbeddingRequest.
+
+[enable(InvocationContext)](com/google/adk/flows/llmflows/PersistBarrier.html#enable\(com.google.adk.agents.InvocationContext\)) \- Static method in class com.google.adk.flows.llmflows.[PersistBarrier](com/google/adk/flows/llmflows/PersistBarrier.html "class in com.google.adk.flows.llmflows")
+    
+
+Marks that a `Runner` is driving this invocation and will resolve each appended event.
 
 [enabled()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#enabled\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
@@ -3593,11 +3668,15 @@ Finds an agent (this or descendant) by name.
 
 Finds an available agent by name.
 
+[findDocIssues(String, String)](com/example/github/GitHubTools.html#findDocIssues\(java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
 [findMostSimilar(float[], List)](com/google/adk/models/springai/EmbeddingConverter.html#findMostSimilar\(float%5B%5D,java.util.List\)) \- Static method in class com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     
 
 Find the most similar embedding from a list of candidates.
 
+[findPullRequestsForIssue(String, String, int)](com/example/github/GitHubTools.html#findPullRequestsForIssue\(java.lang.String,java.lang.String,int\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
 [findResourcePath(String, String)](com/google/adk/skills/AbstractSkillSource.html#findResourcePath\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
     
 
@@ -3851,6 +3930,8 @@ Utility class for function calling.
 
 Returns all function calls from this event.
 
+[functionResponseEvent()](com/google/adk/telemetry/Instrumentation.TelemetryContext.html#functionResponseEvent\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.TelemetryContext](com/google/adk/telemetry/Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
+     
 [functionResponses()](com/google/adk/events/Event.html#functionResponses\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
     
 
@@ -4041,12 +4122,16 @@ Normalizes before-agent callbacks.
      
 [getCategory()](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html#getCategory\(\)) \- Method in class com.google.adk.models.springai.error.[SpringAIErrorMapper.MappedError](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html "class in com.google.adk.models.springai.error")
      
+[getChangedFiles(String, String, String, String, String)](com/example/github/GitHubTools.html#getChangedFiles\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
 [getConnectionDetails()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#getConnectionDetails\(\)) \- Method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
     
 
 Retrieves service details for a given connection.
 
 [getConnectorBaseSpec()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#getConnectorBaseSpec\(\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
+     
+[getCtx()](com/google/adk/telemetry/Instrumentation.AgentInvocation.html#getCtx\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
      
 [getCurrentSpanAndParent()](com/google/adk/plugins/agentanalytics/TraceManager.html#getCurrentSpanAndParent\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
      
@@ -4079,6 +4164,11 @@ Get the underlying Spring AI embedding model.
     
 
 Retrieves the JSON schema and available operations for a given entity.
+
+[getErrorCode()](com/google/adk/skills/SkillSourceException.html#getErrorCode\(\)) \- Method in exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+    
+
+Returns the error code categorizing the failure.
 
 [getErrorCount(String)](com/google/adk/codeexecutors/CodeExecutorContext.html#getErrorCount\(java.lang.String\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutorContext](com/google/adk/codeexecutors/CodeExecutorContext.html "class in com.google.adk.codeexecutors")
     
@@ -4120,6 +4210,10 @@ Returns the BigQuery TableSchema for the events table (Storage Write API).
 
 Gets the session ID for the code executor.
 
+[getFileContent(String, String, String)](com/example/github/GitHubTools.html#getFileContent\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
+[getFileDiff(String, String, String, String, String)](com/example/github/GitHubTools.html#getFileDiff\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
 [getFinalResponse()](com/google/adk/models/springai/StreamingResponseAggregator.html#getFinalResponse\(\)) \- Method in class com.google.adk.models.springai.[StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai")
     
 
@@ -4412,6 +4506,8 @@ Return all tools in the toolset based on the provided context.
      
 [getTools(ReadonlyContext)](com/google/adk/tools/mcp/McpToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\)) \- Method in class com.google.adk.tools.mcp.[McpToolset](com/google/adk/tools/mcp/McpToolset.html "class in com.google.adk.tools.mcp")
      
+[getTools(ReadonlyContext)](com/google/adk/tools/skills/SkillToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\)) \- Method in class com.google.adk.tools.skills.[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills")
+     
 [getToolsetClasses()](com/google/adk/utils/AdditionalAdkComponentProvider.html#getToolsetClasses\(\)) \- Method in class com.google.adk.utils.[AdditionalAdkComponentProvider](com/google/adk/utils/AdditionalAdkComponentProvider.html "class in com.google.adk.utils")
     
 
@@ -4461,6 +4557,11 @@ Returns TTL as string format for cache creation.
      
 [getWeather(String)](com/google/adk/tutorials/LiveAudioSingleAgent.html#getWeather\(java.lang.String\)) \- Static method in class com.google.adk.tutorials.[LiveAudioSingleAgent](com/google/adk/tutorials/LiveAudioSingleAgent.html "class in com.google.adk.tutorials")
      
+[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github") \- Class in [com.example.github](com/example/github/package-summary.html)
+    
+
+Reusable GitHub function tools backed by the `org.kohsuke:github-api` client.
+
 [globalInstruction()](com/google/adk/agents/LlmAgent.html#globalInstruction\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
 [globalInstruction(Instruction)](com/google/adk/agents/LlmAgent.Builder.html#globalInstruction\(com.google.adk.agents.Instruction\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
@@ -4591,6 +4692,15 @@ Handles function calls in a live/streaming context, supporting background execut
 
 Handles function calls in a live/streaming context with tool confirmations, supporting background execution and stream termination.
 
+[handleMetricsError(RuntimeException)](com/google/adk/telemetry/Instrumentation.AgentInvocation.html#handleMetricsError\(java.lang.RuntimeException\)) \- Method in class com.google.adk.telemetry.[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
+     
+[handleMetricsError(RuntimeException)](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#handleMetricsError\(java.lang.RuntimeException\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+    
+
+Hook for subclasses to handle metrics recording errors.
+
+[handleMetricsError(RuntimeException)](com/google/adk/telemetry/Instrumentation.ToolExecution.html#handleMetricsError\(java.lang.RuntimeException\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ToolExecution](com/google/adk/telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")
+     
 [handleTextMessage(WebSocketSession, TextMessage)](com/google/adk/web/websocket/LiveWebSocketHandler.html#handleTextMessage\(org.springframework.web.socket.WebSocketSession,org.springframework.web.socket.TextMessage\)) \- Method in class com.google.adk.web.websocket.[LiveWebSocketHandler](com/google/adk/web/websocket/LiveWebSocketHandler.html "class in com.google.adk.web.websocket")
      
 [handleTransportError(WebSocketSession, Throwable)](com/google/adk/web/websocket/LiveWebSocketHandler.html#handleTransportError\(org.springframework.web.socket.WebSocketSession,java.lang.Throwable\)) \- Method in class com.google.adk.web.websocket.[LiveWebSocketHandler](com/google/adk/web/websocket/LiveWebSocketHandler.html "class in com.google.adk.web.websocket")
@@ -4986,6 +5096,31 @@ Plain instruction directly provided to the agent.
 
 Utility methods for handling instruction templates.
 
+[Instrumentation](com/google/adk/telemetry/Instrumentation.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
+    
+
+Unified context manager utility class for agent and tool execution telemetry in ADK.
+
+[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
+    
+
+AutoCloseable telemetry tracking scope for agent invocations.
+
+[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
+    
+
+Base class for AutoCloseable telemetry tracking scopes.
+
+[Instrumentation.TelemetryContext](com/google/adk/telemetry/Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
+    
+
+Stores all telemetry related state.
+
+[Instrumentation.ToolExecution](com/google/adk/telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
+    
+
+AutoCloseable telemetry tracking scope for tool executions.
+
 [IntegrationClient](com/google/adk/tools/applicationintegrationtoolset/IntegrationClient.html "class in com.google.adk.tools.applicationintegrationtoolset") \- Class in [com.google.adk.tools.applicationintegrationtoolset](com/google/adk/tools/applicationintegrationtoolset/package-summary.html)
     
 
@@ -5372,6 +5507,8 @@ Lists all available [`Frontmatter`](com/google/adk/skills/Frontmatter.html "clas
 [listOperation(String, String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#listOperation\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [listOperationRequest()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#listOperationRequest\(\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
+     
+[listReleases(String, String)](com/example/github/GitHubTools.html#listReleases\(java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
      
 [listResources(String, String)](com/google/adk/skills/InMemorySkillSource.html#listResources\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills")
      
@@ -5865,6 +6002,16 @@ Returns the value of the `mapping` record component.
 
 Configures the message converter to use the custom ADK ObjectMapper.
 
+[markFailed(InvocationContext, String, Throwable)](com/google/adk/flows/llmflows/PersistBarrier.html#markFailed\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.Throwable\)) \- Static method in class com.google.adk.flows.llmflows.[PersistBarrier](com/google/adk/flows/llmflows/PersistBarrier.html "class in com.google.adk.flows.llmflows")
+    
+
+Signals that persisting the event with the given id failed, so an await on it fails with ` error` instead of blocking forever.
+
+[markPersisted(InvocationContext, String)](com/google/adk/flows/llmflows/PersistBarrier.html#markPersisted\(com.google.adk.agents.InvocationContext,java.lang.String\)) \- Static method in class com.google.adk.flows.llmflows.[PersistBarrier](com/google/adk/flows/llmflows/PersistBarrier.html "class in com.google.adk.flows.llmflows")
+    
+
+Signals that the `Runner` persisted the event with the given id.
+
 [maxAge()](com/google/adk/web/config/AdkWebCorsProperties.html#maxAge\(\)) \- Method in record class com.google.adk.web.config.[AdkWebCorsProperties](com/google/adk/web/config/AdkWebCorsProperties.html "class in com.google.adk.web.config")
     
 
@@ -5917,6 +6064,13 @@ Returns the maximum number of planning iterations.
 [maxRetries()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#maxRetries\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
 [maxRetries(int)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#maxRetries\(int\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
+[maxSpansToKeep()](com/google/adk/web/service/ApiServerSpanExporterConfig.html#maxSpansToKeep\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporterConfig](com/google/adk/web/service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")
+    
+
+The maximum number of spans to keep in memory.
+
+[maxSpansToKeep(Optional)](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html#maxSpansToKeep\(java.util.Optional\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporterConfig.Builder](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
      
 [maxSteps](com/google/adk/flows/llmflows/BaseLlmFlow.html#maxSteps) \- Variable in class com.google.adk.flows.llmflows.[BaseLlmFlow](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
      
@@ -6244,6 +6398,11 @@ Key-value pairs for client-specific properties.
     
 
 Returns the value of the `methods` record component.
+
+[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry") \- Class in [com.google.adk.telemetry](com/google/adk/telemetry/package-summary.html)
+    
+
+Utility class for recording OpenTelemetry metrics within the ADK.
 
 [mimeType()](com/google/adk/codeexecutors/CodeExecutionUtils.File.html#mimeType\(\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.File](com/google/adk/codeexecutors/CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")
     
@@ -6672,6 +6831,8 @@ If true, extract and process data files from the model request and attach them t
 
 Returns the value of the `origins` record component.
 
+[otelContext()](com/google/adk/telemetry/Instrumentation.TelemetryContext.html#otelContext\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.TelemetryContext](com/google/adk/telemetry/Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
+     
 [OUTCOME_KEY](com/google/adk/a2a/converters/PartConverter.html#OUTCOME_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
 [output()](com/google/adk/examples/Example.html#output\(\)) \- Method in class com.google.adk.examples.[Example](com/google/adk/examples/Example.html "class in com.google.adk.examples")
@@ -6770,6 +6931,8 @@ Utility class for creating ConcurrentHashMaps.
 
 [PARALLEL](com/google/adk/agents/RunConfig.ToolExecutionMode.html#PARALLEL) \- Enum constant in enum class com.google.adk.agents.[RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
      
+[PARALLEL_SUBSCRIBE](com/google/adk/agents/RunConfig.ToolExecutionMode.html#PARALLEL_SUBSCRIBE) \- Enum constant in enum class com.google.adk.agents.[RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
+     
 [ParallelAgent](com/google/adk/agents/ParallelAgent.html "class in com.google.adk.agents") \- Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
     
 
@@ -6838,6 +7001,11 @@ Indicates whether the text content is part of a unfinished text stream.
      
 [payload(Object)](com/google/adk/events/ToolConfirmation.Builder.html#payload\(java.lang.Object\)) \- Method in class com.google.adk.events.[ToolConfirmation.Builder](com/google/adk/events/ToolConfirmation.Builder.html "class in com.google.adk.events")
      
+[PersistBarrier](com/google/adk/flows/llmflows/PersistBarrier.html "class in com.google.adk.flows.llmflows") \- Class in [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-summary.html)
+    
+
+Lets [`BaseLlmFlow`](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")'s multi-step loop wait until the `Runner` \-- the sole event persister -- has appended the current step's events, so the next step's request (built from `session.events()` by [`Contents`](com/google/adk/flows/llmflows/Contents.html "class in com.google.adk.flows.llmflows")) is not assembled from a stale session.
+
 [planner()](com/google/adk/agents/PlannerAgent.html#planner\(\)) \- Method in class com.google.adk.agents.[PlannerAgent](com/google/adk/agents/PlannerAgent.html "class in com.google.adk.agents")
     
 
@@ -6981,6 +7149,11 @@ Pre-process the LLM request for Gemini 2.0+ models to use the code execution too
 
 Processes the outgoing [`LlmRequest.Builder`](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models").
 
+[processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/BaseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in interface com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools")
+    
+
+Processes the outgoing [`LlmRequest.Builder`](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models").
+
 [processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/BuiltInCodeExecutionTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.[BuiltInCodeExecutionTool](com/google/adk/tools/BuiltInCodeExecutionTool.html "class in com.google.adk.tools")
      
 [processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/computeruse/ComputerUseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.computeruse.[ComputerUseToolset](com/google/adk/tools/computeruse/ComputerUseToolset.html "class in com.google.adk.tools.computeruse")
@@ -6999,6 +7172,8 @@ Adds computer use configuration to the LLM request.
 [processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/LoadMemoryTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.[LoadMemoryTool](com/google/adk/tools/LoadMemoryTool.html "class in com.google.adk.tools")
      
 [processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/retrieval/VertexAiRagRetrieval.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.retrieval.[VertexAiRagRetrieval](com/google/adk/tools/retrieval/VertexAiRagRetrieval.html "class in com.google.adk.tools.retrieval")
+     
+[processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/skills/SkillToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.skills.[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills")
      
 [processLlmRequest(LlmRequest.Builder, ToolContext)](com/google/adk/tools/UrlContextTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.[UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools")
      
@@ -7132,6 +7307,33 @@ Performs synchronous speech recognition.
 
 Performs synchronous speech recognition on the given audio input.
 
+[recordAgentInvocation(InvocationContext, BaseAgent)](com/google/adk/telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\)) \- Static method in class com.google.adk.telemetry.[Instrumentation](com/google/adk/telemetry/Instrumentation.html "class in com.google.adk.telemetry")
+    
+
+Creates an AgentInvocation context to record agent invocation telemetry.
+
+[recordAgentInvocation(InvocationContext, BaseAgent, Context)](com/google/adk/telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\)) \- Static method in class com.google.adk.telemetry.[Instrumentation](com/google/adk/telemetry/Instrumentation.html "class in com.google.adk.telemetry")
+     
+[recordAgentInvocationDuration(String, Duration, Throwable)](com/google/adk/telemetry/Metrics.html#recordAgentInvocationDuration\(java.lang.String,java.time.Duration,java.lang.Throwable\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the duration of the agent invocation.
+
+[recordAgentRequestSize(String, Content)](com/google/adk/telemetry/Metrics.html#recordAgentRequestSize\(java.lang.String,com.google.genai.types.Content\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the size of the agent request.
+
+[recordAgentResponseSize(String, List)](com/google/adk/telemetry/Metrics.html#recordAgentResponseSize\(java.lang.String,java.util.List\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the size of the agent response by extracting content from events.
+
+[recordAgentWorkflowSteps(String, List)](com/google/adk/telemetry/Metrics.html#recordAgentWorkflowSteps\(java.lang.String,java.util.List\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the number of steps in the agent workflow by counting the number of events.
+
 [recordError(SpringAIObservabilityHandler.RequestContext, Throwable)](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html#recordError\(com.google.adk.models.springai.observability.SpringAIObservabilityHandler.RequestContext,java.lang.Throwable\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html "class in com.google.adk.models.springai.observability")
     
 
@@ -7175,10 +7377,41 @@ Builder for Recordings.
 
 Utility class for loading recordings from YAML files.
 
+[recordMetrics(Duration, Throwable)](com/google/adk/telemetry/Instrumentation.AgentInvocation.html#recordMetrics\(java.time.Duration,java.lang.Throwable\)) \- Method in class com.google.adk.telemetry.[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
+     
+[recordMetrics(Duration, Throwable)](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#recordMetrics\(java.time.Duration,java.lang.Throwable\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+    
+
+Hook for subclasses to record metrics.
+
+[recordMetrics(Duration, Throwable)](com/google/adk/telemetry/Instrumentation.ToolExecution.html#recordMetrics\(java.time.Duration,java.lang.Throwable\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ToolExecution](com/google/adk/telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")
+     
 [recordSuccess(SpringAIObservabilityHandler.RequestContext, int, int, int)](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html#recordSuccess\(com.google.adk.models.springai.observability.SpringAIObservabilityHandler.RequestContext,int,int,int\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html "class in com.google.adk.models.springai.observability")
     
 
 Records the completion of a successful request.
+
+[recordToolExecution(BaseTool, BaseAgent, Map)](com/google/adk/telemetry/Instrumentation.html#recordToolExecution\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map\)) \- Static method in class com.google.adk.telemetry.[Instrumentation](com/google/adk/telemetry/Instrumentation.html "class in com.google.adk.telemetry")
+    
+
+Creates a ToolExecution context to record tool execution telemetry.
+
+[recordToolExecution(BaseTool, BaseAgent, Map, Context)](com/google/adk/telemetry/Instrumentation.html#recordToolExecution\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map,io.opentelemetry.context.Context\)) \- Static method in class com.google.adk.telemetry.[Instrumentation](com/google/adk/telemetry/Instrumentation.html "class in com.google.adk.telemetry")
+     
+[recordToolExecutionDuration(String, String, Duration, Throwable)](com/google/adk/telemetry/Metrics.html#recordToolExecutionDuration\(java.lang.String,java.lang.String,java.time.Duration,java.lang.Throwable\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the duration of the tool execution.
+
+[recordToolRequestSize(String, String, Map)](com/google/adk/telemetry/Metrics.html#recordToolRequestSize\(java.lang.String,java.lang.String,java.util.Map\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the size of the tool request.
+
+[recordToolResponseSize(String, String, Event)](com/google/adk/telemetry/Metrics.html#recordToolResponseSize\(java.lang.String,java.lang.String,com.google.adk.events.Event\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Records the size of the tool response.
 
 [register(String, Object)](com/google/adk/utils/ComponentRegistry.html#register\(java.lang.String,java.lang.Object\)) \- Method in class com.google.adk.utils.[ComponentRegistry](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils")
     
@@ -7430,6 +7663,10 @@ Resolves a toolset class by name from the registry or by attempting to load it.
 
 Resolves a toolset instance by name from the registry.
 
+[RESOURCE_LOAD_ERROR](com/google/adk/skills/SkillSourceException.html#RESOURCE_LOAD_ERROR) \- Static variable in exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
+[RESOURCE_NOT_FOUND](com/google/adk/skills/SkillSourceException.html#RESOURCE_NOT_FOUND) \- Static variable in exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
 [response(GenerateContentResponse)](com/google/adk/models/LlmResponse.Builder.html#response\(com.google.genai.types.GenerateContentResponse\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
      
 [RESPONSE](com/google/adk/a2a/common/A2AMetadata.Key.html#RESPONSE) \- Enum constant in enum class com.google.adk.a2a.common.[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
@@ -7683,7 +7920,7 @@ Streaming mode for the runner.
 [RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents") \- Enum Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
     
 
-Tool execution mode for the runner, when they are multiple tools requested (by the models or callbacks).
+Execution mode when the model requests multiple tools.
 
 [runEval(String, String, RunEvalRequest)](com/google/adk/web/controller/EvaluationController.html#runEval\(java.lang.String,java.lang.String,com.google.adk.web.dto.RunEvalRequest\)) \- Method in class com.google.adk.web.controller.[EvaluationController](com/google/adk/web/controller/EvaluationController.html "class in com.google.adk.web.controller")
     
@@ -7875,6 +8112,8 @@ Saves an artifact in memory and assigns a new version.
 
 Utility class for validating schemas.
 
+[scope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#scope) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
 [screenshot()](com/google/adk/tools/computeruse/ComputerState.html#screenshot\(\)) \- Method in class com.google.adk.tools.computeruse.[ComputerState](com/google/adk/tools/computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")
      
 [screenshot(byte[])](com/google/adk/tools/computeruse/ComputerState.Builder.html#screenshot\(byte%5B%5D\)) \- Method in class com.google.adk.tools.computeruse.[ComputerState.Builder](com/google/adk/tools/computeruse/ComputerState.Builder.html "class in com.google.adk.tools.computeruse")
@@ -7906,6 +8145,8 @@ Jumps to search.
 
 Finds the ordered list of agent names that must execute to produce the goal.
 
+[searchCode(String, String, String)](com/example/github/GitHubTools.html#searchCode\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
 [searchEngineId()](com/google/adk/tools/VertexAiSearchTool.html#searchEngineId\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
 [searchEngineId(String)](com/google/adk/tools/VertexAiSearchTool.Builder.html#searchEngineId\(java.lang.String\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
@@ -8242,6 +8483,8 @@ Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.h
 
 [setEndOfAgent(boolean)](com/google/adk/events/EventActions.html#setEndOfAgent\(boolean\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
+[setError(Throwable)](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#setError\(java.lang.Throwable\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
 [setErrorCode(FinishReason)](com/google/adk/events/Event.html#setErrorCode\(com.google.genai.types.FinishReason\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setErrorMessage(String)](com/google/adk/events/Event.html#setErrorMessage\(java.lang.String\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
@@ -8267,6 +8510,8 @@ Sets the session ID for the code executor.
 
 Deprecated.
 
+[setFunctionResponseEvent(Event)](com/google/adk/telemetry/Instrumentation.TelemetryContext.html#setFunctionResponseEvent\(com.google.adk.events.Event\)) \- Method in class com.google.adk.telemetry.[Instrumentation.TelemetryContext](com/google/adk/telemetry/Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
+     
 [setGenerateContentConfig(GenerateContentConfig)](com/google/adk/agents/LlmAgentConfig.html#setGenerateContentConfig\(com.google.genai.types.GenerateContentConfig\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
      
 [setGroundingMetadata(GroundingMetadata)](com/google/adk/events/Event.html#setGroundingMetadata\(com.google.genai.types.GroundingMetadata\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
@@ -8320,6 +8565,11 @@ Deprecated.
     
 
 Deprecated.
+
+[setMeterForTesting(Meter)](com/google/adk/telemetry/Metrics.html#setMeterForTesting\(io.opentelemetry.api.metrics.Meter\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
+    
+
+Sets the OpenTelemetry Meter to be used for metrics.
 
 [setMetricsEnabled(boolean)](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html#setMetricsEnabled\(boolean\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties.Observability](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties")
      
@@ -8484,6 +8734,12 @@ Returns a [`InMemorySkillSource.Builder.SkillBuilder`](com/google/adk/skills/InM
 
 Switches context to configure another skill, creating it if it doesn't exist.
 
+[SKILL_FORMAT_ERROR](com/google/adk/skills/SkillSourceException.html#SKILL_FORMAT_ERROR) \- Static variable in exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
+[SKILL_LOAD_ERROR](com/google/adk/skills/SkillSourceException.html#SKILL_LOAD_ERROR) \- Static variable in exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
+[SKILL_NOT_FOUND](com/google/adk/skills/SkillSourceException.html#SKILL_NOT_FOUND) \- Static variable in exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+     
 [SkillMdPath(String, PathT)](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html#%3Cinit%3E\(java.lang.String,PathT\)) \- Constructor for class com.google.adk.skills.[AbstractSkillSource.SkillMdPath](com/google/adk/skills/AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills")
     
 
@@ -8499,10 +8755,31 @@ Interface for getting access to available skills.
 
 Exception for [`SkillSource`](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills") implementations to signal recoverable errors that will have the message sending back to the LLM.
 
-[SkillSourceException(String)](com/google/adk/skills/SkillSourceException.html#%3Cinit%3E\(java.lang.String\)) \- Constructor for exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
-     
-[SkillSourceException(String, Throwable)](com/google/adk/skills/SkillSourceException.html#%3Cinit%3E\(java.lang.String,java.lang.Throwable\)) \- Constructor for exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
-     
+[SkillSourceException(String, String)](com/google/adk/skills/SkillSourceException.html#%3Cinit%3E\(java.lang.String,java.lang.String\)) \- Constructor for exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+    
+
+Constructs a new exception with the specified detail message and error code.
+
+[SkillSourceException(String, String, Throwable)](com/google/adk/skills/SkillSourceException.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.lang.Throwable\)) \- Constructor for exception class com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
+    
+
+Constructs a new exception with the specified detail message, error code, and cause.
+
+[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills") \- Class in [com.google.adk.tools.skills](com/google/adk/tools/skills/package-summary.html)
+    
+
+A toolset for managing and interacting with agent skills.
+
+[SkillToolset(SkillSource)](com/google/adk/tools/skills/SkillToolset.html#%3Cinit%3E\(com.google.adk.skills.SkillSource\)) \- Constructor for class com.google.adk.tools.skills.[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills")
+    
+
+Initializes the SkillToolset with a SkillSource and default execution settings.
+
+[SkillToolset(SkillSource, String)](com/google/adk/tools/skills/SkillToolset.html#%3Cinit%3E\(com.google.adk.skills.SkillSource,java.lang.String\)) \- Constructor for class com.google.adk.tools.skills.[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills")
+    
+
+Initializes the SkillToolset with a SkillSource.
+
 [skipSummarization()](com/google/adk/events/EventActions.html#skipSummarization\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [skipSummarization(Boolean)](com/google/adk/events/EventActions.Builder.html#skipSummarization\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
@@ -8513,6 +8790,8 @@ Exception for [`SkillSource`](com/google/adk/skills/SkillSource.html "interface 
 This class performs events compaction in a sliding window fashion based on the [`EventsCompactionConfig`](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer").
 
 [SlidingWindowEventCompactor(EventsCompactionConfig)](com/google/adk/summarizer/SlidingWindowEventCompactor.html#%3Cinit%3E\(com.google.adk.summarizer.EventsCompactionConfig\)) \- Constructor for class com.google.adk.summarizer.[SlidingWindowEventCompactor](com/google/adk/summarizer/SlidingWindowEventCompactor.html "class in com.google.adk.summarizer")
+     
+[span](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#span) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
      
 [SpeechClientInterface](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html "interface in com.google.adk.flows.llmflows.audio") \- Interface in [com.google.adk.flows.llmflows.audio](com/google/adk/flows/llmflows/audio/package-summary.html)
     
@@ -8684,6 +8963,8 @@ Builder for [`SseServerParameters`](com/google/adk/tools/mcp/SseServerParameters
 
 Records the start of a request.
 
+[startTimeNanos](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#startTimeNanos) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
 [startTimestamp()](com/google/adk/events/EventCompaction.html#startTimestamp\(\)) \- Method in class com.google.adk.events.[EventCompaction](com/google/adk/events/EventCompaction.html "class in com.google.adk.events")
      
 [startTimestamp(long)](com/google/adk/events/EventCompaction.Builder.html#startTimestamp\(long\)) \- Method in class com.google.adk.events.[EventCompaction.Builder](com/google/adk/events/EventCompaction.Builder.html "class in com.google.adk.events")
@@ -8939,6 +9220,10 @@ Returns the task ID from the event.
 
 Converts an A2A `Task` to an ADK [`Event`](com/google/adk/events/Event.html "class in com.google.adk.events").
 
+[telemetryContext](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#telemetryContext) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+     
+[TelemetryContext(Context)](com/google/adk/telemetry/Instrumentation.TelemetryContext.html#%3Cinit%3E\(io.opentelemetry.context.Context\)) \- Constructor for class com.google.adk.telemetry.[Instrumentation.TelemetryContext](com/google/adk/telemetry/Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
+     
 [TEMP_PREFIX](com/google/adk/sessions/State.html#TEMP_PREFIX) \- Static variable in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
 [temperature](com/google/adk/models/chat/ChatCompletionsRequest.html#temperature) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
@@ -9178,6 +9463,8 @@ Converts between ADK and Spring AI tool/function formats.
 
 Simple metadata holder for tool information.
 
+[ToolExecution(BaseTool, BaseAgent, Map, Context)](com/google/adk/telemetry/Instrumentation.ToolExecution.html#%3Cinit%3E\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map,io.opentelemetry.context.Context\)) \- Constructor for class com.google.adk.telemetry.[Instrumentation.ToolExecution](com/google/adk/telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")
+     
 [toolExecutionMode()](com/google/adk/agents/RunConfig.html#toolExecutionMode\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
      
 [toolExecutionMode(RunConfig.ToolExecutionMode)](com/google/adk/agents/RunConfig.Builder.html#toolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
@@ -9401,7 +9688,7 @@ Traces merged tool call events.
 
 Traces the sending of data (history or new content) to the agent/model.
 
-[traceToolExecution(Span, String, String, String, Map, Event, Exception)](com/google/adk/telemetry/Tracing.html#traceToolExecution\(io.opentelemetry.api.trace.Span,java.lang.String,java.lang.String,java.lang.String,java.util.Map,com.google.adk.events.Event,java.lang.Exception\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
+[traceToolExecution(Span, String, String, String, Map, Event, Throwable)](com/google/adk/telemetry/Tracing.html#traceToolExecution\(io.opentelemetry.api.trace.Span,java.lang.String,java.lang.String,java.lang.String,java.util.Map,com.google.adk.events.Event,java.lang.Throwable\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     
 
 Traces a tool execution, including its arguments, response, and any potential error.
@@ -9873,6 +10160,13 @@ Pattern to match words for keyword extraction.
 
 [wrapCallResult(ObjectMapper, String, McpSchema.CallToolResult)](com/google/adk/tools/mcp/AbstractMcpTool.html#wrapCallResult\(com.fasterxml.jackson.databind.ObjectMapper,java.lang.String,io.modelcontextprotocol.spec.McpSchema.CallToolResult\)) \- Static method in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
+[writeRepoName](com/example/github/GitHubTools.html#writeRepoName) \- Static variable in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+     
+[writeRepoOwner](com/example/github/GitHubTools.html#writeRepoOwner) \- Static variable in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
+    
+
+When both are set, `create_issue`/`create_pull_request` refuse to write to any other repository, regardless of the owner/repo the model passes.
+
 A B C D E F G H I J K L M N O P Q R S T U V W   
 [All Classes and Interfaces](allclasses-index.html)|[All Packages](allpackages-index.html)|[Constant Field Values](constant-values.html)|[Serialized Form](serialized-form.html)
 

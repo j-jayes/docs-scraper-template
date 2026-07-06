@@ -147,7 +147,7 @@ Specified by:
 Parameters:
     `readonlyContext` \- Context used to filter tools available to the agent.
 Returns:
-    A Single emitting a list of tools available under the specified context.
+    A Flowable emitting tools available under the specified context.
 
     * ### close
 
@@ -171,6 +171,9 @@ Throws:
 public io.reactivex.rxjava3.core.Completable processLlmRequest([LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)
 
 Adds computer use configuration to the LLM request.
+
+Specified by:
+    `[processLlmRequest](../BaseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))` in interface `[BaseToolset](../BaseToolset.html "interface in com.google.adk.tools")`
 
 
 

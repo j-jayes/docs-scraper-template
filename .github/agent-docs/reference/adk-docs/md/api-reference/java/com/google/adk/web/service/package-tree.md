@@ -34,6 +34,8 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.web.service.[ApiServerSpanExporter](ApiServerSpanExporter.html "class in com.google.adk.web.service") (implements io.opentelemetry.sdk.trace.export.SpanExporter)
+    * com.google.adk.web.service.[ApiServerSpanExporterConfig](ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")
+    * com.google.adk.web.service.[ApiServerSpanExporterConfig.Builder](ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
     * com.google.adk.web.service.[RunnerService](RunnerService.html "class in com.google.adk.web.service")
 
 

@@ -41,6 +41,22 @@ Class
 
 Description
 
+[Instrumentation.AgentInvocation](class-use/Instrumentation.AgentInvocation.html#com.google.adk.telemetry)
+
+AutoCloseable telemetry tracking scope for agent invocations.
+
+[Instrumentation.ClosableTelemetryScope](class-use/Instrumentation.ClosableTelemetryScope.html#com.google.adk.telemetry)
+
+Base class for AutoCloseable telemetry tracking scopes.
+
+[Instrumentation.TelemetryContext](class-use/Instrumentation.TelemetryContext.html#com.google.adk.telemetry)
+
+Stores all telemetry related state.
+
+[Instrumentation.ToolExecution](class-use/Instrumentation.ToolExecution.html#com.google.adk.telemetry)
+
+AutoCloseable telemetry tracking scope for tool executions.
+
 [Tracing.ContextTransformer](class-use/Tracing.ContextTransformer.html#com.google.adk.telemetry)
 
 A transformer that re-activates a given context for the duration of the stream's subscription.

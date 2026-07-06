@@ -80,6 +80,10 @@ com.google.adk.tools.retrieval
 
  
 
+com.google.adk.tools.skills
+
+ 
+
   * ## Uses of [ToolContext](../ToolContext.html "class in com.google.adk.tools") in [com.example](../../../../example/package-summary.html)
 
 Methods in [com.example](../../../../example/package-summary.html) with parameters of type [ToolContext](../ToolContext.html "class in com.google.adk.tools")
@@ -342,6 +346,12 @@ BaseTool.`[processLlmRequest](../BaseTool.html#processLlmRequest\(com.google.adk
 
 Processes the outgoing [`LlmRequest.Builder`](../../models/LlmRequest.Builder.html "class in com.google.adk.models").
 
+`default io.reactivex.rxjava3.core.Completable`
+
+BaseToolset.`[processLlmRequest](../BaseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+Processes the outgoing [`LlmRequest.Builder`](../../models/LlmRequest.Builder.html "class in com.google.adk.models").
+
 `io.reactivex.rxjava3.core.Completable`
 
 BuiltInCodeExecutionTool.`[processLlmRequest](../BuiltInCodeExecutionTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
@@ -535,6 +545,22 @@ VertexAiRagRetrieval.`[processLlmRequest](../retrieval/VertexAiRagRetrieval.html
 `io.reactivex.rxjava3.core.Single<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>>`
 
 VertexAiRagRetrieval.`[runAsync](../retrieval/VertexAiRagRetrieval.html#runAsync\(java.util.Map,com.google.adk.tools.ToolContext\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> args, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+  * ## Uses of [ToolContext](../ToolContext.html "class in com.google.adk.tools") in [com.google.adk.tools.skills](../skills/package-summary.html)
+
+Methods in [com.google.adk.tools.skills](../skills/package-summary.html) with parameters of type [ToolContext](../ToolContext.html "class in com.google.adk.tools")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Completable`
+
+SkillToolset.`[processLlmRequest](../skills/SkillToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
 

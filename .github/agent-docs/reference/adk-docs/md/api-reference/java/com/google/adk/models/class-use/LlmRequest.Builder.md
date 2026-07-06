@@ -65,6 +65,10 @@ com.google.adk.tools.retrieval
 
  
 
+com.google.adk.tools.skills
+
+ 
+
   * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.agents](../../agents/package-summary.html)
 
 Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
@@ -281,6 +285,12 @@ BaseTool.`[processLlmRequest](../../tools/BaseTool.html#processLlmRequest\(com.g
 
 Processes the outgoing [`LlmRequest.Builder`](../LlmRequest.Builder.html "class in com.google.adk.models").
 
+`default io.reactivex.rxjava3.core.Completable`
+
+BaseToolset.`[processLlmRequest](../../tools/BaseToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+Processes the outgoing [`LlmRequest.Builder`](../LlmRequest.Builder.html "class in com.google.adk.models").
+
 `io.reactivex.rxjava3.core.Completable`
 
 BuiltInCodeExecutionTool.`[processLlmRequest](../../tools/BuiltInCodeExecutionTool.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
@@ -358,6 +368,22 @@ Description
 `io.reactivex.rxjava3.core.Completable`
 
 VertexAiRagRetrieval.`[processLlmRequest](../../tools/retrieval/VertexAiRagRetrieval.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
+
+ 
+
+  * ## Uses of [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") in [com.google.adk.tools.skills](../../tools/skills/package-summary.html)
+
+Methods in [com.google.adk.tools.skills](../../tools/skills/package-summary.html) with parameters of type [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Completable`
+
+SkillToolset.`[processLlmRequest](../../tools/skills/SkillToolset.html#processLlmRequest\(com.google.adk.models.LlmRequest.Builder,com.google.adk.tools.ToolContext\))([LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models") llmRequestBuilder, [ToolContext](../../tools/ToolContext.html "class in com.google.adk.tools") toolContext)`
 
  
 

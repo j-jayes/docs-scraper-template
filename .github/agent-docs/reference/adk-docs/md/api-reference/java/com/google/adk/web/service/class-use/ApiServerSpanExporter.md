@@ -52,7 +52,7 @@ Description
 
 `[ApiServerSpanExporter](../ApiServerSpanExporter.html "class in com.google.adk.web.service")`
 
-OpenTelemetryConfig.`[apiServerSpanExporter](../../config/OpenTelemetryConfig.html#apiServerSpanExporter\(\))()`
+OpenTelemetryConfig.`[apiServerSpanExporter](../../config/OpenTelemetryConfig.html#apiServerSpanExporter\(com.google.adk.web.service.ApiServerSpanExporterConfig\))([ApiServerSpanExporterConfig](../ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") config)`
 
  
 

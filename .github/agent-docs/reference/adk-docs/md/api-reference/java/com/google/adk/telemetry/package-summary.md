@@ -52,6 +52,30 @@ Class
 
 Description
 
+[Instrumentation](Instrumentation.html "class in com.google.adk.telemetry")
+
+Unified context manager utility class for agent and tool execution telemetry in ADK.
+
+[Instrumentation.AgentInvocation](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
+
+AutoCloseable telemetry tracking scope for agent invocations.
+
+[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
+
+Base class for AutoCloseable telemetry tracking scopes.
+
+[Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
+
+Stores all telemetry related state.
+
+[Instrumentation.ToolExecution](Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")
+
+AutoCloseable telemetry tracking scope for tool executions.
+
+[Metrics](Metrics.html "class in com.google.adk.telemetry")
+
+Utility class for recording OpenTelemetry metrics within the ADK.
+
 [Tracing](Tracing.html "class in com.google.adk.telemetry")
 
 Utility class for capturing and reporting telemetry data within the ADK.

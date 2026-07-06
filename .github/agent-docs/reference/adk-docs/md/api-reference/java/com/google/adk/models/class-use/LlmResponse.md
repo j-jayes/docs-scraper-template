@@ -44,6 +44,10 @@ com.google.adk.models
 
  
 
+com.google.adk.models.chat
+
+ 
+
 com.google.adk.models.langchain4j
 
  
@@ -279,6 +283,22 @@ Extracts text content from the first part of an LlmResponse, if available.
 GeminiUtil.`[shouldEmitAccumulatedText](../GeminiUtil.html#shouldEmitAccumulatedText\(com.google.adk.models.LlmResponse\))([LlmResponse](../LlmResponse.html "class in com.google.adk.models") currentLlmResponse)`
 
 Determines if accumulated text should be emitted based on the current LlmResponse.
+
+  * ## Uses of [LlmResponse](../LlmResponse.html "class in com.google.adk.models") in [com.google.adk.models.chat](../chat/package-summary.html)
+
+Methods in [com.google.adk.models.chat](../chat/package-summary.html) that return types with arguments of type [LlmResponse](../LlmResponse.html "class in com.google.adk.models")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+ChatCompletionsHttpClient.`[complete](../chat/ChatCompletionsHttpClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
+
+Generates a conversational response from the chat completions endpoint based on the provided messages.
 
   * ## Uses of [LlmResponse](../LlmResponse.html "class in com.google.adk.models") in [com.google.adk.models.langchain4j](../langchain4j/package-summary.html)
 

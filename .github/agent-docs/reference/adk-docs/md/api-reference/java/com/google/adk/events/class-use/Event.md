@@ -566,6 +566,12 @@ Method
 
 Description
 
+`static io.reactivex.rxjava3.core.Completable`
+
+PersistBarrier.`[awaitPersisted](../../flows/llmflows/PersistBarrier.html#awaitPersisted\(com.google.adk.agents.InvocationContext,java.util.List\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Completes once every event in `events` has been [`PersistBarrier.markPersisted(InvocationContext, String)`](../../flows/llmflows/PersistBarrier.html#markPersisted\(com.google.adk.agents.InvocationContext,java.lang.String\)), or fails if any was [`PersistBarrier.markFailed(InvocationContext, String, Throwable)`](../../flows/llmflows/PersistBarrier.html#markFailed\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.Throwable\)); completes immediately if the barrier was never [`PersistBarrier.enable(InvocationContext)`](../../flows/llmflows/PersistBarrier.html#enable\(com.google.adk.agents.InvocationContext\))d.
+
 `static [RequestProcessor.RequestProcessingResult](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")`
 
 RequestProcessor.RequestProcessingResult.`[create](../../flows/llmflows/RequestProcessor.RequestProcessingResult.html#create\(com.google.adk.models.LlmRequest,java.lang.Iterable\))([LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") updatedRequest, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<[Event](../Event.html "class in com.google.adk.events")> events)`
@@ -886,6 +892,20 @@ LlmEventSummarizer.`[summarizeEvents](../../summarizer/LlmEventSummarizer.html#s
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
 
+Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) that return [Event](../Event.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`@Nullable [Event](../Event.html "class in com.google.adk.events")`
+
+Instrumentation.TelemetryContext.`[functionResponseEvent](../../telemetry/Instrumentation.TelemetryContext.html#functionResponseEvent\(\))()`
+
+ 
+
 Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
 
 Modifier and Type
@@ -893,6 +913,24 @@ Modifier and Type
 Method
 
 Description
+
+`void`
+
+Instrumentation.AgentInvocation.`[addEvent](../../telemetry/Instrumentation.AgentInvocation.html#addEvent\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
+
+ 
+
+`static void`
+
+Metrics.`[recordToolResponseSize](../../telemetry/Metrics.html#recordToolResponseSize\(java.lang.String,java.lang.String,com.google.adk.events.Event\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, @Nullable [Event](../Event.html "class in com.google.adk.events") responseEvent)`
+
+Records the size of the tool response.
+
+`void`
+
+Instrumentation.TelemetryContext.`[setFunctionResponseEvent](../../telemetry/Instrumentation.TelemetryContext.html#setFunctionResponseEvent\(com.google.adk.events.Event\))(@Nullable [Event](../Event.html "class in com.google.adk.events") functionResponseEvent)`
+
+ 
 
 `static void`
 
@@ -902,9 +940,29 @@ Traces merged tool call events.
 
 `static void`
 
-Tracing.`[traceToolExecution](../../telemetry/Tracing.html#traceToolExecution\(io.opentelemetry.api.trace.Span,java.lang.String,java.lang.String,java.lang.String,java.util.Map,com.google.adk.events.Event,java.lang.Exception\))(io.opentelemetry.api.trace.Span span, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolDescription, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolType, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> args, @Nullable [Event](../Event.html "class in com.google.adk.events") functionResponseEvent, @Nullable [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") error)`
+Tracing.`[traceToolExecution](../../telemetry/Tracing.html#traceToolExecution\(io.opentelemetry.api.trace.Span,java.lang.String,java.lang.String,java.lang.String,java.util.Map,com.google.adk.events.Event,java.lang.Throwable\))(io.opentelemetry.api.trace.Span span, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolDescription, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") toolType, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> args, @Nullable [Event](../Event.html "class in com.google.adk.events") functionResponseEvent, @Nullable [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
 Traces a tool execution, including its arguments, response, and any potential error.
+
+Method parameters in [com.google.adk.telemetry](../../telemetry/package-summary.html) with type arguments of type [Event](../Event.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static void`
+
+Metrics.`[recordAgentResponseSize](../../telemetry/Metrics.html#recordAgentResponseSize\(java.lang.String,java.util.List\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Records the size of the agent response by extracting content from events.
+
+`static void`
+
+Metrics.`[recordAgentWorkflowSteps](../../telemetry/Metrics.html#recordAgentWorkflowSteps\(java.lang.String,java.util.List\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Records the number of steps in the agent workflow by counting the number of events.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.web.controller](../../web/controller/package-summary.html)
 
