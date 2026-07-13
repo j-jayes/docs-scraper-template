@@ -39,7 +39,7 @@ Hide sidebar  Show sidebar
 # Interface SkillSource
 
 All Known Implementing Classes:
-    `[AbstractSkillSource](AbstractSkillSource.html "class in com.google.adk.skills"), [InMemorySkillSource](InMemorySkillSource.html "class in com.google.adk.skills"), [LocalSkillSource](LocalSkillSource.html "class in com.google.adk.skills")`
+    `[AbstractSkillSource](AbstractSkillSource.html "class in com.google.adk.skills"), [ClassPathSkillSource](ClassPathSkillSource.html "class in com.google.adk.skills"), [InMemorySkillSource](InMemorySkillSource.html "class in com.google.adk.skills"), [LocalSkillSource](LocalSkillSource.html "class in com.google.adk.skills")`
 
 * * *
 

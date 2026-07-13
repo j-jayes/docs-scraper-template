@@ -79,7 +79,7 @@ A transformer that manages an OpenTelemetry span and scope for RxJava streams.
 
   * ## Method Summary
 
-All MethodsStatic MethodsConcrete Methods
+All MethodsStatic MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -109,7 +109,7 @@ Returns a transformer that traces the execution of an RxJava stream.
 
 `traceAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentDescription, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
-Returns a transformer that traces an agent invocation.
+Deprecated.
 
 `static void`
 
@@ -275,7 +275,9 @@ Returns:
 
     * ### traceAgent
 
-public static <T> [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> traceAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentDescription, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public static <T> [Tracing.TracerProvider](Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> traceAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentDescription, [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
+
+Deprecated.
 
 Returns a transformer that traces an agent invocation.
 

@@ -78,14 +78,15 @@ Contents
      45. functionCalls()
      46. functionResponses()
      47. hasTrailingCodeExecutionResult()
-     48. finalResponse()
-     49. stringifyContent()
-     50. builder()
-     51. fromJson(String)
-     52. toBuilder()
-     53. equals(Object)
-     54. toString()
-     55. hashCode()
+     48. hasPendingLongRunningToolCall()
+     49. finalResponse()
+     50. stringifyContent()
+     51. builder()
+     52. fromJson(String)
+     53. toBuilder()
+     54. equals(Object)
+     55. toString()
+     56. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -242,6 +243,12 @@ The grounding metadata of the event.
 `hashCode()`
 
  
+
+`final boolean`
+
+`hasPendingLongRunningToolCall()`
+
+Returns whether this event carries a pending long-running tool call (e.g.
 
 `final boolean`
 
@@ -742,6 +749,12 @@ Returns all function responses from this event.
 public final boolean hasTrailingCodeExecutionResult()
 
 Returns whether the event has a trailing code execution result.
+
+    * ### hasPendingLongRunningToolCall
+
+public final boolean hasPendingLongRunningToolCall()
+
+Returns whether this event carries a pending long-running tool call (e.g. a human-in-the-loop request) whose result is deferred until the caller supplies it later.
 
     * ### finalResponse
 

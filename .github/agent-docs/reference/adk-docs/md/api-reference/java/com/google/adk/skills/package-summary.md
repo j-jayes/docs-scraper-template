@@ -60,6 +60,10 @@ Abstract base class for SkillSource implementations that load skills from path l
 
 A container class that holds a skill's name and the path to its SKILL.md file.
 
+[ClassPathSkillSource](ClassPathSkillSource.html "class in com.google.adk.skills")
+
+Loads skills from the classpath.
+
 [Frontmatter](Frontmatter.html "class in com.google.adk.skills")
 
 Frontmatter represents the YAML metadata at the top of a SKILL.md file.

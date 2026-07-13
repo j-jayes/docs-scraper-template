@@ -22,11 +22,47 @@ LightDarkSystem Setting
 Contents  
 
   1. Constant Field Values
-     1. com.google.*
+     1. com.example.*
+     2. com.google.*
 
 Hide sidebar  Show sidebar
 
 # Constant Field Values
+
+## com.example.*
+
+  * com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[LABEL_GUIDELINES](com/example/adkprtriaging/AdkPrTriagingAgent.html#LABEL_GUIDELINES)`
+
+`"Label rubric (these are the labels that exist in the google/adk-java\nrepository; apply the single most specific one):\n- \"bug\": A pull request that fixes a reproducible defect, regression, or\n unexpected error in ADK Java behavior.\n- \"enhancement\": A pull request that adds a new feature or improves\n existing functionality.\n- \"documentation\": Changes to docs, READMEs, Javadoc, tutorials, or the\n content of code samples\' documentation.\n- \"testing\": Changes to tests, test utilities, testing infrastructure, or\n code coverage.\n- \"sample\": Changes to the sample apps under contrib/samples or the\n tutorials.\n- \"dependencies\": Dependency upgrades or build dependency changes.\n- \"github\": Changes to GitHub Actions, workflows, or repository\n automation (files under .github/).\n\nGuidance:\n- Apply exactly one label: the single most specific match.\n- Prefer \"bug\" or \"enhancement\" for functional code changes; use a topic\n label (documentation, testing, sample, dependencies, github) when the PR\n is predominantly about that area.\n- If no label clearly applies, do not call the labeling tool.\n"`
+
+
+
+  * com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[LABEL_GUIDELINES](com/example/adktriaging/AdkTriagingAgent.html#LABEL_GUIDELINES)`
+
+`"Label rubric and disambiguation rules (these are the labels that exist in\nthe google/adk-java repository):\n- \"bug\": A reproducible defect, regression, or unexpected error in ADK\n Java behavior. Apply this to bug reports.\n- \"enhancement\": A new feature request or an improvement to existing\n functionality. Apply this to feature requests.\n- \"documentation\": Issues about docs, READMEs, Javadoc, tutorials, or the\n content of code samples.\n- \"question\": Usage questions or requests for clarification with no\n reproducible defect.\n- \"testing\": Test utilities, testing infrastructure, code coverage, or\n flaky/broken tests.\n- \"sample\": Issues about the sample apps under contrib/samples or the\n tutorials.\n- \"dependencies\": Dependency upgrades, version conflicts, or build-time\n dependency problems.\n- \"github\": GitHub Actions, workflows, or repository automation.\n\nGuidance:\n- Always classify the issue kind: apply \"bug\" for bug reports and\n \"enhancement\" for feature requests.\n- Additionally apply at most one topic label (documentation, question,\n testing, sample, dependencies, github) when one clearly applies.\n- Prefer the most specific match. If no label can be assigned\n confidently, do not call the labeling tool.\n"`
+
+
+
 
 ## com.google.*
 
@@ -42,7 +78,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"1.5.0"`
+`"1.6.0"`
 
 
 

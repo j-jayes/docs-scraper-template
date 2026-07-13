@@ -61,6 +61,12 @@ Class
 
 Description
 
+`static enum `
+
+`[ApigeeLlm.ApiType](ApigeeLlm.ApiType.html "enum class in com.google.adk.models")`
+
+Defines the type of API to be used by the Apigee proxy.
+
 `static class `
 
 `[ApigeeLlm.Builder](ApigeeLlm.Builder.html "class in com.google.adk.models")`

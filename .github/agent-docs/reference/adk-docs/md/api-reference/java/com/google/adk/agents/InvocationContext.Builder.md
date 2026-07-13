@@ -43,8 +43,9 @@ Contents
      12. endInvocation(boolean)
      13. eventsCompactionConfig(EventsCompactionConfig)
      14. contextCacheConfig(ContextCacheConfig)
-     15. callbackContextData(Map)
-     16. build()
+     15. resumabilityConfig(ResumabilityConfig)
+     16. callbackContextData(Map)
+     17. build()
 
 Hide sidebar  Show sidebar
 
@@ -144,6 +145,12 @@ Sets the memory service for accessing agent memory.
 `pluginManager([Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins") pluginManager)`
 
 Sets the plugin manager for accessing tools and plugins.
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+`resumabilityConfig(@Nullable [ResumabilityConfig](../apps/ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
+
+Sets the resumability configuration for the invocation.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -329,6 +336,17 @@ Sets the context cache configuration for the current agent run.
 
 Parameters:
     `contextCacheConfig` \- the context cache configuration.
+Returns:
+    this builder instance for chaining.
+
+    * ### resumabilityConfig
+
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") resumabilityConfig(@Nullable [ResumabilityConfig](../apps/ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)
+
+Sets the resumability configuration for the invocation.
+
+Parameters:
+    `resumabilityConfig` \- the resumability configuration.
 Returns:
     this builder instance for chaining.
 

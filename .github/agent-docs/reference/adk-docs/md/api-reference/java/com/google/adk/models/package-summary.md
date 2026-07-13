@@ -58,7 +58,7 @@ Description
 
  
 
-  * All Classes and InterfacesInterfacesClassesException Classes
+  * All Classes and InterfacesInterfacesClassesEnum ClassesException Classes
 
 Class
 
@@ -67,6 +67,10 @@ Description
 [ApigeeLlm](ApigeeLlm.html "class in com.google.adk.models")
 
 A [`BaseLlm`](BaseLlm.html "class in com.google.adk.models") implementation for calling an Apigee proxy.
+
+[ApigeeLlm.ApiType](ApigeeLlm.ApiType.html "enum class in com.google.adk.models")
+
+Defines the type of API to be used by the Apigee proxy.
 
 [ApigeeLlm.Builder](ApigeeLlm.Builder.html "class in com.google.adk.models")
 

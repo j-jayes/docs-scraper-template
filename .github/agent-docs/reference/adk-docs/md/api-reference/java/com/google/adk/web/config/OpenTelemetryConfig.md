@@ -31,9 +31,10 @@ Contents
   4. Constructor Details
      1. OpenTelemetryConfig()
   5. Method Details
-     1. apiServerSpanExporter()
-     2. sdkTracerProvider(ApiServerSpanExporter)
-     3. openTelemetrySdk(SdkTracerProvider)
+     1. apiServerSpanExporterConfig(Optional)
+     2. apiServerSpanExporter(ApiServerSpanExporterConfig)
+     3. sdkTracerProvider(ApiServerSpanExporter)
+     4. openTelemetrySdk(SdkTracerProvider)
 
 Hide sidebar  Show sidebar
 
@@ -73,7 +74,13 @@ Description
 
 `[ApiServerSpanExporter](../service/ApiServerSpanExporter.html "class in com.google.adk.web.service")`
 
-`apiServerSpanExporter()`
+`apiServerSpanExporter([ApiServerSpanExporterConfig](../service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") config)`
+
+ 
+
+`[ApiServerSpanExporterConfig](../service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")`
+
+`apiServerSpanExporterConfig([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")> maxSpansToKeep)`
 
  
 
@@ -104,9 +111,13 @@ public OpenTelemetryConfig()
 
   * ## Method Details
 
+    * ### apiServerSpanExporterConfig
+
+@Bean public [ApiServerSpanExporterConfig](../service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") apiServerSpanExporterConfig(@Value("${adk.debug.trace.max-spans:#{null}}") [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")> maxSpansToKeep)
+
     * ### apiServerSpanExporter
 
-@Bean public [ApiServerSpanExporter](../service/ApiServerSpanExporter.html "class in com.google.adk.web.service") apiServerSpanExporter()
+@Bean public [ApiServerSpanExporter](../service/ApiServerSpanExporter.html "class in com.google.adk.web.service") apiServerSpanExporter([ApiServerSpanExporterConfig](../service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service") config)
 
     * ### sdkTracerProvider
 

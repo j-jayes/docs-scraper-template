@@ -349,7 +349,7 @@ With your early prototype, Claude Code can quickly explore your tools and create
 
 **Weaker evaluation task examples:**
 
-  * Schedule a meeting with [[email protected]](/cdn-cgi/l/email-protection#1e747f707b5e7f7d737b307d716c6e) next week.
+  * Schedule a meeting with [[email protected]](/cdn-cgi/l/email-protection#ea808b848faa8b89878fc48985989a) next week.
   * Search the payment logs for `purchase_complete` and `customer_id=9182`.
   * Find the cancellation request by Customer ID 45892.
 

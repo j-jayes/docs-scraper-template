@@ -58,6 +58,12 @@ Abstract base class for SkillSource implementations that load skills from path l
 
 `final class `
 
+`[ClassPathSkillSource](../ClassPathSkillSource.html "class in com.google.adk.skills")`
+
+Loads skills from the classpath.
+
+`final class `
+
 `[InMemorySkillSource](../InMemorySkillSource.html "class in com.google.adk.skills")`
 
 An in-memory implementation of [`SkillSource`](../SkillSource.html "interface in com.google.adk.skills").

@@ -51,7 +51,8 @@ Contents
      17. maxLlmCalls(int)
      18. setAutoCreateSession(boolean)
      19. autoCreateSession(boolean)
-     20. build()
+     20. groupFunctionResponsesInHistory(boolean)
+     21. build()
 
 Hide sidebar  Show sidebar
 
@@ -109,6 +110,14 @@ Description
 `build()`
 
  
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`groupFunctionResponsesInHistory(boolean groupFunctionResponsesInHistory)`
+
+Deprecated.
+
+Expected only for specific model endpoints.
 
 `abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
@@ -320,6 +329,14 @@ Deprecated.
     * ### autoCreateSession
 
 @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") autoCreateSession(boolean autoCreateSession)
+
+    * ### groupFunctionResponsesInHistory
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") groupFunctionResponsesInHistory(boolean groupFunctionResponsesInHistory)
+
+Deprecated.
+
+Expected only for specific model endpoints.
 
     * ### build
 

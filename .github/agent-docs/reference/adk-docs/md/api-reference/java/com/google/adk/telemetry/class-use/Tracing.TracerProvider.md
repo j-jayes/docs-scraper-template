@@ -75,7 +75,7 @@ Returns a transformer that traces the execution of an RxJava stream.
 
 Tracing.`[traceAgent](../Tracing.html#traceAgent\(java.lang.String,java.lang.String,java.lang.String,com.google.adk.agents.InvocationContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentDescription, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
-Returns a transformer that traces an agent invocation.
+Deprecated.
 
 
 

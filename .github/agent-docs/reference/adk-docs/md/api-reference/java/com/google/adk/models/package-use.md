@@ -163,6 +163,10 @@ Description
 
 A [`BaseLlm`](BaseLlm.html "class in com.google.adk.models") implementation for calling an Apigee proxy.
 
+[ApigeeLlm.ApiType](class-use/ApigeeLlm.ApiType.html#com.google.adk.models)
+
+Defines the type of API to be used by the Apigee proxy.
+
 [ApigeeLlm.Builder](class-use/ApigeeLlm.Builder.html#com.google.adk.models)
 
 Builder for [`ApigeeLlm`](ApigeeLlm.html "class in com.google.adk.models").

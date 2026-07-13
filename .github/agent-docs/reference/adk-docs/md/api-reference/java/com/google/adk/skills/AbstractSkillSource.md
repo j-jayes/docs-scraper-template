@@ -56,7 +56,7 @@ All Implemented Interfaces:
     `[SkillSource](SkillSource.html "interface in com.google.adk.skills")`
 
 Direct Known Subclasses:
-    `[LocalSkillSource](LocalSkillSource.html "class in com.google.adk.skills")`
+    `[ClassPathSkillSource](ClassPathSkillSource.html "class in com.google.adk.skills"), [LocalSkillSource](LocalSkillSource.html "class in com.google.adk.skills")`
 
 * * *
 

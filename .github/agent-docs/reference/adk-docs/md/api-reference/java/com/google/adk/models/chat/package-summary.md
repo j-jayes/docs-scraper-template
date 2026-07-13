@@ -54,15 +54,19 @@ Description
 
  
 
-  * Classes
+  * All Classes and InterfacesInterfacesClasses
 
 Class
 
 Description
 
+[ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat")
+
+A client for interacting with OpenAI-compatible chat completions endpoints.
+
 [ChatCompletionsHttpClient](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
 
-An HTTP client for interacting with OpenAI-compatible chat completions endpoints.
+An OkHttp-based implementation of [`ChatCompletionsClient`](ChatCompletionsClient.html "interface in com.google.adk.models.chat") that targets OpenAI-compatible chat completions endpoints.
 
 [ChatCompletionsRequest](ChatCompletionsRequest.html "class in com.google.adk.models.chat")
 

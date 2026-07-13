@@ -48,6 +48,12 @@ Description
 
 `final class `
 
+`[ClassPathSkillSource](../ClassPathSkillSource.html "class in com.google.adk.skills")`
+
+Loads skills from the classpath.
+
+`final class `
+
 `[LocalSkillSource](../LocalSkillSource.html "class in com.google.adk.skills")`
 
 Loads skills from the local file system.

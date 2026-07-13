@@ -249,7 +249,9 @@ public static [SequentialAgent.Builder](SequentialAgent.Builder.html "class in c
 
 protected io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runAsyncImpl([InvocationContext](InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Runs sub-agents sequentially.
+Runs sub-agents sequentially. 
+
+When resumability is enabled, on resume execution fast-forwards to the sub-agent being resumed (completed ones are not re-run) and pauses on a pending long-running call; when disabled, sub-agents simply run in order (matches Python ADK v1 with resumability off). Temporary, event-based.
 
 Specified by:
     `[runAsyncImpl](BaseAgent.html#runAsyncImpl\(com.google.adk.agents.InvocationContext\))` in class `[BaseAgent](BaseAgent.html "class in com.google.adk.agents")`

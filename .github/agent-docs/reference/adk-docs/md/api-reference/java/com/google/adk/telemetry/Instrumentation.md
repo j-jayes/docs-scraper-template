@@ -84,7 +84,7 @@ AutoCloseable telemetry tracking scope for tool executions.
 
   * ## Method Summary
 
-All MethodsStatic MethodsConcrete Methods
+All MethodsStatic MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -96,13 +96,15 @@ Description
 
 `recordAgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent)`
 
-Creates an AgentInvocation context to record agent invocation telemetry.
+Deprecated.
+
+Use the version with explicit parent context instead.
 
 `static [Instrumentation.AgentInvocation](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")`
 
 `recordAgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
 
- 
+Creates an [`Instrumentation.AgentInvocation`](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") context to record agent invocation telemetry with an explicit parent context.
 
 `static [Instrumentation.ToolExecution](Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")`
 
@@ -114,7 +116,7 @@ Creates a ToolExecution context to record tool execution telemetry.
 
 `recordToolExecution([BaseTool](../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)`
 
- 
+Creates a [`Instrumentation.ToolExecution`](Instrumentation.ToolExecution.html "class in com.google.adk.telemetry") context to record tool execution telemetry with an explicit parent context.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -127,13 +129,26 @@ Creates a ToolExecution context to record tool execution telemetry.
 
     * ### recordAgentInvocation
 
-public static [Instrumentation.AgentInvocation](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") recordAgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent)
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public static [Instrumentation.AgentInvocation](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") recordAgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent)
+
+Deprecated.
+
+Use the version with explicit parent context instead. This method will be removed once all callers are updated.
 
 Creates an AgentInvocation context to record agent invocation telemetry.
 
     * ### recordAgentInvocation
 
 public static [Instrumentation.AgentInvocation](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") recordAgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)
+
+Creates an [`Instrumentation.AgentInvocation`](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") context to record agent invocation telemetry with an explicit parent context.
+
+Parameters:
+    `ctx` \- The invocation context of the agent execution.
+    `agent` \- The agent being invoked.
+    `parentContext` \- The OpenTelemetry parent context.
+Returns:
+    A new [`Instrumentation.AgentInvocation`](Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") scope.
 
     * ### recordToolExecution
 
@@ -144,6 +159,16 @@ Creates a ToolExecution context to record tool execution telemetry.
     * ### recordToolExecution
 
 public static [Instrumentation.ToolExecution](Instrumentation.ToolExecution.html "class in com.google.adk.telemetry") recordToolExecution([BaseTool](../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)
+
+Creates a [`Instrumentation.ToolExecution`](Instrumentation.ToolExecution.html "class in com.google.adk.telemetry") context to record tool execution telemetry with an explicit parent context.
+
+Parameters:
+    `tool` \- The tool being executed.
+    `agent` \- The agent invoking the tool.
+    `functionArgs` \- The arguments passed to the tool.
+    `parentContext` \- The OpenTelemetry parent context.
+Returns:
+    A new [`Instrumentation.ToolExecution`](Instrumentation.ToolExecution.html "class in com.google.adk.telemetry") scope.
 
 
 

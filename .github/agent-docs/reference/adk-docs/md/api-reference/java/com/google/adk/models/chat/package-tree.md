@@ -33,9 +33,15 @@ Package Hierarchies:
 ## Class Hierarchy
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
-    * com.google.adk.models.chat.[ChatCompletionsHttpClient](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
+    * com.google.adk.models.chat.[ChatCompletionsHttpClient](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") (implements com.google.adk.models.chat.[ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat"))
     * com.google.adk.models.chat.[ChatCompletionsRequest](ChatCompletionsRequest.html "class in com.google.adk.models.chat")
     * com.google.adk.models.chat.[ChatCompletionsResponse](ChatCompletionsResponse.html "class in com.google.adk.models.chat")
+
+
+
+## Interface Hierarchy
+
+  * com.google.adk.models.chat.[ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat")
 
 
 

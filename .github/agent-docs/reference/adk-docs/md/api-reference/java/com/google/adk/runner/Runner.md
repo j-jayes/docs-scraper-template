@@ -33,7 +33,8 @@ Contents
      1. Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService)
      2. Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List)
      3. Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List, EventsCompactionConfig, ContextCacheConfig)
-     4. Runner(BaseAgent, String, BaseArtifactService, BaseSessionService)
+     4. Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List, EventsCompactionConfig, ContextCacheConfig, ResumabilityConfig)
+     5. Runner(BaseAgent, String, BaseArtifactService, BaseSessionService)
   6. Method Details
      1. builder()
      2. agent()
@@ -125,6 +126,14 @@ Use [`Runner.Builder`](Runner.Builder.html "class in com.google.adk.runner") ins
 `protected `
 
 `Runner([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [BaseArtifactService](../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, @Nullable [BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins, @Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig, @Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
+
+Deprecated.
+
+Use [`Runner.Builder`](Runner.Builder.html "class in com.google.adk.runner") instead.
+
+`protected `
+
+`Runner([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [BaseArtifactService](../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, @Nullable [BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins, @Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig, @Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig, @Nullable [ResumabilityConfig](../apps/ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
 
 Deprecated.
 
@@ -292,6 +301,16 @@ Deprecated.
 Use [`Runner.Builder`](Runner.Builder.html "class in com.google.adk.runner") instead.
 
 Creates a new `Runner` with a list of plugins.
+
+    * ### Runner
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") protected Runner([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [BaseArtifactService](../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, @Nullable [BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins, @Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig, @Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig, @Nullable [ResumabilityConfig](../apps/ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)
+
+Deprecated.
+
+Use [`Runner.Builder`](Runner.Builder.html "class in com.google.adk.runner") instead.
+
+Creates a new `Runner` with a resumability config.
 
     * ### Runner
 

@@ -296,9 +296,15 @@ Description
 
 `io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
 
-ChatCompletionsHttpClient.`[complete](../chat/ChatCompletionsHttpClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
+ChatCompletionsClient.`[complete](../chat/ChatCompletionsClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
 
 Generates a conversational response from the chat completions endpoint based on the provided messages.
+
+`io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")>`
+
+ChatCompletionsHttpClient.`[complete](../chat/ChatCompletionsHttpClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)`
+
+ 
 
   * ## Uses of [LlmResponse](../LlmResponse.html "class in com.google.adk.models") in [com.google.adk.models.langchain4j](../langchain4j/package-summary.html)
 

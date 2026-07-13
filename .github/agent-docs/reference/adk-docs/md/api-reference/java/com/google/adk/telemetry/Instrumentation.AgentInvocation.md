@@ -76,37 +76,37 @@ Description
 
 `[caughtError](Instrumentation.ClosableTelemetryScope.html#caughtError)`
 
- 
+The error caught during execution, if any.
 
 `protected final [AtomicBoolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html "class in java.util.concurrent.atomic")`
 
 `[closed](Instrumentation.ClosableTelemetryScope.html#closed)`
 
- 
+Whether this scope has been closed.
 
 `protected final io.opentelemetry.context.Scope`
 
 `[scope](Instrumentation.ClosableTelemetryScope.html#scope)`
 
- 
+The OpenTelemetry scope associated with this span.
 
 `protected final io.opentelemetry.api.trace.Span`
 
 `[span](Instrumentation.ClosableTelemetryScope.html#span)`
 
- 
+The OpenTelemetry span associated with this scope.
 
 `protected final long`
 
 `[startTimeNanos](Instrumentation.ClosableTelemetryScope.html#startTimeNanos)`
 
- 
+The start time of the scope in nanoseconds.
 
 `protected final [Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
 `[telemetryContext](Instrumentation.ClosableTelemetryScope.html#telemetryContext)`
 
- 
+The telemetry context for this scope.
 
   * ## Constructor Summary
 
@@ -118,7 +118,7 @@ Description
 
 `AgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
 
- 
+Constructs a new `AgentInvocation` telemetry scope.
 
   * ## Method Summary
 
@@ -134,25 +134,25 @@ Description
 
 `addEvent([Event](../events/Event.html "class in com.google.adk.events") event)`
 
- 
+Adds an event to the list of events tracked during this agent invocation.
 
 `[InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents")`
 
 `getCtx()`
 
- 
+Retrieves the invocation context associated with this agent invocation.
 
 `protected void`
 
 `handleMetricsError([RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang") e)`
 
-Hook for subclasses to handle metrics recording errors.
+Handles errors that occur while recording metrics for the agent invocation.
 
 `protected void`
 
 `recordMetrics([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") elapsed, @Nullable [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
-Hook for subclasses to record metrics.
+Records metrics for the agent invocation including duration, request size, response size, and workflow steps.
 
 ### Methods inherited from class [Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#method-summary "class in com.google.adk.telemetry")
 
@@ -174,19 +174,19 @@ Hook for subclasses to run code before span ends.
 
 `[close](Instrumentation.ClosableTelemetryScope.html#close\(\))()`
 
- 
+Closes the scope and ends the underlying span, recording any applicable metrics.
 
 `[Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
 `[context](Instrumentation.ClosableTelemetryScope.html#context\(\))()`
 
- 
+Retrieves the telemetry context associated with this scope.
 
 `void`
 
 `[setError](Instrumentation.ClosableTelemetryScope.html#setError\(java.lang.Throwable\))([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") caughtError)`
 
- 
+Records an error on the span and sets its status to error.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -201,37 +201,55 @@ Hook for subclasses to run code before span ends.
 
 public AgentInvocation([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)
 
+Constructs a new `AgentInvocation` telemetry scope.
+
+Parameters:
+    `ctx` \- The invocation context of the agent execution.
+    `agent` \- The agent being invoked.
+    `parentContext` \- The OpenTelemetry parent context.
+
   * ## Method Details
 
     * ### getCtx
 
 public [InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") getCtx()
 
+Retrieves the invocation context associated with this agent invocation.
+
+Returns:
+    The [`InvocationContext`](../agents/InvocationContext.html "class in com.google.adk.agents").
+
     * ### addEvent
 
 public void addEvent([Event](../events/Event.html "class in com.google.adk.events") event)
+
+Adds an event to the list of events tracked during this agent invocation.
+
+Parameters:
+    `event` \- The [`Event`](../events/Event.html "class in com.google.adk.events") to add.
 
     * ### recordMetrics
 
 protected void recordMetrics([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") elapsed, @Nullable [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)
 
-Description copied from class: `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#recordMetrics\(java.time.Duration,java.lang.Throwable\))`
-
-Hook for subclasses to record metrics.
+Records metrics for the agent invocation including duration, request size, response size, and workflow steps.
 
 Specified by:
     `[recordMetrics](Instrumentation.ClosableTelemetryScope.html#recordMetrics\(java.time.Duration,java.lang.Throwable\))` in class `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")`
+Parameters:
+    `elapsed` \- The total execution duration.
+    `error` \- The exception thrown during execution, if any.
 
     * ### handleMetricsError
 
 protected void handleMetricsError([RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang") e)
 
-Description copied from class: `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#handleMetricsError\(java.lang.RuntimeException\))`
-
-Hook for subclasses to handle metrics recording errors.
+Handles errors that occur while recording metrics for the agent invocation.
 
 Specified by:
     `[handleMetricsError](Instrumentation.ClosableTelemetryScope.html#handleMetricsError\(java.lang.RuntimeException\))` in class `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")`
+Parameters:
+    `e` \- The runtime exception encountered during metrics recording.
 
 
 

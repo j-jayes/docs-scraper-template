@@ -47,6 +47,12 @@ Method
 
 Description
 
+`[ApigeeLlm.Builder](../ApigeeLlm.Builder.html "class in com.google.adk.models")`
+
+ApigeeLlm.Builder.`[apiType](../ApigeeLlm.Builder.html#apiType\(com.google.adk.models.ApigeeLlm.ApiType\))([ApigeeLlm.ApiType](../ApigeeLlm.ApiType.html "enum class in com.google.adk.models") apiType)`
+
+Sets the explicit [`ApigeeLlm.ApiType`](../ApigeeLlm.ApiType.html "enum class in com.google.adk.models") to use (e.g., CHAT_COMPLETIONS or GENAI).
+
 `static [ApigeeLlm.Builder](../ApigeeLlm.Builder.html "class in com.google.adk.models")`
 
 ApigeeLlm.`[builder](../ApigeeLlm.html#builder\(\))()`

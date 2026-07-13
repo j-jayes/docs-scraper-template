@@ -53,6 +53,12 @@ AbstractSkillSource.`[listSkills](../AbstractSkillSource.html#listSkills\(\))()`
 
 Returns a `Flowable` of skills as a pair of skill name and the path to the SKILL.md file.
 
+`protected io.reactivex.rxjava3.core.Flowable<[AbstractSkillSource.SkillMdPath](../AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills")<com.google.common.reflect.ClassPath.ResourceInfo>>`
+
+ClassPathSkillSource.`[listSkills](../ClassPathSkillSource.html#listSkills\(\))()`
+
+ 
+
 `protected io.reactivex.rxjava3.core.Flowable<[AbstractSkillSource.SkillMdPath](../AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills")<[Path](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html "interface in java.nio.file")>>`
 
 LocalSkillSource.`[listSkills](../LocalSkillSource.html#listSkills\(\))()`

@@ -48,7 +48,7 @@ Description
 
 ` `
 
-`[WebSocketConfig](../WebSocketConfig.html#%3Cinit%3E\(com.google.adk.web.websocket.LiveWebSocketHandler\))([LiveWebSocketHandler](../LiveWebSocketHandler.html "class in com.google.adk.web.websocket") liveWebSocketHandler)`
+`[WebSocketConfig](../WebSocketConfig.html#%3Cinit%3E\(com.google.adk.web.websocket.LiveWebSocketHandler,com.google.adk.web.config.AdkWebCorsProperties\))([LiveWebSocketHandler](../LiveWebSocketHandler.html "class in com.google.adk.web.websocket") liveWebSocketHandler, [AdkWebCorsProperties](../../config/AdkWebCorsProperties.html "class in com.google.adk.web.config") corsProperties)`
 
  
 

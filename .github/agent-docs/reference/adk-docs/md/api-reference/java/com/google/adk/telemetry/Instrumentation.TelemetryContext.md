@@ -63,7 +63,7 @@ Description
 
 `TelemetryContext(io.opentelemetry.context.Context otelContext)`
 
- 
+Constructs a new `TelemetryContext` with the given OpenTelemetry context.
 
   * ## Method Summary
 
@@ -79,19 +79,19 @@ Description
 
 `functionResponseEvent()`
 
- 
+Retrieves the function response event associated with the execution, if available.
 
 `io.opentelemetry.context.Context`
 
 `otelContext()`
 
- 
+Retrieves the stored OpenTelemetry context.
 
 `void`
 
 `setFunctionResponseEvent(@Nullable [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)`
 
- 
+Sets the function response event associated with the execution.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -106,19 +106,39 @@ Description
 
 public TelemetryContext(io.opentelemetry.context.Context otelContext)
 
+Constructs a new `TelemetryContext` with the given OpenTelemetry context.
+
+Parameters:
+    `otelContext` \- The OpenTelemetry context to store.
+
   * ## Method Details
 
     * ### otelContext
 
 public io.opentelemetry.context.Context otelContext()
 
+Retrieves the stored OpenTelemetry context.
+
+Returns:
+    The OpenTelemetry `Context`.
+
     * ### functionResponseEvent
 
 public @Nullable [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent()
 
+Retrieves the function response event associated with the execution, if available.
+
+Returns:
+    The function response [`Event`](../events/Event.html "class in com.google.adk.events"), or `null` if not set.
+
     * ### setFunctionResponseEvent
 
 public void setFunctionResponseEvent(@Nullable [Event](../events/Event.html "class in com.google.adk.events") functionResponseEvent)
+
+Sets the function response event associated with the execution.
+
+Parameters:
+    `functionResponseEvent` \- The function response [`Event`](../events/Event.html "class in com.google.adk.events") to store.
 
 
 

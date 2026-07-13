@@ -75,37 +75,37 @@ Description
 
 `[caughtError](Instrumentation.ClosableTelemetryScope.html#caughtError)`
 
- 
+The error caught during execution, if any.
 
 `protected final [AtomicBoolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html "class in java.util.concurrent.atomic")`
 
 `[closed](Instrumentation.ClosableTelemetryScope.html#closed)`
 
- 
+Whether this scope has been closed.
 
 `protected final io.opentelemetry.context.Scope`
 
 `[scope](Instrumentation.ClosableTelemetryScope.html#scope)`
 
- 
+The OpenTelemetry scope associated with this span.
 
 `protected final io.opentelemetry.api.trace.Span`
 
 `[span](Instrumentation.ClosableTelemetryScope.html#span)`
 
- 
+The OpenTelemetry span associated with this scope.
 
 `protected final long`
 
 `[startTimeNanos](Instrumentation.ClosableTelemetryScope.html#startTimeNanos)`
 
- 
+The start time of the scope in nanoseconds.
 
 `protected final [Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
 `[telemetryContext](Instrumentation.ClosableTelemetryScope.html#telemetryContext)`
 
- 
+The telemetry context for this scope.
 
   * ## Constructor Summary
 
@@ -117,7 +117,7 @@ Description
 
 `ToolExecution([BaseTool](../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)`
 
- 
+Constructs a new `ToolExecution` telemetry scope.
 
   * ## Method Summary
 
@@ -133,19 +133,19 @@ Description
 
 `beforeSpanEnd()`
 
-Hook for subclasses to run code before span ends.
+Traces the tool execution attributes on the span before it ends.
 
 `protected void`
 
 `handleMetricsError([RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang") e)`
 
-Hook for subclasses to handle metrics recording errors.
+Handles errors that occur while recording metrics for the tool execution.
 
 `protected void`
 
 `recordMetrics([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") elapsed, @Nullable [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
-Hook for subclasses to record metrics.
+Records metrics for the tool execution including duration, request size, and response size.
 
 ### Methods inherited from class [Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#method-summary "class in com.google.adk.telemetry")
 
@@ -161,19 +161,19 @@ Description
 
 `[close](Instrumentation.ClosableTelemetryScope.html#close\(\))()`
 
- 
+Closes the scope and ends the underlying span, recording any applicable metrics.
 
 `[Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
 `[context](Instrumentation.ClosableTelemetryScope.html#context\(\))()`
 
- 
+Retrieves the telemetry context associated with this scope.
 
 `void`
 
 `[setError](Instrumentation.ClosableTelemetryScope.html#setError\(java.lang.Throwable\))([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") caughtError)`
 
- 
+Records an error on the span and sets its status to error.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -188,15 +188,21 @@ Description
 
 public ToolExecution([BaseTool](../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)
 
+Constructs a new `ToolExecution` telemetry scope.
+
+Parameters:
+    `tool` \- The tool being executed.
+    `agent` \- The agent invoking the tool.
+    `functionArgs` \- The arguments passed to the tool.
+    `parentContext` \- The OpenTelemetry parent context.
+
   * ## Method Details
 
     * ### beforeSpanEnd
 
 protected void beforeSpanEnd()
 
-Description copied from class: `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#beforeSpanEnd\(\))`
-
-Hook for subclasses to run code before span ends.
+Traces the tool execution attributes on the span before it ends.
 
 Overrides:
     `[beforeSpanEnd](Instrumentation.ClosableTelemetryScope.html#beforeSpanEnd\(\))` in class `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")`
@@ -205,23 +211,24 @@ Overrides:
 
 protected void recordMetrics([Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") elapsed, @Nullable [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)
 
-Description copied from class: `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#recordMetrics\(java.time.Duration,java.lang.Throwable\))`
-
-Hook for subclasses to record metrics.
+Records metrics for the tool execution including duration, request size, and response size.
 
 Specified by:
     `[recordMetrics](Instrumentation.ClosableTelemetryScope.html#recordMetrics\(java.time.Duration,java.lang.Throwable\))` in class `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")`
+Parameters:
+    `elapsed` \- The total execution duration.
+    `error` \- The exception thrown during execution, if any.
 
     * ### handleMetricsError
 
 protected void handleMetricsError([RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang") e)
 
-Description copied from class: `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#handleMetricsError\(java.lang.RuntimeException\))`
-
-Hook for subclasses to handle metrics recording errors.
+Handles errors that occur while recording metrics for the tool execution.
 
 Specified by:
     `[handleMetricsError](Instrumentation.ClosableTelemetryScope.html#handleMetricsError\(java.lang.RuntimeException\))` in class `[Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")`
+Parameters:
+    `e` \- The runtime exception encountered during metrics recording.
 
 
 

@@ -39,8 +39,10 @@ Contents
      5. handleFunctionCallsLive(InvocationContext, Event, Map)
      6. handleFunctionCallsLive(InvocationContext, Event, Map, Map)
      7. getLongRunningFunctionCalls(List, Map)
-     8. generateRequestConfirmationEvent(InvocationContext, Event, Event)
-     9. getAskUserConfirmationFunctionCalls(Event)
+     8. findMatchingFunctionCallEvent(List)
+     9. hasPendingLongRunningCall(Event)
+     10. generateRequestConfirmationEvent(InvocationContext, Event, Event)
+     11. getAskUserConfirmationFunctionCalls(Event)
 
 Hide sidebar  Show sidebar
 
@@ -87,6 +89,12 @@ Modifier and Type
 Method
 
 Description
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+`findMatchingFunctionCallEvent([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+
+Returns the most recent function-call event whose call id matches a function response in the last event, or empty.
 
 `static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
@@ -135,6 +143,12 @@ Handles function calls in a live/streaming context, supporting background execut
 `handleFunctionCallsLive([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Event](../../events/Event.html "class in com.google.adk.events") functionCallEvent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")> tools, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](../../events/ToolConfirmation.html "class in com.google.adk.events")> toolConfirmations)`
 
 Handles function calls in a live/streaming context with tool confirmations, supporting background execution and stream termination.
+
+`static boolean`
+
+`hasPendingLongRunningCall([Event](../../events/Event.html "class in com.google.adk.events") event)`
+
+Returns whether the event emits a long-running function call still awaiting a response (e.g.
 
 `static void`
 
@@ -217,6 +231,18 @@ Handles function calls in a live/streaming context with tool confirmations, supp
     * ### getLongRunningFunctionCalls
 
 public static [Set](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> getLongRunningFunctionCalls([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.FunctionCall> functionCalls, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")> tools)
+
+    * ### findMatchingFunctionCallEvent
+
+public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> findMatchingFunctionCallEvent([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)
+
+Returns the most recent function-call event whose call id matches a function response in the last event, or empty. Mirrors Python ADK's `find_matching_function_call`.
+
+    * ### hasPendingLongRunningCall
+
+public static boolean hasPendingLongRunningCall([Event](../../events/Event.html "class in com.google.adk.events") event)
+
+Returns whether the event emits a long-running function call still awaiting a response (e.g. a HITL request). Mirrors Python ADK v1's `should_pause_invocation`.
 
     * ### generateRequestConfirmationEvent
 

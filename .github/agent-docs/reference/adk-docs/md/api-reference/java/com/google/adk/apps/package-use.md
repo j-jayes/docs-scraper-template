@@ -35,6 +35,10 @@ com.google.adk.a2a.executor
 
  
 
+com.google.adk.agents
+
+ 
+
 com.google.adk.apps
 
  
@@ -53,6 +57,18 @@ Description
 
 Represents an LLM-backed agentic application.
 
+  * Classes in [com.google.adk.apps](package-summary.html) used by [com.google.adk.agents](../agents/package-summary.html)
+
+Class
+
+Description
+
+[ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.agents)
+
+Deprecated.
+
+Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+
   * Classes in [com.google.adk.apps](package-summary.html) used by [com.google.adk.apps](package-summary.html)
 
 Class
@@ -67,6 +83,18 @@ Represents an LLM-backed agentic application.
 
 Builder for [`App`](App.html "class in com.google.adk.apps").
 
+[ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.apps)
+
+Deprecated.
+
+Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+
+[ResumabilityConfig.Builder](class-use/ResumabilityConfig.Builder.html#com.google.adk.apps)
+
+Deprecated.
+
+Builder for [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps").
+
   * Classes in [com.google.adk.apps](package-summary.html) used by [com.google.adk.runner](../runner/package-summary.html)
 
 Class
@@ -76,6 +104,12 @@ Description
 [App](class-use/App.html#com.google.adk.runner)
 
 Represents an LLM-backed agentic application.
+
+[ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.runner)
+
+Deprecated.
+
+Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
 
 
 

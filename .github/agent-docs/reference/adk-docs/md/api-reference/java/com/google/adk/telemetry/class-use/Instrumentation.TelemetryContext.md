@@ -51,7 +51,7 @@ Description
 
 Instrumentation.ClosableTelemetryScope.`[telemetryContext](../Instrumentation.ClosableTelemetryScope.html#telemetryContext)`
 
- 
+The telemetry context for this scope.
 
 Methods in [com.google.adk.telemetry](../package-summary.html) that return [Instrumentation.TelemetryContext](../Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
 
@@ -65,7 +65,7 @@ Description
 
 Instrumentation.ClosableTelemetryScope.`[context](../Instrumentation.ClosableTelemetryScope.html#context\(\))()`
 
- 
+Retrieves the telemetry context associated with this scope.
 
 
 

@@ -71,25 +71,25 @@ Description
 
 `apply(io.reactivex.rxjava3.core.Completable upstream)`
 
- 
+Applies context re-activation to a `Completable` stream.
 
 `org.reactivestreams.Publisher<T>`
 
 `apply(io.reactivex.rxjava3.core.Flowable<T> upstream)`
 
- 
+Applies context re-activation to a `Flowable` stream.
 
 `io.reactivex.rxjava3.core.MaybeSource<T>`
 
 `apply(io.reactivex.rxjava3.core.Maybe<T> upstream)`
 
- 
+Applies context re-activation to a `Maybe` stream.
 
 `io.reactivex.rxjava3.core.SingleSource<T>`
 
 `apply(io.reactivex.rxjava3.core.Single<T> upstream)`
 
- 
+Applies context re-activation to a `Single` stream.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -104,29 +104,53 @@ Description
 
 public org.reactivestreams.Publisher<T> apply(io.reactivex.rxjava3.core.Flowable<T> upstream)
 
+Applies context re-activation to a `Flowable` stream.
+
 Specified by:
     `apply` in interface `io.reactivex.rxjava3.core.FlowableTransformer<T,T>`
+Parameters:
+    `upstream` \- The upstream Flowable.
+Returns:
+    A Publisher wrapped with context re-activation.
 
     * ### apply
 
 public io.reactivex.rxjava3.core.SingleSource<T> apply(io.reactivex.rxjava3.core.Single<T> upstream)
 
+Applies context re-activation to a `Single` stream.
+
 Specified by:
     `apply` in interface `io.reactivex.rxjava3.core.SingleTransformer<T,T>`
+Parameters:
+    `upstream` \- The upstream Single.
+Returns:
+    A SingleSource wrapped with context re-activation.
 
     * ### apply
 
 public io.reactivex.rxjava3.core.MaybeSource<T> apply(io.reactivex.rxjava3.core.Maybe<T> upstream)
 
+Applies context re-activation to a `Maybe` stream.
+
 Specified by:
     `apply` in interface `io.reactivex.rxjava3.core.MaybeTransformer<T,T>`
+Parameters:
+    `upstream` \- The upstream Maybe.
+Returns:
+    A MaybeSource wrapped with context re-activation.
 
     * ### apply
 
 public io.reactivex.rxjava3.core.CompletableSource apply(io.reactivex.rxjava3.core.Completable upstream)
 
+Applies context re-activation to a `Completable` stream.
+
 Specified by:
     `apply` in interface `io.reactivex.rxjava3.core.CompletableTransformer`
+Parameters:
+    `upstream` \- The upstream Completable.
+Returns:
+    A CompletableSource wrapped with context re-activation.
 
 
 

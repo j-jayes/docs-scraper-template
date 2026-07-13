@@ -56,8 +56,9 @@ Contents
      22. incrementLlmCallsCount()
      23. eventsCompactionConfig()
      24. contextCacheConfig()
-     25. equals(Object)
-     26. hashCode()
+     25. isResumable()
+     26. equals(Object)
+     27. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -204,6 +205,12 @@ Increments the count of LLM calls made during this invocation and throws an exce
 `invocationId()`
 
 Returns the unique ID for this invocation.
+
+`boolean`
+
+`isResumable()`
+
+Returns whether the current invocation is resumable.
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[LiveRequestQueue](LiveRequestQueue.html "class in com.google.adk.agents")>`
 
@@ -432,6 +439,12 @@ Returns the events compaction configuration for the current agent run.
 public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")> contextCacheConfig()
 
 Returns the context cache configuration for the current agent run.
+
+    * ### isResumable
+
+public boolean isResumable()
+
+Returns whether the current invocation is resumable. Mirrors Python ADK v1's ` InvocationContext.is_resumable`.
 
     * ### equals
 

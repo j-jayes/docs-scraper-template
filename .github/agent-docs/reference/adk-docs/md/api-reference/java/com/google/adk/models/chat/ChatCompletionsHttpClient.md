@@ -41,13 +41,14 @@ Hide sidebar  Show sidebar
 
 com.google.adk.models.chat.ChatCompletionsHttpClient
 
+All Implemented Interfaces:
+    `[ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat")`
+
 * * *
 
-public final class ChatCompletionsHttpClient extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+public final class ChatCompletionsHttpClient extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") implements [ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat")
 
-An HTTP client for interacting with OpenAI-compatible chat completions endpoints. 
-
-Supports both non-streaming responses (single [`LlmResponse`](../LlmResponse.html "class in com.google.adk.models") emission) and streaming Server-Sent Events (SSE) responses (multiple incremental [`LlmResponse`](../LlmResponse.html "class in com.google.adk.models") emissions). See the [OpenAI Chat Completions API reference](https://developers.openai.com/api/reference/resources/chat) for the wire protocol.
+An OkHttp-based implementation of [`ChatCompletionsClient`](ChatCompletionsClient.html "interface in com.google.adk.models.chat") that targets OpenAI-compatible chat completions endpoints. Both non-streaming responses (single [`LlmResponse`](../LlmResponse.html "class in com.google.adk.models") emission) and streaming Server-Sent Events (SSE) responses (multiple incremental [`LlmResponse`](../LlmResponse.html "class in com.google.adk.models") emissions) are supported.
 
   * ## Constructor Summary
 
@@ -119,8 +120,12 @@ Throws:
 
 public io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")> complete([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, boolean stream)
 
-Generates a conversational response from the chat completions endpoint based on the provided messages. This encapsulates building the HTTP payload, sending the request to the completions endpoint, and initiating the handling of complete calls.
+Description copied from interface: `[ChatCompletionsClient](ChatCompletionsClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))`
 
+Generates a conversational response from the chat completions endpoint based on the provided messages. This encapsulates building the payload, sending the request to the completions endpoint, and initiating the handling of complete calls.
+
+Specified by:
+    `[complete](ChatCompletionsClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))` in interface `[ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat")`
 Parameters:
     `llmRequest` \- The request containing the model, configuration, and sequence of messages.
     `stream` \- Whether to request a streaming response.

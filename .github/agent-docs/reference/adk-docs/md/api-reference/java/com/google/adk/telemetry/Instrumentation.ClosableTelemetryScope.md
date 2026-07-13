@@ -81,37 +81,37 @@ Description
 
 `caughtError`
 
- 
+The error caught during execution, if any.
 
 `protected final [AtomicBoolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html "class in java.util.concurrent.atomic")`
 
 `closed`
 
- 
+Whether this scope has been closed.
 
 `protected final io.opentelemetry.context.Scope`
 
 `scope`
 
- 
+The OpenTelemetry scope associated with this span.
 
 `protected final io.opentelemetry.api.trace.Span`
 
 `span`
 
- 
+The OpenTelemetry span associated with this scope.
 
 `protected final long`
 
 `startTimeNanos`
 
- 
+The start time of the scope in nanoseconds.
 
 `protected final [Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
 `telemetryContext`
 
- 
+The telemetry context for this scope.
 
   * ## Method Summary
 
@@ -133,13 +133,13 @@ Hook for subclasses to run code before span ends.
 
 `close()`
 
- 
+Closes the scope and ends the underlying span, recording any applicable metrics.
 
 `[Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
 `context()`
 
- 
+Retrieves the telemetry context associated with this scope.
 
 `protected abstract void`
 
@@ -157,7 +157,7 @@ Hook for subclasses to record metrics.
 
 `setError([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") caughtError)`
 
- 
+Records an error on the span and sets its status to error.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -172,25 +172,37 @@ Hook for subclasses to record metrics.
 
 protected final long startTimeNanos
 
+The start time of the scope in nanoseconds.
+
     * ### span
 
 protected final io.opentelemetry.api.trace.Span span
+
+The OpenTelemetry span associated with this scope.
 
     * ### scope
 
 protected final io.opentelemetry.context.Scope scope
 
+The OpenTelemetry scope associated with this span.
+
     * ### telemetryContext
 
 protected final [Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry") telemetryContext
+
+The telemetry context for this scope.
 
     * ### caughtError
 
 protected @Nullable [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") caughtError
 
+The error caught during execution, if any.
+
     * ### closed
 
 protected final [AtomicBoolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html "class in java.util.concurrent.atomic") closed
+
+Whether this scope has been closed.
 
   * ## Method Details
 
@@ -198,13 +210,25 @@ protected final [AtomicBoolean](https://docs.oracle.com/en/java/javase/17/docs/a
 
 public [Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry") context()
 
+Retrieves the telemetry context associated with this scope.
+
+Returns:
+    The [`Instrumentation.TelemetryContext`](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry").
+
     * ### setError
 
 public void setError([Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") caughtError)
 
+Records an error on the span and sets its status to error.
+
+Parameters:
+    `caughtError` \- The throwable caught during execution.
+
     * ### close
 
 public final void close()
+
+Closes the scope and ends the underlying span, recording any applicable metrics.
 
 Specified by:
     `[close](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html#close\(\))` in interface `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`

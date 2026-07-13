@@ -39,6 +39,10 @@ com.google.adk.web.config
 
  
 
+com.google.adk.web.websocket
+
+ 
+
   * Classes in [com.google.adk.web.config](package-summary.html) used by [com.google.adk.web](../package-summary.html)
 
 Class
@@ -56,6 +60,16 @@ Class
 Description
 
 [AdkWebCorsProperties](class-use/AdkWebCorsProperties.html#com.google.adk.web.config)
+
+Properties for configuring CORS in ADK Web.
+
+  * Classes in [com.google.adk.web.config](package-summary.html) used by [com.google.adk.web.websocket](../websocket/package-summary.html)
+
+Class
+
+Description
+
+[AdkWebCorsProperties](class-use/AdkWebCorsProperties.html#com.google.adk.web.websocket)
 
 Properties for configuring CORS in ADK Web.
 

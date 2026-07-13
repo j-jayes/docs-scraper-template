@@ -29,7 +29,7 @@ Contents
   2. Constructor Summary
   3. Method Summary
   4. Constructor Details
-     1. WebSocketConfig(LiveWebSocketHandler)
+     1. WebSocketConfig(LiveWebSocketHandler, AdkWebCorsProperties)
   5. Method Details
      1. registerWebSocketHandlers(WebSocketHandlerRegistry)
 
@@ -58,7 +58,7 @@ Constructor
 
 Description
 
-`WebSocketConfig([LiveWebSocketHandler](LiveWebSocketHandler.html "class in com.google.adk.web.websocket") liveWebSocketHandler)`
+`WebSocketConfig([LiveWebSocketHandler](LiveWebSocketHandler.html "class in com.google.adk.web.websocket") liveWebSocketHandler, [AdkWebCorsProperties](../config/AdkWebCorsProperties.html "class in com.google.adk.web.config") corsProperties)`
 
  
 
@@ -89,7 +89,7 @@ Description
 
     * ### WebSocketConfig
 
-@Autowired public WebSocketConfig([LiveWebSocketHandler](LiveWebSocketHandler.html "class in com.google.adk.web.websocket") liveWebSocketHandler)
+@Autowired public WebSocketConfig([LiveWebSocketHandler](LiveWebSocketHandler.html "class in com.google.adk.web.websocket") liveWebSocketHandler, [AdkWebCorsProperties](../config/AdkWebCorsProperties.html "class in com.google.adk.web.config") corsProperties)
 
   * ## Method Details
 

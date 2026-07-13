@@ -41,6 +41,10 @@ Class
 
 Description
 
+[ChatCompletionsClient](class-use/ChatCompletionsClient.html#com.google.adk.models.chat)
+
+A client for interacting with OpenAI-compatible chat completions endpoints.
+
 [ChatCompletionsRequest](class-use/ChatCompletionsRequest.html#com.google.adk.models.chat)
 
 Data Transfer Objects for Chat Completion API requests.

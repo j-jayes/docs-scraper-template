@@ -54,6 +54,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](agents/llm-agents/)
+      * [ Managed agents  ](agents/managed-agents/)
     * [ Graph Workflows  ](graphs/)
 
 Graph Workflows 
@@ -274,7 +275,7 @@ Kotlin
     
     
     
-    import "google.golang.org/adk/agent/llmagent"
+    import "google.golang.org/adk/v2/agent/llmagent"
     
     model, _ := gemini.NewModel(context.Background(), "gemini-flash-latest", nil)
     a, _ := llmagent.New(llmagent.Config{
@@ -310,7 +311,7 @@ Kotlin
 
 `npm install @google/adk` 📋
 
-`go get google.golang.org/adk` 📋
+`go get google.golang.org/adk/v2` 📋
 
 `com.google.adk:google-adk` 📋
 

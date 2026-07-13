@@ -34,6 +34,7 @@ Package Hierarchies:
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.skills.[AbstractSkillSource](AbstractSkillSource.html "class in com.google.adk.skills")<PathT> (implements com.google.adk.skills.[SkillSource](SkillSource.html "interface in com.google.adk.skills")) 
+      * com.google.adk.skills.[ClassPathSkillSource](ClassPathSkillSource.html "class in com.google.adk.skills")
       * com.google.adk.skills.[LocalSkillSource](LocalSkillSource.html "class in com.google.adk.skills")
     * com.google.adk.skills.[AbstractSkillSource.SkillMdPath](AbstractSkillSource.SkillMdPath.html "class in com.google.adk.skills")<PathT>
     * com.google.adk.skills.[Frontmatter.Builder](Frontmatter.Builder.html "class in com.google.adk.skills")

@@ -85,6 +85,14 @@ App.Builder.`[plugins](../App.Builder.html#plugins\(java.util.List\))([List](htt
 
 `[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
 
+App.Builder.`[resumabilityConfig](../App.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\))([ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
+
+Deprecated.
+
+See [`ResumabilityConfig`](../ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
+
+`[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
+
 App.Builder.`[rootAgent](../App.Builder.html#rootAgent\(com.google.adk.agents.BaseAgent\))([BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") rootAgent)`
 
  

@@ -40,6 +40,26 @@ com.example.a2a_basic
 
  
 
+com.example.adkdocs
+
+ 
+
+com.example.adkprtriaging
+
+ 
+
+com.example.adkspam
+
+ 
+
+com.example.adkstale
+
+ 
+
+com.example.adktriaging
+
+ 
+
 com.example.helloworld
 
  
@@ -105,6 +125,142 @@ Description
 A2AAgent.`[createRootAgent](../../../../example/a2a_basic/A2AAgent.html#createRootAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") primeAgentBaseUrl)`
 
  
+
+  * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.example.adkdocs](../../../../example/adkdocs/package-summary.html)
+
+Fields in [com.example.adkdocs](../../../../example/adkdocs/package-summary.html) declared as [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkDocsReleaseAnalyzerAgent.`[ROOT_AGENT](../../../../example/adkdocs/AdkDocsReleaseAnalyzerAgent.html#ROOT_AGENT)`
+
+ 
+
+  * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.example.adkprtriaging](../../../../example/adkprtriaging/package-summary.html)
+
+Fields in [com.example.adkprtriaging](../../../../example/adkprtriaging/package-summary.html) declared as [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkPrTriagingAgent.`[ROOT_AGENT](../../../../example/adkprtriaging/AdkPrTriagingAgent.html#ROOT_AGENT)`
+
+Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
+
+Methods in [com.example.adkprtriaging](../../../../example/adkprtriaging/package-summary.html) that return [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkPrTriagingAgent.`[rootAgent](../../../../example/adkprtriaging/AdkPrTriagingAgent.html#rootAgent\(\))()`
+
+Builds the [`LlmAgent`](../LlmAgent.html "class in com.google.adk.agents").
+
+  * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.example.adkspam](../../../../example/adkspam/package-summary.html)
+
+Fields in [com.example.adkspam](../../../../example/adkspam/package-summary.html) declared as [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+SpamDetectionAgent.`[ROOT_AGENT](../../../../example/adkspam/SpamDetectionAgent.html#ROOT_AGENT)`
+
+Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
+
+Methods in [com.example.adkspam](../../../../example/adkspam/package-summary.html) that return [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+SpamDetectionAgent.`[rootAgent](../../../../example/adkspam/SpamDetectionAgent.html#rootAgent\(\))()`
+
+Builds the [`LlmAgent`](../LlmAgent.html "class in com.google.adk.agents").
+
+  * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.example.adkstale](../../../../example/adkstale/package-summary.html)
+
+Fields in [com.example.adkstale](../../../../example/adkstale/package-summary.html) declared as [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkStaleAgent.`[ROOT_AGENT](../../../../example/adkstale/AdkStaleAgent.html#ROOT_AGENT)`
+
+Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
+
+Methods in [com.example.adkstale](../../../../example/adkstale/package-summary.html) that return [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkStaleAgent.`[rootAgent](../../../../example/adkstale/AdkStaleAgent.html#rootAgent\(\))()`
+
+Builds the [`LlmAgent`](../LlmAgent.html "class in com.google.adk.agents").
+
+  * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.example.adktriaging](../../../../example/adktriaging/package-summary.html)
+
+Fields in [com.example.adktriaging](../../../../example/adktriaging/package-summary.html) declared as [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkTriagingAgent.`[ROOT_AGENT](../../../../example/adktriaging/AdkTriagingAgent.html#ROOT_AGENT)`
+
+Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
+
+Methods in [com.example.adktriaging](../../../../example/adktriaging/package-summary.html) that return [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [LlmAgent](../LlmAgent.html "class in com.google.adk.agents")`
+
+AdkTriagingAgent.`[rootAgent](../../../../example/adktriaging/AdkTriagingAgent.html#rootAgent\(\))()`
+
+Builds the [`LlmAgent`](../LlmAgent.html "class in com.google.adk.agents").
 
   * ## Uses of [LlmAgent](../LlmAgent.html "class in com.google.adk.agents") in [com.example.helloworld](../../../../example/helloworld/package-summary.html)
 

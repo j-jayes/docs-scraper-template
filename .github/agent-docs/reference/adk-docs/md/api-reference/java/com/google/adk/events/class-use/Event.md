@@ -450,6 +450,12 @@ Events generated during processing.
 
 `static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../Event.html "class in com.google.adk.events")>`
 
+Functions.`[findMatchingFunctionCallEvent](../../flows/llmflows/Functions.html#findMatchingFunctionCallEvent\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Returns the most recent function-call event whose call id matches a function response in the last event, or empty.
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../Event.html "class in com.google.adk.events")>`
+
 Functions.`[generateRequestConfirmationEvent](../../flows/llmflows/Functions.html#generateRequestConfirmationEvent\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.events.Event\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Event](../Event.html "class in com.google.adk.events") functionCallEvent, [Event](../Event.html "class in com.google.adk.events") functionResponseEvent)`
 
 Generates a request confirmation event from a function response event.
@@ -546,6 +552,12 @@ Functions.`[handleFunctionCallsLive](../../flows/llmflows/Functions.html#handleF
 
 Handles function calls in a live/streaming context with tool confirmations, supporting background execution and stream termination.
 
+`static boolean`
+
+Functions.`[hasPendingLongRunningCall](../../flows/llmflows/Functions.html#hasPendingLongRunningCall\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
+
+Returns whether the event emits a long-running function call still awaiting a response (e.g.
+
 `static void`
 
 Functions.`[populateClientFunctionCallId](../../flows/llmflows/Functions.html#populateClientFunctionCallId\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") modelResponseEvent)`
@@ -589,6 +601,12 @@ ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/Respon
 ResponseProcessor.ResponseProcessingResult.`[create](../../flows/llmflows/ResponseProcessor.ResponseProcessingResult.html#create\(com.google.adk.models.LlmResponse,java.lang.Iterable,java.lang.String\))([LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models") updatedResponse, [Iterable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html "interface in java.lang")<[Event](../Event.html "class in com.google.adk.events")> events, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") transferToAgent)`
 
  
+
+`static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../Event.html "class in com.google.adk.events")>`
+
+Functions.`[findMatchingFunctionCallEvent](../../flows/llmflows/Functions.html#findMatchingFunctionCallEvent\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Returns the most recent function-call event whose call id matches a function response in the last event, or empty.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.plugins](../../plugins/package-summary.html)
 
@@ -904,7 +922,7 @@ Description
 
 Instrumentation.TelemetryContext.`[functionResponseEvent](../../telemetry/Instrumentation.TelemetryContext.html#functionResponseEvent\(\))()`
 
- 
+Retrieves the function response event associated with the execution, if available.
 
 Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
 
@@ -918,7 +936,7 @@ Description
 
 Instrumentation.AgentInvocation.`[addEvent](../../telemetry/Instrumentation.AgentInvocation.html#addEvent\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
 
- 
+Adds an event to the list of events tracked during this agent invocation.
 
 `static void`
 
@@ -930,7 +948,7 @@ Records the size of the tool response.
 
 Instrumentation.TelemetryContext.`[setFunctionResponseEvent](../../telemetry/Instrumentation.TelemetryContext.html#setFunctionResponseEvent\(com.google.adk.events.Event\))(@Nullable [Event](../Event.html "class in com.google.adk.events") functionResponseEvent)`
 
- 
+Sets the function response event associated with the execution.
 
 `static void`
 

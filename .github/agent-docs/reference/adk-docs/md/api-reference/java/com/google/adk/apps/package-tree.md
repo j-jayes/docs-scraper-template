@@ -35,6 +35,8 @@ Package Hierarchies:
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
     * com.google.adk.apps.[App](App.html "class in com.google.adk.apps")
     * com.google.adk.apps.[App.Builder](App.Builder.html "class in com.google.adk.apps")
+    * com.google.adk.apps.[ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps")
+    * com.google.adk.apps.[ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")
 
 
 

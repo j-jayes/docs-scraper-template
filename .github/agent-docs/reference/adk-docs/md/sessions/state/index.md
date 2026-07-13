@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -227,7 +228,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -263,7 +266,7 @@ Table of contents
   2. [ Components  ](../../get-started/about/)
   3. [ Sessions and Memory  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/sessions/state.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/state.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/sessions/state.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # State: The Session's Scratchpad¶
 
@@ -1006,7 +1009,7 @@ PythonTypeScriptGoJavaKotlin
         }
     
         // Create an event with the state changes
-        systemEvent := session.NewEvent("inv_login_update")
+        systemEvent := session.NewEvent(ctx, "inv_login_update")
         systemEvent.Author = "system"
         systemEvent.Actions.StateDelta = stateChanges
     
@@ -1258,7 +1261,7 @@ PythonTypeScriptGoJavaKotlin
     
     
     //  3. contextStateUpdateExample demonstrates the recommended way to modify state
-    //     from within a tool function using the provided `tool.Context`.
+    //     from within a tool function using the provided `agent.Context`.
     func contextStateUpdateExample(sessionService session.Service) {
         fmt.Println("--- Running Context State Update (ToolContext) Example ---")
         ctx := context.Background()
@@ -1266,11 +1269,7 @@ PythonTypeScriptGoJavaKotlin
         // Define the tool that modifies state
         updateActionCountTool, err := functiontool.New(
             functiontool.Config{Name: "update_action_count", Description: "Updates the user action count in the state."},
-            func(tctx tool.Context, args struct{}) (struct{}, error) {
-                actx, ok := tctx.(agent.CallbackContext)
-                if !ok {
-                    log.Fatalf("tool.Context is not of type agent.CallbackContext")
-                }
+            func(actx agent.Context, args struct{}) (struct{}, error) {
                 s, err := actx.State().Get("user_action_count")
                 if err != nil {
                     log.Printf("could not get user_action_count: %v", err)
@@ -1285,7 +1284,7 @@ PythonTypeScriptGoJavaKotlin
                 if err := actx.State().Set("temp:last_operation_status", "success from tool"); err != nil {
                     log.Printf("could not set temp:last_operation_status: %v", err)
                 }
-                fmt.Println("Tool: Updated state via agent.CallbackContext.")
+                fmt.Println("Tool: Updated state via agent.Context.")
                 return struct{}{}, nil
             },
         )

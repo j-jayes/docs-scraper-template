@@ -38,7 +38,8 @@ Contents
      4. plugins(Plugin...)
      5. eventsCompactionConfig(EventsCompactionConfig)
      6. contextCacheConfig(ContextCacheConfig)
-     7. build()
+     7. resumabilityConfig(ResumabilityConfig)
+     8. build()
 
 Hide sidebar  Show sidebar
 
@@ -71,7 +72,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -117,6 +118,14 @@ Description
 
 `[App.Builder](App.Builder.html "class in com.google.adk.apps")`
 
+`resumabilityConfig([ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
+
+Deprecated.
+
+See [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
+
+`[App.Builder](App.Builder.html "class in com.google.adk.apps")`
+
 `rootAgent([BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents") rootAgent)`
 
  
@@ -159,6 +168,16 @@ public Builder()
     * ### contextCacheConfig
 
 @CanIgnoreReturnValue public [App.Builder](App.Builder.html "class in com.google.adk.apps") contextCacheConfig([ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)
+
+    * ### resumabilityConfig
+
+@CanIgnoreReturnValue [@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public [App.Builder](App.Builder.html "class in com.google.adk.apps") resumabilityConfig([ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)
+
+Deprecated.
+
+See [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
+
+Sets the app resumability config.
 
     * ### build
 

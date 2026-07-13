@@ -60,6 +60,16 @@ Represents an LLM-backed agentic application.
 
 Builder for [`App`](App.html "class in com.google.adk.apps").
 
+[ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps")
+
+Deprecated. 
+
+Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+
+[ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")
+
+Builder for [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps").
+
 
 
 

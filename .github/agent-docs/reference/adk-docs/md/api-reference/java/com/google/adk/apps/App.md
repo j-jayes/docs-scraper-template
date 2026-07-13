@@ -34,7 +34,8 @@ Contents
      3. plugins()
      4. eventsCompactionConfig()
      5. contextCacheConfig()
-     6. builder()
+     6. resumabilityConfig()
+     7. builder()
 
 Hide sidebar  Show sidebar
 
@@ -108,6 +109,12 @@ Description
 
  
 
+`@Nullable [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps")`
+
+`resumabilityConfig()`
+
+ 
+
 `[BaseAgent](../agents/BaseAgent.html "class in com.google.adk.agents")`
 
 `rootAgent()`
@@ -142,6 +149,10 @@ public @Nullable [EventsCompactionConfig](../summarizer/EventsCompactionConfig.h
     * ### contextCacheConfig
 
 public @Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig()
+
+    * ### resumabilityConfig
+
+public @Nullable [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig()
 
     * ### builder
 

@@ -39,6 +39,22 @@ com.example.a2a_basic
 
  
 
+com.example.adkprtriaging
+
+ 
+
+com.example.adkspam
+
+ 
+
+com.example.adkstale
+
+ 
+
+com.example.adktriaging
+
+ 
+
 com.example.github
 
  
@@ -138,6 +154,46 @@ Description
 [ToolContext](class-use/ToolContext.html#com.example.a2a_basic)
 
 ToolContext object provides a structured context for executing tools or functions.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adkprtriaging](../../../example/adkprtriaging/package-summary.html)
+
+Class
+
+Description
+
+[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adkprtriaging)
+
+The annotation for binding the 'Schema' input.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adkspam](../../../example/adkspam/package-summary.html)
+
+Class
+
+Description
+
+[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adkspam)
+
+The annotation for binding the 'Schema' input.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adkstale](../../../example/adkstale/package-summary.html)
+
+Class
+
+Description
+
+[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adkstale)
+
+The annotation for binding the 'Schema' input.
+
+  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adktriaging](../../../example/adktriaging/package-summary.html)
+
+Class
+
+Description
+
+[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adktriaging)
+
+The annotation for binding the 'Schema' input.
 
   * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.github](../../../example/github/package-summary.html)
 

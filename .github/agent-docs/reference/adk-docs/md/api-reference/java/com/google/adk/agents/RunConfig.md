@@ -42,9 +42,10 @@ Contents
      8. inputAudioTranscription()
      9. maxLlmCalls()
      10. autoCreateSession()
-     11. toBuilder()
-     12. builder()
-     13. builder(RunConfig)
+     11. groupFunctionResponsesInHistory()
+     12. toBuilder()
+     13. builder()
+     14. builder(RunConfig)
 
 Hide sidebar  Show sidebar
 
@@ -102,7 +103,7 @@ Description
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsAbstract MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsAbstract MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -133,6 +134,14 @@ Description
 `builder([RunConfig](RunConfig.html "class in com.google.adk.agents") runConfig)`
 
  
+
+`abstract boolean`
+
+`groupFunctionResponsesInHistory()`
+
+Deprecated.
+
+Expected only for specific model endpoints.
 
 `abstract @Nullable com.google.genai.types.AudioTranscriptionConfig`
 
@@ -242,6 +251,16 @@ public abstract int maxLlmCalls()
     * ### autoCreateSession
 
 public abstract boolean autoCreateSession()
+
+    * ### groupFunctionResponsesInHistory
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public abstract boolean groupFunctionResponsesInHistory()
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+Whether to group all function calls before all function responses in the request history (FC1, FC2, FR1, FR2) instead of pairing each response with its call (FC1, FR1, FC2, FR2). Opt-in and off by default.
 
     * ### toBuilder
 

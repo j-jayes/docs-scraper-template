@@ -35,7 +35,8 @@ Contents
      1. modelName(String)
      2. proxyUrl(String)
      3. customHeaders(Map)
-     4. build()
+     4. apiType(ApigeeLlm.ApiType)
+     5. build()
 
 Hide sidebar  Show sidebar
 
@@ -79,6 +80,12 @@ Modifier and Type
 Method
 
 Description
+
+`[ApigeeLlm.Builder](ApigeeLlm.Builder.html "class in com.google.adk.models")`
+
+`apiType([ApigeeLlm.ApiType](ApigeeLlm.ApiType.html "enum class in com.google.adk.models") apiType)`
+
+Sets the explicit [`ApigeeLlm.ApiType`](ApigeeLlm.ApiType.html "enum class in com.google.adk.models") to use (e.g., CHAT_COMPLETIONS or GENAI).
 
 `[ApigeeLlm](ApigeeLlm.html "class in com.google.adk.models")`
 
@@ -165,6 +172,19 @@ Parameters:
     `customHeaders` \- the custom headers.
 Returns:
     this builder.
+
+    * ### apiType
+
+@CanIgnoreReturnValue public [ApigeeLlm.Builder](ApigeeLlm.Builder.html "class in com.google.adk.models") apiType([ApigeeLlm.ApiType](ApigeeLlm.ApiType.html "enum class in com.google.adk.models") apiType)
+
+Sets the explicit [`ApigeeLlm.ApiType`](ApigeeLlm.ApiType.html "enum class in com.google.adk.models") to use (e.g., CHAT_COMPLETIONS or GENAI).
+
+Parameters:
+    `apiType` \- the type of API.
+Returns:
+    this builder.
+Throws:
+    `[NullPointerException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html "class in java.lang")` \- if `apiType` is null.
 
     * ### build
 

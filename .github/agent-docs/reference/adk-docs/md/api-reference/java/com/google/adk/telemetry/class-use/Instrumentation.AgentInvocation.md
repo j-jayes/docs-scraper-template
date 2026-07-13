@@ -51,13 +51,15 @@ Description
 
 Instrumentation.`[recordAgentInvocation](../Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent)`
 
-Creates an AgentInvocation context to record agent invocation telemetry.
+Deprecated.
+
+Use the version with explicit parent context instead.
 
 `static [Instrumentation.AgentInvocation](../Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")`
 
 Instrumentation.`[recordAgentInvocation](../Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
 
- 
+Creates an [`Instrumentation.AgentInvocation`](../Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") context to record agent invocation telemetry with an explicit parent context.
 
 
 

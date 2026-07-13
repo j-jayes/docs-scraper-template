@@ -23,8 +23,21 @@ LightDarkSystem Setting
 
 ## Contents
 
+  * Classes
   * Methods
   * Constructors
+
+
+  * Deprecated Classes
+
+Class
+
+Description
+
+[com.google.adk.apps.ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
+
+Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented. Full session resumability (persisted agent state, durable resume, other workflow agents) is not yet available. Forward-compatible: the same config will drive full resumability once it lands.
+
 
 
   * Deprecated Methods
@@ -32,6 +45,10 @@ LightDarkSystem Setting
 Method
 
 Description
+
+[com.google.adk.agents.RunConfig.Builder.groupFunctionResponsesInHistory(boolean)](com/google/adk/agents/RunConfig.Builder.html#groupFunctionResponsesInHistory\(boolean\))
+
+Expected only for specific model endpoints.
 
 [com.google.adk.agents.RunConfig.Builder.setAutoCreateSession(boolean)](com/google/adk/agents/RunConfig.Builder.html#setAutoCreateSession\(boolean\))
 
@@ -50,6 +67,14 @@ Description
 [com.google.adk.agents.RunConfig.Builder.setStreamingMode(RunConfig.StreamingMode)](com/google/adk/agents/RunConfig.Builder.html#setStreamingMode\(com.google.adk.agents.RunConfig.StreamingMode\))
 
 [com.google.adk.agents.RunConfig.Builder.setToolExecutionMode(RunConfig.ToolExecutionMode)](com/google/adk/agents/RunConfig.Builder.html#setToolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\))
+
+[com.google.adk.agents.RunConfig.groupFunctionResponsesInHistory()](com/google/adk/agents/RunConfig.html#groupFunctionResponsesInHistory\(\))
+
+Expected only for specific model endpoints.
+
+[com.google.adk.apps.App.Builder.resumabilityConfig(ResumabilityConfig)](com/google/adk/apps/App.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\))
+
+See [`ResumabilityConfig`](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
 
 [com.google.adk.events.Event.setFinishReason(Optional<FinishReason>)](com/google/adk/events/Event.html#setFinishReason\(java.util.Optional\))
 
@@ -80,6 +105,12 @@ Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.h
 [com.google.adk.sessions.BaseSessionService.createSession(String, String, ConcurrentMap<String, Object>, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))
 
 Use [`BaseSessionService.createSession(String, String, Map, String)`](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) instead.
+
+[com.google.adk.telemetry.Instrumentation.recordAgentInvocation(InvocationContext, BaseAgent)](com/google/adk/telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\))
+
+Use the version with explicit parent context instead. This method will be removed once all callers are updated.
+
+[com.google.adk.telemetry.Tracing.traceAgent(String, String, String, InvocationContext)](com/google/adk/telemetry/Tracing.html#traceAgent\(java.lang.String,java.lang.String,java.lang.String,com.google.adk.agents.InvocationContext\))
 
 [com.google.adk.tools.ExampleTool.Builder.setDescription(String)](com/google/adk/tools/ExampleTool.Builder.html#setDescription\(java.lang.String\))
 
@@ -116,6 +147,10 @@ Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.g
 Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 
 [com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<? extends Plugin>, EventsCompactionConfig, ContextCacheConfig)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig\))
+
+Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+[com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<? extends Plugin>, EventsCompactionConfig, ContextCacheConfig, ResumabilityConfig)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig,com.google.adk.apps.ResumabilityConfig\))
 
 Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
 

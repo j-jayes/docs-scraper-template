@@ -39,6 +39,10 @@ com.google.adk.web.controller
 
  
 
+com.google.adk.web.service
+
+ 
+
 com.google.adk.web.websocket
 
  
@@ -53,6 +57,10 @@ Description
 
 A custom SpanExporter that stores relevant span data.
 
+[ApiServerSpanExporterConfig](class-use/ApiServerSpanExporterConfig.html#com.google.adk.web.config)
+
+Configuration for [`ApiServerSpanExporter`](ApiServerSpanExporter.html "class in com.google.adk.web.service").
+
   * Classes in [com.google.adk.web.service](package-summary.html) used by [com.google.adk.web.controller](../controller/package-summary.html)
 
 Class
@@ -66,6 +74,20 @@ A custom SpanExporter that stores relevant span data.
 [RunnerService](class-use/RunnerService.html#com.google.adk.web.controller)
 
 Service for creating and caching Runner instances.
+
+  * Classes in [com.google.adk.web.service](package-summary.html) used by [com.google.adk.web.service](package-summary.html)
+
+Class
+
+Description
+
+[ApiServerSpanExporterConfig](class-use/ApiServerSpanExporterConfig.html#com.google.adk.web.service)
+
+Configuration for [`ApiServerSpanExporter`](ApiServerSpanExporter.html "class in com.google.adk.web.service").
+
+[ApiServerSpanExporterConfig.Builder](class-use/ApiServerSpanExporterConfig.Builder.html#com.google.adk.web.service)
+
+Builder for [`ApiServerSpanExporterConfig`](ApiServerSpanExporterConfig.html "class in com.google.adk.web.service").
 
   * Classes in [com.google.adk.web.service](package-summary.html) used by [com.google.adk.web.websocket](../websocket/package-summary.html)
 
