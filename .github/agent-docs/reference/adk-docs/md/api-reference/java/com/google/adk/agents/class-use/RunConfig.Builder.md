@@ -73,6 +73,14 @@ RunConfig.`[builder](../RunConfig.html#builder\(com.google.adk.agents.RunConfig\
 
 `abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
+RunConfig.Builder.`[groupFunctionResponsesInHistory](../RunConfig.Builder.html#groupFunctionResponsesInHistory\(boolean\))(boolean groupFunctionResponsesInHistory)`
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
 RunConfig.Builder.`[inputAudioTranscription](../RunConfig.Builder.html#inputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\))(@Nullable com.google.genai.types.AudioTranscriptionConfig inputAudioTranscription)`
 
  

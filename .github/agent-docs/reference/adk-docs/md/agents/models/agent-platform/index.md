@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../llm-agents/)
+      * [ Managed agents  ](../../managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -87,6 +88,7 @@ Models for Agents
         * Model Garden Deployments 
         * Fine-tuned Model Endpoints 
         * Anthropic Claude on Agent Platform 
+          * Adaptive thinking 
         * Open Models on Agent Platform 
       * [ Apigee AI Gateway  ](../apigee/)
       * [ Model routing  ](../routing/)
@@ -222,7 +224,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
       * [ Typescript ADK  ](../../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
       * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
@@ -245,6 +249,7 @@ Table of contents
   * Model Garden Deployments 
   * Fine-tuned Model Endpoints 
   * Anthropic Claude on Agent Platform 
+    * Adaptive thinking 
   * Open Models on Agent Platform 
 
 
@@ -253,7 +258,7 @@ Table of contents
   2. [ Build Agents  ](../../../get-started/)
   3. [ Models for Agents  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/agent-platform.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/models/agent-platform.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/agent-platform.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Agent Platform hosted models for ADK agents¶
 
@@ -377,7 +382,7 @@ PythonJava
 
 **Setup:**
 
-  1. **Agent Platform Environment:** Ensure the consolidated Agent Platform setup (ADC, Env Vars, `GOOGLE_GENAI_USE_VERTEXAI=TRUE`) is complete.
+  1. **Agent Platform Environment:** Ensure the consolidated Agent Platform setup (ADC, Env Vars, `GOOGLE_GENAI_USE_ENTERPRISE=TRUE`) is complete.
 
   2. **Install Provider Library:** Install the necessary client library configured for Agent Platform.
          
@@ -489,6 +494,36 @@ PythonJava
     }
     
 
+### Adaptive thinking¶
+
+Supported in ADKPython v1.34.0
+
+Newer Claude models support _adaptive_ extended thinking, where the model chooses its reasoning depth itself rather than using a fixed token budget. On the native Claude path, a negative `thinking_budget` maps to adaptive thinking.
+
+The recommended way to control reasoning depth is the `effort` field on `AnthropicGenerateContentConfig`:
+    
+    
+    from google.adk.agents import LlmAgent
+    from google.adk.models import AnthropicGenerateContentConfig
+    from google.adk.models.anthropic_llm import Claude
+    from google.adk.models.registry import LLMRegistry
+    
+    LLMRegistry.register(Claude)
+    
+    agent = LlmAgent(
+        model="claude-sonnet-4@20250514",  # Your Agent Platform Claude model ID.
+        name="claude_reasoning_agent",
+        instruction="You are a helpful assistant.",
+        generate_content_config=AnthropicGenerateContentConfig(
+            effort="high",  # One of: "low", "medium", "high", "xhigh", "max".
+        ),
+    )
+    
+
+  * The standard `thinking_config.thinking_level` is not supported for Claude and is ignored (with a warning). Use `effort` instead.
+
+
+
 ## Open Models on Agent Platform¶
 
 Supported in ADKPython v0.1.0Java v0.1.0
@@ -503,7 +538,7 @@ You can use the [LiteLLM](https://docs.litellm.ai/) library to access open model
 
 **Setup:**
 
-  1. **Agent Platform Environment:** Ensure the consolidated Agent Platform setup (ADC, Env Vars, `GOOGLE_GENAI_USE_VERTEXAI=TRUE`) is complete.
+  1. **Agent Platform Environment:** Ensure the consolidated Agent Platform setup (ADC, Env Vars, `GOOGLE_GENAI_USE_ENTERPRISE=TRUE`) is complete.
 
   2. **Install LiteLLM:**
          

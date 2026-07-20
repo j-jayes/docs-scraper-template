@@ -418,11 +418,23 @@ Method
 
 Description
 
+`static io.reactivex.rxjava3.core.Completable`
+
+PersistBarrier.`[awaitPersisted](../../flows/llmflows/PersistBarrier.html#awaitPersisted\(com.google.adk.agents.InvocationContext,java.util.List\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+
+Completes once every event in `events` has been [`PersistBarrier.markPersisted(InvocationContext, String)`](../../flows/llmflows/PersistBarrier.html#markPersisted\(com.google.adk.agents.InvocationContext,java.lang.String\)), or fails if any was [`PersistBarrier.markFailed(InvocationContext, String, Throwable)`](../../flows/llmflows/PersistBarrier.html#markFailed\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.Throwable\)); completes immediately if the barrier was never [`PersistBarrier.enable(InvocationContext)`](../../flows/llmflows/PersistBarrier.html#enable\(com.google.adk.agents.InvocationContext\))d.
+
 `static [Event](../../events/Event.html "class in com.google.adk.events")`
 
 OutputSchema.`[createFinalModelResponseEvent](../../flows/llmflows/OutputSchema.html#createFinalModelResponseEvent\(com.google.adk.agents.InvocationContext,java.lang.String\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") jsonResponse)`
 
 Create a final model response event from set_model_response JSON.
+
+`static void`
+
+PersistBarrier.`[enable](../../flows/llmflows/PersistBarrier.html#enable\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context)`
+
+Marks that a `Runner` is driving this invocation and will resolve each appended event.
 
 `static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
@@ -453,6 +465,18 @@ Handles function calls in a live/streaming context, supporting background execut
 Functions.`[handleFunctionCallsLive](../../flows/llmflows/Functions.html#handleFunctionCallsLive\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,java.util.Map,java.util.Map\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [Event](../../events/Event.html "class in com.google.adk.events") functionCallEvent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")> tools, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](../../events/ToolConfirmation.html "class in com.google.adk.events")> toolConfirmations)`
 
 Handles function calls in a live/streaming context with tool confirmations, supporting background execution and stream termination.
+
+`static void`
+
+PersistBarrier.`[markFailed](../../flows/llmflows/PersistBarrier.html#markFailed\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.Throwable\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") eventId, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+Signals that persisting the event with the given id failed, so an await on it fails with ` error` instead of blocking forever.
+
+`static void`
+
+PersistBarrier.`[markPersisted](../../flows/llmflows/PersistBarrier.html#markPersisted\(com.google.adk.agents.InvocationContext,java.lang.String\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") eventId)`
+
+Signals that the `Runner` persisted the event with the given id.
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
@@ -692,6 +716,20 @@ BigQueryAgentAnalyticsPlugin.`[onUserMessageCallback](../../plugins/agentanalyti
 
   * ## Uses of [InvocationContext](../InvocationContext.html "class in com.google.adk.agents") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
 
+Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) that return [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[InvocationContext](../InvocationContext.html "class in com.google.adk.agents")`
+
+Instrumentation.AgentInvocation.`[getCtx](../../telemetry/Instrumentation.AgentInvocation.html#getCtx\(\))()`
+
+Retrieves the invocation context associated with this agent invocation.
+
 Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")
 
 Modifier and Type
@@ -700,11 +738,25 @@ Method
 
 Description
 
+`static [Instrumentation.AgentInvocation](../../telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordAgentInvocation](../../telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
+
+Deprecated.
+
+Use the version with explicit parent context instead.
+
+`static [Instrumentation.AgentInvocation](../../telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordAgentInvocation](../../telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
+
+Creates an [`Instrumentation.AgentInvocation`](../../telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") context to record agent invocation telemetry with an explicit parent context.
+
 `static <T> [Tracing.TracerProvider](../../telemetry/Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T>`
 
 Tracing.`[traceAgent](../../telemetry/Tracing.html#traceAgent\(java.lang.String,java.lang.String,java.lang.String,com.google.adk.agents.InvocationContext\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") agentDescription, [InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
-Returns a transformer that traces an agent invocation.
+Deprecated.
 
 `static void`
 
@@ -723,6 +775,20 @@ Traces a call to the LLM.
 Tracing.`[traceSendData](../../telemetry/Tracing.html#traceSendData\(io.opentelemetry.api.trace.Span,com.google.adk.agents.InvocationContext,java.lang.String,java.util.List\))(io.opentelemetry.api.trace.Span span, [InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") eventId, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<com.google.genai.types.Content> data)`
 
 Traces the sending of data (history or new content) to the agent/model.
+
+Constructors in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [InvocationContext](../InvocationContext.html "class in com.google.adk.agents")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[AgentInvocation](../../telemetry/Instrumentation.AgentInvocation.html#%3Cinit%3E\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
+
+Constructs a new `AgentInvocation` telemetry scope.
 
   * ## Uses of [InvocationContext](../InvocationContext.html "class in com.google.adk.agents") in [com.google.adk.tools](../../tools/package-summary.html)
 

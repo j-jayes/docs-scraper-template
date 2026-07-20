@@ -121,6 +121,12 @@ Sets the plugin manager for accessing tools and plugins.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
+InvocationContext.Builder.`[resumabilityConfig](../InvocationContext.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\))(@Nullable [ResumabilityConfig](../../apps/ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
+
+Sets the resumability configuration for the invocation.
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
 InvocationContext.Builder.`[runConfig](../InvocationContext.Builder.html#runConfig\(com.google.adk.agents.RunConfig\))([RunConfig](../RunConfig.html "class in com.google.adk.agents") runConfig)`
 
 Sets the configuration for the current agent run.

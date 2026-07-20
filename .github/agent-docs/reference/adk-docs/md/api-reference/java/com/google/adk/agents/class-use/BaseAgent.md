@@ -68,6 +68,10 @@ com.google.adk.runner
 
  
 
+com.google.adk.telemetry
+
+ 
+
 com.google.adk.tools
 
  
@@ -599,6 +603,70 @@ Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk
 Deprecated.
 
 Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+`protected `
+
+`[Runner](../../runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig,com.google.adk.apps.ResumabilityConfig\))([BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [BaseArtifactService](../../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts") artifactService, [BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService, @Nullable [BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService, [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Plugin](../../plugins/Plugin.html "interface in com.google.adk.plugins")> plugins, @Nullable [EventsCompactionConfig](../../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer") eventsCompactionConfig, @Nullable [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig, @Nullable [ResumabilityConfig](../../apps/ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
+
+Deprecated.
+
+Use [`Runner.Builder`](../../runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+  * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
+
+Methods in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [Instrumentation.AgentInvocation](../../telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordAgentInvocation](../../telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent)`
+
+Deprecated.
+
+Use the version with explicit parent context instead.
+
+`static [Instrumentation.AgentInvocation](../../telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordAgentInvocation](../../telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
+
+Creates an [`Instrumentation.AgentInvocation`](../../telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry") context to record agent invocation telemetry with an explicit parent context.
+
+`static [Instrumentation.ToolExecution](../../telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordToolExecution](../../telemetry/Instrumentation.html#recordToolExecution\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs)`
+
+Creates a ToolExecution context to record tool execution telemetry.
+
+`static [Instrumentation.ToolExecution](../../telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry")`
+
+Instrumentation.`[recordToolExecution](../../telemetry/Instrumentation.html#recordToolExecution\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map,io.opentelemetry.context.Context\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)`
+
+Creates a [`Instrumentation.ToolExecution`](../../telemetry/Instrumentation.ToolExecution.html "class in com.google.adk.telemetry") context to record tool execution telemetry with an explicit parent context.
+
+Constructors in [com.google.adk.telemetry](../../telemetry/package-summary.html) with parameters of type [BaseAgent](../BaseAgent.html "class in com.google.adk.agents")
+
+Modifier
+
+Constructor
+
+Description
+
+` `
+
+`[AgentInvocation](../../telemetry/Instrumentation.AgentInvocation.html#%3Cinit%3E\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent,io.opentelemetry.context.Context\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") ctx, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, io.opentelemetry.context.Context parentContext)`
+
+Constructs a new `AgentInvocation` telemetry scope.
+
+` `
+
+`[ToolExecution](../../telemetry/Instrumentation.ToolExecution.html#%3Cinit%3E\(com.google.adk.tools.BaseTool,com.google.adk.agents.BaseAgent,java.util.Map,io.opentelemetry.context.Context\))([BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools") tool, [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") agent, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> functionArgs, io.opentelemetry.context.Context parentContext)`
+
+Constructs a new `ToolExecution` telemetry scope.
 
   * ## Uses of [BaseAgent](../BaseAgent.html "class in com.google.adk.agents") in [com.google.adk.tools](../../tools/package-summary.html)
 

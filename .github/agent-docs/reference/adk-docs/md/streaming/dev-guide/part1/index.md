@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../../agents/llm-agents/)
+      * [ Managed agents  ](../../../agents/managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -260,7 +261,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
       * [ Typescript ADK  ](../../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
       * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
@@ -330,7 +333,7 @@ Table of contents
   3. [ Gemini Live API Toolkit  ](../../)
   4. [ Gemini Live API Toolkit development guide series  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/streaming/dev-guide/part1.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/dev-guide/part1.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/streaming/dev-guide/part1.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Part 1: Introduction to ADK Gemini Live API Toolkit¶
 
@@ -556,10 +559,10 @@ One of ADK's most powerful features is its transparent support for both [Gemini 
 
 #### How Platform Selection Works¶
 
-ADK uses the `GOOGLE_GENAI_USE_VERTEXAI` environment variable to determine which Live API platform to use:
+ADK uses the `GOOGLE_GENAI_USE_ENTERPRISE` environment variable to determine which Live API platform to use:
 
-  * `GOOGLE_GENAI_USE_VERTEXAI=FALSE` (or not set): Uses Gemini Live API via Google AI Studio
-  * `GOOGLE_GENAI_USE_VERTEXAI=TRUE`: Uses Gemini Live API (Agent Platform) via Google Cloud
+  * `GOOGLE_GENAI_USE_ENTERPRISE=FALSE` (or not set): Uses Gemini Live API via Google AI Studio
+  * `GOOGLE_GENAI_USE_ENTERPRISE=TRUE`: Uses Gemini Live API (Agent Platform) via Google Cloud
 
 
 
@@ -569,7 +572,7 @@ This environment variable is read by the underlying `google-genai` SDK when ADK 
     
     
     # .env.development
-    GOOGLE_GENAI_USE_VERTEXAI=FALSE
+    GOOGLE_GENAI_USE_ENTERPRISE=FALSE
     GOOGLE_API_KEY=your_api_key_here
     
 
@@ -586,7 +589,7 @@ This environment variable is read by the underlying `google-genai` SDK when ADK 
     
     
     # .env.production
-    GOOGLE_GENAI_USE_VERTEXAI=TRUE
+    GOOGLE_GENAI_USE_ENTERPRISE=TRUE
     GOOGLE_CLOUD_PROJECT=your_project_id
     GOOGLE_CLOUD_LOCATION=us-central1
     

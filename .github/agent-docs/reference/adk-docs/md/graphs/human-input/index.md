@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../)
 
 Graph Workflows 
@@ -255,7 +256,7 @@ Table of contents
   2. [ Build Agents  ](../../get-started/)
   3. [ Graph Workflows  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/graphs/human-input.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/graphs/human-input.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/graphs/human-input.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Human input for agent workflows¶
 

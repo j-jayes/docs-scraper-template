@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -240,7 +241,7 @@ ADK 2.0
   2. [ Components  ](../../get-started/about/)
   3. [ Gemini Live API Toolkit  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/streaming/configuration.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/streaming/configuration.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/streaming/configuration.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Configuring streaming behavior¶
 

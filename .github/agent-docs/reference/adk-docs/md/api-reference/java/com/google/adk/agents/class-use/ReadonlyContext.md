@@ -52,6 +52,10 @@ com.google.adk.tools.mcp
 
  
 
+com.google.adk.tools.skills
+
+ 
+
   * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.agents](../package-summary.html)
 
 Subclasses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.agents](../package-summary.html)
@@ -237,6 +241,22 @@ McpAsyncToolset.`[getTools](../../tools/mcp/McpAsyncToolset.html#getTools\(com.g
 `io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
 
 McpToolset.`[getTools](../../tools/mcp/McpToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
+
+ 
+
+  * ## Uses of [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") in [com.google.adk.tools.skills](../../tools/skills/package-summary.html)
+
+Methods in [com.google.adk.tools.skills](../../tools/skills/package-summary.html) with parameters of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Flowable<[BaseTool](../../tools/BaseTool.html "class in com.google.adk.tools")>`
+
+SkillToolset.`[getTools](../../tools/skills/SkillToolset.html#getTools\(com.google.adk.agents.ReadonlyContext\))([ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
  
 
