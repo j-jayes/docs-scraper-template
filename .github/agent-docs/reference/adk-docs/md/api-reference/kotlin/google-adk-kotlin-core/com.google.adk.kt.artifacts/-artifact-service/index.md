@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -21,6 +21,8 @@ Base interface for artifact services.
 An artifact is uniquely identified by the session it belongs to (via [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html)) plus its `filename` within that session.
 
 #### Inheritors
+
+[FileArtifactService](../../../google-adk-kotlin-core/com.google.adk.kt.artifacts/-file-artifact-service/index.html)
 
 [InMemoryArtifactService](../-in-memory-artifact-service/index.html)
 

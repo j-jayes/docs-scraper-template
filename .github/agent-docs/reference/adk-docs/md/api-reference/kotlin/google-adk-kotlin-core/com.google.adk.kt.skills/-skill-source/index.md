@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -20,9 +20,11 @@ Core interface for accessing skill components.
 
 Implementations are expected to be safe for concurrent use by multiple coroutines.
 
-All methods return a [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html) whose failure case is a [SkillSourceException](../-skill-source-exception/index.html) with a detailed error message intended to be surfaced to the LLM. Implementations should only wrap [SkillSourceException](../-skill-source-exception/index.html) in [Result.failure](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/-companion/failure.html).
+All methods return a Result whose failure case is a [SkillSourceException](../-skill-source-exception/index.html) with a detailed error message intended to be surfaced to the LLM. Implementations should only wrap [SkillSourceException](../-skill-source-exception/index.html) in Result.failure.
 
 #### Inheritors
+
+[AssetSkillSource](../../../google-adk-kotlin-core/com.google.adk.kt.skills/-asset-skill-source/index.html)
 
 [NewFileSystemSource](../../../google-adk-kotlin-core/com.google.adk.kt.skills/-new-file-system-source/index.html)
 
@@ -42,7 +44,7 @@ object [Companion](-companion/index.html)
 
 Link copied to clipboard
 
-abstract suspend fun [listFrontmatters](list-frontmatters.html)(): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Frontmatter](../-frontmatter/index.html)>>
+abstract suspend fun [listFrontmatters](list-frontmatters.html)(): <Error class: unknown class><[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Frontmatter](../-frontmatter/index.html)>>
 
 Returns the frontmatter for all available skills.
 
@@ -50,7 +52,7 @@ Returns the frontmatter for all available skills.
 
 Link copied to clipboard
 
-abstract suspend fun [listResources](list-resources.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourceDirectoryPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>>
+abstract suspend fun [listResources](list-resources.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourceDirectoryPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>>
 
 Returns a list of resource paths within a specific directory for a given skill.
 
@@ -58,7 +60,7 @@ Returns a list of resource paths within a specific directory for a given skill.
 
 Link copied to clipboard
 
-abstract suspend fun [loadFrontmatter](load-frontmatter.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[Frontmatter](../-frontmatter/index.html)>
+abstract suspend fun [loadFrontmatter](load-frontmatter.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[Frontmatter](../-frontmatter/index.html)>
 
 Loads the frontmatter for a single skill by name.
 
@@ -66,7 +68,7 @@ Loads the frontmatter for a single skill by name.
 
 Link copied to clipboard
 
-abstract suspend fun [loadInstructions](load-instructions.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>
+abstract suspend fun [loadInstructions](load-instructions.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>
 
 Loads the instruction body for a single skill by name.
 
@@ -74,7 +76,7 @@ Loads the instruction body for a single skill by name.
 
 Link copied to clipboard
 
-abstract suspend fun [loadResource](load-resource.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourcePath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)>
+abstract suspend fun [loadResource](load-resource.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourcePath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)>
 
 Loads a specific resource file for a given skill.
 

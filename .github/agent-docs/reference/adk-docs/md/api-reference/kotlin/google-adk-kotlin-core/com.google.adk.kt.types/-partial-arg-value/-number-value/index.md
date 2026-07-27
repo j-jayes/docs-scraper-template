@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../../index.html)/[com.google.adk.kt.types](../../index.html)/[PartialArgValue](../index.html)/NumberValue
 
 # NumberValue
+
+@Serializable
 
 data class [NumberValue](index.html)(val value: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)) : [PartialArgValue](../index.html)
 

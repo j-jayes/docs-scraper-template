@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,9 @@ search in API
 
 # Part
 
-class [Part](index.html) constructor(val text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val inlineData: [Blob](../-blob/index.html)? = null, val fileData: [FileData](../-file-data/index.html)? = null, val functionCall: [FunctionCall](../-function-call/index.html)? = null, val functionResponse: [FunctionResponse](../-function-response/index.html)? = null, val thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = null, val opaqueData: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)? = null)
+@Serializable
+
+class [Part](index.html) constructor(val text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val inlineData: [Blob](../-blob/index.html)? = null, val fileData: [FileData](../-file-data/index.html)? = null, val functionCall: [FunctionCall](../-function-call/index.html)? = null, val functionResponse: [FunctionResponse](../-function-response/index.html)? = null, val thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = null, val videoMetadata: [VideoMetadata](../-video-metadata/index.html)? = null, val partMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null, val opaqueData: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)? = null)
 
 A part of a multi-modal prompt or response.
 
@@ -41,9 +43,9 @@ Members
 
 Link copied to clipboard
 
-constructor(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, inlineData: [Blob](../-blob/index.html)? = null, fileData: [FileData](../-file-data/index.html)? = null, functionCall: [FunctionCall](../-function-call/index.html)? = null, functionResponse: [FunctionResponse](../-function-response/index.html)? = null, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = null)
+constructor(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, inlineData: [Blob](../-blob/index.html)? = null, fileData: [FileData](../-file-data/index.html)? = null, functionCall: [FunctionCall](../-function-call/index.html)? = null, functionResponse: [FunctionResponse](../-function-response/index.html)? = null, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = null, videoMetadata: [VideoMetadata](../-video-metadata/index.html)? = null, partMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null)
 
-constructor(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, inlineData: [Blob](../-blob/index.html)? = null, fileData: [FileData](../-file-data/index.html)? = null, functionCall: [FunctionCall](../-function-call/index.html)? = null, functionResponse: [FunctionResponse](../-function-response/index.html)? = null, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = null, opaqueData: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)? = null)
+constructor(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, inlineData: [Blob](../-blob/index.html)? = null, fileData: [FileData](../-file-data/index.html)? = null, functionCall: [FunctionCall](../-function-call/index.html)? = null, functionResponse: [FunctionResponse](../-function-response/index.html)? = null, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = null, videoMetadata: [VideoMetadata](../-video-metadata/index.html)? = null, partMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null, opaqueData: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)? = null)
 
 ## Properties
 
@@ -83,9 +85,19 @@ Binary data (e.g., image, audio).
 
 Link copied to clipboard
 
+@Transient
+
 val [opaqueData](opaque-data.html): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)? = null
 
 Other opaque data associated with the part to be interpreted by the agent. Reserved for ADK internal use. Users should not set this field.
+
+[partMetadata](part-metadata.html)
+
+Link copied to clipboard
+
+val [partMetadata](part-metadata.html): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null
+
+Arbitrary key-value metadata associated with this part. The map must be JSON serializable.
 
 [text](text.html)
 
@@ -111,15 +123,23 @@ val [thoughtSignature](thought-signature.html): [ByteArray](https://kotlinlang.o
 
 An opaque signature for the thought.
 
+[videoMetadata](video-metadata.html)
+
+Link copied to clipboard
+
+val [videoMetadata](video-metadata.html): [VideoMetadata](../-video-metadata/index.html)? = null
+
+Metadata for a video part (segment offsets and frame rate).
+
 ## Functions
 
 [copy](copy.html)
 
 Link copied to clipboard
 
-fun [copy](copy.html)(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = this.text, inlineData: [Blob](../-blob/index.html)? = this.inlineData, fileData: [FileData](../-file-data/index.html)? = this.fileData, functionCall: [FunctionCall](../-function-call/index.html)? = this.functionCall, functionResponse: [FunctionResponse](../-function-response/index.html)? = this.functionResponse, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = this.thought, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = this.thoughtSignature): [Part](index.html)
+fun [copy](copy.html)(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = this.text, inlineData: [Blob](../-blob/index.html)? = this.inlineData, fileData: [FileData](../-file-data/index.html)? = this.fileData, functionCall: [FunctionCall](../-function-call/index.html)? = this.functionCall, functionResponse: [FunctionResponse](../-function-response/index.html)? = this.functionResponse, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = this.thought, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = this.thoughtSignature, videoMetadata: [VideoMetadata](../-video-metadata/index.html)? = this.videoMetadata, partMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = this.partMetadata): [Part](index.html)
 
-fun [copy](copy.html)(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = this.text, inlineData: [Blob](../-blob/index.html)? = this.inlineData, fileData: [FileData](../-file-data/index.html)? = this.fileData, functionCall: [FunctionCall](../-function-call/index.html)? = this.functionCall, functionResponse: [FunctionResponse](../-function-response/index.html)? = this.functionResponse, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = this.thought, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = this.thoughtSignature, opaqueData: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?): [Part](index.html)
+fun [copy](copy.html)(text: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = this.text, inlineData: [Blob](../-blob/index.html)? = this.inlineData, fileData: [FileData](../-file-data/index.html)? = this.fileData, functionCall: [FunctionCall](../-function-call/index.html)? = this.functionCall, functionResponse: [FunctionResponse](../-function-response/index.html)? = this.functionResponse, thought: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = this.thought, thoughtSignature: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)? = this.thoughtSignature, videoMetadata: [VideoMetadata](../-video-metadata/index.html)? = this.videoMetadata, partMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = this.partMetadata, opaqueData: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?): [Part](index.html)
 
 [equals](equals.html)
 

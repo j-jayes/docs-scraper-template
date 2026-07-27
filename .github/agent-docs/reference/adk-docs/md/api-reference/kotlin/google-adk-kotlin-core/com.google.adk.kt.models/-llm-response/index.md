@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # LlmResponse
 
-data class [LlmResponse](index.html)(val content: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, val usageMetadata: [UsageMetadata](../../com.google.adk.kt.types/-usage-metadata/index.html)? = null, val finishReason: [FinishReason](../../com.google.adk.kt.types/-finish-reason/index.html)? = null, val errorMessage: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val partial: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val interrupted: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val modelVersion: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val citationMetadata: [CitationMetadata](../../com.google.adk.kt.types/-citation-metadata/index.html)? = null, val groundingMetadata: [GroundingMetadata](../../com.google.adk.kt.types/-grounding-metadata/index.html)? = null)
+data class [LlmResponse](index.html)(val content: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, val usageMetadata: [UsageMetadata](../../com.google.adk.kt.types/-usage-metadata/index.html)? = null, val finishReason: [FinishReason](../../com.google.adk.kt.types/-finish-reason/index.html)? = null, val errorMessage: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val partial: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val interrupted: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val modelVersion: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val citationMetadata: [CitationMetadata](../../com.google.adk.kt.types/-citation-metadata/index.html)? = null, val groundingMetadata: [GroundingMetadata](../../com.google.adk.kt.types/-grounding-metadata/index.html)? = null, val errorCode: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null, val avgLogprobs: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)? = null, val logprobsResult: [LogprobsResult](../../com.google.adk.kt.types/-logprobs-result/index.html)? = null)
 
 LLM response class that provides the first candidate response from the model if available. Otherwise, contains the error code and message.
 
@@ -26,7 +26,7 @@ Members
 
 Link copied to clipboard
 
-constructor(content: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, usageMetadata: [UsageMetadata](../../com.google.adk.kt.types/-usage-metadata/index.html)? = null, finishReason: [FinishReason](../../com.google.adk.kt.types/-finish-reason/index.html)? = null, errorMessage: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, partial: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, interrupted: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, modelVersion: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, citationMetadata: [CitationMetadata](../../com.google.adk.kt.types/-citation-metadata/index.html)? = null, groundingMetadata: [GroundingMetadata](../../com.google.adk.kt.types/-grounding-metadata/index.html)? = null)
+constructor(content: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, usageMetadata: [UsageMetadata](../../com.google.adk.kt.types/-usage-metadata/index.html)? = null, finishReason: [FinishReason](../../com.google.adk.kt.types/-finish-reason/index.html)? = null, errorMessage: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, partial: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, interrupted: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, modelVersion: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, citationMetadata: [CitationMetadata](../../com.google.adk.kt.types/-citation-metadata/index.html)? = null, groundingMetadata: [GroundingMetadata](../../com.google.adk.kt.types/-grounding-metadata/index.html)? = null, errorCode: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null, avgLogprobs: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)? = null, logprobsResult: [LogprobsResult](../../com.google.adk.kt.types/-logprobs-result/index.html)? = null)
 
 ## Types
 
@@ -37,6 +37,12 @@ Link copied to clipboard
 object [Companion](-companion/index.html)
 
 ## Properties
+
+[avgLogprobs](avg-logprobs.html)
+
+Link copied to clipboard
+
+val [avgLogprobs](avg-logprobs.html): [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)? = null
 
 [citationMetadata](citation-metadata.html)
 
@@ -53,6 +59,22 @@ Link copied to clipboard
 val [content](content.html): [Content](../../com.google.adk.kt.types/-content/index.html)? = null
 
 The generative content of the response. This should only contain content from the user or the model, and not any framework or system-generated data.
+
+[customMetadata](custom-metadata.html)
+
+Link copied to clipboard
+
+val [customMetadata](custom-metadata.html): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>? = null
+
+Optional key-value pairs labeling the response. The entire map must be JSON serializable.
+
+[errorCode](error-code.html)
+
+Link copied to clipboard
+
+val [errorCode](error-code.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
+
+Error code if the response is an error. The code varies by model.
 
 [errorMessage](error-message.html)
 
@@ -85,6 +107,12 @@ Link copied to clipboard
 val [interrupted](interrupted.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false
 
 Flag indicating that LLM was interrupted when generating the content. Usually it's due to user interruption during a bidi streaming.
+
+[logprobsResult](logprobs-result.html)
+
+Link copied to clipboard
+
+val [logprobsResult](logprobs-result.html): [LogprobsResult](../../com.google.adk.kt.types/-logprobs-result/index.html)? = null
 
 [modelVersion](model-version.html)
 

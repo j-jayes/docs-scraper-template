@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../../index.html)/[com.google.adk.kt.agents](../../index.html)/[TypedData](../index.html)/NullValue
 
 # NullValue
+
+@Serializable
 
 data object [NullValue](index.html) : [TypedData](../index.html)
 

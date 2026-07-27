@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -257,7 +258,7 @@ Table of contents
   1. [ Home  ](..)
   2. [ ADK 2.0  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/2.0/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/2.0/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/2.0/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Welcome to ADK 2.0¶
 

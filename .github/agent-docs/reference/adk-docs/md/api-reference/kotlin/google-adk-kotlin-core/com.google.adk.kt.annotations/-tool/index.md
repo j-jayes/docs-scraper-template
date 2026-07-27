@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -19,6 +19,8 @@ search in API
 annotation class [Tool](index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "", val description: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "", val requireConfirmation: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val isLongRunning: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false)
 
 Annotates a function to be exposed as an executable tool by the Google ADK Kotlin. KSP will generate a corresponding [com.google.adk.kt.tools.FunctionTool](../../com.google.adk.kt.tools/-function-tool/index.html) wrapper for annotated functions.
+
+The generated wrapper converts the function's return value into a JSON-native [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html): data classes, enums, lists, maps, and nested structures are translated at compile time. A function may therefore return a data class directly, unlike a hand-written [com.google.adk.kt.tools.BaseTool](../../com.google.adk.kt.tools/-base-tool/index.html), whose result must already be JSON-native.
 
 Note: this annotation shares its simple name with [com.google.adk.kt.types.Tool](../../com.google.adk.kt.types/-tool/index.html), the GenAI tool definition data class. Files that need to reference both should use an import alias.
 

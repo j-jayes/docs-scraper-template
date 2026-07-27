@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # RunConfig
 
-data class [RunConfig](index.html)(val streamingMode: [StreamingMode](../-streaming-mode/index.html) = StreamingMode.NONE, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null)
+data class [RunConfig](index.html)(val streamingMode: [StreamingMode](../-streaming-mode/index.html) = StreamingMode.NONE, val maxLlmCalls: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html) = 500, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null)
 
 Configs for runtime behavior of agents.
 
@@ -26,7 +26,7 @@ Members
 
 Link copied to clipboard
 
-constructor(streamingMode: [StreamingMode](../-streaming-mode/index.html) = StreamingMode.NONE, customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null)
+constructor(streamingMode: [StreamingMode](../-streaming-mode/index.html) = StreamingMode.NONE, maxLlmCalls: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html) = 500, customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null)
 
 ## Properties
 
@@ -37,6 +37,14 @@ Link copied to clipboard
 val [customMetadata](custom-metadata.html): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null
 
 Custom metadata for the current invocation.
+
+[maxLlmCalls](max-llm-calls.html)
+
+Link copied to clipboard
+
+val [maxLlmCalls](max-llm-calls.html): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html) = 500
+
+Limit on the total number of LLM calls per run. A positive value is enforced; a value <= 0 means unbounded.
 
 [streamingMode](streaming-mode.html)
 

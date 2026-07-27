@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../../index.html)/[com.google.adk.kt.agents](../../index.html)/[TypedData](../index.html)/MapValue
 
 # MapValue
+
+@Serializable
 
 data class [MapValue](index.html)(val fields: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](../index.html)>) : [TypedData](../index.html)
 

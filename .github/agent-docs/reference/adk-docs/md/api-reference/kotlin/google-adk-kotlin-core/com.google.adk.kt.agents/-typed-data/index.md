@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.agents](../index.html)/TypedData
 
 # TypedData
+
+@Serializable
 
 sealed class [TypedData](index.html)
 
@@ -44,6 +46,8 @@ Members
 
 Link copied to clipboard
 
+@Serializable
+
 data class [BooleanValue](-boolean-value/index.html)(val value: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)) : [TypedData](index.html)
 
 Represents a boolean value in the agent state.
@@ -51,6 +55,8 @@ Represents a boolean value in the agent state.
 [DoubleValue](-double-value/index.html)
 
 Link copied to clipboard
+
+@Serializable
 
 data class [DoubleValue](-double-value/index.html)(val value: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)) : [TypedData](index.html)
 
@@ -60,6 +66,8 @@ Represents a double value in the agent state.
 
 Link copied to clipboard
 
+@Serializable
+
 data class [IntValue](-int-value/index.html)(val value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)) : [TypedData](index.html)
 
 Represents an integer value in the agent state.
@@ -67,6 +75,8 @@ Represents an integer value in the agent state.
 [ListValue](-list-value/index.html)
 
 Link copied to clipboard
+
+@Serializable
 
 data class [ListValue](-list-value/index.html)(val elements: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[TypedData](index.html)>) : [TypedData](index.html)
 
@@ -76,6 +86,8 @@ Represents a list of state values.
 
 Link copied to clipboard
 
+@Serializable
+
 data class [LongValue](-long-value/index.html)(val value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html)) : [TypedData](index.html)
 
 Represents a long value in the agent state.
@@ -83,6 +95,8 @@ Represents a long value in the agent state.
 [MapValue](-map-value/index.html)
 
 Link copied to clipboard
+
+@Serializable
 
 data class [MapValue](-map-value/index.html)(val fields: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](index.html)>) : [TypedData](index.html)
 
@@ -92,6 +106,8 @@ Represents a map of state values.
 
 Link copied to clipboard
 
+@Serializable
+
 data object [NullValue](-null-value/index.html) : [TypedData](index.html)
 
 Represents a null value in the agent state.
@@ -99,6 +115,8 @@ Represents a null value in the agent state.
 [StringValue](-string-value/index.html)
 
 Link copied to clipboard
+
+@Serializable
 
 data class [StringValue](-string-value/index.html)(val value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)) : [TypedData](index.html)
 

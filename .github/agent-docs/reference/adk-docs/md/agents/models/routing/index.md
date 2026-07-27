@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../llm-agents/)
+      * [ Managed agents  ](../../managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -249,7 +250,7 @@ Table of contents
   2. [ Build Agents  ](../../../get-started/)
   3. [ Models for Agents  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/routing.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/models/routing.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/routing.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Route between models¶
 

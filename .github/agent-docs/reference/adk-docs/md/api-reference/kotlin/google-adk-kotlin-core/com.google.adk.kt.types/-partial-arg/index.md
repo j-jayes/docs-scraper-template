@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/PartialArg
 
 # PartialArg
+
+@Serializable
 
 data class [PartialArg](index.html)(val value: [PartialArgValue](../-partial-arg-value/index.html)? = null, val jsonPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val willContinue: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
 

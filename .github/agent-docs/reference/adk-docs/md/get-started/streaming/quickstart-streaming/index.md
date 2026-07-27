@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -67,6 +67,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../../agents/llm-agents/)
+      * [ Managed agents  ](../../../agents/managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -228,7 +229,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
       * [ Typescript ADK  ](../../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
       * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
@@ -266,7 +269,7 @@ Table of contents
   3. [ Build your Agent  ](../../../tutorials/)
   4. [ Streaming agent  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/streaming/quickstart-streaming.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/streaming/quickstart-streaming.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/streaming/quickstart-streaming.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Build a streaming agent with Python¶
 
@@ -364,7 +367,7 @@ Gemini - Google AI StudioGemini - Google Cloud Agent Platform
 
 .env
          
-         GOOGLE_GENAI_USE_VERTEXAI=FALSE
+         GOOGLE_GENAI_USE_ENTERPRISE=FALSE
          GOOGLE_API_KEY=PASTE_YOUR_ACTUAL_API_KEY_HERE
          
 
@@ -382,7 +385,7 @@ Gemini - Google AI StudioGemini - Google Cloud Agent Platform
 
 .env
          
-         GOOGLE_GENAI_USE_VERTEXAI=TRUE
+         GOOGLE_GENAI_USE_ENTERPRISE=TRUE
          GOOGLE_CLOUD_PROJECT=PASTE_YOUR_ACTUAL_PROJECT_ID
          GOOGLE_CLOUD_LOCATION=us-central1
          

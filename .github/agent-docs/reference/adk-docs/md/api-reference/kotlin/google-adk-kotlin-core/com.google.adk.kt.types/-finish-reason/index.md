@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/FinishReason
 
 # FinishReason
+
+@Serializable(with = [FinishReasonSerializer::class](../../../google-adk-kotlin-core/com.google.adk.kt.types/-finish-reason-serializer/index.html))
 
 enum [FinishReason](index.html) : [Enum](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-enum/index.html)<[FinishReason](index.html)>
 
@@ -110,15 +112,55 @@ Link copied to clipboard
 
 A tool returned an unexpected result, or a tool threw an exception.
 
-## Properties
-
-[entries](entries.html)
+[LANGUAGE](-l-a-n-g-u-a-g-e/index.html)
 
 Link copied to clipboard
 
-val [entries](entries.html): [EnumEntries](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.enums/-enum-entries/index.html)<[FinishReason](index.html)>
+[LANGUAGE](-l-a-n-g-u-a-g-e/index.html)
 
-Returns a representation of an immutable list of all enum entries, in the order they're declared.
+Token generation stopped because of using an unsupported language.
+
+[IMAGE_SAFETY](-i-m-a-g-e_-s-a-f-e-t-y/index.html)
+
+Link copied to clipboard
+
+[IMAGE_SAFETY](-i-m-a-g-e_-s-a-f-e-t-y/index.html)
+
+Token generation stopped because generated images have safety violations.
+
+[IMAGE_PROHIBITED_CONTENT](-i-m-a-g-e_-p-r-o-h-i-b-i-t-e-d_-c-o-n-t-e-n-t/index.html)
+
+Link copied to clipboard
+
+[IMAGE_PROHIBITED_CONTENT](-i-m-a-g-e_-p-r-o-h-i-b-i-t-e-d_-c-o-n-t-e-n-t/index.html)
+
+Image generation stopped because the generated images have prohibited content.
+
+[NO_IMAGE](-n-o_-i-m-a-g-e/index.html)
+
+Link copied to clipboard
+
+[NO_IMAGE](-n-o_-i-m-a-g-e/index.html)
+
+The model was expected to generate an image, but none was generated.
+
+[IMAGE_RECITATION](-i-m-a-g-e_-r-e-c-i-t-a-t-i-o-n/index.html)
+
+Link copied to clipboard
+
+[IMAGE_RECITATION](-i-m-a-g-e_-r-e-c-i-t-a-t-i-o-n/index.html)
+
+Image generation stopped because the generated image may be a recitation from a source.
+
+[IMAGE_OTHER](-i-m-a-g-e_-o-t-h-e-r/index.html)
+
+Link copied to clipboard
+
+[IMAGE_OTHER](-i-m-a-g-e_-o-t-h-e-r/index.html)
+
+Image generation stopped for a reason not otherwise specified.
+
+## Properties
 
 [name](../-type/-n-u-l-l/index.html#-372974862%2FProperties%2F-1644122207)
 

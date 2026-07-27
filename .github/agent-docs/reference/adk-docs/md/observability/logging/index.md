@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -242,7 +243,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -293,7 +296,7 @@ Table of contents
   2. [ Run Agents  ](../../runtime/)
   3. [ Observability  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/observability/logging.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/observability/logging.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/observability/logging.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Agent activity logging¶
 
@@ -486,12 +489,14 @@ To get detailed logs of agent activity (user messages, model requests/responses,
     
     // Use the LoggingPlugin for structured activity logging to the console
     val runner =
-        InMemoryRunner(agent = agent, pluginManager = PluginManager(listOf(LoggingPlugin())))
+        InMemoryRunner(
+            App(appName = agent.name, rootAgent = agent, plugins = listOf(LoggingPlugin())),
+        )
     
 
 ### Go programmatic setup¶
 
-In Go, ADK uses the `google.golang.org/adk/telemetry` package for OpenTelemetry configuration and the standard `log` package for general events.
+In Go, ADK uses the `google.golang.org/adk/v2/telemetry` package for OpenTelemetry configuration and the standard `log` package for general events.
 
 #### Capture prompt content¶
 
@@ -502,7 +507,7 @@ You can enable full prompt logging programmatically when initializing telemetry:
     
     import (
         "context"
-        "google.golang.org/adk/telemetry"
+        "google.golang.org/adk/v2/telemetry"
     )
     
     func main() {
@@ -531,7 +536,7 @@ To export logs to Google Cloud Logging, use the `WithOtelToCloud` option:
     
     import (
         "context"
-        "google.golang.org/adk/telemetry"
+        "google.golang.org/adk/v2/telemetry"
     )
     
     func main() {

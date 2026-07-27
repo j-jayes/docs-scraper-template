@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -38,7 +38,7 @@ Interface for creating plugins.
 
 Link copied to clipboard
 
-class [PluginManager](-plugin-manager/index.html)(val plugins: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](-plugin/index.html)> = emptyList())
+class [PluginManager](-plugin-manager/index.html)(val plugins: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](-plugin/index.html)> = emptyList(), val skipClosingPlugins: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false)
 
 Manages the pre-aggregation of typed functional callbacks.
 

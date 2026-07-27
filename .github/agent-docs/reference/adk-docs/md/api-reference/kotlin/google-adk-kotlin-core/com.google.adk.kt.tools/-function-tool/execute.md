@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -20,7 +20,7 @@ Executes the function with the provided [args](execute.html), optionally utilizi
 
 #### Return
 
-The tool's response, conventionally a `Map<String, Any>`. Non-map values are wrapped under [BaseTool.RESULT_KEY](../-base-tool/-companion/-r-e-s-u-l-t_-k-e-y.html). Return `mapOf(ERROR_KEY to "<message>")` to signal an LLM-visible error. From a long-running tool, return `Unit` to defer the response; see [BaseTool.isLongRunning](../-base-tool/is-long-running.html).
+The tool's response, conventionally a `Map<String, Any>` whose values are JSON-native. Non-map values are wrapped under [BaseTool.RESULT_KEY](../-base-tool/-companion/-r-e-s-u-l-t_-k-e-y.html). Return `mapOf(ERROR_KEY to "<message>")` to signal an LLM-visible error. From a long-running tool, return `Unit` to defer the response; see [BaseTool.isLongRunning](../-base-tool/is-long-running.html).
 
 #### Parameters
 

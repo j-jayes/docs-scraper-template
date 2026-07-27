@@ -1,0 +1,136 @@
+toggle menu
+
+[ google-adk-kotlin ](../../../index.html)
+
+0.5.0 
+
+android
+
+switch theme
+
+search in API
+
+[google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.sessions.room](../index.html)/RoomSessionService
+
+# RoomSessionService
+
+android
+
+class [RoomSessionService](index.html) : [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
+
+A persistent [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) backed by a Room/SQLite database in the consumer app's private storage.
+
+Sessions, events, and app/user state survive process death and device reboot. Use this in place of InMemorySessionService when constructing a [com.google.adk.kt.runners.Runner](../../com.google.adk.kt.runners/-runner/index.html) in an Android consumer app.
+
+Default usage — one instance per `Application`:
+    
+    
+    val sessionService = RoomSessionService.fromContext(applicationContext)
+
+Content copied to clipboard
+
+Pass a distinct databaseName to give an agent its own SQLite file (e.g. when two agents in the same app should not see each other's sessions even within the same `appName`):
+    
+    
+    val agentASessions = RoomSessionService.fromContext(context, "agent_a.db")  
+    val agentBSessions = RoomSessionService.fromContext(context, "agent_b.db")
+
+Content copied to clipboard
+
+Dispatching is handled by Room — `suspend fun` DAO calls run on Room's internal transaction executor, so this class does not need to wrap calls in `withContext`.
+
+Members
+
+## Types
+
+[Companion](-companion/index.html)
+
+Link copied to clipboard
+
+android
+
+object [Companion](-companion/index.html)
+
+## Functions
+
+[appendEvent](append-event.html)
+
+Link copied to clipboard
+
+android
+
+open suspend override fun [appendEvent](append-event.html)(session: [Session](../../com.google.adk.kt.sessions/-session/index.html), event: [Event](../../com.google.adk.kt.events/-event/index.html)): [Event](../../com.google.adk.kt.events/-event/index.html)
+
+Appends an event to an in-memory session object and updates the session's state based on the event's state delta, if applicable.
+
+[close](close.html)
+
+Link copied to clipboard
+
+android
+
+fun [close](close.html)()
+
+Closes the underlying Room database, releasing the file handle. Primarily useful for tests that construct and destroy services repeatedly. In a normal app the database stays open for the process lifetime — Android does not require explicit close.
+
+[closeSession](../../com.google.adk.kt.sessions/-session-service/close-session.html)
+
+Link copied to clipboard
+
+android
+
+open suspend fun [closeSession](../../com.google.adk.kt.sessions/-session-service/close-session.html)(session: [Session](../../com.google.adk.kt.sessions/-session/index.html))
+
+Closes a session.
+
+[createSession](create-session.html)
+
+Link copied to clipboard
+
+android
+
+open suspend override fun [createSession](create-session.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html), state: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>?): [Session](../../com.google.adk.kt.sessions/-session/index.html)
+
+Creates a new session with the specified parameters.
+
+[deleteSession](delete-session.html)
+
+Link copied to clipboard
+
+android
+
+open suspend override fun [deleteSession](delete-session.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html))
+
+Deletes a specific session.
+
+[getSession](get-session.html)
+
+Link copied to clipboard
+
+android
+
+open suspend override fun [getSession](get-session.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html), config: [GetSessionConfig](../../com.google.adk.kt.sessions/-get-session-config/index.html)?): [Session](../../com.google.adk.kt.sessions/-session/index.html)?
+
+Retrieves a specific session, optionally filtering the events included.
+
+[listEvents](list-events.html)
+
+Link copied to clipboard
+
+android
+
+open suspend override fun [listEvents](list-events.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html)): [ListEventsResponse](../../com.google.adk.kt.sessions/-list-events-response/index.html)
+
+Lists the events within a specific session.
+
+[listSessions](list-sessions.html)
+
+Link copied to clipboard
+
+android
+
+open suspend override fun [listSessions](list-sessions.html)(appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), userId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [ListSessionsResponse](../../com.google.adk.kt.sessions/-list-sessions-response/index.html)
+
+Lists sessions associated with a specific application and user.
+
+© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)

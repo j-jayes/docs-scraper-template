@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,11 +14,11 @@ search in API
 
 # InMemoryRunner
 
-open class [InMemoryRunner](index.html)(val agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html), val appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", val sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), val artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), val memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), val pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager(), val resumabilityConfig: [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html) = ResumabilityConfig()) : [AbstractRunner](../-abstract-runner/index.html)
+open class [InMemoryRunner](index.html) : [AbstractRunner](../-abstract-runner/index.html)
 
 An in-memory implementation of a [Runner](../-runner/index.html) that manages the lifecycle of a [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html) execution.
 
-It provides default in-memory implementations for session, artifact, and memory services.
+It provides default in-memory implementations for session, artifact, and memory services. It can be constructed either directly from a root agent or from an [App](../../com.google.adk.kt.apps/-app/index.html).
 
 #### Inheritors
 
@@ -32,7 +32,25 @@ Members
 
 Link copied to clipboard
 
-constructor(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html), appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager(), resumabilityConfig: [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html) = ResumabilityConfig())
+constructor(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html), appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService())
+
+Creates an [InMemoryRunner](index.html) from a root [agent](../../../google-adk-kotlin-core/com.google.adk.kt.runners/-in-memory-runner/\[60\]init\[62\].html) and default in-memory services.
+
+constructor(app: [App](../../com.google.adk.kt.apps/-app/index.html), sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), skipClosingPlugins: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false)
+
+Creates an [InMemoryRunner](index.html) from an [App](../../com.google.adk.kt.apps/-app/index.html), deriving its [App.appName](../../com.google.adk.kt.apps/-app/app-name.html), [App.rootAgent](../../com.google.adk.kt.apps/-app/root-agent.html), [App.plugins](../../com.google.adk.kt.apps/-app/plugins.html), and [App.resumabilityConfig](../../com.google.adk.kt.apps/-app/resumability-config.html).
+
+constructor(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html), appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html))
+
+Creates an [InMemoryRunner](index.html) with an explicit [pluginManager](../../../google-adk-kotlin-core/com.google.adk.kt.runners/-in-memory-runner/\[60\]init\[62\].html).
+
+constructor(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html), appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), resumabilityConfig: [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html))
+
+Creates an [InMemoryRunner](index.html) with an explicit [resumabilityConfig](../../../google-adk-kotlin-core/com.google.adk.kt.runners/-in-memory-runner/\[60\]init\[62\].html).
+
+constructor(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html), appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html), resumabilityConfig: [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html))
+
+Creates an [InMemoryRunner](index.html) with both an explicit [pluginManager](../../../google-adk-kotlin-core/com.google.adk.kt.runners/-in-memory-runner/\[60\]init\[62\].html) and [resumabilityConfig](../../../google-adk-kotlin-core/com.google.adk.kt.runners/-in-memory-runner/\[60\]init\[62\].html).
 
 ## Properties
 
@@ -40,43 +58,49 @@ constructor(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.
 
 Link copied to clipboard
 
-open override val [agent](../-abstract-runner/agent.html): [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html)
+override val [agent](../-abstract-runner/agent.html): [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html)
+
+[app](../-abstract-runner/app.html)
+
+Link copied to clipboard
+
+val [app](../-abstract-runner/app.html): [App](../../com.google.adk.kt.apps/-app/index.html)?
 
 [appName](../-abstract-runner/app-name.html)
 
 Link copied to clipboard
 
-open override val [appName](../-abstract-runner/app-name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+override val [appName](../-abstract-runner/app-name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
 
 [artifactService](../-abstract-runner/artifact-service.html)
 
 Link copied to clipboard
 
-open override val [artifactService](../-abstract-runner/artifact-service.html): [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)?
+override val [artifactService](../-abstract-runner/artifact-service.html): [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)?
 
 [memoryService](../-abstract-runner/memory-service.html)
 
 Link copied to clipboard
 
-open override val [memoryService](../-abstract-runner/memory-service.html): [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)?
+override val [memoryService](../-abstract-runner/memory-service.html): [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)?
 
 [pluginManager](../-abstract-runner/plugin-manager.html)
 
 Link copied to clipboard
 
-open override val [pluginManager](../-abstract-runner/plugin-manager.html): [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html)
+override val [pluginManager](../-abstract-runner/plugin-manager.html): [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html)
 
 [resumabilityConfig](../-abstract-runner/resumability-config.html)
 
 Link copied to clipboard
 
-open override val [resumabilityConfig](../-abstract-runner/resumability-config.html): [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html)
+override val [resumabilityConfig](../-abstract-runner/resumability-config.html): [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html)
 
 [sessionService](../-abstract-runner/session-service.html)
 
 Link copied to clipboard
 
-open override val [sessionService](../-abstract-runner/session-service.html): [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
+override val [sessionService](../-abstract-runner/session-service.html): [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
 
 ## Functions
 
@@ -87,6 +111,14 @@ Link copied to clipboard
 fun [applyStateDelta](../-abstract-runner/apply-state-delta.html)(event: [Event](../../com.google.adk.kt.events/-event/index.html), stateDelta: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>?)
 
 Applies the provided [stateDelta](../-abstract-runner/apply-state-delta.html) to the given [event](../-abstract-runner/apply-state-delta.html).
+
+[rewindAsync](../-abstract-runner/rewind-async.html)
+
+Link copied to clipboard
+
+open suspend override fun [rewindAsync](../-abstract-runner/rewind-async.html)(userId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), sessionId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html))
+
+Rewinds the session to before the specified invocation.
 
 [run](../-abstract-runner/run.html)
 

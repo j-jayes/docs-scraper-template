@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,13 +14,13 @@ search in API
 
 # loadResource
 
-abstract suspend fun [loadResource](load-resource.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourcePath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)>
+abstract suspend fun [loadResource](load-resource.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourcePath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)>
 
 Loads a specific resource file for a given skill.
 
 #### Return
 
-A [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html) wrapping the resource content as a [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html), or a [SkillSourceException](../-skill-source-exception/index.html) failure whose message identifies the specific cause (e.g. the skill does not exist, the path is malformed or invalid, or the resource does not exist within the skill).
+A Result wrapping the resource content as a [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html), or a [SkillSourceException](../-skill-source-exception/index.html) failure whose message identifies the specific cause (e.g. the skill does not exist, the path is malformed or invalid, or the resource does not exist within the skill).
 
 #### Parameters
 

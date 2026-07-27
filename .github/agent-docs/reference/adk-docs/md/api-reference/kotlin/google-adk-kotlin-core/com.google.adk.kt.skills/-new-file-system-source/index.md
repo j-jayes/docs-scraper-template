@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
-jvm
+commonJvmAndroid
 
 switch theme
 
@@ -14,11 +14,9 @@ search in API
 
 # NewFileSystemSource
 
-jvm
+commonJvmAndroid
 
 class [NewFileSystemSource](index.html)(skillsBaseDir: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)) : [SkillSource](../-skill-source/index.html)
-
-JVM implementation of [SkillSource](../-skill-source/index.html) using standard File I/O.
 
 Members
 
@@ -28,7 +26,7 @@ Members
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
 constructor(skillsBaseDir: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html))
 
@@ -38,9 +36,9 @@ constructor(skillsBaseDir: [String](https://kotlinlang.org/api/latest/jvm/stdlib
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
-open suspend override fun [listFrontmatters](list-frontmatters.html)(): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Frontmatter](../-frontmatter/index.html)>>
+open suspend override fun [listFrontmatters](list-frontmatters.html)(): <Error class: unknown class><[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Frontmatter](../-frontmatter/index.html)>>
 
 Returns the frontmatter for all available skills.
 
@@ -48,9 +46,9 @@ Returns the frontmatter for all available skills.
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
-open suspend override fun [listResources](list-resources.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourceDirectoryPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>>
+open suspend override fun [listResources](list-resources.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourceDirectoryPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>>
 
 Returns a list of resource paths within a specific directory for a given skill.
 
@@ -58,9 +56,9 @@ Returns a list of resource paths within a specific directory for a given skill.
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
-open suspend override fun [loadFrontmatter](load-frontmatter.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[Frontmatter](../-frontmatter/index.html)>
+open suspend override fun [loadFrontmatter](load-frontmatter.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[Frontmatter](../-frontmatter/index.html)>
 
 Loads the frontmatter for a single skill by name.
 
@@ -68,9 +66,9 @@ Loads the frontmatter for a single skill by name.
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
-open suspend override fun [loadInstructions](load-instructions.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>
+open suspend override fun [loadInstructions](load-instructions.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>
 
 Loads the instruction body for a single skill by name.
 
@@ -78,9 +76,9 @@ Loads the instruction body for a single skill by name.
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
-open suspend override fun [loadResource](load-resource.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourcePath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)>
+open suspend override fun [loadResource](load-resource.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourcePath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html)>
 
 Loads a specific resource file for a given skill.
 

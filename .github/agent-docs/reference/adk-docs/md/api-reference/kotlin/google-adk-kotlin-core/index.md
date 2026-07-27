@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../index.html)
 
-0.2.0 
+0.5.0 
 
 android commonJvmAndroid common jvm
 
@@ -32,11 +32,21 @@ Link copied to clipboard
 
 common
 
-[com.google.adk.kt.artifacts](com.google.adk.kt.artifacts/index.html)
+[com.google.adk.kt.apps](com.google.adk.kt.apps/index.html)
 
 Link copied to clipboard
 
 common
+
+[com.google.adk.kt.artifacts](com.google.adk.kt.artifacts/index.html)
+
+Link copied to clipboard
+
+android
+
+common
+
+commonJvmAndroid
 
 jvm
 
@@ -122,13 +132,27 @@ common
 
 commonJvmAndroid
 
+[com.google.adk.kt.sessions.room](com.google.adk.kt.sessions.room/index.html)
+
+Link copied to clipboard
+
+android
+
 [com.google.adk.kt.skills](com.google.adk.kt.skills/index.html)
 
 Link copied to clipboard
 
+android
+
 common
 
-jvm
+commonJvmAndroid
+
+[com.google.adk.kt.summarizer](com.google.adk.kt.summarizer/index.html)
+
+Link copied to clipboard
+
+common
 
 [com.google.adk.kt.telemetry](com.google.adk.kt.telemetry/index.html)
 

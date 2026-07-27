@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -69,6 +69,14 @@ Link copied to clipboard
 abstract val [sessionService](session-service.html): [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
 
 ## Functions
+
+[rewindAsync](rewind-async.html)
+
+Link copied to clipboard
+
+open suspend fun [rewindAsync](rewind-async.html)(userId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), sessionId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html))
+
+Rewinds the session to before the specified invocation.
 
 [run](run.html)
 

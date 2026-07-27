@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # close
 
-open override fun [close](close.html)()
+open fun [close](close.html)()
 
 Performs cleanup and releases resources held by the toolset.
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -42,7 +42,7 @@ object [Companion](-companion/index.html)
 
 Link copied to clipboard
 
-open override fun [close](../-toolset/close.html)()
+open fun [close](../-toolset/close.html)()
 
 Performs cleanup and releases resources held by the toolset.
 

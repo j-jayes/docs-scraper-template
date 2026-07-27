@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,9 @@ search in API
 
 # EventActions
 
-data class [EventActions](index.html)(var skipSummarization: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val stateDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = concurrentMutableMapOf(), val artifactDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)> = concurrentMutableMapOf(), var transferToAgent: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, var escalate: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, var endOfAgent: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val requestedToolConfirmations: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [ToolConfirmation](../-tool-confirmation/index.html)> = concurrentMutableMapOf(), var rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, var agentState: [TypedData](../../com.google.adk.kt.agents/-typed-data/index.html)? = null)
+@Serializable
+
+data class [EventActions](index.html)(var skipSummarization: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val stateDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = concurrentMutableMapOf(), val artifactDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)> = concurrentMutableMapOf(), var transferToAgent: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, var escalate: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, var endOfAgent: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val requestedToolConfirmations: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [ToolConfirmation](../-tool-confirmation/index.html)> = concurrentMutableMapOf(), var rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, var agentState: [TypedData](../../com.google.adk.kt.agents/-typed-data/index.html)? = null, var compaction: [EventCompaction](../-event-compaction/index.html)? = null)
 
 Represents the actions attached to an event.
 
@@ -26,7 +28,7 @@ Members
 
 Link copied to clipboard
 
-constructor(skipSummarization: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, stateDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = concurrentMutableMapOf(), artifactDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)> = concurrentMutableMapOf(), transferToAgent: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, escalate: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, endOfAgent: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, requestedToolConfirmations: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [ToolConfirmation](../-tool-confirmation/index.html)> = concurrentMutableMapOf(), rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, agentState: [TypedData](../../com.google.adk.kt.agents/-typed-data/index.html)? = null)
+constructor(skipSummarization: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, stateDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = concurrentMutableMapOf(), artifactDelta: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)> = concurrentMutableMapOf(), transferToAgent: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, escalate: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, endOfAgent: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, requestedToolConfirmations: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [ToolConfirmation](../-tool-confirmation/index.html)> = concurrentMutableMapOf(), rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, agentState: [TypedData](../../com.google.adk.kt.agents/-typed-data/index.html)? = null, compaction: [EventCompaction](../-event-compaction/index.html)? = null)
 
 ## Properties
 
@@ -46,13 +48,21 @@ val [artifactDelta](artifact-delta.html): [MutableMap](https://kotlinlang.org/ap
 
 Indicates that the event is updating an artifact. The key is the filename, and the value is the version.
 
+[compaction](compaction.html)
+
+Link copied to clipboard
+
+var [compaction](compaction.html): [EventCompaction](../-event-compaction/index.html)?
+
+If set, this event carries a context-compaction summary that replaces the compacted range of events when the next LLM prompt is built. See [EventCompaction](../-event-compaction/index.html).
+
 [endOfAgent](end-of-agent.html)
 
 Link copied to clipboard
 
 var [endOfAgent](end-of-agent.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)
 
-If true, the current agent has finished its current run. Note that there can be multiple events with [endOfAgent](end-of-agent.html) set to `true` for the same agent within one invocation when there is a loop. This should only be set by the ADK workflow.
+If true, the current agent has finished its current run. Note that there can be multiple events with [endOfAgent](end-of-agent.html) set to `true` for the same agent within one invocation when there is a loop. The ADK workflow sets this when an agent's run completes naturally. In addition, tools and callbacks may set this on an event they produce to request the current LLM agent's per-step loop to stop after the current step, mirroring Java ADK's `EventActions.setEndInvocation(true)` / `setEndOfAgent(true)`. Note: this only stops the current LLM agent's step loop; it does not terminate an enclosing workflow agent (`SequentialAgent`, `LoopAgent`, `ParallelAgent`). To break out of a `LoopAgent`, set [escalate](escalate.html) instead. `CallbackContext.endInvocation()` / `ToolContext.endInvocation()` are convenience helpers for the same per-agent stop signal via InvocationContext.isEndOfInvocation.
 
 [escalate](escalate.html)
 

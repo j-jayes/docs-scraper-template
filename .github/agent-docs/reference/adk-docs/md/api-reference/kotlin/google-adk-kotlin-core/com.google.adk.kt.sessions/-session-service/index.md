@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -19,6 +19,8 @@ interface [SessionService](index.html)
 Defines the contract for managing [Session](../-session/index.html)s and their associated [Event](../../com.google.adk.kt.events/-event/index.html)s. Provides methods for creating, retrieving, listing, and deleting sessions, as well as listing and appending events to a session. Implementations of this interface handle the underlying storage and retrieval logic.
 
 #### Inheritors
+
+[RoomSessionService](../../../google-adk-kotlin-core/com.google.adk.kt.sessions.room/-room-session-service/index.html)
 
 [InMemorySessionService](../-in-memory-session-service/index.html)
 

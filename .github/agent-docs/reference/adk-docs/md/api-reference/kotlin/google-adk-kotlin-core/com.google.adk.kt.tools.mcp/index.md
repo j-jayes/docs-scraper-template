@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
 jvm
 
@@ -44,7 +44,7 @@ Link copied to clipboard
 
 jvm
 
-sealed class [McpToolException](-mcp-tool-exception/index.html) : [RuntimeException](https://developer.android.com/reference/kotlin/java/lang/RuntimeException.html)
+sealed class [McpToolException](-mcp-tool-exception/index.html) : [RuntimeException](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html)
 
 Base exception for MCP tools.
 

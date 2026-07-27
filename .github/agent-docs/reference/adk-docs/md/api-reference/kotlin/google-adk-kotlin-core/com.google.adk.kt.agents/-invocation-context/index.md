@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # InvocationContext
 
-data class [InvocationContext](index.html)(val session: [Session](../../com.google.adk.kt.sessions/-session/index.html), val runConfig: [RunConfig](../-run-config/index.html)? = null, val agent: [BaseAgent](../-base-agent/index.html), val branch: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val invocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "e-" + Uuid.random(), val artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = null, val memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = null, val sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)? = null, val resumabilityConfig: [ResumabilityConfig](../-resumability-config/index.html)? = null, val userContent: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, val agentStates: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](../-typed-data/index.html)> = concurrentMutableMapOf(), val endOfAgents: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)> = concurrentMutableMapOf(), val extraTools: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [BaseTool](../../com.google.adk.kt.tools/-base-tool/index.html)> = concurrentMutableMapOf(), var isEndOfInvocation: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, var isPaused: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager())
+data class [InvocationContext](index.html)(val session: [Session](../../com.google.adk.kt.sessions/-session/index.html), val runConfig: [RunConfig](../-run-config/index.html)? = null, val agent: [BaseAgent](../-base-agent/index.html), val branch: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val invocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "e-" + Uuid.random(), val artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = null, val memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = null, val sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)? = null, val resumabilityConfig: [ResumabilityConfig](../-resumability-config/index.html)? = null, val userContent: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, val agentStates: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](../-typed-data/index.html)> = concurrentMutableMapOf(), val endOfAgents: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)> = concurrentMutableMapOf(), val extraTools: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [BaseTool](../../com.google.adk.kt.tools/-base-tool/index.html)> = concurrentMutableMapOf(), var isEndOfInvocation: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, var isPaused: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager(), invocationCostManager: [InvocationCostManager](../-invocation-cost-manager/index.html) = InvocationCostManager())
 
 An invocation context represents the data of a single invocation of an agent.
 
@@ -80,7 +80,7 @@ Members
 
 Link copied to clipboard
 
-constructor(session: [Session](../../com.google.adk.kt.sessions/-session/index.html), runConfig: [RunConfig](../-run-config/index.html)? = null, agent: [BaseAgent](../-base-agent/index.html), branch: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, invocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "e-" + Uuid.random(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = null, memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = null, sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)? = null, resumabilityConfig: [ResumabilityConfig](../-resumability-config/index.html)? = null, userContent: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, agentStates: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](../-typed-data/index.html)> = concurrentMutableMapOf(), endOfAgents: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)> = concurrentMutableMapOf(), extraTools: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [BaseTool](../../com.google.adk.kt.tools/-base-tool/index.html)> = concurrentMutableMapOf(), isEndOfInvocation: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, isPaused: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager())
+constructor(session: [Session](../../com.google.adk.kt.sessions/-session/index.html), runConfig: [RunConfig](../-run-config/index.html)? = null, agent: [BaseAgent](../-base-agent/index.html), branch: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, invocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "e-" + Uuid.random(), artifactService: [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)? = null, memoryService: [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)? = null, sessionService: [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)? = null, resumabilityConfig: [ResumabilityConfig](../-resumability-config/index.html)? = null, userContent: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, agentStates: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](../-typed-data/index.html)> = concurrentMutableMapOf(), endOfAgents: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)> = concurrentMutableMapOf(), extraTools: [MutableMap](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [BaseTool](../../com.google.adk.kt.tools/-base-tool/index.html)> = concurrentMutableMapOf(), isEndOfInvocation: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, isPaused: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, pluginManager: [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager(), invocationCostManager: [InvocationCostManager](../-invocation-cost-manager/index.html) = InvocationCostManager())
 
 ## Properties
 
@@ -142,8 +142,6 @@ The id of this invocation context. Readonly.
 
 Link copied to clipboard
 
-@[Volatile](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-volatile/index.html)
-
 var [isEndOfInvocation](is-end-of-invocation.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)
 
 Whether to end this invocation.
@@ -151,8 +149,6 @@ Whether to end this invocation.
 [isPaused](is-paused.html)
 
 Link copied to clipboard
-
-@[Volatile](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-volatile/index.html)
 
 var [~~isPaused~~](is-paused.html) : [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)
 
@@ -244,6 +240,14 @@ suspend fun [findMatchingFunctionCall](find-matching-function-call.html)(functio
 
 Finds the function call event in the current invocation that matches the function response id.
 
+[forAgent](for-agent.html)
+
+Link copied to clipboard
+
+fun [forAgent](for-agent.html)(childAgent: [BaseAgent](../-base-agent/index.html)): [InvocationContext](index.html)
+
+Creates a new InvocationContext for running [childAgent](for-agent.html), derived from this context, keeping the current [branch](branch.html) unchanged.
+
 [getEvents](get-events.html)
 
 Link copied to clipboard
@@ -259,6 +263,14 @@ Link copied to clipboard
 suspend fun [handleFunctionCalls](handle-function-calls.html)(functionCalls: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[FunctionCall](../../com.google.adk.kt.types/-function-call/index.html)>, tools: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [BaseTool](../../com.google.adk.kt.tools/-base-tool/index.html)>, filters: [Set](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-set/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptySet(), toolConfirmations: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [ToolConfirmation](../../com.google.adk.kt.events/-tool-confirmation/index.html)>? = null): [Event](../../com.google.adk.kt.events/-event/index.html)?
 
 Processes a list of function calls by executing them efficiently and safely.
+
+[incrementLlmCallsCount](increment-llm-calls-count.html)
+
+Link copied to clipboard
+
+fun [incrementLlmCallsCount](increment-llm-calls-count.html)()
+
+Counts this LLM call and enforces [RunConfig.maxLlmCalls](../-run-config/max-llm-calls.html).
 
 [populateInvocationAgentStates](populate-invocation-agent-states.html)
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -232,7 +233,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -274,13 +277,19 @@ Table of contents
   3. [ A2A Protocol  ](../)
   4. [ A2A Quickstart (Consuming)  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/a2a/quickstart-consuming.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/a2a/quickstart-consuming.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/a2a/quickstart-consuming.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Quickstart: Consuming a remote agent via A2A¶
 
 Supported in ADKPythonExperimental
 
 This quickstart covers the most common starting point for any developer: **"There is a remote agent, how do I let my ADK agent use it via A2A?"**. This is crucial for building complex multi-agent systems where different agents need to collaborate and interact.
+
+A2A Python SDK version compatibility
+
+ADK's A2A integration works with both major versions of the A2A SDK (`a2a-sdk` 0.3.x and 1.x.x). The installed A2A SDK version is detected automatically, so no changes to your ADK application code are needed.
+
+Although `a2a-sdk` 0.3.x is supported in compatibility mode, new integrations should target 1.x.x. If your code references `a2a-sdk` types directly (for example, custom executors or hand-constructed `AgentCard` instances), see the [A2A SDK v1.0 migration guide](https://github.com/a2aproject/a2a-python/tree/main/docs/migrations/v1_0) when moving to 1.x.x.
 
 ## Overview¶
 
@@ -418,7 +427,7 @@ a2a_basic/remote_a2a/check_prime_agent/agent-card.json
 
 More info on agent cards in ADK
 
-In ADK, you can use a `to_a2a(root_agent)` wrapper which automatically generates an agent card for you. If you're interested in learning more about how to expose your existing agent so others can use it, then please look at the [A2A Quickstart (Exposing)](../quickstart-exposing/) tutorial. 
+In ADK, you can use a `to_a2a(root_agent)` wrapper which automatically generates an agent card for you. If you're interested in learning more about how to expose your existing agent so others can use it, then please look at the [A2A Quickstart (Exposing)](../quickstart-exposing/) tutorial.
 
 ### 4\. Run the Main (Consuming) Agent¶
     

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/CitationMetadata
 
 # CitationMetadata
+
+@Serializable
 
 data class [CitationMetadata](index.html)(val citationSources: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Citation](../-citation/index.html)> = emptyList())
 

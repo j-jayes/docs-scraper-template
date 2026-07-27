@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -68,6 +68,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../llm-agents/)
+      * [ Managed agents  ](../managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -229,7 +230,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -267,7 +270,7 @@ Table of contents
   2. [ Build Agents  ](../../get-started/)
   3. [ Build your Agent  ](../../tutorials/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/config.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/config.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/config.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Build agents with Agent Config¶
 
@@ -334,7 +337,7 @@ This command generates a `my_agent/` folder, containing a `root_agent.yaml` file
 
      1. For Gemini model access through Google API, add a line to the file with your API key:
             
-            GOOGLE_GENAI_USE_VERTEXAI=0
+            GOOGLE_GENAI_USE_ENTERPRISE=0
             GOOGLE_API_KEY=<your-Google-Gemini-API-key>
             
 
@@ -342,7 +345,7 @@ You can get an API key from the Google AI Studio [API Keys](https://aistudio.goo
 
      2. For Gemini model access through Google Cloud, add these lines to the file:
             
-            GOOGLE_GENAI_USE_VERTEXAI=1
+            GOOGLE_GENAI_USE_ENTERPRISE=1
             GOOGLE_CLOUD_PROJECT=<your_gcp_project>
             GOOGLE_CLOUD_LOCATION=us-central1
             

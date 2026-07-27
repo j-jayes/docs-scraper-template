@@ -65,6 +65,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -263,7 +264,7 @@ Table of contents
   2. [ Build Agents  ](../)
   3. [ Get Started  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/java.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/java.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/java.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Java Quickstart for ADK¶
 
@@ -366,7 +367,7 @@ my_agent/pom.xml (partial)
         <dependency>
             <groupId>com.google.adk</groupId>
             <artifactId>google-adk</artifactId>
-            <version>1.5.0</version>
+            <version>1.6.0</version>
         </dependency>
     </dependencies>
     
@@ -402,13 +403,13 @@ my_agent/pom.xml
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
             </dependency>
             <!-- The ADK dev web UI to debug your agent -->
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk-dev</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
             </dependency>
         </dependencies>
     

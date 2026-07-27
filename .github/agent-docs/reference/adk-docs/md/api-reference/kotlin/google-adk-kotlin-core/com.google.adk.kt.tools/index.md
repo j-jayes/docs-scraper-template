@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid common
 
@@ -22,7 +22,7 @@ Types
 
 Link copied to clipboard
 
-class [AgentTool](-agent-tool/index.html)(val agent: [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html), val skipSummarization: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false) : [BaseTool](-base-tool/index.html)
+open class [AgentTool](-agent-tool/index.html)(val agent: [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html), val skipSummarization: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val includePlugins: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = true, val propagateGroundingMetadata: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false) : [BaseTool](-base-tool/index.html)
 
 A tool that wraps a [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html).
 
@@ -30,7 +30,7 @@ A tool that wraps a [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.ht
 
 Link copied to clipboard
 
-abstract class [BaseTool](-base-tool/index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val description: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val isLongRunning: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = emptyMap()) : [AutoCloseable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-auto-closeable/index.html)
+abstract class [BaseTool](-base-tool/index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val description: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val isLongRunning: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = emptyMap())
 
 Abstract base class for defining and executing tools.
 
@@ -49,6 +49,14 @@ Link copied to clipboard
 abstract class [FunctionTool](-function-tool/index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val description: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val isLongRunning: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)> = emptyMap(), requiresConfirmation: ([Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>) -> [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = { false }) : [BaseTool](-base-tool/index.html)
 
 Represents a compile-time generated tool that wraps a function annotated with [com.google.adk.kt.annotations.Tool](../com.google.adk.kt.annotations/-tool/index.html).
+
+[GetUserChoiceTool](-get-user-choice-tool/index.html)
+
+Link copied to clipboard
+
+class [GetUserChoiceTool](-get-user-choice-tool/index.html) : [BaseTool](-base-tool/index.html)
+
+Built-in long-running tool that presents a list of options and pauses the invocation until the user picks one.
 
 [GoogleMapsTool](-google-maps-tool/index.html)
 
@@ -108,6 +116,14 @@ interface [ReadonlyToolContext](-readonly-tool-context/index.html)
 
 A readonly view of the tool context.
 
+[RequestInputTool](-request-input-tool/index.html)
+
+Link copied to clipboard
+
+class [RequestInputTool](-request-input-tool/index.html) : [BaseTool](-base-tool/index.html)
+
+Built-in long-running tool that asks the user a question and pauses the invocation until they respond.
+
 [Schema](-schema/index.html)
 
 Link copied to clipboard
@@ -138,15 +154,23 @@ ToolContext provides a structured context for executing tools or functions.
 
 Link copied to clipboard
 
-interface [Toolset](-toolset/index.html) : [AutoCloseable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-auto-closeable/index.html)
+interface [Toolset](-toolset/index.html)
 
 Base interface for toolsets.
+
+[UrlContextTool](-url-context-tool/index.html)
+
+Link copied to clipboard
+
+class [UrlContextTool](-url-context-tool/index.html) : [BaseTool](-base-tool/index.html)
+
+A built-in tool that is automatically invoked by Gemini models to retrieve content from the given URLs and use that content to inform and shape its response.
 
 [VertexAiSearchTool](-vertex-ai-search-tool/index.html)
 
 Link copied to clipboard
 
-class [VertexAiSearchTool](-vertex-ai-search-tool/index.html)(val dataStoreId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val dataStoreSpecs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../com.google.adk.kt.types/-vertex-a-i-search-data-store-spec/index.html)>? = null, val searchEngineId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val filter: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val maxResults: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null) : [BaseTool](-base-tool/index.html)
+class [VertexAiSearchTool](-vertex-ai-search-tool/index.html)(val dataStoreId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val dataStoreSpecs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../com.google.adk.kt.types/-vertex-a-i-search-data-store-spec/index.html)>? = null, val searchEngineId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val filter: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val maxResults: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val bypassMultiToolsLimit: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val model: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null) : [BaseTool](-base-tool/index.html)
 
 A built-in tool using Vertex AI Search.
 

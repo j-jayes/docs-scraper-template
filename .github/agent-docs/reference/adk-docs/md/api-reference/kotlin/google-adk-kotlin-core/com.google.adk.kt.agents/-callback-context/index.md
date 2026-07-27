@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -134,6 +134,14 @@ suspend fun [addSessionToMemory](add-session-to-memory.html)()
 
 Triggers memory generation for the current session.
 
+[endInvocation](end-invocation.html)
+
+Link copied to clipboard
+
+fun [endInvocation](end-invocation.html)()
+
+Requests the current LLM agent to stop after the current step completes.
+
 [getEvents](../-readonly-context/get-events.html)
 
 Link copied to clipboard
@@ -142,6 +150,22 @@ open suspend override fun [getEvents](../-readonly-context/get-events.html)(curr
 
 Returns the events from the current session.
 
+[listArtifacts](list-artifacts.html)
+
+Link copied to clipboard
+
+suspend fun [listArtifacts](list-artifacts.html)(): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>
+
+Lists the artifact names visible to this invocation. Returns an empty list if no artifact service is configured.
+
+[loadArtifact](load-artifact.html)
+
+Link copied to clipboard
+
+suspend fun [loadArtifact](load-artifact.html)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), version: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null): [Part](../../com.google.adk.kt.types/-part/index.html)?
+
+Loads an artifact by [name](load-artifact.html) from the invocation's [com.google.adk.kt.artifacts.ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html). Returns `null` if no artifact service is configured or the artifact is not found.
+
 [mergeEventActions](merge-event-actions.html)
 
 Link copied to clipboard
@@ -149,6 +173,14 @@ Link copied to clipboard
 fun [mergeEventActions](merge-event-actions.html)(actions: [EventActions](../../com.google.adk.kt.events/-event-actions/index.html))
 
 Merges the given event actions into the current event actions.
+
+[saveArtifact](save-artifact.html)
+
+Link copied to clipboard
+
+suspend fun [saveArtifact](save-artifact.html)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), artifact: [Part](../../com.google.adk.kt.types/-part/index.html)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)
+
+Saves [artifact](save-artifact.html) under [name](save-artifact.html) on the invocation's [com.google.adk.kt.artifacts.ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html), records the new version into [eventActions](event-actions.html)' `artifactDelta`, and returns the version.
 
 [updateState](update-state.html)
 

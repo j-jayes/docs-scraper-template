@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid common
 
@@ -22,7 +22,7 @@ Types
 
 Link copied to clipboard
 
-abstract class [AbstractRunner](-abstract-runner/index.html)(val appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val agent: [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html), val sessionService: [SessionService](../com.google.adk.kt.sessions/-session-service/index.html), val artifactService: [ArtifactService](../com.google.adk.kt.artifacts/-artifact-service/index.html)?, val memoryService: [MemoryService](../com.google.adk.kt.memory/-memory-service/index.html)?, val pluginManager: [PluginManager](../com.google.adk.kt.plugins/-plugin-manager/index.html), val resumabilityConfig: [ResumabilityConfig](../com.google.adk.kt.agents/-resumability-config/index.html) = ResumabilityConfig()) : [Runner](-runner/index.html)
+abstract class [AbstractRunner](-abstract-runner/index.html) : [Runner](-runner/index.html)
 
 An abstract base class for [Runner](-runner/index.html) implementations that provides common orchestration logic.
 
@@ -30,7 +30,7 @@ An abstract base class for [Runner](-runner/index.html) implementations that pro
 
 Link copied to clipboard
 
-open class [InMemoryRunner](-in-memory-runner/index.html)(val agent: [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html), val appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "InMemoryRunner", val sessionService: [SessionService](../com.google.adk.kt.sessions/-session-service/index.html) = InMemorySessionService(), val artifactService: [ArtifactService](../com.google.adk.kt.artifacts/-artifact-service/index.html)? = InMemoryArtifactService(), val memoryService: [MemoryService](../com.google.adk.kt.memory/-memory-service/index.html)? = InMemoryMemoryService(), val pluginManager: [PluginManager](../com.google.adk.kt.plugins/-plugin-manager/index.html) = PluginManager(), val resumabilityConfig: [ResumabilityConfig](../com.google.adk.kt.agents/-resumability-config/index.html) = ResumabilityConfig()) : [AbstractRunner](-abstract-runner/index.html)
+open class [InMemoryRunner](-in-memory-runner/index.html) : [AbstractRunner](-abstract-runner/index.html)
 
 An in-memory implementation of a [Runner](-runner/index.html) that manages the lifecycle of a [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html) execution.
 
@@ -40,7 +40,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open class [ReplRunner](-repl-runner/index.html)(val agent: [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html)) : [InMemoryRunner](-in-memory-runner/index.html)
+open class [ReplRunner](-repl-runner/index.html)(agent: [BaseAgent](../com.google.adk.kt.agents/-base-agent/index.html)) : [InMemoryRunner](-in-memory-runner/index.html)
 
 A runner for Kotlin agents that provides a simple REPL for debugging.
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # GetSessionConfig
 
-data class [GetSessionConfig](index.html)(val numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val afterTimestamp: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html)? = null)
+data class [GetSessionConfig](index.html)(val numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val afterTimestamp: <Error class: unknown class>? = null)
 
 Configuration for getting a session.
 
@@ -26,7 +26,7 @@ Members
 
 Link copied to clipboard
 
-constructor(numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, afterTimestamp: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html)? = null)
+constructor(numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, afterTimestamp: <Error class: unknown class>? = null)
 
 ## Properties
 
@@ -34,7 +34,7 @@ constructor(numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/
 
 Link copied to clipboard
 
-val [afterTimestamp](after-timestamp.html): [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html)? = null
+val [afterTimestamp](after-timestamp.html): <Error class: unknown class>? = null
 
 [numRecentEvents](num-recent-events.html)
 

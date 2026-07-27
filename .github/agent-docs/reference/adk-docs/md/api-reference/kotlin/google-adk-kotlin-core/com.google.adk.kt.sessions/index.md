@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid common
 
@@ -22,7 +22,7 @@ TypesFunctions
 
 Link copied to clipboard
 
-data class [GetSessionConfig](-get-session-config/index.html)(val numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val afterTimestamp: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html)? = null)
+data class [GetSessionConfig](-get-session-config/index.html)(val numRecentEvents: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null, val afterTimestamp: <Error class: unknown class>? = null)
 
 Configuration for getting a session.
 
@@ -62,7 +62,7 @@ A read/write lock.
 
 Link copied to clipboard
 
-data class [Session](-session/index.html)(val key: [SessionKey](-session-key/index.html), val state: [State](-state/index.html) = State(), val events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), var lastUpdateTime: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html) = Instant.fromEpochMilliseconds(0))
+data class [Session](-session/index.html)(val key: [SessionKey](-session-key/index.html), val state: [State](-state/index.html) = State(), val events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), var lastUpdateTime: <Error class: unknown class> = Instant.fromEpochMilliseconds(0))
 
 A [Session](-session/index.html) object that encapsulates the [State](-state/index.html) and [Event](../com.google.adk.kt.events/-event/index.html)s of a session.
 

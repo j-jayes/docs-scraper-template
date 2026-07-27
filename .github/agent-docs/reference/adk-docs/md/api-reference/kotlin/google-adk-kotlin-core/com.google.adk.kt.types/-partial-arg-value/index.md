@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/PartialArgValue
 
 # PartialArgValue
+
+@Serializable
 
 sealed interface [PartialArgValue](index.html)
 
@@ -38,6 +40,8 @@ Members
 
 Link copied to clipboard
 
+@Serializable
+
 data class [BoolValue](-bool-value/index.html)(val value: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)) : [PartialArgValue](index.html)
 
 Represents a boolean value.
@@ -45,6 +49,8 @@ Represents a boolean value.
 [NullValue](-null-value/index.html)
 
 Link copied to clipboard
+
+@Serializable
 
 object [NullValue](-null-value/index.html) : [PartialArgValue](index.html)
 
@@ -54,6 +60,8 @@ Represents a null value.
 
 Link copied to clipboard
 
+@Serializable
+
 data class [NumberValue](-number-value/index.html)(val value: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)) : [PartialArgValue](index.html)
 
 Represents a double value.
@@ -61,6 +69,8 @@ Represents a double value.
 [StringValue](-string-value/index.html)
 
 Link copied to clipboard
+
+@Serializable
 
 data class [StringValue](-string-value/index.html)(val value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)) : [PartialArgValue](index.html)
 

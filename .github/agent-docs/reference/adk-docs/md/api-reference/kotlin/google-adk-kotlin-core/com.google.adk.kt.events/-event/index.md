@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -13,6 +13,8 @@ search in API
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.events](../index.html)/Event
 
 # Event
+
+@Serializable
 
 data class [Event](index.html)(val id: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = Uuid.random(), val invocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val author: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val content: [Content](../../com.google.adk.kt.types/-content/index.html)? = null, val actions: [EventActions](../-event-actions/index.html) = EventActions(), val longRunningToolIds: [Set](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-set/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptySet(), val partial: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val turnComplete: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val errorCode: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val errorMessage: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val finishReason: [FinishReason](../../com.google.adk.kt.types/-finish-reason/index.html)? = null, val usageMetadata: [UsageMetadata](../../com.google.adk.kt.types/-usage-metadata/index.html)? = null, val avgLogProbs: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)? = null, val interrupted: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false, val branch: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val groundingMetadata: [GroundingMetadata](../../com.google.adk.kt.types/-grounding-metadata/index.html)? = null, val modelVersion: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val citationMetadata: [CitationMetadata](../../com.google.adk.kt.types/-citation-metadata/index.html)? = null, val customMetadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null, val timestamp: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html) = Clock.System.now().toEpochMilliseconds())
 
@@ -144,7 +146,7 @@ Link copied to clipboard
 
 val [isFinalResponse](is-final-response.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)
 
-Returns true if this is a final response.
+Returns true if this event is the final response of an agent turn — i.e. it terminates the per-turn model loop in [com.google.adk.kt.agents.LlmAgent.executeTurns](../../../google-adk-kotlin-core/com.google.adk.kt.agents/-llm-agent/execute-turns.html). Matches ADK Python's `Event.is_final_response()`: `skipSummarization` or a non-empty `longRunningToolIds` set both mark the event as final, otherwise the event is final iff it carries no function calls, no function responses, is not a partial streaming chunk, and has no trailing code-execution-result part.
 
 [longRunningToolIds](long-running-tool-ids.html)
 
@@ -211,6 +213,14 @@ Link copied to clipboard
 fun [functionResponses](function-responses.html)(): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[FunctionResponse](../../com.google.adk.kt.types/-function-response/index.html)>
 
 Returns all function responses from this event.
+
+[hasTrailingCodeExecutionResult](has-trailing-code-execution-result.html)
+
+Link copied to clipboard
+
+fun [hasTrailingCodeExecutionResult](has-trailing-code-execution-result.html)(): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)
+
+Returns true if the last part of this event is a code-execution result. Mirrors ADK Java's `Event.hasTrailingCodeExecutionResult()`.
 
 [populateClientFunctionCallId](populate-client-function-call-id.html)
 

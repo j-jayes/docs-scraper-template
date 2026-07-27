@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # PluginManager
 
-class [PluginManager](index.html)(val plugins: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](../-plugin/index.html)> = emptyList())
+class [PluginManager](index.html)(val plugins: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](../-plugin/index.html)> = emptyList(), val skipClosingPlugins: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false)
 
 Manages the pre-aggregation of typed functional callbacks.
 
@@ -26,7 +26,7 @@ Members
 
 Link copied to clipboard
 
-constructor(plugins: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](../-plugin/index.html)> = emptyList())
+constructor(plugins: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](../-plugin/index.html)> = emptyList(), skipClosingPlugins: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false)
 
 ## Types
 
@@ -117,6 +117,14 @@ Link copied to clipboard
 val [plugins](plugins.html): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[Plugin](../-plugin/index.html)>
 
 The list of registered plugins managed by this instance.
+
+[skipClosingPlugins](skip-closing-plugins.html)
+
+Link copied to clipboard
+
+val [skipClosingPlugins](skip-closing-plugins.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false
+
+When `true`, [close](close.html) becomes a no-op so that plugins owned by another (parent) manager are not torn down by this sub-manager. Intended for cases where a sub-runner shares the parent runner's [Plugin](../-plugin/index.html) instances (e.g. [com.google.adk.kt.tools.AgentTool](../../com.google.adk.kt.tools/-agent-tool/index.html) propagating parent plugins to the wrapped agent's runner): the sub-runner must not close plugins it does not own.
 
 ## Functions
 

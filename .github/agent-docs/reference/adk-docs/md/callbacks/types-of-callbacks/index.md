@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -226,7 +227,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -262,7 +265,7 @@ Table of contents
   3. [ App management  ](../../apps/)
   4. [ Callbacks  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/callbacks/types-of-callbacks.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/callbacks/types-of-callbacks.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/callbacks/types-of-callbacks.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Types of Callbacks¶
 
@@ -411,7 +414,7 @@ PythonTypescriptGoJava
         session_service = runner.session_service
     
         # Create session 1: Agent will run (default empty state)
-        session_service.create_session(
+        await session_service.create_session(
             app_name=app_name,
             user_id=user_id,
             session_id=session_id_run,
@@ -419,7 +422,7 @@ PythonTypescriptGoJava
         )
     
         # Create session 2: Agent will be skipped (state has skip_llm_agent=True)
-        session_service.create_session(
+        await session_service.create_session(
             app_name=app_name,
             user_id=user_id,
             session_id=session_id_skip,
@@ -645,21 +648,21 @@ PythonTypescriptGoJava
         "regexp"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
     
     
     // 1. Define the Callback Function
-    func onBeforeAgent(ctx agent.CallbackContext) (*genai.Content, error) {
+    func onBeforeAgent(ctx agent.Context) (*genai.Content, error) {
         agentName := ctx.AgentName()
         log.Printf("[Callback] Entering agent: %s", agentName)
         if skip, _ := ctx.State().Get("skip_llm_agent"); skip == true {
@@ -941,7 +944,7 @@ PythonTypescriptGoJava
         session_service = runner.session_service
     
         # Create session 1: Agent output will be used as is (default empty state)
-        session_service.create_session(
+        await session_service.create_session(
             app_name=app_name,
             user_id=user_id,
             session_id=session_id_normal,
@@ -950,7 +953,7 @@ PythonTypescriptGoJava
         # print(f"Session '{session_id_normal}' created with default state.")
     
         # Create session 2: Agent output will be replaced by the callback
-        session_service.create_session(
+        await session_service.create_session(
             app_name=app_name,
             user_id=user_id,
             session_id=session_id_modify,
@@ -1171,20 +1174,20 @@ PythonTypescriptGoJava
         "regexp"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
     
     
-    func onAfterAgent(ctx agent.CallbackContext) (*genai.Content, error) {
+    func onAfterAgent(ctx agent.Context) (*genai.Content, error) {
         agentName := ctx.AgentName()
         invocationID := ctx.InvocationID()
         state := ctx.State()
@@ -1672,20 +1675,20 @@ PythonTypescriptGoJava
         "regexp"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
     
     
-    func onBeforeModel(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+    func onBeforeModel(ctx agent.Context, req *model.LLMRequest) (*model.LLMResponse, error) {
         log.Printf("[Callback] BeforeModel triggered for agent %q.", ctx.AgentName())
     
         // Modification Example: Add a prefix to the system instruction.
@@ -2168,20 +2171,20 @@ PythonTypescriptGoJava
         "regexp"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
     
     
-    func onAfterModel(ctx agent.CallbackContext, resp *model.LLMResponse, respErr error) (*model.LLMResponse, error) {
+    func onAfterModel(ctx agent.Context, resp *model.LLMResponse, respErr error) (*model.LLMResponse, error) {
         log.Printf("[Callback] AfterModel triggered for agent %q.", ctx.AgentName())
         if respErr != nil {
             log.Printf("[Callback] Model returned an error: %v. Passing it through.", respErr)
@@ -2672,14 +2675,14 @@ PythonTypescriptGoJava
         "regexp"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
@@ -2689,7 +2692,7 @@ PythonTypescriptGoJava
     }
     
     // getCapitalCity is a tool that returns the capital of a given country.
-    func getCapitalCity(ctx tool.Context, args *GetCapitalCityArgs) (string, error) {
+    func getCapitalCity(ctx agent.Context, args *GetCapitalCityArgs) (string, error) {
         capitals := map[string]string{
             "canada":        "Ottawa",
             "france":        "Paris",
@@ -2703,7 +2706,7 @@ PythonTypescriptGoJava
         return capital, nil
     }
     
-    func onBeforeTool(ctx tool.Context, t tool.Tool, args map[string]any) (map[string]any, error) {
+    func onBeforeTool(ctx agent.Context, t tool.Tool, args map[string]any) (map[string]any, error) {
         log.Printf("[Callback] BeforeTool triggered for tool %q in agent %q.", t.Name(), ctx.AgentName())
         log.Printf("[Callback] Original args: %v", args)
     
@@ -3162,14 +3165,14 @@ PythonTypescriptGoJava
         "regexp"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
@@ -3179,7 +3182,7 @@ PythonTypescriptGoJava
     }
     
     // getCapitalCity is a tool that returns the capital of a given country.
-    func getCapitalCity(ctx tool.Context, args *GetCapitalCityArgs) (string, error) {
+    func getCapitalCity(ctx agent.Context, args *GetCapitalCityArgs) (string, error) {
         capitals := map[string]string{
             "canada":        "Ottawa",
             "france":        "Paris",
@@ -3193,7 +3196,7 @@ PythonTypescriptGoJava
         return capital, nil
     }
     
-    func onAfterTool(ctx tool.Context, t tool.Tool, args map[string]any, result map[string]any, err error) (map[string]any, error) {
+    func onAfterTool(ctx agent.Context, t tool.Tool, args map[string]any, result map[string]any, err error) (map[string]any, error) {
         log.Printf("[Callback] AfterTool triggered for tool %q in agent %q.", t.Name(), ctx.AgentName())
         log.Printf("[Callback] Original result: %v", result)
     

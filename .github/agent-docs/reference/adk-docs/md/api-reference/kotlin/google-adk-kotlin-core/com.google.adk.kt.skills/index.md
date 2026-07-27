@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
-common jvm
+android commonJvmAndroid common
 
 switch theme
 
@@ -18,11 +18,21 @@ Types
 
 ## Types
 
+[AssetSkillSource](-asset-skill-source/index.html)
+
+Link copied to clipboard
+
+android
+
+class [AssetSkillSource](-asset-skill-source/index.html) : [SkillSource](-skill-source/index.html)
+
+Android implementation of [SkillSource](-skill-source/index.html) backed by an AssetManager.
+
 [Frontmatter](-frontmatter/index.html)
 
 Link copied to clipboard
 
-data class [Frontmatter](-frontmatter/index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val description: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val license: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val compatibility: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val allowedTools: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val metadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap())
+data class [Frontmatter](-frontmatter/index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val description: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val license: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val compatibility: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val allowedTools: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val metadata: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?> = emptyMap())
 
 Represents the frontmatter of a skill, containing metadata about the skill.
 
@@ -30,11 +40,9 @@ Represents the frontmatter of a skill, containing metadata about the skill.
 
 Link copied to clipboard
 
-jvm
+commonJvmAndroid
 
 class [NewFileSystemSource](-new-file-system-source/index.html)(skillsBaseDir: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)) : [SkillSource](-skill-source/index.html)
-
-JVM implementation of [SkillSource](-skill-source/index.html) using standard File I/O.
 
 [SkillSource](-skill-source/index.html)
 
@@ -48,7 +56,7 @@ Core interface for accessing skill components.
 
 Link copied to clipboard
 
-class [SkillSourceException](-skill-source-exception/index.html)(message: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), cause: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-throwable/index.html)? = null) : [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-exception/index.html)
+class [SkillSourceException](-skill-source-exception/index.html)(message: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), cause: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-throwable/index.html)? = null)
 
 The exception type returned by [SkillSource](-skill-source/index.html) methods.
 

@@ -2,9 +2,9 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
-jvm
+commonJvmAndroid
 
 switch theme
 
@@ -14,15 +14,15 @@ search in API
 
 # listResources
 
-jvm
+commonJvmAndroid
 
-open suspend override fun [listResources](list-resources.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourceDirectoryPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html)<[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>>
+open suspend override fun [listResources](list-resources.html)(skillName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), resourceDirectoryPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): <Error class: unknown class><[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>>
 
 Returns a list of resource paths within a specific directory for a given skill.
 
 #### Return
 
-A [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-result/index.html) wrapping the list of relative paths to resources from the skill root, or a [SkillSourceException](../-skill-source-exception/index.html) failure whose message identifies the specific cause (e.g. the skill does not exist, or [resourceDirectoryPath](list-resources.html) is invalid or not found).
+A Result wrapping the list of relative paths to resources from the skill root, or a [SkillSourceException](../-skill-source-exception/index.html) failure whose message identifies the specific cause (e.g. the skill does not exist, or [resourceDirectoryPath](list-resources.html) is invalid or not found).
 
 #### Parameters
 

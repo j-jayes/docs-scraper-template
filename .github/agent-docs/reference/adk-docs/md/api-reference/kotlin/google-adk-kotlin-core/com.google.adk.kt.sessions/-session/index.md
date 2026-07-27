@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # Session
 
-data class [Session](index.html)(val key: [SessionKey](../-session-key/index.html), val state: [State](../-state/index.html) = State(), val events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), var lastUpdateTime: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html) = Instant.fromEpochMilliseconds(0))
+data class [Session](index.html)(val key: [SessionKey](../-session-key/index.html), val state: [State](../-state/index.html) = State(), val events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), var lastUpdateTime: <Error class: unknown class> = Instant.fromEpochMilliseconds(0))
 
 A [Session](index.html) object that encapsulates the [State](../-state/index.html) and [Event](../../com.google.adk.kt.events/-event/index.html)s of a session.
 
@@ -26,7 +26,7 @@ Members
 
 Link copied to clipboard
 
-constructor(key: [SessionKey](../-session-key/index.html), state: [State](../-state/index.html) = State(), events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), lastUpdateTime: [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html) = Instant.fromEpochMilliseconds(0))
+constructor(key: [SessionKey](../-session-key/index.html), state: [State](../-state/index.html) = State(), events: [MutableList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html)<[Event](../../com.google.adk.kt.events/-event/index.html)> = mutableListOf(), lastUpdateTime: <Error class: unknown class> = Instant.fromEpochMilliseconds(0))
 
 ## Properties
 
@@ -50,7 +50,7 @@ The composite identifier of the session ([SessionKey.appName](../-session-key/ap
 
 Link copied to clipboard
 
-var [lastUpdateTime](last-update-time.html): [Instant](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.time/-instant/index.html)
+var [lastUpdateTime](last-update-time.html): <Error class: unknown class>
 
 The last update time of the session. Defaults to Instant.EPOCH.
 

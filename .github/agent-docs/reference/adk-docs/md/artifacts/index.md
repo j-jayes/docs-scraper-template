@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -265,7 +266,7 @@ Table of contents
   2. [ Components  ](../get-started/about/)
   3. [ Artifacts  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/artifacts/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/artifacts/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/artifacts/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Artifacts¶
 
@@ -507,11 +508,11 @@ PythonTypescriptGoJavaKotlin
       "context"
       "log"
     
-      "google.golang.org/adk/agent/llmagent"
-      "google.golang.org/adk/artifactservice"
-      "google.golang.org/adk/llm/gemini"
-      "google.golang.org/adk/runner"
-      "google.golang.org/adk/sessionservice"
+      "google.golang.org/adk/v2/agent/llmagent"
+      "google.golang.org/adk/v2/artifact"
+      "google.golang.org/adk/v2/model/gemini"
+      "google.golang.org/adk/v2/runner"
+      "google.golang.org/adk/v2/session"
       "google.golang.org/genai"
     )
     
@@ -899,11 +900,11 @@ In Java, if an `ArtifactService` instance is not available (e.g., `null`) when a
       "context"
       "log"
     
-      "google.golang.org/adk/agent/llmagent"
-      "google.golang.org/adk/artifactservice"
-      "google.golang.org/adk/llm/gemini"
-      "google.golang.org/adk/runner"
-      "google.golang.org/adk/sessionservice"
+      "google.golang.org/adk/v2/agent/llmagent"
+      "google.golang.org/adk/v2/artifact"
+      "google.golang.org/adk/v2/model/gemini"
+      "google.golang.org/adk/v2/runner"
+      "google.golang.org/adk/v2/session"
       "google.golang.org/genai"
     )
     
@@ -1065,13 +1066,13 @@ PythonTypescriptGoJavaKotlin
         import (
           "log"
         
-          "google.golang.org/adk/agent"
-          "google.golang.org/adk/llm"
+          "google.golang.org/adk/v2/agent"
+          "google.golang.org/adk/v2/model"
           "google.golang.org/genai"
         )
         
         // saveReportCallback is a BeforeModel callback that saves a report from session state.
-        func saveReportCallback(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+        func saveReportCallback(ctx agent.Context, req *model.LLMRequest) (*model.LLMResponse, error) {
             // Get the report data from the session state.
             reportData, err := ctx.State().Get("report_bytes")
             if err != nil {
@@ -1246,13 +1247,13 @@ PythonTypescriptGoJavaKotlin
         import (
           "log"
         
-          "google.golang.org/adk/agent"
-          "google.golang.org/adk/llm"
+          "google.golang.org/adk/v2/agent"
+          "google.golang.org/adk/v2/model"
         )
         
         // loadArtifactsCallback is a BeforeModel callback that loads a specific artifact
         // and adds its content to the LLM request.
-        func loadArtifactsCallback(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+        func loadArtifactsCallback(ctx agent.Context, req *model.LLMRequest) (*model.LLMResponse, error) {
             log.Println("[Callback] loadArtifactsCallback triggered.")
             // In a real app, you would parse the user's request to find a filename.
             // For this example, we'll hardcode a filename to demonstrate.
@@ -1418,9 +1419,9 @@ Make sure the `Runner` for this agent is configured with an `artifact_service`; 
     
     
     import (
-      "google.golang.org/adk/agent/llmagent"
-      "google.golang.org/adk/tool"
-      "google.golang.org/adk/tool/loadartifactstool"
+      "google.golang.org/adk/v2/agent/llmagent"
+      "google.golang.org/adk/v2/tool"
+      "google.golang.org/adk/v2/tool/loadartifactstool"
     )
     
     agent, err := llmagent.New(llmagent.Config{
@@ -1511,14 +1512,14 @@ PythonTypescriptGoJava
           "log"
           "strings"
         
-          "google.golang.org/adk/agent"
-          "google.golang.org/adk/llm"
+          "google.golang.org/adk/v2/agent"
+          "google.golang.org/adk/v2/model"
           "google.golang.org/genai"
         )
         
         // listUserFilesCallback is a BeforeModel callback that lists available artifacts
         // and adds the list as context to the LLM request.
-        func listUserFilesCallback(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+        func listUserFilesCallback(ctx agent.Context, req *model.LLMRequest) (*model.LLMResponse, error) {
             log.Println("[Callback] listUserFilesCallback triggered.")
             // List the available artifacts from the artifact service.
             listResponse, err := ctx.Artifacts().List(ctx)
@@ -1694,7 +1695,7 @@ PythonTypescriptGoJavaKotlin
         
         
         import (
-          "google.golang.org/adk/artifactservice"
+          "google.golang.org/adk/v2/artifact"
         )
         
         // Simply instantiate the service

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -268,7 +269,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -345,7 +348,7 @@ Table of contents
   2. [ Run Agents  ](../../runtime/)
   3. [ Deployment  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/deploy/cloud-run.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/deploy/cloud-run.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/deploy/cloud-run.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Deploy to Cloud Run¶
 
@@ -399,7 +402,7 @@ Set your environment variables as described in the [Setup and Installation](../.
     
     export GOOGLE_CLOUD_PROJECT=your-project-id
     export GOOGLE_CLOUD_LOCATION=us-central1 # Or your preferred location
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
     
 
 For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
@@ -681,7 +684,7 @@ Navigate to `your-project-directory` in your terminal.
     --region $GOOGLE_CLOUD_LOCATION \
     --project $GOOGLE_CLOUD_PROJECT \
     --allow-unauthenticated \
-    --set-env-vars="GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT,GOOGLE_CLOUD_LOCATION=$GOOGLE_CLOUD_LOCATION,GOOGLE_GENAI_USE_VERTEXAI=$GOOGLE_GENAI_USE_VERTEXAI"
+    --set-env-vars="GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT,GOOGLE_CLOUD_LOCATION=$GOOGLE_CLOUD_LOCATION,GOOGLE_GENAI_USE_ENTERPRISE=$GOOGLE_GENAI_USE_ENTERPRISE"
     # Add any other necessary environment variables your agent might need
     
 
@@ -804,13 +807,13 @@ main.go
         "os"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/cmd/launcher"
-        "google.golang.org/adk/cmd/launcher/full"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/cmd/launcher"
+        "google.golang.org/adk/v2/cmd/launcher/full"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
@@ -818,7 +821,7 @@ main.go
         Country string `json:"country" jsonschema:"The country for which to find the capital city."`
     }
     
-    func getCapitalCity(ctx tool.Context, args getCapitalCityArgs) (string, error) {
+    func getCapitalCity(ctx agent.Context, args getCapitalCityArgs) (string, error) {
         capitals := map[string]string{
             "united states": "Washington, D.C.",
             "canada":        "Ottawa",
@@ -836,7 +839,7 @@ main.go
     func main() {
         ctx := context.Background()
     
-        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+        model, err := gemini.NewModel(ctx, "gemini-flash-latest", &genai.ClientConfig{
             APIKey: os.Getenv("GOOGLE_API_KEY"),
         })
         if err != nil {
@@ -989,12 +992,12 @@ pom.xml
            <dependency>
               <groupId>com.google.adk</groupId>
               <artifactId>google-adk</artifactId>
-              <version>1.4.0</version>
+              <version>1.6.0</version>
            </dependency>
            <dependency>
               <groupId>com.google.adk</groupId>
               <artifactId>google-adk-dev</artifactId>
-              <version>1.4.0</version>
+              <version>1.6.0</version>
            </dependency>
          </dependencies>
          
@@ -1048,7 +1051,7 @@ Navigate to `your-project-directory` in your terminal.
     --region $GOOGLE_CLOUD_LOCATION \
     --project $GOOGLE_CLOUD_PROJECT \
     --allow-unauthenticated \
-    --set-env-vars="GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT,GOOGLE_CLOUD_LOCATION=$GOOGLE_CLOUD_LOCATION,GOOGLE_GENAI_USE_VERTEXAI=$GOOGLE_GENAI_USE_VERTEXAI"
+    --set-env-vars="GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT,GOOGLE_CLOUD_LOCATION=$GOOGLE_CLOUD_LOCATION,GOOGLE_GENAI_USE_ENTERPRISE=$GOOGLE_GENAI_USE_ENTERPRISE"
     # Add any other necessary environment variables your agent might need
     
 

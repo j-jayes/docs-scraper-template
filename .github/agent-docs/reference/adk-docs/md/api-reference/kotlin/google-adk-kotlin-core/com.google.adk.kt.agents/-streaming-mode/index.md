@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -41,14 +41,6 @@ Link copied to clipboard
 Server-Sent Events (SSE) streaming mode.
 
 ## Properties
-
-[entries](entries.html)
-
-Link copied to clipboard
-
-val [entries](entries.html): [EnumEntries](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.enums/-enum-entries/index.html)<[StreamingMode](index.html)>
-
-Returns a representation of an immutable list of all enum entries, in the order they're declared.
 
 [name](../../com.google.adk.kt.types/-type/-n-u-l-l/index.html#-372974862%2FProperties%2F-1644122207)
 
