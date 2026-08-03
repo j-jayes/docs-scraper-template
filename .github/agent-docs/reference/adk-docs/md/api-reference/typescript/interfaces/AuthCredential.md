@@ -101,7 +101,7 @@ resourceRef?: string;
 serviceAccount?: [ServiceAccount](ServiceAccount.html);  
 }
 
-  * Defined in [auth/auth_credential.ts:240](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L240)
+  * Defined in [core/src/auth/auth_credential.ts:260](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L260)
 
 
 
@@ -111,7 +111,7 @@ serviceAccount?: [ServiceAccount](ServiceAccount.html);
 
 apiKey?: string
 
-  * Defined in [auth/auth_credential.ts:249](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L249)
+  * Defined in [core/src/auth/auth_credential.ts:269](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L269)
 
 
 
@@ -119,7 +119,7 @@ apiKey?: string
 
 authType: [AuthCredentialTypes](../enums/AuthCredentialTypes.html)
 
-  * Defined in [auth/auth_credential.ts:241](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L241)
+  * Defined in [core/src/auth/auth_credential.ts:261](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L261)
 
 
 
@@ -127,7 +127,7 @@ authType: [AuthCredentialTypes](../enums/AuthCredentialTypes.html)
 
 http?: [HttpAuth](HttpAuth.html)
 
-  * Defined in [auth/auth_credential.ts:250](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L250)
+  * Defined in [core/src/auth/auth_credential.ts:270](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L270)
 
 
 
@@ -135,7 +135,7 @@ http?: [HttpAuth](HttpAuth.html)
 
 oauth2?: [OAuth2Auth](OAuth2Auth.html)
 
-  * Defined in [auth/auth_credential.ts:252](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L252)
+  * Defined in [core/src/auth/auth_credential.ts:272](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L272)
 
 
 
@@ -145,7 +145,7 @@ resourceRef?: string
 
 Resource reference for the credential. This will be supported in the future.
 
-  * Defined in [auth/auth_credential.ts:247](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L247)
+  * Defined in [core/src/auth/auth_credential.ts:267](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L267)
 
 
 
@@ -153,7 +153,7 @@ Resource reference for the credential. This will be supported in the future.
 
 serviceAccount?: [ServiceAccount](ServiceAccount.html)
 
-  * Defined in [auth/auth_credential.ts:251](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L251)
+  * Defined in [core/src/auth/auth_credential.ts:271](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L271)
 
 
 
@@ -161,7 +161,7 @@ Properties
 
 apiKeyauthTypehttpoauth2resourceRefserviceAccount
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -64,6 +64,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -93,6 +94,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -168,14 +170,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -184,6 +182,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -225,7 +225,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -259,16 +261,20 @@ Table of contents
   2. [ Build Agents  ](../)
   3. [ Get Started  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/go.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/go.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/go.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Go Quickstart for ADK¶
 
 This guide shows you how to get up and running with Agent Development Kit for Go. Before you start, make sure you have the following installed:
 
-  * Go 1.24.4 or later
-  * ADK Go v0.2.0 or later
+  * Go 1.25 or later
+  * ADK Go v2.0.0 or later
 
 
+
+What's new in ADK Go 2.0
+
+ADK Go 2.0 introduces graph-based workflow agents, parallel and loop execution primitives, and Human-in-the-Loop tool confirmation. See the [ADK 2.0 release page](/2.0/) for the full list of new features and migration guidance.
 
 ## Create an agent project¶
 
@@ -310,13 +316,13 @@ my_agent/agent.go
         "log"
         "os"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/cmd/launcher"
-        "google.golang.org/adk/cmd/launcher/full"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/geminitool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/cmd/launcher"
+        "google.golang.org/adk/v2/cmd/launcher/full"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/geminitool"
         "google.golang.org/genai"
     )
     
@@ -356,10 +362,11 @@ my_agent/agent.go
 
 ### Configure project and dependencies¶
 
-Use the `go mod` command to initialize the project modules and install the required packages based on the `import` statement in your agent code file:
+Initialize your module, add ADK Go 2.0 as a pinned dependency, then let `go mod tidy` resolve the remaining packages based on the `import` statements in your agent code file:
     
     
     go mod init my-agent/main
+    go get google.golang.org/adk/v2
     go mod tidy
     
 
@@ -419,7 +426,7 @@ Run from: my_agent/ directory
     go run agent.go web api webui
     
 
-This command starts a web server with a chat interface for your agent. You can access the web interface at (http://localhost:8080). Select your agent at the upper left corner and type a request.
+This command starts a web server with a chat interface for your agent. You can access the web interface at `http://localhost:8080`. Select your agent at the upper left corner and type a request.
 
 Caution: ADK Web for development only
 
@@ -430,6 +437,8 @@ ADK Web is **_not meant for use in production deployments_**. You should use ADK
 Now that you have ADK installed and your first agent running, try building your own agent with our build guides:
 
   * [Build your agent](/tutorials/)
+  * [Build graph-based workflows](/graphs/)
+  * [ADK Go workflow agents](/agents/workflow-agents/)
 
 
 

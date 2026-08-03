@@ -1,8 +1,8 @@
 Contents Menu Expand Light mode Dark mode Auto light/dark, in light mode Auto light/dark, in dark mode Skip to content
 
-[Agent Development Kit 2.0.0 documentation](index.html)
+[Agent Development Kit (Python) 2.6.0 documentation](index.html)
 
-[ Agent Development Kit 2.0.0 documentation ](index.html)
+[ Agent Development Kit (Python) 2.6.0 documentation ](index.html)
 
   * Submodules
   * google.adk.a2a module
@@ -17,18 +17,44 @@ Contents Menu Expand Light mode Dark mode Auto light/dark, in light mode Auto li
   * google.adk.events module
   * google.adk.examples module
   * google.adk.flows module
+  * google.adk.integrations module
+  * google.adk.integrations.agent_identity module
   * google.adk.integrations.agent_identity module
   * google.adk.integrations.agent_registry module
+  * google.adk.integrations.agent_registry module
+  * google.adk.integrations.api_registry module
   * google.adk.integrations.api_registry module
   * google.adk.integrations.bigquery module
+  * google.adk.integrations.bigquery module
+  * google.adk.integrations.cloud_run module
+  * google.adk.integrations.cloud_run module
   * google.adk.integrations.crewai module
+  * google.adk.integrations.crewai module
+  * google.adk.integrations.daytona module
+  * google.adk.integrations.daytona module
+  * google.adk.integrations.e2b module
+  * google.adk.integrations.e2b module
+  * google.adk.integrations.eventarc module
+  * google.adk.integrations.eventarc module
   * google.adk.integrations.firestore module
+  * google.adk.integrations.firestore module
+  * google.adk.integrations.gcs module
+  * google.adk.integrations.gcs module
   * google.adk.integrations.langchain module
+  * google.adk.integrations.langchain module
+  * google.adk.integrations.oci module
+  * google.adk.integrations.oci module
+  * google.adk.integrations.parameter_manager module
   * google.adk.integrations.parameter_manager module
   * google.adk.integrations.secret_manager module
+  * google.adk.integrations.secret_manager module
+  * google.adk.integrations.skill_registry module
   * google.adk.integrations.skill_registry module
   * google.adk.integrations.slack module
+  * google.adk.integrations.slack module
   * google.adk.integrations.vmaas module
+  * google.adk.integrations.vmaas module
+  * google.adk.labs.antigravity module
   * google.adk.labs.openai module
   * google.adk.memory module
   * google.adk.models module
@@ -89,6 +115,7 @@ Contents Menu Expand Light mode Dark mode Auto light/dark, in light mode Auto li
   * google.adk.tools.toolbox_toolset module
   * google.adk.tools.transfer_to_agent_tool module
   * google.adk.tools.url_context_tool module
+  * google.adk.tools.vertex_ai_load_profiles_tool module
   * google.adk.tools.vertex_ai_search_tool module
   * google.adk.utils module
   * google.adk.version module
@@ -114,7 +141,7 @@ alias of `LlmAgent`
 _pydantic model _google.adk.agents.BaseAgent¶
     
 
-Bases: `BaseNode`
+Bases: `BaseNode`, `ABC`
 
 Base class for all agents in Agent Development Kit.
 
@@ -827,8 +854,44 @@ Validated by:
 
 
 
+config_type¶
+    
+
+alias of `BaseAgentConfig`
+
+_classmethod _from_config(_cls_ , _config_ , _config_abs_path_)¶
+    
+
+Creates an agent from a config.
+
+If sub-classes use a custom agent config, override _parse_config to return updated kwargs for the agent constructor.
+
+Return type:
+    
+
+`TypeVar`(`SelfAgent`, bound= BaseAgent)
+
+Parameters:
+    
+
+  * **config** – The config to create the agent from.
+
+  * **config_abs_path** – The absolute path to the config file that contains the agent config.
+
+
+
+Returns:
+    
+
+The created agent.
+
 _validator _validate_name _ » __name_¶
     
+
+Return type:
+    
+
+`str`
 
 _validator _validate_sub_agents_unique_names _ » __sub_agents_¶
     
@@ -979,6 +1042,213 @@ _property _root_agent _: BaseAgent_¶
 
 Gets the root agent of this agent.
 
+_pydantic model _google.adk.agents.BaseAgentConfig¶
+    
+
+Bases: `BaseModel`
+
+The config for the YAML schema of a BaseAgent.
+
+Do not use this class directly. It’s the base class for all agent configs.
+
+Show JSON schema
+    
+    
+    {
+       "title": "BaseAgentConfig",
+       "description": "The config for the YAML schema of a BaseAgent.\n\nDo not use this class directly. It's the base class for all agent configs.",
+       "type": "object",
+       "properties": {
+          "agent_class": {
+             "anyOf": [
+                {
+                   "const": "BaseAgent",
+                   "type": "string"
+                },
+                {
+                   "type": "string"
+                }
+             ],
+             "default": "BaseAgent",
+             "description": "Required. The class of the agent. The value is used to differentiate among different agent classes.",
+             "title": "Agent Class"
+          },
+          "name": {
+             "description": "Required. The name of the agent.",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "description": "Optional. The description of the agent.",
+             "title": "Description",
+             "type": "string"
+          },
+          "sub_agents": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/AgentRefConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The sub-agents of the agent.",
+             "title": "Sub Agents"
+          },
+          "before_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The before_agent_callbacks of the agent.\n\nExample:\n\n  ```\n  before_agent_callbacks:\n    - name: my_library.security_callbacks.before_agent_callback\n  ```",
+             "title": "Before Agent Callbacks"
+          },
+          "after_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The after_agent_callbacks of the agent.",
+             "title": "After Agent Callbacks"
+          }
+       },
+       "$defs": {
+          "AgentRefConfig": {
+             "additionalProperties": false,
+             "description": "The config for the reference to another agent.",
+             "properties": {
+                "config_path": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Config Path"
+                },
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Code"
+                }
+             },
+             "title": "AgentRefConfig",
+             "type": "object"
+          },
+          "CodeConfig": {
+             "additionalProperties": false,
+             "description": "Code reference config for a variable, a function, or a class.\n\nOnly references an object by name. YAML cannot pass constructor args; to\nuse a configured object, build it in Python and reference its FQN here.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "CodeConfig",
+             "type": "object"
+          }
+       },
+       "additionalProperties": true,
+       "deprecated": true,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `after_agent_callbacks (List[google.adk.agents.common_configs.CodeConfig] | None)`
+
+  * `agent_class (Literal['BaseAgent'] | str)`
+
+  * `before_agent_callbacks (List[google.adk.agents.common_configs.CodeConfig] | None)`
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `sub_agents (List[google.adk.agents.common_configs.AgentRefConfig] | None)`
+
+
+
+
+_field _after_agent_callbacks _: Optional[List[CodeConfig]]__ = None_¶
+    
+
+Optional. The after_agent_callbacks of the agent.
+
+_field _agent_class _: Union[Literal['BaseAgent'], str]__ = 'BaseAgent'_¶
+    
+
+Required. The class of the agent. The value is used to differentiate among different agent classes.
+
+_field _before_agent_callbacks _: Optional[List[CodeConfig]]__ = None_¶
+    
+
+Optional. The before_agent_callbacks of the agent.
+
+Example:
+
+> ``` before_agent_callbacks:
+>
+>>   * name: my_library.security_callbacks.before_agent_callback
+>> 
+>> 
+
+> 
+> ```
+
+_field _description _: str_ _ = ''_¶
+    
+
+Optional. The description of the agent.
+
+_field _name _: str_ _[Required]_¶
+    
+
+Required. The name of the agent.
+
+_field _sub_agents _: Optional[List[AgentRefConfig]]__ = None_¶
+    
+
+Optional. The sub-agents of the agent.
+
 _class _google.adk.agents.Context(_invocation_context_ , _*_ , _event_actions =None_, _function_call_id =None_, _tool_confirmation =None_, _parent_ctx =None_, _node =None_, _node_path =None_, _run_id =''_, _resume_inputs =None_, _attempt_count =1_, _use_as_output =False_)¶
     
 
@@ -1104,6 +1374,16 @@ _property _attempt_count _: int_¶
     
 
 Returns the current attempt number (1-based).
+
+_property _branch _: str | None_¶
+    
+
+The branch path of the current invocation context.
+
+_property _custom_metadata _: dict[str, Any]_¶
+    
+
+Returns the custom metadata dictionary.
 
 _property _error _: Exception | None_¶
     
@@ -1392,6 +1672,10 @@ Parameters:
 
   * **override_branch** – An optional branch to use instead of parent’s branch.
 
+  * **override_isolation_scope** – An optional isolation scope to use instead of the parent’s scope.
+
+  * **raise_on_wait** – If True, raises NodeInterruptedError when the child node is WAITING instead of returning None.
+
 
 
 Returns:
@@ -1574,15 +1858,8 @@ Show JSON schema
              "title": "Credential Service"
           },
           "context_cache_config": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/ContextCacheConfig"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
+             "default": null,
+             "title": "Context Cache Config"
           },
           "invocation_id": {
              "title": "Invocation Id",
@@ -1681,6 +1958,10 @@ Show JSON schema
              "default": null,
              "title": "Active Streaming Tools"
           },
+          "active_non_blocking_tool_tasks": {
+             "default": null,
+             "title": "Active Non Blocking Tool Tasks"
+          },
           "transcription_cache": {
              "anyOf": [
                 {
@@ -1739,15 +2020,8 @@ Show JSON schema
              "title": "Output Realtime Cache"
           },
           "run_config": {
-             "anyOf": [
-                {
-                   "$ref": "#/$defs/RunConfig"
-                },
-                {
-                   "type": "null"
-                }
-             ],
-             "default": null
+             "default": null,
+             "title": "Run Config"
           },
           "resumability_config": {
              "anyOf": [
@@ -1786,154 +2060,6 @@ Show JSON schema
           }
        },
        "$defs": {
-          "APIKey": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "apiKey"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "in": {
-                   "$ref": "#/$defs/APIKeyIn"
-                },
-                "name": {
-                   "title": "Name",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "in",
-                "name"
-             ],
-             "title": "APIKey",
-             "type": "object"
-          },
-          "APIKeyIn": {
-             "enum": [
-                "query",
-                "header",
-                "cookie"
-             ],
-             "title": "APIKeyIn",
-             "type": "string"
-          },
-          "ActivityHandling": {
-             "description": "The different ways of handling user activity.",
-             "enum": [
-                "ACTIVITY_HANDLING_UNSPECIFIED",
-                "START_OF_ACTIVITY_INTERRUPTS",
-                "NO_INTERRUPTION"
-             ],
-             "title": "ActivityHandling",
-             "type": "string"
-          },
-          "AudioTranscriptionConfig": {
-             "additionalProperties": false,
-             "description": "The audio transcription configuration in Setup.",
-             "properties": {
-                "languageCodes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The language codes of the audio. BCP-47 language code. If not set, the transcription will be in the language detected by the model. If set, the server will use the language code specified in the model config as a hint for the language of the audio\n      ",
-                   "title": "Languagecodes"
-                }
-             },
-             "title": "AudioTranscriptionConfig",
-             "type": "object"
-          },
-          "AuthConfig": {
-             "additionalProperties": true,
-             "description": "The auth config sent by tool asking client to collect auth credentials and\n\nadk and client will help to fill in the response",
-             "properties": {
-                "authScheme": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/APIKey"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBase"
-                      },
-                      {
-                         "$ref": "#/$defs/OAuth2"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnect"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBearer"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnectWithConfig"
-                      },
-                      {
-                         "$ref": "#/$defs/CustomAuthScheme"
-                      }
-                   ],
-                   "title": "Authscheme"
-                },
-                "rawAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "exchangedAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "credentialKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Credentialkey"
-                }
-             },
-             "required": [
-                "authScheme"
-             ],
-             "title": "AuthConfig",
-             "type": "object"
-          },
           "AuthCredential": {
              "additionalProperties": true,
              "description": "Data class representing an authentication credential.\n\nTo exchange for the actual credential, please use\nCredentialExchanger.exchange_credential().\n\nExamples: API Key Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    api_key=\"1234\",\n)\n\nExample: HTTP Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"basic\",\n        credentials=HttpCredentials(username=\"user\", password=\"password\"),\n    ),\n)\n\nExample: OAuth2 Bearer Token in HTTP Header\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"bearer\",\n        credentials=HttpCredentials(token=\"eyAkaknabna....\"),\n    ),\n)\n\nExample: OAuth2 Auth with Authorization Code Flow\nAuthCredential(\n    auth_type=AuthCredentialTypes.OAUTH2,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n    ),\n)\n\nExample: OpenID Connect Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.OPEN_ID_CONNECT,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n        redirect_uri=\"https://example.com\",\n        scopes=[\"scope1\", \"scope2\"],\n    ),\n)\n\nExample: Auth with resource reference\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    resource_ref=\"projects/1234/locations/us-central1/resources/resource1\",\n)",
@@ -2016,136 +2142,6 @@ Show JSON schema
              ],
              "title": "AuthCredentialTypes",
              "type": "string"
-          },
-          "AutomaticActivityDetection": {
-             "additionalProperties": false,
-             "description": "Configures automatic detection of activity.",
-             "properties": {
-                "disabled": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "If enabled, detected voice and text input count as activity. If disabled, the client must send activity signals.",
-                   "title": "Disabled"
-                },
-                "startOfSpeechSensitivity": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/StartSensitivity"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Determines how likely speech is to be detected."
-                },
-                "endOfSpeechSensitivity": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/EndSensitivity"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Determines how likely detected speech is ended."
-                },
-                "prefixPaddingMs": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The required duration of detected speech before start-of-speech is committed. The lower this value the more sensitive the start-of-speech detection is and the shorter speech can be recognized. However, this also increases the probability of false positives.",
-                   "title": "Prefixpaddingms"
-                },
-                "silenceDurationMs": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The required duration of detected non-speech (e.g. silence) before end-of-speech is committed. The larger this value, the longer speech gaps can be without interrupting the user's activity but this will increase the model's latency.",
-                   "title": "Silencedurationms"
-                }
-             },
-             "title": "AutomaticActivityDetection",
-             "type": "object"
-          },
-          "AvatarConfig": {
-             "additionalProperties": false,
-             "description": "Configures the avatar to be used in the session.",
-             "properties": {
-                "avatarName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Pre-built avatar id.",
-                   "title": "Avatarname"
-                },
-                "customizedAvatar": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/CustomizedAvatar"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Customized avatar appearance with a reference image."
-                },
-                "audioBitrateBps": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The bitrate of compressed audio.",
-                   "title": "Audiobitratebps"
-                },
-                "videoBitrateBps": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The bitrate of compressed video output.",
-                   "title": "Videobitratebps"
-                }
-             },
-             "title": "AvatarConfig",
-             "type": "object"
           },
           "BaseAgent": {
              "additionalProperties": false,
@@ -2414,7 +2410,7 @@ Show JSON schema
           },
           "CacheMetadata": {
              "additionalProperties": false,
-             "description": "Metadata for context cache associated with LLM responses.\n\nThis class stores cache identification, usage tracking, and lifecycle\ninformation for a particular cache instance. It can be in two states:\n\n1. Active cache state: cache_name is set, all fields populated\n2. Fingerprint-only state: cache_name is None, only fingerprint and\n   contents_count are set for prefix matching\n\nToken counts (cached and total) are available in the LlmResponse.usage_metadata\nand should be accessed from there to avoid duplication.\n\nAttributes:\n    cache_name: The full resource name of the cached content (e.g.,\n        'projects/123/locations/us-central1/cachedContents/456').\n        None when no active cache exists (fingerprint-only state).\n    expire_time: Unix timestamp when the cache expires. None when no\n        active cache exists.\n    fingerprint: Hash of cacheable contents (instruction + tools + contents).\n        Always present for prefix matching.\n    invocations_used: Number of invocations this cache has been used for.\n        None when no active cache exists.\n    contents_count: Number of contents. When active cache exists, this is\n        the count of cached contents. When no active cache exists, this is\n        the total count of contents in the request.\n    created_at: Unix timestamp when the cache was created. None when\n        no active cache exists.",
+             "description": "Metadata for context cache associated with LLM responses.\n\nThis class stores cache identification, usage tracking, and lifecycle\ninformation for a particular cache instance. It can be in two states:\n\n1. Active cache state: cache_name is set, all fields populated\n2. Fingerprint-only state: cache_name is None, only fingerprint and\n   contents_count are set for prefix matching\n\nToken counts (cached and total) are available in the LlmResponse.usage_metadata\nand should be accessed from there to avoid duplication.\n\nAttributes:\n    cache_name: The full resource name of the cached content (e.g.,\n        'projects/123/locations/us-central1/cachedContents/456').\n        None when no active cache exists (fingerprint-only state).\n    expire_time: Unix timestamp when the cache expires. None when no\n        active cache exists.\n    fingerprint: Hash of cacheable contents (instruction + tools + contents).\n        Always present for prefix matching.\n    invocations_used: Number of invocations this cache has been used for.\n        None when no active cache exists.\n    contents_count: Number of contents. When active cache exists, this is\n        the count of cached contents. When no active cache exists, this is\n        the count of the cacheable content prefix used for fingerprinting.\n    created_at: Unix timestamp when the cache was created. None when\n        no active cache exists.",
              "properties": {
                 "cache_name": {
                    "anyOf": [
@@ -2462,7 +2458,7 @@ Show JSON schema
                    "title": "Invocations Used"
                 },
                 "contents_count": {
-                   "description": "Number of contents (cached contents when active cache exists, total contents in request when no active cache)",
+                   "description": "Number of contents (cached contents when active cache exists, cacheable content prefix when no active cache)",
                    "minimum": 0,
                    "title": "Contents Count",
                    "type": "integer"
@@ -2599,7 +2595,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -2636,7 +2632,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -2679,129 +2675,6 @@ Show JSON schema
              },
              "title": "Content",
              "type": "object"
-          },
-          "ContextCacheConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for context caching across all agents in an app.\n\nThis configuration enables and controls context caching behavior for\nall LLM agents in an app. When this config is present on an app, context\ncaching is enabled for all agents. When absent (None), context caching\nis disabled.\n\nContext caching can significantly reduce costs and improve response times\nby reusing previously processed context across multiple requests.\n\nAttributes:\n    cache_intervals: Maximum number of invocations to reuse the same cache before refreshing it\n    ttl_seconds: Time-to-live for cache in seconds\n    min_tokens: Minimum tokens required to enable caching",
-             "properties": {
-                "cache_intervals": {
-                   "default": 10,
-                   "description": "Maximum number of invocations to reuse the same cache before refreshing it",
-                   "maximum": 100,
-                   "minimum": 1,
-                   "title": "Cache Intervals",
-                   "type": "integer"
-                },
-                "ttl_seconds": {
-                   "default": 1800,
-                   "description": "Time-to-live for cache in seconds",
-                   "exclusiveMinimum": 0,
-                   "title": "Ttl Seconds",
-                   "type": "integer"
-                },
-                "min_tokens": {
-                   "default": 0,
-                   "description": "Minimum estimated request tokens required to enable caching. This compares against the estimated total tokens of the request (system instruction + tools + contents). Context cache storage may have cost. Set higher to avoid caching small requests where overhead may exceed benefits.",
-                   "minimum": 0,
-                   "title": "Min Tokens",
-                   "type": "integer"
-                }
-             },
-             "title": "ContextCacheConfig",
-             "type": "object"
-          },
-          "ContextWindowCompressionConfig": {
-             "additionalProperties": false,
-             "description": "Enables context window compression -- mechanism managing model context window so it does not exceed given length.",
-             "properties": {
-                "triggerTokens": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Number of tokens (before running turn) that triggers context window compression mechanism.",
-                   "title": "Triggertokens"
-                },
-                "slidingWindow": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/SlidingWindow"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Sliding window compression mechanism."
-                }
-             },
-             "title": "ContextWindowCompressionConfig",
-             "type": "object"
-          },
-          "CustomAuthScheme": {
-             "additionalProperties": true,
-             "description": "A flexible model for custom authentication schemes.\n\nThe subclasses must define a `default` for the `type_` field, if using OAuth2\nuser consent flow, to ensure correct rehydration.",
-             "properties": {
-                "type": {
-                   "title": "Type",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "type"
-             ],
-             "title": "CustomAuthScheme",
-             "type": "object"
-          },
-          "CustomizedAvatar": {
-             "additionalProperties": false,
-             "description": "Configures the customized avatar to be used in the session.",
-             "properties": {
-                "imageMimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The mime type of the reference image, e.g., \"image/jpeg\".",
-                   "title": "Imagemimetype"
-                },
-                "imageData": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The data of the reference image. The dimensions of the reference\n      image should be 9:16 (portrait) with a minimum resolution of 704x1280.",
-                   "title": "Imagedata"
-                }
-             },
-             "title": "CustomizedAvatar",
-             "type": "object"
-          },
-          "EndSensitivity": {
-             "description": "End of speech sensitivity.",
-             "enum": [
-                "END_SENSITIVITY_UNSPECIFIED",
-                "END_SENSITIVITY_HIGH",
-                "END_SENSITIVITY_LOW"
-             ],
-             "title": "EndSensitivity",
-             "type": "string"
           },
           "Event": {
              "description": "Represents an event in a conversation between agents and users.\n\nIt is used to store the content of the conversation, as well as the actions\ntaken by the agents like function calls, etc.",
@@ -2863,6 +2736,17 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Turncomplete"
+                },
+                "turnCompleteReason": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/TurnCompleteReason"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
                 },
                 "finishReason": {
                    "anyOf": [
@@ -2969,6 +2853,17 @@ Show JSON schema
                    ],
                    "default": null
                 },
+                "voiceActivity": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceActivity"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
                 "inputTranscription": {
                    "anyOf": [
                       {
@@ -3047,6 +2942,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Interactionid"
+                },
+                "environmentId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Environmentid"
                 },
                 "invocationId": {
                    "default": "",
@@ -3180,9 +3087,7 @@ Show JSON schema
                    "title": "Escalate"
                 },
                 "requestedAuthConfigs": {
-                   "additionalProperties": {
-                      "$ref": "#/$defs/AuthConfig"
-                   },
+                   "additionalProperties": true,
                    "title": "Requestedauthconfigs",
                    "type": "object"
                 },
@@ -3330,7 +3235,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -3367,7 +3272,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -3447,7 +3352,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -3459,7 +3364,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -3473,7 +3378,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -3486,7 +3391,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -3524,7 +3429,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -3536,7 +3441,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -3549,7 +3454,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -3564,7 +3469,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -3590,7 +3495,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -3613,7 +3518,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -3639,7 +3544,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -3652,7 +3557,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -3661,7 +3566,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -3699,7 +3604,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -3708,7 +3613,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -3720,7 +3625,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -3732,14 +3637,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -3909,37 +3814,6 @@ Show JSON schema
                 }
              },
              "title": "GenerateContentResponseUsageMetadata",
-             "type": "object"
-          },
-          "GetSessionConfig": {
-             "description": "The configuration of getting a session.\n\nAttributes:\n  num_recent_events: The limit of recent events to get for the session.\n    Optional: if None, the filter is not applied; if greater than 0, returns\n      at most given number of recent events; if 0, no events are returned.\n  after_timestamp: The earliest timestamp of events to get for the session.\n    Optional: if None, the filter is not applied; otherwise, returns events\n      with timestamp >= the given time.",
-             "properties": {
-                "num_recent_events": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Num Recent Events"
-                },
-                "after_timestamp": {
-                   "anyOf": [
-                      {
-                         "type": "number"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "After Timestamp"
-                }
-             },
-             "title": "GetSessionConfig",
              "type": "object"
           },
           "GoogleTypeDate": {
@@ -4600,7 +4474,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Page number of the retrieved context. This field is not supported in Vertex AI.",
+                   "description": "Optional. Page number of the retrieved context, if applicable. This field is not supported in Vertex AI.",
                    "title": "Pagenumber"
                 },
                 "mediaId": {
@@ -4613,7 +4487,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Media ID. This field is not supported in Vertex AI.",
+                   "description": "Optional. The media blob resource name for multimodal file search results. Format: fileSearchStores/{file_search_store_id}/media/{blob_id}. This field is not supported in Vertex AI.",
                    "title": "Mediaid"
                 }
              },
@@ -4793,7 +4667,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.",
+                   "description": "Optional. Output only. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and will no longer be populated once removed. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.",
                    "title": "Googlemapswidgetcontexttoken"
                 },
                 "retrievalQueries": {
@@ -4932,77 +4806,6 @@ Show JSON schema
                 }
              },
              "title": "GroundingSupport",
-             "type": "object"
-          },
-          "HTTPBase": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "scheme"
-             ],
-             "title": "HTTPBase",
-             "type": "object"
-          },
-          "HTTPBearer": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "const": "bearer",
-                   "default": "bearer",
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "bearerFormat": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Bearerformat"
-                }
-             },
-             "title": "HTTPBearer",
              "type": "object"
           },
           "HttpAuth": {
@@ -5153,7 +4956,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.\n\nPresence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResmumptionTokenUpdate`. This field will enable them to limit buffering (avoid keeping all requests in RAM).\n\nNote: This should not be used for when resuming a session at some time later -- in those cases partial audio and video frames arelikely not needed.",
+                   "description": "Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.\n\nPresence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResumptionTokenUpdate`. This field will enable them to limit buffering (avoid keeping all requests in RAM).\n\nNote: This should not be used for when resuming a session at some time later -- in those cases partial audio and video frames are likely not needed.",
                    "title": "Lastconsumedclientmessageindex"
                 }
              },
@@ -5285,7 +5088,7 @@ Show JSON schema
              "type": "object"
           },
           "MediaModality": {
-             "description": "Server content modalities.",
+             "description": "The modality that this token count applies to.",
              "enum": [
                 "MODALITY_UNSPECIFIED",
                 "TEXT",
@@ -5299,7 +5102,7 @@ Show JSON schema
           },
           "ModalityTokenCount": {
              "additionalProperties": false,
-             "description": "Represents token counting info for a single modality.",
+             "description": "Represents a breakdown of token usage by modality.\n\nThis message is used in CountTokensResponse and\nGenerateContentResponse.UsageMetadata to provide a detailed view of how many\ntokens are used by each modality (e.g., text, image, video) in a request. This\nis particularly useful for multimodal models, allowing you to track and manage\ntoken consumption for billing and quota purposes.",
              "properties": {
                 "modality": {
                    "anyOf": [
@@ -5311,7 +5114,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The modality associated with this token count."
+                   "description": "The modality that this token count applies to."
                 },
                 "tokenCount": {
                    "anyOf": [
@@ -5328,30 +5131,6 @@ Show JSON schema
                 }
              },
              "title": "ModalityTokenCount",
-             "type": "object"
-          },
-          "MultiSpeakerVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a multi-speaker text-to-speech request.",
-             "properties": {
-                "speakerVoiceConfigs": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "$ref": "#/$defs/SpeakerVoiceConfig"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. A list of configurations for the voices of the speakers. Exactly two speaker voice configurations must be provided.",
-                   "title": "Speakervoiceconfigs"
-                }
-             },
-             "title": "MultiSpeakerVoiceConfig",
              "type": "object"
           },
           "NodeInfo": {
@@ -5391,35 +5170,6 @@ Show JSON schema
                 }
              },
              "title": "NodeInfo",
-             "type": "object"
-          },
-          "OAuth2": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "oauth2"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "flows": {
-                   "$ref": "#/$defs/OAuthFlows"
-                }
-             },
-             "required": [
-                "flows"
-             ],
-             "title": "OAuth2",
              "type": "object"
           },
           "OAuth2Auth": {
@@ -5594,6 +5344,18 @@ Show JSON schema
                    "default": null,
                    "title": "Audience"
                 },
+                "prompt": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Prompt"
+                },
                 "codeVerifier": {
                    "anyOf": [
                       {
@@ -5638,332 +5400,6 @@ Show JSON schema
                 }
              },
              "title": "OAuth2Auth",
-             "type": "object"
-          },
-          "OAuthFlowAuthorizationCode": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl",
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowAuthorizationCode",
-             "type": "object"
-          },
-          "OAuthFlowClientCredentials": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowClientCredentials",
-             "type": "object"
-          },
-          "OAuthFlowImplicit": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl"
-             ],
-             "title": "OAuthFlowImplicit",
-             "type": "object"
-          },
-          "OAuthFlowPassword": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowPassword",
-             "type": "object"
-          },
-          "OAuthFlows": {
-             "additionalProperties": true,
-             "properties": {
-                "implicit": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowImplicit"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowPassword"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "clientCredentials": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowClientCredentials"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "authorizationCode": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowAuthorizationCode"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "title": "OAuthFlows",
-             "type": "object"
-          },
-          "OpenIdConnect": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "openIdConnectUrl": {
-                   "title": "Openidconnecturl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "openIdConnectUrl"
-             ],
-             "title": "OpenIdConnect",
-             "type": "object"
-          },
-          "OpenIdConnectWithConfig": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "authorization_endpoint": {
-                   "title": "Authorization Endpoint",
-                   "type": "string"
-                },
-                "token_endpoint": {
-                   "title": "Token Endpoint",
-                   "type": "string"
-                },
-                "userinfo_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Userinfo Endpoint"
-                },
-                "revocation_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Revocation Endpoint"
-                },
-                "token_endpoint_auth_methods_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token Endpoint Auth Methods Supported"
-                },
-                "grant_types_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Grant Types Supported"
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                }
-             },
-             "required": [
-                "authorization_endpoint",
-                "token_endpoint"
-             ],
-             "title": "OpenIdConnectWithConfig",
              "type": "object"
           },
           "Outcome": {
@@ -6154,6 +5590,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -6291,48 +5739,6 @@ Show JSON schema
              "title": "PartialArg",
              "type": "object"
           },
-          "PrebuiltVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a prebuilt voice.",
-             "properties": {
-                "voiceName": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The name of the prebuilt voice to use.",
-                   "title": "Voicename"
-                }
-             },
-             "title": "PrebuiltVoiceConfig",
-             "type": "object"
-          },
-          "ProactivityConfig": {
-             "additionalProperties": false,
-             "description": "Config for proactivity features.",
-             "properties": {
-                "proactiveAudio": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "If enabled, the model can reject responding to the last prompt. For\n        example, this allows the model to ignore out of context speech or to stay\n        silent if the user did not make a request, yet.",
-                   "title": "Proactiveaudio"
-                }
-             },
-             "title": "ProactivityConfig",
-             "type": "object"
-          },
           "RagChunk": {
              "additionalProperties": false,
              "description": "A RagChunk includes the content of a chunk of a RagFile, and associated metadata.\n\nThis data type is not supported in Gemini API.",
@@ -6361,6 +5767,32 @@ Show JSON schema
                    "default": null,
                    "description": "The content of the chunk.",
                    "title": "Text"
+                },
+                "chunkId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ID of the chunk.",
+                   "title": "Chunkid"
+                },
+                "fileId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ID of the file that the chunk belongs to.",
+                   "title": "Fileid"
                 }
              },
              "title": "RagChunk",
@@ -6422,111 +5854,6 @@ Show JSON schema
                 "timestamp"
              ],
              "title": "RealtimeCacheEntry",
-             "type": "object"
-          },
-          "RealtimeInputConfig": {
-             "additionalProperties": false,
-             "description": "Marks the end of user activity.\n\nThis can only be sent if automatic (i.e. server-side) activity detection is\ndisabled.",
-             "properties": {
-                "automaticActivityDetection": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AutomaticActivityDetection"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "If not set, automatic activity detection is enabled by default. If automatic voice detection is disabled, the client must send activity signals."
-                },
-                "activityHandling": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ActivityHandling"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Defines what effect activity has."
-                },
-                "turnCoverage": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/TurnCoverage"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Defines which input is included in the user's turn."
-                }
-             },
-             "title": "RealtimeInputConfig",
-             "type": "object"
-          },
-          "ReplicatedVoiceConfig": {
-             "additionalProperties": false,
-             "description": "The configuration for the replicated voice to use.",
-             "properties": {
-                "mimeType": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The mimetype of the voice sample. The only currently supported\n      value is `audio/wav`. This represents 16-bit signed little-endian wav\n      data, with a 24kHz sampling rate.\n      ",
-                   "title": "Mimetype"
-                },
-                "voiceSampleAudio": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The sample of the custom voice.\n      ",
-                   "title": "Voicesampleaudio"
-                },
-                "consentAudio": {
-                   "anyOf": [
-                      {
-                         "format": "base64url",
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Recorded consent verifying ownership of the voice. This\n      represents 16-bit signed little-endian wav data, with a 24kHz sampling\n      rate.",
-                   "title": "Consentaudio"
-                },
-                "voiceConsentSignature": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConsentSignature"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Signature of a previously verified consent audio. This should be\n      populated with a signature generated by the server for a previous\n      request containing the consent_audio field. When provided, the\n      signature is verified instead of the consent_audio field to reduce\n      latency. Requests will fail if the signature is invalid or expired."
-                }
-             },
-             "title": "ReplicatedVoiceConfig",
              "type": "object"
           },
           "ResumabilityConfig": {
@@ -6653,195 +5980,6 @@ Show JSON schema
                 }
              },
              "title": "RetryConfig",
-             "type": "object"
-          },
-          "RunConfig": {
-             "additionalProperties": false,
-             "description": "Configs for runtime behavior of agents.\n\nThe configs here will be overridden by agent-specific configurations.",
-             "properties": {
-                "speech_config": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/SpeechConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "response_modalities": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Response Modalities"
-                },
-                "avatar_config": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AvatarConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "save_input_blobs_as_artifacts": {
-                   "default": false,
-                   "deprecated": true,
-                   "description": "Whether or not to save the input blobs as artifacts. DEPRECATED: Use SaveFilesAsArtifactsPlugin instead for better control and flexibility. See google.adk.plugins.SaveFilesAsArtifactsPlugin.",
-                   "title": "Save Input Blobs As Artifacts",
-                   "type": "boolean"
-                },
-                "support_cfc": {
-                   "default": false,
-                   "title": "Support Cfc",
-                   "type": "boolean"
-                },
-                "streaming_mode": {
-                   "$ref": "#/$defs/StreamingMode",
-                   "default": null
-                },
-                "output_audio_transcription": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AudioTranscriptionConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ]
-                },
-                "input_audio_transcription": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AudioTranscriptionConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ]
-                },
-                "realtime_input_config": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/RealtimeInputConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "enable_affective_dialog": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Enable Affective Dialog"
-                },
-                "proactivity": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ProactivityConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "session_resumption": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/SessionResumptionConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "context_window_compression": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ContextWindowCompressionConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "save_live_blob": {
-                   "default": false,
-                   "title": "Save Live Blob",
-                   "type": "boolean"
-                },
-                "tool_thread_pool_config": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ToolThreadPoolConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "save_live_audio": {
-                   "default": false,
-                   "deprecated": true,
-                   "description": "DEPRECATED: Use save_live_blob instead. If set to True, it saves live video and audio data to session and artifact service.",
-                   "title": "Save Live Audio",
-                   "type": "boolean"
-                },
-                "max_llm_calls": {
-                   "default": 500,
-                   "title": "Max Llm Calls",
-                   "type": "integer"
-                },
-                "custom_metadata": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": true,
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Custom Metadata"
-                },
-                "get_session_config": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/GetSessionConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "title": "RunConfig",
              "type": "object"
           },
           "Schema": {
@@ -7222,16 +6360,6 @@ Show JSON schema
              "title": "SearchEntryPoint",
              "type": "object"
           },
-          "SecuritySchemeType": {
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect"
-             ],
-             "title": "SecuritySchemeType",
-             "type": "string"
-          },
           "Segment": {
              "additionalProperties": false,
              "description": "Segment of the content this support belongs to.",
@@ -7432,23 +6560,42 @@ Show JSON schema
              "description": "Represents a series of interactions between a user and agents.",
              "properties": {
                 "id": {
+                   "description": "Unique identifier of the session.",
+                   "examples": [
+                      "session-abc123"
+                   ],
                    "title": "Id",
                    "type": "string"
                 },
                 "appName": {
+                   "description": "Application name that owns the session.",
+                   "examples": [
+                      "hello_world"
+                   ],
                    "title": "Appname",
                    "type": "string"
                 },
                 "userId": {
+                   "description": "User ID that owns the session.",
+                   "examples": [
+                      "user-123"
+                   ],
                    "title": "Userid",
                    "type": "string"
                 },
                 "state": {
                    "additionalProperties": true,
+                   "description": "Current persisted session state.",
+                   "examples": [
+                      {
+                         "locale": "en-US"
+                      }
+                   ],
                    "title": "State",
                    "type": "object"
                 },
                 "events": {
+                   "description": "Ordered event history for the session, including user, model, and tool events (e.g. user input, model response, function call/response).",
                    "items": {
                       "$ref": "#/$defs/Event"
                    },
@@ -7457,6 +6604,10 @@ Show JSON schema
                 },
                 "lastUpdateTime": {
                    "default": 0.0,
+                   "description": "Unix timestamp in seconds for the most recent session update.",
+                   "examples": [
+                      1742000000.0
+                   ],
                    "title": "Lastupdatetime",
                    "type": "number"
                 }
@@ -7468,158 +6619,6 @@ Show JSON schema
              ],
              "title": "Session",
              "type": "object"
-          },
-          "SessionResumptionConfig": {
-             "additionalProperties": false,
-             "description": "Configuration of session resumption mechanism.\n\nIncluded in `LiveConnectConfig.session_resumption`. If included server\nwill send `LiveServerSessionResumptionUpdate` messages.",
-             "properties": {
-                "handle": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Session resumption handle of previous session (session to restore).\n\nIf not present new session will be started.",
-                   "title": "Handle"
-                },
-                "transparent": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "If set the server will send `last_consumed_client_message_index` in the `session_resumption_update` messages to allow for transparent reconnections.",
-                   "title": "Transparent"
-                }
-             },
-             "title": "SessionResumptionConfig",
-             "type": "object"
-          },
-          "SlidingWindow": {
-             "additionalProperties": false,
-             "description": "Context window will be truncated by keeping only suffix of it.\n\nContext window will always be cut at start of USER role turn. System\ninstructions and `BidiGenerateContentSetup.prefix_turns` will not be\nsubject to the sliding window mechanism, they will always stay at the\nbeginning of context window.",
-             "properties": {
-                "targetTokens": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Session reduction target -- how many tokens we should keep. Window shortening operation has some latency costs, so we should avoid running it on every turn. Should be < trigger_tokens. If not set, trigger_tokens/2 is assumed.",
-                   "title": "Targettokens"
-                }
-             },
-             "title": "SlidingWindow",
-             "type": "object"
-          },
-          "SpeakerVoiceConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for a single speaker in a multi-speaker setup.",
-             "properties": {
-                "speaker": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The name of the speaker. This should be the same as the speaker name used in the prompt.",
-                   "title": "Speaker"
-                },
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Required. The configuration for the voice of this speaker."
-                }
-             },
-             "title": "SpeakerVoiceConfig",
-             "type": "object"
-          },
-          "SpeechConfig": {
-             "additionalProperties": false,
-             "description": "Config for speech generation and transcription.",
-             "properties": {
-                "voiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/VoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration in case of single-voice output."
-                },
-                "languageCode": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "Optional. The language code (ISO 639-1) for the speech synthesis.",
-                   "title": "Languagecode"
-                },
-                "multiSpeakerVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/MultiSpeakerVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a multi-speaker text-to-speech request. This field is mutually exclusive with `voice_config`."
-                }
-             },
-             "title": "SpeechConfig",
-             "type": "object"
-          },
-          "StartSensitivity": {
-             "description": "Start of speech sensitivity.",
-             "enum": [
-                "START_SENSITIVITY_UNSPECIFIED",
-                "START_SENSITIVITY_HIGH",
-                "START_SENSITIVITY_LOW"
-             ],
-             "title": "StartSensitivity",
-             "type": "string"
-          },
-          "StreamingMode": {
-             "description": "Streaming modes for agent execution.\n\nThis enum defines different streaming behaviors for how the agent returns\nevents as model response.",
-             "enum": [
-                null,
-                "sse",
-                "bidi"
-             ],
-             "title": "StreamingMode"
           },
           "ToolCall": {
              "additionalProperties": false,
@@ -7743,21 +6742,6 @@ Show JSON schema
              "title": "ToolResponse",
              "type": "object"
           },
-          "ToolThreadPoolConfig": {
-             "additionalProperties": false,
-             "description": "Configuration for the tool thread pool executor.\n\nAttributes:\n  max_workers: Maximum number of worker threads in the pool. Defaults to 4.",
-             "properties": {
-                "max_workers": {
-                   "default": 4,
-                   "description": "Maximum number of worker threads in the pool.",
-                   "minimum": 1,
-                   "title": "Max Workers",
-                   "type": "integer"
-                }
-             },
-             "title": "ToolThreadPoolConfig",
-             "type": "object"
-          },
           "ToolType": {
              "description": "The type of tool in the function call.",
              "enum": [
@@ -7785,7 +6769,7 @@ Show JSON schema
           },
           "Transcription": {
              "additionalProperties": false,
-             "description": "Audio transcription in Server Conent.",
+             "description": "Audio transcription in Server Content.",
              "properties": {
                 "text": {
                    "anyOf": [
@@ -7812,6 +6796,48 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The bool indicates the end of the transcription.",
                    "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
                 }
              },
              "title": "Transcription",
@@ -7851,15 +6877,39 @@ Show JSON schema
              "title": "TranscriptionEntry",
              "type": "object"
           },
-          "TurnCoverage": {
-             "description": "Options about which input is included in the user's turn.",
+          "TurnCompleteReason": {
+             "description": "The reason why the turn is complete.",
              "enum": [
-                "TURN_COVERAGE_UNSPECIFIED",
-                "TURN_INCLUDES_ONLY_ACTIVITY",
-                "TURN_INCLUDES_ALL_INPUT",
-                "TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO"
+                "TURN_COMPLETE_REASON_UNSPECIFIED",
+                "MALFORMED_FUNCTION_CALL",
+                "RESPONSE_REJECTED",
+                "NEED_MORE_INPUT",
+                "PROHIBITED_INPUT_CONTENT",
+                "IMAGE_PROHIBITED_INPUT_CONTENT",
+                "INPUT_TEXT_CONTAIN_PROMINENT_PERSON_PROHIBITED",
+                "INPUT_IMAGE_CELEBRITY",
+                "INPUT_IMAGE_PHOTO_REALISTIC_CHILD_PROHIBITED",
+                "INPUT_TEXT_NCII_PROHIBITED",
+                "INPUT_OTHER",
+                "INPUT_IP_PROHIBITED",
+                "BLOCKLIST",
+                "UNSAFE_PROMPT_FOR_IMAGE_GENERATION",
+                "GENERATED_IMAGE_SAFETY",
+                "GENERATED_CONTENT_SAFETY",
+                "GENERATED_AUDIO_SAFETY",
+                "GENERATED_VIDEO_SAFETY",
+                "GENERATED_CONTENT_PROHIBITED",
+                "GENERATED_CONTENT_BLOCKLIST",
+                "GENERATED_IMAGE_PROHIBITED",
+                "GENERATED_IMAGE_CELEBRITY",
+                "GENERATED_IMAGE_PROMINENT_PEOPLE_DETECTED_BY_REWRITER",
+                "GENERATED_IMAGE_IDENTIFIABLE_PEOPLE",
+                "GENERATED_IMAGE_MINORS",
+                "OUTPUT_IMAGE_IP_PROHIBITED",
+                "GENERATED_OTHER",
+                "MAX_REGENERATION_REACHED"
              ],
-             "title": "TurnCoverage",
+             "title": "TurnCompleteReason",
              "type": "string"
           },
           "Type": {
@@ -7949,43 +6999,23 @@ Show JSON schema
              "title": "VideoMetadata",
              "type": "object"
           },
-          "VoiceConfig": {
+          "VoiceActivity": {
              "additionalProperties": false,
-             "description": "The configuration for the voice to use.",
+             "description": "Voice activity signal.",
              "properties": {
-                "replicatedVoiceConfig": {
+                "voiceActivityType": {
                    "anyOf": [
                       {
-                         "$ref": "#/$defs/ReplicatedVoiceConfig"
+                         "$ref": "#/$defs/VoiceActivityType"
                       },
                       {
                          "type": "null"
                       }
                    ],
                    "default": null,
-                   "description": "The configuration for a replicated voice, which is a clone of a\n      user's voice that can be used for speech synthesis. If this is unset, a\n      default voice is used."
+                   "description": "The type of the voice activity signal."
                 },
-                "prebuiltVoiceConfig": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/PrebuiltVoiceConfig"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "description": "The configuration for a prebuilt voice."
-                }
-             },
-             "title": "VoiceConfig",
-             "type": "object"
-          },
-          "VoiceConsentSignature": {
-             "additionalProperties": false,
-             "description": "The signature of the voice consent check.",
-             "properties": {
-                "signature": {
+                "audioOffset": {
                    "anyOf": [
                       {
                          "type": "string"
@@ -7995,11 +7025,68 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The signature string.\n      ",
-                   "title": "Signature"
+                   "description": "The time voice activity detected in audio time, relative to the start of the audio stream.",
+                   "title": "Audiooffset"
                 }
              },
-             "title": "VoiceConsentSignature",
+             "title": "VoiceActivity",
+             "type": "object"
+          },
+          "VoiceActivityType": {
+             "description": "The type of the voice activity signal.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "ACTIVITY_START",
+                "ACTIVITY_END"
+             ],
+             "title": "VoiceActivityType",
+             "type": "string"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
              "type": "object"
           }
        },
@@ -8013,6 +7100,8 @@ Show JSON schema
 
 Fields:
     
+
+  * `active_non_blocking_tool_tasks (dict[str, _asyncio.Task[Any]] | None)`
 
   * `active_streaming_tools (dict[str, google.adk.agents.active_streaming_tool.ActiveStreamingTool] | None)`
 
@@ -8072,6 +7161,11 @@ Fields:
 
 
 
+
+_field _active_non_blocking_tool_tasks _: Optional[dict[str, asyncio.Task[Any]]]__ = None_¶
+    
+
+The running non-blocking tool tasks of this invocation (Live only).
 
 _field _active_streaming_tools _: Optional[dict[str, ActiveStreamingTool]]__ = None_¶
     
@@ -8222,32 +7316,25 @@ increment_llm_call_count()¶
 
 Tracks number of llm calls made.
 
-Raises:
-    
-
-**LlmCallsLimitExceededError** – If number of llm calls made exceed the set threshold.
-
-model_post_init(_context_ , _/_)¶
-    
-
-This function is meant to behave like a BaseModel method to initialise private attributes.
-
-It takes context as an argument since that’s what pydantic-core passes when calling it.
-
 Return type:
     
 
 `None`
 
-Parameters:
+Raises:
     
 
-  * **self** – The BaseModel instance.
+**LlmCallsLimitExceededError** – If number of llm calls made exceed the set threshold.
 
-  * **context** – The context.
+model_post_init(__InvocationContext__context_)¶
+    
 
+Override this method to perform additional initialization after __init__ and model_construct. This is useful if you want to do some validation that requires the entire model to be initialized.
 
+Return type:
+    
 
+`None`
 
 populate_invocation_agent_states()¶
     
@@ -8342,6 +7429,16 @@ Returns:
 
 Whether to pause the invocation right after this event.
 
+stamp_event_branch_context(_event_)¶
+    
+
+Stamps the event with the branch and isolation scope of its matching function call.
+
+Return type:
+    
+
+`None`
+
 _property _app_name _: str_¶
     
 
@@ -8416,6 +7513,24 @@ Show JSON schema
              "default": false,
              "title": "Close",
              "type": "boolean"
+          },
+          "partial": {
+             "default": false,
+             "title": "Partial",
+             "type": "boolean"
+          },
+          "state_delta": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Delta"
           }
        },
        "$defs": {
@@ -8483,7 +7598,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -8520,7 +7635,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -8566,7 +7681,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -8603,7 +7718,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -8659,7 +7774,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -8671,7 +7786,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -8685,7 +7800,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -8698,7 +7813,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -8736,7 +7851,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -8748,7 +7863,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -8761,7 +7876,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -8776,7 +7891,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -8802,7 +7917,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -8825,7 +7940,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -8851,7 +7966,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -8864,7 +7979,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -8873,7 +7988,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -8911,7 +8026,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -8920,7 +8035,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -8932,7 +8047,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -8944,14 +8059,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -9158,6 +8273,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -9402,6 +8529,82 @@ Show JSON schema
              "title": "ToolType",
              "type": "string"
           },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
@@ -9448,6 +8651,53 @@ Show JSON schema
              },
              "title": "VideoMetadata",
              "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
           }
        }
     }
@@ -9466,6 +8716,10 @@ Fields:
 
   * `content (google.genai.types.Content | None)`
 
+  * `partial (bool)`
+
+  * `state_delta (dict[str, Any] | None)`
+
 
 
 
@@ -9474,21 +8728,21 @@ _field _activity_end _: Optional[types.ActivityEnd]__ = None_¶
 
 If set, signal the end of user activity to the model.
 
-When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content. state_delta, if set, is always applied regardless of the other fields.
 
 _field _activity_start _: Optional[types.ActivityStart]__ = None_¶
     
 
 If set, signal the start of user activity to the model.
 
-When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content. state_delta, if set, is always applied regardless of the other fields.
 
 _field _blob _: Optional[types.Blob]__ = None_¶
     
 
 If set, send the blob to the model in realtime mode.
 
-When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content. state_delta, if set, is always applied regardless of the other fields.
 
 _field _close _: bool_ _ = False_¶
     
@@ -9500,7 +8754,17 @@ _field _content _: Optional[types.Content]__ = None_¶
 
 If set, send the content to the model in turn-by-turn mode.
 
-When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content.
+When multiple fields are set, they are processed by priority (highest first): activity_start > activity_end > blob > content. state_delta, if set, is always applied regardless of the other fields.
+
+_field _partial _: bool_ _ = False_¶
+    
+
+If set, the content is a partial turn update that does not complete the current model turn.
+
+_field _state_delta _: Optional[dict[str, Any]]__ = None_¶
+    
+
+If set, these state changes are applied to the session, so they take effect even when the request carries no content or a partial/ function-response turn.
 
 _class _google.adk.agents.LiveRequestQueue¶
     
@@ -9511,6 +8775,11 @@ Queue used to send LiveRequest in a live(bidirectional streaming) way.
 
 close()¶
     
+
+Return type:
+    
+
+`None`
 
 _async _get()¶
     
@@ -9523,26 +8792,51 @@ Return type:
 send(_req_)¶
     
 
+Return type:
+    
+
+`None`
+
 send_activity_end()¶
     
 
 Sends an activity end signal to mark the end of user input.
+
+Return type:
+    
+
+`None`
 
 send_activity_start()¶
     
 
 Sends an activity start signal to mark the beginning of user input.
 
-send_content(_content_)¶
+Return type:
     
+
+`None`
+
+send_content(_content_ , _partial =False_)¶
+    
+
+Return type:
+    
+
+`None`
 
 send_realtime(_blob_)¶
     
 
+Return type:
+    
+
+`None`
+
 _pydantic model _google.adk.agents.LlmAgent¶
     
 
-Bases: `BaseAgent`
+Bases: `BaseAgent`, `ABC`
 
 LLM-based Agent.
 
@@ -10102,7 +9396,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -10139,7 +9433,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -10185,7 +9479,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -10222,7 +9516,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -10542,7 +9836,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -10554,7 +9848,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -10568,7 +9862,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -10581,7 +9875,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -10619,7 +9913,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -10631,7 +9925,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -10644,7 +9938,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -10659,7 +9953,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -10685,7 +9979,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -10708,7 +10002,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -10734,7 +10028,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -10747,7 +10041,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -10756,7 +10050,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -10794,7 +10088,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -10803,7 +10097,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -10815,7 +10109,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -10827,14 +10121,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -11041,6 +10335,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -11721,6 +11027,82 @@ Show JSON schema
              "title": "ToolType",
              "type": "string"
           },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
           "Type": {
              "description": "Data type of the schema field.",
              "enum": [
@@ -11781,6 +11163,53 @@ Show JSON schema
                 }
              },
              "title": "VideoMetadata",
+             "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
              "type": "object"
           }
        },
@@ -11845,6 +11274,8 @@ Validators:
 
   * `__model_validator_after` » `all fields`
 
+  * `_pre_validate_tools` » `all fields`
+
   * `validate_generate_content_config` » `generate_content_config`
 
 
@@ -11875,6 +11306,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -11909,6 +11342,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -11939,6 +11374,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -11971,6 +11408,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -11990,6 +11429,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12005,6 +11446,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12017,6 +11460,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12034,6 +11479,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
   * `validate_generate_content_config`
 
@@ -12056,6 +11503,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12074,6 +11523,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12086,6 +11537,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12105,6 +11558,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12126,6 +11581,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12134,12 +11591,14 @@ _field _model _: Union[str, BaseLlm]__ = ''_¶
 
 The model to use for the agent.
 
-When not set, the agent will inherit the model from its ancestor. If no ancestor provides a model, the agent uses the default model configured via LlmAgent.set_default_model. The built-in default is gemini-2.5-flash.
+When not set, the agent will inherit the model from its ancestor. If no ancestor provides a model, the agent uses the default model configured via LlmAgent.set_default_model. The built-in default is gemini-3.5-flash.
 
 Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12171,6 +11630,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12205,6 +11666,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12219,6 +11682,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12253,6 +11718,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12265,6 +11732,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12282,6 +11751,8 @@ Validated by:
     
 
   * `__model_validator_after`
+
+  * `_pre_validate_tools`
 
 
 
@@ -12322,6 +11793,8 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
+
 
 
 
@@ -12335,8 +11808,15 @@ Validated by:
 
   * `__model_validator_after`
 
+  * `_pre_validate_tools`
 
 
+
+
+config_type¶
+    
+
+alias of `LlmAgentConfig`
 
 _classmethod _set_default_live_model(_model_)¶
     
@@ -12437,7 +11917,7 @@ DEFAULT_LIVE_MODEL _: ClassVar[str]__ = 'gemini-live-2.5-flash-native-audio'_¶
 
 System default model used for live mode when no model is set on an agent.
 
-DEFAULT_MODEL _: ClassVar[str]__ = 'gemini-2.5-flash'_¶
+DEFAULT_MODEL _: ClassVar[str]__ = 'gemini-3.5-flash'_¶
     
 
 System default model used when no model is set on an agent.
@@ -12498,6 +11978,2161 @@ The resolved self.on_tool_error_callback field as a list of OnToolErrorCallback.
 
 This method is only for use by Agent Development Kit.
 
+_pydantic model _google.adk.agents.LlmAgentConfig¶
+    
+
+Bases: `BaseAgentConfig`
+
+The config for the YAML schema of a LlmAgent.
+
+Show JSON schema
+    
+    
+    {
+       "title": "LlmAgentConfig",
+       "type": "object",
+       "properties": {
+          "agent_class": {
+             "default": "LlmAgent",
+             "description": "The value is used to uniquely identify the LlmAgent class. If it is empty, it is by default an LlmAgent.",
+             "title": "Agent Class",
+             "type": "string"
+          },
+          "name": {
+             "description": "Required. The name of the agent.",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "description": "Optional. The description of the agent.",
+             "title": "Description",
+             "type": "string"
+          },
+          "sub_agents": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/AgentRefConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The sub-agents of the agent.",
+             "title": "Sub Agents"
+          },
+          "before_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The before_agent_callbacks of the agent.\n\nExample:\n\n  ```\n  before_agent_callbacks:\n    - name: my_library.security_callbacks.before_agent_callback\n  ```",
+             "title": "Before Agent Callbacks"
+          },
+          "after_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The after_agent_callbacks of the agent.",
+             "title": "After Agent Callbacks"
+          },
+          "model": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.model. Provide a model name string (e.g. \"gemini-3.5-flash\"). If not set, the model will be inherited from the ancestor or fall back to the system default (gemini-3.5-flash unless overridden via LlmAgent.set_default_model). To construct a model instance from code, use model_code.",
+             "title": "Model"
+          },
+          "model_code": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/CodeConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. A CodeConfig that instantiates a BaseLlm implementation such as LiteLlm with custom arguments (API base, fallbacks, etc.). Cannot be set together with `model`."
+          },
+          "instruction": {
+             "description": "Required. LlmAgent.instruction. Dynamic instructions with placeholder support. Behavior: if static_instruction is None, goes to system_instruction; if static_instruction is set, goes to user content after static content.",
+             "title": "Instruction",
+             "type": "string"
+          },
+          "static_instruction": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/Content"
+                },
+                {
+                   "type": "string"
+                },
+                {
+                   "$ref": "#/$defs/File"
+                },
+                {
+                   "$ref": "#/$defs/Part"
+                },
+                {
+                   "items": {
+                      "anyOf": [
+                         {
+                            "type": "string"
+                         },
+                         {
+                            "$ref": "#/$defs/File"
+                         },
+                         {
+                            "$ref": "#/$defs/Part"
+                         }
+                      ]
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.static_instruction. Static content sent literally at position 0 without placeholder processing. When set, changes instruction behavior to go to user content instead of system_instruction. Supports context caching. Accepts types.ContentUnion (str, types.Content, types.Part, PIL.Image.Image, types.File, or list[PartUnion]).",
+             "title": "Static Instruction"
+          },
+          "disallow_transfer_to_parent": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.disallow_transfer_to_parent.",
+             "title": "Disallow Transfer To Parent"
+          },
+          "disallow_transfer_to_peers": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.disallow_transfer_to_peers.",
+             "title": "Disallow Transfer To Peers"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/CodeConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.input_schema."
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/CodeConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.output_schema."
+          },
+          "output_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.output_key.",
+             "title": "Output Key"
+          },
+          "include_contents": {
+             "default": "default",
+             "description": "Optional. LlmAgent.include_contents.",
+             "enum": [
+                "default",
+                "none"
+             ],
+             "title": "Include Contents",
+             "type": "string"
+          },
+          "tools": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/ToolConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.tools.\n\nExamples:\n\n  For ADK built-in tools in `google.adk.tools` package, they can be referenced\n  directly with the name:\n\n    ```\n    tools:\n      - name: google_search\n      - name: load_memory\n    ```\n\n  For user-defined tools, they can be referenced with fully qualified name:\n\n    ```\n    tools:\n      - name: my_library.my_tools.my_tool\n    ```\n\n  For tools that needs to be created via functions:\n\n    ```\n    tools:\n      - name: my_library.my_tools.create_tool\n        args:\n          - name: param1\n            value: value1\n          - name: param2\n            value: value2\n    ```\n\n  For more advanced tools, instead of specifying arguments in config, it's\n  recommended to define them in Python files and reference them. E.g.,\n\n    ```\n    # tools.py\n    my_mcp_toolset = McpToolset(\n        connection_params=StdioServerParameters(\n            command=\"npx\",\n            args=[\"-y\", \"@notionhq/notion-mcp-server\"],\n            env={\"OPENAPI_MCP_HEADERS\": NOTION_HEADERS},\n        )\n    )\n    ```\n\n  Then, reference the toolset in config:\n\n  ```\n  tools:\n    - name: tools.my_mcp_toolset\n  ```",
+             "title": "Tools"
+          },
+          "before_model_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.before_model_callbacks.\n\nExample:\n\n  ```\n  before_model_callbacks:\n    - name: my_library.callbacks.before_model_callback\n  ```",
+             "title": "Before Model Callbacks"
+          },
+          "after_model_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.after_model_callbacks.",
+             "title": "After Model Callbacks"
+          },
+          "before_tool_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.before_tool_callbacks.",
+             "title": "Before Tool Callbacks"
+          },
+          "after_tool_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LlmAgent.after_tool_callbacks.",
+             "title": "After Tool Callbacks"
+          },
+          "generate_content_config": {
+             "default": null,
+             "title": "Generate Content Config"
+          }
+       },
+       "$defs": {
+          "AgentRefConfig": {
+             "additionalProperties": false,
+             "description": "The config for the reference to another agent.",
+             "properties": {
+                "config_path": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Config Path"
+                },
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Code"
+                }
+             },
+             "title": "AgentRefConfig",
+             "type": "object"
+          },
+          "Blob": {
+             "additionalProperties": false,
+             "description": "A content blob.\n\nA Blob contains data of a specific media type. It is used to represent images,\naudio, and video.",
+             "properties": {
+                "data": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The raw bytes of the data.",
+                   "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server-side tools (`code_execution`, `google_search`, and `url_context`) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                }
+             },
+             "title": "Blob",
+             "type": "object"
+          },
+          "CodeConfig": {
+             "additionalProperties": false,
+             "description": "Code reference config for a variable, a function, or a class.\n\nOnly references an object by name. YAML cannot pass constructor args; to\nuse a configured object, build it in Python and reference its FQN here.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "CodeConfig",
+             "type": "object"
+          },
+          "CodeExecutionResult": {
+             "additionalProperties": false,
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "properties": {
+                "outcome": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Outcome"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. Outcome of the code execution."
+                },
+                "output": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Contains stdout when code execution is successful, stderr or other description otherwise.",
+                   "title": "Output"
+                },
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
+                   "title": "Id"
+                }
+             },
+             "title": "CodeExecutionResult",
+             "type": "object"
+          },
+          "Content": {
+             "additionalProperties": false,
+             "description": "Contains the multi-part content of a message.",
+             "properties": {
+                "parts": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Part"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "List of parts that constitute a single message. Each part may have\n      a different IANA MIME type.",
+                   "title": "Parts"
+                },
+                "role": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. If not set, the service will default to 'user'.",
+                   "title": "Role"
+                }
+             },
+             "title": "Content",
+             "type": "object"
+          },
+          "ExecutableCode": {
+             "additionalProperties": false,
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
+             "properties": {
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The code to be executed.",
+                   "title": "Code"
+                },
+                "language": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Language"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. Programming language of the `code`."
+                },
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
+                   "title": "Id"
+                }
+             },
+             "title": "ExecutableCode",
+             "type": "object"
+          },
+          "File": {
+             "additionalProperties": false,
+             "description": "A file uploaded to the API.",
+             "properties": {
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The `File` resource name. The ID (name excluding the \"files/\" prefix) can contain up to 40 characters that are lowercase alphanumeric or dashes (-). The ID cannot start or end with a dash. If the name is empty on create, a unique name will be generated. Example: `files/123-456`",
+                   "title": "Name"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The human-readable display name for the `File`. The display name must be no more than 512 characters in length, including spaces. Example: 'Welcome Image'",
+                   "title": "Displayname"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. MIME type of the file.",
+                   "title": "Mimetype"
+                },
+                "sizeBytes": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. Size of the file in bytes.",
+                   "title": "Sizebytes"
+                },
+                "createTime": {
+                   "anyOf": [
+                      {
+                         "format": "date-time",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The timestamp of when the `File` was created.",
+                   "title": "Createtime"
+                },
+                "expirationTime": {
+                   "anyOf": [
+                      {
+                         "format": "date-time",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The timestamp of when the `File` will be deleted. Only set if the `File` is scheduled to expire.",
+                   "title": "Expirationtime"
+                },
+                "updateTime": {
+                   "anyOf": [
+                      {
+                         "format": "date-time",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The timestamp of when the `File` was last updated.",
+                   "title": "Updatetime"
+                },
+                "sha256Hash": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. SHA-256 hash of the uploaded bytes. The hash value is encoded in base64 format.",
+                   "title": "Sha256Hash"
+                },
+                "uri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The URI of the `File`.",
+                   "title": "Uri"
+                },
+                "downloadUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The URI of the `File`, only set for downloadable (generated) files.",
+                   "title": "Downloaduri"
+                },
+                "state": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileState"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. Processing state of the File."
+                },
+                "source": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileSource"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The source of the `File`."
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. Metadata for a video.",
+                   "title": "Videometadata"
+                },
+                "error": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileStatus"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. Error status if File processing failed."
+                }
+             },
+             "title": "File",
+             "type": "object"
+          },
+          "FileData": {
+             "additionalProperties": false,
+             "description": "URI-based data.\n\nA FileData message contains a URI pointing to data of a specific media type.\nIt is used to represent images, audio, and video stored in Google Cloud\nStorage.",
+             "properties": {
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The display name of the file. Used to provide a label or filename to distinguish files. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server side tools (`code_execution`, `google_search`, and `url_context`) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
+                },
+                "fileUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The URI of the file in Google Cloud Storage.",
+                   "title": "Fileuri"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                }
+             },
+             "title": "FileData",
+             "type": "object"
+          },
+          "FileSource": {
+             "description": "Source of the File.",
+             "enum": [
+                "SOURCE_UNSPECIFIED",
+                "UPLOADED",
+                "GENERATED",
+                "REGISTERED"
+             ],
+             "title": "FileSource",
+             "type": "string"
+          },
+          "FileState": {
+             "description": "State for the lifecycle of a File.",
+             "enum": [
+                "STATE_UNSPECIFIED",
+                "PROCESSING",
+                "ACTIVE",
+                "FAILED"
+             ],
+             "title": "FileState",
+             "type": "string"
+          },
+          "FileStatus": {
+             "additionalProperties": false,
+             "description": "Status of a File that uses a common error model.",
+             "properties": {
+                "details": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "additionalProperties": true,
+                            "type": "object"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A list of messages that carry the error details. There is a common set of message types for APIs to use.",
+                   "title": "Details"
+                },
+                "message": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A list of messages that carry the error details. There is a common set of message types for APIs to use.",
+                   "title": "Message"
+                },
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The status code. 0 for OK, 1 for CANCELLED",
+                   "title": "Code"
+                }
+             },
+             "title": "FileStatus",
+             "type": "object"
+          },
+          "FunctionCall": {
+             "additionalProperties": false,
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
+             "properties": {
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
+                   "title": "Id"
+                },
+                "args": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
+                   "title": "Args"
+                },
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
+                   "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "FunctionCall",
+             "type": "object"
+          },
+          "FunctionResponse": {
+             "additionalProperties": false,
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
+             "properties": {
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
+                   "title": "Willcontinue"
+                },
+                "scheduling": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponseScheduling"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                },
+                "parts": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/FunctionResponsePart"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
+                   "title": "Parts"
+                },
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The id of the function call this response is for. Populated by the client to match the corresponding function call `id`.",
+                   "title": "Id"
+                },
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
+                   "title": "Name"
+                },
+                "response": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The function response in JSON object format. Use \"output\" key to specify function output and \"error\" key to specify error details (if any). If \"output\" and \"error\" keys are not specified, then whole \"response\" is treated as function output.",
+                   "title": "Response"
+                }
+             },
+             "title": "FunctionResponse",
+             "type": "object"
+          },
+          "FunctionResponseBlob": {
+             "additionalProperties": false,
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                },
+                "data": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. Raw bytes.",
+                   "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
+                }
+             },
+             "title": "FunctionResponseBlob",
+             "type": "object"
+          },
+          "FunctionResponseFileData": {
+             "additionalProperties": false,
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "fileUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. URI.",
+                   "title": "Fileuri"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
+                   "title": "Displayname"
+                }
+             },
+             "title": "FunctionResponseFileData",
+             "type": "object"
+          },
+          "FunctionResponsePart": {
+             "additionalProperties": false,
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
+             "properties": {
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponseBlob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Inline media bytes."
+                },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponseFileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "URI based data. This field is not supported in Gemini API."
+                }
+             },
+             "title": "FunctionResponsePart",
+             "type": "object"
+          },
+          "FunctionResponseScheduling": {
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
+             "enum": [
+                "SCHEDULING_UNSPECIFIED",
+                "SILENT",
+                "WHEN_IDLE",
+                "INTERRUPT"
+             ],
+             "title": "FunctionResponseScheduling",
+             "type": "string"
+          },
+          "Language": {
+             "description": "Programming language of the `code`.",
+             "enum": [
+                "LANGUAGE_UNSPECIFIED",
+                "PYTHON"
+             ],
+             "title": "Language",
+             "type": "string"
+          },
+          "Outcome": {
+             "description": "Outcome of the code execution.",
+             "enum": [
+                "OUTCOME_UNSPECIFIED",
+                "OUTCOME_OK",
+                "OUTCOME_FAILED",
+                "OUTCOME_DEADLINE_EXCEEDED"
+             ],
+             "title": "Outcome",
+             "type": "string"
+          },
+          "Part": {
+             "additionalProperties": false,
+             "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
+             "properties": {
+                "mediaResolution": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolution"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Media resolution for the input media.\n    "
+                },
+                "codeExecutionResult": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/CodeExecutionResult"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The result of executing the ExecutableCode."
+                },
+                "executableCode": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ExecutableCode"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Code generated by the model that is intended to be executed."
+                },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The URI-based data of the part. This can be used to include files from Google Cloud Storage."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted function call returned from the model. This contains the name of the function to call and the arguments to pass to the function."
+                },
+                "functionResponse": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponse"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The result of a function call. This is used to provide the model with the result of a function call that it predicted."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The inline data content of the part. This can be used to include images, audio, or video in a request."
+                },
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The text content of the part. When sent from the VSCode Gemini Code Assist extension, references to @mentioned items will be converted to markdown boldface text. For example `@my-repo` will be converted to and sent as `**my-repo**` by the IDE agent.",
+                   "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates whether the `part` represents the model's thought process or reasoning.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
+                },
+                "toolCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Server-side tool call. This field is populated when the model predicts a tool invocation that should be executed on the server. The client is expected to echo this message back to the API."
+                },
+                "toolResponse": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolResponse"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The output from a server-side ToolCall execution. This field is populated by the client with the results of executing the corresponding ToolCall."
+                },
+                "partMetadata": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
+                   "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
+                }
+             },
+             "title": "Part",
+             "type": "object"
+          },
+          "PartMediaResolution": {
+             "additionalProperties": false,
+             "description": "Media resolution for the input media.",
+             "properties": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
+                },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
+             "type": "object"
+          },
+          "ToolArgsConfig": {
+             "additionalProperties": true,
+             "description": "Config to host free key-value pairs for the args in ToolConfig.",
+             "properties": {},
+             "title": "ToolArgsConfig",
+             "type": "object"
+          },
+          "ToolCall": {
+             "additionalProperties": false,
+             "description": "A predicted server-side `ToolCall` returned from the model.\n\nThis message contains information about a tool that the model wants to invoke.\nThe client is NOT expected to execute this `ToolCall`. Instead, the\nclient should pass this `ToolCall` back to the API in a subsequent turn\nwithin a `Content` message, along with the corresponding `ToolResponse`.",
+             "properties": {
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Unique identifier of the tool call. The server returns the tool response with the matching `id`.",
+                   "title": "Id"
+                },
+                "toolType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The type of tool that was called."
+                },
+                "args": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tool call arguments. Example: {\"arg1\": \"value1\", \"arg2\": \"value2\"}.",
+                   "title": "Args"
+                }
+             },
+             "title": "ToolCall",
+             "type": "object"
+          },
+          "ToolConfig": {
+             "additionalProperties": false,
+             "description": "The configuration for a tool.\n\nThe config supports these types of tools:\n1. ADK built-in tools\n2. User-defined tool instances\n3. User-defined tool classes\n4. User-defined functions that generate tool instances\n5. User-defined function tools\n\nFor examples:\n\n  1. For ADK built-in tool instances or classes in `google.adk.tools` package,\n  they can be referenced directly with the `name` and optionally with\n  `args`.\n\n  ```\n  tools:\n    - name: google_search\n    - name: AgentTool\n      args:\n        agent: ./another_agent.yaml\n        skip_summarization: true\n  ```\n\n  2. For user-defined tool instances, the `name` is the fully qualified path\n  to the tool instance.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_tool\n  ```\n\n  3. For user-defined tool classes (custom tools), the `name` is the fully\n  qualified path to the tool class and `args` is the arguments for the tool.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_tool_class\n      args:\n        my_tool_arg1: value1\n        my_tool_arg2: value2\n  ```\n\n  4. For user-defined functions that generate tool instances, the `name` is\n  the fully qualified path to the function and `args` is passed to the\n  function as arguments.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_tool_function\n      args:\n        my_function_arg1: value1\n        my_function_arg2: value2\n  ```\n\n  The function must have the following signature:\n  ```\n  def my_function(args: ToolArgsConfig) -> BaseTool:\n    ...\n  ```\n\n  5. For user-defined function tools, the `name` is the fully qualified path\n  to the function.\n\n  ```\n  tools:\n    - name: my_package.my_module.my_function_tool\n  ```\n\n  If the above use cases don't suffice, users can define a custom tool config\n  by extending BaseToolConfig and override from_config() in the custom tool.",
+             "properties": {
+                "name": {
+                   "description": "The name of the tool.\n\nFor ADK built-in tools, `name` is the name of the tool, e.g. `google_search`\nor `AgentTool`.\n\nFor user-defined tools, the name is the fully qualified path to the tool, e.g.\n`my_package.my_module.my_tool`.",
+                   "title": "Name",
+                   "type": "string"
+                },
+                "args": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolArgsConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The args for the tool."
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "ToolConfig",
+             "type": "object"
+          },
+          "ToolResponse": {
+             "additionalProperties": false,
+             "description": "The output from a server-side `ToolCall` execution.\n\nThis message contains the results of a tool invocation that was initiated by a\n`ToolCall` from the model. The client should pass this `ToolResponse` back to\nthe API in a subsequent turn within a `Content` message, along with the\ncorresponding `ToolCall`.",
+             "properties": {
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The identifier of the tool call this response is for.",
+                   "title": "Id"
+                },
+                "toolType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The type of tool that was called, matching the tool_type in the corresponding ToolCall."
+                },
+                "response": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tool response.",
+                   "title": "Response"
+                }
+             },
+             "title": "ToolResponse",
+             "type": "object"
+          },
+          "ToolType": {
+             "description": "The type of tool in the function call.",
+             "enum": [
+                "TOOL_TYPE_UNSPECIFIED",
+                "GOOGLE_SEARCH_WEB",
+                "GOOGLE_SEARCH_IMAGE",
+                "URL_CONTEXT",
+                "GOOGLE_MAPS",
+                "FILE_SEARCH"
+             ],
+             "title": "ToolType",
+             "type": "string"
+          },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
+             "properties": {
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The end offset of the video.",
+                   "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0].",
+                   "title": "Fps"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The start offset of the video.",
+                   "title": "Startoffset"
+                }
+             },
+             "title": "VideoMetadata",
+             "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
+          }
+       },
+       "additionalProperties": false,
+       "deprecated": true,
+       "required": [
+          "name",
+          "instruction"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `after_model_callbacks (Optional[List[CodeConfig]])`
+
+  * `after_tool_callbacks (Optional[List[CodeConfig]])`
+
+  * `agent_class (str)`
+
+  * `before_model_callbacks (Optional[List[CodeConfig]])`
+
+  * `before_tool_callbacks (Optional[List[CodeConfig]])`
+
+  * `disallow_transfer_to_parent (Optional[bool])`
+
+  * `disallow_transfer_to_peers (Optional[bool])`
+
+  * `generate_content_config (Optional[types.GenerateContentConfig])`
+
+  * `include_contents (Literal['default', 'none'])`
+
+  * `input_schema (Optional[CodeConfig])`
+
+  * `instruction (str)`
+
+  * `model (Optional[str])`
+
+  * `model_code (Optional[CodeConfig])`
+
+  * `output_key (Optional[str])`
+
+  * `output_schema (Optional[CodeConfig])`
+
+  * `static_instruction (Optional[types.ContentUnion])`
+
+  * `tools (Optional[list[ToolConfig]])`
+
+
+
+Validators:
+    
+
+  * `_validate_model_sources` » `all fields`
+
+
+
+
+_field _after_model_callbacks _: Optional[List[CodeConfig]]__ = None_¶
+    
+
+Optional. LlmAgent.after_model_callbacks.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _after_tool_callbacks _: Optional[List[CodeConfig]]__ = None_¶
+    
+
+Optional. LlmAgent.after_tool_callbacks.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _agent_class _: str_ _ = 'LlmAgent'_¶
+    
+
+The value is used to uniquely identify the LlmAgent class. If it is empty, it is by default an LlmAgent.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _before_model_callbacks _: Optional[List[CodeConfig]]__ = None_¶
+    
+
+Optional. LlmAgent.before_model_callbacks.
+
+Example:
+
+> ``` before_model_callbacks:
+>
+>>   * name: my_library.callbacks.before_model_callback
+>> 
+>> 
+
+> 
+> ```
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _before_tool_callbacks _: Optional[List[CodeConfig]]__ = None_¶
+    
+
+Optional. LlmAgent.before_tool_callbacks.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _disallow_transfer_to_parent _: Optional[bool]__ = None_¶
+    
+
+Optional. LlmAgent.disallow_transfer_to_parent.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _disallow_transfer_to_peers _: Optional[bool]__ = None_¶
+    
+
+Optional. LlmAgent.disallow_transfer_to_peers.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _generate_content_config _: Optional[types.GenerateContentConfig]__ = None_¶
+    
+
+Optional. LlmAgent.generate_content_config.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _include_contents _: Literal['default', 'none']__ = 'default'_¶
+    
+
+Optional. LlmAgent.include_contents.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _input_schema _: Optional[CodeConfig]__ = None_¶
+    
+
+Optional. LlmAgent.input_schema.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _instruction _: str_ _[Required]_¶
+    
+
+Required. LlmAgent.instruction. Dynamic instructions with placeholder support. Behavior: if static_instruction is None, goes to system_instruction; if static_instruction is set, goes to user content after static content.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _model _: Optional[str]__ = None_¶
+    
+
+Optional. LlmAgent.model. Provide a model name string (e.g. “gemini-3.5-flash”). If not set, the model will be inherited from the ancestor or fall back to the system default (gemini-3.5-flash unless overridden via LlmAgent.set_default_model). To construct a model instance from code, use model_code.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _model_code _: Optional[CodeConfig]__ = None_¶
+    
+
+Optional. A CodeConfig that instantiates a BaseLlm implementation such as LiteLlm with custom arguments (API base, fallbacks, etc.). Cannot be set together with model.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _output_key _: Optional[str]__ = None_¶
+    
+
+Optional. LlmAgent.output_key.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _output_schema _: Optional[CodeConfig]__ = None_¶
+    
+
+Optional. LlmAgent.output_schema.
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _static_instruction _: Optional[types.ContentUnion]__ = None_¶
+    
+
+Optional. LlmAgent.static_instruction. Static content sent literally at position 0 without placeholder processing. When set, changes instruction behavior to go to user content instead of system_instruction. Supports context caching. Accepts types.ContentUnion (str, types.Content, types.Part, PIL.Image.Image, types.File, or list[PartUnion]).
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
+_field _tools _: Optional[list[ToolConfig]]__ = None_¶
+    
+
+Optional. LlmAgent.tools.
+
+Examples:
+
+> For ADK built-in tools in google.adk.tools package, they can be referenced directly with the name:
+>
+>> ``` tools:
+>>
+>>>   * name: google_search
+>>> 
+>>>   * name: load_memory
+>>> 
+>>> 
+
+>> 
+>> ```
+> 
+> For user-defined tools, they can be referenced with fully qualified name:
+>
+>> ``` tools:
+>>
+>>>   * name: my_library.my_tools.my_tool
+>>> 
+>>> 
+
+>> 
+>> ```
+> 
+> For tools that needs to be created via functions:
+>
+>> ``` tools:
+>>
+>>>   * name: my_library.my_tools.create_tool args:
+>>>
+>>>>     * name: param1 value: value1
+>>>> 
+>>>>     * name: param2 value: value2
+>>> 
+>>> 
+
+>> 
+>> ```
+> 
+> For more advanced tools, instead of specifying arguments in config, it’s recommended to define them in Python files and reference them. E.g.,
+>
+>> ``` # tools.py my_mcp_toolset = McpToolset(
+>>
+>>> connection_params=StdioServerParameters(
+>>>     
+>>> 
+>>> command=”npx”, args=[“-y”, “@notionhq/notion-mcp-server”], env={“OPENAPI_MCP_HEADERS”: NOTION_HEADERS},
+>>> 
+>>> )
+> 
+> Then, reference the toolset in config:
+> 
+> ``` tools:
+>
+>>   * name: tools.my_mcp_toolset
+>> 
+>> 
+
+> 
+> ```
+
+Validated by:
+    
+
+  * `_validate_model_sources`
+
+
+
+
 _pydantic model _google.adk.agents.LoopAgent¶
     
 
@@ -12507,12 +14142,14 @@ A shell agent that run its sub-agents in a loop.
 
 When sub-agent generates an event with escalate or max_iterations are reached, the loop agent will stop.
 
+Deprecated since version LoopAgent: is deprecated in favor of Workflow and will be removed in a future version. Workflow cannot yet be used as an LlmAgent sub-agent.
+
 Show JSON schema
     
     
     {
        "title": "LoopAgent",
-       "description": "A shell agent that run its sub-agents in a loop.\n\nWhen sub-agent generates an event with escalate or max_iterations are\nreached, the loop agent will stop.",
+       "description": "A shell agent that run its sub-agents in a loop.\n\nWhen sub-agent generates an event with escalate or max_iterations are\nreached, the loop agent will stop.\n\n.. deprecated::\n  LoopAgent is deprecated in favor of Workflow and will be removed in a\n  future version. Workflow cannot yet be used as an LlmAgent sub-agent.",
        "type": "object",
        "properties": {
           "name": {
@@ -13241,6 +14878,3364 @@ The maximum number of iterations to run the loop agent.
 
 If not set, the loop agent will run indefinitely until a sub-agent escalates.
 
+config_type¶
+    
+
+alias of `LoopAgentConfig`
+
+_pydantic model _google.adk.agents.LoopAgentConfig¶
+    
+
+Bases: `BaseAgentConfig`
+
+The config for the YAML schema of a LoopAgent.
+
+Show JSON schema
+    
+    
+    {
+       "title": "LoopAgentConfig",
+       "description": "The config for the YAML schema of a LoopAgent.",
+       "type": "object",
+       "properties": {
+          "agent_class": {
+             "default": "LoopAgent",
+             "description": "The value is used to uniquely identify the LoopAgent class.",
+             "title": "Agent Class",
+             "type": "string"
+          },
+          "name": {
+             "description": "Required. The name of the agent.",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "description": "Optional. The description of the agent.",
+             "title": "Description",
+             "type": "string"
+          },
+          "sub_agents": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/AgentRefConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The sub-agents of the agent.",
+             "title": "Sub Agents"
+          },
+          "before_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The before_agent_callbacks of the agent.\n\nExample:\n\n  ```\n  before_agent_callbacks:\n    - name: my_library.security_callbacks.before_agent_callback\n  ```",
+             "title": "Before Agent Callbacks"
+          },
+          "after_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The after_agent_callbacks of the agent.",
+             "title": "After Agent Callbacks"
+          },
+          "max_iterations": {
+             "anyOf": [
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. LoopAgent.max_iterations.",
+             "title": "Max Iterations"
+          }
+       },
+       "$defs": {
+          "AgentRefConfig": {
+             "additionalProperties": false,
+             "description": "The config for the reference to another agent.",
+             "properties": {
+                "config_path": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Config Path"
+                },
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Code"
+                }
+             },
+             "title": "AgentRefConfig",
+             "type": "object"
+          },
+          "CodeConfig": {
+             "additionalProperties": false,
+             "description": "Code reference config for a variable, a function, or a class.\n\nOnly references an object by name. YAML cannot pass constructor args; to\nuse a configured object, build it in Python and reference its FQN here.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "CodeConfig",
+             "type": "object"
+          }
+       },
+       "additionalProperties": false,
+       "deprecated": true,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `agent_class (str)`
+
+  * `max_iterations (Optional[int])`
+
+
+
+
+_field _agent_class _: str_ _ = 'LoopAgent'_¶
+    
+
+The value is used to uniquely identify the LoopAgent class.
+
+_field _max_iterations _: Optional[int]__ = None_¶
+    
+
+Optional. LoopAgent.max_iterations.
+
+_pydantic model _google.adk.agents.ManagedAgent¶
+    
+
+Bases: `BaseAgent`
+
+An agent backed by the Managed Agents API (interactions.create).
+
+This agent calls the Managed Agents API directly from its execution loop. Only server-side tools are supported: ADK built-in tools, raw `google.genai.types.Tool` configs (the kinds the interactions converter understands), and server-side remote MCP servers declared as `RemoteMcpServer` specs (forwarded to the backend as an `MCPServerParam`). Client-executed tools (FunctionTool/callables) and raw `types.Tool.mcp_servers` configs are not supported and are rejected.
+
+ManagedAgent supports streaming interactions only. Interactions are always created with `background=True` (required by the Managed Agents workflow) and consumed over the streaming connection; non-streaming / background-polling execution is not yet supported.
+
+Show JSON schema
+    
+    
+    {
+       "title": "ManagedAgent",
+       "description": "An agent backed by the Managed Agents API (interactions.create).\n\nThis agent calls the Managed Agents API directly from its execution loop.\nOnly server-side tools are supported: ADK built-in tools, raw\n``google.genai.types.Tool`` configs (the kinds the interactions converter\nunderstands), and server-side remote MCP servers declared as\n``RemoteMcpServer`` specs (forwarded to the backend as an ``MCPServerParam``).\nClient-executed tools (FunctionTool/callables) and raw\n``types.Tool.mcp_servers`` configs are not supported and are rejected.\n\nManagedAgent supports streaming interactions only. Interactions are always\ncreated with ``background=True`` (required by the Managed Agents workflow) and\nconsumed over the streaming connection; non-streaming / background-polling\nexecution is not yet supported.",
+       "type": "object",
+       "properties": {
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          },
+          "rerun_on_resume": {
+             "default": false,
+             "title": "Rerun On Resume",
+             "type": "boolean"
+          },
+          "wait_for_output": {
+             "default": false,
+             "title": "Wait For Output",
+             "type": "boolean"
+          },
+          "retry_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/RetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "timeout": {
+             "anyOf": [
+                {
+                   "type": "number"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout"
+          },
+          "input_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Input Schema"
+          },
+          "output_schema": {
+             "anyOf": [
+                {
+                   "additionalProperties": true,
+                   "type": "object"
+                },
+                {
+                   "$ref": "#/$defs/Schema"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Output Schema"
+          },
+          "state_schema": {
+             "anyOf": [
+                {},
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "State Schema"
+          },
+          "parent_agent": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/BaseAgent"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "sub_agents": {
+             "items": {
+                "$ref": "#/$defs/BaseAgent"
+             },
+             "title": "Sub Agents",
+             "type": "array"
+          },
+          "before_agent_callback": {
+             "default": null,
+             "title": "Before Agent Callback",
+             "type": "null"
+          },
+          "after_agent_callback": {
+             "default": null,
+             "title": "After Agent Callback",
+             "type": "null"
+          },
+          "agent_id": {
+             "title": "Agent Id",
+             "type": "string"
+          },
+          "environment": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/CreateAgentInteractionEnvironmentParam"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "agent_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/CreateAgentInteractionAgentConfigParam"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "instruction": {
+             "default": "",
+             "title": "Instruction",
+             "type": "string"
+          },
+          "tools": {
+             "items": {
+                "$ref": "#/$defs/Tool"
+             },
+             "title": "Tools",
+             "type": "array"
+          },
+          "mode": {
+             "anyOf": [
+                {
+                   "const": "single_turn",
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Mode"
+          }
+       },
+       "$defs": {
+          "AllowlistEntryParam": {
+             "additionalProperties": false,
+             "description": "A single domain allowlist rule with optional header injection.",
+             "properties": {
+                "domain": {
+                   "title": "Domain",
+                   "type": "string"
+                },
+                "transform": {
+                   "$ref": "#/$defs/TransformParam"
+                }
+             },
+             "required": [
+                "domain"
+             ],
+             "title": "AllowlistEntryParam",
+             "type": "object"
+          },
+          "AllowlistParam": {
+             "additionalProperties": false,
+             "description": "Outbound networking configuration for the sandbox. When specified, restricts which external domains the sandbox can reach. Omit entirely to allow all outbound traffic with no header injection.",
+             "properties": {
+                "allowlist": {
+                   "items": {
+                      "$ref": "#/$defs/AllowlistEntryParam"
+                   },
+                   "title": "Allowlist",
+                   "type": "array"
+                }
+             },
+             "title": "AllowlistParam",
+             "type": "object"
+          },
+          "AntigravityAgentConfigParam": {
+             "additionalProperties": false,
+             "description": "Configuration for the Antigravity agent runtime.\nProvides server-side control over the agent's execution environment\nand tool configuration.",
+             "properties": {
+                "max_total_tokens": {
+                   "title": "Max Total Tokens",
+                   "type": "integer"
+                },
+                "model": {
+                   "title": "Model",
+                   "type": "string"
+                },
+                "type": {
+                   "const": "antigravity",
+                   "title": "Type",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "type"
+             ],
+             "title": "AntigravityAgentConfigParam",
+             "type": "object"
+          },
+          "ApiAuth": {
+             "additionalProperties": false,
+             "description": "The generic reusable api auth config.\n\nDeprecated. Please use AuthConfig (google/cloud/aiplatform/master/auth.proto)\ninstead. This data type is not supported in Gemini API.",
+             "properties": {
+                "apiKeyConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ApiAuthApiKeyConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The API secret."
+                }
+             },
+             "title": "ApiAuth",
+             "type": "object"
+          },
+          "ApiAuthApiKeyConfig": {
+             "additionalProperties": false,
+             "description": "The API secret. This data type is not supported in Gemini API.",
+             "properties": {
+                "apiKeySecretVersion": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The SecretManager secret version resource name storing API key. e.g. projects/{project}/secrets/{secret}/versions/{version}",
+                   "title": "Apikeysecretversion"
+                },
+                "apiKeyString": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The API key string. Either this or `api_key_secret_version` must be set.",
+                   "title": "Apikeystring"
+                }
+             },
+             "title": "ApiAuthApiKeyConfig",
+             "type": "object"
+          },
+          "ApiKeyConfig": {
+             "additionalProperties": false,
+             "description": "Config for authentication with API key.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "apiKeySecret": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The name of the SecretManager secret version resource storing the API key. Format: `projects/{project}/secrets/{secrete}/versions/{version}` - If both `api_key_secret` and `api_key_string` are specified, this field takes precedence over `api_key_string`. - If specified, the `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the specified resource.",
+                   "title": "Apikeysecret"
+                },
+                "apiKeyString": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The API key to be used in the request directly.",
+                   "title": "Apikeystring"
+                },
+                "httpElementLocation": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/HttpElementLocation"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The location of the API key."
+                },
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The parameter name of the API key. E.g. If the API request is \"https://example.com/act?api_key=\", \"api_key\" would be the parameter name.",
+                   "title": "Name"
+                }
+             },
+             "title": "ApiKeyConfig",
+             "type": "object"
+          },
+          "ApiSpec": {
+             "description": "The API spec that the external API implements.\n\nThis enum is not supported in Gemini API.",
+             "enum": [
+                "API_SPEC_UNSPECIFIED",
+                "SIMPLE_SEARCH",
+                "ELASTIC_SEARCH"
+             ],
+             "title": "ApiSpec",
+             "type": "string"
+          },
+          "AuthConfig": {
+             "additionalProperties": false,
+             "description": "The authentication config to access the API.",
+             "properties": {
+                "apiKey": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The authentication config to access the API. Only API key is supported. This field is not supported in Gemini API.",
+                   "title": "Apikey"
+                },
+                "apiKeyConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ApiKeyConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Config for API key auth."
+                },
+                "authType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Type of auth scheme."
+                },
+                "googleServiceAccountConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthConfigGoogleServiceAccountConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Config for Google Service Account auth."
+                },
+                "httpBasicAuthConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthConfigHttpBasicAuthConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Config for HTTP Basic auth."
+                },
+                "oauthConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthConfigOauthConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Config for user oauth."
+                },
+                "oidcConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthConfigOidcConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Config for user OIDC auth."
+                }
+             },
+             "title": "AuthConfig",
+             "type": "object"
+          },
+          "AuthConfigGoogleServiceAccountConfig": {
+             "additionalProperties": false,
+             "description": "Config for Google Service Account Authentication.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "serviceAccount": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The service account that the extension execution service runs as. - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the specified service account. - If not specified, the Vertex AI Extension Service Agent will be used to execute the Extension.",
+                   "title": "Serviceaccount"
+                }
+             },
+             "title": "AuthConfigGoogleServiceAccountConfig",
+             "type": "object"
+          },
+          "AuthConfigHttpBasicAuthConfig": {
+             "additionalProperties": false,
+             "description": "Config for HTTP Basic Authentication.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "credentialSecret": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The name of the SecretManager secret version resource storing the base64 encoded credentials. Format: `projects/{project}/secrets/{secrete}/versions/{version}` - If specified, the `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the specified resource.",
+                   "title": "Credentialsecret"
+                }
+             },
+             "title": "AuthConfigHttpBasicAuthConfig",
+             "type": "object"
+          },
+          "AuthConfigOauthConfig": {
+             "additionalProperties": false,
+             "description": "Config for user oauth. This data type is not supported in Gemini API.",
+             "properties": {
+                "accessToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Access token for extension endpoint. Only used to propagate token from [[ExecuteExtensionRequest.runtime_auth_config]] at request time.",
+                   "title": "Accesstoken"
+                },
+                "serviceAccount": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The service account used to generate access tokens for executing the Extension. - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the provided service account.",
+                   "title": "Serviceaccount"
+                }
+             },
+             "title": "AuthConfigOauthConfig",
+             "type": "object"
+          },
+          "AuthConfigOidcConfig": {
+             "additionalProperties": false,
+             "description": "Config for user OIDC auth.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "idToken": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "OpenID Connect formatted ID token for extension endpoint. Only used to propagate token from [[ExecuteExtensionRequest.runtime_auth_config]] at request time.",
+                   "title": "Idtoken"
+                },
+                "serviceAccount": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The service account used to generate an OpenID Connect (OIDC)-compatible JWT token signed by the Google OIDC Provider (accounts.google.com) for extension endpoint (https://cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-oidc). - The audience for the token will be set to the URL in the server url defined in the OpenApi spec. - If the service account is provided, the service account should grant `iam.serviceAccounts.getOpenIdToken` permission to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents).",
+                   "title": "Serviceaccount"
+                }
+             },
+             "title": "AuthConfigOidcConfig",
+             "type": "object"
+          },
+          "AuthType": {
+             "description": "Type of auth scheme. This enum is not supported in Gemini API.",
+             "enum": [
+                "AUTH_TYPE_UNSPECIFIED",
+                "NO_AUTH",
+                "API_KEY_AUTH",
+                "HTTP_BASIC_AUTH",
+                "GOOGLE_SERVICE_ACCOUNT_AUTH",
+                "OAUTH",
+                "OIDC_AUTH"
+             ],
+             "title": "AuthType",
+             "type": "string"
+          },
+          "BaseAgent": {
+             "additionalProperties": false,
+             "description": "Base class for all agents in Agent Development Kit.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                },
+                "description": {
+                   "default": "",
+                   "title": "Description",
+                   "type": "string"
+                },
+                "rerun_on_resume": {
+                   "default": false,
+                   "title": "Rerun On Resume",
+                   "type": "boolean"
+                },
+                "wait_for_output": {
+                   "default": false,
+                   "title": "Wait For Output",
+                   "type": "boolean"
+                },
+                "retry_config": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RetryConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Timeout"
+                },
+                "input_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Input Schema"
+                },
+                "output_schema": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Output Schema"
+                },
+                "state_schema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "State Schema"
+                },
+                "parent_agent": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/BaseAgent"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
+                "sub_agents": {
+                   "items": {
+                      "$ref": "#/$defs/BaseAgent"
+                   },
+                   "title": "Sub Agents",
+                   "type": "array"
+                },
+                "before_agent_callback": {
+                   "default": null,
+                   "title": "Before Agent Callback",
+                   "type": "null"
+                },
+                "after_agent_callback": {
+                   "default": null,
+                   "title": "After Agent Callback",
+                   "type": "null"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "BaseAgent",
+             "type": "object"
+          },
+          "Behavior": {
+             "description": "Specifies the function Behavior.\n\nIf not specified, the system keeps the current function call behavior. This\nfield is currently only supported by the BidiGenerateContent method.",
+             "enum": [
+                "UNSPECIFIED",
+                "BLOCKING",
+                "NON_BLOCKING"
+             ],
+             "title": "Behavior",
+             "type": "string"
+          },
+          "CodeMenderAgentConfigParam": {
+             "additionalProperties": false,
+             "description": "Configuration for the CodeMender agent.",
+             "properties": {
+                "find_request": {
+                   "$ref": "#/$defs/FindRequestParam"
+                },
+                "fix_request": {
+                   "$ref": "#/$defs/FixRequestParam"
+                },
+                "model": {
+                   "title": "Model",
+                   "type": "string"
+                },
+                "session_config": {
+                   "$ref": "#/$defs/SessionConfigParam"
+                },
+                "session_id": {
+                   "title": "Session Id",
+                   "type": "string"
+                },
+                "type": {
+                   "const": "code-mender",
+                   "title": "Type",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "type"
+             ],
+             "title": "CodeMenderAgentConfigParam",
+             "type": "object"
+          },
+          "ComputerUse": {
+             "additionalProperties": false,
+             "description": "Tool to support computer use.",
+             "properties": {
+                "environment": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Environment"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The environment being operated."
+                },
+                "excludedPredefinedFunctions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included in the final model call. Some of them can be explicitly excluded from being automatically included. This can serve two purposes: 1. Using a more restricted / different action space. 2. Improving the definitions / instructions of predefined functions.",
+                   "title": "Excludedpredefinedfunctions"
+                },
+                "enablePromptInjectionDetection": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Enables the prompt injection detection check on computer-use request.",
+                   "title": "Enablepromptinjectiondetection"
+                },
+                "disabledSafetyPolicies": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/SafetyPolicy"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Disabled safety policies for computer use. This field is not supported in Vertex AI.",
+                   "title": "Disabledsafetypolicies"
+                }
+             },
+             "title": "ComputerUse",
+             "type": "object"
+          },
+          "CreateAgentInteractionAgentConfigParam": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/DynamicAgentConfigParam"
+                },
+                {
+                   "$ref": "#/$defs/AntigravityAgentConfigParam"
+                },
+                {
+                   "$ref": "#/$defs/DeepResearchAgentConfigParam"
+                },
+                {
+                   "$ref": "#/$defs/CodeMenderAgentConfigParam"
+                }
+             ]
+          },
+          "CreateAgentInteractionEnvironmentParam": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/EnvironmentParam"
+                },
+                {
+                   "type": "string"
+                }
+             ]
+          },
+          "DeepResearchAgentConfigParam": {
+             "additionalProperties": false,
+             "description": "Configuration for the Deep Research agent.",
+             "properties": {
+                "collaborative_planning": {
+                   "title": "Collaborative Planning",
+                   "type": "boolean"
+                },
+                "enable_bigquery_tool": {
+                   "title": "Enable Bigquery Tool",
+                   "type": "boolean"
+                },
+                "thinking_summaries": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "none"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "string"
+                      }
+                   ],
+                   "title": "Thinking Summaries"
+                },
+                "type": {
+                   "const": "deep-research",
+                   "title": "Type",
+                   "type": "string"
+                },
+                "visualization": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "off",
+                            "auto"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "string"
+                      }
+                   ],
+                   "title": "Visualization"
+                }
+             },
+             "required": [
+                "type"
+             ],
+             "title": "DeepResearchAgentConfigParam",
+             "type": "object"
+          },
+          "DynamicAgentConfigParam": {
+             "additionalProperties": false,
+             "description": "Configuration for dynamic agents.",
+             "properties": {
+                "type": {
+                   "const": "dynamic",
+                   "title": "Type",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "type"
+             ],
+             "title": "DynamicAgentConfigParam",
+             "type": "object"
+          },
+          "DynamicRetrievalConfig": {
+             "additionalProperties": false,
+             "description": "Describes the options to customize dynamic retrieval.",
+             "properties": {
+                "dynamicThreshold": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The threshold to be used in dynamic retrieval. If not set, a system default value is used.",
+                   "title": "Dynamicthreshold"
+                },
+                "mode": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/DynamicRetrievalConfigMode"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The mode of the predictor to be used in dynamic retrieval."
+                }
+             },
+             "title": "DynamicRetrievalConfig",
+             "type": "object"
+          },
+          "DynamicRetrievalConfigMode": {
+             "description": "The mode of the predictor to be used in dynamic retrieval.",
+             "enum": [
+                "MODE_UNSPECIFIED",
+                "MODE_DYNAMIC"
+             ],
+             "title": "DynamicRetrievalConfigMode",
+             "type": "string"
+          },
+          "EnterpriseWebSearch": {
+             "additionalProperties": false,
+             "description": "Tool to search public web data, powered by Vertex AI Search and Sec4 compliance.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "blockingConfidence": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PhishBlockThreshold"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Sites with confidence level chosen & above this value will be blocked from the search results."
+                },
+                "excludeDomains": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. List of domains to be excluded from the search results. The default limit is 2000 domains.",
+                   "title": "Excludedomains"
+                }
+             },
+             "title": "EnterpriseWebSearch",
+             "type": "object"
+          },
+          "Environment": {
+             "description": "The environment being operated.",
+             "enum": [
+                "ENVIRONMENT_UNSPECIFIED",
+                "ENVIRONMENT_BROWSER",
+                "ENVIRONMENT_MOBILE",
+                "ENVIRONMENT_DESKTOP"
+             ],
+             "title": "Environment",
+             "type": "string"
+          },
+          "EnvironmentNetworkEgressAllowlistParam": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/AllowlistParam"
+                },
+                {
+                   "const": "disabled",
+                   "type": "string"
+                }
+             ]
+          },
+          "EnvironmentParam": {
+             "additionalProperties": false,
+             "description": "Configuration for a custom environment.",
+             "properties": {
+                "environment_id": {
+                   "title": "Environment Id",
+                   "type": "string"
+                },
+                "network": {
+                   "$ref": "#/$defs/NetworkParam"
+                },
+                "sources": {
+                   "items": {
+                      "$ref": "#/$defs/SourceParam"
+                   },
+                   "title": "Sources",
+                   "type": "array"
+                },
+                "type": {
+                   "const": "remote",
+                   "title": "Type",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "type"
+             ],
+             "title": "EnvironmentParam",
+             "type": "object"
+          },
+          "ExternalApi": {
+             "additionalProperties": false,
+             "description": "Retrieve from data source powered by external API for grounding.\n\nThe external API is not owned by Google, but need to follow the pre-defined\nAPI spec. This data type is not supported in Gemini API.",
+             "properties": {
+                "apiAuth": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ApiAuth"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The authentication config to access the API. Deprecated. Please use auth_config instead."
+                },
+                "apiSpec": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ApiSpec"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The API spec that the external API implements."
+                },
+                "authConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The authentication config to access the API."
+                },
+                "elasticSearchParams": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ExternalApiElasticSearchParams"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Parameters for the elastic search API."
+                },
+                "endpoint": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The endpoint of the external API. The system will call the API at this endpoint to retrieve the data for grounding. Example: https://acme.com:443/search",
+                   "title": "Endpoint"
+                },
+                "simpleSearchParams": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ExternalApiSimpleSearchParams"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Parameters for the simple search API."
+                }
+             },
+             "title": "ExternalApi",
+             "type": "object"
+          },
+          "ExternalApiElasticSearchParams": {
+             "additionalProperties": false,
+             "description": "The search parameters to use for the ELASTIC_SEARCH spec.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "index": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ElasticSearch index to use.",
+                   "title": "Index"
+                },
+                "numHits": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Number of hits (chunks) to request. When specified, it is passed to Elasticsearch as the `num_hits` param.",
+                   "title": "Numhits"
+                },
+                "searchTemplate": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ElasticSearch search template to use.",
+                   "title": "Searchtemplate"
+                }
+             },
+             "title": "ExternalApiElasticSearchParams",
+             "type": "object"
+          },
+          "ExternalApiSimpleSearchParams": {
+             "additionalProperties": false,
+             "description": "The search parameters to use for SIMPLE_SEARCH spec.\n\nThis data type is not supported in Gemini API.",
+             "properties": {},
+             "title": "ExternalApiSimpleSearchParams",
+             "type": "object"
+          },
+          "FileContentParam": {
+             "additionalProperties": false,
+             "description": "Content of a single file in the codebase.",
+             "properties": {
+                "content": {
+                   "title": "Content",
+                   "type": "string"
+                },
+                "path": {
+                   "title": "Path",
+                   "type": "string"
+                }
+             },
+             "title": "FileContentParam",
+             "type": "object"
+          },
+          "FileSearch": {
+             "additionalProperties": false,
+             "description": "The FileSearch tool that retrieves knowledge from Semantic Retrieval corpora.\n\nFiles are imported to Semantic Retrieval corpora using the ImportFile API.\nThis data type is not supported in Vertex AI.",
+             "properties": {
+                "fileSearchStoreNames": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The names of the file_search_stores to retrieve from. Example: `fileSearchStores/my-file-search-store-123`",
+                   "title": "Filesearchstorenames"
+                },
+                "topK": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The number of semantic retrieval chunks to retrieve.",
+                   "title": "Topk"
+                },
+                "metadataFilter": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Metadata filter to apply to the semantic retrieval documents and chunks.",
+                   "title": "Metadatafilter"
+                }
+             },
+             "title": "FileSearch",
+             "type": "object"
+          },
+          "FindRequestParam": {
+             "additionalProperties": false,
+             "description": "Request parameters specific to FIND sessions, used for discovering\nvulnerabilities in a codebase.",
+             "properties": {
+                "description": {
+                   "title": "Description",
+                   "type": "string"
+                },
+                "finding_id": {
+                   "title": "Finding Id",
+                   "type": "string"
+                },
+                "mode": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "scan",
+                            "verify"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "string"
+                      }
+                   ],
+                   "title": "Mode"
+                },
+                "source_files": {
+                   "items": {
+                      "$ref": "#/$defs/FileContentParam"
+                   },
+                   "title": "Source Files",
+                   "type": "array"
+                }
+             },
+             "title": "FindRequestParam",
+             "type": "object"
+          },
+          "FixRequestParam": {
+             "additionalProperties": false,
+             "description": "Request parameters specific to FIX sessions, used for generating and\nvalidating security patches.",
+             "properties": {
+                "description": {
+                   "title": "Description",
+                   "type": "string"
+                },
+                "finding_id": {
+                   "title": "Finding Id",
+                   "type": "string"
+                },
+                "source_files": {
+                   "items": {
+                      "$ref": "#/$defs/FileContentParam"
+                   },
+                   "title": "Source Files",
+                   "type": "array"
+                }
+             },
+             "title": "FixRequestParam",
+             "type": "object"
+          },
+          "FunctionDeclaration": {
+             "additionalProperties": false,
+             "description": "Structured representation of a function declaration as defined by the [OpenAPI 3.0 specification](https://spec.openapis.org/oas/v3.0.3).\n\nIncluded in this declaration are the function name, description, parameters\nand response type. This FunctionDeclaration is a representation of a block of\ncode that can be used as a `Tool` by the model and executed by the client.",
+             "properties": {
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Description and purpose of the function. Model uses it to decide how and whether to call the function.",
+                   "title": "Description"
+                },
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The name of the function to call. Must start with a letter or an underscore. Must be a-z, A-Z, 0-9, or contain underscores, dots, colons and dashes, with a maximum length of 128.",
+                   "title": "Name"
+                },
+                "parameters": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the parameters to this function in JSON Schema Object format. Reflects the Open API 3.03 Parameter Object. string Key: the name of the parameter. Parameter names are case sensitive. Schema Value: the Schema defining the type used for the parameter. For function with no parameters, this can be left unset. Parameter names must start with a letter or an underscore and must only contain chars a-z, A-Z, 0-9, or underscores with a maximum length of 64. Example with 1 required and 1 optional parameter: type: OBJECT properties: param1: type: STRING param2: type: INTEGER required: - param1"
+                },
+                "parametersJsonSchema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the parameters to the function in JSON Schema format. The schema must describe an object where the properties are the parameters to the function. For example: ``` { \"type\": \"object\", \"properties\": { \"name\": { \"type\": \"string\" }, \"age\": { \"type\": \"integer\" } }, \"additionalProperties\": false, \"required\": [\"name\", \"age\"], \"propertyOrdering\": [\"name\", \"age\"] } ``` This field is mutually exclusive with `parameters`.",
+                   "title": "Parametersjsonschema"
+                },
+                "response": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the output from this function in JSON Schema format. Reflects the Open API 3.03 Response Object. The Schema defines the type used for the response value of the function."
+                },
+                "responseJsonSchema": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the output from this function in JSON Schema format. The value specified by the schema is the response value of the function. This field is mutually exclusive with `response`.",
+                   "title": "Responsejsonschema"
+                },
+                "behavior": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Behavior"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Specifies the function Behavior. If not specified, the system keeps the current function call behavior. This field is currently only supported by the BidiGenerateContent method."
+                }
+             },
+             "title": "FunctionDeclaration",
+             "type": "object"
+          },
+          "GoogleMaps": {
+             "additionalProperties": false,
+             "description": "Tool to retrieve knowledge from Google Maps.",
+             "properties": {
+                "authConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/AuthConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The authentication config to access the API. Only API key is supported. This field is not supported in Gemini API."
+                },
+                "enableWidget": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Deprecated. The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed. Optional. Whether to return a widget context token in the GroundingMetadata of the response.",
+                   "title": "Enablewidget"
+                },
+                "groundingTypes": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GoogleMapsGroundingTypes"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Specifies the types of Google Maps grounding to enable. This field is not supported in Gemini API."
+                }
+             },
+             "title": "GoogleMaps",
+             "type": "object"
+          },
+          "GoogleMapsGroundingTypes": {
+             "additionalProperties": false,
+             "description": "Defines the types of Google Maps grounding that can be enabled and their configurations.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "places": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GoogleMapsPlaces"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Enables grounding with Google Maps Places. This is the default grounding type when no `GroundingTypes` are specified."
+                },
+                "routing": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GoogleMapsRouting"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Enables grounding with Google Maps Routing APIs (ComputeRoutes and SearchAlongRoute)."
+                }
+             },
+             "title": "GoogleMapsGroundingTypes",
+             "type": "object"
+          },
+          "GoogleMapsPlaces": {
+             "additionalProperties": false,
+             "description": "Grounding with Google Maps Places data (e.g.\n\nQueryPlaces). This is the default Google Maps grounding type when no other\ntype is specified. This data type is not supported in Gemini API.",
+             "properties": {},
+             "title": "GoogleMapsPlaces",
+             "type": "object"
+          },
+          "GoogleMapsRouting": {
+             "additionalProperties": false,
+             "description": "Grounding with Google Maps Routing APIs (ComputeRoutes and SearchAlongRoute).\n\nThis data type is not supported in Gemini API.",
+             "properties": {},
+             "title": "GoogleMapsRouting",
+             "type": "object"
+          },
+          "GoogleSearch": {
+             "additionalProperties": false,
+             "description": "GoogleSearch tool type.\n\nTool to support Google Search in Model. Powered by Google.",
+             "properties": {
+                "searchTypes": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/SearchTypes"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The set of search types to enable. If not set, web search is enabled by default."
+                },
+                "blockingConfidence": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PhishBlockThreshold"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Sites with confidence level chosen & above this value will be blocked from the search results. This field is not supported in Gemini API."
+                },
+                "excludeDomains": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. List of domains to be excluded from the search results. The default limit is 2000 domains. Example: [\"amazon.com\", \"facebook.com\"]. This field is not supported in Gemini API.",
+                   "title": "Excludedomains"
+                },
+                "timeRangeFilter": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Interval"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Filter search results to a specific time range. If customers set a start time, they must set an end time (and vice versa). This field is not supported in Vertex AI."
+                }
+             },
+             "title": "GoogleSearch",
+             "type": "object"
+          },
+          "GoogleSearchRetrieval": {
+             "additionalProperties": false,
+             "description": "Tool to retrieve public web data for grounding, powered by Google.",
+             "properties": {
+                "dynamicRetrievalConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/DynamicRetrievalConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the dynamic retrieval configuration for the given source."
+                }
+             },
+             "title": "GoogleSearchRetrieval",
+             "type": "object"
+          },
+          "HttpElementLocation": {
+             "description": "The location of the API key. This enum is not supported in Gemini API.",
+             "enum": [
+                "HTTP_IN_UNSPECIFIED",
+                "HTTP_IN_QUERY",
+                "HTTP_IN_HEADER",
+                "HTTP_IN_PATH",
+                "HTTP_IN_BODY",
+                "HTTP_IN_COOKIE"
+             ],
+             "title": "HttpElementLocation",
+             "type": "string"
+          },
+          "ImageSearch": {
+             "additionalProperties": false,
+             "description": "Image search for grounding and related configurations.",
+             "properties": {},
+             "title": "ImageSearch",
+             "type": "object"
+          },
+          "Interval": {
+             "additionalProperties": false,
+             "description": "Represents a time interval, encoded as a Timestamp start (inclusive) and a Timestamp end (exclusive).\n\nThe start must be less than or equal to the end. When the start equals the\nend, the interval is empty (matches no time). When both start and end are\nunspecified, the interval matches any time.",
+             "properties": {
+                "endTime": {
+                   "anyOf": [
+                      {
+                         "format": "date-time",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Exclusive end of the interval. If specified, a Timestamp matching this interval will have to be before the end.",
+                   "title": "Endtime"
+                },
+                "startTime": {
+                   "anyOf": [
+                      {
+                         "format": "date-time",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Inclusive start of the interval. If specified, a Timestamp matching this interval will have to be the same or after the start.",
+                   "title": "Starttime"
+                }
+             },
+             "title": "Interval",
+             "type": "object"
+          },
+          "McpServer": {
+             "additionalProperties": false,
+             "description": "A MCPServer is a server that can be called by the model to perform actions.\n\nIt is a server that implements the MCP protocol. Next ID: 6. This data type is\nnot supported in Vertex AI.",
+             "properties": {
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The name of the MCPServer.",
+                   "title": "Name"
+                },
+                "streamableHttpTransport": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/StreamableHttpTransport"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A transport that can stream HTTP requests and responses."
+                }
+             },
+             "title": "McpServer",
+             "type": "object"
+          },
+          "NetworkParam": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/EnvironmentNetworkEgressAllowlistParam"
+                },
+                {
+                   "const": "disabled",
+                   "type": "string"
+                }
+             ]
+          },
+          "PhishBlockThreshold": {
+             "description": "Sites with confidence level chosen & above this value will be blocked from the search results.\n\nThis enum is not supported in Gemini API.",
+             "enum": [
+                "PHISH_BLOCK_THRESHOLD_UNSPECIFIED",
+                "BLOCK_LOW_AND_ABOVE",
+                "BLOCK_MEDIUM_AND_ABOVE",
+                "BLOCK_HIGH_AND_ABOVE",
+                "BLOCK_HIGHER_AND_ABOVE",
+                "BLOCK_VERY_HIGH_AND_ABOVE",
+                "BLOCK_ONLY_EXTREMELY_HIGH"
+             ],
+             "title": "PhishBlockThreshold",
+             "type": "string"
+          },
+          "RagRetrievalConfig": {
+             "additionalProperties": false,
+             "description": "Specifies the context retrieval config.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "filter": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RagRetrievalConfigFilter"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Config for filters."
+                },
+                "hybridSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RagRetrievalConfigHybridSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Config for Hybrid Search."
+                },
+                "ranking": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RagRetrievalConfigRanking"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Config for ranking and reranking."
+                },
+                "topK": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The number of contexts to retrieve.",
+                   "title": "Topk"
+                }
+             },
+             "title": "RagRetrievalConfig",
+             "type": "object"
+          },
+          "RagRetrievalConfigFilter": {
+             "additionalProperties": false,
+             "description": "Config for filters. This data type is not supported in Gemini API.",
+             "properties": {
+                "metadataFilter": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. String for metadata filtering.",
+                   "title": "Metadatafilter"
+                },
+                "vectorDistanceThreshold": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Only returns contexts with vector distance smaller than the threshold.",
+                   "title": "Vectordistancethreshold"
+                },
+                "vectorSimilarityThreshold": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Only returns contexts with vector similarity larger than the threshold.",
+                   "title": "Vectorsimilaritythreshold"
+                }
+             },
+             "title": "RagRetrievalConfigFilter",
+             "type": "object"
+          },
+          "RagRetrievalConfigHybridSearch": {
+             "additionalProperties": false,
+             "description": "Config for Hybrid Search. This data type is not supported in Gemini API.",
+             "properties": {
+                "alpha": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Alpha value controls the weight between dense and sparse vector search results. The range is [0, 1], while 0 means sparse vector search only and 1 means dense vector search only. The default value is 0.5 which balances sparse and dense vector search equally.",
+                   "title": "Alpha"
+                }
+             },
+             "title": "RagRetrievalConfigHybridSearch",
+             "type": "object"
+          },
+          "RagRetrievalConfigRanking": {
+             "additionalProperties": false,
+             "description": "Config for ranking and reranking.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "llmRanker": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RagRetrievalConfigRankingLlmRanker"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Config for LlmRanker."
+                },
+                "rankService": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RagRetrievalConfigRankingRankService"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Config for Rank Service."
+                }
+             },
+             "title": "RagRetrievalConfigRanking",
+             "type": "object"
+          },
+          "RagRetrievalConfigRankingLlmRanker": {
+             "additionalProperties": false,
+             "description": "Config for LlmRanker. This data type is not supported in Gemini API.",
+             "properties": {
+                "modelName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The model name used for ranking. See [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference#supported-models).",
+                   "title": "Modelname"
+                }
+             },
+             "title": "RagRetrievalConfigRankingLlmRanker",
+             "type": "object"
+          },
+          "RagRetrievalConfigRankingRankService": {
+             "additionalProperties": false,
+             "description": "Config for Rank Service. This data type is not supported in Gemini API.",
+             "properties": {
+                "modelName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The model name of the rank service. Format: `semantic-ranker-512@latest`",
+                   "title": "Modelname"
+                }
+             },
+             "title": "RagRetrievalConfigRankingRankService",
+             "type": "object"
+          },
+          "Retrieval": {
+             "additionalProperties": false,
+             "description": "Defines a retrieval tool that model can call to access external knowledge.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "disableAttribution": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Deprecated. This option is no longer supported.",
+                   "title": "Disableattribution"
+                },
+                "externalApi": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ExternalApi"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Use data source powered by external API for grounding."
+                },
+                "vertexAiSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VertexAISearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Set to use data source powered by Vertex AI Search."
+                },
+                "vertexRagStore": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VertexRagStore"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Set to use data source powered by Vertex RAG store. User data is uploaded via the VertexRagDataService."
+                }
+             },
+             "title": "Retrieval",
+             "type": "object"
+          },
+          "RetryConfig": {
+             "description": "Configuration for retrying a node.",
+             "properties": {
+                "max_attempts": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum number of attempts, including the original request.\n      If 0 or 1, it means no retries. If not specified, default to 5.",
+                   "title": "Max Attempts"
+                },
+                "initial_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Initial delay before the first retry, in fractions of a second. If not specified, default to 1.0 second.",
+                   "title": "Initial Delay"
+                },
+                "max_delay": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Maximum delay between retries, in fractions of a second. If not specified, default to 60.0 seconds.",
+                   "title": "Max Delay"
+                },
+                "backoff_factor": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Multiplier by which the delay increases after each attempt. If not specified, default to 2.0.",
+                   "title": "Backoff Factor"
+                },
+                "jitter": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Randomness factor for the delay. If not specified, default to 1.0. Otherwise use 0.0 to remove randomness.",
+                   "title": "Jitter"
+                },
+                "exceptions": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "anyOf": [
+                               {
+                                  "type": "string"
+                               },
+                               {}
+                            ]
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Exceptions to retry on. Accepts exception class names as\n      strings (e.g. ``['ValueError']``) or exception classes directly (e.g.\n      ``[ValueError]``). ``None`` means retry on all exceptions.",
+                   "title": "Exceptions"
+                }
+             },
+             "title": "RetryConfig",
+             "type": "object"
+          },
+          "SafetyPolicy": {
+             "description": "SafetyPolicy",
+             "enum": [
+                "SAFETY_POLICY_UNSPECIFIED",
+                "FINANCIAL_TRANSACTIONS",
+                "SENSITIVE_DATA_MODIFICATION",
+                "COMMUNICATION_TOOL",
+                "ACCOUNT_CREATION",
+                "DATA_MODIFICATION",
+                "USER_CONSENT_MANAGEMENT",
+                "LEGAL_TERMS_AND_AGREEMENTS"
+             ],
+             "title": "SafetyPolicy",
+             "type": "string"
+          },
+          "Schema": {
+             "additionalProperties": false,
+             "description": "Schema is used to define the format of input/output data.\n\nRepresents a select subset of an [OpenAPI 3.0 schema\nobject](https://spec.openapis.org/oas/v3.0.3#schema-object). More fields may\nbe added in the future as needed.",
+             "properties": {
+                "additionalProperties": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Can either be a boolean or an object; controls the presence of additional properties.",
+                   "title": "Additionalproperties"
+                },
+                "defs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A map of definitions for use by `ref` Only allowed at the root of the schema.",
+                   "title": "Defs"
+                },
+                "ref": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Allows indirect references between schema nodes. The value should be a valid reference to a child of the root `defs`. For example, the following schema defines a reference to a schema node named \"Pet\": type: object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties: name: type: string The value of the \"pet\" property is a reference to the schema node named \"Pet\". See details in https://json-schema.org/understanding-json-schema/structuring",
+                   "title": "Ref"
+                },
+                "anyOf": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The instance must be valid against any (one or more) of the subschemas listed in `any_of`.",
+                   "title": "Anyof"
+                },
+                "default": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Default value to use if the field is not specified.",
+                   "title": "Default"
+                },
+                "description": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Describes the data. The model uses this field to understand the purpose of the schema and how to use it. It is a best practice to provide a clear and descriptive explanation for the schema and its properties here, rather than in the prompt.",
+                   "title": "Description"
+                },
+                "enum": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Possible values of the field. This field can be used to restrict a value to a fixed set of values. To mark a field as an enum, set `format` to `enum` and provide the list of possible values in `enum`. For example: 1. To define directions: `{type:STRING, format:enum, enum:[\"EAST\", \"NORTH\", \"SOUTH\", \"WEST\"]}` 2. To define apartment numbers: `{type:INTEGER, format:enum, enum:[\"101\", \"201\", \"301\"]}`",
+                   "title": "Enum"
+                },
+                "example": {
+                   "anyOf": [
+                      {},
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Example of an instance of this schema.",
+                   "title": "Example"
+                },
+                "format": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The format of the data. For `NUMBER` type, format can be `float` or `double`. For `INTEGER` type, format can be `int32` or `int64`. For `STRING` type, format can be `email`, `byte`, `date`, `date-time`, `password`, and other formats to further refine the data type.",
+                   "title": "Format"
+                },
+                "items": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Schema"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `items` specifies the schema of elements in the array."
+                },
+                "maxItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `max_items` specifies the maximum number of items in an array.",
+                   "title": "Maxitems"
+                },
+                "maxLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `max_length` specifies the maximum length of the string.",
+                   "title": "Maxlength"
+                },
+                "maxProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `max_properties` specifies the maximum number of properties that can be provided.",
+                   "title": "Maxproperties"
+                },
+                "maximum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `maximum` specifies the maximum allowed value.",
+                   "title": "Maximum"
+                },
+                "minItems": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `ARRAY`, `min_items` specifies the minimum number of items in an array.",
+                   "title": "Minitems"
+                },
+                "minLength": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `min_length` specifies the minimum length of the string.",
+                   "title": "Minlength"
+                },
+                "minProperties": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `min_properties` specifies the minimum number of properties that can be provided.",
+                   "title": "Minproperties"
+                },
+                "minimum": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `INTEGER` or `NUMBER`, `minimum` specifies the minimum allowed value.",
+                   "title": "Minimum"
+                },
+                "nullable": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates if the value of this field can be null.",
+                   "title": "Nullable"
+                },
+                "pattern": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `STRING`, `pattern` specifies a regular expression that the string must match.",
+                   "title": "Pattern"
+                },
+                "properties": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "$ref": "#/$defs/Schema"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `properties` is a map of property names to schema definitions for each property of the object.",
+                   "title": "Properties"
+                },
+                "propertyOrdering": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Order of properties displayed or used where order matters. This is not a standard field in OpenAPI specification, but can be used to control the order of properties.",
+                   "title": "Propertyordering"
+                },
+                "required": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If type is `OBJECT`, `required` lists the names of properties that must be present.",
+                   "title": "Required"
+                },
+                "title": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Title for the schema.",
+                   "title": "Title"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Type"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Data type of the schema field."
+                }
+             },
+             "title": "Schema",
+             "type": "object"
+          },
+          "SearchTypes": {
+             "additionalProperties": false,
+             "description": "Different types of search that can be enabled on the GoogleSearch tool.",
+             "properties": {
+                "webSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/WebSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Setting this field enables web search. Only text results are returned."
+                },
+                "imageSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ImageSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Setting this field enables image search. Image bytes are returned."
+                }
+             },
+             "title": "SearchTypes",
+             "type": "object"
+          },
+          "SessionConfigParam": {
+             "additionalProperties": false,
+             "description": "The configuration of CodeMender sessions.",
+             "properties": {
+                "max_rounds": {
+                   "title": "Max Rounds",
+                   "type": "integer"
+                }
+             },
+             "title": "SessionConfigParam",
+             "type": "object"
+          },
+          "SourceParam": {
+             "additionalProperties": false,
+             "description": "A source to be mounted into the environment.",
+             "properties": {
+                "content": {
+                   "title": "Content",
+                   "type": "string"
+                },
+                "encoding": {
+                   "title": "Encoding",
+                   "type": "string"
+                },
+                "source": {
+                   "title": "Source",
+                   "type": "string"
+                },
+                "target": {
+                   "title": "Target",
+                   "type": "string"
+                },
+                "type": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "gcs",
+                            "inline",
+                            "repository",
+                            "skill_registry"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "string"
+                      }
+                   ],
+                   "title": "Type"
+                }
+             },
+             "title": "SourceParam",
+             "type": "object"
+          },
+          "StreamableHttpTransport": {
+             "additionalProperties": false,
+             "description": "A transport that can stream HTTP requests and responses.\n\nNext ID: 6. This data type is not supported in Vertex AI.",
+             "properties": {
+                "headers": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": {
+                            "type": "string"
+                         },
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional: Fields for authentication headers, timeouts, etc., if needed.",
+                   "title": "Headers"
+                },
+                "sseReadTimeout": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Timeout for SSE read operations.",
+                   "title": "Ssereadtimeout"
+                },
+                "terminateOnClose": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Whether to close the client session when the transport closes.",
+                   "title": "Terminateonclose"
+                },
+                "timeout": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "HTTP timeout for regular operations.",
+                   "title": "Timeout"
+                },
+                "url": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The full URL for the MCPServer endpoint. Example: \"https://api.example.com/mcp\".",
+                   "title": "Url"
+                }
+             },
+             "title": "StreamableHttpTransport",
+             "type": "object"
+          },
+          "Tool": {
+             "additionalProperties": false,
+             "description": "Tool details of a tool that the model may use to generate a response.",
+             "properties": {
+                "retrieval": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Retrieval"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Retrieval tool type. System will always execute the provided retrieval tool(s) to get external knowledge to answer the prompt. Retrieval results are presented to the model for generation. This field is not supported in Gemini API."
+                },
+                "computerUse": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ComputerUse"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Tool to support the model interacting directly with the computer. If enabled, it automatically populates computer-use specific Function Declarations."
+                },
+                "fileSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. FileSearch tool type. Tool to retrieve knowledge from Semantic Retrieval corpora. This field is not supported in Vertex AI."
+                },
+                "googleSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GoogleSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. GoogleSearch tool type. Tool to support Google Search in Model. Powered by Google."
+                },
+                "googleMaps": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GoogleMaps"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Tool that allows grounding the model's response with\n      geospatial context related to the user's query."
+                },
+                "codeExecution": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolCodeExecution"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. CodeExecution tool type. Enables the model to execute code as part of generation."
+                },
+                "enterpriseWebSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/EnterpriseWebSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Tool to support searching public web data, powered by Vertex AI Search and Sec4 compliance. This field is not supported in Gemini API."
+                },
+                "functionDeclarations": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/FunctionDeclaration"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Function tool type. One or more function declarations to be passed to the model along with the current user query. Model may decide to call a subset of these functions by populating FunctionCall in the response. User should provide a FunctionResponse for each function call in the next turn. Based on the function responses, Model will generate the final response back to the user. Maximum 512 function declarations can be provided.",
+                   "title": "Functiondeclarations"
+                },
+                "googleSearchRetrieval": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/GoogleSearchRetrieval"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Specialized retrieval tool that is powered by Google Search."
+                },
+                "parallelAiSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolParallelAiSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If specified, Vertex AI will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation. This field is not supported in Gemini API."
+                },
+                "urlContext": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/UrlContext"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Tool to support URL context retrieval."
+                },
+                "mcpServers": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/McpServer"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. MCP Servers to connect to. This field is not supported in Vertex AI.",
+                   "title": "Mcpservers"
+                },
+                "exaAiSearch": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolExaAiSearch"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Uses Exa.ai to search for information to answer user queries. The search results will be grounded on Exa.ai and presented to the model for response generation. This field is not supported in Gemini API."
+                }
+             },
+             "title": "Tool",
+             "type": "object"
+          },
+          "ToolCodeExecution": {
+             "additionalProperties": false,
+             "description": "Tool that executes code generated by the model, and automatically returns the result to the model.\n\nSee also ExecutableCode and CodeExecutionResult, which are input and output to\nthis tool. This data type is not supported in Gemini API.",
+             "properties": {},
+             "title": "ToolCodeExecution",
+             "type": "object"
+          },
+          "ToolExaAiSearch": {
+             "additionalProperties": false,
+             "description": "ExaAiSearch tool type.\n\nA tool that uses the Exa.ai search engine for grounding. This data type is not\nsupported in Gemini API.",
+             "properties": {
+                "apiKey": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The API key for ExaAiSearch.",
+                   "title": "Apikey"
+                },
+                "customConfigs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. This field can be used to pass any parameter from the Exa.ai Search API.",
+                   "title": "Customconfigs"
+                }
+             },
+             "title": "ToolExaAiSearch",
+             "type": "object"
+          },
+          "ToolParallelAiSearch": {
+             "additionalProperties": false,
+             "description": "ParallelAiSearch tool type.\n\nA tool that uses the Parallel.ai search engine for grounding. This data type\nis not supported in Gemini API.",
+             "properties": {
+                "apiKey": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The API key for ParallelAiSearch. If an API key is not provided, the system will attempt to verify access by checking for an active Parallel.ai subscription through the Google Cloud Marketplace. See https://docs.parallel.ai/search/search-quickstart for more details.",
+                   "title": "Apikey"
+                },
+                "customConfigs": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: https://docs.parallel.ai/api-reference/search-beta/search Currently only `source_policy`, `excerpts`, `max_results`, `mode`, `fetch_policy` can be set via this field. For example: { \"source_policy\": { \"include_domains\": [\"google.com\", \"wikipedia.org\"], \"exclude_domains\": [\"example.com\"] }, \"fetch_policy\": { \"max_age_seconds\": 3600 } }",
+                   "title": "Customconfigs"
+                }
+             },
+             "title": "ToolParallelAiSearch",
+             "type": "object"
+          },
+          "TransformParam": {
+             "anyOf": [
+                {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "type": "object"
+                },
+                {
+                   "items": {
+                      "additionalProperties": {
+                         "type": "string"
+                      },
+                      "type": "object"
+                   },
+                   "type": "array"
+                }
+             ]
+          },
+          "Type": {
+             "description": "Data type of the schema field.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "STRING",
+                "NUMBER",
+                "INTEGER",
+                "BOOLEAN",
+                "ARRAY",
+                "OBJECT",
+                "NULL"
+             ],
+             "title": "Type",
+             "type": "string"
+          },
+          "UrlContext": {
+             "additionalProperties": false,
+             "description": "Tool to support URL context.",
+             "properties": {},
+             "title": "UrlContext",
+             "type": "object"
+          },
+          "VertexAISearch": {
+             "additionalProperties": false,
+             "description": "Retrieve from Vertex AI Search datastore or engine for grounding.\n\ndatastore and engine are mutually exclusive. See\nhttps://cloud.google.com/products/agent-builder. This data type is not\nsupported in Gemini API.",
+             "properties": {
+                "dataStoreSpecs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/VertexAISearchDataStoreSpec"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifications that define the specific DataStores to be searched, along with configurations for those data stores. This is only considered for Engines with multiple data stores. It should only be set if engine is used.",
+                   "title": "Datastorespecs"
+                },
+                "datastore": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Fully-qualified Vertex AI Search data store resource ID. Format: `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`",
+                   "title": "Datastore"
+                },
+                "engine": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Fully-qualified Vertex AI Search engine resource ID. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`",
+                   "title": "Engine"
+                },
+                "filter": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Filter strings to be passed to the search API.",
+                   "title": "Filter"
+                },
+                "maxResults": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Number of search results to return per query. The default value is 10. The maximumm allowed value is 10.",
+                   "title": "Maxresults"
+                }
+             },
+             "title": "VertexAISearch",
+             "type": "object"
+          },
+          "VertexAISearchDataStoreSpec": {
+             "additionalProperties": false,
+             "description": "Define data stores within engine to filter on in a search call and configurations for those data stores.\n\nFor more information, see\nhttps://cloud.google.com/generative-ai-app-builder/docs/reference/rpc/google.cloud.discoveryengine.v1#datastorespec.\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "dataStore": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Full resource name of DataStore, such as Format: `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`",
+                   "title": "Datastore"
+                },
+                "filter": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Filter specification to filter documents in the data store specified by data_store field. For more information on filtering, see [Filtering](https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata)",
+                   "title": "Filter"
+                }
+             },
+             "title": "VertexAISearchDataStoreSpec",
+             "type": "object"
+          },
+          "VertexRagStore": {
+             "additionalProperties": false,
+             "description": "Retrieve from Vertex RAG Store for grounding.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "ragCorpora": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Deprecated. Please use rag_resources instead.",
+                   "title": "Ragcorpora"
+                },
+                "ragResources": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/VertexRagStoreRagResource"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The representation of the rag source. It can be used to specify corpus only or ragfiles. Currently only support one corpus or multiple files from one corpus. In the future we may open up multiple corpora support.",
+                   "title": "Ragresources"
+                },
+                "ragRetrievalConfig": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/RagRetrievalConfig"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The retrieval config for the Rag query."
+                },
+                "similarityTopK": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Number of top k results to return from the selected corpora.",
+                   "title": "Similaritytopk"
+                },
+                "storeContext": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Currently only supported for Gemini Multimodal Live API. In Gemini Multimodal Live API, if `store_context` bool is specified, Gemini will leverage it to automatically memorize the interactions between the client and Gemini, and retrieve context when needed to augment the response generation for users' ongoing and future interactions.",
+                   "title": "Storecontext"
+                },
+                "vectorDistanceThreshold": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Only return results with vector distance smaller than the threshold.",
+                   "title": "Vectordistancethreshold"
+                }
+             },
+             "title": "VertexRagStore",
+             "type": "object"
+          },
+          "VertexRagStoreRagResource": {
+             "additionalProperties": false,
+             "description": "The definition of the Rag resource.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "ragCorpus": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. RagCorpora resource name. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`",
+                   "title": "Ragcorpus"
+                },
+                "ragFileIds": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. rag_file_id. The files should be in the same rag_corpus set in rag_corpus field.",
+                   "title": "Ragfileids"
+                }
+             },
+             "title": "VertexRagStoreRagResource",
+             "type": "object"
+          },
+          "WebSearch": {
+             "additionalProperties": false,
+             "description": "Standard web search for grounding and related configurations.\n\nOnly text results are returned.",
+             "properties": {},
+             "title": "WebSearch",
+             "type": "object"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "name",
+          "agent_id"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `agent_config (Optional[CreateAgentInteractionAgentConfigParam])`
+
+  * `agent_id (str)`
+
+  * `environment (Optional[CreateAgentInteractionEnvironmentParam])`
+
+  * `instruction (Union[str, InstructionProvider])`
+
+  * `mode (Literal['single_turn'] | None)`
+
+  * `tools (list[Union[types.Tool, BaseTool, Callable[..., Any], RemoteMcpServer]])`
+
+
+
+Validators:
+    
+
+_field _agent_config _: Optional[CreateAgentInteractionAgentConfigParam]__ = None_¶
+    
+
+Runtime configuration passed to interactions.create.
+
+_field _agent_id _: str_ _[Required]_¶
+    
+
+The Managed Agent id (e.g. ‘antigravity-preview-05-2026’ or ‘agents/ID’).
+
+_field _environment _: Optional[CreateAgentInteractionEnvironmentParam]__ = None_¶
+    
+
+A sandbox environment spec (e.g. `{'type': 'remote'}`) or an existing environment id string to reuse across turns.
+
+_field _instruction _: Union[str, InstructionProvider]__ = ''_¶
+    
+
+The system instruction sent to the Managed Agent.
+
+A plain string may embed `{var}`, `{artifact.name}`, or `{var?}` placeholders that are resolved from session state / artifacts at request time (see `inject_session_state`). An `InstructionProvider` callable is invoked with a `ReadonlyContext` and bypasses placeholder injection (it manages state itself). Empty by default, in which case no system instruction is sent.
+
+_field _mode _: Literal['single_turn'] | None_ _ = None_¶
+    
+
+Composition mode.
+
+Only `single_turn` is supported: the agent runs as an inline single-turn tool of a parent `LlmAgent` (the recommended replacement for `AgentTool`), preserving its internal events in the shared session. `None` (default) leaves the agent usable as an LLM-transfer target.
+
+_field _tools _: list[Union[types.Tool, BaseTool, Callable[..., Any], RemoteMcpServer]]__[Optional]_¶
+    
+
+Server-side tools: ADK built-in tools, raw types.Tool configs, or RemoteMcpServer specs for server-side remote MCP.
+
+_async _canonical_instruction(_ctx_)¶
+    
+
+Resolves `self.instruction` for the current context.
+
+Mirrors `LlmAgent.canonical_instruction`.
+
+Return type:
+    
+
+`tuple`[`str`, `bool`]
+
+Parameters:
+    
+
+**ctx** – The read-only context used to resolve an InstructionProvider.
+
+Returns:
+    
+
+A tuple of (instruction, bypass_state_injection). `bypass_state_injection` is True when the instruction came from an `InstructionProvider` callable (which manages state itself), False for a plain string.
+
+model_post_init(__BaseAgent__context_)¶
+    
+
+Override this method to perform additional initialization after __init__ and model_construct. This is useful if you want to do some validation that requires the entire model to be initialized.
+
+Return type:
+    
+
+`None`
+
+_property _api_client _: Client_¶
+    
+
+The genai client, lazily created if none was injected.
+
+The backend is resolved from the environment (`GOOGLE_GENAI_USE_ENTERPRISE` or the legacy `GOOGLE_GENAI_USE_VERTEXAI`), matching google-genai semantics; the no-env default is the Gemini Developer API. The enterprise backend is pinned to the `global` location (the Managed Agents API is only served from `global`); the Developer API takes no `location` (it is meaningless there).
+
 _class _google.adk.agents.McpInstructionProvider(_connection_params_ , _prompt_name_ , _errlog= <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>_)¶
     
 
@@ -13278,12 +18273,14 @@ This approach is beneficial for scenarios requiring multiple perspectives or att
 
 
 
+Deprecated since version ParallelAgent: is deprecated in favor of Workflow and will be removed in a future version. Workflow cannot yet be used as an LlmAgent sub-agent.
+
 Show JSON schema
     
     
     {
        "title": "ParallelAgent",
-       "description": "A shell agent that runs its sub-agents in parallel in an isolated manner.\n\nThis approach is beneficial for scenarios requiring multiple perspectives or\nattempts on a single task, such as:\n\n- Running different algorithms simultaneously.\n- Generating multiple responses for review by a subsequent evaluation agent.",
+       "description": "A shell agent that runs its sub-agents in parallel in an isolated manner.\n\nThis approach is beneficial for scenarios requiring multiple perspectives or\nattempts on a single task, such as:\n\n- Running different algorithms simultaneously.\n- Generating multiple responses for review by a subsequent evaluation agent.\n\n.. deprecated::\n  ParallelAgent is deprecated in favor of Workflow and will be removed in a\n  future version. Workflow cannot yet be used as an LlmAgent sub-agent.",
        "type": "object",
        "properties": {
           "name": {
@@ -13989,6 +18986,162 @@ Fields:
 Validators:
     
 
+config_type¶
+    
+
+alias of `ParallelAgentConfig`
+
+_pydantic model _google.adk.agents.ParallelAgentConfig¶
+    
+
+Bases: `BaseAgentConfig`
+
+The config for the YAML schema of a ParallelAgent.
+
+Show JSON schema
+    
+    
+    {
+       "title": "ParallelAgentConfig",
+       "description": "The config for the YAML schema of a ParallelAgent.",
+       "type": "object",
+       "properties": {
+          "agent_class": {
+             "default": "ParallelAgent",
+             "description": "The value is used to uniquely identify the ParallelAgent class.",
+             "title": "Agent Class",
+             "type": "string"
+          },
+          "name": {
+             "description": "Required. The name of the agent.",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "description": "Optional. The description of the agent.",
+             "title": "Description",
+             "type": "string"
+          },
+          "sub_agents": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/AgentRefConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The sub-agents of the agent.",
+             "title": "Sub Agents"
+          },
+          "before_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The before_agent_callbacks of the agent.\n\nExample:\n\n  ```\n  before_agent_callbacks:\n    - name: my_library.security_callbacks.before_agent_callback\n  ```",
+             "title": "Before Agent Callbacks"
+          },
+          "after_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The after_agent_callbacks of the agent.",
+             "title": "After Agent Callbacks"
+          }
+       },
+       "$defs": {
+          "AgentRefConfig": {
+             "additionalProperties": false,
+             "description": "The config for the reference to another agent.",
+             "properties": {
+                "config_path": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Config Path"
+                },
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Code"
+                }
+             },
+             "title": "AgentRefConfig",
+             "type": "object"
+          },
+          "CodeConfig": {
+             "additionalProperties": false,
+             "description": "Code reference config for a variable, a function, or a class.\n\nOnly references an object by name. YAML cannot pass constructor args; to\nuse a configured object, build it in Python and reference its FQN here.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "CodeConfig",
+             "type": "object"
+          }
+       },
+       "additionalProperties": false,
+       "deprecated": true,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `agent_class (str)`
+
+
+
+
+_field _agent_class _: str_ _ = 'ParallelAgent'_¶
+    
+
+The value is used to uniquely identify the ParallelAgent class.
+
 _pydantic model _google.adk.agents.RunConfig¶
     
 
@@ -14003,7 +19156,6 @@ Show JSON schema
     
     {
        "title": "RunConfig",
-       "description": "Configs for runtime behavior of agents.\n\nThe configs here will be overridden by agent-specific configurations.",
        "type": "object",
        "properties": {
           "speech_config": {
@@ -14017,11 +19169,30 @@ Show JSON schema
              ],
              "default": null
           },
+          "http_options": {
+             "default": null,
+             "title": "Http Options"
+          },
+          "labels": {
+             "anyOf": [
+                {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "type": "object"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Labels"
+          },
           "response_modalities": {
              "anyOf": [
                 {
                    "items": {
-                      "type": "string"
+                      "$ref": "#/$defs/Modality"
                    },
                    "type": "array"
                 },
@@ -14090,6 +19261,29 @@ Show JSON schema
              ],
              "default": null
           },
+          "explicit_vad_signal": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Explicit Vad Signal"
+          },
+          "translation_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/TranslationConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
           "enable_affective_dialog": {
              "anyOf": [
                 {
@@ -14117,6 +19311,17 @@ Show JSON schema
              "anyOf": [
                 {
                    "$ref": "#/$defs/SessionResumptionConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "history_config": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/HistoryConfig"
                 },
                 {
                    "type": "null"
@@ -14176,6 +19381,17 @@ Show JSON schema
              "default": null,
              "title": "Custom Metadata"
           },
+          "telemetry": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/TelemetryConfig"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
           "get_session_config": {
              "anyOf": [
                 {
@@ -14186,6 +19402,26 @@ Show JSON schema
                 }
              ],
              "default": null
+          },
+          "model_input_context": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/Content"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Model Input Context"
+          },
+          "include_thoughts_from_other_agents": {
+             "default": false,
+             "title": "Include Thoughts From Other Agents",
+             "type": "boolean"
           }
        },
        "$defs": {
@@ -14216,8 +19452,90 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The language codes of the audio. BCP-47 language code. If not set, the transcription will be in the language detected by the model. If set, the server will use the language code specified in the model config as a hint for the language of the audio\n      ",
+                   "description": "BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.",
                    "title": "Languagecodes"
+                },
+                "languageAuto": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/LanguageAuto"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Deprecated: Auto-detection is now the default when language_codes is omitted. This field will be removed in a future version."
+                },
+                "languageHints": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/LanguageHints"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Deprecated: Use top-level language_codes instead. This field will be removed in a future version."
+                },
+                "customVocabulary": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A list of custom vocabulary phrases, which biases the ASR model to improve recognition of these specific terms.",
+                   "title": "Customvocabulary"
+                },
+                "adaptationPhrases": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Deprecated. A list of phrases used for speech adaptation, which biases the ASR model to improve recognition of these specific terms.",
+                   "title": "Adaptationphrases"
+                },
+                "wordTimestamp": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Configures word-level timestamp generation.\n      ",
+                   "title": "Wordtimestamp"
+                },
+                "diarization": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Configures speaker diarization.\n      ",
+                   "title": "Diarization"
                 }
              },
              "title": "AudioTranscriptionConfig",
@@ -14353,6 +19671,148 @@ Show JSON schema
              "title": "AvatarConfig",
              "type": "object"
           },
+          "Blob": {
+             "additionalProperties": false,
+             "description": "A content blob.\n\nA Blob contains data of a specific media type. It is used to represent images,\naudio, and video.",
+             "properties": {
+                "data": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The raw bytes of the data.",
+                   "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server-side tools (`code_execution`, `google_search`, and `url_context`) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                }
+             },
+             "title": "Blob",
+             "type": "object"
+          },
+          "CodeExecutionResult": {
+             "additionalProperties": false,
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "properties": {
+                "outcome": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Outcome"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. Outcome of the code execution."
+                },
+                "output": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Contains stdout when code execution is successful, stderr or other description otherwise.",
+                   "title": "Output"
+                },
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
+                   "title": "Id"
+                }
+             },
+             "title": "CodeExecutionResult",
+             "type": "object"
+          },
+          "Content": {
+             "additionalProperties": false,
+             "description": "Contains the multi-part content of a message.",
+             "properties": {
+                "parts": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/Part"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "List of parts that constitute a single message. Each part may have\n      a different IANA MIME type.",
+                   "title": "Parts"
+                },
+                "role": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The producer of the content. Must be either 'user' or 'model'. If not set, the service will default to 'user'.",
+                   "title": "Role"
+                }
+             },
+             "title": "Content",
+             "type": "object"
+          },
+          "ContentCapturingMode": {
+             "description": "Mirror of ``opentelemetry.util.genai.types.ContentCapturingMode``.\n\nDefined locally rather than imported because ``opentelemetry-util-genai``\nis an optional, in-development dependency. Values are the canonical states\nfor ``OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT``.\n\nMembers:\n  NO_CONTENT: No content captured (matches env value ``''``).\n  EVENT_ONLY: Content on the emitted LogRecord only.\n  SPAN_ONLY: Content on the active span only.\n  SPAN_AND_EVENT: Content on both the LogRecord and the active span.",
+             "enum": [
+                "NO_CONTENT",
+                "EVENT_ONLY",
+                "SPAN_ONLY",
+                "SPAN_AND_EVENT"
+             ],
+             "title": "ContentCapturingMode",
+             "type": "string"
+          },
           "ContextWindowCompressionConfig": {
              "additionalProperties": false,
              "description": "Enables context window compression -- mechanism managing model context window so it does not exceed given length.",
@@ -14431,6 +19891,403 @@ Show JSON schema
              "title": "EndSensitivity",
              "type": "string"
           },
+          "ExecutableCode": {
+             "additionalProperties": false,
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
+             "properties": {
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The code to be executed.",
+                   "title": "Code"
+                },
+                "language": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Language"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. Programming language of the `code`."
+                },
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
+                   "title": "Id"
+                }
+             },
+             "title": "ExecutableCode",
+             "type": "object"
+          },
+          "FileData": {
+             "additionalProperties": false,
+             "description": "URI-based data.\n\nA FileData message contains a URI pointing to data of a specific media type.\nIt is used to represent images, audio, and video stored in Google Cloud\nStorage.",
+             "properties": {
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The display name of the file. Used to provide a label or filename to distinguish files. This field is only returned in `PromptMessage` for prompt management. It is used in the Gemini calls only when server side tools (`code_execution`, `google_search`, and `url_context`) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
+                },
+                "fileUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The URI of the file in Google Cloud Storage.",
+                   "title": "Fileuri"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                }
+             },
+             "title": "FileData",
+             "type": "object"
+          },
+          "FunctionCall": {
+             "additionalProperties": false,
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
+             "properties": {
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
+                   "title": "Id"
+                },
+                "args": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
+                   "title": "Args"
+                },
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
+                   "title": "Name"
+                },
+                "partialArgs": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/PartialArg"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The partial argument value of the function call. If provided, represents the arguments/fields that are streamed incrementally. This field is not supported in Gemini API.",
+                   "title": "Partialargs"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is the last part of the FunctionCall. If true, another partial message for the current FunctionCall is expected to follow. This field is not supported in Gemini API.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "FunctionCall",
+             "type": "object"
+          },
+          "FunctionResponse": {
+             "additionalProperties": false,
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
+             "properties": {
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
+                   "title": "Willcontinue"
+                },
+                "scheduling": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponseScheduling"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                },
+                "parts": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/FunctionResponsePart"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
+                   "title": "Parts"
+                },
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The id of the function call this response is for. Populated by the client to match the corresponding function call `id`.",
+                   "title": "Id"
+                },
+                "name": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
+                   "title": "Name"
+                },
+                "response": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The function response in JSON object format. Use \"output\" key to specify function output and \"error\" key to specify error details (if any). If \"output\" and \"error\" keys are not specified, then whole \"response\" is treated as function output.",
+                   "title": "Response"
+                }
+             },
+             "title": "FunctionResponse",
+             "type": "object"
+          },
+          "FunctionResponseBlob": {
+             "additionalProperties": false,
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
+             "properties": {
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                },
+                "data": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. Raw bytes.",
+                   "title": "Data"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
+                   "title": "Displayname"
+                }
+             },
+             "title": "FunctionResponseBlob",
+             "type": "object"
+          },
+          "FunctionResponseFileData": {
+             "additionalProperties": false,
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "fileUri": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. URI.",
+                   "title": "Fileuri"
+                },
+                "mimeType": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The IANA standard MIME type of the source data.",
+                   "title": "Mimetype"
+                },
+                "displayName": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
+                   "title": "Displayname"
+                }
+             },
+             "title": "FunctionResponseFileData",
+             "type": "object"
+          },
+          "FunctionResponsePart": {
+             "additionalProperties": false,
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
+             "properties": {
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponseBlob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Inline media bytes."
+                },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponseFileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "URI based data. This field is not supported in Gemini API."
+                }
+             },
+             "title": "FunctionResponsePart",
+             "type": "object"
+          },
+          "FunctionResponseScheduling": {
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
+             "enum": [
+                "SCHEDULING_UNSPECIFIED",
+                "SILENT",
+                "WHEN_IDLE",
+                "INTERRUPT"
+             ],
+             "title": "FunctionResponseScheduling",
+             "type": "string"
+          },
           "GetSessionConfig": {
              "description": "The configuration of getting a session.\n\nAttributes:\n  num_recent_events: The limit of recent events to get for the session.\n    Optional: if None, the filter is not applied; if greater than 0, returns\n      at most given number of recent events; if 0, no events are returned.\n  after_timestamp: The earliest timestamp of events to get for the session.\n    Optional: if None, the filter is not applied; otherwise, returns events\n      with timestamp >= the given time.",
              "properties": {
@@ -14462,6 +20319,79 @@ Show JSON schema
              "title": "GetSessionConfig",
              "type": "object"
           },
+          "HistoryConfig": {
+             "additionalProperties": false,
+             "description": "Configuration for history exchange between client and server.",
+             "properties": {
+                "initialHistoryInClientContent": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "If true, after sending `setup_complete`, the server will wait\n      and at first process `client_content` messages until `turn_complete` is\n      `true`. This initial history will not trigger a model call and\n      may end with model content. After `turn_complete` is `true`, the client\n      can start the realtime conversation via `realtime_input`.",
+                   "title": "Initialhistoryinclientcontent"
+                }
+             },
+             "title": "HistoryConfig",
+             "type": "object"
+          },
+          "Language": {
+             "description": "Programming language of the `code`.",
+             "enum": [
+                "LANGUAGE_UNSPECIFIED",
+                "PYTHON"
+             ],
+             "title": "Language",
+             "type": "string"
+          },
+          "LanguageAuto": {
+             "additionalProperties": false,
+             "description": "Deprecated: Language auto-detection is now the default when language_codes is omitted.",
+             "properties": {},
+             "title": "LanguageAuto",
+             "type": "object"
+          },
+          "LanguageHints": {
+             "additionalProperties": false,
+             "description": "Deprecated: Use AudioTranscriptionConfig.language_codes instead.",
+             "properties": {
+                "languageCodes": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "type": "string"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Deprecated. BCP-47 language codes.",
+                   "title": "Languagecodes"
+                }
+             },
+             "title": "LanguageHints",
+             "type": "object"
+          },
+          "Modality": {
+             "description": "Server content modalities.",
+             "enum": [
+                "MODALITY_UNSPECIFIED",
+                "TEXT",
+                "IMAGE",
+                "AUDIO",
+                "VIDEO"
+             ],
+             "title": "Modality",
+             "type": "string"
+          },
           "MultiSpeakerVoiceConfig": {
              "additionalProperties": false,
              "description": "Configuration for a multi-speaker text-to-speech request.",
@@ -14484,6 +20414,343 @@ Show JSON schema
                 }
              },
              "title": "MultiSpeakerVoiceConfig",
+             "type": "object"
+          },
+          "Outcome": {
+             "description": "Outcome of the code execution.",
+             "enum": [
+                "OUTCOME_UNSPECIFIED",
+                "OUTCOME_OK",
+                "OUTCOME_FAILED",
+                "OUTCOME_DEADLINE_EXCEEDED"
+             ],
+             "title": "Outcome",
+             "type": "string"
+          },
+          "Part": {
+             "additionalProperties": false,
+             "description": "A datatype containing media content.\n\nExactly one field within a Part should be set, representing the specific type\nof content being conveyed. Using multiple fields within the same `Part`\ninstance is considered invalid.",
+             "properties": {
+                "mediaResolution": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolution"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Media resolution for the input media.\n    "
+                },
+                "codeExecutionResult": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/CodeExecutionResult"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The result of executing the ExecutableCode."
+                },
+                "executableCode": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ExecutableCode"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Code generated by the model that is intended to be executed."
+                },
+                "fileData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FileData"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The URI-based data of the part. This can be used to include files from Google Cloud Storage."
+                },
+                "functionCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. A predicted function call returned from the model. This contains the name of the function to call and the arguments to pass to the function."
+                },
+                "functionResponse": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/FunctionResponse"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The result of a function call. This is used to provide the model with the result of a function call that it predicted."
+                },
+                "inlineData": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Blob"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The inline data content of the part. This can be used to include images, audio, or video in a request."
+                },
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The text content of the part. When sent from the VSCode Gemini Code Assist extension, references to @mentioned items will be converted to markdown boldface text. For example `@my-repo` will be converted to and sent as `**my-repo**` by the IDE agent.",
+                   "title": "Text"
+                },
+                "thought": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Indicates whether the `part` represents the model's thought process or reasoning.",
+                   "title": "Thought"
+                },
+                "thoughtSignature": {
+                   "anyOf": [
+                      {
+                         "format": "base64url",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. An opaque signature for the thought so it can be reused in subsequent requests.",
+                   "title": "Thoughtsignature"
+                },
+                "videoMetadata": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VideoMetadata"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Video metadata. The metadata should only be specified while the video data is presented in inline_data or file_data."
+                },
+                "toolCall": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolCall"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Server-side tool call. This field is populated when the model predicts a tool invocation that should be executed on the server. The client is expected to echo this message back to the API."
+                },
+                "toolResponse": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolResponse"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The output from a server-side ToolCall execution. This field is populated by the client with the results of executing the corresponding ToolCall."
+                },
+                "partMetadata": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
+                   "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
+                }
+             },
+             "title": "Part",
+             "type": "object"
+          },
+          "PartMediaResolution": {
+             "additionalProperties": false,
+             "description": "Media resolution for the input media.",
+             "properties": {
+                "level": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/PartMediaResolutionLevel"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tokenization quality used for given media.\n    "
+                },
+                "numTokens": {
+                   "anyOf": [
+                      {
+                         "type": "integer"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Specifies the required sequence length for media tokenization.\n    ",
+                   "title": "Numtokens"
+                }
+             },
+             "title": "PartMediaResolution",
+             "type": "object"
+          },
+          "PartMediaResolutionLevel": {
+             "description": "The tokenization quality used for given media.",
+             "enum": [
+                "MEDIA_RESOLUTION_UNSPECIFIED",
+                "MEDIA_RESOLUTION_LOW",
+                "MEDIA_RESOLUTION_MEDIUM",
+                "MEDIA_RESOLUTION_HIGH",
+                "MEDIA_RESOLUTION_ULTRA_HIGH"
+             ],
+             "title": "PartMediaResolutionLevel",
+             "type": "string"
+          },
+          "PartialArg": {
+             "additionalProperties": false,
+             "description": "Partial argument value of the function call.\n\nThis data type is not supported in Gemini API.",
+             "properties": {
+                "boolValue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a boolean value.",
+                   "title": "Boolvalue"
+                },
+                "jsonPath": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. \"$.foo.bar[0].data\".",
+                   "title": "Jsonpath"
+                },
+                "nullValue": {
+                   "anyOf": [
+                      {
+                         "const": "NULL_VALUE",
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a null value.",
+                   "title": "Nullvalue"
+                },
+                "numberValue": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a double value.",
+                   "title": "Numbervalue"
+                },
+                "stringValue": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Represents a string value.",
+                   "title": "Stringvalue"
+                },
+                "willContinue": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Whether this is not the last part of the same json_path. If true, another PartialArg message for the current json_path is expected to follow.",
+                   "title": "Willcontinue"
+                }
+             },
+             "title": "PartialArg",
              "type": "object"
           },
           "PrebuiltVoiceConfig": {
@@ -14785,6 +21052,135 @@ Show JSON schema
              ],
              "title": "StreamingMode"
           },
+          "TelemetryConfig": {
+             "additionalProperties": false,
+             "description": "Per-request OpenTelemetry configuration.\n\nAttached to an invocation via ``RunConfig.telemetry``. Any field left as\n``None`` falls back to its corresponding env var (an ``OTEL_*`` var, plus the\ndefault-on ``ADK_CAPTURE_MESSAGE_CONTENT_IN_SPANS`` for legacy spans).\n``frozen=True`` lets the same config be shared safely across concurrent\ninvocations; the resolution properties read env lazily, so later\n``os.environ`` changes are still picked up.\n\nLimitations:\n  * When ``opentelemetry-instrumentation-google-genai`` is installed and\n    wraps ``google.genai.Models.generate_content``, span creation is\n    delegated to that library, which reads its own OTel env vars; per-request\n    overrides are inoperative for the inference span (but still apply to\n    ADK-owned spans).\n\nAttributes:\n  genai_semconv_stability_opt_in: Override for\n    ``OTEL_SEMCONV_STABILITY_OPT_IN``. ``'experimental'`` opts in to the\n    experimental GenAI semconv attributes; ``'stable'`` keeps the legacy path.\n    ``'stable'`` has no env-var equivalent (the env path infers stable from\n    the absence of ``'gen_ai_latest_experimental'`` in the CSV).\n  capture_message_content: Override for\n    ``OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT``. Pass a\n    :class:`ContentCapturingMode` member; the env-var path accepts the\n    matching uppercase string.",
+             "properties": {
+                "genai_semconv_stability_opt_in": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "stable",
+                            "experimental"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Genai Semconv Stability Opt In"
+                },
+                "capture_message_content": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ContentCapturingMode"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                }
+             },
+             "title": "TelemetryConfig",
+             "type": "object"
+          },
+          "ToolCall": {
+             "additionalProperties": false,
+             "description": "A predicted server-side `ToolCall` returned from the model.\n\nThis message contains information about a tool that the model wants to invoke.\nThe client is NOT expected to execute this `ToolCall`. Instead, the\nclient should pass this `ToolCall` back to the API in a subsequent turn\nwithin a `Content` message, along with the corresponding `ToolResponse`.",
+             "properties": {
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Unique identifier of the tool call. The server returns the tool response with the matching `id`.",
+                   "title": "Id"
+                },
+                "toolType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The type of tool that was called."
+                },
+                "args": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tool call arguments. Example: {\"arg1\": \"value1\", \"arg2\": \"value2\"}.",
+                   "title": "Args"
+                }
+             },
+             "title": "ToolCall",
+             "type": "object"
+          },
+          "ToolResponse": {
+             "additionalProperties": false,
+             "description": "The output from a server-side `ToolCall` execution.\n\nThis message contains the results of a tool invocation that was initiated by a\n`ToolCall` from the model. The client should pass this `ToolResponse` back to\nthe API in a subsequent turn within a `Content` message, along with the\ncorresponding `ToolCall`.",
+             "properties": {
+                "id": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The identifier of the tool call this response is for.",
+                   "title": "Id"
+                },
+                "toolType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/ToolType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The type of tool that was called, matching the tool_type in the corresponding ToolCall."
+                },
+                "response": {
+                   "anyOf": [
+                      {
+                         "additionalProperties": true,
+                         "type": "object"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The tool response.",
+                   "title": "Response"
+                }
+             },
+             "title": "ToolResponse",
+             "type": "object"
+          },
           "ToolThreadPoolConfig": {
              "additionalProperties": false,
              "description": "Configuration for the tool thread pool executor.\n\nAttributes:\n  max_workers: Maximum number of worker threads in the pool. Defaults to 4.",
@@ -14800,6 +21196,129 @@ Show JSON schema
              "title": "ToolThreadPoolConfig",
              "type": "object"
           },
+          "ToolType": {
+             "description": "The type of tool in the function call.",
+             "enum": [
+                "TOOL_TYPE_UNSPECIFIED",
+                "GOOGLE_SEARCH_WEB",
+                "GOOGLE_SEARCH_IMAGE",
+                "URL_CONTEXT",
+                "GOOGLE_MAPS",
+                "FILE_SEARCH"
+             ],
+             "title": "ToolType",
+             "type": "string"
+          },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
+          "TranslationConfig": {
+             "additionalProperties": false,
+             "description": "Config for stream translation.",
+             "properties": {
+                "echoTargetLanguage": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. If true, the model will generate audio when the target language is spoken, essentially it will parrot the input. If false, we will not produce audio for the target language.",
+                   "title": "Echotargetlanguage"
+                },
+                "targetLanguageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Required. The target language for translation. Supported values are BCP-47 language codes (e.g. \"en\", \"es\", \"fr\").",
+                   "title": "Targetlanguagecode"
+                }
+             },
+             "title": "TranslationConfig",
+             "type": "object"
+          },
           "TurnCoverage": {
              "description": "Options about which input is included in the user's turn.",
              "enum": [
@@ -14810,6 +21329,53 @@ Show JSON schema
              ],
              "title": "TurnCoverage",
              "type": "string"
+          },
+          "VideoMetadata": {
+             "additionalProperties": false,
+             "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
+             "properties": {
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The end offset of the video.",
+                   "title": "Endoffset"
+                },
+                "fps": {
+                   "anyOf": [
+                      {
+                         "type": "number"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0].",
+                   "title": "Fps"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The start offset of the video.",
+                   "title": "Startoffset"
+                }
+             },
+             "title": "VideoMetadata",
+             "type": "object"
           },
           "VoiceConfig": {
              "additionalProperties": false,
@@ -14863,6 +21429,53 @@ Show JSON schema
              },
              "title": "VoiceConsentSignature",
              "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
           }
        },
        "additionalProperties": false
@@ -14880,11 +21493,23 @@ Fields:
 
   * `enable_affective_dialog (bool | None)`
 
+  * `explicit_vad_signal (bool | None)`
+
   * `get_session_config (google.adk.sessions.base_session_service.GetSessionConfig | None)`
+
+  * `history_config (google.genai.types.HistoryConfig | None)`
+
+  * `http_options (google.genai.types.HttpOptions | None)`
+
+  * `include_thoughts_from_other_agents (bool)`
 
   * `input_audio_transcription (google.genai.types.AudioTranscriptionConfig | None)`
 
+  * `labels (dict[str, str] | None)`
+
   * `max_llm_calls (int)`
+
+  * `model_input_context (list[google.genai.types.Content] | None)`
 
   * `output_audio_transcription (google.genai.types.AudioTranscriptionConfig | None)`
 
@@ -14892,7 +21517,7 @@ Fields:
 
   * `realtime_input_config (google.genai.types.RealtimeInputConfig | None)`
 
-  * `response_modalities (list[str] | None)`
+  * `response_modalities (list[google.genai.types.Modality] | None)`
 
   * `save_input_blobs_as_artifacts (bool)`
 
@@ -14908,7 +21533,11 @@ Fields:
 
   * `support_cfc (bool)`
 
+  * `telemetry (google.adk.telemetry.context.TelemetryConfig | None)`
+
   * `tool_thread_pool_config (google.adk.agents.run_config.ToolThreadPoolConfig | None)`
+
+  * `translation_config (google.genai.types.TranslationConfig | None)`
 
 
 
@@ -14974,6 +21603,19 @@ Validated by:
 
 
 
+_field _explicit_vad_signal _: Optional[bool]__ = None_¶
+    
+
+Whether to enable explicit voice activity detection (VAD) signals from the model.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
 _field _get_session_config _: Optional[GetSessionConfig]__ = None_¶
     
 
@@ -15000,10 +21642,64 @@ Validated by:
 
 
 
+_field _history_config _: Optional[types.HistoryConfig]__ = None_¶
+    
+
+Configures the exchange of history between the client and the server.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
+_field _http_options _: Optional[types.HttpOptions]__ = None_¶
+    
+
+HTTP options for the agent execution (e.g. custom headers).
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
+_field _include_thoughts_from_other_agents _: bool_ _ = False_¶
+    
+
+Whether to include other agents’ thought parts in LLM context.
+
+By default, thoughts from other agents are excluded when their messages are reformatted as user context for the current agent. Enable this only when agents are expected to share internal reasoning with one another.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
 _field _input_audio_transcription _: Optional[types.AudioTranscriptionConfig]__[Optional]_¶
     
 
 Input transcription for live agents with audio input from user.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
+_field _labels _: Optional[dict[str, str]]__ = None_¶
+    
+
+User labels for the current invocation (e.g. for billing/attribution).
 
 Validated by:
     
@@ -15034,6 +21730,21 @@ Validated by:
   * `check_for_deprecated_save_live_audio`
 
   * `validate_max_llm_calls`
+
+
+
+
+_field _model_input_context _: list[types.Content] | None_ _ = None_¶
+    
+
+Transient context to include in the model input for this invocation.
+
+The Runner does not persist these contents to the session. They are only added to the LLM request assembled for the current invocation, which lets callers provide per-turn context without changing the conversation history.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
 
 
 
@@ -15077,7 +21788,7 @@ Validated by:
 
 
 
-_field _response_modalities _: Optional[list[str]]__ = None_¶
+_field _response_modalities _: Optional[list[types.Modality]]__ = None_¶
     
 
 The output modalities. If not set, it’s default to AUDIO.
@@ -15159,12 +21870,31 @@ Validated by:
 
 
 
+_field _telemetry _: TelemetryConfig | None_ _ = None_¶
+    
+
+Per-request OpenTelemetry configuration.
+
+Overrides the process-global telemetry env vars for the duration of this invocation. Each `None` field on the `TelemetryConfig` falls back to its corresponding env var. Lets multi-tenant hosts toggle telemetry knobs per request without leaking configuration across concurrent invocations.
+
+Warning
+
+Experimental; API may change.
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
 _field _tool_thread_pool_config _: Optional[ToolThreadPoolConfig]__ = None_¶
     
 
 Configuration for running tools in a thread pool for live mode.
 
-When set, tool executions will run in a separate thread pool executor instead of the main event loop. When None (default), tools run in the main event loop.
+When set, tool executions will run in a separate thread pool executor instead of the main event loop. When None (default), tools run in the main event loop. One pool serves every invocation running on the same event loop and is shut down once that loop is gone, so its worker threads do not outlive it.
 
 This helps keep the event loop responsive for: \- User interruptions to be processed immediately \- Model responses to continue being received
 
@@ -15175,6 +21905,8 @@ IMPORTANT - GIL (Global Interpreter Lock) Considerations:
 Thread pool HELPS with (GIL is released): \- Blocking I/O: time.sleep(), network calls, file I/O, database queries \- C extensions: numpy, hashlib, image processing libraries \- Async functions containing blocking I/O (common user mistake)
 
 Thread pool does NOT help with (GIL is held): \- Pure Python CPU-bound code: loops, calculations, recursive algorithms \- The GIL prevents true parallel execution for Python bytecode
+
+Cancelling an invocation drops a tool call that has not started yet, but Python cannot stop a thread that is already running, so a started call keeps its worker thread until it returns.
 
 For CPU-intensive Python code, consider alternatives: \- Use C extensions that release the GIL \- Break work into chunks with periodic await asyncio.sleep(0) \- Use multiprocessing (ProcessPoolExecutor) for true parallelism
 
@@ -15193,6 +21925,21 @@ Example
 > tool_thread_pool_config=ToolThreadPoolConfig(max_workers=8),
 
 ## )¶
+
+Validated by:
+    
+
+  * `check_for_deprecated_save_live_audio`
+
+
+
+
+_field _translation_config _: Optional[types.TranslationConfig]__ = None_¶
+    
+
+Configures real-time speech-to-speech translation.
+
+Only supported by translation models such as gemini-3.5-live-translate-preview.
 
 Validated by:
     
@@ -15267,12 +22014,14 @@ Bases: `BaseAgent`
 
 A shell agent that runs its sub-agents in sequence.
 
+Deprecated since version SequentialAgent: is deprecated in favor of Workflow and will be removed in a future version. Workflow cannot yet be used as an LlmAgent sub-agent.
+
 Show JSON schema
     
     
     {
        "title": "SequentialAgent",
-       "description": "A shell agent that runs its sub-agents in sequence.",
+       "description": "A shell agent that runs its sub-agents in sequence.\n\n.. deprecated::\n  SequentialAgent is deprecated in favor of Workflow and will be removed in\n  a future version. Workflow cannot yet be used as an LlmAgent sub-agent.",
        "type": "object",
        "properties": {
           "name": {
@@ -15977,6 +22726,162 @@ Fields:
 
 Validators:
     
+
+config_type¶
+    
+
+alias of `SequentialAgentConfig`
+
+_pydantic model _google.adk.agents.SequentialAgentConfig¶
+    
+
+Bases: `BaseAgentConfig`
+
+The config for the YAML schema of a SequentialAgent.
+
+Show JSON schema
+    
+    
+    {
+       "title": "SequentialAgentConfig",
+       "description": "The config for the YAML schema of a SequentialAgent.",
+       "type": "object",
+       "properties": {
+          "agent_class": {
+             "default": "SequentialAgent",
+             "description": "The value is used to uniquely identify the SequentialAgent class.",
+             "title": "Agent Class",
+             "type": "string"
+          },
+          "name": {
+             "description": "Required. The name of the agent.",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "description": "Optional. The description of the agent.",
+             "title": "Description",
+             "type": "string"
+          },
+          "sub_agents": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/AgentRefConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The sub-agents of the agent.",
+             "title": "Sub Agents"
+          },
+          "before_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The before_agent_callbacks of the agent.\n\nExample:\n\n  ```\n  before_agent_callbacks:\n    - name: my_library.security_callbacks.before_agent_callback\n  ```",
+             "title": "Before Agent Callbacks"
+          },
+          "after_agent_callbacks": {
+             "anyOf": [
+                {
+                   "items": {
+                      "$ref": "#/$defs/CodeConfig"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional. The after_agent_callbacks of the agent.",
+             "title": "After Agent Callbacks"
+          }
+       },
+       "$defs": {
+          "AgentRefConfig": {
+             "additionalProperties": false,
+             "description": "The config for the reference to another agent.",
+             "properties": {
+                "config_path": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Config Path"
+                },
+                "code": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Code"
+                }
+             },
+             "title": "AgentRefConfig",
+             "type": "object"
+          },
+          "CodeConfig": {
+             "additionalProperties": false,
+             "description": "Code reference config for a variable, a function, or a class.\n\nOnly references an object by name. YAML cannot pass constructor args; to\nuse a configured object, build it in Python and reference its FQN here.",
+             "properties": {
+                "name": {
+                   "title": "Name",
+                   "type": "string"
+                }
+             },
+             "required": [
+                "name"
+             ],
+             "title": "CodeConfig",
+             "type": "object"
+          }
+       },
+       "additionalProperties": false,
+       "deprecated": true,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `agent_class (str)`
+
+
+
+
+_field _agent_class _: str_ _ = 'SequentialAgent'_¶
+    
+
+The value is used to uniquely identify the SequentialAgent class.
 
 # google.adk.apps module¶
 
@@ -16912,6 +23817,11 @@ Return type:
 
 `None`
 
+_property _is_initialized _: bool_¶
+    
+
+Whether the environment has been initialized.
+
 _abstractmethod async _read_file(_path_)¶
     
 
@@ -17123,10 +24033,15 @@ Bases: `object`
 
 An evaluator for Agents, mainly intended for helping with test cases.
 
-_async static _evaluate(_agent_module_ , _eval_dataset_file_path_or_dir_ , _num_runs =2_, _agent_name =None_, _initial_session_file =None_, _print_detailed_results =True_)¶
+_async static _evaluate(_agent_module_ , _eval_dataset_file_path_or_dir_ , _num_runs =2_, _agent_name =None_, _initial_session_file =None_, _print_detailed_results =True_, _artifact_service =None_)¶
     
 
 Evaluates an Agent given eval data.
+
+Return type:
+    
+
+`None`
 
 Parameters:
     
@@ -17143,13 +24058,20 @@ Parameters:
 
   * **print_detailed_results** – Whether to print detailed results for each metric evaluation.
 
+  * **artifact_service** – The artifact service used to load artifacts during eval. Pre-load artifacts here and pin each eval case to a session id (via SessionInput.session_id) to make them reachable. Defaults to an in-memory service.
 
 
 
-_async static _evaluate_eval_set(_agent_module_ , _eval_set_ , _criteria =None_, _eval_config =None_, _num_runs =2_, _agent_name =None_, _print_detailed_results =True_)¶
+
+_async static _evaluate_eval_set(_agent_module_ , _eval_set_ , _criteria =None_, _eval_config =None_, _num_runs =2_, _agent_name =None_, _print_detailed_results =True_, _artifact_service =None_)¶
     
 
 Evaluates an agent using the given EvalSet.
+
+Return type:
+    
+
+`None`
 
 Parameters:
     
@@ -17167,6 +24089,8 @@ Parameters:
   * **agent_name** – The name of the agent, if trying to evaluate something other than root agent. If left empty or none, then root agent is evaluated.
 
   * **print_detailed_results** – Whether to print detailed results for each metric evaluation.
+
+  * **artifact_service** – The artifact service used to load artifacts during eval. Pre-load artifacts here and pin each eval case to a session id (via SessionInput.session_id) to make them reachable. Defaults to an in-memory service.
 
 
 
@@ -17186,6 +24110,11 @@ _static _migrate_eval_data_to_new_schema(_old_eval_data_file_ , _new_eval_data_f
 
 A utility for migrating eval data to new schema backed by EvalSet.
 
+Return type:
+    
+
+`None`
+
 # google.adk.events module¶
 
 _pydantic model _google.adk.events.Event¶
@@ -17196,13 +24125,6 @@ Bases: `LlmResponse`
 Represents an event in a conversation between agents and users.
 
 It is used to store the content of the conversation, as well as the actions taken by the agents like function calls, etc.
-
-Initializes the event.
-
-Supports convenience kwargs routed to actions or node_info:
-    
-
-message: ContentUnion -> content (alias, converted via t_content) state: dict -> actions.state_delta route: value -> actions.route node_path: str -> node_info.path
 
 Show JSON schema
     
@@ -17269,6 +24191,17 @@ Show JSON schema
              ],
              "default": null,
              "title": "Turncomplete"
+          },
+          "turnCompleteReason": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/TurnCompleteReason"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
           },
           "finishReason": {
              "anyOf": [
@@ -17375,6 +24308,17 @@ Show JSON schema
              ],
              "default": null
           },
+          "voiceActivity": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/VoiceActivity"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
           "inputTranscription": {
              "anyOf": [
                 {
@@ -17454,6 +24398,18 @@ Show JSON schema
              "default": null,
              "title": "Interactionid"
           },
+          "environmentId": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Environmentid"
+          },
           "invocationId": {
              "default": "",
              "title": "Invocationid",
@@ -17531,203 +24487,6 @@ Show JSON schema
           }
        },
        "$defs": {
-          "APIKey": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "apiKey"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "in": {
-                   "$ref": "#/$defs/APIKeyIn"
-                },
-                "name": {
-                   "title": "Name",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "in",
-                "name"
-             ],
-             "title": "APIKey",
-             "type": "object"
-          },
-          "APIKeyIn": {
-             "enum": [
-                "query",
-                "header",
-                "cookie"
-             ],
-             "title": "APIKeyIn",
-             "type": "string"
-          },
-          "AuthConfig": {
-             "additionalProperties": true,
-             "description": "The auth config sent by tool asking client to collect auth credentials and\n\nadk and client will help to fill in the response",
-             "properties": {
-                "authScheme": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/APIKey"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBase"
-                      },
-                      {
-                         "$ref": "#/$defs/OAuth2"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnect"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBearer"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnectWithConfig"
-                      },
-                      {
-                         "$ref": "#/$defs/CustomAuthScheme"
-                      }
-                   ],
-                   "title": "Authscheme"
-                },
-                "rawAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "exchangedAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "credentialKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Credentialkey"
-                }
-             },
-             "required": [
-                "authScheme"
-             ],
-             "title": "AuthConfig",
-             "type": "object"
-          },
-          "AuthCredential": {
-             "additionalProperties": true,
-             "description": "Data class representing an authentication credential.\n\nTo exchange for the actual credential, please use\nCredentialExchanger.exchange_credential().\n\nExamples: API Key Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    api_key=\"1234\",\n)\n\nExample: HTTP Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"basic\",\n        credentials=HttpCredentials(username=\"user\", password=\"password\"),\n    ),\n)\n\nExample: OAuth2 Bearer Token in HTTP Header\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"bearer\",\n        credentials=HttpCredentials(token=\"eyAkaknabna....\"),\n    ),\n)\n\nExample: OAuth2 Auth with Authorization Code Flow\nAuthCredential(\n    auth_type=AuthCredentialTypes.OAUTH2,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n    ),\n)\n\nExample: OpenID Connect Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.OPEN_ID_CONNECT,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n        redirect_uri=\"https://example.com\",\n        scopes=[\"scope1\", \"scope2\"],\n    ),\n)\n\nExample: Auth with resource reference\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    resource_ref=\"projects/1234/locations/us-central1/resources/resource1\",\n)",
-             "properties": {
-                "authType": {
-                   "$ref": "#/$defs/AuthCredentialTypes"
-                },
-                "resourceRef": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Resourceref"
-                },
-                "apiKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Apikey"
-                },
-                "http": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/HttpAuth"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "serviceAccount": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ServiceAccount"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "oauth2": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuth2Auth"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "required": [
-                "authType"
-             ],
-             "title": "AuthCredential",
-             "type": "object"
-          },
-          "AuthCredentialTypes": {
-             "description": "Represents the type of authentication credential.",
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect",
-                "serviceAccount"
-             ],
-             "title": "AuthCredentialTypes",
-             "type": "string"
-          },
           "Blob": {
              "additionalProperties": false,
              "description": "A content blob.\n\nA Blob contains data of a specific media type. It is used to represent images,\naudio, and video.",
@@ -17778,7 +24537,7 @@ Show JSON schema
           },
           "CacheMetadata": {
              "additionalProperties": false,
-             "description": "Metadata for context cache associated with LLM responses.\n\nThis class stores cache identification, usage tracking, and lifecycle\ninformation for a particular cache instance. It can be in two states:\n\n1. Active cache state: cache_name is set, all fields populated\n2. Fingerprint-only state: cache_name is None, only fingerprint and\n   contents_count are set for prefix matching\n\nToken counts (cached and total) are available in the LlmResponse.usage_metadata\nand should be accessed from there to avoid duplication.\n\nAttributes:\n    cache_name: The full resource name of the cached content (e.g.,\n        'projects/123/locations/us-central1/cachedContents/456').\n        None when no active cache exists (fingerprint-only state).\n    expire_time: Unix timestamp when the cache expires. None when no\n        active cache exists.\n    fingerprint: Hash of cacheable contents (instruction + tools + contents).\n        Always present for prefix matching.\n    invocations_used: Number of invocations this cache has been used for.\n        None when no active cache exists.\n    contents_count: Number of contents. When active cache exists, this is\n        the count of cached contents. When no active cache exists, this is\n        the total count of contents in the request.\n    created_at: Unix timestamp when the cache was created. None when\n        no active cache exists.",
+             "description": "Metadata for context cache associated with LLM responses.\n\nThis class stores cache identification, usage tracking, and lifecycle\ninformation for a particular cache instance. It can be in two states:\n\n1. Active cache state: cache_name is set, all fields populated\n2. Fingerprint-only state: cache_name is None, only fingerprint and\n   contents_count are set for prefix matching\n\nToken counts (cached and total) are available in the LlmResponse.usage_metadata\nand should be accessed from there to avoid duplication.\n\nAttributes:\n    cache_name: The full resource name of the cached content (e.g.,\n        'projects/123/locations/us-central1/cachedContents/456').\n        None when no active cache exists (fingerprint-only state).\n    expire_time: Unix timestamp when the cache expires. None when no\n        active cache exists.\n    fingerprint: Hash of cacheable contents (instruction + tools + contents).\n        Always present for prefix matching.\n    invocations_used: Number of invocations this cache has been used for.\n        None when no active cache exists.\n    contents_count: Number of contents. When active cache exists, this is\n        the count of cached contents. When no active cache exists, this is\n        the count of the cacheable content prefix used for fingerprinting.\n    created_at: Unix timestamp when the cache was created. None when\n        no active cache exists.",
              "properties": {
                 "cache_name": {
                    "anyOf": [
@@ -17826,7 +24585,7 @@ Show JSON schema
                    "title": "Invocations Used"
                 },
                 "contents_count": {
-                   "description": "Number of contents (cached contents when active cache exists, total contents in request when no active cache)",
+                   "description": "Number of contents (cached contents when active cache exists, cacheable content prefix when no active cache)",
                    "minimum": 0,
                    "title": "Contents Count",
                    "type": "integer"
@@ -17963,7 +24722,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -18000,7 +24759,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -18042,21 +24801,6 @@ Show JSON schema
                 }
              },
              "title": "Content",
-             "type": "object"
-          },
-          "CustomAuthScheme": {
-             "additionalProperties": true,
-             "description": "A flexible model for custom authentication schemes.\n\nThe subclasses must define a `default` for the `type_` field, if using OAuth2\nuser consent flow, to ensure correct rehydration.",
-             "properties": {
-                "type": {
-                   "title": "Type",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "type"
-             ],
-             "title": "CustomAuthScheme",
              "type": "object"
           },
           "EventActions": {
@@ -18112,9 +24856,7 @@ Show JSON schema
                    "title": "Escalate"
                 },
                 "requestedAuthConfigs": {
-                   "additionalProperties": {
-                      "$ref": "#/$defs/AuthConfig"
-                   },
+                   "additionalProperties": true,
                    "title": "Requestedauthconfigs",
                    "type": "object"
                 },
@@ -18262,7 +25004,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -18299,7 +25041,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -18379,7 +25121,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -18391,7 +25133,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -18405,7 +25147,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -18418,7 +25160,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -18456,7 +25198,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -18468,7 +25210,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -18481,7 +25223,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -18496,7 +25238,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -18522,7 +25264,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -18545,7 +25287,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -18571,7 +25313,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -18584,7 +25326,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -18593,7 +25335,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -18631,7 +25373,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -18640,7 +25382,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -18652,7 +25394,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -18664,14 +25406,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -19501,7 +26243,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Page number of the retrieved context. This field is not supported in Vertex AI.",
+                   "description": "Optional. Page number of the retrieved context, if applicable. This field is not supported in Vertex AI.",
                    "title": "Pagenumber"
                 },
                 "mediaId": {
@@ -19514,7 +26256,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Media ID. This field is not supported in Vertex AI.",
+                   "description": "Optional. The media blob resource name for multimodal file search results. Format: fileSearchStores/{file_search_store_id}/media/{blob_id}. This field is not supported in Vertex AI.",
                    "title": "Mediaid"
                 }
              },
@@ -19694,7 +26436,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.",
+                   "description": "Optional. Output only. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and will no longer be populated once removed. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.",
                    "title": "Googlemapswidgetcontexttoken"
                 },
                 "retrievalQueries": {
@@ -19835,155 +26577,6 @@ Show JSON schema
              "title": "GroundingSupport",
              "type": "object"
           },
-          "HTTPBase": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "scheme"
-             ],
-             "title": "HTTPBase",
-             "type": "object"
-          },
-          "HTTPBearer": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "const": "bearer",
-                   "default": "bearer",
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "bearerFormat": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Bearerformat"
-                }
-             },
-             "title": "HTTPBearer",
-             "type": "object"
-          },
-          "HttpAuth": {
-             "additionalProperties": true,
-             "description": "The credentials and metadata for HTTP authentication.",
-             "properties": {
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "credentials": {
-                   "$ref": "#/$defs/HttpCredentials"
-                },
-                "additionalHeaders": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": {
-                            "type": "string"
-                         },
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Additionalheaders"
-                }
-             },
-             "required": [
-                "scheme",
-                "credentials"
-             ],
-             "title": "HttpAuth",
-             "type": "object"
-          },
-          "HttpCredentials": {
-             "additionalProperties": true,
-             "description": "Represents the secret token value for HTTP authentication, like user name, password, oauth token, etc.",
-             "properties": {
-                "username": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Username"
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Password"
-                },
-                "token": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token"
-                }
-             },
-             "title": "HttpCredentials",
-             "type": "object"
-          },
           "Language": {
              "description": "Programming language of the `code`.",
              "enum": [
@@ -20054,7 +26647,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.\n\nPresence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResmumptionTokenUpdate`. This field will enable them to limit buffering (avoid keeping all requests in RAM).\n\nNote: This should not be used for when resuming a session at some time later -- in those cases partial audio and video frames arelikely not needed.",
+                   "description": "Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.\n\nPresence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResumptionTokenUpdate`. This field will enable them to limit buffering (avoid keeping all requests in RAM).\n\nNote: This should not be used for when resuming a session at some time later -- in those cases partial audio and video frames are likely not needed.",
                    "title": "Lastconsumedclientmessageindex"
                 }
              },
@@ -20186,7 +26779,7 @@ Show JSON schema
              "type": "object"
           },
           "MediaModality": {
-             "description": "Server content modalities.",
+             "description": "The modality that this token count applies to.",
              "enum": [
                 "MODALITY_UNSPECIFIED",
                 "TEXT",
@@ -20200,7 +26793,7 @@ Show JSON schema
           },
           "ModalityTokenCount": {
              "additionalProperties": false,
-             "description": "Represents token counting info for a single modality.",
+             "description": "Represents a breakdown of token usage by modality.\n\nThis message is used in CountTokensResponse and\nGenerateContentResponse.UsageMetadata to provide a detailed view of how many\ntokens are used by each modality (e.g., text, image, video) in a request. This\nis particularly useful for multimodal models, allowing you to track and manage\ntoken consumption for billing and quota purposes.",
              "properties": {
                 "modality": {
                    "anyOf": [
@@ -20212,7 +26805,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The modality associated with this token count."
+                   "description": "The modality that this token count applies to."
                 },
                 "tokenCount": {
                    "anyOf": [
@@ -20268,579 +26861,6 @@ Show JSON schema
                 }
              },
              "title": "NodeInfo",
-             "type": "object"
-          },
-          "OAuth2": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "oauth2"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "flows": {
-                   "$ref": "#/$defs/OAuthFlows"
-                }
-             },
-             "required": [
-                "flows"
-             ],
-             "title": "OAuth2",
-             "type": "object"
-          },
-          "OAuth2Auth": {
-             "additionalProperties": true,
-             "description": "Represents credential value and its metadata for a OAuth2 credential.",
-             "properties": {
-                "clientId": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Clientid"
-                },
-                "clientSecret": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Clientsecret"
-                },
-                "authUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authuri"
-                },
-                "nonce": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Nonce"
-                },
-                "state": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "State"
-                },
-                "redirectUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Redirecturi"
-                },
-                "authResponseUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authresponseuri"
-                },
-                "authCode": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authcode"
-                },
-                "accessToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Accesstoken"
-                },
-                "refreshToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshtoken"
-                },
-                "idToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Idtoken"
-                },
-                "expiresAt": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Expiresat"
-                },
-                "expiresIn": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Expiresin"
-                },
-                "audience": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Audience"
-                },
-                "codeVerifier": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Codeverifier"
-                },
-                "codeChallengeMethod": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Codechallengemethod"
-                },
-                "tokenEndpointAuthMethod": {
-                   "anyOf": [
-                      {
-                         "enum": [
-                            "client_secret_basic",
-                            "client_secret_post",
-                            "client_secret_jwt",
-                            "private_key_jwt"
-                         ],
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": "client_secret_basic",
-                   "title": "Tokenendpointauthmethod"
-                }
-             },
-             "title": "OAuth2Auth",
-             "type": "object"
-          },
-          "OAuthFlowAuthorizationCode": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl",
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowAuthorizationCode",
-             "type": "object"
-          },
-          "OAuthFlowClientCredentials": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowClientCredentials",
-             "type": "object"
-          },
-          "OAuthFlowImplicit": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl"
-             ],
-             "title": "OAuthFlowImplicit",
-             "type": "object"
-          },
-          "OAuthFlowPassword": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowPassword",
-             "type": "object"
-          },
-          "OAuthFlows": {
-             "additionalProperties": true,
-             "properties": {
-                "implicit": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowImplicit"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowPassword"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "clientCredentials": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowClientCredentials"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "authorizationCode": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowAuthorizationCode"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "title": "OAuthFlows",
-             "type": "object"
-          },
-          "OpenIdConnect": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "openIdConnectUrl": {
-                   "title": "Openidconnecturl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "openIdConnectUrl"
-             ],
-             "title": "OpenIdConnect",
-             "type": "object"
-          },
-          "OpenIdConnectWithConfig": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "authorization_endpoint": {
-                   "title": "Authorization Endpoint",
-                   "type": "string"
-                },
-                "token_endpoint": {
-                   "title": "Token Endpoint",
-                   "type": "string"
-                },
-                "userinfo_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Userinfo Endpoint"
-                },
-                "revocation_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Revocation Endpoint"
-                },
-                "token_endpoint_auth_methods_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token Endpoint Auth Methods Supported"
-                },
-                "grant_types_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Grant Types Supported"
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                }
-             },
-             "required": [
-                "authorization_endpoint",
-                "token_endpoint"
-             ],
-             "title": "OpenIdConnectWithConfig",
              "type": "object"
           },
           "Outcome": {
@@ -21031,6 +27051,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -21196,6 +27228,32 @@ Show JSON schema
                    "default": null,
                    "description": "The content of the chunk.",
                    "title": "Text"
+                },
+                "chunkId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ID of the chunk.",
+                   "title": "Chunkid"
+                },
+                "fileId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ID of the file that the chunk belongs to.",
+                   "title": "Fileid"
                 }
              },
              "title": "RagChunk",
@@ -21291,16 +27349,6 @@ Show JSON schema
              "title": "SearchEntryPoint",
              "type": "object"
           },
-          "SecuritySchemeType": {
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect"
-             ],
-             "title": "SecuritySchemeType",
-             "type": "string"
-          },
           "Segment": {
              "additionalProperties": false,
              "description": "Segment of the content this support belongs to.",
@@ -21359,141 +27407,6 @@ Show JSON schema
                 }
              },
              "title": "Segment",
-             "type": "object"
-          },
-          "ServiceAccount": {
-             "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
-             "properties": {
-                "serviceAccountCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ServiceAccountCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                },
-                "useDefaultCredential": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": false,
-                   "title": "Usedefaultcredential"
-                },
-                "useIdToken": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": false,
-                   "title": "Useidtoken"
-                },
-                "audience": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Audience"
-                }
-             },
-             "title": "ServiceAccount",
-             "type": "object"
-          },
-          "ServiceAccountCredential": {
-             "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  type: The type should be \"service_account\".\n  project_id: The project ID.\n  private_key_id: The ID of the private key.\n  private_key: The private key.\n  client_email: The client email.\n  client_id: The client ID.\n  auth_uri: The authorization URI.\n  token_uri: The token URI.\n  auth_provider_x509_cert_url: URL for auth provider's X.509 cert.\n  client_x509_cert_url: URL for the client's X.509 cert.\n  universe_domain: The universe domain.\n\nExample:\n\n    config = ServiceAccountCredential(\n        type_=\"service_account\",\n        project_id=\"your_project_id\",\n        private_key_id=\"your_private_key_id\",\n        private_key=\"-----BEGIN PRIVATE KEY-----...\",\n        client_email=\"...@....iam.gserviceaccount.com\",\n        client_id=\"your_client_id\",\n        auth_uri=\"https://accounts.google.com/o/oauth2/auth\",\n        token_uri=\"https://oauth2.googleapis.com/token\",\n        auth_provider_x509_cert_url=\"https://www.googleapis.com/oauth2/v1/certs\",\n        client_x509_cert_url=\"https://www.googleapis.com/robot/v1/metadata/x509/...\",\n        universe_domain=\"googleapis.com\"\n    )\n\n\n    config = ServiceAccountConfig.model_construct(**{\n        ...service account config dict\n    })",
-             "properties": {
-                "type": {
-                   "default": "",
-                   "title": "Type",
-                   "type": "string"
-                },
-                "projectId": {
-                   "title": "Projectid",
-                   "type": "string"
-                },
-                "privateKeyId": {
-                   "title": "Privatekeyid",
-                   "type": "string"
-                },
-                "privateKey": {
-                   "title": "Privatekey",
-                   "type": "string"
-                },
-                "clientEmail": {
-                   "title": "Clientemail",
-                   "type": "string"
-                },
-                "clientId": {
-                   "title": "Clientid",
-                   "type": "string"
-                },
-                "authUri": {
-                   "title": "Authuri",
-                   "type": "string"
-                },
-                "tokenUri": {
-                   "title": "Tokenuri",
-                   "type": "string"
-                },
-                "authProviderX509CertUrl": {
-                   "title": "Authproviderx509Certurl",
-                   "type": "string"
-                },
-                "clientX509CertUrl": {
-                   "title": "Clientx509Certurl",
-                   "type": "string"
-                },
-                "universeDomain": {
-                   "title": "Universedomain",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "projectId",
-                "privateKeyId",
-                "privateKey",
-                "clientEmail",
-                "clientId",
-                "authUri",
-                "tokenUri",
-                "authProviderX509CertUrl",
-                "clientX509CertUrl",
-                "universeDomain"
-             ],
-             "title": "ServiceAccountCredential",
              "type": "object"
           },
           "ToolCall": {
@@ -21645,7 +27558,7 @@ Show JSON schema
           },
           "Transcription": {
              "additionalProperties": false,
-             "description": "Audio transcription in Server Conent.",
+             "description": "Audio transcription in Server Content.",
              "properties": {
                 "text": {
                    "anyOf": [
@@ -21672,10 +27585,87 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The bool indicates the end of the transcription.",
                    "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
                 }
              },
              "title": "Transcription",
              "type": "object"
+          },
+          "TurnCompleteReason": {
+             "description": "The reason why the turn is complete.",
+             "enum": [
+                "TURN_COMPLETE_REASON_UNSPECIFIED",
+                "MALFORMED_FUNCTION_CALL",
+                "RESPONSE_REJECTED",
+                "NEED_MORE_INPUT",
+                "PROHIBITED_INPUT_CONTENT",
+                "IMAGE_PROHIBITED_INPUT_CONTENT",
+                "INPUT_TEXT_CONTAIN_PROMINENT_PERSON_PROHIBITED",
+                "INPUT_IMAGE_CELEBRITY",
+                "INPUT_IMAGE_PHOTO_REALISTIC_CHILD_PROHIBITED",
+                "INPUT_TEXT_NCII_PROHIBITED",
+                "INPUT_OTHER",
+                "INPUT_IP_PROHIBITED",
+                "BLOCKLIST",
+                "UNSAFE_PROMPT_FOR_IMAGE_GENERATION",
+                "GENERATED_IMAGE_SAFETY",
+                "GENERATED_CONTENT_SAFETY",
+                "GENERATED_AUDIO_SAFETY",
+                "GENERATED_VIDEO_SAFETY",
+                "GENERATED_CONTENT_PROHIBITED",
+                "GENERATED_CONTENT_BLOCKLIST",
+                "GENERATED_IMAGE_PROHIBITED",
+                "GENERATED_IMAGE_CELEBRITY",
+                "GENERATED_IMAGE_PROMINENT_PEOPLE_DETECTED_BY_REWRITER",
+                "GENERATED_IMAGE_IDENTIFIABLE_PEOPLE",
+                "GENERATED_IMAGE_MINORS",
+                "OUTPUT_IMAGE_IP_PROHIBITED",
+                "GENERATED_OTHER",
+                "MAX_REGENERATION_REACHED"
+             ],
+             "title": "TurnCompleteReason",
+             "type": "string"
           },
           "UiWidget": {
              "additionalProperties": false,
@@ -21748,6 +27738,96 @@ Show JSON schema
              },
              "title": "VideoMetadata",
              "type": "object"
+          },
+          "VoiceActivity": {
+             "additionalProperties": false,
+             "description": "Voice activity signal.",
+             "properties": {
+                "voiceActivityType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceActivityType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The type of the voice activity signal."
+                },
+                "audioOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The time voice activity detected in audio time, relative to the start of the audio stream.",
+                   "title": "Audiooffset"
+                }
+             },
+             "title": "VoiceActivity",
+             "type": "object"
+          },
+          "VoiceActivityType": {
+             "description": "The type of the voice activity signal.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "ACTIVITY_START",
+                "ACTIVITY_END"
+             ],
+             "title": "VoiceActivityType",
+             "type": "string"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
           }
        }
     }
@@ -21778,16 +27858,39 @@ Fields:
 
 
 
+Validators:
+    
+
+  * `_accept_convenience_kwargs` » `all fields`
+
+
+
 
 _field _actions _: EventActions_ _[Optional]_¶
     
 
 The actions taken by the agent.
 
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
+
 _field _author _: str_ _ = ''_¶
     
 
 ‘user’ or the name of the agent, indicating who appended the event to the session.
+
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
 
 _field _branch _: str | None_ _ = None_¶
     
@@ -21798,15 +27901,39 @@ The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent
 
 Branch is used when multiple sub-agent shouldn’t see their peer agents’ conversation history.
 
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
+
 _field _id _: str_ _ = ''_¶
     
 
 The unique identifier of the event.
 
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
+
 _field _invocation_id _: str_ _ = ''__(alias 'invocationId')_¶
     
 
 The invocation ID of the event. Should be non-empty before appending to a session.
+
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
 
 _field _isolation_scope _: str | None_ _ = None_ _(alias 'isolationScope')_¶
     
@@ -21817,25 +27944,65 @@ When set, the LLM content-builder restricts session events visible to an agent t
 
 ⚠️ DO NOT USE THIS FIELD DIRECTLY. It is an internal mechanism that may change without notice. External code should not read, write, or rely on its semantics.
 
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
+
 _field _long_running_tool_ids _: set[str] | None_ _ = None_ _(alias 'longRunningToolIds')_¶
     
 
 Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. only valid for function call event
+
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
 
 _field _node_info _: NodeInfo_ _[Optional]__(alias 'nodeInfo')_¶
     
 
 Workflow node metadata (path, run_id, etc.).
 
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
+
 _field _output _: Any | None_ _ = None_¶
     
 
 Generic data output from a workflow node.
 
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
+
 _field _timestamp _: float_ _[Optional]_¶
     
 
 The timestamp of the event.
+
+Validated by:
+    
+
+  * `_accept_convenience_kwargs`
+
+
+
 
 _static _new_id()¶
     
@@ -21844,26 +28011,6 @@ Return type:
     
 
 `str`
-
-get_function_calls()¶
-    
-
-Returns the function calls in the event.
-
-Return type:
-    
-
-`list`[`FunctionCall`]
-
-get_function_responses()¶
-    
-
-Returns the function responses in the event.
-
-Return type:
-    
-
-`list`[`FunctionResponse`]
 
 has_trailing_code_execution_result()¶
     
@@ -21880,7 +28027,7 @@ is_final_response()¶
 
 Returns whether the event is the final response of an agent.
 
-NOTE: This method is ONLY for use by Agent Development Kit.
+Application and UI layers can rely on this helper to detect a complete, user-facing response instead of replicating its logic.
 
 Note that when multiple agents participate in one invocation, there could be one event has is_final_response() as True for each participating agent.
 
@@ -21894,10 +28041,12 @@ model_post_init(__Event__context_)¶
 
 Post initialization logic for the event.
 
-_property _message _: Content | None_¶
+_property _message _: Any_¶
     
 
 Alias for content. Returns the user-facing message of the event.
+
+Subclasses may declare `message` as a real field (see `_accept_convenience_kwargs`, which already routes construction kwargs to such fields). When they do, return that field’s value so reads stay consistent with construction and serialization instead of returning the `content` alias. The return type is `Any` because such a subclass field may be typed differently (e.g. `str`); for a plain `Event` this returns `Optional[types.Content]`.
 
 _property _node_name _: str_¶
     
@@ -21968,9 +28117,7 @@ Show JSON schema
              "title": "Escalate"
           },
           "requestedAuthConfigs": {
-             "additionalProperties": {
-                "$ref": "#/$defs/AuthConfig"
-             },
+             "additionalProperties": true,
              "title": "Requestedauthconfigs",
              "type": "object"
           },
@@ -22090,203 +28237,6 @@ Show JSON schema
           }
        },
        "$defs": {
-          "APIKey": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "apiKey"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "in": {
-                   "$ref": "#/$defs/APIKeyIn"
-                },
-                "name": {
-                   "title": "Name",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "in",
-                "name"
-             ],
-             "title": "APIKey",
-             "type": "object"
-          },
-          "APIKeyIn": {
-             "enum": [
-                "query",
-                "header",
-                "cookie"
-             ],
-             "title": "APIKeyIn",
-             "type": "string"
-          },
-          "AuthConfig": {
-             "additionalProperties": true,
-             "description": "The auth config sent by tool asking client to collect auth credentials and\n\nadk and client will help to fill in the response",
-             "properties": {
-                "authScheme": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/APIKey"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBase"
-                      },
-                      {
-                         "$ref": "#/$defs/OAuth2"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnect"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBearer"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnectWithConfig"
-                      },
-                      {
-                         "$ref": "#/$defs/CustomAuthScheme"
-                      }
-                   ],
-                   "title": "Authscheme"
-                },
-                "rawAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "exchangedAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "credentialKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Credentialkey"
-                }
-             },
-             "required": [
-                "authScheme"
-             ],
-             "title": "AuthConfig",
-             "type": "object"
-          },
-          "AuthCredential": {
-             "additionalProperties": true,
-             "description": "Data class representing an authentication credential.\n\nTo exchange for the actual credential, please use\nCredentialExchanger.exchange_credential().\n\nExamples: API Key Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    api_key=\"1234\",\n)\n\nExample: HTTP Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"basic\",\n        credentials=HttpCredentials(username=\"user\", password=\"password\"),\n    ),\n)\n\nExample: OAuth2 Bearer Token in HTTP Header\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"bearer\",\n        credentials=HttpCredentials(token=\"eyAkaknabna....\"),\n    ),\n)\n\nExample: OAuth2 Auth with Authorization Code Flow\nAuthCredential(\n    auth_type=AuthCredentialTypes.OAUTH2,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n    ),\n)\n\nExample: OpenID Connect Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.OPEN_ID_CONNECT,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n        redirect_uri=\"https://example.com\",\n        scopes=[\"scope1\", \"scope2\"],\n    ),\n)\n\nExample: Auth with resource reference\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    resource_ref=\"projects/1234/locations/us-central1/resources/resource1\",\n)",
-             "properties": {
-                "authType": {
-                   "$ref": "#/$defs/AuthCredentialTypes"
-                },
-                "resourceRef": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Resourceref"
-                },
-                "apiKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Apikey"
-                },
-                "http": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/HttpAuth"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "serviceAccount": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ServiceAccount"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "oauth2": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuth2Auth"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "required": [
-                "authType"
-             ],
-             "title": "AuthCredential",
-             "type": "object"
-          },
-          "AuthCredentialTypes": {
-             "description": "Represents the type of authentication credential.",
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect",
-                "serviceAccount"
-             ],
-             "title": "AuthCredentialTypes",
-             "type": "string"
-          },
           "Blob": {
              "additionalProperties": false,
              "description": "A content blob.\n\nA Blob contains data of a specific media type. It is used to represent images,\naudio, and video.",
@@ -22337,7 +28287,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -22374,7 +28324,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -22418,21 +28368,6 @@ Show JSON schema
              "title": "Content",
              "type": "object"
           },
-          "CustomAuthScheme": {
-             "additionalProperties": true,
-             "description": "A flexible model for custom authentication schemes.\n\nThe subclasses must define a `default` for the `type_` field, if using OAuth2\nuser consent flow, to ensure correct rehydration.",
-             "properties": {
-                "type": {
-                   "title": "Type",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "type"
-             ],
-             "title": "CustomAuthScheme",
-             "type": "object"
-          },
           "EventCompaction": {
              "additionalProperties": false,
              "description": "The compaction of the events.",
@@ -22459,7 +28394,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -22496,7 +28431,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -22552,7 +28487,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -22564,7 +28499,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -22578,7 +28513,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -22591,7 +28526,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -22629,7 +28564,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -22641,7 +28576,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -22654,7 +28589,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -22669,7 +28604,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -22695,7 +28630,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -22718,7 +28653,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -22744,7 +28679,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -22757,7 +28692,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -22766,7 +28701,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -22804,7 +28739,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -22813,7 +28748,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -22825,7 +28760,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -22837,14 +28772,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -22854,155 +28789,6 @@ Show JSON schema
              "title": "FunctionResponseScheduling",
              "type": "string"
           },
-          "HTTPBase": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "scheme"
-             ],
-             "title": "HTTPBase",
-             "type": "object"
-          },
-          "HTTPBearer": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "const": "bearer",
-                   "default": "bearer",
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "bearerFormat": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Bearerformat"
-                }
-             },
-             "title": "HTTPBearer",
-             "type": "object"
-          },
-          "HttpAuth": {
-             "additionalProperties": true,
-             "description": "The credentials and metadata for HTTP authentication.",
-             "properties": {
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "credentials": {
-                   "$ref": "#/$defs/HttpCredentials"
-                },
-                "additionalHeaders": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": {
-                            "type": "string"
-                         },
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Additionalheaders"
-                }
-             },
-             "required": [
-                "scheme",
-                "credentials"
-             ],
-             "title": "HttpAuth",
-             "type": "object"
-          },
-          "HttpCredentials": {
-             "additionalProperties": true,
-             "description": "Represents the secret token value for HTTP authentication, like user name, password, oauth token, etc.",
-             "properties": {
-                "username": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Username"
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Password"
-                },
-                "token": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token"
-                }
-             },
-             "title": "HttpCredentials",
-             "type": "object"
-          },
           "Language": {
              "description": "Programming language of the `code`.",
              "enum": [
@@ -23011,579 +28797,6 @@ Show JSON schema
              ],
              "title": "Language",
              "type": "string"
-          },
-          "OAuth2": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "oauth2"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "flows": {
-                   "$ref": "#/$defs/OAuthFlows"
-                }
-             },
-             "required": [
-                "flows"
-             ],
-             "title": "OAuth2",
-             "type": "object"
-          },
-          "OAuth2Auth": {
-             "additionalProperties": true,
-             "description": "Represents credential value and its metadata for a OAuth2 credential.",
-             "properties": {
-                "clientId": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Clientid"
-                },
-                "clientSecret": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Clientsecret"
-                },
-                "authUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authuri"
-                },
-                "nonce": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Nonce"
-                },
-                "state": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "State"
-                },
-                "redirectUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Redirecturi"
-                },
-                "authResponseUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authresponseuri"
-                },
-                "authCode": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authcode"
-                },
-                "accessToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Accesstoken"
-                },
-                "refreshToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshtoken"
-                },
-                "idToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Idtoken"
-                },
-                "expiresAt": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Expiresat"
-                },
-                "expiresIn": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Expiresin"
-                },
-                "audience": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Audience"
-                },
-                "codeVerifier": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Codeverifier"
-                },
-                "codeChallengeMethod": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Codechallengemethod"
-                },
-                "tokenEndpointAuthMethod": {
-                   "anyOf": [
-                      {
-                         "enum": [
-                            "client_secret_basic",
-                            "client_secret_post",
-                            "client_secret_jwt",
-                            "private_key_jwt"
-                         ],
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": "client_secret_basic",
-                   "title": "Tokenendpointauthmethod"
-                }
-             },
-             "title": "OAuth2Auth",
-             "type": "object"
-          },
-          "OAuthFlowAuthorizationCode": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl",
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowAuthorizationCode",
-             "type": "object"
-          },
-          "OAuthFlowClientCredentials": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowClientCredentials",
-             "type": "object"
-          },
-          "OAuthFlowImplicit": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl"
-             ],
-             "title": "OAuthFlowImplicit",
-             "type": "object"
-          },
-          "OAuthFlowPassword": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowPassword",
-             "type": "object"
-          },
-          "OAuthFlows": {
-             "additionalProperties": true,
-             "properties": {
-                "implicit": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowImplicit"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowPassword"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "clientCredentials": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowClientCredentials"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "authorizationCode": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowAuthorizationCode"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "title": "OAuthFlows",
-             "type": "object"
-          },
-          "OpenIdConnect": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "openIdConnectUrl": {
-                   "title": "Openidconnecturl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "openIdConnectUrl"
-             ],
-             "title": "OpenIdConnect",
-             "type": "object"
-          },
-          "OpenIdConnectWithConfig": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "authorization_endpoint": {
-                   "title": "Authorization Endpoint",
-                   "type": "string"
-                },
-                "token_endpoint": {
-                   "title": "Token Endpoint",
-                   "type": "string"
-                },
-                "userinfo_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Userinfo Endpoint"
-                },
-                "revocation_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Revocation Endpoint"
-                },
-                "token_endpoint_auth_methods_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token Endpoint Auth Methods Supported"
-                },
-                "grant_types_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Grant Types Supported"
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                }
-             },
-             "required": [
-                "authorization_endpoint",
-                "token_endpoint"
-             ],
-             "title": "OpenIdConnectWithConfig",
-             "type": "object"
           },
           "Outcome": {
              "description": "Outcome of the code execution.",
@@ -23773,6 +28986,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -23910,151 +29135,6 @@ Show JSON schema
              "title": "PartialArg",
              "type": "object"
           },
-          "SecuritySchemeType": {
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect"
-             ],
-             "title": "SecuritySchemeType",
-             "type": "string"
-          },
-          "ServiceAccount": {
-             "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
-             "properties": {
-                "serviceAccountCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ServiceAccountCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                },
-                "useDefaultCredential": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": false,
-                   "title": "Usedefaultcredential"
-                },
-                "useIdToken": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": false,
-                   "title": "Useidtoken"
-                },
-                "audience": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Audience"
-                }
-             },
-             "title": "ServiceAccount",
-             "type": "object"
-          },
-          "ServiceAccountCredential": {
-             "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  type: The type should be \"service_account\".\n  project_id: The project ID.\n  private_key_id: The ID of the private key.\n  private_key: The private key.\n  client_email: The client email.\n  client_id: The client ID.\n  auth_uri: The authorization URI.\n  token_uri: The token URI.\n  auth_provider_x509_cert_url: URL for auth provider's X.509 cert.\n  client_x509_cert_url: URL for the client's X.509 cert.\n  universe_domain: The universe domain.\n\nExample:\n\n    config = ServiceAccountCredential(\n        type_=\"service_account\",\n        project_id=\"your_project_id\",\n        private_key_id=\"your_private_key_id\",\n        private_key=\"-----BEGIN PRIVATE KEY-----...\",\n        client_email=\"...@....iam.gserviceaccount.com\",\n        client_id=\"your_client_id\",\n        auth_uri=\"https://accounts.google.com/o/oauth2/auth\",\n        token_uri=\"https://oauth2.googleapis.com/token\",\n        auth_provider_x509_cert_url=\"https://www.googleapis.com/oauth2/v1/certs\",\n        client_x509_cert_url=\"https://www.googleapis.com/robot/v1/metadata/x509/...\",\n        universe_domain=\"googleapis.com\"\n    )\n\n\n    config = ServiceAccountConfig.model_construct(**{\n        ...service account config dict\n    })",
-             "properties": {
-                "type": {
-                   "default": "",
-                   "title": "Type",
-                   "type": "string"
-                },
-                "projectId": {
-                   "title": "Projectid",
-                   "type": "string"
-                },
-                "privateKeyId": {
-                   "title": "Privatekeyid",
-                   "type": "string"
-                },
-                "privateKey": {
-                   "title": "Privatekey",
-                   "type": "string"
-                },
-                "clientEmail": {
-                   "title": "Clientemail",
-                   "type": "string"
-                },
-                "clientId": {
-                   "title": "Clientid",
-                   "type": "string"
-                },
-                "authUri": {
-                   "title": "Authuri",
-                   "type": "string"
-                },
-                "tokenUri": {
-                   "title": "Tokenuri",
-                   "type": "string"
-                },
-                "authProviderX509CertUrl": {
-                   "title": "Authproviderx509Certurl",
-                   "type": "string"
-                },
-                "clientX509CertUrl": {
-                   "title": "Clientx509Certurl",
-                   "type": "string"
-                },
-                "universeDomain": {
-                   "title": "Universedomain",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "projectId",
-                "privateKeyId",
-                "privateKey",
-                "clientEmail",
-                "clientId",
-                "authUri",
-                "tokenUri",
-                "authProviderX509CertUrl",
-                "clientX509CertUrl",
-                "universeDomain"
-             ],
-             "title": "ServiceAccountCredential",
-             "type": "object"
-          },
           "ToolCall": {
              "additionalProperties": false,
              "description": "A predicted server-side `ToolCall` returned from the model.\n\nThis message contains information about a tool that the model wants to invoke.\nThe client is NOT expected to execute this `ToolCall`. Instead, the\nclient should pass this `ToolCall` back to the API in a subsequent turn\nwithin a `Content` message, along with the corresponding `ToolResponse`.",
@@ -24190,6 +29270,82 @@ Show JSON schema
              "title": "ToolType",
              "type": "string"
           },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
           "UiWidget": {
              "additionalProperties": false,
              "description": "Rendering metadata for a UI widget associated with an event.\n\nWhen present on an Event.actions, the UI renders the widget using the\nspecified provider's renderer component.",
@@ -24261,6 +29417,53 @@ Show JSON schema
              },
              "title": "VideoMetadata",
              "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
           }
        },
        "additionalProperties": false
@@ -24282,7 +29485,7 @@ Fields:
 
   * `render_ui_widgets (list[google.adk.events.ui_widget.UiWidget] | None)`
 
-  * `requested_auth_configs (dict[str, google.adk.auth.auth_tool.AuthConfig])`
+  * `requested_auth_configs (dict[str, Any])`
 
   * `requested_tool_confirmations (dict[str, google.adk.tools.tool_confirmation.ToolConfirmation])`
 
@@ -24297,6 +29500,13 @@ Fields:
   * `state_delta (dict[str, Any])`
 
   * `transfer_to_agent (str | None)`
+
+
+
+Validators:
+    
+
+  * `_parse_auth_configs` » `requested_auth_configs`
 
 
 
@@ -24337,6 +29547,14 @@ _field _requested_auth_configs _: dict[str, AuthConfig]__[Optional]__(alias 'req
 Authentication configurations requested by tool responses.
 
 This field will only be set by a tool response event indicating tool request auth credential. \- Keys: The function call id. Since one function response event could contain multiple function responses that correspond to multiple function calls. Each function call could request different auth configs. This id is used to identify the function call. \- Values: The requested auth config.
+
+Validated by:
+    
+
+  * `_parse_auth_configs`
+
+
+
 
 _field _requested_tool_confirmations _: dict[str, ToolConfirmation]__[Optional]__(alias 'requestedToolConfirmations')_¶
     
@@ -24957,7 +30175,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -24994,7 +30212,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -25040,7 +30258,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -25077,7 +30295,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -25133,7 +30351,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -25145,7 +30363,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -25159,7 +30377,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -25172,7 +30390,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -25210,7 +30428,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -25222,7 +30440,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -25235,7 +30453,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -25250,7 +30468,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -25276,7 +30494,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -25299,7 +30517,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -25325,7 +30543,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -25338,7 +30556,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -25347,7 +30565,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -25385,7 +30603,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -25394,7 +30612,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -25406,7 +30624,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -25418,14 +30636,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -25632,6 +30850,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -25876,6 +31106,82 @@ Show JSON schema
              "title": "ToolType",
              "type": "string"
           },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
@@ -25921,6 +31227,53 @@ Show JSON schema
                 }
              },
              "title": "VideoMetadata",
+             "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
              "type": "object"
           }
        },
@@ -25983,19 +31336,23 @@ A list of Example objects.
 
 # google.adk.flows module¶
 
+# google.adk.integrations module¶
+
+Agent Development Kit - Integrations.
+
 # google.adk.integrations.agent_identity module¶
 
-_class _google.adk.integrations.agent_identity.GcpAuthProvider(_client =None_)¶
+_class _google.adk.integrations.agent_identity.GcpAuthProvider¶
     
 
 Bases: `BaseAuthProvider`
 
-An auth provider that uses the Agent Identity Credentials service to generate access tokens.
+An auth provider that uses Credentials service to generate access tokens.
 
 _async _get_auth_credential(_auth_config_ , _context =None_)¶
     
 
-Retrieves credentials using the Agent Identity Credentials service.
+Retrieves credentials using the Credentials service.
 
 Return type:
     
@@ -26019,12 +31376,7 @@ An AuthCredential instance.
 Raises:
     
 
-  * **ValueError** – If auth_scheme is not a GcpAuthProviderScheme.
-
-  * **RuntimeError** – If credential retrieval or polling fails.
-
-
-
+**ValueError** – If auth_scheme is not a GcpAuthProviderScheme.
 
 _property _supported_auth_schemes _: tuple[type[GcpAuthProviderScheme], ...]_¶
     
@@ -26121,6 +31473,157 @@ Fields:
   * `name (str)`
 
   * `scopes (List[str] | None)`
+
+  * `type_ (Literal['gcpAuthProviderScheme'])`
+
+
+
+
+_field _continue_uri _: Optional[str]__ = None_ _(alias 'continueUri')_¶
+    
+
+_field _name _: str_ _[Required]_¶
+    
+
+_field _scopes _: Optional[List[str]]__ = None_¶
+    
+
+_field _type__: Literal['gcpAuthProviderScheme']__ = 'gcpAuthProviderScheme'__(alias 'type')_¶
+    
+
+# google.adk.integrations.agent_identity module¶
+
+_class _google.adk.integrations.agent_identity.GcpAuthProvider¶
+    
+
+Bases: `BaseAuthProvider`
+
+An auth provider that uses Credentials service to generate access tokens.
+
+_async _get_auth_credential(_auth_config_ , _context =None_)¶
+    
+
+Retrieves credentials using the Credentials service.
+
+Return type:
+    
+
+`AuthCredential`
+
+Parameters:
+    
+
+  * **auth_config** – The authentication configuration.
+
+  * **context** – Optional context for the callback.
+
+
+
+Returns:
+    
+
+An AuthCredential instance.
+
+Raises:
+    
+
+**ValueError** – If auth_scheme is not a GcpAuthProviderScheme.
+
+_property _supported_auth_schemes _: tuple[type[GcpAuthProviderScheme], ...]_¶
+    
+
+The AuthScheme types supported by this provider.
+
+Subclasses can override this to return a tuple of scheme types, enabling 1-parameter registration.
+
+_pydantic model _google.adk.integrations.agent_identity.GcpAuthProviderScheme¶
+    
+
+Bases: `CustomAuthScheme`
+
+The Agent Identity authentication scheme for Google Cloud Platform.
+
+name¶
+    
+
+The name of the GCP Auth Provider resource to use.
+
+scopes¶
+    
+
+Optional. A list of OAuth2 scopes to request.
+
+continue_uri¶
+    
+
+Optional. A type of redirect URI. It is distinct from the standard OAuth2 redirect URI. Its purpose is to reauthenticate the user to prevent phishing attacks and to finalize the managed OAuth flow. The standard, Google-hosted OAuth2 redirect URI will redirect the user to this continue URI. The agent will include this URI in every 3-legged OAuth request sent to the upstream Agent Identity Credential service. Developers must ensure this URI is hosted (e.g. on GCP, a third-party cloud, on-prem), preferably alongside the agent client’s web server. TODO: Add public documentation link for more information once available.
+
+type_¶
+    
+
+The type of the security scheme, always “gcpAuthProviderScheme”.
+
+Show JSON schema
+    
+    
+    {
+       "title": "GcpAuthProviderScheme",
+       "description": "The Agent Identity authentication scheme for Google Cloud Platform.\n\nAttributes:\n  name: The name of the GCP Auth Provider resource to use.\n  scopes: Optional. A list of OAuth2 scopes to request.\n  continue_uri: Optional. A type of redirect URI. It is distinct from the\n    standard OAuth2 redirect URI. Its purpose is to reauthenticate the user to\n    prevent phishing attacks and to finalize the managed OAuth flow. The\n    standard, Google-hosted OAuth2 redirect URI will redirect the user to this\n    continue URI. The agent will include this URI in every 3-legged OAuth\n    request sent to the upstream Agent Identity Credential service. Developers\n    must ensure this URI is hosted (e.g. on GCP, a third-party cloud,\n    on-prem), preferably alongside the agent client's web server.\n    TODO: Add public documentation link for more information once available.\n  type_: The type of the security scheme, always \"gcpAuthProviderScheme\".",
+       "type": "object",
+       "properties": {
+          "type": {
+             "const": "gcpAuthProviderScheme",
+             "default": "gcpAuthProviderScheme",
+             "title": "Type",
+             "type": "string"
+          },
+          "name": {
+             "title": "Name",
+             "type": "string"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          },
+          "continueUri": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Continueuri"
+          }
+       },
+       "additionalProperties": true,
+       "required": [
+          "name"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `continue_uri (Optional[str])`
+
+  * `name (str)`
+
+  * `scopes (Optional[List[str]])`
 
   * `type_ (Literal['gcpAuthProviderScheme'])`
 
@@ -26284,6 +31787,245 @@ Return type:
 
 `Dict`[`str`, `Any`]
 
+search_agents(_*_ , _search_string =None_, _search_type =None_, _filter_str =None_, _order_by =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Searches registered A2A Agents.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+search_mcp_servers(_*_ , _search_string =None_, _search_type =None_, _filter_str =None_, _order_by =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Searches registered MCP Servers.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+# google.adk.integrations.agent_registry module¶
+
+_class _google.adk.integrations.agent_registry.AgentRegistry(_project_id =None_, _location =None_, _header_provider =None_)¶
+    
+
+Bases: `object`
+
+Client for interacting with the Google Cloud Agent Registry service.
+
+Unlike a standard REST client library, this class provides higher-level abstractions for ADK integration. It surfaces the agent registry service methods along with helper methods like get_mcp_toolset and get_remote_a2a_agent that automatically resolve connection details and handle authentication to produce ready-to-use ADK components.
+
+Initializes the AgentRegistry client.
+
+Parameters:
+    
+
+  * **project_id** – The Google Cloud project ID.
+
+  * **location** – The Google Cloud location (region).
+
+  * **header_provider** – Optional provider for custom headers.
+
+
+
+
+get_agent_info(_name_)¶
+    
+
+Retrieves detailed metadata of a specific A2A Agent.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+get_endpoint(_name_)¶
+    
+
+Retrieves details of a specific Endpoint.
+
+Return type:
+    
+
+`Endpoint`
+
+get_mcp_server(_name_)¶
+    
+
+Retrieves details of a specific MCP Server.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+get_mcp_toolset(_mcp_server_name_ , _auth_scheme =None_, _auth_credential =None_, _*_ , _continue_uri =None_)¶
+    
+
+Constructs an McpToolset from a registered MCP Server.
+
+If auth_scheme is omitted, it is automatically resolved from the server’s IAM bindings via GcpAuthProviderScheme.
+
+Return type:
+    
+
+`McpToolset`
+
+Parameters:
+    
+
+  * **mcp_server_name** – Resource name of the MCP Server.
+
+  * **auth_scheme** – Optional auth scheme. Resolved via bindings if omitted.
+
+  * **auth_credential** – Optional auth credential.
+
+  * **continue_uri** – Optional continue URI to override what is in the auth provider.
+
+
+
+Returns:
+    
+
+An McpToolset for the MCP server.
+
+get_model_name(_endpoint_name_)¶
+    
+
+Retrieves and parses an endpoint into a model resource name.
+
+Return type:
+    
+
+`str`
+
+Parameters:
+    
+
+**endpoint_name** – The full resource name of the endpoint.
+
+Returns:
+    
+
+The resolved model resource name string (e.g. projects/…/locations/…/publishers/google/models/…).
+
+get_remote_a2a_agent(_agent_name_ , _*_ , _httpx_client =None_)¶
+    
+
+Creates a RemoteA2aAgent instance for a registered A2A Agent.
+
+Return type:
+    
+
+`RemoteA2aAgent`
+
+list_agents(_filter_str =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Fetches a list of registered A2A Agents.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+list_endpoints(_filter_str =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Fetches a list of Endpoints.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+list_mcp_servers(_filter_str =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Fetches a list of MCP Servers.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+search_agents(_*_ , _search_string =None_, _search_type =None_, _filter_str =None_, _order_by =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Searches registered A2A Agents.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+search_mcp_servers(_*_ , _search_string =None_, _search_type =None_, _filter_str =None_, _order_by =None_, _page_size =None_, _page_token =None_)¶
+    
+
+Searches registered MCP Servers.
+
+Return type:
+    
+
+`Dict`[`str`, `Any`]
+
+# google.adk.integrations.api_registry module¶
+
+_class _google.adk.integrations.api_registry.ApiRegistry(_api_registry_project_id_ , _location ='global'_, _header_provider =None_)¶
+    
+
+Bases: `object`
+
+Registry that provides McpToolsets for MCP servers registered in API Registry.
+
+Initialize the API Registry.
+
+Parameters:
+    
+
+  * **api_registry_project_id** – The project ID for the Google Cloud API Registry.
+
+  * **location** – The location of the API Registry resources.
+
+  * **header_provider** – Optional function to provide additional headers for MCP server calls.
+
+
+
+
+get_toolset(_mcp_server_name_ , _tool_filter =None_, _tool_name_prefix =None_)¶
+    
+
+Return the MCP Toolset based on the params.
+
+Return type:
+    
+
+`McpToolset`
+
+Parameters:
+    
+
+  * **mcp_server_name** – Filter to select the MCP server name to get tools from.
+
+  * **tool_filter** – Optional filter to select specific tools. Can be a list of tool names or a ToolPredicate function.
+
+  * **tool_name_prefix** – Optional prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+Returns:
+    
+
+A toolset for the MCP server specified.
+
+Return type:
+    
+
+McpToolset
+
 # google.adk.integrations.api_registry module¶
 
 _class _google.adk.integrations.api_registry.ApiRegistry(_api_registry_project_id_ , _location ='global'_, _header_provider =None_)¶
@@ -26343,6 +32085,386 @@ McpToolset
 BigQuery Integration.
 
 This module provides tools and skills for interacting with BigQuery.
+
+# google.adk.integrations.bigquery module¶
+
+BigQuery Integration.
+
+This module provides tools and skills for interacting with BigQuery.
+
+# google.adk.integrations.cloud_run module¶
+
+ADK Cloud Run Integration.
+
+_pydantic model _google.adk.integrations.cloud_run.CloudRunSandboxCodeExecutor¶
+    
+
+Bases: `BaseCodeExecutor`
+
+Executes Python code inside a Cloud Run sandbox using the sandbox CLI tool.
+
+This executor is designed to run from within a Cloud Run container where sandboxes are enabled. It cannot be used to execute code remotely from a local machine or other external environments, as it relies on the local guest sandbox binary provided by the Cloud Run container runtime.
+
+It executes the code by passing it via stdin to the Python interpreter running inside the local sandbox: sandbox do <python_path>.
+
+Show JSON schema
+    
+    
+    {
+       "title": "CloudRunSandboxCodeExecutor",
+       "description": "Executes Python code inside a Cloud Run sandbox using the `sandbox` CLI tool.\n\nThis executor is designed to run from within a Cloud Run container where\nsandboxes are enabled. It cannot be used to execute code remotely from a\nlocal machine or other external environments, as it relies on the local guest\n`sandbox` binary provided by the Cloud Run container runtime.\n\nIt executes the code by passing it via stdin to the Python interpreter\nrunning inside the local sandbox: `sandbox do <python_path>`.",
+       "type": "object",
+       "properties": {
+          "optimize_data_file": {
+             "default": false,
+             "title": "Optimize Data File",
+             "type": "boolean"
+          },
+          "stateful": {
+             "default": false,
+             "title": "Stateful",
+             "type": "boolean"
+          },
+          "error_retry_attempts": {
+             "default": 2,
+             "title": "Error Retry Attempts",
+             "type": "integer"
+          },
+          "code_block_delimiters": {
+             "default": [
+                [
+                   "```tool_code\n",
+                   "\n```"
+                ],
+                [
+                   "```python\n",
+                   "\n```"
+                ]
+             ],
+             "items": {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                   {
+                      "type": "string"
+                   },
+                   {
+                      "type": "string"
+                   }
+                ],
+                "type": "array"
+             },
+             "title": "Code Block Delimiters",
+             "type": "array"
+          },
+          "execution_result_delimiters": {
+             "default": [
+                "```tool_output\n",
+                "\n```"
+             ],
+             "maxItems": 2,
+             "minItems": 2,
+             "prefixItems": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "string"
+                }
+             ],
+             "title": "Execution Result Delimiters",
+             "type": "array"
+          },
+          "timeout_seconds": {
+             "anyOf": [
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout Seconds"
+          },
+          "sandbox_bin": {
+             "default": "/usr/local/gcp/bin/sandbox",
+             "title": "Sandbox Bin",
+             "type": "string"
+          },
+          "allow_egress": {
+             "default": false,
+             "title": "Allow Egress",
+             "type": "boolean"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `allow_egress (bool)`
+
+  * `optimize_data_file (bool)`
+
+  * `sandbox_bin (str)`
+
+  * `stateful (bool)`
+
+
+
+
+_field _allow_egress _: bool_ _ = False_¶
+    
+
+Whether to allow egress for the sandbox.
+
+_field _optimize_data_file _: bool_ _ = False_¶
+    
+
+If true, extract and process data files from the model request and attach them to the code executor.
+
+Supported data file MimeTypes are [text/csv]. Default to False.
+
+_field _sandbox_bin _: str_ _ = '/usr/local/gcp/bin/sandbox'_¶
+    
+
+The path to the sandbox binary. Defaults to ‘/usr/local/gcp/bin/sandbox’.
+
+_field _stateful _: bool_ _ = False_¶
+    
+
+Whether the code executor is stateful. Default to False.
+
+execute_code(_invocation_context_ , _code_execution_input_)¶
+    
+
+Executes code and return the code execution result.
+
+Return type:
+    
+
+`CodeExecutionResult`
+
+Parameters:
+    
+
+  * **invocation_context** – The invocation context of the code execution.
+
+  * **code_execution_input** – The code execution input.
+
+
+
+Returns:
+    
+
+The code execution result.
+
+# google.adk.integrations.cloud_run module¶
+
+ADK Cloud Run Integration.
+
+_pydantic model _google.adk.integrations.cloud_run.CloudRunSandboxCodeExecutor¶
+    
+
+Bases: `BaseCodeExecutor`
+
+Executes Python code inside a Cloud Run sandbox using the sandbox CLI tool.
+
+This executor is designed to run from within a Cloud Run container where sandboxes are enabled. It cannot be used to execute code remotely from a local machine or other external environments, as it relies on the local guest sandbox binary provided by the Cloud Run container runtime.
+
+It executes the code by passing it via stdin to the Python interpreter running inside the local sandbox: sandbox do <python_path>.
+
+Show JSON schema
+    
+    
+    {
+       "title": "CloudRunSandboxCodeExecutor",
+       "description": "Executes Python code inside a Cloud Run sandbox using the `sandbox` CLI tool.\n\nThis executor is designed to run from within a Cloud Run container where\nsandboxes are enabled. It cannot be used to execute code remotely from a\nlocal machine or other external environments, as it relies on the local guest\n`sandbox` binary provided by the Cloud Run container runtime.\n\nIt executes the code by passing it via stdin to the Python interpreter\nrunning inside the local sandbox: `sandbox do <python_path>`.",
+       "type": "object",
+       "properties": {
+          "optimize_data_file": {
+             "default": false,
+             "title": "Optimize Data File",
+             "type": "boolean"
+          },
+          "stateful": {
+             "default": false,
+             "title": "Stateful",
+             "type": "boolean"
+          },
+          "error_retry_attempts": {
+             "default": 2,
+             "title": "Error Retry Attempts",
+             "type": "integer"
+          },
+          "code_block_delimiters": {
+             "default": [
+                [
+                   "```tool_code\n",
+                   "\n```"
+                ],
+                [
+                   "```python\n",
+                   "\n```"
+                ]
+             ],
+             "items": {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                   {
+                      "type": "string"
+                   },
+                   {
+                      "type": "string"
+                   }
+                ],
+                "type": "array"
+             },
+             "title": "Code Block Delimiters",
+             "type": "array"
+          },
+          "execution_result_delimiters": {
+             "default": [
+                "```tool_output\n",
+                "\n```"
+             ],
+             "maxItems": 2,
+             "minItems": 2,
+             "prefixItems": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "string"
+                }
+             ],
+             "title": "Execution Result Delimiters",
+             "type": "array"
+          },
+          "timeout_seconds": {
+             "anyOf": [
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Timeout Seconds"
+          },
+          "sandbox_bin": {
+             "default": "/usr/local/gcp/bin/sandbox",
+             "title": "Sandbox Bin",
+             "type": "string"
+          },
+          "allow_egress": {
+             "default": false,
+             "title": "Allow Egress",
+             "type": "boolean"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `allow_egress (bool)`
+
+  * `code_block_delimiters (List[tuple[str, str]])`
+
+  * `error_retry_attempts (int)`
+
+  * `execution_result_delimiters (tuple[str, str])`
+
+  * `optimize_data_file (bool)`
+
+  * `sandbox_bin (str)`
+
+  * `stateful (bool)`
+
+  * `timeout_seconds (Optional[int])`
+
+
+
+
+_field _allow_egress _: bool_ _ = False_¶
+    
+
+Whether to allow egress for the sandbox.
+
+_field _code_block_delimiters _: List[tuple[str, str]]__ = [('```tool_code\n', '\n```'), ('```python\n', '\n```')]_¶
+    
+
+The list of the enclosing delimiters to identify the code blocks.
+
+For example, the delimiter (’``python\n', '\n``’) can be used to identify code blocks with the following format:
+    
+    
+    ```python
+    print("hello")
+    ```
+    
+
+_field _error_retry_attempts _: int_ _ = 2_¶
+    
+
+The number of attempts to retry on consecutive code execution errors. Default to 2.
+
+_field _execution_result_delimiters _: tuple[str, str]__ = ('```tool_output\n', '\n```')_¶
+    
+
+The delimiters to format the code execution result.
+
+_field _optimize_data_file _: bool_ _ = False_¶
+    
+
+If true, extract and process data files from the model request and attach them to the code executor.
+
+Supported data file MimeTypes are [text/csv]. Default to False.
+
+_field _sandbox_bin _: str_ _ = '/usr/local/gcp/bin/sandbox'_¶
+    
+
+The path to the sandbox binary. Defaults to ‘/usr/local/gcp/bin/sandbox’.
+
+_field _stateful _: bool_ _ = False_¶
+    
+
+Whether the code executor is stateful. Default to False.
+
+_field _timeout_seconds _: Optional[int]__ = None_¶
+    
+
+The timeout in seconds for the code execution.
+
+execute_code(_invocation_context_ , _code_execution_input_)¶
+    
+
+Executes code and return the code execution result.
+
+Return type:
+    
+
+`CodeExecutionResult`
+
+Parameters:
+    
+
+  * **invocation_context** – The invocation context of the code execution.
+
+  * **code_execution_input** – The code execution input.
+
+
+
+Returns:
+    
+
+The code execution result.
 
 # google.adk.integrations.crewai module¶
 
@@ -26473,7 +32595,1708 @@ _field _tool _: str_ _[Required]_¶
 
 The fully qualified path of the CrewAI tool instance.
 
+# google.adk.integrations.crewai module¶
+
+_class _google.adk.integrations.crewai.CrewaiTool(_tool_ , _*_ , _name_ , _description =''_)¶
+    
+
+Bases: `FunctionTool`
+
+Use this class to wrap a CrewAI tool.
+
+If the original tool name and description are not suitable, you can override them in the constructor.
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+description _: str_¶
+    
+
+The description of the tool.
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`CrewaiTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+name _: str_¶
+    
+
+The name of the tool.
+
+_async _run_async(_*_ , _args_ , _tool_context_)¶
+    
+
+Override run_async to handle CrewAI-specific parameter filtering.
+
+CrewAI tools use **kwargs pattern, so we need special parameter filtering logic that allows all parameters to pass through while removing only reserved parameters like ‘self’ and ‘tool_context’.
+
+Note: ‘tool_context’ is removed from the initial args dictionary to prevent duplicates, but is re-added if the function signature explicitly requires it as a parameter.
+
+Return type:
+    
+
+`Any`
+
+tool _: CrewaiBaseTool_¶
+    
+
+The wrapped CrewAI tool.
+
+_pydantic model _google.adk.integrations.crewai.CrewaiToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "CrewaiToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the CrewAI tool instance.
+
+# google.adk.integrations.daytona module¶
+
+Daytona sandbox integration.
+
+This module provides a BaseEnvironment implementation backed by a Daytona remote sandbox, offering a persistent remote workspace for file CRUD and shell execution.
+
+Requires the `daytona` extra: `pip install google-adk[daytona]`.
+
+Example
+
+```python from google.adk.integrations.daytona import DaytonaEnvironment
+
+env = DaytonaEnvironment() await env.initialize() result = await env.execute(“pip install requests”) await env.close() ```
+
+_class _google.adk.integrations.daytona.DaytonaEnvironment(_*_ , _image =None_, _timeout =300_, _api_key =None_, _api_url =None_, _env_vars =None_)¶
+    
+
+Bases: `BaseEnvironment`
+
+A persistent remote workspace backed by a Daytona sandbox.
+
+Provides file CRUD and shell execution inside an isolated remote sandbox. One sandbox is created on `initialize()` and killed on `close()`.
+
+Requires the `daytona` extra: `pip install google-adk[daytona]`.
+
+Create a Daytona environment.
+
+Parameters:
+    
+
+  * **image** – Daytona template/image name used to create the sandbox.
+
+  * **timeout** – Sandbox time-to-live / timeout in seconds.
+
+  * **api_key** – Daytona API key. If `None`, the environment variable is used.
+
+  * **api_url** – Daytona API URL. If `None`, defaults to Daytona Cloud API.
+
+  * **env_vars** – Environment variables set inside the sandbox.
+
+
+
+
+_async _close()¶
+    
+
+Release resources held by the environment.
+
+Called when the environment is no longer needed. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _execute(_command_ , _*_ , _timeout =None_)¶
+    
+
+Execute a shell command in the working directory.
+
+Return type:
+    
+
+`ExecutionResult`
+
+Parameters:
+    
+
+  * **command** – The shell command string to execute.
+
+  * **timeout** – Maximum execution time in seconds. `None` means no limit.
+
+
+
+Returns:
+    
+
+An `ExecutionResult` with exit code, stdout, stderr, and timeout status.
+
+_async _initialize()¶
+    
+
+Initialize the environment (e.g. create working directory).
+
+Called before first use. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _read_file(_path_)¶
+    
+
+Read a file from the environment filesystem.
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**path** – Absolute or working-dir-relative path to the file.
+
+Returns:
+    
+
+The raw file contents as bytes.
+
+Raises:
+    
+
+**FileNotFoundError** – If the file does not exist.
+
+_property _working_dir _: Path_¶
+    
+
+The absolute path to the environment’s working directory.
+
+_async _write_file(_path_ , _content_)¶
+    
+
+Write content to a file in the environment’s filesystem.
+
+Parent directories are created automatically if they do not exist.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **path** – Absolute or working-dir-relative path to the file.
+
+  * **content** – The string or raw bytes to write.
+
+
+
+
+# google.adk.integrations.daytona module¶
+
+Daytona sandbox integration.
+
+This module provides a BaseEnvironment implementation backed by a Daytona remote sandbox, offering a persistent remote workspace for file CRUD and shell execution.
+
+Requires the `daytona` extra: `pip install google-adk[daytona]`.
+
+Example
+
+```python from google.adk.integrations.daytona import DaytonaEnvironment
+
+env = DaytonaEnvironment() await env.initialize() result = await env.execute(“pip install requests”) await env.close() ```
+
+_class _google.adk.integrations.daytona.DaytonaEnvironment(_*_ , _image =None_, _timeout =300_, _api_key =None_, _api_url =None_, _env_vars =None_)¶
+    
+
+Bases: `BaseEnvironment`
+
+A persistent remote workspace backed by a Daytona sandbox.
+
+Provides file CRUD and shell execution inside an isolated remote sandbox. One sandbox is created on `initialize()` and killed on `close()`.
+
+Requires the `daytona` extra: `pip install google-adk[daytona]`.
+
+Create a Daytona environment.
+
+Parameters:
+    
+
+  * **image** – Daytona template/image name used to create the sandbox.
+
+  * **timeout** – Sandbox time-to-live / timeout in seconds.
+
+  * **api_key** – Daytona API key. If `None`, the environment variable is used.
+
+  * **api_url** – Daytona API URL. If `None`, defaults to Daytona Cloud API.
+
+  * **env_vars** – Environment variables set inside the sandbox.
+
+
+
+
+_async _close()¶
+    
+
+Release resources held by the environment.
+
+Called when the environment is no longer needed. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _execute(_command_ , _*_ , _timeout =None_)¶
+    
+
+Execute a shell command in the working directory.
+
+Return type:
+    
+
+`ExecutionResult`
+
+Parameters:
+    
+
+  * **command** – The shell command string to execute.
+
+  * **timeout** – Maximum execution time in seconds. `None` means no limit.
+
+
+
+Returns:
+    
+
+An `ExecutionResult` with exit code, stdout, stderr, and timeout status.
+
+_async _initialize()¶
+    
+
+Initialize the environment (e.g. create working directory).
+
+Called before first use. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _read_file(_path_)¶
+    
+
+Read a file from the environment filesystem.
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**path** – Absolute or working-dir-relative path to the file.
+
+Returns:
+    
+
+The raw file contents as bytes.
+
+Raises:
+    
+
+**FileNotFoundError** – If the file does not exist.
+
+_property _working_dir _: Path_¶
+    
+
+The absolute path to the environment’s working directory.
+
+_async _write_file(_path_ , _content_)¶
+    
+
+Write content to a file in the environment’s filesystem.
+
+Parent directories are created automatically if they do not exist.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **path** – Absolute or working-dir-relative path to the file.
+
+  * **content** – The string or raw bytes to write.
+
+
+
+
+# google.adk.integrations.e2b module¶
+
+E2B sandbox integration.
+
+This module provides a BaseEnvironment implementation backed by an E2B remote sandbox, offering a persistent remote workspace for file CRUD, shell execution, and on-demand software installs.
+
+Requires the `e2b` extra: `pip install google-adk[e2b]`.
+
+Example
+
+```python from google.adk.integrations.e2b import E2BEnvironment
+
+env = E2BEnvironment(image=”base”, timeout=300) await env.initialize() result = await env.execute(“pip install requests”) await env.close() ```
+
+_class _google.adk.integrations.e2b.E2BEnvironment(_*_ , _image ='base'_, _timeout =300_, _api_key =None_, _env_vars =None_)¶
+    
+
+Bases: `BaseEnvironment`
+
+A persistent remote workspace backed by an E2B sandbox.
+
+Provides file CRUD, shell execution, and on-demand software installs (e.g. `pip install`, `apt install`) inside an isolated remote sandbox.
+
+One sandbox is created on `initialize()` and killed on `close()`. The sandbox has a bounded time-to-live (`timeout`) to cap credit usage. Every operation extends the TTL so an actively used workspace never expires mid-use; once it does expire after genuine idle, the next operation transparently recreates a fresh sandbox (workspace state such as installs and files is lost).
+
+Requires the `e2b` extra: `pip install google-adk[e2b]`.
+
+Create an E2B environment.
+
+Parameters:
+    
+
+  * **image** – E2B template name or ID used to create the sandbox. Defaults to E2B’s public `base` template, available to every user.
+
+  * **timeout** – Sandbox time-to-live in seconds. The TTL is reset on every operation. Defaults to 300 seconds.
+
+  * **api_key** – E2B API key. If `None`, the `E2B_API_KEY` environment variable is used.
+
+  * **env_vars** – Environment variables set inside the sandbox.
+
+
+
+
+_async _close()¶
+    
+
+Release resources held by the environment.
+
+Called when the environment is no longer needed. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _execute(_command_ , _*_ , _timeout =None_)¶
+    
+
+Execute a shell command in the working directory.
+
+Return type:
+    
+
+`ExecutionResult`
+
+Parameters:
+    
+
+  * **command** – The shell command string to execute.
+
+  * **timeout** – Maximum execution time in seconds. `None` means no limit.
+
+
+
+Returns:
+    
+
+An `ExecutionResult` with exit code, stdout, stderr, and timeout status.
+
+_async _initialize()¶
+    
+
+Initialize the environment (e.g. create working directory).
+
+Called before first use. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _read_file(_path_)¶
+    
+
+Read a file from the environment filesystem.
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**path** – Absolute or working-dir-relative path to the file.
+
+Returns:
+    
+
+The raw file contents as bytes.
+
+Raises:
+    
+
+**FileNotFoundError** – If the file does not exist.
+
+_property _working_dir _: Path_¶
+    
+
+The absolute path to the environment’s working directory.
+
+_async _write_file(_path_ , _content_)¶
+    
+
+Write content to a file in the environment’s filesystem.
+
+Parent directories are created automatically if they do not exist.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **path** – Absolute or working-dir-relative path to the file.
+
+  * **content** – The string or raw bytes to write.
+
+
+
+
+# google.adk.integrations.e2b module¶
+
+E2B sandbox integration.
+
+This module provides a BaseEnvironment implementation backed by an E2B remote sandbox, offering a persistent remote workspace for file CRUD, shell execution, and on-demand software installs.
+
+Requires the `e2b` extra: `pip install google-adk[e2b]`.
+
+Example
+
+```python from google.adk.integrations.e2b import E2BEnvironment
+
+env = E2BEnvironment(image=”base”, timeout=300) await env.initialize() result = await env.execute(“pip install requests”) await env.close() ```
+
+_class _google.adk.integrations.e2b.E2BEnvironment(_*_ , _image ='base'_, _timeout =300_, _api_key =None_, _env_vars =None_)¶
+    
+
+Bases: `BaseEnvironment`
+
+A persistent remote workspace backed by an E2B sandbox.
+
+Provides file CRUD, shell execution, and on-demand software installs (e.g. `pip install`, `apt install`) inside an isolated remote sandbox.
+
+One sandbox is created on `initialize()` and killed on `close()`. The sandbox has a bounded time-to-live (`timeout`) to cap credit usage. Every operation extends the TTL so an actively used workspace never expires mid-use; once it does expire after genuine idle, the next operation transparently recreates a fresh sandbox (workspace state such as installs and files is lost).
+
+Requires the `e2b` extra: `pip install google-adk[e2b]`.
+
+Create an E2B environment.
+
+Parameters:
+    
+
+  * **image** – E2B template name or ID used to create the sandbox. Defaults to E2B’s public `base` template, available to every user.
+
+  * **timeout** – Sandbox time-to-live in seconds. The TTL is reset on every operation. Defaults to 300 seconds.
+
+  * **api_key** – E2B API key. If `None`, the `E2B_API_KEY` environment variable is used.
+
+  * **env_vars** – Environment variables set inside the sandbox.
+
+
+
+
+_async _close()¶
+    
+
+Release resources held by the environment.
+
+Called when the environment is no longer needed. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _execute(_command_ , _*_ , _timeout =None_)¶
+    
+
+Execute a shell command in the working directory.
+
+Return type:
+    
+
+`ExecutionResult`
+
+Parameters:
+    
+
+  * **command** – The shell command string to execute.
+
+  * **timeout** – Maximum execution time in seconds. `None` means no limit.
+
+
+
+Returns:
+    
+
+An `ExecutionResult` with exit code, stdout, stderr, and timeout status.
+
+_async _initialize()¶
+    
+
+Initialize the environment (e.g. create working directory).
+
+Called before first use. The default implementation is a no-op. Sub-classes should ensure this method is idempotent.
+
+Return type:
+    
+
+`None`
+
+_async _read_file(_path_)¶
+    
+
+Read a file from the environment filesystem.
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**path** – Absolute or working-dir-relative path to the file.
+
+Returns:
+    
+
+The raw file contents as bytes.
+
+Raises:
+    
+
+**FileNotFoundError** – If the file does not exist.
+
+_property _working_dir _: Path_¶
+    
+
+The absolute path to the environment’s working directory.
+
+_async _write_file(_path_ , _content_)¶
+    
+
+Write content to a file in the environment’s filesystem.
+
+Parent directories are created automatically if they do not exist.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **path** – Absolute or working-dir-relative path to the file.
+
+  * **content** – The string or raw bytes to write.
+
+
+
+
+# google.adk.integrations.eventarc module¶
+
+Eventarc tools.
+
+_class _google.adk.integrations.eventarc.AgentProvided(_description_ , _default= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_)¶
+    
+
+Bases: `object`
+
+Indicates that a CloudEvent attribute should be provided by the LLM.
+
+default _: `Any` | `OmitSentinel` | `MissingSentinel`_ _ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+description _: `str`_¶
+    
+
+_class _google.adk.integrations.eventarc.CloudEventAttributesBinding(_type_ , _source_ , _datacontenttype= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _subject= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _time= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _specversion= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _id= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _custom_attributes=None_)¶
+    
+
+Bases: `object`
+
+Configuration for binding CloudEvent attributes to static values, lambdas, or AgentProvided fields.
+
+custom_attributes _: `dict`[`str`, `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`]] | `None`_ _ = None_¶
+    
+
+datacontenttype _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+id _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+source _: `Union`[`str`, `Callable`[[`Any`], `str`], `AgentProvided`]_¶
+    
+
+specversion _: `Union`[`str`, `Callable`[[`Any`], `str`], `AgentProvided`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+subject _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+time _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+type _: `Union`[`str`, `Callable`[[`Any`], `str`], `AgentProvided`]_¶
+    
+
+_pydantic model _google.adk.integrations.eventarc.EventarcCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+Configuration for Google Cloud credentials.
+
+Show JSON schema
+    
+    
+    {
+       "title": "EventarcCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_pydantic model _google.adk.integrations.eventarc.EventarcToolConfig¶
+    
+
+Bases: `BaseModel`
+
+Configuration for the Eventarc tool.
+
+Show JSON schema
+    
+    
+    {
+       "title": "EventarcToolConfig",
+       "description": "Configuration for the Eventarc tool.",
+       "type": "object",
+       "properties": {
+          "project_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional project ID for telemetry and API calls.",
+             "title": "Project Id"
+          },
+          "publish_timeout": {
+             "default": 15.0,
+             "description": "Timeout in seconds for publishing messages. Defaults to 15.0.",
+             "title": "Publish Timeout",
+             "type": "number"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `project_id (str | None)`
+
+  * `publish_timeout (float)`
+
+
+
+
+_field _project_id _: str | None_ _ = None_¶
+    
+
+Optional project ID for telemetry and API calls.
+
+_field _publish_timeout _: float_ _ = 15.0_¶
+    
+
+Timeout in seconds for publishing messages. Defaults to 15.0.
+
+_class _google.adk.integrations.eventarc.EventarcToolset(_*_ , _tool_config =None_, _credentials_config =None_, _tool_name_prefix =None_, _** kwargs_)¶
+    
+
+Bases: `BaseToolset`
+
+Toolset for interacting with Google Cloud Eventarc.
+
+Initializes the Eventarc toolset.
+
+Parameters:
+    
+
+  * **tool_config** – Configuration for the Eventarc tool.
+
+  * **credentials_config** – Configuration for Google Cloud credentials.
+
+  * **tool_name_prefix** – Prefix to apply to the tool name.
+
+  * ****kwargs** – Additional arguments passed to the base class.
+
+
+
+
+_async _close()¶
+    
+
+Clean up resources used by the toolset.
+
+Return type:
+    
+
+`None`
+
+create_publish_tool(_*_ , _name_ , _description_ , _bus_ , _ce_attributes_binding_ , _payload_schema =None_)¶
+    
+
+Creates a domain-specific publish tool with static or dynamic bindings.
+
+This acts as a wrapper around the generic publish_message tool, allowing developers to lock down specific CloudEvent attributes (like bus, type, or source) or make them dynamically generated based on the payload.
+
+Return type:
+    
+
+`GoogleTool`
+
+Parameters:
+    
+
+  * **name** – The name of the tool as exposed to the LLM agent.
+
+  * **description** – A prompt-friendly description of what this tool does.
+
+  * **bus** – The GCP Eventarc Advanced bus resource name. Can be static, callable, or agent-provided.
+
+  * **ce_attributes_binding** – The configuration mapping CloudEvent attributes to static values, runtime lambdas, or AgentProvided fields.
+
+  * **payload_schema** – An optional Pydantic BaseModel representing the expected structured data payload. If provided, the LLM will be forced to provide this structured data.
+
+
+
+Returns:
+    
+
+A GoogleTool instance that can be attached to an agent.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Returns the list of enabled tools in this toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+Parameters:
+    
+
+**readonly_context** – Context to determine if tool is selected.
+
+Returns:
+    
+
+A list of BaseTool objects.
+
+# google.adk.integrations.eventarc module¶
+
+Eventarc tools.
+
+_class _google.adk.integrations.eventarc.AgentProvided(_description_ , _default= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_)¶
+    
+
+Bases: `object`
+
+Indicates that a CloudEvent attribute should be provided by the LLM.
+
+default _: `Any` | `OmitSentinel` | `MissingSentinel`_ _ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+description _: `str`_¶
+    
+
+_class _google.adk.integrations.eventarc.CloudEventAttributesBinding(_type_ , _source_ , _datacontenttype= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _subject= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _time= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _specversion= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _id= <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_, _custom_attributes=None_)¶
+    
+
+Bases: `object`
+
+Configuration for binding CloudEvent attributes to static values, lambdas, or AgentProvided fields.
+
+custom_attributes _: `dict`[`str`, `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`]] | `None`_ _ = None_¶
+    
+
+datacontenttype _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+id _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+source _: `Union`[`str`, `Callable`[[`Any`], `str`], `AgentProvided`]_¶
+    
+
+specversion _: `Union`[`str`, `Callable`[[`Any`], `str`], `AgentProvided`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+subject _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+time _: `Union`[`str`, `Callable`[[`Any`], `str` | `OmitSentinel`], `AgentProvided`, `OmitSentinel`, `MissingSentinel`, `None`]__ = <google.adk.integrations.eventarc._domain_specific_publish.MissingSentinel object>_¶
+    
+
+type _: `Union`[`str`, `Callable`[[`Any`], `str`], `AgentProvided`]_¶
+    
+
+_pydantic model _google.adk.integrations.eventarc.EventarcCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+Configuration for Google Cloud credentials.
+
+Show JSON schema
+    
+    
+    {
+       "title": "EventarcCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_pydantic model _google.adk.integrations.eventarc.EventarcToolConfig¶
+    
+
+Bases: `BaseModel`
+
+Configuration for the Eventarc tool.
+
+Show JSON schema
+    
+    
+    {
+       "title": "EventarcToolConfig",
+       "description": "Configuration for the Eventarc tool.",
+       "type": "object",
+       "properties": {
+          "project_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "description": "Optional project ID for telemetry and API calls.",
+             "title": "Project Id"
+          },
+          "publish_timeout": {
+             "default": 15.0,
+             "description": "Timeout in seconds for publishing messages. Defaults to 15.0.",
+             "title": "Publish Timeout",
+             "type": "number"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `project_id (str | None)`
+
+  * `publish_timeout (float)`
+
+
+
+
+_field _project_id _: str | None_ _ = None_¶
+    
+
+Optional project ID for telemetry and API calls.
+
+_field _publish_timeout _: float_ _ = 15.0_¶
+    
+
+Timeout in seconds for publishing messages. Defaults to 15.0.
+
+_class _google.adk.integrations.eventarc.EventarcToolset(_*_ , _tool_config =None_, _credentials_config =None_, _tool_name_prefix =None_, _** kwargs_)¶
+    
+
+Bases: `BaseToolset`
+
+Toolset for interacting with Google Cloud Eventarc.
+
+Initializes the Eventarc toolset.
+
+Parameters:
+    
+
+  * **tool_config** – Configuration for the Eventarc tool.
+
+  * **credentials_config** – Configuration for Google Cloud credentials.
+
+  * **tool_name_prefix** – Prefix to apply to the tool name.
+
+  * ****kwargs** – Additional arguments passed to the base class.
+
+
+
+
+_async _close()¶
+    
+
+Clean up resources used by the toolset.
+
+Return type:
+    
+
+`None`
+
+create_publish_tool(_*_ , _name_ , _description_ , _bus_ , _ce_attributes_binding_ , _payload_schema =None_)¶
+    
+
+Creates a domain-specific publish tool with static or dynamic bindings.
+
+This acts as a wrapper around the generic publish_message tool, allowing developers to lock down specific CloudEvent attributes (like bus, type, or source) or make them dynamically generated based on the payload.
+
+Return type:
+    
+
+`GoogleTool`
+
+Parameters:
+    
+
+  * **name** – The name of the tool as exposed to the LLM agent.
+
+  * **description** – A prompt-friendly description of what this tool does.
+
+  * **bus** – The GCP Eventarc Advanced bus resource name. Can be static, callable, or agent-provided.
+
+  * **ce_attributes_binding** – The configuration mapping CloudEvent attributes to static values, runtime lambdas, or AgentProvided fields.
+
+  * **payload_schema** – An optional Pydantic BaseModel representing the expected structured data payload. If provided, the LLM will be forced to provide this structured data.
+
+
+
+Returns:
+    
+
+A GoogleTool instance that can be attached to an agent.
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Returns the list of enabled tools in this toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+Parameters:
+    
+
+**readonly_context** – Context to determine if tool is selected.
+
+Returns:
+    
+
+A list of BaseTool objects.
+
 # google.adk.integrations.firestore module¶
+
+# google.adk.integrations.firestore module¶
+
+# google.adk.integrations.gcs module¶
+
+GCS Tools (Experimental).
+
+_class _google.adk.integrations.gcs.GCSAdminToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _gcs_tool_settings =None_)¶
+    
+
+Bases: `BaseToolset`
+
+GCS Admin Toolset contains tools for interacting with GCS admin tasks.
+
+The tool names are:
+    
+
+  * create_bucket
+
+  * update_bucket
+
+  * delete_bucket
+
+  * list_buckets
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+_pydantic model _google.adk.integrations.gcs.GCSCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+GCS Credentials Configuration for Google API tools (Experimental).
+
+Show JSON schema
+    
+    
+    {
+       "title": "GCSCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+  * `__post_init__` » `all fields`
+
+
+
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_class _google.adk.integrations.gcs.GCSToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _gcs_tool_settings =None_)¶
+    
+
+Bases: `BaseToolset`
+
+GCS Toolset contains tools for interacting with GCS storage.
+
+The tool names are:
+    
+
+  * get_bucket
+
+  * create_object
+
+  * get_object_data
+
+  * get_object_metadata
+
+  * list_objects
+
+  * delete_objects
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+# google.adk.integrations.gcs module¶
+
+GCS Tools (Experimental).
+
+_class _google.adk.integrations.gcs.GCSAdminToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _gcs_tool_settings =None_)¶
+    
+
+Bases: `BaseToolset`
+
+GCS Admin Toolset contains tools for interacting with GCS admin tasks.
+
+The tool names are:
+    
+
+  * create_bucket
+
+  * update_bucket
+
+  * delete_bucket
+
+  * list_buckets
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
+
+_pydantic model _google.adk.integrations.gcs.GCSCredentialsConfig¶
+    
+
+Bases: `BaseGoogleCredentialsConfig`
+
+GCS Credentials Configuration for Google API tools (Experimental).
+
+Show JSON schema
+    
+    
+    {
+       "title": "GCSCredentialsConfig",
+       "type": "object",
+       "properties": {
+          "credentials": {
+             "default": null,
+             "title": "Credentials"
+          },
+          "external_access_token_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "External Access Token Key"
+          },
+          "client_id": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Id"
+          },
+          "client_secret": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Client Secret"
+          },
+          "scopes": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Scopes"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+Validators:
+    
+
+  * `__post_init__` » `all fields`
+
+
+
+
+model_post_init(_context_ , _/_)¶
+    
+
+This function is meant to behave like a BaseModel method to initialise private attributes.
+
+It takes context as an argument since that’s what pydantic-core passes when calling it.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **self** – The BaseModel instance.
+
+  * **context** – The context.
+
+
+
+
+_class _google.adk.integrations.gcs.GCSToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _gcs_tool_settings =None_)¶
+    
+
+Bases: `BaseToolset`
+
+GCS Toolset contains tools for interacting with GCS storage.
+
+The tool names are:
+    
+
+  * get_bucket
+
+  * create_object
+
+  * get_object_data
+
+  * get_object_metadata
+
+  * list_objects
+
+  * delete_objects
+
+
+
+
+Initialize the toolset.
+
+Parameters:
+    
+
+  * **tool_filter** – Filter to apply to tools.
+
+  * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset.
+
+
+
+
+_async _get_tools(_readonly_context =None_)¶
+    
+
+Get tools from the toolset.
+
+Return type:
+    
+
+`list`[`BaseTool`]
 
 # google.adk.integrations.langchain module¶
 
@@ -26609,6 +34432,225 @@ _field _tool _: str_ _[Required]_¶
 
 The fully qualified path of the Langchain tool instance.
 
+# google.adk.integrations.langchain module¶
+
+_class _google.adk.integrations.langchain.LangchainTool(_tool_ , _name =None_, _description =None_)¶
+    
+
+Bases: `FunctionTool`
+
+Adapter class that wraps a Langchain tool for use with ADK.
+
+This adapter converts Langchain tools into a format compatible with Google’s generative AI function calling interface. It preserves the tool’s name, description, and functionality while adapting its schema.
+
+The original tool’s name and description can be overridden if needed.
+
+Parameters:
+    
+
+  * **tool** – A Langchain tool to wrap (BaseTool or a tool with a .run method)
+
+  * **name** – Optional override for the tool’s name
+
+  * **description** – Optional override for the tool’s description
+
+
+
+
+Examples:
+    
+    
+    from langchain.tools import DuckDuckGoSearchTool
+    from google.adk.integrations.langchain import LangchainTool
+    
+    search_tool = DuckDuckGoSearchTool()
+    wrapped_tool = LangchainTool(search_tool)
+    
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_classmethod _from_config(_config_ , _config_abs_path_)¶
+    
+
+Creates a tool instance from a config.
+
+This default implementation uses inspect to automatically map config values to constructor arguments based on their type hints. Subclasses should override this method for custom initialization logic.
+
+Return type:
+    
+
+`LangchainTool`
+
+Parameters:
+    
+
+  * **config** – The config for the tool.
+
+  * **config_abs_path** – The absolute path to the config file that contains the tool config.
+
+
+
+Returns:
+    
+
+The tool instance.
+
+_pydantic model _google.adk.integrations.langchain.LangchainToolConfig¶
+    
+
+Bases: `BaseToolConfig`
+
+Show JSON schema
+    
+    
+    {
+       "title": "LangchainToolConfig",
+       "type": "object",
+       "properties": {
+          "tool": {
+             "title": "Tool",
+             "type": "string"
+          },
+          "name": {
+             "default": "",
+             "title": "Name",
+             "type": "string"
+          },
+          "description": {
+             "default": "",
+             "title": "Description",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "tool"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `description (str)`
+
+  * `name (str)`
+
+  * `tool (str)`
+
+
+
+
+_field _description _: str_ _ = ''_¶
+    
+
+The description of the tool.
+
+_field _name _: str_ _ = ''_¶
+    
+
+The name of the tool.
+
+_field _tool _: str_ _[Required]_¶
+    
+
+The fully qualified path of the Langchain tool instance.
+
+# google.adk.integrations.oci module¶
+
+OCI Generative AI integration.
+
+Model providers for Google Gemini and other models hosted on Oracle Cloud Infrastructure (OCI) Generative AI. Install with: pip install google-adk[oci]
+
+# google.adk.integrations.oci module¶
+
+OCI Generative AI integration.
+
+Model providers for Google Gemini and other models hosted on Oracle Cloud Infrastructure (OCI) Generative AI. Install with: pip install google-adk[oci]
+
+# google.adk.integrations.parameter_manager module¶
+
+_class _google.adk.integrations.parameter_manager.ParameterManagerClient(_service_account_json =None_, _auth_token =None_, _location =None_)¶
+    
+
+Bases: `object`
+
+A client for interacting with Google Cloud Parameter Manager.
+
+This class provides a simplified interface for retrieving parameters from Parameter Manager, handling authentication using either a service account JSON keyfile (passed as a string), a preexisting authorization token, or default credentials.
+
+_credentials¶
+    
+
+Google Cloud credentials object (ServiceAccountCredentials or Credentials).
+
+_client¶
+    
+
+Parameter Manager client instance.
+
+Initializes the ParameterManagerClient.
+
+If neither service_account_json nor auth_token is provided, default credentials are used.
+
+Parameters:
+    
+
+  * **service_account_json** – The content of a service account JSON keyfile (as a string), not the file path. Must be valid JSON.
+
+  * **auth_token** – An existing Google Cloud authorization token.
+
+  * **location** – The Google Cloud location (region) to use for the Parameter Manager service. If not provided, the global endpoint is used.
+
+
+
+Raises:
+    
+
+  * **ValueError** – If both ‘service_account_json’ and ‘auth_token’ are
+
+  * **provided. Also raised if the 'service_account_json' is not valid JSON.** – 
+
+  * **google.auth.exceptions.GoogleAuthError** – If authentication fails.
+
+
+
+
+get_parameter(_resource_name_)¶
+    
+
+Retrieves a rendered parameter value from Google Cloud Parameter Manager.
+
+Return type:
+    
+
+`str`
+
+Parameters:
+    
+
+**resource_name** – The full resource name of the parameter version, in the format “projects/_/locations/_ /parameters/_/versions/_ ”. Usually you want the “latest” version, e.g., “projects/my-project/locations/global/parameters/my-param/versions/latest”.
+
+Returns:
+    
+
+The rendered parameter value as a string.
+
+Raises:
+    
+
+**google.api_core.exceptions.GoogleAPIError** – If the Parameter Manager API returns an error (e.g., parameter not found, permission denied).
+
 # google.adk.integrations.parameter_manager module¶
 
 _class _google.adk.integrations.parameter_manager.ParameterManagerClient(_service_account_json =None_, _auth_token =None_, _location =None_)¶
@@ -26691,7 +34733,7 @@ Bases: `object`
 
 A client for interacting with Google Cloud Secret Manager.
 
-This class provides a simplified interface for retrieving secrets from Secret Manager, handling authentication using either a service account JSON keyfile (passed as a string) or a preexisting authorization token.
+This class provides a simplified interface for retrieving secrets from Secret Manager, handling authentication using a service account JSON keyfile (passed as a string) or a preexisting authorization token. If neither is provided, it falls back to Application Default Credentials.
 
 _credentials¶
     
@@ -26704,6 +34746,8 @@ _client¶
 Secret Manager client instance.
 
 Initializes the SecretManagerClient.
+
+Credentials are resolved in priority order: service_account_json, then auth_token, then Application Default Credentials when neither is provided.
 
 Parameters:
     
@@ -26719,9 +34763,83 @@ Parameters:
 Raises:
     
 
-  * **ValueError** – If neither service_account_json nor auth_token is
+  * **ValueError** – If both service_account_json and auth_token are provided, if service_account_json is not valid JSON, or if neither is provided and Application Default Credentials cannot be resolved.
 
-  * **provided****,** – or if both are provided. Also raised if the service_account_json is not valid JSON.
+  * **google.auth.exceptions.GoogleAuthError** – If authentication fails.
+
+
+
+
+get_secret(_resource_name_)¶
+    
+
+Retrieves a secret from Google Cloud Secret Manager.
+
+Return type:
+    
+
+`str`
+
+Parameters:
+    
+
+**resource_name** – The full resource name of the secret, in the format “projects/_/secrets/_ /versions/*”. Usually you want the “latest” version, e.g., “projects/my-project/secrets/my-secret/versions/latest”.
+
+Returns:
+    
+
+The secret payload as a string.
+
+Raises:
+    
+
+  * **google.api_core.exceptions.GoogleAPIError** – If the Secret Manager API returns an error (e.g., secret not found, permission denied).
+
+  * **Exception** – For other unexpected errors.
+
+
+
+
+# google.adk.integrations.secret_manager module¶
+
+_class _google.adk.integrations.secret_manager.SecretManagerClient(_service_account_json =None_, _auth_token =None_, _location =None_)¶
+    
+
+Bases: `object`
+
+A client for interacting with Google Cloud Secret Manager.
+
+This class provides a simplified interface for retrieving secrets from Secret Manager, handling authentication using a service account JSON keyfile (passed as a string) or a preexisting authorization token. If neither is provided, it falls back to Application Default Credentials.
+
+_credentials¶
+    
+
+Google Cloud credentials object (ServiceAccountCredentials or Credentials).
+
+_client¶
+    
+
+Secret Manager client instance.
+
+Initializes the SecretManagerClient.
+
+Credentials are resolved in priority order: service_account_json, then auth_token, then Application Default Credentials when neither is provided.
+
+Parameters:
+    
+
+  * **service_account_json** – The content of a service account JSON keyfile (as a string), not the file path. Must be valid JSON.
+
+  * **auth_token** – An existing Google Cloud authorization token.
+
+  * **location** – The Google Cloud location (region) to use for the Secret Manager service. If not provided, the global endpoint is used.
+
+
+
+Raises:
+    
+
+  * **ValueError** – If both service_account_json and auth_token are provided, if service_account_json is not valid JSON, or if neither is provided and Application Default Credentials cannot be resolved.
 
   * **google.auth.exceptions.GoogleAuthError** – If authentication fails.
 
@@ -26762,7 +34880,7 @@ Raises:
 
 Skill Registry integrations.
 
-_class _google.adk.integrations.skill_registry.GCPSkillRegistry(_*_ , _project_id =None_, _location =None_)¶
+_class _google.adk.integrations.skill_registry.GCPSkillRegistry(_*_ , _project_id =None_, _location =None_, _credentials =None_)¶
     
 
 Bases: `SkillRegistry`
@@ -26777,6 +34895,73 @@ Parameters:
   * **project_id** – Optional GCP project ID. If omitted, loads from environment.
 
   * **location** – Optional GCP location. If omitted, loads from environment.
+
+  * **credentials** – Optional credentials to use for the client.
+
+
+
+
+_async _get_skill(_*_ , _name_)¶
+    
+
+Fetches a skill from the registry.
+
+Return type:
+    
+
+`Skill`
+
+Parameters:
+    
+
+**name** – The name of the skill.
+
+Returns:
+    
+
+A Skill object.
+
+_async _search_skills(_*_ , _query_)¶
+    
+
+Searches for skills in the registry.
+
+Return type:
+    
+
+`list`[`Frontmatter`]
+
+Parameters:
+    
+
+**query** – The search query.
+
+Returns:
+    
+
+A list of Frontmatter objects for discovery.
+
+# google.adk.integrations.skill_registry module¶
+
+Skill Registry integrations.
+
+_class _google.adk.integrations.skill_registry.GCPSkillRegistry(_*_ , _project_id =None_, _location =None_, _credentials =None_)¶
+    
+
+Bases: `SkillRegistry`
+
+GCP implementation of SkillRegistry using GCP Skill Registry API.
+
+Initializes the GCP Skill Registry.
+
+Parameters:
+    
+
+  * **project_id** – Optional GCP project ID. If omitted, loads from environment.
+
+  * **location** – Optional GCP location. If omitted, loads from environment.
+
+  * **credentials** – Optional credentials to use for the client.
 
 
 
@@ -26835,6 +35020,30 @@ _async _start(_app_token_)¶
 
 Starts the Slack app using Socket Mode.
 
+Return type:
+    
+
+`None`
+
+# google.adk.integrations.slack module¶
+
+_class _google.adk.integrations.slack.SlackRunner(_runner_ , _slack_app_)¶
+    
+
+Bases: `object`
+
+Runner for ADK agents on Slack.
+
+_async _start(_app_token_)¶
+    
+
+Starts the Slack app using Socket Mode.
+
+Return type:
+    
+
+`None`
+
 # google.adk.integrations.vmaas module¶
 
 Vertex AI Agent Engine Computer Use Sandbox integration.
@@ -26852,7 +35061,7 @@ project_id=”my-project”, service_account_email=”[sa@my-project.iam.gservic
 
 ) toolset = ComputerUseToolset(computer=computer) agent = Agent(tools=[toolset], …) ```
 
-_class _google.adk.integrations.vmaas.AgentEngineSandboxComputer(_*_ , _project_id =None_, _location ='us-central1'_, _service_account_email =None_, _sandbox_name =None_, _sandbox_ttl_seconds =3600_, _search_engine_url ='https://www.google.com'_, _vertexai_client =None_)¶
+_class _google.adk.integrations.vmaas.AgentEngineSandboxComputer(_*_ , _project_id =None_, _location ='us-central1'_, _service_account_email =None_, _sandbox_name =None_, _sandbox_template_name =None_, _sandbox_snapshot_name =None_, _sandbox_ttl_seconds =3600_, _search_engine_url ='https://www.google.com'_, _vertexai_client =None_)¶
     
 
 Bases: `BaseComputer`
@@ -26886,7 +35095,23 @@ Parameters:
 
   * **service_account_email** – Service account email for token generation. Must have roles/iam.serviceAccountTokenCreator permission. If None, attempts to use ADC service account.
 
-  * **sandbox_name** – Existing sandbox resource name (BYOS mode). If provided, the agent engine name is extracted from it. If None, creates new agent engine and sandbox on demand. Format: projects/{project}/locations/{location}/reasoningEngines/{id}/sandboxEnvironments/{id}
+  * **sandbox_name** – 
+
+Existing sandbox resource name (BYOS mode). If provided, the agent engine name is extracted from it. If None, creates new agent engine and sandbox on demand. Format:
+
+> projects/{project}/locations/{location}/reasoningEngines/{id}/sandboxEnvironments/{id}
+
+  * **sandbox_template_name** – 
+
+Sandbox template resource name to use for creating new sandboxes. Templates allow faster creation and custom environments. Format:
+
+> projects/{project}/locations/{location}/sandboxEnvironmentTemplates/{id}
+
+  * **sandbox_snapshot_name** – 
+
+Sandbox snapshot resource name to use for restoring sandbox state, enabling faster startup. Format:
+
+> projects/{project}/locations/{location}/reasoningEngines/{id}/sandboxEnvironmentSnapshots/{id}
 
   * **sandbox_ttl_seconds** – TTL for auto-created sandboxes (default: 1 hour).
 
@@ -27444,7 +35669,874 @@ Parameters:
 
 **access_token** – The new access token.
 
+# google.adk.integrations.vmaas module¶
+
+Vertex AI Agent Engine Computer Use Sandbox integration.
+
+This module provides a BaseComputer implementation that uses Vertex AI Agent Engine Computer Use Sandbox as the remote browser environment.
+
+Example
+
+```python from google.adk.integrations.vmaas import AgentEngineSandboxComputer from google.adk.tools.computer_use import ComputerUseToolset
+
+computer = AgentEngineSandboxComputer(
+    
+
+project_id=”my-project”, service_account_email=”[sa@my-project.iam.gserviceaccount.com](mailto:sa%40my-project.iam.gserviceaccount.com)”,
+
+) toolset = ComputerUseToolset(computer=computer) agent = Agent(tools=[toolset], …) ```
+
+_class _google.adk.integrations.vmaas.AgentEngineSandboxComputer(_*_ , _project_id =None_, _location ='us-central1'_, _service_account_email =None_, _sandbox_name =None_, _sandbox_template_name =None_, _sandbox_snapshot_name =None_, _sandbox_ttl_seconds =3600_, _search_engine_url ='https://www.google.com'_, _vertexai_client =None_)¶
+    
+
+Bases: `BaseComputer`
+
+Computer implementation using Vertex AI Agent Engine Sandbox.
+
+This class provides a remote browser environment backed by Vertex AI Computer Use Sandbox. It supports: \- Auto-provisioning of agent engines and sandboxes \- Bring-your-own-sandbox (BYOS) mode \- Session-aware resource sharing via session_state property \- Automatic token refresh on expiry
+
+When used with ComputerUseToolset, the session_state property is automatically bound to tool_context.state before each tool call, enabling state sharing across invocations and agent server instances.
+
+Example usage:
+    
+
+```python from google.adk.integrations.vmaas import AgentEngineSandboxComputer from google.adk.tools.computer_use import ComputerUseToolset
+
+computer = AgentEngineSandboxComputer(
+    
+
+project_id=”my-project”, service_account_email=”[sa@my-project.iam.gserviceaccount.com](mailto:sa%40my-project.iam.gserviceaccount.com)”,
+
+) toolset = ComputerUseToolset(computer=computer) agent = Agent(tools=[toolset], …) ```
+
+Initialize the sandbox computer.
+
+Parameters:
+    
+
+  * **project_id** – GCP project ID. If None, uses Application Default Credentials project.
+
+  * **location** – Vertex AI location (default: us-central1).
+
+  * **service_account_email** – Service account email for token generation. Must have roles/iam.serviceAccountTokenCreator permission. If None, attempts to use ADC service account.
+
+  * **sandbox_name** – 
+
+Existing sandbox resource name (BYOS mode). If provided, the agent engine name is extracted from it. If None, creates new agent engine and sandbox on demand. Format:
+
+> projects/{project}/locations/{location}/reasoningEngines/{id}/sandboxEnvironments/{id}
+
+  * **sandbox_template_name** – 
+
+Sandbox template resource name to use for creating new sandboxes. Templates allow faster creation and custom environments. Format:
+
+> projects/{project}/locations/{location}/sandboxEnvironmentTemplates/{id}
+
+  * **sandbox_snapshot_name** – 
+
+Sandbox snapshot resource name to use for restoring sandbox state, enabling faster startup. Format:
+
+> projects/{project}/locations/{location}/reasoningEngines/{id}/sandboxEnvironmentSnapshots/{id}
+
+  * **sandbox_ttl_seconds** – TTL for auto-created sandboxes (default: 1 hour).
+
+  * **search_engine_url** – URL to navigate to for search() method.
+
+  * **vertexai_client** – Optional Vertex AI client instance. If None, creates one lazily using project_id and location.
+
+
+
+
+_async _click_at(_x_ , _y_)¶
+    
+
+Clicks at a specific x, y coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _close()¶
+    
+
+Cleanup resources.
+
+Note: Sandboxes are cleaned up via TTL by the sandbox service. This method does not delete the sandbox to preserve state across agent restarts within the TTL window.
+
+Return type:
+    
+
+`None`
+
+_async _current_state()¶
+    
+
+Returns the current state.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _drag_and_drop(_x_ , _y_ , _destination_x_ , _destination_y_)¶
+    
+
+Drag and drop from one coordinate to another.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _environment()¶
+    
+
+Returns the environment type.
+
+Return type:
+    
+
+`ComputerEnvironment`
+
+_async _go_back()¶
+    
+
+Navigates back in browser history.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _go_forward()¶
+    
+
+Navigates forward in browser history.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _hover_at(_x_ , _y_)¶
+    
+
+Hovers at a specific x, y coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _initialize()¶
+    
+
+Initialize the computer.
+
+This is a no-op for sandbox as provisioning happens lazily on first use.
+
+Return type:
+    
+
+`None`
+
+_async _key_combination(_keys_)¶
+    
+
+Presses a combination of keys.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _navigate(_url_)¶
+    
+
+Navigates to a URL.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _open_web_browser()¶
+    
+
+Opens the web browser.
+
+For sandbox, the browser is always running. This is effectively a no-op that returns the current state.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _prepare(_tool_context_)¶
+    
+
+Bind session state for sandbox resource sharing.
+
+Return type:
+    
+
+`None`
+
+_async _screen_size()¶
+    
+
+Returns the screen size of the environment.
+
+Return type:
+    
+
+`tuple`[`int`, `int`]
+
+_async _scroll_at(_x_ , _y_ , _direction_ , _magnitude_)¶
+    
+
+Scrolls at a specific coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _scroll_document(_direction_)¶
+    
+
+Scrolls the entire webpage.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _search()¶
+    
+
+Navigates to the search engine home page.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _type_text_at(_x_ , _y_ , _text_ , _press_enter =True_, _clear_before_typing =True_)¶
+    
+
+Types text at a specific x, y coordinate.
+
+Return type:
+    
+
+`ComputerState`
+
+_async _wait(_seconds_)¶
+    
+
+Waits for n seconds.
+
+Return type:
+    
+
+`ComputerState`
+
+_class _google.adk.integrations.vmaas.SandboxClient(_vertexai_client_ , _sandbox_ , _access_token_)¶
+    
+
+Bases: `object`
+
+Client for interacting with Vertex AI Computer Use Sandbox via SDK.
+
+Initialize the sandbox client.
+
+Parameters:
+    
+
+  * **vertexai_client** – The Vertex AI client instance.
+
+  * **sandbox** – The sandbox object from vertexai SDK (SandboxEnvironment).
+
+  * **access_token** – The access token for authenticating with the sandbox.
+
+
+
+
+_async _click_at(_x_ , _y_)¶
+    
+
+Click at a specific coordinate.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate.
+
+  * **y** – The y-coordinate.
+
+
+
+
+_async _drag_and_drop(_x1_ , _y1_ , _x2_ , _y2_)¶
+    
+
+Drag from one coordinate to another.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x1** – Starting x-coordinate.
+
+  * **y1** – Starting y-coordinate.
+
+  * **x2** – Ending x-coordinate.
+
+  * **y2** – Ending y-coordinate.
+
+
+
+
+_async _get_current_url(_max_retries =3_)¶
+    
+
+Get the URL of the currently active tab.
+
+This method includes retry logic to handle transient errors that can occur during page navigation (e.g., “Execution context was destroyed”).
+
+Return type:
+    
+
+`str` | `None`
+
+Parameters:
+    
+
+**max_retries** – Maximum number of retry attempts (default: 3).
+
+Returns:
+    
+
+The current URL, or None if no active tab.
+
+_async _get_screenshot(_max_retries =3_)¶
+    
+
+Capture a screenshot of the current page.
+
+This method includes retry logic to handle transient errors that can occur during page navigation (e.g., “Execution context was destroyed”).
+
+Return type:
+    
+
+`bytes`
+
+Parameters:
+    
+
+**max_retries** – Maximum number of retry attempts (default: 3).
+
+Returns:
+    
+
+The screenshot as PNG bytes.
+
+_async _go_back()¶
+    
+
+Navigate back in browser history.
+
+Return type:
+    
+
+`bool`
+
+Returns:
+    
+
+True if navigation was successful, False if at beginning of history.
+
+_async _go_forward()¶
+    
+
+Navigate forward in browser history.
+
+Return type:
+    
+
+`bool`
+
+Returns:
+    
+
+True if navigation was successful, False if at end of history.
+
+_async _health_check()¶
+    
+
+Check if the sandbox is healthy.
+
+Return type:
+    
+
+`bool`
+
+Returns:
+    
+
+True if healthy, False otherwise.
+
+_async _hover_at(_x_ , _y_)¶
+    
+
+Hover at a specific coordinate.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate.
+
+  * **y** – The y-coordinate.
+
+
+
+
+_async _key_combination(_keys_)¶
+    
+
+Press a combination of keys.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**keys** – List of keys to press (e.g., [“control”, “c”]).
+
+_async _make_cdp_batch_request(_commands_ , _stop_on_error =True_)¶
+    
+
+Execute multiple CDP commands.
+
+First tries the batch endpoint (/cdps), falls back to sequential execution if batch is not available.
+
+Return type:
+    
+
+`list`[`dict`[`str`, `Any`]]
+
+Parameters:
+    
+
+  * **commands** – List of CDP commands, each with “command” and “params” keys.
+
+  * **stop_on_error** – Whether to stop processing on first error.
+
+
+
+Returns:
+    
+
+List of results for each command.
+
+_async _make_cdp_request(_command_ , _params =None_)¶
+    
+
+Make a single CDP request to the sandbox.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+  * **command** – The CDP command to execute (e.g., “Page.navigate”).
+
+  * **params** – Optional parameters for the CDP command.
+
+
+
+Returns:
+    
+
+The CDP command response.
+
+Raises:
+    
+
+**Exception** – If the request fails.
+
+_async _navigate(_url_)¶
+    
+
+Navigate to a URL.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+**url** – The URL to navigate to.
+
+Returns:
+    
+
+The CDP response.
+
+_async _scroll_at(_x_ , _y_ , _direction_ , _magnitude_)¶
+    
+
+Scroll at a specific coordinate.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate.
+
+  * **y** – The y-coordinate.
+
+  * **direction** – The scroll direction.
+
+  * **magnitude** – The scroll amount in pixels.
+
+
+
+
+_async _type_text(_text_ , _press_enter =False_, _clear_before_typing =False_)¶
+    
+
+Type text at the currently focused element.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **text** – The text to type.
+
+  * **press_enter** – Whether to press Enter after typing.
+
+  * **clear_before_typing** – Whether to clear existing content first.
+
+
+
+
+_async _type_text_at(_x_ , _y_ , _text_ , _press_enter =False_, _clear_before_typing =False_)¶
+    
+
+Click at a coordinate and type text.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **x** – The x-coordinate to click.
+
+  * **y** – The y-coordinate to click.
+
+  * **text** – The text to type.
+
+  * **press_enter** – Whether to press Enter after typing.
+
+  * **clear_before_typing** – Whether to clear existing content first.
+
+
+
+
+update_access_token(_access_token_)¶
+    
+
+Update the access token.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**access_token** – The new access token.
+
+# google.adk.labs.antigravity module¶
+
 # google.adk.labs.openai module¶
+
+_pydantic model _google.adk.labs.openai.AzureOpenAIResponsesLlm¶
+    
+
+Bases: `OpenAIResponsesLlm`
+
+Azure OpenAI-compatible Responses API model.
+
+Azure’s Responses API is exposed through an OpenAI-compatible /openai/v1/responses endpoint. The model field should be the Azure model deployment name.
+
+Show JSON schema
+    
+    
+    {
+       "title": "AzureOpenAIResponsesLlm",
+       "type": "object",
+       "properties": {
+          "model": {
+             "default": "gpt-5",
+             "title": "Model",
+             "type": "string"
+          },
+          "api_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Api Key"
+          },
+          "client": {
+             "default": null,
+             "title": "Client"
+          },
+          "store": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Store"
+          },
+          "include": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Include"
+          },
+          "reasoning": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/Reasoning"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "parallel_tool_calls": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Parallel Tool Calls"
+          },
+          "truncation": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Truncation"
+          },
+          "service_tier": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Service Tier"
+          },
+          "include_response_metadata": {
+             "default": true,
+             "title": "Include Response Metadata",
+             "type": "boolean"
+          },
+          "extra_request_args": {
+             "additionalProperties": true,
+             "title": "Extra Request Args",
+             "type": "object"
+          },
+          "azure_endpoint": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Azure Endpoint"
+          }
+       },
+       "$defs": {
+          "Reasoning": {
+             "description": "**gpt-5 and o-series models only**\n\nConfiguration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).",
+             "properties": {
+                "context": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "current_turn",
+                            "all_turns"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Context"
+                },
+                "effort": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "none",
+                            "minimal",
+                            "low",
+                            "medium",
+                            "high",
+                            "xhigh",
+                            "max"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Effort"
+                },
+                "generate_summary": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "concise",
+                            "detailed"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Generate Summary"
+                },
+                "mode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "enum": [
+                            "standard",
+                            "pro"
+                         ],
+                         "type": "string"
+                      }
+                   ],
+                   "title": "Mode"
+                },
+                "summary": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "concise",
+                            "detailed"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Summary"
+                }
+             },
+             "title": "Reasoning",
+             "type": "object"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `azure_endpoint (str | None)`
+
+
+
+
+_field _azure_endpoint _: str | None_ _ = None_¶
+    
 
 _pydantic model _google.adk.labs.openai.OpenAILlm¶
     
@@ -27502,6 +36594,416 @@ _field _model _: str_ _ = 'gpt-4o'_¶
     
 
 The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
+
+_classmethod _supported_models()¶
+    
+
+Returns a list of supported models in regex for LlmRegistry.
+
+Return type:
+    
+
+`list`[`str`]
+
+_async _generate_content_async(_llm_request_ , _stream =False_)¶
+    
+
+Generates content for a single model turn.
+
+> This method handles Server-Sent Events (SSE) streaming for unidirectional content generation. For bidirectional streaming (e.g., Gemini Live API), use the connect() method instead.
+> 
+> Args:
+>     
+> 
+> llm_request: LlmRequest, the request to send to the LLM. stream: bool = False, whether to enable SSE streaming mode.
+> 
+> Yields:
+>     
+> 
+> LlmResponse objects representing the model’s response for one turn.
+> 
+> **Non-streaming mode (stream=False):**
+>
+>> Yields exactly one LlmResponse containing the complete model output (text, function calls, bytes, etc.). This response has partial=False.
+> 
+> **Streaming mode (stream=True):**
+>
+>> Yields multiple LlmResponse objects as chunks arrive:
+>> 
+>>   * Intermediate chunks: partial=True (progressive updates)
+>> 
+>>   * Final chunk: partial=False (aggregated content from entire turn, identical to stream=False output)
+>> 
+>>   * Text consolidation: Consecutive text parts of the same type (thought/non-thought) SHOULD merge without separator, but client code must not rely on this - unconsolidated parts are unusual but also valid
+>> 
+>> 
+
+> 
+> **Common content in partial chunks:**
+>
+>> All intermediate chunks have partial=True regardless of content type. Common examples include:
+>> 
+>>   * Text: Streams incrementally as tokens arrive
+>> 
+>>   * Function calls: May arrive in separate chunks
+>> 
+>>   * Bytes (e.g., images): Typically arrive as single chunk, interleaved with text
+>> 
+>>   * Thoughts: Stream incrementally when thinking_config is enabled
+>> 
+>> 
+
+> 
+> **Examples:**
+> 
+>   1. Simple text streaming:
+>          
+>          LlmResponse(partial=True,  parts=["The weather"])
+>          LlmResponse(partial=True,  parts=[" in Tokyo is"])
+>          LlmResponse(partial=True,  parts=[" sunny."])
+>          LlmResponse(partial=False, parts=["The weather in Tokyo is sunny."])
+>          
+> 
+>   2. Text + function call:
+>          
+>          LlmResponse(partial=True,  parts=[Text("Let me check...")])
+>          LlmResponse(partial=True,  parts=[FunctionCall("get_weather", ...)])
+>          LlmResponse(partial=False, parts=[Text("Let me check..."),
+>                                            FunctionCall("get_weather", ...)])
+>          
+> 
+>   3. Parallel function calls across chunks:
+>          
+>          LlmResponse(partial=True,  parts=[Text("Checking both cities...")])
+>          LlmResponse(partial=True,  parts=[FunctionCall("get_weather", Tokyo)])
+>          LlmResponse(partial=True,  parts=[FunctionCall("get_weather", NYC)])
+>          LlmResponse(partial=False, parts=[Text("Checking both cities..."),
+>                                            FunctionCall("get_weather", Tokyo),
+>                                            FunctionCall("get_weather", NYC)])
+>          
+> 
+>   4. Text + bytes (image generation with gemini-2.5-flash-image):
+>          
+>          LlmResponse(partial=True,  parts=[Text("Here's an image of a dog.")])
+>          LlmResponse(partial=True,  parts=[Text("
+>          
+> 
+> 
+
+
+“)])
+    
+
+LlmResponse(partial=True, parts=[Blob(image/png, 1.6MB)]) LlmResponse(partial=True, parts=[Text(“It carries a bone”)]) LlmResponse(partial=True, parts=[Text(” and running around.”)]) LlmResponse(partial=False, parts=[Text(“Here’s an image of a dog.
+
+“),
+    
+
+> > Blob(image/png, 1.6MB), Text(“It carries a bone and running around.”)])
+> 
+> Note: Consecutive text parts before and after blob merge separately.
+
+  5. Text with thinking (gemini-2.5-flash with thinking_config):
+         
+         LlmResponse(partial=True,  parts=[Thought("Let me analyze...")])
+         LlmResponse(partial=True,  parts=[Thought("The user wants...")])
+         LlmResponse(partial=True,  parts=[Text("Based on my analysis,")])
+         LlmResponse(partial=True,  parts=[Text(" the answer is 42.")])
+         LlmResponse(partial=False, parts=[Thought("Let me analyze...The user wants..."),
+                                           Text("Based on my analysis, the answer is 42.")])
+         
+
+Note: Consecutive parts of same type merge (thoughts→thought, text→text).
+
+
+
+
+**Important:** All yielded responses represent one logical model turn. The final response with partial=False should be identical to the response that would be received with stream=False.
+
+Return type:
+    
+
+`AsyncGenerator`[`LlmResponse`, `None`]
+
+_pydantic model _google.adk.labs.openai.OpenAIResponsesLlm¶
+    
+
+Bases: `BaseLlm`
+
+ADK model implementation backed by the OpenAI Responses API.
+
+For configuration beyond `api_key` (organization, base_url, timeout, retries, custom headers, …), pass a pre-configured `AsyncOpenAI` instance as `client`.
+
+Show JSON schema
+    
+    
+    {
+       "title": "OpenAIResponsesLlm",
+       "type": "object",
+       "properties": {
+          "model": {
+             "default": "gpt-5",
+             "title": "Model",
+             "type": "string"
+          },
+          "api_key": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Api Key"
+          },
+          "client": {
+             "default": null,
+             "title": "Client"
+          },
+          "store": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Store"
+          },
+          "include": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Include"
+          },
+          "reasoning": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/Reasoning"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          },
+          "parallel_tool_calls": {
+             "anyOf": [
+                {
+                   "type": "boolean"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Parallel Tool Calls"
+          },
+          "truncation": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Truncation"
+          },
+          "service_tier": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Service Tier"
+          },
+          "include_response_metadata": {
+             "default": true,
+             "title": "Include Response Metadata",
+             "type": "boolean"
+          },
+          "extra_request_args": {
+             "additionalProperties": true,
+             "title": "Extra Request Args",
+             "type": "object"
+          }
+       },
+       "$defs": {
+          "Reasoning": {
+             "description": "**gpt-5 and o-series models only**\n\nConfiguration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).",
+             "properties": {
+                "context": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "current_turn",
+                            "all_turns"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Context"
+                },
+                "effort": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "none",
+                            "minimal",
+                            "low",
+                            "medium",
+                            "high",
+                            "xhigh",
+                            "max"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Effort"
+                },
+                "generate_summary": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "concise",
+                            "detailed"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Generate Summary"
+                },
+                "mode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "enum": [
+                            "standard",
+                            "pro"
+                         ],
+                         "type": "string"
+                      }
+                   ],
+                   "title": "Mode"
+                },
+                "summary": {
+                   "anyOf": [
+                      {
+                         "enum": [
+                            "auto",
+                            "concise",
+                            "detailed"
+                         ],
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "title": "Summary"
+                }
+             },
+             "title": "Reasoning",
+             "type": "object"
+          }
+       }
+    }
+    
+
+Fields:
+    
+
+  * `api_key (str | collections.abc.Callable[[], str] | None)`
+
+  * `client (openai.AsyncOpenAI | None)`
+
+  * `extra_request_args (dict[str, Any])`
+
+  * `include (list[str] | None)`
+
+  * `include_response_metadata (bool)`
+
+  * `model (str)`
+
+  * `parallel_tool_calls (bool | None)`
+
+  * `reasoning (openai.types.shared_params.reasoning.Reasoning | None)`
+
+  * `service_tier (str | None)`
+
+  * `store (bool | None)`
+
+  * `truncation (str | None)`
+
+
+
+
+_field _api_key _: str | Callable[[], str] | None_ _ = None_¶
+    
+
+_field _client _: AsyncOpenAI | None_ _ = None_¶
+    
+
+_field _extra_request_args _: dict[str, Any]__[Optional]_¶
+    
+
+_field _include _: list[str] | None_ _ = None_¶
+    
+
+_field _include_response_metadata _: bool_ _ = True_¶
+    
+
+_field _model _: str_ _ = 'gpt-5'_¶
+    
+
+The name of the LLM, e.g. gemini-2.5-flash or gemini-2.5-pro.
+
+_field _parallel_tool_calls _: bool | None_ _ = None_¶
+    
+
+_field _reasoning _: OpenAIReasoning | None_ _ = None_¶
+    
+
+_field _service_tier _: str | None_ _ = None_¶
+    
+
+_field _store _: bool | None_ _ = None_¶
+    
+
+_field _truncation _: str | None_ _ = None_¶
+    
 
 _classmethod _supported_models()¶
     
@@ -27968,6 +37470,11 @@ _static _register(_llm_cls_)¶
 
 Registers a new LLM class.
 
+Return type:
+    
+
+`None`
+
 Parameters:
     
 
@@ -28346,7 +37853,7 @@ This callback allows for inspecting, logging, or modifying the result returned b
 Return type:
     
 
-`Optional`[`dict`]
+`Optional`[`dict`[`str`, `Any`]]
 
 Parameters:
     
@@ -28450,7 +37957,7 @@ This callback is useful for logging tool usage, input validation, or modifying t
 Return type:
     
 
-`Optional`[`dict`]
+`Optional`[`dict`[`str`, `Any`]]
 
 Parameters:
     
@@ -28479,6 +37986,30 @@ Return type:
     
 
 `None`
+
+_async _on_agent_error_callback(_*_ , _agent_ , _callback_context_ , _error_)¶
+    
+
+Callback executed when an unhandled exception escapes agent execution.
+
+This is a notification-only callback. The exception is always re-raised after all registered plugins have been notified. Plugins should NOT suppress the exception.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **agent** – The agent instance that encountered the error.
+
+  * **callback_context** – The callback context for the agent invocation.
+
+  * **error** – The exception that was raised during agent execution.
+
+
+
 
 _async _on_event_callback(_*_ , _invocation_context_ , _event_)¶
     
@@ -28534,6 +38065,28 @@ Returns:
 
 An optional LlmResponse. If an LlmResponse is returned, it will be used instead of propagating the error. Returning None allows the original error to be raised.
 
+_async _on_run_error_callback(_*_ , _invocation_context_ , _error_)¶
+    
+
+Callback executed when an unhandled exception escapes runner execution.
+
+This is a notification-only callback. The exception is always re-raised after all registered plugins have been notified. Plugins should NOT suppress the exception.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+  * **invocation_context** – The context for the entire invocation.
+
+  * **error** – The exception that was raised during runner execution.
+
+
+
+
 _async _on_tool_error_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _error_)¶
     
 
@@ -28544,7 +38097,7 @@ This callback provides an opportunity to handle tool errors gracefully, potentia
 Return type:
     
 
-`Optional`[`dict`]
+`Optional`[`dict`[`str`, `Any`]]
 
 Parameters:
     
@@ -28617,6 +38170,8 @@ _async _close()¶
     
 
 Calls the close method on all registered plugins concurrently.
+
+If this manager was constructed with skip_closing_plugins=True, this method is a no-op so plugins owned by another component (e.g. a parent Runner) are not torn down while still in use.
 
 Return type:
     
@@ -28706,7 +38261,7 @@ Runs the after_tool_callback for all plugins.
 Return type:
     
 
-`Optional`[`dict`]
+`Optional`[`dict`[`str`, `Any`]]
 
 _async _run_before_agent_callback(_*_ , _agent_ , _callback_context_)¶
     
@@ -28746,7 +38301,17 @@ Runs the before_tool_callback for all plugins.
 Return type:
     
 
-`Optional`[`dict`]
+`Optional`[`dict`[`str`, `Any`]]
+
+_async _run_on_agent_error_callback(_*_ , _agent_ , _callback_context_ , _error_)¶
+    
+
+Runs the on_agent_error_callback for all plugins.
+
+Return type:
+    
+
+`None`
 
 _async _run_on_event_callback(_*_ , _invocation_context_ , _event_)¶
     
@@ -28768,6 +38333,16 @@ Return type:
 
 `Optional`[`LlmResponse`]
 
+_async _run_on_run_error_callback(_*_ , _invocation_context_ , _error_)¶
+    
+
+Runs the on_run_error_callback for all plugins.
+
+Return type:
+    
+
+`None`
+
 _async _run_on_tool_error_callback(_*_ , _tool_ , _tool_args_ , _tool_context_ , _error_)¶
     
 
@@ -28776,7 +38351,7 @@ Runs the on_tool_error_callback for all plugins.
 Return type:
     
 
-`Optional`[`dict`]
+`Optional`[`dict`[`str`, `Any`]]
 
 _async _run_on_user_message_callback(_*_ , _user_message_ , _invocation_context_)¶
     
@@ -28787,6 +38362,23 @@ Return type:
     
 
 `Optional`[`Content`]
+
+set_skip_closing_plugins(_value_)¶
+    
+
+Controls whether close() will tear down the registered plugins.
+
+Set to True when the plugins are owned by another component (e.g. a parent Runner whose plugin list this manager is sharing). When set, subsequent calls to close() become a no-op so the shared plugins are not torn down while still in use.
+
+Return type:
+    
+
+`None`
+
+Parameters:
+    
+
+**value** – True to skip closing the plugins; False (default) to close them normally.
 
 # google.adk.runners module¶
 
@@ -28977,7 +38569,7 @@ Return type:
 
 `None`
 
-run(_*_ , _user_id_ , _session_id_ , _new_message_ , _run_config =None_)¶
+run(_*_ , _user_id_ , _session_id_ , _new_message_ , _state_delta =None_, _run_config =None_)¶
     
 
 Runs the agent.
@@ -29001,6 +38593,8 @@ Parameters:
   * **session_id** – The session ID of the session.
 
   * **new_message** – A new message to append to the session.
+
+  * **state_delta** – Optional state changes to apply to the session.
 
   * **run_config** – The run config for the agent.
 
@@ -29143,7 +38737,7 @@ Return type:
 
 
 
-**Events Saved to the Session:** * **Live Model Audio Events with File Data:** Both input and ouput audio
+**Events Saved to the Session:** * **Live Model Audio Events with File Data:** Both input and output audio
 
 > data are aggregated into an audio file saved into artifacts. The reference to the file is saved as event in the file_data to session if RunConfig.save_live_model_audio_to_session is True.
 
@@ -29276,6 +38870,41 @@ Return type:
 
 `Optional`[`Session`]
 
+_async _get_user_state(_*_ , _app_name_ , _user_id_)¶
+    
+
+Returns the user-scoped state for the given app and user.
+
+User state is keyed by `(app_name, user_id)` and shared across all sessions of the same user within the same app. The returned dictionary uses raw keys **without** the `user:` prefix (e.g. `"my_key"` rather than `"user:my_key"`).
+
+This method exists so that callers can read user state without holding an active `session_id`. A common use case is bootstrapping context at the start of a new session before calling `create_session`, which would otherwise require an expensive `list_sessions` call just to access user-scoped data.
+
+Returns an empty dict when no user state has been stored for this `(app_name, user_id)` combination.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+  * **app_name** – The name of the app.
+
+  * **user_id** – The ID of the user.
+
+
+
+Returns:
+    
+
+A dictionary of raw (un-prefixed) user-scoped key/value pairs, or an empty dict when no user state exists.
+
+Raises:
+    
+
+**NotImplementedError** – When the concrete `BaseSessionService` implementation does not support reading user state independently of a session. Callers should catch this, then enumerate sessions via `list_sessions` and call `get_session` on each result to access the merged state, or accept that user state is unavailable.
+
 _abstractmethod async _list_sessions(_*_ , _app_name_ , _user_id =None_)¶
     
 
@@ -29300,6 +38929,341 @@ Returns:
 
 A ListSessionsResponse containing the sessions.
 
+_class _google.adk.sessions.DatabaseSessionService(_db_url : str_, _** kwargs: Any_)¶
+_class _google.adk.sessions.DatabaseSessionService(_*_ , _db_engine : AsyncEngine_)
+    
+
+Bases: `BaseSessionService`
+
+A session service that uses a database for storage.
+
+Initializes the database session service.
+
+Parameters:
+    
+
+  * **db_url** – Database URL string for creating a new engine. Mutually exclusive with db_engine.
+
+  * **db_engine** – Existing AsyncEngine instance. Mutually exclusive with db_url.
+
+  * ****kwargs** – Additional keyword arguments passed to create_async_engine when db_url is provided. Ignored when db_engine is provided.
+
+
+
+Raises:
+    
+
+**ValueError** – If neither or both db_url and db_engine are provided, or if engine creation fails.
+
+_async _append_event(_session_ , _event_)¶
+    
+
+Appends an event to a session object.
+
+Return type:
+    
+
+`Event`
+
+_async _close()¶
+    
+
+Disposes the SQLAlchemy engine and closes pooled connections.
+
+Return type:
+    
+
+`None`
+
+_async _create_session(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_)¶
+    
+
+Creates a new session.
+
+Return type:
+    
+
+`Session`
+
+Parameters:
+    
+
+  * **app_name** – the name of the app.
+
+  * **user_id** – the id of the user.
+
+  * **state** – the initial state of the session.
+
+  * **session_id** – the client-provided id of the session. If not provided, a generated ID will be used.
+
+
+
+Returns:
+    
+
+The newly created session instance.
+
+Return type:
+    
+
+session
+
+_async _delete_session(_app_name_ , _user_id_ , _session_id_)¶
+    
+
+Deletes a session.
+
+Return type:
+    
+
+`None`
+
+_async _get_session(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
+    
+
+Gets a session.
+
+Return type:
+    
+
+`Optional`[`Session`]
+
+_async _get_user_state(_*_ , _app_name_ , _user_id_)¶
+    
+
+Returns the user-scoped state for the given app and user.
+
+User state is keyed by `(app_name, user_id)` and shared across all sessions of the same user within the same app. The returned dictionary uses raw keys **without** the `user:` prefix (e.g. `"my_key"` rather than `"user:my_key"`).
+
+This method exists so that callers can read user state without holding an active `session_id`. A common use case is bootstrapping context at the start of a new session before calling `create_session`, which would otherwise require an expensive `list_sessions` call just to access user-scoped data.
+
+Returns an empty dict when no user state has been stored for this `(app_name, user_id)` combination.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+  * **app_name** – The name of the app.
+
+  * **user_id** – The ID of the user.
+
+
+
+Returns:
+    
+
+A dictionary of raw (un-prefixed) user-scoped key/value pairs, or an empty dict when no user state exists.
+
+Raises:
+    
+
+**NotImplementedError** – When the concrete `BaseSessionService` implementation does not support reading user state independently of a session. Callers should catch this, then enumerate sessions via `list_sessions` and call `get_session` on each result to access the merged state, or accept that user state is unavailable.
+
+_async _list_sessions(_*_ , _app_name_ , _user_id =None_)¶
+    
+
+Lists all the sessions for a user.
+
+Return type:
+    
+
+`ListSessionsResponse`
+
+Parameters:
+    
+
+  * **app_name** – The name of the app.
+
+  * **user_id** – The ID of the user. If not provided, lists all sessions for all users.
+
+
+
+Returns:
+    
+
+A ListSessionsResponse containing the sessions.
+
+_async _prepare_tables()¶
+    
+
+Ensure database tables are ready for use.
+
+This method is called lazily before each database operation. It checks the DB schema version to use and creates the tables (including setting the schema version metadata) if needed.
+
+It can also be called eagerly right after construction to pay the table-creation cost upfront (e.g. during application startup) instead of on the first database operation. It is safe to call more than once and is recommended for latency-sensitive applications.
+
+Return type:
+    
+
+`None`
+
+_class _google.adk.sessions.InMemorySessionService¶
+    
+
+Bases: `BaseSessionService`
+
+An in-memory implementation of the session service.
+
+It is not suitable for multi-threaded production environments. Use it for testing and development only.
+
+_async _append_event(_session_ , _event_)¶
+    
+
+Appends an event to a session object.
+
+Return type:
+    
+
+`Event`
+
+_async _create_session(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_)¶
+    
+
+Creates a new session.
+
+Return type:
+    
+
+`Session`
+
+Parameters:
+    
+
+  * **app_name** – the name of the app.
+
+  * **user_id** – the id of the user.
+
+  * **state** – the initial state of the session.
+
+  * **session_id** – the client-provided id of the session. If not provided, a generated ID will be used.
+
+
+
+Returns:
+    
+
+The newly created session instance.
+
+Return type:
+    
+
+session
+
+create_session_sync(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_)¶
+    
+
+Return type:
+    
+
+`Session`
+
+_async _delete_session(_*_ , _app_name_ , _user_id_ , _session_id_)¶
+    
+
+Deletes a session.
+
+Return type:
+    
+
+`None`
+
+delete_session_sync(_*_ , _app_name_ , _user_id_ , _session_id_)¶
+    
+
+Return type:
+    
+
+`None`
+
+_async _get_session(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
+    
+
+Gets a session.
+
+Return type:
+    
+
+`Optional`[`Session`]
+
+get_session_sync(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
+    
+
+Return type:
+    
+
+`Optional`[`Session`]
+
+_async _get_user_state(_*_ , _app_name_ , _user_id_)¶
+    
+
+Returns the user-scoped state for the given app and user.
+
+User state is keyed by `(app_name, user_id)` and shared across all sessions of the same user within the same app. The returned dictionary uses raw keys **without** the `user:` prefix (e.g. `"my_key"` rather than `"user:my_key"`).
+
+This method exists so that callers can read user state without holding an active `session_id`. A common use case is bootstrapping context at the start of a new session before calling `create_session`, which would otherwise require an expensive `list_sessions` call just to access user-scoped data.
+
+Returns an empty dict when no user state has been stored for this `(app_name, user_id)` combination.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Parameters:
+    
+
+  * **app_name** – The name of the app.
+
+  * **user_id** – The ID of the user.
+
+
+
+Returns:
+    
+
+A dictionary of raw (un-prefixed) user-scoped key/value pairs, or an empty dict when no user state exists.
+
+Raises:
+    
+
+**NotImplementedError** – When the concrete `BaseSessionService` implementation does not support reading user state independently of a session. Callers should catch this, then enumerate sessions via `list_sessions` and call `get_session` on each result to access the merged state, or accept that user state is unavailable.
+
+_async _list_sessions(_*_ , _app_name_ , _user_id =None_)¶
+    
+
+Lists all the sessions for a user.
+
+Return type:
+    
+
+`ListSessionsResponse`
+
+Parameters:
+    
+
+  * **app_name** – The name of the app.
+
+  * **user_id** – The ID of the user. If not provided, lists all sessions for all users.
+
+
+
+Returns:
+    
+
+A ListSessionsResponse containing the sessions.
+
+list_sessions_sync(_*_ , _app_name_ , _user_id =None_)¶
+    
+
+Return type:
+    
+
+`ListSessionsResponse`
+
 _pydantic model _google.adk.sessions.Session¶
     
 
@@ -29316,23 +39280,42 @@ Show JSON schema
        "type": "object",
        "properties": {
           "id": {
+             "description": "Unique identifier of the session.",
+             "examples": [
+                "session-abc123"
+             ],
              "title": "Id",
              "type": "string"
           },
           "appName": {
+             "description": "Application name that owns the session.",
+             "examples": [
+                "hello_world"
+             ],
              "title": "Appname",
              "type": "string"
           },
           "userId": {
+             "description": "User ID that owns the session.",
+             "examples": [
+                "user-123"
+             ],
              "title": "Userid",
              "type": "string"
           },
           "state": {
              "additionalProperties": true,
+             "description": "Current persisted session state.",
+             "examples": [
+                {
+                   "locale": "en-US"
+                }
+             ],
              "title": "State",
              "type": "object"
           },
           "events": {
+             "description": "Ordered event history for the session, including user, model, and tool events (e.g. user input, model response, function call/response).",
              "items": {
                 "$ref": "#/$defs/Event"
              },
@@ -29341,208 +39324,15 @@ Show JSON schema
           },
           "lastUpdateTime": {
              "default": 0.0,
+             "description": "Unix timestamp in seconds for the most recent session update.",
+             "examples": [
+                1742000000.0
+             ],
              "title": "Lastupdatetime",
              "type": "number"
           }
        },
        "$defs": {
-          "APIKey": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "apiKey"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "in": {
-                   "$ref": "#/$defs/APIKeyIn"
-                },
-                "name": {
-                   "title": "Name",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "in",
-                "name"
-             ],
-             "title": "APIKey",
-             "type": "object"
-          },
-          "APIKeyIn": {
-             "enum": [
-                "query",
-                "header",
-                "cookie"
-             ],
-             "title": "APIKeyIn",
-             "type": "string"
-          },
-          "AuthConfig": {
-             "additionalProperties": true,
-             "description": "The auth config sent by tool asking client to collect auth credentials and\n\nadk and client will help to fill in the response",
-             "properties": {
-                "authScheme": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/APIKey"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBase"
-                      },
-                      {
-                         "$ref": "#/$defs/OAuth2"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnect"
-                      },
-                      {
-                         "$ref": "#/$defs/HTTPBearer"
-                      },
-                      {
-                         "$ref": "#/$defs/OpenIdConnectWithConfig"
-                      },
-                      {
-                         "$ref": "#/$defs/CustomAuthScheme"
-                      }
-                   ],
-                   "title": "Authscheme"
-                },
-                "rawAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "exchangedAuthCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/AuthCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "credentialKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Credentialkey"
-                }
-             },
-             "required": [
-                "authScheme"
-             ],
-             "title": "AuthConfig",
-             "type": "object"
-          },
-          "AuthCredential": {
-             "additionalProperties": true,
-             "description": "Data class representing an authentication credential.\n\nTo exchange for the actual credential, please use\nCredentialExchanger.exchange_credential().\n\nExamples: API Key Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    api_key=\"1234\",\n)\n\nExample: HTTP Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"basic\",\n        credentials=HttpCredentials(username=\"user\", password=\"password\"),\n    ),\n)\n\nExample: OAuth2 Bearer Token in HTTP Header\nAuthCredential(\n    auth_type=AuthCredentialTypes.HTTP,\n    http=HttpAuth(\n        scheme=\"bearer\",\n        credentials=HttpCredentials(token=\"eyAkaknabna....\"),\n    ),\n)\n\nExample: OAuth2 Auth with Authorization Code Flow\nAuthCredential(\n    auth_type=AuthCredentialTypes.OAUTH2,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n    ),\n)\n\nExample: OpenID Connect Auth\nAuthCredential(\n    auth_type=AuthCredentialTypes.OPEN_ID_CONNECT,\n    oauth2=OAuth2Auth(\n        client_id=\"1234\",\n        client_secret=\"secret\",\n        redirect_uri=\"https://example.com\",\n        scopes=[\"scope1\", \"scope2\"],\n    ),\n)\n\nExample: Auth with resource reference\nAuthCredential(\n    auth_type=AuthCredentialTypes.API_KEY,\n    resource_ref=\"projects/1234/locations/us-central1/resources/resource1\",\n)",
-             "properties": {
-                "authType": {
-                   "$ref": "#/$defs/AuthCredentialTypes"
-                },
-                "resourceRef": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Resourceref"
-                },
-                "apiKey": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Apikey"
-                },
-                "http": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/HttpAuth"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "serviceAccount": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ServiceAccount"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "oauth2": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuth2Auth"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "required": [
-                "authType"
-             ],
-             "title": "AuthCredential",
-             "type": "object"
-          },
-          "AuthCredentialTypes": {
-             "description": "Represents the type of authentication credential.",
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect",
-                "serviceAccount"
-             ],
-             "title": "AuthCredentialTypes",
-             "type": "string"
-          },
           "Blob": {
              "additionalProperties": false,
              "description": "A content blob.\n\nA Blob contains data of a specific media type. It is used to represent images,\naudio, and video.",
@@ -29593,7 +39383,7 @@ Show JSON schema
           },
           "CacheMetadata": {
              "additionalProperties": false,
-             "description": "Metadata for context cache associated with LLM responses.\n\nThis class stores cache identification, usage tracking, and lifecycle\ninformation for a particular cache instance. It can be in two states:\n\n1. Active cache state: cache_name is set, all fields populated\n2. Fingerprint-only state: cache_name is None, only fingerprint and\n   contents_count are set for prefix matching\n\nToken counts (cached and total) are available in the LlmResponse.usage_metadata\nand should be accessed from there to avoid duplication.\n\nAttributes:\n    cache_name: The full resource name of the cached content (e.g.,\n        'projects/123/locations/us-central1/cachedContents/456').\n        None when no active cache exists (fingerprint-only state).\n    expire_time: Unix timestamp when the cache expires. None when no\n        active cache exists.\n    fingerprint: Hash of cacheable contents (instruction + tools + contents).\n        Always present for prefix matching.\n    invocations_used: Number of invocations this cache has been used for.\n        None when no active cache exists.\n    contents_count: Number of contents. When active cache exists, this is\n        the count of cached contents. When no active cache exists, this is\n        the total count of contents in the request.\n    created_at: Unix timestamp when the cache was created. None when\n        no active cache exists.",
+             "description": "Metadata for context cache associated with LLM responses.\n\nThis class stores cache identification, usage tracking, and lifecycle\ninformation for a particular cache instance. It can be in two states:\n\n1. Active cache state: cache_name is set, all fields populated\n2. Fingerprint-only state: cache_name is None, only fingerprint and\n   contents_count are set for prefix matching\n\nToken counts (cached and total) are available in the LlmResponse.usage_metadata\nand should be accessed from there to avoid duplication.\n\nAttributes:\n    cache_name: The full resource name of the cached content (e.g.,\n        'projects/123/locations/us-central1/cachedContents/456').\n        None when no active cache exists (fingerprint-only state).\n    expire_time: Unix timestamp when the cache expires. None when no\n        active cache exists.\n    fingerprint: Hash of cacheable contents (instruction + tools + contents).\n        Always present for prefix matching.\n    invocations_used: Number of invocations this cache has been used for.\n        None when no active cache exists.\n    contents_count: Number of contents. When active cache exists, this is\n        the count of cached contents. When no active cache exists, this is\n        the count of the cacheable content prefix used for fingerprinting.\n    created_at: Unix timestamp when the cache was created. None when\n        no active cache exists.",
              "properties": {
                 "cache_name": {
                    "anyOf": [
@@ -29641,7 +39431,7 @@ Show JSON schema
                    "title": "Invocations Used"
                 },
                 "contents_count": {
-                   "description": "Number of contents (cached contents when active cache exists, total contents in request when no active cache)",
+                   "description": "Number of contents (cached contents when active cache exists, cacheable content prefix when no active cache)",
                    "minimum": 0,
                    "title": "Contents Count",
                    "type": "integer"
@@ -29778,7 +39568,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -29815,7 +39605,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -29857,21 +39647,6 @@ Show JSON schema
                 }
              },
              "title": "Content",
-             "type": "object"
-          },
-          "CustomAuthScheme": {
-             "additionalProperties": true,
-             "description": "A flexible model for custom authentication schemes.\n\nThe subclasses must define a `default` for the `type_` field, if using OAuth2\nuser consent flow, to ensure correct rehydration.",
-             "properties": {
-                "type": {
-                   "title": "Type",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "type"
-             ],
-             "title": "CustomAuthScheme",
              "type": "object"
           },
           "Event": {
@@ -29934,6 +39709,17 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Turncomplete"
+                },
+                "turnCompleteReason": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/TurnCompleteReason"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
                 },
                 "finishReason": {
                    "anyOf": [
@@ -30040,6 +39826,17 @@ Show JSON schema
                    ],
                    "default": null
                 },
+                "voiceActivity": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceActivity"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null
+                },
                 "inputTranscription": {
                    "anyOf": [
                       {
@@ -30118,6 +39915,18 @@ Show JSON schema
                    ],
                    "default": null,
                    "title": "Interactionid"
+                },
+                "environmentId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Environmentid"
                 },
                 "invocationId": {
                    "default": "",
@@ -30251,9 +40060,7 @@ Show JSON schema
                    "title": "Escalate"
                 },
                 "requestedAuthConfigs": {
-                   "additionalProperties": {
-                      "$ref": "#/$defs/AuthConfig"
-                   },
+                   "additionalProperties": true,
                    "title": "Requestedauthconfigs",
                    "type": "object"
                 },
@@ -30401,7 +40208,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -30438,7 +40245,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -30518,7 +40325,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -30530,7 +40337,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -30544,7 +40351,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -30557,7 +40364,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -30595,7 +40402,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -30607,7 +40414,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -30620,7 +40427,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -30635,7 +40442,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -30661,7 +40468,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -30684,7 +40491,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -30710,7 +40517,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -30723,7 +40530,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -30732,7 +40539,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -30770,7 +40577,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -30779,7 +40586,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -30791,7 +40598,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -30803,14 +40610,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -31640,7 +41447,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Page number of the retrieved context. This field is not supported in Vertex AI.",
+                   "description": "Optional. Page number of the retrieved context, if applicable. This field is not supported in Vertex AI.",
                    "title": "Pagenumber"
                 },
                 "mediaId": {
@@ -31653,7 +41460,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Media ID. This field is not supported in Vertex AI.",
+                   "description": "Optional. The media blob resource name for multimodal file search results. Format: fileSearchStores/{file_search_store_id}/media/{blob_id}. This field is not supported in Vertex AI.",
                    "title": "Mediaid"
                 }
              },
@@ -31833,7 +41640,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Output only. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.",
+                   "description": "Optional. Output only. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and will no longer be populated once removed. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.",
                    "title": "Googlemapswidgetcontexttoken"
                 },
                 "retrievalQueries": {
@@ -31974,155 +41781,6 @@ Show JSON schema
              "title": "GroundingSupport",
              "type": "object"
           },
-          "HTTPBase": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "scheme"
-             ],
-             "title": "HTTPBase",
-             "type": "object"
-          },
-          "HTTPBearer": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "http"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "scheme": {
-                   "const": "bearer",
-                   "default": "bearer",
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "bearerFormat": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Bearerformat"
-                }
-             },
-             "title": "HTTPBearer",
-             "type": "object"
-          },
-          "HttpAuth": {
-             "additionalProperties": true,
-             "description": "The credentials and metadata for HTTP authentication.",
-             "properties": {
-                "scheme": {
-                   "title": "Scheme",
-                   "type": "string"
-                },
-                "credentials": {
-                   "$ref": "#/$defs/HttpCredentials"
-                },
-                "additionalHeaders": {
-                   "anyOf": [
-                      {
-                         "additionalProperties": {
-                            "type": "string"
-                         },
-                         "type": "object"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Additionalheaders"
-                }
-             },
-             "required": [
-                "scheme",
-                "credentials"
-             ],
-             "title": "HttpAuth",
-             "type": "object"
-          },
-          "HttpCredentials": {
-             "additionalProperties": true,
-             "description": "Represents the secret token value for HTTP authentication, like user name, password, oauth token, etc.",
-             "properties": {
-                "username": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Username"
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Password"
-                },
-                "token": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token"
-                }
-             },
-             "title": "HttpCredentials",
-             "type": "object"
-          },
           "Language": {
              "description": "Programming language of the `code`.",
              "enum": [
@@ -32193,7 +41851,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.\n\nPresence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResmumptionTokenUpdate`. This field will enable them to limit buffering (avoid keeping all requests in RAM).\n\nNote: This should not be used for when resuming a session at some time later -- in those cases partial audio and video frames arelikely not needed.",
+                   "description": "Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.\n\nPresence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResumptionTokenUpdate`. This field will enable them to limit buffering (avoid keeping all requests in RAM).\n\nNote: This should not be used for when resuming a session at some time later -- in those cases partial audio and video frames are likely not needed.",
                    "title": "Lastconsumedclientmessageindex"
                 }
              },
@@ -32325,7 +41983,7 @@ Show JSON schema
              "type": "object"
           },
           "MediaModality": {
-             "description": "Server content modalities.",
+             "description": "The modality that this token count applies to.",
              "enum": [
                 "MODALITY_UNSPECIFIED",
                 "TEXT",
@@ -32339,7 +41997,7 @@ Show JSON schema
           },
           "ModalityTokenCount": {
              "additionalProperties": false,
-             "description": "Represents token counting info for a single modality.",
+             "description": "Represents a breakdown of token usage by modality.\n\nThis message is used in CountTokensResponse and\nGenerateContentResponse.UsageMetadata to provide a detailed view of how many\ntokens are used by each modality (e.g., text, image, video) in a request. This\nis particularly useful for multimodal models, allowing you to track and manage\ntoken consumption for billing and quota purposes.",
              "properties": {
                 "modality": {
                    "anyOf": [
@@ -32351,7 +42009,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The modality associated with this token count."
+                   "description": "The modality that this token count applies to."
                 },
                 "tokenCount": {
                    "anyOf": [
@@ -32407,579 +42065,6 @@ Show JSON schema
                 }
              },
              "title": "NodeInfo",
-             "type": "object"
-          },
-          "OAuth2": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "oauth2"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "flows": {
-                   "$ref": "#/$defs/OAuthFlows"
-                }
-             },
-             "required": [
-                "flows"
-             ],
-             "title": "OAuth2",
-             "type": "object"
-          },
-          "OAuth2Auth": {
-             "additionalProperties": true,
-             "description": "Represents credential value and its metadata for a OAuth2 credential.",
-             "properties": {
-                "clientId": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Clientid"
-                },
-                "clientSecret": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Clientsecret"
-                },
-                "authUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authuri"
-                },
-                "nonce": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Nonce"
-                },
-                "state": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "State"
-                },
-                "redirectUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Redirecturi"
-                },
-                "authResponseUri": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authresponseuri"
-                },
-                "authCode": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Authcode"
-                },
-                "accessToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Accesstoken"
-                },
-                "refreshToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshtoken"
-                },
-                "idToken": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Idtoken"
-                },
-                "expiresAt": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Expiresat"
-                },
-                "expiresIn": {
-                   "anyOf": [
-                      {
-                         "type": "integer"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Expiresin"
-                },
-                "audience": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Audience"
-                },
-                "codeVerifier": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Codeverifier"
-                },
-                "codeChallengeMethod": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Codechallengemethod"
-                },
-                "tokenEndpointAuthMethod": {
-                   "anyOf": [
-                      {
-                         "enum": [
-                            "client_secret_basic",
-                            "client_secret_post",
-                            "client_secret_jwt",
-                            "private_key_jwt"
-                         ],
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": "client_secret_basic",
-                   "title": "Tokenendpointauthmethod"
-                }
-             },
-             "title": "OAuth2Auth",
-             "type": "object"
-          },
-          "OAuthFlowAuthorizationCode": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl",
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowAuthorizationCode",
-             "type": "object"
-          },
-          "OAuthFlowClientCredentials": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowClientCredentials",
-             "type": "object"
-          },
-          "OAuthFlowImplicit": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "authorizationUrl": {
-                   "title": "Authorizationurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "authorizationUrl"
-             ],
-             "title": "OAuthFlowImplicit",
-             "type": "object"
-          },
-          "OAuthFlowPassword": {
-             "additionalProperties": true,
-             "properties": {
-                "refreshUrl": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Refreshurl"
-                },
-                "scopes": {
-                   "additionalProperties": {
-                      "type": "string"
-                   },
-                   "default": {},
-                   "title": "Scopes",
-                   "type": "object"
-                },
-                "tokenUrl": {
-                   "title": "Tokenurl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "tokenUrl"
-             ],
-             "title": "OAuthFlowPassword",
-             "type": "object"
-          },
-          "OAuthFlows": {
-             "additionalProperties": true,
-             "properties": {
-                "implicit": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowImplicit"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "password": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowPassword"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "clientCredentials": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowClientCredentials"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "authorizationCode": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/OAuthFlowAuthorizationCode"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                }
-             },
-             "title": "OAuthFlows",
-             "type": "object"
-          },
-          "OpenIdConnect": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "openIdConnectUrl": {
-                   "title": "Openidconnecturl",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "openIdConnectUrl"
-             ],
-             "title": "OpenIdConnect",
-             "type": "object"
-          },
-          "OpenIdConnectWithConfig": {
-             "additionalProperties": true,
-             "properties": {
-                "type": {
-                   "$ref": "#/$defs/SecuritySchemeType",
-                   "default": "openIdConnect"
-                },
-                "description": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Description"
-                },
-                "authorization_endpoint": {
-                   "title": "Authorization Endpoint",
-                   "type": "string"
-                },
-                "token_endpoint": {
-                   "title": "Token Endpoint",
-                   "type": "string"
-                },
-                "userinfo_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Userinfo Endpoint"
-                },
-                "revocation_endpoint": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Revocation Endpoint"
-                },
-                "token_endpoint_auth_methods_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Token Endpoint Auth Methods Supported"
-                },
-                "grant_types_supported": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Grant Types Supported"
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                }
-             },
-             "required": [
-                "authorization_endpoint",
-                "token_endpoint"
-             ],
-             "title": "OpenIdConnectWithConfig",
              "type": "object"
           },
           "Outcome": {
@@ -33170,6 +42255,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -33335,6 +42432,32 @@ Show JSON schema
                    "default": null,
                    "description": "The content of the chunk.",
                    "title": "Text"
+                },
+                "chunkId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ID of the chunk.",
+                   "title": "Chunkid"
+                },
+                "fileId": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The ID of the file that the chunk belongs to.",
+                   "title": "Fileid"
                 }
              },
              "title": "RagChunk",
@@ -33430,16 +42553,6 @@ Show JSON schema
              "title": "SearchEntryPoint",
              "type": "object"
           },
-          "SecuritySchemeType": {
-             "enum": [
-                "apiKey",
-                "http",
-                "oauth2",
-                "openIdConnect"
-             ],
-             "title": "SecuritySchemeType",
-             "type": "string"
-          },
           "Segment": {
              "additionalProperties": false,
              "description": "Segment of the content this support belongs to.",
@@ -33498,141 +42611,6 @@ Show JSON schema
                 }
              },
              "title": "Segment",
-             "type": "object"
-          },
-          "ServiceAccount": {
-             "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  service_account_credential: The service account credential (JSON key).\n  scopes: The OAuth2 scopes to request. Optional; when omitted with\n      ``use_default_credential=True``, defaults to the cloud-platform scope.\n  use_default_credential: Whether to use Application Default Credentials.\n  use_id_token: Whether to exchange for an ID token instead of an access\n      token. Required for service-to-service authentication with Cloud Run,\n      Cloud Functions, and other Google Cloud services that require identity\n      verification. When True, ``audience`` must also be set.\n  audience: The target audience for the ID token, typically the URL of the\n      receiving service (e.g. ``https://my-service-xyz.run.app``). Required\n      when ``use_id_token`` is True.",
-             "properties": {
-                "serviceAccountCredential": {
-                   "anyOf": [
-                      {
-                         "$ref": "#/$defs/ServiceAccountCredential"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null
-                },
-                "scopes": {
-                   "anyOf": [
-                      {
-                         "items": {
-                            "type": "string"
-                         },
-                         "type": "array"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Scopes"
-                },
-                "useDefaultCredential": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": false,
-                   "title": "Usedefaultcredential"
-                },
-                "useIdToken": {
-                   "anyOf": [
-                      {
-                         "type": "boolean"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": false,
-                   "title": "Useidtoken"
-                },
-                "audience": {
-                   "anyOf": [
-                      {
-                         "type": "string"
-                      },
-                      {
-                         "type": "null"
-                      }
-                   ],
-                   "default": null,
-                   "title": "Audience"
-                }
-             },
-             "title": "ServiceAccount",
-             "type": "object"
-          },
-          "ServiceAccountCredential": {
-             "additionalProperties": true,
-             "description": "Represents Google Service Account configuration.\n\nAttributes:\n  type: The type should be \"service_account\".\n  project_id: The project ID.\n  private_key_id: The ID of the private key.\n  private_key: The private key.\n  client_email: The client email.\n  client_id: The client ID.\n  auth_uri: The authorization URI.\n  token_uri: The token URI.\n  auth_provider_x509_cert_url: URL for auth provider's X.509 cert.\n  client_x509_cert_url: URL for the client's X.509 cert.\n  universe_domain: The universe domain.\n\nExample:\n\n    config = ServiceAccountCredential(\n        type_=\"service_account\",\n        project_id=\"your_project_id\",\n        private_key_id=\"your_private_key_id\",\n        private_key=\"-----BEGIN PRIVATE KEY-----...\",\n        client_email=\"...@....iam.gserviceaccount.com\",\n        client_id=\"your_client_id\",\n        auth_uri=\"https://accounts.google.com/o/oauth2/auth\",\n        token_uri=\"https://oauth2.googleapis.com/token\",\n        auth_provider_x509_cert_url=\"https://www.googleapis.com/oauth2/v1/certs\",\n        client_x509_cert_url=\"https://www.googleapis.com/robot/v1/metadata/x509/...\",\n        universe_domain=\"googleapis.com\"\n    )\n\n\n    config = ServiceAccountConfig.model_construct(**{\n        ...service account config dict\n    })",
-             "properties": {
-                "type": {
-                   "default": "",
-                   "title": "Type",
-                   "type": "string"
-                },
-                "projectId": {
-                   "title": "Projectid",
-                   "type": "string"
-                },
-                "privateKeyId": {
-                   "title": "Privatekeyid",
-                   "type": "string"
-                },
-                "privateKey": {
-                   "title": "Privatekey",
-                   "type": "string"
-                },
-                "clientEmail": {
-                   "title": "Clientemail",
-                   "type": "string"
-                },
-                "clientId": {
-                   "title": "Clientid",
-                   "type": "string"
-                },
-                "authUri": {
-                   "title": "Authuri",
-                   "type": "string"
-                },
-                "tokenUri": {
-                   "title": "Tokenuri",
-                   "type": "string"
-                },
-                "authProviderX509CertUrl": {
-                   "title": "Authproviderx509Certurl",
-                   "type": "string"
-                },
-                "clientX509CertUrl": {
-                   "title": "Clientx509Certurl",
-                   "type": "string"
-                },
-                "universeDomain": {
-                   "title": "Universedomain",
-                   "type": "string"
-                }
-             },
-             "required": [
-                "projectId",
-                "privateKeyId",
-                "privateKey",
-                "clientEmail",
-                "clientId",
-                "authUri",
-                "tokenUri",
-                "authProviderX509CertUrl",
-                "clientX509CertUrl",
-                "universeDomain"
-             ],
-             "title": "ServiceAccountCredential",
              "type": "object"
           },
           "ToolCall": {
@@ -33784,7 +42762,7 @@ Show JSON schema
           },
           "Transcription": {
              "additionalProperties": false,
-             "description": "Audio transcription in Server Conent.",
+             "description": "Audio transcription in Server Content.",
              "properties": {
                 "text": {
                    "anyOf": [
@@ -33811,10 +42789,87 @@ Show JSON schema
                    "default": null,
                    "description": "Optional. The bool indicates the end of the transcription.",
                    "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
                 }
              },
              "title": "Transcription",
              "type": "object"
+          },
+          "TurnCompleteReason": {
+             "description": "The reason why the turn is complete.",
+             "enum": [
+                "TURN_COMPLETE_REASON_UNSPECIFIED",
+                "MALFORMED_FUNCTION_CALL",
+                "RESPONSE_REJECTED",
+                "NEED_MORE_INPUT",
+                "PROHIBITED_INPUT_CONTENT",
+                "IMAGE_PROHIBITED_INPUT_CONTENT",
+                "INPUT_TEXT_CONTAIN_PROMINENT_PERSON_PROHIBITED",
+                "INPUT_IMAGE_CELEBRITY",
+                "INPUT_IMAGE_PHOTO_REALISTIC_CHILD_PROHIBITED",
+                "INPUT_TEXT_NCII_PROHIBITED",
+                "INPUT_OTHER",
+                "INPUT_IP_PROHIBITED",
+                "BLOCKLIST",
+                "UNSAFE_PROMPT_FOR_IMAGE_GENERATION",
+                "GENERATED_IMAGE_SAFETY",
+                "GENERATED_CONTENT_SAFETY",
+                "GENERATED_AUDIO_SAFETY",
+                "GENERATED_VIDEO_SAFETY",
+                "GENERATED_CONTENT_PROHIBITED",
+                "GENERATED_CONTENT_BLOCKLIST",
+                "GENERATED_IMAGE_PROHIBITED",
+                "GENERATED_IMAGE_CELEBRITY",
+                "GENERATED_IMAGE_PROMINENT_PEOPLE_DETECTED_BY_REWRITER",
+                "GENERATED_IMAGE_IDENTIFIABLE_PEOPLE",
+                "GENERATED_IMAGE_MINORS",
+                "OUTPUT_IMAGE_IP_PROHIBITED",
+                "GENERATED_OTHER",
+                "MAX_REGENERATION_REACHED"
+             ],
+             "title": "TurnCompleteReason",
+             "type": "string"
           },
           "UiWidget": {
              "additionalProperties": false,
@@ -33887,6 +42942,96 @@ Show JSON schema
              },
              "title": "VideoMetadata",
              "type": "object"
+          },
+          "VoiceActivity": {
+             "additionalProperties": false,
+             "description": "Voice activity signal.",
+             "properties": {
+                "voiceActivityType": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/VoiceActivityType"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The type of the voice activity signal."
+                },
+                "audioOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The time voice activity detected in audio time, relative to the start of the audio stream.",
+                   "title": "Audiooffset"
+                }
+             },
+             "title": "VoiceActivity",
+             "type": "object"
+          },
+          "VoiceActivityType": {
+             "description": "The type of the voice activity signal.",
+             "enum": [
+                "TYPE_UNSPECIFIED",
+                "ACTIVITY_START",
+                "ACTIVITY_END"
+             ],
+             "title": "VoiceActivityType",
+             "type": "string"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
           }
        },
        "additionalProperties": false,
@@ -33919,32 +43064,32 @@ Fields:
 _field _app_name _: str_ _[Required]__(alias 'appName')_¶
     
 
-The name of the app.
+Application name that owns the session.
 
 _field _events _: list[Event]__[Optional]_¶
     
 
-The events of the session, e.g. user input, model response, function call/response, etc.
+Ordered event history for the session, including user, model, and tool events (e.g. user input, model response, function call/response).
 
 _field _id _: str_ _[Required]_¶
     
 
-The unique identifier of the session.
+Unique identifier of the session.
 
 _field _last_update_time _: float_ _ = 0.0_ _(alias 'lastUpdateTime')_¶
     
 
-The last update time of the session.
+Unix timestamp in seconds for the most recent session update.
 
 _field _state _: dict[str, Any]__[Optional]_¶
     
 
-The state of the session.
+Current persisted session state.
 
 _field _user_id _: str_ _[Required]__(alias 'userId')_¶
     
 
-The id of the user.
+User ID that owns the session.
 
 model_post_init(_context_ , _/_)¶
     
@@ -34053,6 +43198,132 @@ Bases: `TypeError`
 
 Raised when a state mutation violates the declared state_schema.
 
+_class _google.adk.sessions.VertexAiSessionService(_project =None_, _location =None_, _agent_engine_id =None_, _*_ , _express_mode_api_key =None_)¶
+    
+
+Bases: `BaseSessionService`
+
+Connects to the Vertex AI Agent Engine Session Service using Agent Engine SDK.
+
+<https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/sessions/overview>
+
+Initializes the VertexAiSessionService.
+
+Parameters:
+    
+
+  * **project** – The project id of the project to use.
+
+  * **location** – The location of the project to use.
+
+  * **agent_engine_id** – The resource ID of the agent engine to use.
+
+  * **express_mode_api_key** – The API key to use for Express Mode. If not provided, the API key from the GOOGLE_API_KEY environment variable will be used. It will only be used if GOOGLE_GENAI_USE_ENTERPRISE is true. Do not use Google AI Studio API key for this field. For more details, visit <https://cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview>
+
+
+
+
+_async _append_event(_session_ , _event_)¶
+    
+
+Appends an event to a session object.
+
+Return type:
+    
+
+`Event`
+
+_async _create_session(_*_ , _app_name_ , _user_id_ , _state =None_, _session_id =None_, _** kwargs_)¶
+    
+
+Creates a new session.
+
+Return type:
+    
+
+`Session`
+
+Parameters:
+    
+
+  * **app_name** – The name of the application.
+
+  * **user_id** – The ID of the user.
+
+  * **state** – The initial state of the session.
+
+  * **session_id** – The ID of the session.
+
+  * ****kwargs** – Additional arguments to pass to the session creation. E.g. set ttl=’7200s’ to set the session time-to-live or expire_time=’2025-10-01T00:00:00Z’ to set the session expiration time. See <https://cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions> for more details.
+
+
+
+Returns:
+    
+
+The created session.
+
+_async _delete_session(_*_ , _app_name_ , _user_id_ , _session_id_)¶
+    
+
+Deletes a session.
+
+Return type:
+    
+
+`None`
+
+_async _get_session(_*_ , _app_name_ , _user_id_ , _session_id_ , _config =None_)¶
+    
+
+Gets a session.
+
+Return type:
+    
+
+`Optional`[`Session`]
+
+_async _get_user_state(_*_ , _app_name_ , _user_id_)¶
+    
+
+Not supported by the Vertex AI Agent Engine backend.
+
+The Vertex AI Agent Engine API does not expose user state independently of a session. To read user state, enumerate sessions via `list_sessions` and call `get_session` on each result to access the merged state.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
+
+Raises:
+    
+
+**NotImplementedError** – Always, because the Vertex AI Agent Engine API does not provide a way to query user state without a session.
+
+_async _list_sessions(_*_ , _app_name_ , _user_id =None_)¶
+    
+
+Lists all the sessions for a user.
+
+Return type:
+    
+
+`ListSessionsResponse`
+
+Parameters:
+    
+
+  * **app_name** – The name of the app.
+
+  * **user_id** – The ID of the user. If not provided, lists all sessions for all users.
+
+
+
+Returns:
+    
+
+A ListSessionsResponse containing the sessions.
+
 # google.adk.skills module¶
 
 Agent Development Kit - Skills.
@@ -34092,14 +43363,14 @@ A space-delimited list of tools that are pre-approved to run (optional, experime
 metadata¶
     
 
-Key-value pairs for client-specific properties (defaults to empty dict). For example, to include additional tools, use the `adk_additional_tools` key with a list of tools.
+Key-value pairs for client-specific properties (defaults to empty dict). For example, to include additional tools, use the `adk_additional_tools` key with a list of tools. Set `adk_inject_state: true` to enable `{var}` interpolation in the SKILL.md body when the skill is loaded via `load_skill` (same syntax as `LlmAgent.instruction`). Each `{var}` is replaced with the matching value read from the invocation’s session state; use `{var?}` to substitute an empty string when the key is absent (instead of raising), and `{artifact.name}` to inject artifact contents.
 
 Show JSON schema
     
     
     {
        "title": "Frontmatter",
-       "description": "L1 skill content: metadata parsed from SKILL.md for skill discovery.\n\nAttributes:\n    name: Skill name in kebab-case or snake_case (required).\n    description: What the skill does and when the model should use it\n      (required).\n    license: License for the skill (optional).\n    compatibility: Compatibility information for the skill (optional).\n    allowed_tools: A space-delimited list of tools that are pre-approved to\n      run (optional, experimental). Accepts both ``allowed_tools`` and the\n      YAML-friendly ``allowed-tools`` key. For more details, see\n      https://agentskills.io/specification#allowed-tools-field.\n    metadata: Key-value pairs for client-specific properties (defaults to\n      empty dict). For example, to include additional tools, use the\n      ``adk_additional_tools`` key with a list of tools.",
+       "description": "L1 skill content: metadata parsed from SKILL.md for skill discovery.\n\nAttributes:\n    name: Skill name in kebab-case or snake_case (required).\n    description: What the skill does and when the model should use it\n      (required).\n    license: License for the skill (optional).\n    compatibility: Compatibility information for the skill (optional).\n    allowed_tools: A space-delimited list of tools that are pre-approved to\n      run (optional, experimental). Accepts both ``allowed_tools`` and the\n      YAML-friendly ``allowed-tools`` key. For more details, see\n      https://agentskills.io/specification#allowed-tools-field.\n    metadata: Key-value pairs for client-specific properties (defaults to\n      empty dict). For example, to include additional tools, use the\n      ``adk_additional_tools`` key with a list of tools. Set\n      ``adk_inject_state: true`` to enable ``{var}`` interpolation in the\n      SKILL.md body when the skill is loaded via ``load_skill`` (same syntax\n      as ``LlmAgent.instruction``). Each ``{var}`` is replaced with the\n      matching value read from the invocation's session state; use ``{var?}``\n      to substitute an empty string when the key is absent (instead of\n      raising), and ``{artifact.name}`` to inject artifact contents.",
        "type": "object",
        "properties": {
           "name": {
@@ -34531,7 +43802,7 @@ Show JSON schema
        "$defs": {
           "Frontmatter": {
              "additionalProperties": true,
-             "description": "L1 skill content: metadata parsed from SKILL.md for skill discovery.\n\nAttributes:\n    name: Skill name in kebab-case or snake_case (required).\n    description: What the skill does and when the model should use it\n      (required).\n    license: License for the skill (optional).\n    compatibility: Compatibility information for the skill (optional).\n    allowed_tools: A space-delimited list of tools that are pre-approved to\n      run (optional, experimental). Accepts both ``allowed_tools`` and the\n      YAML-friendly ``allowed-tools`` key. For more details, see\n      https://agentskills.io/specification#allowed-tools-field.\n    metadata: Key-value pairs for client-specific properties (defaults to\n      empty dict). For example, to include additional tools, use the\n      ``adk_additional_tools`` key with a list of tools.",
+             "description": "L1 skill content: metadata parsed from SKILL.md for skill discovery.\n\nAttributes:\n    name: Skill name in kebab-case or snake_case (required).\n    description: What the skill does and when the model should use it\n      (required).\n    license: License for the skill (optional).\n    compatibility: Compatibility information for the skill (optional).\n    allowed_tools: A space-delimited list of tools that are pre-approved to\n      run (optional, experimental). Accepts both ``allowed_tools`` and the\n      YAML-friendly ``allowed-tools`` key. For more details, see\n      https://agentskills.io/specification#allowed-tools-field.\n    metadata: Key-value pairs for client-specific properties (defaults to\n      empty dict). For example, to include additional tools, use the\n      ``adk_additional_tools`` key with a list of tools. Set\n      ``adk_inject_state: true`` to enable ``{var}`` interpolation in the\n      SKILL.md body when the skill is loaded via ``load_skill`` (same syntax\n      as ``LlmAgent.instruction``). Each ``{var}`` is replaced with the\n      matching value read from the invocation's session state; use ``{var?}``\n      to substitute an empty string when the key is absent (instead of\n      raising), and ``{artifact.name}`` to inject artifact contents.",
              "properties": {
                 "name": {
                    "title": "Name",
@@ -34871,6 +44142,168 @@ Raises:
 
 # google.adk.telemetry module¶
 
+_class _google.adk.telemetry.ContentCapturingMode(_value_)¶
+    
+
+Bases: `Enum`
+
+Mirror of `opentelemetry.util.genai.types.ContentCapturingMode`.
+
+Defined locally rather than imported because `opentelemetry-util-genai` is an optional, in-development dependency. Values are the canonical states for `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`.
+
+Members:
+    
+
+NO_CONTENT: No content captured (matches env value `''`). EVENT_ONLY: Content on the emitted LogRecord only. SPAN_ONLY: Content on the active span only. SPAN_AND_EVENT: Content on both the LogRecord and the active span.
+
+EVENT_ONLY _ = 'EVENT_ONLY'_¶
+    
+
+NO_CONTENT _ = 'NO_CONTENT'_¶
+    
+
+SPAN_AND_EVENT _ = 'SPAN_AND_EVENT'_¶
+    
+
+SPAN_ONLY _ = 'SPAN_ONLY'_¶
+    
+
+_pydantic model _google.adk.telemetry.TelemetryConfig¶
+    
+
+Bases: `BaseModel`
+
+Per-request OpenTelemetry configuration.
+
+Attached to an invocation via `RunConfig.telemetry`. Any field left as `None` falls back to its corresponding env var (an `OTEL_*` var, plus the default-on `ADK_CAPTURE_MESSAGE_CONTENT_IN_SPANS` for legacy spans). `frozen=True` lets the same config be shared safely across concurrent invocations; the resolution properties read env lazily, so later `os.environ` changes are still picked up.
+
+Limitations:
+    
+
+  * When `opentelemetry-instrumentation-google-genai` is installed and wraps `google.genai.Models.generate_content`, span creation is delegated to that library, which reads its own OTel env vars; per-request overrides are inoperative for the inference span (but still apply to ADK-owned spans).
+
+
+
+
+genai_semconv_stability_opt_in¶
+    
+
+Override for `OTEL_SEMCONV_STABILITY_OPT_IN`. `'experimental'` opts in to the experimental GenAI semconv attributes; `'stable'` keeps the legacy path. `'stable'` has no env-var equivalent (the env path infers stable from the absence of `'gen_ai_latest_experimental'` in the CSV).
+
+capture_message_content¶
+    
+
+Override for `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`. Pass a `ContentCapturingMode` member; the env-var path accepts the matching uppercase string.
+
+Show JSON schema
+    
+    
+    {
+       "title": "TelemetryConfig",
+       "description": "Per-request OpenTelemetry configuration.\n\nAttached to an invocation via ``RunConfig.telemetry``. Any field left as\n``None`` falls back to its corresponding env var (an ``OTEL_*`` var, plus the\ndefault-on ``ADK_CAPTURE_MESSAGE_CONTENT_IN_SPANS`` for legacy spans).\n``frozen=True`` lets the same config be shared safely across concurrent\ninvocations; the resolution properties read env lazily, so later\n``os.environ`` changes are still picked up.\n\nLimitations:\n  * When ``opentelemetry-instrumentation-google-genai`` is installed and\n    wraps ``google.genai.Models.generate_content``, span creation is\n    delegated to that library, which reads its own OTel env vars; per-request\n    overrides are inoperative for the inference span (but still apply to\n    ADK-owned spans).\n\nAttributes:\n  genai_semconv_stability_opt_in: Override for\n    ``OTEL_SEMCONV_STABILITY_OPT_IN``. ``'experimental'`` opts in to the\n    experimental GenAI semconv attributes; ``'stable'`` keeps the legacy path.\n    ``'stable'`` has no env-var equivalent (the env path infers stable from\n    the absence of ``'gen_ai_latest_experimental'`` in the CSV).\n  capture_message_content: Override for\n    ``OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT``. Pass a\n    :class:`ContentCapturingMode` member; the env-var path accepts the\n    matching uppercase string.",
+       "type": "object",
+       "properties": {
+          "genai_semconv_stability_opt_in": {
+             "anyOf": [
+                {
+                   "enum": [
+                      "stable",
+                      "experimental"
+                   ],
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Genai Semconv Stability Opt In"
+          },
+          "capture_message_content": {
+             "anyOf": [
+                {
+                   "$ref": "#/$defs/ContentCapturingMode"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null
+          }
+       },
+       "$defs": {
+          "ContentCapturingMode": {
+             "description": "Mirror of ``opentelemetry.util.genai.types.ContentCapturingMode``.\n\nDefined locally rather than imported because ``opentelemetry-util-genai``\nis an optional, in-development dependency. Values are the canonical states\nfor ``OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT``.\n\nMembers:\n  NO_CONTENT: No content captured (matches env value ``''``).\n  EVENT_ONLY: Content on the emitted LogRecord only.\n  SPAN_ONLY: Content on the active span only.\n  SPAN_AND_EVENT: Content on both the LogRecord and the active span.",
+             "enum": [
+                "NO_CONTENT",
+                "EVENT_ONLY",
+                "SPAN_ONLY",
+                "SPAN_AND_EVENT"
+             ],
+             "title": "ContentCapturingMode",
+             "type": "string"
+          }
+       },
+       "additionalProperties": false
+    }
+    
+
+Fields:
+    
+
+  * `capture_message_content (google.adk.telemetry.context.ContentCapturingMode | None)`
+
+  * `genai_semconv_stability_opt_in (Literal['stable', 'experimental'] | None)`
+
+
+
+
+_field _capture_message_content _: Optional[ContentCapturingMode]__ = None_¶
+    
+
+_field _genai_semconv_stability_opt_in _: Optional[Literal['stable', 'experimental']]__ = None_¶
+    
+
+_property _content_capturing_mode_value _: str_¶
+    
+
+`resolved_content_capturing_mode` as the canonical string.
+
+Returns `''` for `NO_CONTENT` (matching the historical env-var contract) and the member value otherwise.
+
+_property _resolved_content_capturing_mode _: ContentCapturingMode_¶
+    
+
+The effective GenAI content-capturing mode.
+
+Precedence: admin lock > `capture_message_content` > `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` env var (legacy `'true'` / `'1'` coerce to `EVENT_ONLY`) > `NO_CONTENT`. Env values outside the four-state set fall back to `NO_CONTENT`.
+
+_property _should_add_content_to_experimental_spans _: bool_¶
+    
+
+Whether content goes on the experimental inference span.
+
+OTel-spec routing: true for the span-bearing modes (`SPAN_ONLY` / `SPAN_AND_EVENT`). Distinct from the legacy ADK knob in `should_add_content_to_legacy_spans`, which has its own env fallback.
+
+_property _should_add_content_to_legacy_spans _: bool_¶
+    
+
+Whether content goes on ADK-owned (legacy) spans.
+
+Separate knob from the OTel content env var. A per-request `capture_message_content` uses the OTel-spec span routing; otherwise this falls back to `ADK_CAPTURE_MESSAGE_CONTENT_IN_SPANS`, which defaults on.
+
+_property _should_add_content_to_logs _: bool_¶
+    
+
+Whether content goes on emitted LogRecords (`EVENT_ONLY` / `SPAN_AND_EVENT`).
+
+_property _should_use_experimental_genai_semconv _: bool_¶
+    
+
+Whether to emit experimental GenAI semconv attributes.
+
+Precedence: admin lock > `genai_semconv_stability_opt_in` > `OTEL_SEMCONV_STABILITY_OPT_IN` env var > `False`.
+
 google.adk.telemetry.trace_call_llm(_invocation_context_ , _event_id_ , _llm_request_ , _llm_response_ , _span =None_)¶
     
 
@@ -34892,7 +44325,7 @@ Parameters:
 
 
 
-google.adk.telemetry.trace_merged_tool_calls(_response_event_id_ , _function_response_event_)¶
+google.adk.telemetry.trace_merged_tool_calls(_response_event_id_ , _function_response_event_ , _invocation_context =None_)¶
     
 
 Traces merged tool call events.
@@ -34905,6 +44338,8 @@ Parameters:
   * **response_event_id** – The ID of the response event.
 
   * **function_response_event** – The merged response event.
+
+  * **invocation_context** – Optional invocation context. Forwarded so its `run_config.telemetry` overrides the env-var content toggle.
 
 
 
@@ -34928,7 +44363,7 @@ Parameters:
 
 
 
-google.adk.telemetry.trace_tool_call(_tool_ , _args_ , _function_response_event_ , _error =None_, _span =None_)¶
+google.adk.telemetry.trace_tool_call(_tool_ , _args_ , _function_response_event_ , _error =None_, _span =None_, _error_type =None_, _invocation_context =None_)¶
     
 
 Traces tool call.
@@ -34945,6 +44380,10 @@ Parameters:
   * **error** – The exception raised during tool execution, if any.
 
   * **span** – The span to record attributes on. If None, uses current span.
+
+  * **error_type** – An error type string detected from the tool’s response dict (e.g., “HTTP_ERROR”, “MCP_TOOL_ERROR”). Used when the tool returned an error as a dict rather than raising an exception. Ignored if error is also set (exception takes precedence).
+
+  * **invocation_context** – Optional invocation context. Forwarded so its `run_config.telemetry` overrides the env-var content toggle.
 
 
 
@@ -35082,6 +44521,14 @@ Bases: `BaseTool`
 A tool that wraps an agent.
 
 This tool allows an agent to be called as a tool within a larger application. The agent’s input schema is used to define the tool’s input parameters, and the agent’s output is returned as the tool’s result.
+
+Note
+
+To expose an agent as an inline tool of a parent `LlmAgent`, prefer setting `mode='single_turn'` on the sub-agent and attaching it via `sub_agents=[...]` instead of wrapping it with `AgentTool`. The framework then exposes the sub-agent as a tool automatically and runs it inline in the parent’s session.
+
+If the sub-agent needs to access parent artifacts, add `load_artifacts_tool` directly to the sub-agent’s `tools` list.
+
+Direct usage of `AgentTool` is discouraged. See the single-turn mode guide for details.
 
 agent¶
     
@@ -35805,6 +45252,18 @@ Show JSON schema
                    "default": null,
                    "title": "Audience"
                 },
+                "prompt": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Prompt"
+                },
                 "codeVerifier": {
                    "anyOf": [
                       {
@@ -36347,12 +45806,22 @@ _field _auth_config _: AuthConfig_ _[Required]__(alias 'authConfig')_¶
 _field _function_call_id _: str_ _[Required]__(alias 'functionCallId')_¶
     
 
-_class _google.adk.tools.BaseTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_)¶
+_class _google.adk.tools.BaseTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_, _response_scheduling =None_)¶
     
 
 Bases: `ABC`
 
 The base class for all tools.
+
+_async _check_require_confirmation(_args_ , _tool_context_)¶
+    
+
+Returns whether the tool requires confirmation for the given args.
+
+Return type:
+    
+
+`bool`
 
 custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
     
@@ -36425,6 +45894,25 @@ Parameters:
 
 
 
+
+response_scheduling _: `Optional`[`FunctionResponseScheduling`]__ = None_¶
+    
+
+Controls when the model reacts to the tool’s response (Live API only).
+
+Applied to the emitted `FunctionResponse` for asynchronous function calling:
+    
+
+  * `SILENT`: feeds the response back without triggering a model turn.
+
+  * `WHEN_IDLE`: defers the reaction until the model is idle.
+
+  * `INTERRUPT`: reacts immediately.
+
+
+
+
+Ignored by models that don’t support asynchronous function calling. `None` preserves the default behavior.
 
 _async _run_async(_*_ , _args_ , _tool_context_)¶
     
@@ -36596,6 +46084,16 @@ Parameters:
 
 
 
+_async _check_require_confirmation(_args_ , _tool_context_)¶
+    
+
+Returns whether the tool requires confirmation for the given args.
+
+Return type:
+    
+
+`bool`
+
 _async _run_async(_*_ , _args_ , _tool_context_)¶
     
 
@@ -36721,7 +46219,6 @@ Usage:
     
     # Use in an agent
     agent = LlmAgent(
-        model='gemini-2.5-flash',
         name='enterprise_assistant',
         instruction='Help user accessing their file systems',
         tools=[toolset],
@@ -36766,6 +46263,12 @@ Parameters:
 
 
 
+_property _auth_credential _: AuthCredential | None_¶
+    
+
+_property _auth_scheme _: APIKey | HTTPBase | OAuth2 | OpenIdConnect | HTTPBearer | OpenIdConnectWithConfig | CustomAuthScheme | None_¶
+    
+
 _async _close()¶
     
 
@@ -36777,6 +46280,12 @@ Return type:
     
 
 `None`
+
+_property _connection_params _: StdioServerParameters | StdioConnectionParams | SseConnectionParams | StreamableHTTPConnectionParams_¶
+    
+
+_property _errlog _: TextIO_¶
+    
 
 _classmethod _from_config(_config_ , _config_abs_path_)¶
     
@@ -36835,6 +46344,9 @@ Return type:
 
 List[BaseTool]
 
+_property _header_provider _: Callable[[ReadonlyContext], Dict[str, str] | Awaitable[Dict[str, str]]] | None_¶
+    
+
 _async _list_resources(_readonly_context =None_)¶
     
 
@@ -36868,6 +46380,126 @@ Returns:
     
 
 List of contents of the resource.
+
+_property _require_confirmation _: bool | Callable[[...], bool]_¶
+    
+
+_pydantic model _google.adk.tools.RemoteMcpServer¶
+    
+
+Bases: `BaseModel`
+
+A remote MCP server executed server-side by the Managed Agents API.
+
+`ManagedAgent` forwards the server’s URL and headers to `interactions.create`; the Interactions backend opens the MCP session and runs the tools. Only remote (HTTP/streamable) MCP servers are supported.
+
+This is server-side MCP: unlike `LlmAgent`’s `McpToolset` (which opens the session and executes tools client-side), ADK never connects to the MCP server here. The reused concept is the `header_provider` callback contract.
+
+Show JSON schema
+    
+    
+    {
+       "title": "RemoteMcpServer",
+       "type": "object",
+       "properties": {
+          "url": {
+             "title": "Url",
+             "type": "string"
+          },
+          "name": {
+             "anyOf": [
+                {
+                   "type": "string"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Name"
+          },
+          "headers": {
+             "anyOf": [
+                {
+                   "additionalProperties": {
+                      "type": "string"
+                   },
+                   "type": "object"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Headers"
+          },
+          "allowed_tools": {
+             "anyOf": [
+                {
+                   "items": {
+                      "type": "string"
+                   },
+                   "type": "array"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Allowed Tools"
+          },
+          "header_provider": {
+             "default": null,
+             "title": "Header Provider"
+          }
+       },
+       "additionalProperties": false,
+       "required": [
+          "url"
+       ]
+    }
+    
+
+Fields:
+    
+
+  * `allowed_tools (list[str] | None)`
+
+  * `header_provider (Callable[[...], dict[str, str] | Awaitable[dict[str, str]]] | None)`
+
+  * `headers (dict[str, str] | None)`
+
+  * `name (str | None)`
+
+  * `url (str)`
+
+
+
+
+_field _allowed_tools _: list[str] | None_ _ = None_¶
+    
+
+Restrict which of the server’s tools are exposed. Maps to `MCPServerParam.allowed_tools`.
+
+_field _header_provider _: HeaderProvider | None_ _ = None_¶
+    
+
+Runtime callback that mints headers (e.g. a fresh bearer token) at request time. Invoked by `ManagedAgent` during resolution (runner-driven), once per turn. Receives a `ReadonlyContext` and returns a headers dict (or an awaitable of one). Same contract as `LlmAgent`’s `McpToolset.header_provider`.
+
+_field _headers _: dict[str, str] | None_ _ = None_¶
+    
+
+Static headers sent on every turn (e.g. a fixed API key). Merged with `header_provider` output; `header_provider` wins on key conflict.
+
+_field _name _: str | None_ _ = None_¶
+    
+
+Optional server label. Maps to `MCPServerParam.name`.
+
+_field _url _: str_ _[Required]_¶
+    
+
+Full URL of the remote MCP server endpoint (e.g. ‘<https://api.example.com/mcp>’). Maps to `MCPServerParam.url`.
 
 _class _google.adk.tools.SearchResultMode(_value_)¶
     
@@ -36911,6 +46543,35 @@ Parameters:
     
 
 **agent_names** – List of valid agent names that can be transferred to.
+
+_class _google.adk.tools.VertexAiLoadProfilesTool(_memory_service_)¶
+    
+
+Bases: `FunctionTool`
+
+A tool that loads a user’s structured profiles from Vertex Memory Bank.
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_async _load_profiles(_tool_context_)¶
+    
+
+Loads structured user profiles for the current user.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
 
 _class _google.adk.tools.VertexAiSearchTool(_*_ , _data_store_id =None_, _data_store_specs =None_, _search_engine_id =None_, _filter =None_, _max_results =None_, _bypass_multi_tools_limit =False_)¶
     
@@ -37009,21 +46670,22 @@ Exits the loop.
 
 Call this function only when you are instructed to do so.
 
-google.adk.tools.transfer_to_agent(_agent_name_ , _tool_context_)¶
-    
-
-Transfer the question to another agent.
-
-This tool hands off control to another agent when it’s more suitable to answer the user’s question according to the agent’s description.
-
 Return type:
     
 
 `None`
 
-Note
+google.adk.tools.transfer_to_agent(_agent_name_ , _tool_context_)¶
+    
 
-For most use cases, you should use TransferToAgentTool instead of this function directly. TransferToAgentTool provides additional enum constraints that prevent LLMs from hallucinating invalid agent names.
+Transfer the query to another agent.
+
+Use this tool to hand off control to another agent that is more suitable to answer the user’s query according to the agent’s description.
+
+Return type:
+    
+
+`None`
 
 Parameters:
     
@@ -37047,6 +46709,14 @@ Bases: `BaseTool`
 A tool that wraps an agent.
 
 This tool allows an agent to be called as a tool within a larger application. The agent’s input schema is used to define the tool’s input parameters, and the agent’s output is returned as the tool’s result.
+
+Note
+
+To expose an agent as an inline tool of a parent `LlmAgent`, prefer setting `mode='single_turn'` on the sub-agent and attaching it via `sub_agents=[...]` instead of wrapping it with `AgentTool`. The framework then exposes the sub-agent as a tool automatically and runs it inline in the parent’s session.
+
+If the sub-agent needs to access parent artifacts, add `load_artifacts_tool` directly to the sub-agent’s `tools` list.
+
+Direct usage of `AgentTool` is discouraged. See the single-turn mode guide for details.
 
 agent¶
     
@@ -37356,7 +47026,7 @@ A list of all available RestApiTool objects.
 
 # google.adk.tools.application_integration_tool module¶
 
-_class _google.adk.tools.application_integration_tool.ApplicationIntegrationToolset(_project_ , _location_ , _connection_template_override =None_, _integration =None_, _triggers =None_, _connection =None_, _entity_operations =None_, _actions =None_, _tool_name_prefix =''_, _tool_instructions =''_, _service_account_json =None_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_)¶
+_class _google.adk.tools.application_integration_tool.ApplicationIntegrationToolset(_project_ , _location_ , _connection_template_override =None_, _integration =None_, _triggers =None_, _connection =None_, _entity_operations =None_, _actions =None_, _tool_name_prefix =''_, _tool_instructions =''_, _service_account_json =None_, _auth_scheme =None_, _auth_credential =None_, _tool_filter =None_, _credential_key =None_)¶
     
 
 Bases: `BaseToolset`
@@ -37460,7 +47130,7 @@ Return all tools in the toolset based on the provided context.
 Return type:
     
 
-`List`[`RestApiTool`]
+`List`[`BaseTool`]
 
 Parameters:
     
@@ -37477,7 +47147,7 @@ Return type:
 
 list[BaseTool]
 
-_class _google.adk.tools.application_integration_tool.IntegrationConnectorTool(_name_ , _description_ , _connection_name_ , _connection_host_ , _connection_service_name_ , _entity_ , _operation_ , _action_ , _rest_api_tool_ , _auth_scheme =None_, _auth_credential =None_)¶
+_class _google.adk.tools.application_integration_tool.IntegrationConnectorTool(_name_ , _description_ , _connection_name_ , _connection_host_ , _connection_service_name_ , _entity_ , _operation_ , _action_ , _rest_api_tool_ , _auth_scheme =None_, _auth_credential =None_, _credential_key =None_)¶
     
 
 Bases: `BaseTool`
@@ -37681,12 +47351,22 @@ The result of running the tool.
 
 # google.adk.tools.base_tool module¶
 
-_class _google.adk.tools.base_tool.BaseTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_)¶
+_class _google.adk.tools.base_tool.BaseTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_, _response_scheduling =None_)¶
     
 
 Bases: `ABC`
 
 The base class for all tools.
+
+_async _check_require_confirmation(_args_ , _tool_context_)¶
+    
+
+Returns whether the tool requires confirmation for the given args.
+
+Return type:
+    
+
+`bool`
 
 custom_metadata _: `Optional`[`dict`[`str`, `Any`]]__ = None_¶
     
@@ -37759,6 +47439,25 @@ Parameters:
 
 
 
+
+response_scheduling _: `Optional`[`FunctionResponseScheduling`]__ = None_¶
+    
+
+Controls when the model reacts to the tool’s response (Live API only).
+
+Applied to the emitted `FunctionResponse` for asynchronous function calling:
+    
+
+  * `SILENT`: feeds the response back without triggering a model turn.
+
+  * `WHEN_IDLE`: defers the reaction until the model is idle.
+
+  * `INTERRUPT`: reacts immediately.
+
+
+
+
+Ignored by models that don’t support asynchronous function calling. `None` preserves the default behavior.
 
 _async _run_async(_*_ , _args_ , _tool_context_)¶
     
@@ -38163,7 +47862,7 @@ Parameters:
 
 
 
-_class _google.adk.tools.bigtable.BigtableToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _bigtable_tool_settings =None_)¶
+_class _google.adk.tools.bigtable.BigtableToolset(_*_ , _tool_filter =None_, _credentials_config =None_, _bigtable_tool_settings =None_, _view_parameter_names =None_)¶
     
 
 Bases: `BaseToolset`
@@ -38905,7 +48604,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -38942,7 +48641,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -39009,7 +48708,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -39046,7 +48745,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -39102,7 +48801,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -39114,7 +48813,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -39128,7 +48827,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -39141,7 +48840,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -39179,7 +48878,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -39191,7 +48890,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -39204,7 +48903,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -39219,7 +48918,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -39245,7 +48944,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -39268,7 +48967,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -39294,7 +48993,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -39307,7 +49006,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -39316,7 +49015,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -39354,7 +49053,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -39363,7 +49062,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -39375,7 +49074,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -39387,14 +49086,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -39601,6 +49300,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -39845,6 +49556,82 @@ Show JSON schema
              "title": "ToolType",
              "type": "string"
           },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
@@ -39891,6 +49678,53 @@ Show JSON schema
              },
              "title": "VideoMetadata",
              "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
+             "type": "object"
           }
        },
        "additionalProperties": false,
@@ -39922,6 +49756,11 @@ Exits the loop.
 
 Call this function only when you are instructed to do so.
 
+Return type:
+    
+
+`None`
+
 # google.adk.tools.function_tool module¶
 
 _class _google.adk.tools.function_tool.FunctionTool(_func_ , _*_ , _require_confirmation =False_)¶
@@ -39947,6 +49786,16 @@ Parameters:
 
 
 
+
+_async _check_require_confirmation(_args_ , _tool_context_)¶
+    
+
+Returns whether the tool requires confirmation for the given args.
+
+Return type:
+    
+
+`bool`
 
 _async _run_async(_*_ , _args_ , _tool_context_)¶
     
@@ -40183,7 +50032,7 @@ Returns:
 
 The result of running the tool.
 
-_class _google.adk.tools.google_api_tool.GoogleApiToolset(_api_name_ , _api_version_ , _client_id =None_, _client_secret =None_, _tool_filter =None_, _service_account =None_, _tool_name_prefix =None_, _*_ , _additional_headers =None_)¶
+_class _google.adk.tools.google_api_tool.GoogleApiToolset(_api_name_ , _api_version_ , _client_id =None_, _client_secret =None_, _tool_filter =None_, _service_account =None_, _tool_name_prefix =None_, _*_ , _additional_headers =None_, _additional_scopes =None_, _discovery_url =None_)¶
     
 
 Bases: `BaseToolset`
@@ -40211,6 +50060,10 @@ Parameters:
 
   * **additional_headers** – Optional dict of HTTP headers to inject into every request executed by this toolset.
 
+  * **additional_scopes** – Optional list of additional scopes to request.
+
+  * **discovery_url** – Optional custom discovery URL to use for the API.
+
 
 
 
@@ -40231,6 +50084,11 @@ _async _close()¶
 
 Performs cleanup and releases resources held by the toolset.
 
+Return type:
+    
+
+`None`
+
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
@@ -40238,8 +50096,18 @@ This method is invoked, for example, at the end of an agent server’s lifecycle
 configure_auth(_client_id_ , _client_secret_)¶
     
 
+Return type:
+    
+
+`None`
+
 configure_sa_auth(_service_account_)¶
     
+
+Return type:
+    
+
+`None`
 
 _async _get_tools(_readonly_context =None_)¶
     
@@ -40253,6 +50121,11 @@ Return type:
 
 set_tool_filter(_tool_filter_)¶
     
+
+Return type:
+    
+
+`None`
 
 _class _google.adk.tools.google_api_tool.SheetsToolset(_client_id =None_, _client_secret =None_, _tool_filter =None_, _service_account =None_, _tool_name_prefix =None_)¶
     
@@ -40370,7 +50243,7 @@ A built-in tool that is automatically invoked by Gemini 2 models to ground query
 
 This tool operates internally within the model and does not require or perform local code execution.
 
-Only available for use with the VertexAI Gemini API (e.g. GOOGLE_GENAI_USE_VERTEXAI=TRUE)
+Only available for use with the VertexAI Gemini API (e.g. GOOGLE_GENAI_USE_ENTERPRISE=TRUE)
 
 _async _process_llm_request(_*_ , _tool_context_ , _llm_request_)¶
     
@@ -40403,7 +50276,7 @@ Bases: `AgentTool`
 
 A tool that wraps a sub-agent that only uses google_search tool.
 
-This is a workaround to support using google_search tool with other tools. TODO(b/448114567): Remove once the workaround is no longer needed.
+This is a workaround to support using google_search tool with other tools. TODO: Remove once the workaround is no longer needed.
 
 model¶
     
@@ -40427,7 +50300,7 @@ _class _google.adk.tools.google_search_tool.GoogleSearchTool(_*_ , _bypass_multi
 
 Bases: `BaseTool`
 
-A built-in tool that is automatically invoked by Gemini 2 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini models to retrieve search results from Google Search.
 
 This tool operates internally within the model and does not require or perform local code execution.
 
@@ -40839,7 +50712,7 @@ Show JSON schema
           },
           "CodeExecutionResult": {
              "additionalProperties": false,
-             "description": "Result of executing the `ExecutableCode`.\n\nGenerated only when the `CodeExecution` tool is used.",
+             "description": "Result of executing the ExecutableCode.\n\nGenerated only when the `CodeExecution` tool is used.",
              "properties": {
                 "outcome": {
                    "anyOf": [
@@ -40876,7 +50749,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.",
+                   "description": "Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -40922,7 +50795,7 @@ Show JSON schema
           },
           "ExecutableCode": {
              "additionalProperties": false,
-             "description": "Model-generated code executed server-side, results returned to the model.\n\nOnly generated when using the `CodeExecution` tool, in which the code will\nbe automatically executed, and a corresponding `CodeExecutionResult` will\nalso be generated.",
+             "description": "Code generated by the model that is meant to be executed, and the result returned to the model.\n\nGenerated when using the `CodeExecution` tool, in which the code will be\nautomatically executed, and a corresponding CodeExecutionResult will also be\ngenerated.",
              "properties": {
                 "code": {
                    "anyOf": [
@@ -40959,7 +50832,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`.",
+                   "description": "Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.",
                    "title": "Id"
                 }
              },
@@ -41015,7 +50888,7 @@ Show JSON schema
           },
           "FunctionCall": {
              "additionalProperties": false,
-             "description": "A function call.",
+             "description": "A predicted FunctionCall returned from the model that contains a string representing the FunctionDeclaration.name and a structured JSON object containing the parameters and their values.",
              "properties": {
                 "id": {
                    "anyOf": [
@@ -41027,7 +50900,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "The unique id of the function call. If populated, the client to execute the\n   `function_call` and return the response with the matching `id`.",
+                   "description": "Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id`.",
                    "title": "Id"
                 },
                 "args": {
@@ -41041,7 +50914,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The function parameters and values in JSON object format. See [FunctionDeclaration.parameters] for parameter details.",
+                   "description": "Optional. The function parameters and values in JSON object format. See FunctionDeclaration.parameters for parameter details.",
                    "title": "Args"
                 },
                 "name": {
@@ -41054,7 +50927,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. The name of the function to call. Matches [FunctionDeclaration.name].",
+                   "description": "Optional. The name of the function to call. Matches FunctionDeclaration.name.",
                    "title": "Name"
                 },
                 "partialArgs": {
@@ -41092,7 +50965,7 @@ Show JSON schema
           },
           "FunctionResponse": {
              "additionalProperties": false,
-             "description": "A function response.",
+             "description": "The result output from a FunctionCall that contains a string representing the FunctionDeclaration.name and a structured JSON object containing any output from the function is used as context to the model.\n\nThis should contain the result of a `FunctionCall` made based on model\nprediction.",
              "properties": {
                 "willContinue": {
                    "anyOf": [
@@ -41104,7 +50977,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls (see FunctionDeclaration.behavior for details), ignored otherwise. If false, the default, future responses will not be considered. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished.",
+                   "description": "Optional. Signals that function call continues, and more responses will be returned, turning the function call into a generator. Is only applicable to NON_BLOCKING function calls, is ignored otherwise. If set to false, future responses will not be considered. It is allowed to return empty `response` with `will_continue=False` to signal that the function call is finished. This may still trigger the model generation. To avoid triggering the generation and finish the function call, additionally set `scheduling` to `SILENT`. This field is not supported in Vertex AI.",
                    "title": "Willcontinue"
                 },
                 "scheduling": {
@@ -41117,7 +50990,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
+                   "description": "Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE."
                 },
                 "parts": {
                    "anyOf": [
@@ -41132,7 +51005,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "List of parts that constitute a function response. Each part may\n      have a different IANA MIME type.",
+                   "description": "Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA MIME types.",
                    "title": "Parts"
                 },
                 "id": {
@@ -41158,7 +51031,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. The name of the function to call. Matches [FunctionDeclaration.name] and [FunctionCall.name].",
+                   "description": "Required. The name of the function to call. Matches FunctionDeclaration.name and FunctionCall.name.",
                    "title": "Name"
                 },
                 "response": {
@@ -41181,7 +51054,7 @@ Show JSON schema
           },
           "FunctionResponseBlob": {
              "additionalProperties": false,
-             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the FunctionResponse.response\nfield.",
+             "description": "Raw media bytes for function response.\n\nText should not be sent as raw bytes, use the 'text' field.",
              "properties": {
                 "mimeType": {
                    "anyOf": [
@@ -41207,7 +51080,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Required. Inline media bytes.",
+                   "description": "Required. Raw bytes.",
                    "title": "Data"
                 },
                 "displayName": {
@@ -41220,7 +51093,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the blob.\n      Used to provide a label or filename to distinguish blobs.",
+                   "description": "Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled. This field is not supported in Gemini API.",
                    "title": "Displayname"
                 }
              },
@@ -41229,7 +51102,7 @@ Show JSON schema
           },
           "FunctionResponseFileData": {
              "additionalProperties": false,
-             "description": "URI based data for function response.",
+             "description": "URI based data for function response.\n\nThis data type is not supported in Gemini API.",
              "properties": {
                 "fileUri": {
                    "anyOf": [
@@ -41267,7 +51140,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Display name of the file.\n      Used to provide a label or filename to distinguish files.",
+                   "description": "Optional. Display name of the file data. Used to provide a label or filename to distinguish file datas. This field is only returned in PromptMessage for prompt management. It is currently used in the Gemini GenerateContent calls only when server side tools (code_execution, google_search, and url_context) are enabled.",
                    "title": "Displayname"
                 }
              },
@@ -41276,7 +51149,7 @@ Show JSON schema
           },
           "FunctionResponsePart": {
              "additionalProperties": false,
-             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`.\n\nA `FunctionResponsePart` must have a fixed IANA MIME type identifying the\ntype and subtype of the media if the `inline_data` field is filled with raw\nbytes.",
+             "description": "A datatype containing media that is part of a `FunctionResponse` message.\n\nA `FunctionResponsePart` consists of data which has an associated datatype. A\n`FunctionResponsePart` can only contain one of the accepted types in\n`FunctionResponsePart.data`. A `FunctionResponsePart` must have a fixed IANA\nMIME type identifying the type and subtype of the media if the `inline_data`\nfield is filled with raw bytes.",
              "properties": {
                 "inlineData": {
                    "anyOf": [
@@ -41288,7 +51161,7 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. Inline media bytes."
+                   "description": "Inline media bytes."
                 },
                 "fileData": {
                    "anyOf": [
@@ -41300,14 +51173,14 @@ Show JSON schema
                       }
                    ],
                    "default": null,
-                   "description": "Optional. URI based data."
+                   "description": "URI based data. This field is not supported in Gemini API."
                 }
              },
              "title": "FunctionResponsePart",
              "type": "object"
           },
           "FunctionResponseScheduling": {
-             "description": "Specifies how the response should be scheduled in the conversation.",
+             "description": "Specifies how the response should be scheduled in the conversation.\n\nOnly applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults\nto WHEN_IDLE.",
              "enum": [
                 "SCHEDULING_UNSPECIFIED",
                 "SILENT",
@@ -41568,6 +51441,18 @@ Show JSON schema
                    "default": null,
                    "description": "Custom metadata associated with the Part. Agents using genai.Part as content representation may need to keep track of the additional information. For example it can be name of a file/source from which the Part originates or a way to multiplex multiple Part streams. This field is not supported in Vertex AI.",
                    "title": "Partmetadata"
+                },
+                "audioTranscription": {
+                   "anyOf": [
+                      {
+                         "$ref": "#/$defs/Transcription"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Output only. The transcription of the audio part."
                 }
              },
              "title": "Part",
@@ -41812,6 +51697,82 @@ Show JSON schema
              "title": "ToolType",
              "type": "string"
           },
+          "Transcription": {
+             "additionalProperties": false,
+             "description": "Audio transcription in Server Content.",
+             "properties": {
+                "text": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. Transcription text.",
+                   "title": "Text"
+                },
+                "finished": {
+                   "anyOf": [
+                      {
+                         "type": "boolean"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Optional. The bool indicates the end of the transcription.",
+                   "title": "Finished"
+                },
+                "languageCode": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "The BCP-47 language code of the transcription.",
+                   "title": "Languagecode"
+                },
+                "speakerLabel": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "A label identifying the speaker of this audio segment (e.g. \"spk_1\", \"spk_2\").\n      ",
+                   "title": "Speakerlabel"
+                },
+                "words": {
+                   "anyOf": [
+                      {
+                         "items": {
+                            "$ref": "#/$defs/WordInfo"
+                         },
+                         "type": "array"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Detailed word-level transcriptions and timing details.\n      ",
+                   "title": "Words"
+                }
+             },
+             "title": "Transcription",
+             "type": "object"
+          },
           "VideoMetadata": {
              "additionalProperties": false,
              "description": "Provides metadata for a video, including the start and end offsets for clipping and the frame rate.",
@@ -41857,6 +51818,53 @@ Show JSON schema
                 }
              },
              "title": "VideoMetadata",
+             "type": "object"
+          },
+          "WordInfo": {
+             "additionalProperties": false,
+             "description": "Information about a single recognized word.",
+             "properties": {
+                "word": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Transcript of the word.\n      ",
+                   "title": "Word"
+                },
+                "startOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "Start offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Startoffset"
+                },
+                "endOffset": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "description": "End offset in time of the word relative to the start of the audio.\n      ",
+                   "title": "Endoffset"
+                }
+             },
+             "title": "WordInfo",
              "type": "object"
           }
        }
@@ -42123,6 +52131,16 @@ Raises:
 
 **ValueError** – If mcp_tool or mcp_session_manager is None.
 
+_async _check_require_confirmation(_args_ , _tool_context_)¶
+    
+
+Returns whether the tool requires confirmation for the given args.
+
+Return type:
+    
+
+`bool`
+
 _property _mcp_app_resource_uri _: str | None_¶
     
 
@@ -42178,7 +52196,7 @@ Returns:
 
 The result of running the tool.
 
-_property _visibility _: List[str]_¶
+_property _visibility _: list[str]_¶
     
 
 Returns the visibility if this MCP tool meta has one.
@@ -42206,7 +52224,6 @@ Usage:
     
     # Use in an agent
     agent = LlmAgent(
-        model='gemini-2.5-flash',
         name='enterprise_assistant',
         instruction='Help user accessing their file systems',
         tools=[toolset],
@@ -42251,6 +52268,12 @@ Parameters:
 
 
 
+_property _auth_credential _: AuthCredential | None_¶
+    
+
+_property _auth_scheme _: APIKey | HTTPBase | OAuth2 | OpenIdConnect | HTTPBearer | OpenIdConnectWithConfig | CustomAuthScheme | None_¶
+    
+
 _async _close()¶
     
 
@@ -42262,6 +52285,12 @@ Return type:
     
 
 `None`
+
+_property _connection_params _: StdioServerParameters | StdioConnectionParams | SseConnectionParams | StreamableHTTPConnectionParams_¶
+    
+
+_property _errlog _: TextIO_¶
+    
 
 _classmethod _from_config(_config_ , _config_abs_path_)¶
     
@@ -42320,6 +52349,9 @@ Return type:
 
 List[BaseTool]
 
+_property _header_provider _: Callable[[ReadonlyContext], Dict[str, str] | Awaitable[Dict[str, str]]] | None_¶
+    
+
 _async _list_resources(_readonly_context =None_)¶
     
 
@@ -42353,6 +52385,9 @@ Returns:
     
 
 List of contents of the resource.
+
+_property _require_confirmation _: bool | Callable[[...], bool]_¶
+    
 
 _pydantic model _google.adk.tools.mcp_tool.SseConnectionParams¶
     
@@ -42769,9 +52804,51 @@ Raises:
 
 
 
+google.adk.tools.mcp_tool.to_mcp_server(_agent_ , _*_ , _name =None_, _instructions =None_, _runner =None_)¶
+    
+
+Exposes an ADK agent as an MCP server.
+
+The returned server registers a single MCP tool that runs the agent: an MCP host (e.g. Claude Code, OpenAI Codex, an IDE, or any MCP client) sends a request string and receives the agent’s final response, including any images or audio the agent produced. This is the MCP counterpart of `to_a2a`; it lets harnesses that speak MCP drive an ADK agent.
+
+One ADK session is kept per MCP connection, so successive tool calls on the same connection form a single multi-turn conversation.
+
+The caller chooses the transport, e.g. `server.run(transport="stdio")` for a local host or `server.run(transport="streamable-http")` for a networked one.
+
+Return type:
+    
+
+`FastMCP`
+
+Parameters:
+    
+
+  * **agent** – The ADK agent to serve.
+
+  * **name** – The MCP server and tool name. Defaults to the agent’s name.
+
+  * **instructions** – Optional instructions the MCP host may show to its model.
+
+  * **runner** – A pre-built Runner. If omitted, one is created with in-memory services.
+
+
+
+Returns:
+    
+
+A `FastMCP` server exposing the agent as a single tool.
+
+Example:
+    
+    
+    agent = LlmAgent(name="assistant", model="gemini-2.0-flash", ...)
+    server = to_mcp_server(agent)
+    server.run(transport="stdio")
+    
+
 # google.adk.tools.openapi_tool module¶
 
-_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _credential_key =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_, _preserve_property_names =False_)¶
+_class _google.adk.tools.openapi_tool.OpenAPIToolset(_*_ , _spec_dict =None_, _spec_str =None_, _spec_str_type ='json'_, _auth_scheme =None_, _auth_credential =None_, _credential_key =None_, _tool_filter =None_, _tool_name_prefix =None_, _ssl_verify =None_, _header_provider =None_, _httpx_client_factory =None_, _preserve_property_names =False_)¶
     
 
 Bases: `BaseToolset`
@@ -42837,9 +52914,15 @@ Parameters:
 
   * **tool_name_prefix** – The prefix to prepend to the names of the tools returned by the toolset. Useful when multiple OpenAPI specs have tools with similar names.
 
-  * **ssl_verify** – SSL certificate verification option for all tools. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
+  * **ssl_verify** – 
+
+SSL certificate verification option for all tools. Can be: - None: Use default verification (True) - True: Verify SSL certificates
+
+> using system CA - False: Disable SSL verification (insecure, not recommended) - str: Path to a CA bundle file or directory for custom CA - ssl.SSLContext: Custom SSL context for advanced configuration This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
 
   * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
+  * **httpx_client_factory** – Optional zero-argument callable returning an `httpx.AsyncClient` to use for every generated tool’s API calls. When provided, it takes precedence over the per-tool default client construction and unlocks `httpx.AsyncClient` options that `ssl_verify` can’t reach (proxies, HTTP/2, custom transports such as request signing). The returned client is used as an async context manager and closed after each request, so the factory must return a fresh client on every call. Defaults to `None`, in which case each generated tool constructs its own `httpx.AsyncClient` per request. Mirrors the pattern exposed for MCP by `StreamableHTTPConnectionParams.httpx_client_factory`.
 
   * **preserve_property_names** – If True, preserve the original property names from the OpenAPI spec instead of converting them to snake_case. This is useful when calling APIs that expect camelCase or other non-snake_case parameter names in the request. Defaults to False for backward compatibility.
 
@@ -42851,6 +52934,11 @@ _async _close()¶
 
 Performs cleanup and releases resources held by the toolset.
 
+Return type:
+    
+
+`None`
+
 Note
 
 This method is invoked, for example, at the end of an agent server’s lifecycle or when the toolset is no longer needed. Implementations should ensure that any open connections, files, or other managed resources are properly released to prevent leaks.
@@ -42861,6 +52949,11 @@ configure_ssl_verify_all(_ssl_verify =None_)¶
 Configure SSL certificate verification for all tools.
 
 This is useful for enterprise environments where requests go through a TLS-intercepting proxy with a custom CA certificate.
+
+Return type:
+    
+
+`None`
 
 Parameters:
     
@@ -42887,7 +52980,7 @@ Return type:
 
 `List`[`RestApiTool`]
 
-_class _google.adk.tools.openapi_tool.RestApiTool(_name_ , _description_ , _endpoint_ , _operation_ , _auth_scheme =None_, _auth_credential =None_, _should_parse_operation =True_, _ssl_verify =None_, _header_provider =None_, _*_ , _credential_key =None_)¶
+_class _google.adk.tools.openapi_tool.RestApiTool(_name_ , _description_ , _endpoint_ , _operation_ , _auth_scheme =None_, _auth_credential =None_, _should_parse_operation =True_, _ssl_verify =None_, _header_provider =None_, _httpx_client_factory =None_, _*_ , _credential_key =None_)¶
     
 
 Bases: `BaseTool`
@@ -42940,9 +53033,15 @@ Parameters:
 
   * **should_parse_operation** – Whether to parse the operation.
 
-  * **ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
+  * **ssl_verify** – 
+
+SSL certificate verification option. Can be: - None: Use default verification - True: Verify SSL certificates using system CA - False: Disable SSL verification (insecure, not recommended) - str:
+
+> Path to a CA bundle file or directory for custom CA - ssl.SSLContext: Custom SSL context for advanced configuration
 
   * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
+  * **httpx_client_factory** – Optional zero-argument callable returning an `httpx.AsyncClient`. When provided, the returned client is used as an async context manager to issue the request and is closed once the request completes, so the factory must return a fresh client on each call. This lets callers configure proxies, HTTP/2, custom transports (e.g. request signing), or any other `httpx.AsyncClient` option that `ssl_verify` can’t reach. When `None` (default), a fresh `httpx.AsyncClient(verify=..., timeout=None)` is created per request. Mirrors the pattern exposed for MCP by `StreamableHTTPConnectionParams.httpx_client_factory`.
 
   * **credential_key** – Optional stable key used for interactive auth and credential caching.
 
@@ -43010,7 +53109,7 @@ Parameters:
 
 **ssl_verify** – SSL certificate verification option. Can be: \- None: Use default verification (True) \- True: Verify SSL certificates using system CA \- False: Disable SSL verification (insecure, not recommended) \- str: Path to a CA bundle file or directory for custom CA \- ssl.SSLContext: Custom SSL context for advanced configuration
 
-_classmethod _from_parsed_operation(_parsed_ , _ssl_verify =None_, _header_provider =None_)¶
+_classmethod _from_parsed_operation(_parsed_ , _ssl_verify =None_, _header_provider =None_, _httpx_client_factory =None_)¶
     
 
 Initializes the RestApiTool from a ParsedOperation object.
@@ -43028,6 +53127,8 @@ Parameters:
   * **ssl_verify** – SSL certificate verification option.
 
   * **header_provider** – A callable that returns a dictionary of headers to be included in API requests. The callable receives the ReadonlyContext as an argument, allowing dynamic header generation based on the current context. Useful for adding custom headers like correlation IDs, authentication tokens, or other request metadata.
+
+  * **httpx_client_factory** – Optional zero-argument callable returning an `httpx.AsyncClient` to be used for the API call. See `RestApiTool.__init__` for details.
 
 
 
@@ -43336,7 +53437,7 @@ Return type:
 
 # google.adk.tools.retrieval module¶
 
-_class _google.adk.tools.retrieval.BaseRetrievalTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_)¶
+_class _google.adk.tools.retrieval.BaseRetrievalTool(_*_ , _name_ , _description_ , _is_long_running =False_, _custom_metadata =None_, _response_scheduling =None_)¶
     
 
 Bases: `BaseTool`
@@ -43611,7 +53712,7 @@ Returns:
 
 The result of running the tool.
 
-_class _google.adk.tools.skill_toolset.SkillToolset(_skills =None_, _*_ , _registry =None_, _code_executor =None_, _script_timeout =300_, _additional_tools =None_)¶
+_class _google.adk.tools.skill_toolset.SkillToolset(_skills =None_, _*_ , _registry =None_, _code_executor =None_, _script_timeout =300_, _additional_tools =None_, _tool_name_prefix =None_, _tool_filter =None_)¶
     
 
 Bases: `BaseToolset`
@@ -43633,8 +53734,22 @@ Parameters:
 
   * **additional_tools** – Optional list of BaseTool or BaseToolset instances to be made available to the agent when certain skills are activated.
 
+  * **tool_name_prefix** – Optional prefix to prepend to tool names.
+
+  * **tool_filter** – Optional filter to select specific tools.
 
 
+
+
+clone_with_updated_skills(_skills_)¶
+    
+
+Creates a new SkillToolset with identical configuration but modified skills.
+
+Return type:
+    
+
+`SkillToolset`
 
 _async _close()¶
     
@@ -43665,6 +53780,11 @@ Return type:
     
 
 `None`
+
+_property _skills _: list[Skill]_¶
+    
+
+Returns the list of available skills.
 
 # google.adk.tools.spanner module¶
 
@@ -44158,6 +54278,18 @@ _field _payload _: Optional[Any]__ = None_¶
 
 The custom data payload needed from the user to continue the flow. It should be JSON serializable.
 
+_classmethod _from_response_dict(_response_)¶
+    
+
+Parse ToolConfirmation from a function response dict.
+
+Handles both the direct dict format and the ADK client’s `{'response': json_string}` wrapper format.
+
+Return type:
+    
+
+`ToolConfirmation`
+
 # google.adk.tools.tool_context module¶
 
 # google.adk.tools.toolbox_toolset module¶
@@ -44267,18 +54399,14 @@ Parameters:
 google.adk.tools.transfer_to_agent_tool.transfer_to_agent(_agent_name_ , _tool_context_)¶
     
 
-Transfer the question to another agent.
+Transfer the query to another agent.
 
-This tool hands off control to another agent when it’s more suitable to answer the user’s question according to the agent’s description.
+Use this tool to hand off control to another agent that is more suitable to answer the user’s query according to the agent’s description.
 
 Return type:
     
 
 `None`
-
-Note
-
-For most use cases, you should use TransferToAgentTool instead of this function directly. TransferToAgentTool provides additional enum constraints that prevent LLMs from hallucinating invalid agent names.
 
 Parameters:
     
@@ -44317,6 +54445,37 @@ Parameters:
 
 
 
+
+# google.adk.tools.vertex_ai_load_profiles_tool module¶
+
+_class _google.adk.tools.vertex_ai_load_profiles_tool.VertexAiLoadProfilesTool(_memory_service_)¶
+    
+
+Bases: `FunctionTool`
+
+A tool that loads a user’s structured profiles from Vertex Memory Bank.
+
+Initializes the FunctionTool. Extracts metadata from a callable object.
+
+Parameters:
+    
+
+  * **func** – The function to wrap.
+
+  * **require_confirmation** – Whether this tool requires confirmation. A boolean or a callable that takes the function’s arguments and returns a boolean. If the callable returns True, the tool will require confirmation from the user.
+
+
+
+
+_async _load_profiles(_tool_context_)¶
+    
+
+Loads structured user profiles for the current user.
+
+Return type:
+    
+
+`dict`[`str`, `Any`]
 
 # google.adk.tools.vertex_ai_search_tool module¶
 
@@ -46463,6 +56622,18 @@ Show JSON schema
                    "default": null,
                    "title": "Audience"
                 },
+                "prompt": {
+                   "anyOf": [
+                      {
+                         "type": "string"
+                      },
+                      {
+                         "type": "null"
+                      }
+                   ],
+                   "default": null,
+                   "title": "Prompt"
+                },
                 "codeVerifier": {
                    "anyOf": [
                       {
@@ -48190,6 +58361,18 @@ Show JSON schema
              "default": false,
              "title": "Parallel Worker",
              "type": "boolean"
+          },
+          "max_parallel_workers": {
+             "anyOf": [
+                {
+                   "type": "integer"
+                },
+                {
+                   "type": "null"
+                }
+             ],
+             "default": null,
+             "title": "Max Parallel Workers"
           }
        },
        "$defs": {
@@ -48654,6 +58837,8 @@ Show JSON schema
 Fields:
     
 
+  * `max_parallel_workers (int | None)`
+
   * `parallel_worker (bool)`
 
 
@@ -48661,8 +58846,32 @@ Fields:
 Validators:
     
 
+  * `_validate_parallel_worker_config` » `all fields`
+
+
+
+
+_field _max_parallel_workers _: int | None_ _ = None_¶
+    
+
+Validated by:
+    
+
+  * `_validate_parallel_worker_config`
+
+
+
+
 _field _parallel_worker _: bool_ _ = False_¶
     
+
+Validated by:
+    
+
+  * `_validate_parallel_worker_config`
+
+
+
 
 model_copy(_*_ , _update =None_, _deep =False_)¶
     
@@ -49745,7 +59954,7 @@ Return type:
 
 `None`
 
-google.adk.workflow.node(_node_like =None_, _*_ , _name =None_, _rerun_on_resume =None_, _retry_config =None_, _timeout =None_, _parallel_worker =False_, _auth_config =None_)¶
+google.adk.workflow.node(_node_like =None_, _*_ , _name =None_, _rerun_on_resume =None_, _retry_config =None_, _timeout =None_, _parallel_worker =False_, _max_parallel_workers =None_, _auth_config =None_, _parameter_binding ='state'_)¶
     
 
 Decorator or function to wrap a NodeLike in a node or override its properties.
@@ -49779,6 +59988,8 @@ Parameters:
   * **parallel_worker** – If True, wraps the node in a _ParallelWorker.
 
   * **auth_config** – If provided, the framework requests user authentication before running the node. Requires rerun_on_resume=True.
+
+  * **parameter_binding** – How function parameters are bound. `'state'` (default) binds parameters from `ctx.state`. `'node_input'` binds parameters from `node_input` dict and infers `input_schema` / `output_schema` from the function signature (used when the node acts as an agent’s tool).
 
 
 

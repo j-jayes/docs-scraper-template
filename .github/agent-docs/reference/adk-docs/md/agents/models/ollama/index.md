@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../llm-agents/)
+      * [ Managed agents  ](../../managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
       * [ Model routing  ](../routing/)
+      * [ OpenAI  ](../openai/)
       * Ollama  [ Ollama  ](./) Table of contents 
         * Get started 
         * Model choice 
@@ -164,14 +166,10 @@ Callbacks
         * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../../plugins/)
-    * [ Context  ](../../../context/)
+    * [ Agent context  ](../../../context/)
 
-Context 
-      * [ Context caching  ](../../../context/caching/)
-      * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions and Memory  ](../../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../../sessions/)
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
@@ -180,6 +178,8 @@ Sessions
       * [ State  ](../../../sessions/state/)
       * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
+      * [ Context compression  ](../../../context/compaction/)
+      * [ Model context caching  ](../../../context/caching/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -221,7 +221,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
       * [ Typescript ADK  ](../../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
       * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
@@ -251,7 +253,7 @@ Table of contents
   2. [ Build Agents  ](../../../get-started/)
   3. [ Models for Agents  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/ollama.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/models/ollama.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/ollama.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Ollama model host for ADK agents¶
 

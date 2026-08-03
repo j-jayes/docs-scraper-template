@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid
 
@@ -22,7 +22,7 @@ Returns the enum constant of this type with the specified name. The string must 
 
 #### Throws
 
-[IllegalArgumentException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html)
+kotlin.IllegalArgumentException
 
 if this enum type has no constant with the specified name
 

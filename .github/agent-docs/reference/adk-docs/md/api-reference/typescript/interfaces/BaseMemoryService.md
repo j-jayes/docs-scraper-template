@@ -27,10 +27,11 @@ searchMemory(request: [SearchMemoryRequest](SearchMemoryRequest.html)): Promise<
 #### Implemented by
 
   * [InMemoryMemoryService](../classes/InMemoryMemoryService.html)
+  * [VertexAiMemoryBankService](../classes/VertexAiMemoryBankService.html)
 
 
 
-  * Defined in [memory/base_memory_service.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L36)
+  * Defined in [core/src/memory/base_memory_service.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L44)
 
 
 
@@ -52,7 +53,7 @@ The session to add to the memory.
 
 A promise that resolves when the session is added to the memory.
 
-    * Defined in [memory/base_memory_service.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L43)
+    * Defined in [core/src/memory/base_memory_service.ts:51](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L51)
 
 
 
@@ -73,7 +74,7 @@ The request to search memory.
 
 A promise that resolves to SearchMemoryResponse containing the matching memories.
 
-    * Defined in [memory/base_memory_service.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L52)
+    * Defined in [core/src/memory/base_memory_service.ts:60](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L60)
 
 
 
@@ -82,7 +83,7 @@ Methods
 
 addSessionToMemorysearchMemory
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

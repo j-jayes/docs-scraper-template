@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -178,14 +180,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -194,6 +192,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -235,7 +235,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -279,7 +281,7 @@ Table of contents
   2. [ Run Agents  ](../)
   3. [ Agent Runtime  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/runtime/event-loop.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/runtime/event-loop.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/runtime/event-loop.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Runtime Event Loop¶
 
@@ -383,7 +385,7 @@ PythonTypeScriptGoJavaKotlin
         return func(yield func(*Event, error) bool) {
             // 1. Append new_query to session event history (via SessionService)
             // ...
-            userEvent := session.NewEvent(ctx.InvocationID()) // Simplified for conceptual view
+            userEvent := session.NewEvent(ctx, ctx.InvocationID()) // Simplified for conceptual view
             userEvent.Author = "user"
             userEvent.LLMResponse = model.LLMResponse{Content: newQuery}
     
@@ -844,7 +846,7 @@ PythonTypeScriptGoJavaKotlin
     
           // 1. Determine a change or output is needed, construct the event
           updateData := map[string]interface{}{"field_1": "value_2"}
-          eventWithStateChange := session.NewEvent(ctx.InvocationID())
+          eventWithStateChange := session.NewEvent(ctx, ctx.InvocationID())
           eventWithStateChange.Author = a.Name()
           eventWithStateChange.Actions = &session.EventActions{StateDelta: updateData}
           // ... other event fields ...
@@ -870,7 +872,7 @@ PythonTypeScriptGoJavaKotlin
           // of the *next* `Run` invocation in a subsequent turn.
     
           // ... subsequent code continues, potentially yielding more events ...
-          finalEvent := session.NewEvent(ctx.InvocationID())
+          finalEvent := session.NewEvent(ctx, ctx.InvocationID())
           finalEvent.Author = a.Name()
           // ...
           yield(finalEvent, nil)

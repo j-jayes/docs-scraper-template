@@ -18,14 +18,14 @@ Preparing search index...
 The parameters for creating an invocation context.
 
 interface InvocationContextParams {  
+abortSignal?: AbortSignal;  
 activeStreamingTools?: Record<string, [ActiveStreamingTool](../classes/ActiveStreamingTool.html)>;  
 agent: [BaseAgent](../classes/BaseAgent.html);  
-artifactService?: [BaseArtifactService](BaseArtifactService.html);  
+artifactService?: [SessionArtifactService](SessionArtifactService.html);  
 branch?: string;  
 credentialService?: [BaseCredentialService](BaseCredentialService.html);  
 endInvocation?: boolean;  
 invocationId: string;  
-liveRequestQueue?: [LiveRequestQueue](../classes/LiveRequestQueue.html);  
 memoryService?: [BaseMemoryService](BaseMemoryService.html);  
 pluginManager: [PluginManager](../classes/PluginManager.html);  
 runConfig?: [RunConfig](RunConfig.html);  
@@ -35,17 +35,25 @@ transcriptionCache?: [TranscriptionEntry](TranscriptionEntry.html)[];
 userContent?: Content;  
 }
 
-  * Defined in [agents/invocation_context.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L26)
+  * Defined in [core/src/agents/invocation_context.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L25)
 
 
 
 ## Properties
 
+### `Optional`abortSignal
+
+abortSignal?: AbortSignal
+
+  * Defined in [core/src/agents/invocation_context.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L40)
+
+
+
 ### `Optional`activeStreamingTools
 
 activeStreamingTools?: Record<string, [ActiveStreamingTool](../classes/ActiveStreamingTool.html)>
 
-  * Defined in [agents/invocation_context.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L40)
+  * Defined in [core/src/agents/invocation_context.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L38)
 
 
 
@@ -53,15 +61,15 @@ activeStreamingTools?: Record<string, [ActiveStreamingTool](../classes/ActiveStr
 
 agent: [BaseAgent](../classes/BaseAgent.html)
 
-  * Defined in [agents/invocation_context.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L33)
+  * Defined in [core/src/agents/invocation_context.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L32)
 
 
 
 ### `Optional`artifactService
 
-artifactService?: [BaseArtifactService](BaseArtifactService.html)
+artifactService?: [SessionArtifactService](SessionArtifactService.html)
 
-  * Defined in [agents/invocation_context.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L27)
+  * Defined in [core/src/agents/invocation_context.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L26)
 
 
 
@@ -69,7 +77,7 @@ artifactService?: [BaseArtifactService](BaseArtifactService.html)
 
 branch?: string
 
-  * Defined in [agents/invocation_context.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L32)
+  * Defined in [core/src/agents/invocation_context.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L31)
 
 
 
@@ -77,7 +85,7 @@ branch?: string
 
 credentialService?: [BaseCredentialService](BaseCredentialService.html)
 
-  * Defined in [agents/invocation_context.ts:30](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L30)
+  * Defined in [core/src/agents/invocation_context.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L29)
 
 
 
@@ -85,7 +93,7 @@ credentialService?: [BaseCredentialService](BaseCredentialService.html)
 
 endInvocation?: boolean
 
-  * Defined in [agents/invocation_context.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L36)
+  * Defined in [core/src/agents/invocation_context.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L35)
 
 
 
@@ -93,15 +101,7 @@ endInvocation?: boolean
 
 invocationId: string
 
-  * Defined in [agents/invocation_context.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L31)
-
-
-
-### `Optional`liveRequestQueue
-
-liveRequestQueue?: [LiveRequestQueue](../classes/LiveRequestQueue.html)
-
-  * Defined in [agents/invocation_context.ts:39](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L39)
+  * Defined in [core/src/agents/invocation_context.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L30)
 
 
 
@@ -109,7 +109,7 @@ liveRequestQueue?: [LiveRequestQueue](../classes/LiveRequestQueue.html)
 
 memoryService?: [BaseMemoryService](BaseMemoryService.html)
 
-  * Defined in [agents/invocation_context.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L29)
+  * Defined in [core/src/agents/invocation_context.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L28)
 
 
 
@@ -117,7 +117,7 @@ memoryService?: [BaseMemoryService](BaseMemoryService.html)
 
 pluginManager: [PluginManager](../classes/PluginManager.html)
 
-  * Defined in [agents/invocation_context.ts:41](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L41)
+  * Defined in [core/src/agents/invocation_context.ts:39](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L39)
 
 
 
@@ -125,7 +125,7 @@ pluginManager: [PluginManager](../classes/PluginManager.html)
 
 runConfig?: [RunConfig](RunConfig.html)
 
-  * Defined in [agents/invocation_context.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L38)
+  * Defined in [core/src/agents/invocation_context.ts:37](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L37)
 
 
 
@@ -133,7 +133,7 @@ runConfig?: [RunConfig](RunConfig.html)
 
 session: [Session](Session.html)
 
-  * Defined in [agents/invocation_context.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L35)
+  * Defined in [core/src/agents/invocation_context.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L34)
 
 
 
@@ -141,7 +141,7 @@ session: [Session](Session.html)
 
 sessionService?: [BaseSessionService](../classes/BaseSessionService.html)
 
-  * Defined in [agents/invocation_context.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L28)
+  * Defined in [core/src/agents/invocation_context.ts:27](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L27)
 
 
 
@@ -149,7 +149,7 @@ sessionService?: [BaseSessionService](../classes/BaseSessionService.html)
 
 transcriptionCache?: [TranscriptionEntry](TranscriptionEntry.html)[]
 
-  * Defined in [agents/invocation_context.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L37)
+  * Defined in [core/src/agents/invocation_context.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L36)
 
 
 
@@ -157,15 +157,15 @@ transcriptionCache?: [TranscriptionEntry](TranscriptionEntry.html)[]
 
 userContent?: Content
 
-  * Defined in [agents/invocation_context.ts:34](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L34)
+  * Defined in [core/src/agents/invocation_context.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L33)
 
 
 
 Properties
 
-activeStreamingToolsagentartifactServicebranchcredentialServiceendInvocationinvocationIdliveRequestQueuememoryServicepluginManagerrunConfigsessionsessionServicetranscriptionCacheuserContent
+abortSignalactiveStreamingToolsagentartifactServicebranchcredentialServiceendInvocationinvocationIdmemoryServicepluginManagerrunConfigsessionsessionServicetranscriptionCacheuserContent
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

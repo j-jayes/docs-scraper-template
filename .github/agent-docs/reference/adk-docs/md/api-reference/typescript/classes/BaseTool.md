@@ -20,15 +20,33 @@ The base class for all tools.
 #### Hierarchy ([View Summary](../hierarchy.html#BaseTool))
 
   * BaseTool
+    * [LoadMcpResourceTool](LoadMcpResourceTool.html)
     * [MCPTool](MCPTool.html)
+    * [RunSkillInlineScriptTool](RunSkillInlineScriptTool.html)
+    * [RunSkillScriptTool](RunSkillScriptTool.html)
     * [AgentTool](AgentTool.html)
+    * [ConsolidateContextTool](ConsolidateContextTool.html)
+    * [EnterpriseWebSearchTool](EnterpriseWebSearchTool.html)
+    * [ExampleTool](ExampleTool.html)
     * [ExitLoopTool](ExitLoopTool.html)
     * [FunctionTool](FunctionTool.html)
+    * [GoogleMapsGroundingTool](GoogleMapsGroundingTool.html)
     * [GoogleSearchTool](GoogleSearchTool.html)
+    * [LoadArtifactsTool](LoadArtifactsTool.html)
+    * [LoadMemoryTool](LoadMemoryTool.html)
+    * [PreloadMemoryTool](PreloadMemoryTool.html)
+    * [UrlContextTool](UrlContextTool.html)
+    * [VertexAiSearchTool](VertexAiSearchTool.html)
+    * [VertexRagRetrievalTool](VertexRagRetrievalTool.html)
+    * [ListSkillsTool](ListSkillsTool.html)
+    * [LoadSkillResourceTool](LoadSkillResourceTool.html)
+    * [LoadSkillTool](LoadSkillTool.html)
+    * [SearchSkillsTool](SearchSkillsTool.html)
+    * [RestApiTool](RestApiTool.html)
 
 
 
-  * Defined in [tools/base_tool.ts:62](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L62)
+  * Defined in [core/src/tools/base_tool.ts:62](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L62)
 
 
 
@@ -48,7 +66,7 @@ The parameters for `BaseTool`.
 
 #### Returns [BaseTool]()
 
-    * Defined in [tools/base_tool.ts:75](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L75)
+    * Defined in [core/src/tools/base_tool.ts:75](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L75)
 
 
 
@@ -61,7 +79,7 @@ The parameters for `BaseTool`.
 
 A unique symbol to identify ADK base tool class.
 
-  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+  * Defined in [core/src/tools/base_tool.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L64)
 
 
 
@@ -69,7 +87,7 @@ A unique symbol to identify ADK base tool class.
 
 description: string
 
-  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
+  * Defined in [core/src/tools/base_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -77,7 +95,7 @@ description: string
 
 isLongRunning: boolean
 
-  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
+  * Defined in [core/src/tools/base_tool.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -85,7 +103,7 @@ isLongRunning: boolean
 
 name: string
 
-  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
+  * Defined in [core/src/tools/base_tool.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -99,7 +117,7 @@ The Google API LLM variant to use.
 
 #### Returns [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
-    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
+    * Defined in [core/src/tools/base_tool.ts:151](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -121,7 +139,7 @@ NOTE
 
 The FunctionDeclaration of this tool, or undefined if it doesn't need to be added to LlmRequest.config.
 
-    * Defined in [tools/base_tool.ts:94](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L94)
+    * Defined in [core/src/tools/base_tool.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L94)
 
 
 
@@ -145,7 +163,7 @@ The request to process the LLM request.
 
 #### Returns Promise<void>
 
-    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
+    * Defined in [core/src/tools/base_tool.ts:120](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -171,7 +189,7 @@ The request to run the tool.
 
 A promise that resolves to the tool response.
 
-    * Defined in [tools/base_tool.ts:109](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L109)
+    * Defined in [core/src/tools/base_tool.ts:109](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L109)
 
 
 
@@ -192,7 +210,7 @@ Methods
 
 _getDeclarationprocessLlmRequestrunAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

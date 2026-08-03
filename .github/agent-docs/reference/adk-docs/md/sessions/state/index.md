@@ -86,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -161,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../)
       * [ Sessions  ](../session/)
 
 Sessions 
@@ -187,6 +184,8 @@ Sessions
           * Best Practices for State Design Recap 
       * [ Events  ](../../events/)
       * [ Memory  ](../memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -264,7 +263,7 @@ Table of contents
 
   1. [ Home  ](../..)
   2. [ Components  ](../../get-started/about/)
-  3. [ Sessions and Memory  ](../)
+  3. [ Agent context  ](../../context/)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/sessions/state.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
@@ -695,7 +694,7 @@ PythonTypeScriptGoJava
           print(f"Agent responded.") # Response text is also in event.content
     
     # --- Check Updated State ---
-    updated_session = await session_service.get_session(app_name=APP_NAME, user_id=USER_ID, session_id=session_id)
+    updated_session = await session_service.get_session(app_name=app_name, user_id=user_id, session_id=session_id)
     print(f"State after agent run: {updated_session.state}")
     # Expected output might include: {'last_greeting': 'Hello there! How can I help you today?'}
     

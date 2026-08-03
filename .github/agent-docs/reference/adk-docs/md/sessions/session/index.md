@@ -1,12 +1,12 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](../.. "Agent Development Kit \(ADK\)")
 
-Session: Tracking Individual Conversations 
+Session: Tracking individual conversations 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -160,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../)
       * [ Sessions  ](./)
 
 Sessions 
@@ -176,6 +174,8 @@ Sessions
       * [ State  ](../state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -217,7 +217,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -236,32 +238,34 @@ ADK 2.0
 
 Table of contents 
 
-  * The Session Object 
-    * Example: Examining Session Properties 
-  * Managing Sessions with a SessionService 
+  * Session objects 
+    * Example: Examining session properties 
+  * Session lifecycle 
+  * Managing sessions with a SessionService 
   * SessionService implementations 
     * InMemorySessionService 
     * VertexAiSessionService 
     * DatabaseSessionService 
       * Concurrency and locking 
-  * The Session Lifecycle 
+  * Troubleshoot session errors 
+    * SessionNotFoundError 
 
 
 
   1. [ Home  ](../..)
   2. [ Components  ](../../get-started/about/)
-  3. [ Sessions and Memory  ](../)
+  3. [ Agent context  ](../../context/)
   4. [ Sessions  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/sessions/session/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/sessions/session/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/sessions/session/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
-# Session: Tracking Individual Conversations¶
+# Session: Tracking individual conversations¶
 
 Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
-Following our Introduction, let's dive into the `Session`. Think back to the idea of a "conversation thread." Just like you wouldn't start every text message from scratch, agents need context regarding the ongoing interaction. **`Session`** is the ADK object designed specifically to track and manage these individual conversation threads.
+A `Session` represents a single conversation thread between a user and your agent. Just like you wouldn't start every text message from scratch, agents need context regarding the ongoing interaction. The `Session` object in ADK is designed specifically to track and manage these individual conversation threads.
 
-## The `Session` Object¶
+## `Session` objects¶
 
 When a user starts interacting with your agent, the `SessionService` creates a `Session` object (`google.adk.sessions.Session`). This object acts as the container holding everything related to that _one specific chat thread_. Here are its key properties:
 
@@ -275,63 +279,65 @@ When a user starts interacting with your agent, the `SessionService` creates a `
 
 
 
-### Example: Examining Session Properties¶
+### Example: Examining session properties¶
+
+The following code example demonstrates how to list various values stored in a session object:
 
 PythonTypeScriptGoJavaKotlin
     
     
-     from google.adk.sessions import InMemorySessionService, Session
+    from google.adk.sessions import InMemorySessionService, Session
     
-     # Create a simple session to examine its properties
-     temp_service = InMemorySessionService()
-     example_session = await temp_service.create_session(
-         app_name="my_app",
-         user_id="example_user",
-         state={"initial_key": "initial_value"} # State can be initialized
-     )
+    # Create a simple session to examine its properties
+    temp_service = InMemorySessionService()
+    example_session = await temp_service.create_session(
+        app_name="my_app",
+        user_id="example_user",
+        state={"initial_key": "initial_value"} # State can be initialized
+    )
     
-     print(f"--- Examining Session Properties ---")
-     print(f"ID (`id`):                {example_session.id}")
-     print(f"Application Name (`app_name`): {example_session.app_name}")
-     print(f"User ID (`user_id`):         {example_session.user_id}")
-     print(f"State (`state`):           {example_session.state}") # Note: Only shows initial state here
-     print(f"Events (`events`):         {example_session.events}") # Initially empty
-     print(f"Last Update (`last_update_time`): {example_session.last_update_time:.2f}")
-     print(f"---------------------------------")
+    print(f"--- Examining Session Properties ---")
+    print(f"ID (`id`):                {example_session.id}")
+    print(f"Application Name (`app_name`): {example_session.app_name}")
+    print(f"User ID (`user_id`):         {example_session.user_id}")
+    print(f"State (`state`):           {example_session.state}") # Note: Only shows initial state here
+    print(f"Events (`events`):         {example_session.events}") # Initially empty
+    print(f"Last Update (`last_update_time`): {example_session.last_update_time:.2f}")
+    print(f"---------------------------------")
     
-     # Clean up (optional for this example)
-     await temp_service.delete_session(app_name=example_session.app_name,
-                                 user_id=example_session.user_id, session_id=example_session.id)
-     print("The final status of temp_service - ", temp_service)
+    # Clean up (optional for this example)
+    await temp_service.delete_session(app_name=example_session.app_name,
+                                user_id=example_session.user_id, session_id=example_session.id)
+    print("The final status of temp_service - ", temp_service)
     
     
     
-     import { InMemorySessionService } from "@google/adk";
+    import { InMemorySessionService } from "@google/adk";
     
-     // Create a simple session to examine its properties
-     const tempService = new InMemorySessionService();
-     const exampleSession = await tempService.createSession({
-         appName: "my_app",
-         userId: "example_user",
-         state: {"initial_key": "initial_value"} // State can be initialized
-     });
+    // Create a simple session to examine its properties
+    const tempService = new InMemorySessionService();
+    const exampleSession = await tempService.createSession({
+        appName: "my_app",
+        userId: "example_user",
+        state: {"initial_key": "initial_value"} // State can be initialized
+    });
     
-     console.log("--- Examining Session Properties ---");
-     console.log(`ID ('id'):                ${exampleSession.id}`);
-     console.log(`Application Name ('appName'): ${exampleSession.appName}`);
-     console.log(`User ID ('userId'):         ${exampleSession.userId}`);
-     console.log(`State ('state'):           ${JSON.stringify(exampleSession.state)}`); // Note: Only shows initial state here
-     console.log(`Events ('events'):         ${JSON.stringify(exampleSession.events)}`); // Initially empty
-     console.log(`Last Update ('lastUpdateTime'): ${exampleSession.lastUpdateTime}`);
-     console.log("---------------------------------");
+    console.log("--- Examining Session Properties ---");
+    console.log(`ID ('id'):                ${exampleSession.id}`);
+    console.log(`Application Name ('appName'): ${exampleSession.appName}`);
+    console.log(`User ID ('userId'):         ${exampleSession.userId}`);
+    console.log(`State ('state'):           ${JSON.stringify(exampleSession.state)}`); // Note: Only shows initial state here
+    console.log(`Events ('events'):         ${JSON.stringify(exampleSession.events)}`); // Initially empty
+    console.log(`Last Update ('lastUpdateTime'): ${exampleSession.lastUpdateTime}`);
+    console.log("---------------------------------");
     
-     // Clean up (optional for this example)
-     const finalStatus = await tempService.deleteSession({
-         appName: exampleSession.appName,
-         userId: exampleSession.userId,
-         sessionId: exampleSession.id
-     });
-     console.log("The final status of temp_service - ", finalStatus);
+    // Clean up (optional for this example)
+    const finalStatus = await tempService.deleteSession({
+        appName: exampleSession.appName,
+        userId: exampleSession.userId,
+        sessionId: exampleSession.id
+    });
+    console.log("The final status of temp_service - ", finalStatus);
     
     
     
@@ -341,12 +347,12 @@ PythonTypeScriptGoJavaKotlin
     
     // Create a session to examine its properties.
     createResp, err := inMemoryService.Create(ctx, &session.CreateRequest{
-     AppName: appName,
-     UserID:  userID,
-     State:   initialState,
+        AppName: appName,
+        UserID:  userID,
+        State:   initialState,
     })
     if err != nil {
-     log.Fatalf("Failed to create session: %v", err)
+        log.Fatalf("Failed to create session: %v", err)
     }
     exampleSession := createResp.Session
     
@@ -364,76 +370,92 @@ PythonTypeScriptGoJavaKotlin
     
     // Clean up the session.
     err = inMemoryService.Delete(ctx, &session.DeleteRequest{
-     AppName:   exampleSession.AppName(),
-     UserID:    exampleSession.UserID(),
-     SessionID: exampleSession.ID(),
+        AppName:   exampleSession.AppName(),
+        UserID:    exampleSession.UserID(),
+        SessionID: exampleSession.ID(),
     })
     if err != nil {
-     log.Fatalf("Failed to delete session: %v", err)
+        log.Fatalf("Failed to delete session: %v", err)
     }
     fmt.Println("Session deleted successfully.")
     
     
     
-     import com.google.adk.sessions.InMemorySessionService;
-     import com.google.adk.sessions.Session;
-     import java.util.concurrent.ConcurrentMap;
-     import java.util.concurrent.ConcurrentHashMap;
+    import com.google.adk.sessions.InMemorySessionService;
+    import com.google.adk.sessions.Session;
+    import java.util.concurrent.ConcurrentMap;
+    import java.util.concurrent.ConcurrentHashMap;
     
-     String sessionId = "123";
-     String appName = "example-app"; // Example app name
-     String userId = "example-user"; // Example user id
-     ConcurrentMap<String, Object> initialState = new ConcurrentHashMap<>(Map.of("newKey", "newValue"));
-     InMemorySessionService exampleSessionService = new InMemorySessionService();
+    String sessionId = "123";
+    String appName = "example-app"; // Example app name
+    String userId = "example-user"; // Example user id
+    ConcurrentMap<String, Object> initialState = new ConcurrentHashMap<>(Map.of("newKey", "newValue"));
+    InMemorySessionService exampleSessionService = new InMemorySessionService();
     
-     // Create Session
-     Session exampleSession = exampleSessionService.createSession(
-         appName, userId, initialState, Optional.of(sessionId)).blockingGet();
-     System.out.println("Session created successfully.");
+    // Create Session
+    Session exampleSession = exampleSessionService.createSession(
+        appName, userId, initialState, Optional.of(sessionId)).blockingGet();
+    System.out.println("Session created successfully.");
     
-     System.out.println("--- Examining Session Properties ---");
-     System.out.printf("ID (`id`): %s%n", exampleSession.id());
-     System.out.printf("Application Name (`appName`): %s%n", exampleSession.appName());
-     System.out.printf("User ID (`userId`): %s%n", exampleSession.userId());
-     System.out.printf("State (`state`): %s%n", exampleSession.state());
-     System.out.println("------------------------------------");
-    
-    
-     // Clean up (optional for this example)
-     var unused = exampleSessionService.deleteSession(appName, userId, sessionId);
+    System.out.println("--- Examining Session Properties ---");
+    System.out.printf("ID (`id`): %s%n", exampleSession.id());
+    System.out.printf("Application Name (`appName`): %s%n", exampleSession.appName());
+    System.out.printf("User ID (`userId`): %s%n", exampleSession.userId());
+    System.out.printf("State (`state`): %s%n", exampleSession.state());
+    System.out.println("------------------------------------");
     
     
+    // Clean up (optional for this example)
+    var unused = exampleSessionService.deleteSession(appName, userId, sessionId);
     
-     import com.google.adk.kt.sessions.InMemorySessionService
-     import com.google.adk.kt.sessions.SessionKey
     
-     val sessionId = "123"
-     val appName = "example-app"
-     val userId = "example-user"
-     val initialState = mapOf("newKey" to "newValue")
-     val sessionService = InMemorySessionService()
     
-     // Create Session
-     val exampleSession = sessionService.createSession(
-         key = SessionKey(appName, userId, sessionId),
-         state = initialState
-     )
-     println("Session created successfully.")
+    import com.google.adk.kt.sessions.InMemorySessionService
+    import com.google.adk.kt.sessions.SessionKey
     
-     println("--- Examining Session Properties ---")
-     println("ID (`id`):                ${exampleSession.key.id}")
-     println("Application Name (`appName`): ${exampleSession.key.appName}")
-     println("User ID (`userId`):         ${exampleSession.key.userId}")
-     println("State (`state`):           ${exampleSession.state}")
-     println("------------------------------------")
+    val sessionId = "123"
+    val appName = "example-app"
+    val userId = "example-user"
+    val initialState = mapOf("newKey" to "newValue")
+    val sessionService = InMemorySessionService()
     
-     // Clean up (optional for this example)
-     sessionService.deleteSession(exampleSession.key)
+    // Create Session
+    val exampleSession = sessionService.createSession(
+        key = SessionKey(appName, userId, sessionId),
+        state = initialState
+    )
+    println("Session created successfully.")
+    
+    println("--- Examining Session Properties ---")
+    println("ID (`id`):                ${exampleSession.key.id}")
+    println("Application Name (`appName`): ${exampleSession.key.appName}")
+    println("User ID (`userId`):         ${exampleSession.key.userId}")
+    println("State (`state`):           ${exampleSession.state}")
+    println("------------------------------------")
+    
+    // Clean up (optional for this example)
+    sessionService.deleteSession(exampleSession.key)
     
 
 _(__Note:__The state shown above is only the initial state. State updates happen via events, as discussed in the State section.)_
 
-## Managing Sessions with a `SessionService`¶
+## Session lifecycle¶
+
+Here’s a simplified flow of how `Session` and `SessionService` work together during a conversation turn:
+
+  1. **Start or Resume:** Your application needs to use the `SessionService` to either `create_session` (for a new chat) or use an existing session id.
+  2. **Context Provided:** The `Runner` gets the appropriate `Session` object from the appropriate service method, providing the agent with access to the corresponding Session's `state` and `events`.
+  3. **Agent Processing:** The user prompts the agent with a query. The agent analyzes the query and potentially the session `state` and `events` history to determine the response.
+  4. **Response & State Update:** The agent generates a response (and potentially flags data to be updated in the `state`). The `Runner` packages this as an `Event`.
+  5. **Save Interaction:** The `Runner` calls `sessionService.append_event(session, event)` with the `session` and the new `event` as the arguments. The service adds the `Event` to the history and updates the session's `state` in storage based on information within the event. The session's `last_update_time` also get updated.
+  6. **Ready for Next:** The agent's response goes to the user. The updated `Session` is now stored by the `SessionService`, ready for the next turn (which restarts the cycle at step 1, usually with the continuation of the conversation in the current session).
+  7. **End Conversation:** When the conversation is over, your application calls `sessionService.delete_session(...)` to clean up the stored session data if it is no longer required.
+
+
+
+This cycle highlights how the `SessionService` ensures conversational continuity by managing the history and state associated with each `Session` object.
+
+## Managing sessions with a `SessionService`¶
 
 As seen above, you don't typically create or manage `Session` objects directly. Instead, you use a **`SessionService`**. This service acts as the central manager responsible for the entire lifecycle of your conversation sessions.
 
@@ -463,28 +485,28 @@ ADK provides different `SessionService` implementations, allowing you to choose 
 PythonTypeScriptGoJavaKotlin
     
     
-      from google.adk.sessions import InMemorySessionService
-      session_service = InMemorySessionService()
+    from google.adk.sessions import InMemorySessionService
+    session_service = InMemorySessionService()
     
     
     
-      import { InMemorySessionService } from "@google/adk";
-      const sessionService = new InMemorySessionService();
+    import { InMemorySessionService } from "@google/adk";
+    const sessionService = new InMemorySessionService();
     
     
     
-      import "google.golang.org/adk/session"
-      inMemoryService := session.InMemoryService()
+    import "google.golang.org/adk/v2/session"
+    inMemoryService := session.InMemoryService()
     
     
     
-      import com.google.adk.sessions.InMemorySessionService;
-      InMemorySessionService exampleSessionService = new InMemorySessionService();
+    import com.google.adk.sessions.InMemorySessionService;
+    InMemorySessionService exampleSessionService = new InMemorySessionService();
     
     
     
-      import com.google.adk.kt.sessions.InMemorySessionService
-      val sessionService = InMemorySessionService()
+    import com.google.adk.kt.sessions.InMemorySessionService
+    val sessionService = InMemorySessionService()
     
 
 ### `VertexAiSessionService`¶
@@ -520,7 +542,7 @@ PythonGoJava
     
     
     
-    import "google.golang.org/adk/session"
+    import "google.golang.org/adk/v2/session"
     
     // 2. VertexAIService
     // Before running, ensure your environment is authenticated:
@@ -590,7 +612,7 @@ The `DatabaseSessionService` ensures data integrity during concurrent operations
 
 
 
-Async Driver Requirement
+Async driver requirement
 
 `DatabaseSessionService` requires an async database driver. When using SQLite, you must use `sqlite+aiosqlite` instead of `sqlite` in your connection string. For other databases (PostgreSQL, MySQL), ensure you're using an async-compatible driver, such as `asyncpg` for PostgreSQL, `aiomysql` for MySQL.
 
@@ -598,21 +620,18 @@ Session database schema change in ADK Python v1.22.0
 
 The schema for the session database changed in ADK Python v1.22.0, which requires migration of the Session Database. For more information, see [Session database schema migration](/sessions/session/migrate/).
 
-## The Session Lifecycle¶
+## Troubleshoot session errors¶
 
-Here’s a simplified flow of how `Session` and `SessionService` work together during a conversation turn:
+During execution, ADK can raise specific exceptions to help you identify configuration or state issues.
 
-  1. **Start or Resume:** Your application needs to use the `SessionService` to either `create_session` (for a new chat) or use an existing session id.
-  2. **Context Provided:** The `Runner` gets the appropriate `Session` object from the appropriate service method, providing the agent with access to the corresponding Session's `state` and `events`.
-  3. **Agent Processing:** The user prompts the agent with a query. The agent analyzes the query and potentially the session `state` and `events` history to determine the response.
-  4. **Response & State Update:** The agent generates a response (and potentially flags data to be updated in the `state`). The `Runner` packages this as an `Event`.
-  5. **Save Interaction:** The `Runner` calls `sessionService.append_event(session, event)` with the `session` and the new `event` as the arguments. The service adds the `Event` to the history and updates the session's `state` in storage based on information within the event. The session's `last_update_time` also get updated.
-  6. **Ready for Next:** The agent's response goes to the user. The updated `Session` is now stored by the `SessionService`, ready for the next turn (which restarts the cycle at step 1, usually with the continuation of the conversation in the current session).
-  7. **End Conversation:** When the conversation is over, your application calls `sessionService.delete_session(...)` to clean up the stored session data if it is no longer required.
+### `SessionNotFoundError`¶
 
+Raised when a runner attempts to access or execute a session that does not exist in the active session store. Inherits from `ValueError` for backward compatibility.
+
+  * **Common causes:** an invalid, expired, or missing `session_id`; running a session before it has been created.
+  * **How to resolve:** ensure the session exists first via `create_session(...)`, or construct the `Runner` with `auto_create_session=True`.
 
 
-This cycle highlights how the `SessionService` ensures conversational continuity by managing the history and state associated with each `Session` object.
 
 Back to top 
 

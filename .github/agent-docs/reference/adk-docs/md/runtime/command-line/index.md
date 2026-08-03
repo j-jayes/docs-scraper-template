@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -168,14 +170,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -184,6 +182,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -225,7 +225,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -259,7 +261,7 @@ Table of contents
   2. [ Run Agents  ](../)
   3. [ Agent Runtime  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/runtime/command-line.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/runtime/command-line.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/runtime/command-line.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Use the Command Line¶
 
@@ -280,9 +282,31 @@ PythonTypeScriptGoJava
     
     npx @google/adk-devtools run agent.ts
     
+
+In Go, the command-line interface is not a standalone `adk` tool. Instead, you embed the launcher directly in your agent's `main.go`. The `full.NewLauncher()` helper bundles the console, web server, and other modes into a single binary, with **console as the default** when no subcommand keyword is given:
+
+main.go
     
     
-    go run agent.go
+    import (
+        "google.golang.org/adk/v2/cmd/launcher"
+        "google.golang.org/adk/v2/cmd/launcher/full"
+    )
+    
+    func main() {
+        // ... build your agent and config ...
+        l := full.NewLauncher()
+        if err := l.Execute(ctx, config, os.Args[1:]); err != nil {
+            log.Fatalf("Run failed: %v\n\n%s", err, l.CommandLineSyntax())
+        }
+    }
+    
+
+Run the agent in console mode with either of the following commands:
+    
+    
+    go run agent.go           # console is the default sublauncher
+    go run agent.go console   # or explicitly name the console subcommand
     
 
 Create an `AgentCliRunner` class (see [Java Quickstart](../../get-started/java/)) and run:
@@ -291,7 +315,33 @@ Create an `AgentCliRunner` class (see [Java Quickstart](../../get-started/java/)
     mvn compile exec:java -Dexec.mainClass="com.example.agent.AgentCliRunner"
     
 
-This starts an interactive session where you can type queries and see agent responses directly in your terminal:
+This starts an interactive session where you can type queries and see agent responses directly in your terminal.
+
+PythonTypeScriptGoJava
+    
+    
+    Running agent my_agent, type exit to exit.
+    [user]: What's the weather in New York?
+    [my_agent]: The weather in New York is sunny with a temperature of 25°C.
+    [user]: exit
+    
+    
+    
+    Running agent my_agent, type exit to exit.
+    [user]: What's the weather in New York?
+    [my_agent]: The weather in New York is sunny with a temperature of 25°C.
+    [user]: exit
+    
+    
+    
+    User -> What's the weather in New York?
+    
+    Agent -> The weather in New York is sunny with a temperature of 25°C.
+    
+    User ->
+    
+
+To exit, press **Ctrl+C** or send EOF (**Ctrl+D**).
     
     
     Running agent my_agent, type exit to exit.
@@ -301,6 +351,10 @@ This starts an interactive session where you can type queries and see agent resp
     
 
 ## Session options¶
+
+Python only
+
+The `--save_session`, `--resume`, `--replay`, and `--session_id` options are available in the Python ADK CLI only. The Go console launcher does not support session save/resume/replay via command-line flags. In Go, session persistence is configured in code by providing a persistent `session.Service` implementation (such as `session/database`) to `launcher.Config`.
 
 The `adk run` command includes options for saving, resuming, and replaying sessions.
 
@@ -349,6 +403,10 @@ The input file should contain initial state and queries:
 
 ## Storage options¶
 
+Python only
+
+The `--session_service_uri` and `--artifact_service_uri` command-line flags are available in the Python ADK CLI only. In Go, session and artifact services are configured in code when constructing `launcher.Config` — for example, using `session/database` for a persistent database-backed session store, or `artifact/gcsartifact` for Cloud Storage-backed artifacts.
+
 Option | Description | Default  
 ---|---|---  
 `--session_service_uri` | Custom session storage URI | SQLite under `.adk/session.db`  
@@ -363,6 +421,8 @@ Option | Description | Default
 
 ## All options¶
 
+PythonGo
+
 Option | Description  
 ---|---  
 `--save_session` | Save the session to a JSON file on exit  
@@ -373,6 +433,30 @@ Option | Description
 `--artifact_service_uri` | Custom artifact storage URI  
 `--memory_service_uri` | Custom memory service URI  
   
+Go flags differ from Python
+
+The Go console launcher does not support `--save_session`, `--resume`, `--replay`, `--session_id`, `--session_service_uri`, or `--artifact_service_uri`. These are Python CLI features. Session and artifact services are configured in Go code via `launcher.Config`.
+
+Flags are passed after the `console` keyword (or directly if `console` is the default):
+
+Flag | Description | Default  
+---|---|---  
+`-streaming_mode` | Streaming mode for agent responses (`none`|`sse`) | Auto-detected (TTY → `sse`, pipe → `none`)  
+`-shutdown-timeout` | Graceful shutdown wait time | `2s`  
+`-otel_to_cloud` | Export OpenTelemetry data to GCP | `false`  
+  
+For example, to force non-streaming output:
+    
+    
+    go run agent.go console -streaming_mode none
+    
+
+Or to force SSE streaming (token-by-token output):
+    
+    
+    go run agent.go -streaming_mode sse
+    
+
 Back to top 
 
 Copyright Google 2026  |  [License](//github.com/google/adk-docs/blob/main/LICENSE)  |  [Privacy](//policies.google.com/privacy)  |  Manage cookies

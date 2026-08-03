@@ -21,6 +21,8 @@ This class acts as a wrapper around a tool definition received from an MCP serve
 
 When an LLM decides to call this tool, the `runAsync` method will be invoked, which in turn establishes an MCP session, sends a `callTool` request with the provided arguments, and returns the result from the remote tool.
 
+The originalName parameter allows the tool to track the native tool name exposed by the MCP server. This is critical when the toolset applies a prefix to tool names (e.g., for LLM namespace disambiguation), ensuring the correct original name is used when executing on the server.
+
 #### Hierarchy ([View Summary](../hierarchy.html#MCPTool))
 
   * [BaseTool](BaseTool.html)
@@ -28,7 +30,7 @@ When an LLM decides to call this tool, the `runAsync` method will be invoked, wh
 
 
 
-  * Defined in [tools/mcp/mcp_tool.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_tool.ts#L33)
+  * Defined in [core/src/tools/mcp/mcp_tool.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_tool.ts#L38)
 
 
 
@@ -36,18 +38,23 @@ When an LLM decides to call this tool, the `runAsync` method will be invoked, wh
 
 ### constructor
 
-  * new MCPTool(mcpTool: {}, mcpSessionManager: [MCPSessionManager](MCPSessionManager.html)): [MCPTool]()
+  * new MCPTool(  
+mcpTool: {},  
+mcpSessionManager: [MCPSessionManager](MCPSessionManager.html),  
+originalName?: string,  
+): [MCPTool]()
 
 #### Parameters
 
     * mcpTool: {}
     * mcpSessionManager: [MCPSessionManager](MCPSessionManager.html)
+    * `Optional`originalName: string
 
 #### Returns [MCPTool]()
 
 Overrides [BaseTool](BaseTool.html).[constructor](BaseTool.html#constructor)
 
-    * Defined in [tools/mcp/mcp_tool.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_tool.ts#L37)
+    * Defined in [core/src/tools/mcp/mcp_tool.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_tool.ts#L43)
 
 
 
@@ -62,7 +69,7 @@ A unique symbol to identify ADK base tool class.
 
 Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool.html#base_tool_signature_symbol)
 
-  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+  * Defined in [core/src/tools/base_tool.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L64)
 
 
 
@@ -72,7 +79,7 @@ description: string
 
 Inherited from [BaseTool](BaseTool.html).[description](BaseTool.html#description)
 
-  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
+  * Defined in [core/src/tools/base_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -82,7 +89,7 @@ isLongRunning: boolean
 
 Inherited from [BaseTool](BaseTool.html).[isLongRunning](BaseTool.html#islongrunning)
 
-  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
+  * Defined in [core/src/tools/base_tool.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -92,7 +99,7 @@ name: string
 
 Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
-  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
+  * Defined in [core/src/tools/base_tool.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -108,7 +115,7 @@ The Google API LLM variant to use.
 
 Inherited from BaseTool.apiVariant
 
-    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
+    * Defined in [core/src/tools/base_tool.ts:151](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -132,7 +139,7 @@ The FunctionDeclaration of this tool, or undefined if it doesn't need to be adde
 
 Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclaration)
 
-    * Defined in [tools/mcp/mcp_tool.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_tool.ts#L43)
+    * Defined in [core/src/tools/mcp/mcp_tool.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_tool.ts#L54)
 
 
 
@@ -158,7 +165,7 @@ The request to process the LLM request.
 
 Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#processllmrequest)
 
-    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
+    * Defined in [core/src/tools/base_tool.ts:120](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -186,7 +193,7 @@ A promise that resolves to the tool response.
 
 Overrides [BaseTool](BaseTool.html).[runAsync](BaseTool.html#runasync)
 
-    * Defined in [tools/mcp/mcp_tool.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_tool.ts#L54)
+    * Defined in [core/src/tools/mcp/mcp_tool.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_tool.ts#L65)
 
 
 
@@ -207,7 +214,7 @@ Methods
 
 _getDeclarationprocessLlmRequestrunAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

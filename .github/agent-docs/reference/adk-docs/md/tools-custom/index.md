@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -160,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -176,6 +174,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -217,7 +217,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
       * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -262,7 +264,7 @@ Table of contents
   2. [ Components  ](../get-started/about/)
   3. [ Custom Tools  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tools-custom/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tools-custom/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tools-custom/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Custom Tools for ADK¶
 
@@ -590,13 +592,13 @@ PythonTypeScriptGoJava
         "log"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
@@ -609,7 +611,7 @@ PythonTypeScriptGoJava
         Report string `json:"report,omitempty"`
     }
     
-    func getWeatherReport(ctx tool.Context, args getWeatherReportArgs) (getWeatherReportResult, error) {
+    func getWeatherReport(ctx agent.Context, args getWeatherReportArgs) (getWeatherReportResult, error) {
         if strings.ToLower(args.City) == "london" {
             return getWeatherReportResult{Status: "success", Report: "The current weather in London is cloudy with a temperature of 18 degrees Celsius and a chance of rain."}, nil
         }
@@ -628,7 +630,7 @@ PythonTypeScriptGoJava
         Confidence float64 `json:"confidence"`
     }
     
-    func analyzeSentiment(ctx tool.Context, args analyzeSentimentArgs) (analyzeSentimentResult, error) {
+    func analyzeSentiment(ctx agent.Context, args analyzeSentimentArgs) (analyzeSentimentResult, error) {
         if strings.Contains(strings.ToLower(args.Text), "good") || strings.Contains(strings.ToLower(args.Text), "sunny") {
             return analyzeSentimentResult{Sentiment: "positive", Confidence: 0.8}, nil
         }
@@ -640,7 +642,7 @@ PythonTypeScriptGoJava
     
     func main() {
         ctx := context.Background()
-        model, err := gemini.NewModel(ctx, "gemini-2.0-flash", &genai.ClientConfig{})
+        model, err := gemini.NewModel(ctx, "gemini-flash-latest", &genai.ClientConfig{})
         if err != nil {
             log.Fatal(err)
         }
@@ -982,7 +984,7 @@ PythonTypeScriptGoJava
     import (
         "fmt"
     
-        "google.golang.org/adk/tool"
+        "google.golang.org/adk/v2/agent"
     )
     
     type updateUserPreferenceArgs struct {
@@ -994,7 +996,7 @@ PythonTypeScriptGoJava
         UpdatedPreference string `json:"updated_preference"`
     }
     
-    func updateUserPreference(ctx tool.Context, args updateUserPreferenceArgs) (*updateUserPreferenceResult, error) {
+    func updateUserPreference(ctx agent.Context, args updateUserPreferenceArgs) (*updateUserPreferenceResult, error) {
         userPrefsKey := "user:preferences"
         val, err := ctx.State().Get(userPrefsKey)
         if err != nil {
@@ -1254,13 +1256,13 @@ PythonTypeScriptGoJava
         "log"
         "strings"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
@@ -1272,7 +1274,7 @@ PythonTypeScriptGoJava
         Status string `json:"status"`
     }
     
-    func checkAndTransfer(ctx tool.Context, args checkAndTransferArgs) (checkAndTransferResult, error) {
+    func checkAndTransfer(ctx agent.Context, args checkAndTransferArgs) (checkAndTransferResult, error) {
         if strings.Contains(strings.ToLower(args.Query), "urgent") {
             fmt.Println("Tool: Detected urgency, transferring to the support agent.")
             ctx.Actions().TransferToAgent = "support_agent"
@@ -1283,7 +1285,7 @@ PythonTypeScriptGoJava
     
     func main() {
         ctx := context.Background()
-        model, err := gemini.NewModel(ctx, "gemini-2.0-flash", &genai.ClientConfig{})
+        model, err := gemini.NewModel(ctx, "gemini-flash-latest", &genai.ClientConfig{})
         if err != nil {
             log.Fatal(err)
         }
@@ -1695,7 +1697,7 @@ PythonTypeScriptGoJava
     import (
         "fmt"
     
-        "google.golang.org/adk/tool"
+        "google.golang.org/adk/v2/agent"
         "google.golang.org/genai"
     )
     
@@ -1711,7 +1713,7 @@ PythonTypeScriptGoJava
         Message          string `json:"message,omitempty"`
     }
     
-    func processDocument(ctx tool.Context, args processDocumentArgs) (*processDocumentResult, error) {
+    func processDocument(ctx agent.Context, args processDocumentArgs) (*processDocumentResult, error) {
         fmt.Printf("Tool: Attempting to load artifact: %s\n", args.DocumentName)
     
         // List all artifacts
@@ -1935,7 +1937,7 @@ PythonTypeScriptGoJava
     import (
         "fmt"
     
-        "google.golang.org/adk/tool"
+        "google.golang.org/adk/v2/agent"
     )
     
     type lookupOrderStatusArgs struct {
@@ -1952,7 +1954,7 @@ PythonTypeScriptGoJava
         Order  order  `json:"order,omitempty"`
     }
     
-    func lookupOrderStatus(ctx tool.Context, args lookupOrderStatusArgs) (*lookupOrderStatusResult, error) {
+    func lookupOrderStatus(ctx agent.Context, args lookupOrderStatusArgs) (*lookupOrderStatusResult, error) {
         // ... function implementation to fetch status ...
         statusDetails, ok := fetchStatusFromBackend(args.OrderID)
         if !ok {

@@ -86,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
       * [ Model routing  ](../routing/)
+      * [ OpenAI  ](../openai/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
       * [ LiteLLM  ](../litellm/)
@@ -176,14 +177,10 @@ Callbacks
         * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../../plugins/)
-    * [ Context  ](../../../context/)
+    * [ Agent context  ](../../../context/)
 
-Context 
-      * [ Context caching  ](../../../context/caching/)
-      * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions and Memory  ](../../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../../sessions/)
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
@@ -192,6 +189,8 @@ Sessions
       * [ State  ](../../../sessions/state/)
       * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
+      * [ Context compression  ](../../../context/compaction/)
+      * [ Model context caching  ](../../../context/caching/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -436,8 +435,8 @@ In your `build.gradle.kts`, add `com.google.adk:google-adk-kotlin-litertlm` and 
     }
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.4.0")
-        implementation("com.google.adk:google-adk-kotlin-litertlm:0.4.0")
+        implementation("com.google.adk:google-adk-kotlin-core:0.5.0")
+        implementation("com.google.adk:google-adk-kotlin-litertlm:0.5.0")
         implementation("com.google.ai.edge.litertlm:litertlm-jvm:0.13.1")
         // other dependencies...
     }

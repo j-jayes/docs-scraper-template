@@ -23,7 +23,7 @@ query: string;
 userId: string;  
 }
 
-  * Defined in [memory/base_memory_service.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L24)
+  * Defined in [core/src/memory/base_memory_service.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L24)
 
 
 
@@ -33,7 +33,9 @@ userId: string;
 
 appName: string
 
-  * Defined in [memory/base_memory_service.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L25)
+The app name associated with the memory to search.
+
+  * Defined in [core/src/memory/base_memory_service.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L26)
 
 
 
@@ -41,7 +43,9 @@ appName: string
 
 query: string
 
-  * Defined in [memory/base_memory_service.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L27)
+The natural language query used to retrieve relevant memories. Implementations may use keyword matching or semantic search.
+
+  * Defined in [core/src/memory/base_memory_service.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L35)
 
 
 
@@ -49,7 +53,9 @@ query: string
 
 userId: string
 
-  * Defined in [memory/base_memory_service.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/memory/base_memory_service.ts#L26)
+The user ID whose memory is being searched.
+
+  * Defined in [core/src/memory/base_memory_service.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/memory/base_memory_service.ts#L29)
 
 
 
@@ -57,7 +63,7 @@ Properties
 
 appNamequeryuserId
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

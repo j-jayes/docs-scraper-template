@@ -26,7 +26,7 @@ Currently only supports Gemini 2.0+ models, but will be expanded to other models
 
 
 
-  * Defined in [code_executors/built_in_code_executor.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/built_in_code_executor.ts#L42)
+  * Defined in [core/src/code_executors/built_in_code_executor.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/built_in_code_executor.ts#L42)
 
 
 
@@ -53,7 +53,7 @@ A unique symbol to identify BaseCodeExecutor class.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[[BASE_CODE_EXECUTOR_SIGNATURE_SYMBOL]](BaseCodeExecutor.html#base_code_executor_signature_symbol)
 
-  * Defined in [code_executors/base_code_executor.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/base_code_executor.ts#L52)
+  * Defined in [core/src/code_executors/base_code_executor.ts:52](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L52)
 
 
 
@@ -63,7 +63,7 @@ Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[[BASE_CODE_EXECUTOR_SI
 
 A unique symbol to identify BuiltInCodeExecutor class.
 
-  * Defined in [code_executors/built_in_code_executor.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/built_in_code_executor.ts#L44)
+  * Defined in [core/src/code_executors/built_in_code_executor.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/built_in_code_executor.ts#L44)
 
 
 
@@ -71,15 +71,15 @@ A unique symbol to identify BuiltInCodeExecutor class.
 
 codeBlockDelimiters: [string, string][] = ...
 
-The list of the enclosing delimiters to identify the code blocks. For example, the delimiter('`python\\n', '\\n`') can be used to identify code blocks with the following format::
+The list of the enclosing delimiters to identify the code blocks. For example, the delimiter('`javascript\\n', '\\n`') can be used to identify code blocks with the following format:
     
     
-     print("hello")
+     console.log("hello")
     Copy
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[codeBlockDelimiters](BaseCodeExecutor.html#codeblockdelimiters)
 
-  * Defined in [code_executors/base_code_executor.ts:82](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/base_code_executor.ts#L82)
+  * Defined in [core/src/code_executors/base_code_executor.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L82)
 
 
 
@@ -91,7 +91,7 @@ The number of attempts to retry on consecutive code execution errors. Default to
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[errorRetryAttempts](BaseCodeExecutor.html#errorretryattempts)
 
-  * Defined in [code_executors/base_code_executor.ts:71](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/base_code_executor.ts#L71)
+  * Defined in [core/src/code_executors/base_code_executor.ts:71](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L71)
 
 
 
@@ -103,7 +103,7 @@ The delimiters to format the code execution result.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[executionResultDelimiters](BaseCodeExecutor.html#executionresultdelimiters)
 
-  * Defined in [code_executors/base_code_executor.ts:90](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/base_code_executor.ts#L90)
+  * Defined in [core/src/code_executors/base_code_executor.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L94)
 
 
 
@@ -117,7 +117,7 @@ Supported data file MimeTypes are [text/csv]. Default to false.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[optimizeDataFile](BaseCodeExecutor.html#optimizedatafile)
 
-  * Defined in [code_executors/base_code_executor.ts:60](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/base_code_executor.ts#L60)
+  * Defined in [core/src/code_executors/base_code_executor.ts:60](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L60)
 
 
 
@@ -129,7 +129,7 @@ Whether the code executor is stateful. Default to false.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[stateful](BaseCodeExecutor.html#stateful)
 
-  * Defined in [code_executors/base_code_executor.ts:65](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/base_code_executor.ts#L65)
+  * Defined in [core/src/code_executors/base_code_executor.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L65)
 
 
 
@@ -151,7 +151,7 @@ The result of the code execution.
 
 Overrides [BaseCodeExecutor](BaseCodeExecutor.html).[executeCode](BaseCodeExecutor.html#executecode)
 
-    * Defined in [code_executors/built_in_code_executor.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/built_in_code_executor.ts#L46)
+    * Defined in [core/src/code_executors/built_in_code_executor.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/built_in_code_executor.ts#L46)
 
 
 
@@ -166,7 +166,7 @@ Overrides [BaseCodeExecutor](BaseCodeExecutor.html).[executeCode](BaseCodeExecut
 
 #### Returns void
 
-    * Defined in [code_executors/built_in_code_executor.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/built_in_code_executor.ts#L54)
+    * Defined in [core/src/code_executors/built_in_code_executor.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/built_in_code_executor.ts#L54)
 
 
 
@@ -183,7 +183,7 @@ Methods
 
 executeCodeprocessLlmRequest
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

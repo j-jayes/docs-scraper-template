@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -14,7 +14,7 @@ search in API
 
 # Key
 
-object [Key](index.html) : [CoroutineContext.Key](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.coroutines/-coroutine-context/-key/index.html)<[TelemetryContextElement](../index.html)>
+object [Key](index.html)
 
 The default key for telemetry context elements.
 

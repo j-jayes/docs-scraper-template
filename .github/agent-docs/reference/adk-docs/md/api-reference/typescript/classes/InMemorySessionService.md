@@ -24,7 +24,7 @@ An in-memory implementation of the session service.
 
 
 
-  * Defined in [sessions/in_memory_session_service.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/in_memory_session_service.ts#L35)
+  * Defined in [core/src/sessions/in_memory_session_service.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/in_memory_session_service.ts#L36)
 
 
 
@@ -61,7 +61,7 @@ A promise that resolves to the event that was appended.
 
 Overrides [BaseSessionService](BaseSessionService.html).[appendEvent](BaseSessionService.html#appendevent)
 
-    * Defined in [sessions/in_memory_session_service.ts:173](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/in_memory_session_service.ts#L173)
+    * Defined in [core/src/sessions/in_memory_session_service.ts:245](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/in_memory_session_service.ts#L245)
 
 
 
@@ -84,20 +84,20 @@ A promise that resolves to the newly created session instance.
 
 Overrides [BaseSessionService](BaseSessionService.html).[createSession](BaseSessionService.html#createsession)
 
-    * Defined in [sessions/in_memory_session_service.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/in_memory_session_service.ts#L54)
+    * Defined in [core/src/sessions/in_memory_session_service.ts:55](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/in_memory_session_service.ts#L55)
 
 
 
 
 ### deleteSession
 
-  * deleteSession(request: [DeleteSessionRequest](../interfaces/DeleteSessionRequest.html)): Promise<void>
+  * deleteSession(request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)): Promise<void>
 
 Deletes a session.
 
 #### Parameters
 
-    * request: [DeleteSessionRequest](../interfaces/DeleteSessionRequest.html)
+    * request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)
 
 The request to delete a session.
 
@@ -107,7 +107,7 @@ A promise that resolves when the session is deleted.
 
 Overrides [BaseSessionService](BaseSessionService.html).[deleteSession](BaseSessionService.html#deletesession)
 
-    * Defined in [sessions/in_memory_session_service.ts:159](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/in_memory_session_service.ts#L159)
+    * Defined in [core/src/sessions/in_memory_session_service.ts:231](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/in_memory_session_service.ts#L231)
 
 
 
@@ -130,7 +130,7 @@ A promise that resolves to the session instance.
 
 Inherited from [BaseSessionService](BaseSessionService.html).[getOrCreateSession](BaseSessionService.html#getorcreatesession)
 
-    * Defined in [sessions/base_session_service.ts:124](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L124)
+    * Defined in [core/src/sessions/base_session_service.ts:129](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L129)
 
 
 
@@ -153,7 +153,7 @@ A promise that resolves to the session instance or undefined if not found.
 
 Overrides [BaseSessionService](BaseSessionService.html).[getSession](BaseSessionService.html#getsession)
 
-    * Defined in [sessions/in_memory_session_service.ts:88](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/in_memory_session_service.ts#L88)
+    * Defined in [core/src/sessions/in_memory_session_service.ts:90](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/in_memory_session_service.ts#L90)
 
 
 
@@ -176,7 +176,7 @@ A promise that resolves to a list of sessions for the user.
 
 Overrides [BaseSessionService](BaseSessionService.html).[listSessions](BaseSessionService.html#listsessions)
 
-    * Defined in [sessions/in_memory_session_service.ts:134](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/in_memory_session_service.ts#L134)
+    * Defined in [core/src/sessions/in_memory_session_service.ts:136](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/in_memory_session_service.ts#L136)
 
 
 
@@ -189,7 +189,7 @@ Methods
 
 appendEventcreateSessiondeleteSessiongetOrCreateSessiongetSessionlistSessions
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

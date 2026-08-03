@@ -23,7 +23,7 @@ token?: string;
 username?: string;  
 }
 
-  * Defined in [auth/auth_credential.ts:11](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L11)
+  * Defined in [core/src/auth/auth_credential.ts:11](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L11)
 
 
 
@@ -33,7 +33,7 @@ username?: string;
 
 password?: string
 
-  * Defined in [auth/auth_credential.ts:13](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L13)
+  * Defined in [core/src/auth/auth_credential.ts:13](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L13)
 
 
 
@@ -41,7 +41,7 @@ password?: string
 
 token?: string
 
-  * Defined in [auth/auth_credential.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L14)
+  * Defined in [core/src/auth/auth_credential.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L14)
 
 
 
@@ -49,7 +49,7 @@ token?: string
 
 username?: string
 
-  * Defined in [auth/auth_credential.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L12)
+  * Defined in [core/src/auth/auth_credential.ts:12](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L12)
 
 
 
@@ -57,7 +57,7 @@ Properties
 
 passwordtokenusername
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

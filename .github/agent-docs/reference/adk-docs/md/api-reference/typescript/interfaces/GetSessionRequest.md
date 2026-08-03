@@ -24,7 +24,14 @@ sessionId: string;
 userId: string;  
 }
 
-  * Defined in [sessions/base_session_service.ts:41](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L41)
+#### Hierarchy ([View Summary](../hierarchy.html#GetSessionRequest))
+
+  * [CompositeSessionKey](CompositeSessionKey.html)
+    * GetSessionRequest
+
+
+
+  * Defined in [core/src/sessions/base_session_service.ts:41](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L41)
 
 
 
@@ -36,7 +43,9 @@ appName: string
 
 The name of the application.
 
-  * Defined in [sessions/base_session_service.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L43)
+Inherited from [CompositeSessionKey](CompositeSessionKey.html).[appName](CompositeSessionKey.html#appname)
+
+  * Defined in [core/src/sessions/session.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L14)
 
 
 
@@ -46,7 +55,7 @@ config?: [GetSessionConfig](GetSessionConfig.html)
 
 The configurations for getting the session.
 
-  * Defined in [sessions/base_session_service.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L49)
+  * Defined in [core/src/sessions/base_session_service.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L43)
 
 
 
@@ -56,7 +65,9 @@ sessionId: string
 
 The ID of the session.
 
-  * Defined in [sessions/base_session_service.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L47)
+Inherited from [CompositeSessionKey](CompositeSessionKey.html).[sessionId](CompositeSessionKey.html#sessionid)
+
+  * Defined in [core/src/sessions/session.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L18)
 
 
 
@@ -66,7 +77,9 @@ userId: string
 
 The ID of the user.
 
-  * Defined in [sessions/base_session_service.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L45)
+Inherited from [CompositeSessionKey](CompositeSessionKey.html).[userId](CompositeSessionKey.html#userid)
+
+  * Defined in [core/src/sessions/session.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L16)
 
 
 
@@ -74,7 +87,7 @@ Properties
 
 appNameconfigsessionIduserId
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -24,7 +24,7 @@ state?: Record<string, unknown>;
 userId: string;  
 }
 
-  * Defined in [sessions/base_session_service.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L27)
+  * Defined in [core/src/sessions/base_session_service.ts:27](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L27)
 
 
 
@@ -36,7 +36,7 @@ appName: string
 
 The name of the application.
 
-  * Defined in [sessions/base_session_service.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L29)
+  * Defined in [core/src/sessions/base_session_service.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L29)
 
 
 
@@ -46,7 +46,7 @@ sessionId?: string
 
 The ID of the session. A new ID will be generated if not provided.
 
-  * Defined in [sessions/base_session_service.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L35)
+  * Defined in [core/src/sessions/base_session_service.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L35)
 
 
 
@@ -56,7 +56,7 @@ state?: Record<string, unknown>
 
 The initial state of the session.
 
-  * Defined in [sessions/base_session_service.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L33)
+  * Defined in [core/src/sessions/base_session_service.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L33)
 
 
 
@@ -66,7 +66,7 @@ userId: string
 
 The ID of the user.
 
-  * Defined in [sessions/base_session_service.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L31)
+  * Defined in [core/src/sessions/base_session_service.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L31)
 
 
 
@@ -74,7 +74,7 @@ Properties
 
 appNamesessionIdstateuserId
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -86,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../../agents/models/apigee/)
       * [ Model routing  ](../../../agents/models/routing/)
+      * [ OpenAI  ](../../../agents/models/openai/)
       * [ Ollama  ](../../../agents/models/ollama/)
       * [ vLLM  ](../../../agents/models/vllm/)
       * [ LiteLLM  ](../../../agents/models/litellm/)
@@ -161,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../../plugins/)
-    * [ Context  ](../../../context/)
+    * [ Agent context  ](../../../context/)
 
-Context 
-      * [ Context caching  ](../../../context/caching/)
-      * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions and Memory  ](../../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../../sessions/)
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
@@ -177,6 +174,8 @@ Sessions
       * [ State  ](../../../sessions/state/)
       * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
+      * [ Context compression  ](../../../context/compaction/)
+      * [ Model context caching  ](../../../context/caching/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -343,9 +342,7 @@ Google's Agent Development Kit ([ADK](https://adk.dev)) provides a production-re
 
 ## ADK Gemini Live API Toolkit Demo¶
 
-To help you understand the concepts in this guide, we provide a working demo application that showcases ADK bidirectional streaming in action. This FastAPI-based demo implements the complete streaming lifecycle with a practical, real-world architecture.
-
-**Demo Repository** : [adk-samples/python/agents/bidi-demo](https://github.com/google/adk-samples/tree/main/python/agents/bidi-demo)
+To help you understand the concepts in this guide, we reference a demo application that showcases ADK bidirectional streaming in action. This FastAPI-based demo implements the complete streaming lifecycle with a practical, real-world architecture.
 
 The demo features:
 
@@ -357,9 +354,7 @@ The demo features:
 
 
 
-**We strongly recommend installing and running this demo** before diving into the guide. Hands-on experimentation will help you understand the concepts more deeply, and the demo code serves as a practical reference throughout all parts of this guide.
-
-For installation instructions and usage details, see the [demo README](https://github.com/google/adk-samples/tree/main/python/agents/bidi-demo).
+The demo code serves as a practical reference throughout all parts of this guide, with code snippets linked inline as each concept is introduced.
 
 ## 1.1 What is Bidi-streaming?¶
 

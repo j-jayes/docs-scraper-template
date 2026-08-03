@@ -24,7 +24,7 @@ A readonly context represents the data of a single invocation of an agent.
 
 
 
-  * Defined in [agents/readonly_context.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L16)
+  * Defined in [core/src/agents/readonly_context.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L16)
 
 
 
@@ -40,7 +40,7 @@ A readonly context represents the data of a single invocation of an agent.
 
 #### Returns [ReadonlyContext]()
 
-    * Defined in [agents/readonly_context.ts:17](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L17)
+    * Defined in [core/src/agents/readonly_context.ts:17](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L17)
 
 
 
@@ -51,7 +51,7 @@ A readonly context represents the data of a single invocation of an agent.
 
 invocationContext: [InvocationContext](InvocationContext.html)
 
-  * Defined in [agents/readonly_context.ts:17](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L17)
+  * Defined in [core/src/agents/readonly_context.ts:17](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L17)
 
 
 
@@ -65,7 +65,7 @@ The current agent name.
 
 #### Returns string
 
-    * Defined in [agents/readonly_context.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L50)
+    * Defined in [core/src/agents/readonly_context.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L50)
 
 
 
@@ -78,7 +78,7 @@ The current invocation id.
 
 #### Returns string
 
-    * Defined in [agents/readonly_context.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L29)
+    * Defined in [core/src/agents/readonly_context.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L29)
 
 
 
@@ -91,7 +91,7 @@ The ID of the current session.
 
 #### Returns string
 
-    * Defined in [agents/readonly_context.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L43)
+    * Defined in [core/src/agents/readonly_context.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L43)
 
 
 
@@ -104,7 +104,7 @@ The state of the current session.
 
 #### Returns Readonly<[State](State.html)>
 
-    * Defined in [agents/readonly_context.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L57)
+    * Defined in [core/src/agents/readonly_context.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L57)
 
 
 
@@ -117,7 +117,7 @@ The user content that started this invocation.
 
 #### Returns Content | undefined
 
-    * Defined in [agents/readonly_context.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L22)
+    * Defined in [core/src/agents/readonly_context.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L22)
 
 
 
@@ -130,7 +130,7 @@ The user ID of the current session.
 
 #### Returns string
 
-    * Defined in [agents/readonly_context.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/readonly_context.ts#L36)
+    * Defined in [core/src/agents/readonly_context.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L36)
 
 
 
@@ -147,7 +147,7 @@ Accessors
 
 agentNameinvocationIdsessionIdstateuserContentuserId
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

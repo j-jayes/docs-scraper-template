@@ -86,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -212,14 +213,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -228,6 +225,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -523,13 +522,17 @@ Optional but recommended: Setting environment variables can make the deployment 
   * `--region TEXT`: (Required) The Google Cloud location for deployment (e.g., `$GOOGLE_CLOUD_LOCATION`, `us-central1`).
   * `--service_name TEXT`: (Optional) The name for the Cloud Run service (e.g., `$SERVICE_NAME`). Defaults to `adk-default-service-name`.
   * `--app_name TEXT`: (Optional) The application name for the ADK API server (e.g., `$APP_NAME`). Defaults to the name of the directory specified by `AGENT_PATH` (e.g., `capital_agent` if `AGENT_PATH` is `./capital_agent`).
-  * `--agent_engine_id TEXT`: (Optional) If you are using a managed session service via Agent Runtime, provide its resource ID here.
+  * `--session_service_uri TEXT`: (Optional) The URI of the session service. If you are using a managed session service via Agent Runtime, pass `agentengine://<agent_engine>`, where `<agent_engine>` is either the resource ID or the full `projects/*/locations/*/reasoningEngines/*` resource name. Other supported forms are `memory://` and any SQLAlchemy database URL (e.g., `sqlite://<path>`).
+  * `--artifact_service_uri TEXT`: (Optional) The URI of the artifact service (e.g., `gs://<bucket_name>` for Cloud Storage, `file://<path>`, or `memory://`).
+  * `--memory_service_uri TEXT`: (Optional) The URI of the memory service (e.g., `rag://<rag_corpus_id>`, `agentengine://<agent_engine>`, or `memory://`).
   * `--port INTEGER`: (Optional) The port number the ADK API server will listen on within the container. Defaults to 8000.
   * `--with_ui`: (Optional) If included, deploys the ADK dev UI alongside the agent API server. By default, only the API server is deployed.
   * `--temp_folder TEXT`: (Optional) Specifies a directory for storing intermediate files generated during the deployment process. Defaults to a timestamped folder in the system's temporary directory. _(Note: This option is generally not needed unless troubleshooting issues)._
   * `--help`: Show the help message and exit.
 
 
+
+When `--session_service_uri` and `--artifact_service_uri` are not set, the deployed container falls back to the in-memory session and artifact services, and sessions and artifacts are lost whenever a Cloud Run instance is recycled. Set both options for any deployment that must retain this data.
 
 ##### Passing gcloud CLI Arguments¶
 

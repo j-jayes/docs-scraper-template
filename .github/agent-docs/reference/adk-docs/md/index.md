@@ -84,6 +84,7 @@ Models for Agents
       * [ Agent Platform hosted  ](agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](agents/models/apigee/)
       * [ Model routing  ](agents/models/routing/)
+      * [ OpenAI  ](agents/models/openai/)
       * [ Ollama  ](agents/models/ollama/)
       * [ vLLM  ](agents/models/vllm/)
       * [ LiteLLM  ](agents/models/litellm/)
@@ -159,14 +160,10 @@ Callbacks
         * [ Types of callbacks  ](callbacks/types-of-callbacks/)
         * [ Callback patterns  ](callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](plugins/)
-    * [ Context  ](context/)
+    * [ Agent context  ](context/)
 
-Context 
-      * [ Context caching  ](context/caching/)
-      * [ Context compression  ](context/compaction/)
-    * [ Sessions and Memory  ](sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](sessions/)
       * [ Sessions  ](sessions/session/)
 
 Sessions 
@@ -175,6 +172,8 @@ Sessions
       * [ State  ](sessions/state/)
       * [ Events  ](events/)
       * [ Memory  ](sessions/memory/)
+      * [ Context compression  ](context/compaction/)
+      * [ Model context caching  ](context/caching/)
     * [ MCP  ](mcp/)
 
 MCP 

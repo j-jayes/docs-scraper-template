@@ -29,7 +29,7 @@ type: "StreamableHTTPConnectionParams";
 url: string;  
 }
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L38)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L38)
 
 
 
@@ -43,7 +43,7 @@ header?: Record<string, unknown>
 
 Use transportOptions.requestInit.headers instead. This field will be ignored if transportOptions is provided even if no headers are specified in transportOptions.
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L46)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L46)
 
 
 
@@ -51,7 +51,7 @@ Use transportOptions.requestInit.headers instead. This field will be ignored if 
 
 sseReadTimeout?: number
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L48)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L48)
 
 
 
@@ -59,7 +59,7 @@ sseReadTimeout?: number
 
 terminateOnClose?: boolean
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L49)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L49)
 
 
 
@@ -67,7 +67,7 @@ terminateOnClose?: boolean
 
 timeout?: number
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L47)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L47)
 
 
 
@@ -75,7 +75,7 @@ timeout?: number
 
 transportOptions?: StreamableHTTPClientTransportOptions
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L50)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L50)
 
 
 
@@ -83,7 +83,7 @@ transportOptions?: StreamableHTTPClientTransportOptions
 
 type: "StreamableHTTPConnectionParams"
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:39](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L39)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:39](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L39)
 
 
 
@@ -91,7 +91,7 @@ type: "StreamableHTTPConnectionParams"
 
 url: string
 
-  * Defined in [tools/mcp/mcp_session_manager.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/mcp/mcp_session_manager.ts#L40)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L40)
 
 
 
@@ -99,7 +99,7 @@ Properties
 
 headersseReadTimeoutterminateOnClosetimeouttransportOptionstypeurl
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

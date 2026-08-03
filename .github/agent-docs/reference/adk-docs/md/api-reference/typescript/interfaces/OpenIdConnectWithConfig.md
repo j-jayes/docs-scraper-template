@@ -34,7 +34,7 @@ userinfoEndpoint?: string;
 
 
 
-  * Defined in [auth/auth_schemes.ts:15](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L15)
+  * Defined in [core/src/auth/auth_schemes.ts:15](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L15)
 
 
 
@@ -44,7 +44,7 @@ userinfoEndpoint?: string;
 
 authorizationEndpoint: string
 
-  * Defined in [auth/auth_schemes.ts:17](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L17)
+  * Defined in [core/src/auth/auth_schemes.ts:17](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L17)
 
 
 
@@ -52,7 +52,7 @@ authorizationEndpoint: string
 
 grantTypesSupported?: string[]
 
-  * Defined in [auth/auth_schemes.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L22)
+  * Defined in [core/src/auth/auth_schemes.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L22)
 
 
 
@@ -60,7 +60,7 @@ grantTypesSupported?: string[]
 
 revocationEndpoint?: string
 
-  * Defined in [auth/auth_schemes.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L20)
+  * Defined in [core/src/auth/auth_schemes.ts:20](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L20)
 
 
 
@@ -68,7 +68,7 @@ revocationEndpoint?: string
 
 scopes?: string[]
 
-  * Defined in [auth/auth_schemes.ts:23](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L23)
+  * Defined in [core/src/auth/auth_schemes.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L23)
 
 
 
@@ -76,7 +76,7 @@ scopes?: string[]
 
 tokenEndpoint: string
 
-  * Defined in [auth/auth_schemes.ts:18](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L18)
+  * Defined in [core/src/auth/auth_schemes.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L18)
 
 
 
@@ -84,7 +84,7 @@ tokenEndpoint: string
 
 tokenEndpointAuthMethodsSupported?: string[]
 
-  * Defined in [auth/auth_schemes.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L21)
+  * Defined in [core/src/auth/auth_schemes.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L21)
 
 
 
@@ -92,7 +92,7 @@ tokenEndpointAuthMethodsSupported?: string[]
 
 userinfoEndpoint?: string
 
-  * Defined in [auth/auth_schemes.ts:19](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_schemes.ts#L19)
+  * Defined in [core/src/auth/auth_schemes.ts:19](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L19)
 
 
 
@@ -100,7 +100,7 @@ Properties
 
 authorizationEndpointgrantTypesSupportedrevocationEndpointscopestokenEndpointtokenEndpointAuthMethodsSupporteduserinfoEndpoint
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

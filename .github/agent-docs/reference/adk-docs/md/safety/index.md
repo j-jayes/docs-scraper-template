@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -160,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -176,6 +174,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -217,7 +217,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
       * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -257,7 +259,7 @@ Table of contents
   2. [ Run Agents  ](../runtime/)
   3. [ Safety and Security  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/safety/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/safety/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/safety/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Safety and Security for AI Agents¶
 
@@ -481,7 +483,7 @@ PythonTypeScriptGoJava
         "fmt"
         "strings"
     
-        "google.golang.org/adk/tool"
+        "google.golang.org/adk/v2/tool"
     )
     
     func query(ctx tool.Context, args QueryArgs) (map[string]any, error) {
@@ -603,7 +605,7 @@ PythonGo
     
     
     import (
-        "google.golang.org/adk/agent/llmagent"
+        "google.golang.org/adk/v2/agent/llmagent"
         "google.golang.org/genai"
     )
     
@@ -714,8 +716,8 @@ PythonTypeScriptGoJava
     import (
         "fmt"
     
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/tool"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/tool"
     )
     
     // Hypothetical callback function

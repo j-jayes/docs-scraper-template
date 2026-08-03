@@ -1,12 +1,12 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
 
-Context 
+Agent context 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -160,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](./)
+    * [ Agent context  ](./)
 
-Context 
-      * [ Context caching  ](caching/)
-      * [ Context compression  ](compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -176,6 +174,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](compaction/)
+      * [ Model context caching  ](caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -217,7 +217,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
       * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -254,11 +256,11 @@ Table of contents
 
   1. [ Home  ](..)
   2. [ Components  ](../get-started/about/)
-  3. [ Context  ](./)
+  3. [ Agent context  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/context/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/context/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/context/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
-# Context¶
+# Agent context¶
 
 Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0
 
@@ -374,7 +376,9 @@ PythonTypeScriptGoJava
                 log.Printf("ERROR during agent execution: %v", err)
                 break
             }
-            fmt.Print(event.Content.Parts[0].Text)
+            if event != nil && event.Content != nil && len(event.Content.Parts) > 0 {
+                fmt.Print(event.Content.Parts[0].Text)
+            }
         }
     }
     
@@ -462,8 +466,8 @@ PythonTypeScriptGoJava
         
         
         import (
-            "google.golang.org/adk/agent"
-            "google.golang.org/adk/session"
+            "google.golang.org/adk/v2/agent"
+            "google.golang.org/adk/v2/session"
         )
         
         // Pseudocode: Agent implementation receiving InvocationContext
@@ -536,7 +540,7 @@ PythonTypeScriptGoJava
         }
         
         
-        import "google.golang.org/adk/agent"
+        import "google.golang.org/adk/v2/agent"
         
         // Pseudocode: Instruction provider receiving ReadonlyContext
         func myInstructionProvider(ctx agent.ReadonlyContext) (string, error) {
@@ -624,12 +628,12 @@ In Python and TypeScript, `CallbackContext` and `ToolContext` have been replaced
     
         ```go
         import (
-            "google.golang.org/adk/agent"
-            "google.golang.org/adk/model"
+            "google.golang.org/adk/v2/agent"
+            "google.golang.org/adk/v2/model"
         )
     
         // Pseudocode: Callback receiving CallbackContext
-        func myBeforeModelCb(ctx agent.CallbackContext, req *model.LLMRequest) (*model.LLMResponse, error) {
+        func myBeforeModelCb(ctx agent.Context, req *model.LLMRequest) (*model.LLMResponse, error) {
             // Read/Write state example
             callCount, err := ctx.State().Get("model_calls")
             if err != nil {
@@ -736,14 +740,14 @@ PythonTypeScriptGoJava
     }
     
     
-    import "google.golang.org/adk/tool"
+    import "google.golang.org/adk/v2/tool"
     
     // Pseudocode: Tool function receiving ToolContext
     type searchExternalAPIArgs struct {
         Query string `json:"query" jsonschema:"The query to search for."`
     }
     
-    func searchExternalAPI(tc tool.Context, input searchExternalAPIArgs) (string, error) {
+    func searchExternalAPI(tc agent.Context, input searchExternalAPIArgs) (string, error) {
         apiKey, err := tc.State().Get("api_key")
         if err != nil || apiKey == "" {
             // In a real scenario, you would define and request credentials here.
@@ -854,9 +858,9 @@ PythonTypeScriptGoJava
         
         
         import (
-            "google.golang.org/adk/agent"
-            "google.golang.org/adk/session"
-            "google.golang.org/adk/tool"
+            "google.golang.org/adk/v2/agent"
+            "google.golang.org/adk/v2/session"
+            "google.golang.org/adk/v2/tool"
             "google.golang.org/genai"
         )
         
@@ -870,7 +874,7 @@ PythonTypeScriptGoJava
         }
         
         // Example tool function demonstrating state access
-        func myTool(tc tool.Context, input toolArgs) (toolResults, error) {
+        func myTool(tc agent.Context, input toolArgs) (toolResults, error) {
             userPref, err := tc.State().Get("user_display_preference")
             if err != nil {
                 userPref = "default_mode"
@@ -887,7 +891,7 @@ PythonTypeScriptGoJava
         
         
         // Pseudocode: In a Callback function
-        func myCallback(ctx agent.CallbackContext) (*genai.Content, error) {
+        func myCallback(ctx agent.Context) (*genai.Content, error) {
             lastToolResult, err := ctx.State().Get("temp:last_api_result") // Read temporary state
             if err == nil {
                 fmt.Printf("Found temporary result from last tool: %v\n", lastToolResult)
@@ -953,7 +957,7 @@ PythonTypeScriptGoJava
         }
         
         
-        import "google.golang.org/adk/tool"
+        import "google.golang.org/adk/v2/tool"
         
         // Pseudocode: In any context (ToolContext shown)
         type logToolUsageArgs struct{}
@@ -961,7 +965,7 @@ PythonTypeScriptGoJava
             Status string `json:"status"`
         }
         
-        func logToolUsage(tc tool.Context, args logToolUsageArgs) (logToolUsageResult, error) {
+        func logToolUsage(tc agent.Context, args logToolUsageArgs) (logToolUsageResult, error) {
             agentName := tc.AgentName()
             invID := tc.InvocationID()
             funcCallID := tc.FunctionCallID()
@@ -1019,12 +1023,12 @@ PythonTypeScriptGoJava
         
         
         import (
-            "google.golang.org/adk/agent"
+            "google.golang.org/adk/v2/agent"
             "google.golang.org/genai"
         )
         
         // Pseudocode: In a Callback
-        func logInitialUserInput(ctx agent.CallbackContext) (*genai.Content, error) {
+        func logInitialUserInput(ctx agent.Context) (*genai.Content, error) {
             userContent := ctx.UserContent()
             if userContent != nil && len(userContent.Parts) > 0 {
                 if text := userContent.Parts[0].Text; text != "" {
@@ -1107,13 +1111,13 @@ PythonTypeScriptGoJava
         }
         
         
-        import "google.golang.org/adk/tool"
+        import "google.golang.org/adk/v2/tool"
         
         // Pseudocode: Tool 1 - Fetches user ID
         type GetUserProfileArgs struct {
         }
         
-        func getUserProfile(tc tool.Context, input GetUserProfileArgs) (string, error) {
+        func getUserProfile(tc agent.Context, input GetUserProfileArgs) (string, error) {
             // A random user ID for demonstration purposes
             userID := "random_user_456"
         
@@ -1133,7 +1137,7 @@ PythonTypeScriptGoJava
             Orders []string `json:"orders"`
         }
         
-        func getUserOrders(tc tool.Context, input GetUserOrdersArgs) (*getUserOrdersResult, error) {
+        func getUserOrders(tc agent.Context, input GetUserOrdersArgs) (*getUserOrdersResult, error) {
             userID, err := tc.State().Get("temp:current_user_id")
             if err != nil {
                 return &getUserOrdersResult{}, fmt.Errorf("user ID not found in state")
@@ -1196,7 +1200,7 @@ PythonTypeScriptGoJava
         }
         
         
-        import "google.golang.org/adk/tool"
+        import "google.golang.org/adk/v2/tool"
         
         // Pseudocode: Tool or Callback identifies a preference
         type setUserPreferenceArgs struct {
@@ -1208,7 +1212,7 @@ PythonTypeScriptGoJava
             Status string `json:"status"`
         }
         
-        func setUserPreference(tc tool.Context, args setUserPreferenceArgs) (setUserPreferenceResult, error) {
+        func setUserPreference(tc agent.Context, args setUserPreferenceArgs) (setUserPreferenceResult, error) {
             // Use 'user:' prefix for user-level state (if using a persistent SessionService)
             stateKey := fmt.Sprintf("user:%s", args.Preference)
             if err := tc.State().Set(stateKey, args.Value); err != nil {
@@ -1291,7 +1295,7 @@ PythonTypeScriptGoJava
            
            
            import (
-               "google.golang.org/adk/tool"
+               "google.golang.org/adk/v2/tool"
                "google.golang.org/genai"
            )
            
@@ -1304,7 +1308,7 @@ PythonTypeScriptGoJava
                Status string `json:"status"`
            }
            
-           func saveDocRef(tc tool.Context, args saveDocRefArgs) (saveDocRefResult, error) {
+           func saveDocRef(tc agent.Context, args saveDocRefArgs) (saveDocRefResult, error) {
                artifactPart := genai.NewPartFromText(args.FilePath)
                _, err := tc.Artifacts().Save(tc, "document_to_summarize.txt", artifactPart)
                if err != nil {
@@ -1446,7 +1450,7 @@ PythonTypeScriptGoJava
            }
            
            
-           import "google.golang.org/adk/tool"
+           import "google.golang.org/adk/v2/tool"
            
            // Pseudocode: In the Summarizer tool function
            type summarizeDocumentArgs struct{}
@@ -1455,7 +1459,7 @@ PythonTypeScriptGoJava
                Summary string `json:"summary"`
            }
            
-           func summarizeDocumentTool(tc tool.Context, input summarizeDocumentArgs) (summarizeDocumentResult, error) {
+           func summarizeDocumentTool(tc agent.Context, input summarizeDocumentArgs) (summarizeDocumentResult, error) {
                artifactName, err := tc.State().Get("temp:doc_artifact_name")
                if err != nil {
                    return summarizeDocumentResult{}, fmt.Errorf("No document artifact name found in state")
@@ -1565,7 +1569,7 @@ PythonTypeScriptGoJava
         }
         
         
-        import "google.golang.org/adk/tool"
+        import "google.golang.org/adk/v2/tool"
         
         // Pseudocode: In a tool function
         type checkAvailableDocsArgs struct{}
@@ -1574,7 +1578,7 @@ PythonTypeScriptGoJava
             AvailableDocs []string `json:"available_docs"`
         }
         
-        func checkAvailableDocs(tc tool.Context, args checkAvailableDocsArgs) (checkAvailableDocsResult, error) {
+        func checkAvailableDocs(tc agent.Context, args checkAvailableDocsArgs) (checkAvailableDocsResult, error) {
             artifactKeys, err := tc.Artifacts().List(tc)
             if err != nil {
                 return checkAvailableDocsResult{}, err
@@ -1727,8 +1731,8 @@ PythonTypeScriptJava
     import com.google.adk.tools.ToolContext;
     import java.util.Map;
     
-    // Note: AuthConfig, requestCredential, and getAuthResponse are not yet 
-    // fully implemented in the Java ADK public API. 
+    // Note: AuthConfig, requestCredential, and getAuthResponse are not yet
+    // fully implemented in the Java ADK public API.
     // This example relies on external auth population into the session state.
     
     public class SecureApiTool {

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -160,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -176,6 +174,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -233,7 +233,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
       * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -276,13 +278,19 @@ Table of contents
   3. [ A2A Protocol  ](../)
   4. [ A2A Quickstart (Exposing)  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/a2a/quickstart-exposing.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/a2a/quickstart-exposing.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/a2a/quickstart-exposing.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Quickstart: Exposing a remote agent via A2A¶
 
 Supported in ADKPythonExperimental
 
 This quickstart covers the most common starting point for any developer: **"I have an agent. How do I expose it so that other agents can use my agent via A2A?"**. This is crucial for building complex multi-agent systems where different agents need to collaborate and interact.
+
+A2A Python SDK version compatibility
+
+ADK's A2A integration works with both major versions of the A2A SDK (`a2a-sdk` 0.3.x and 1.x.x). The installed A2A SDK version is detected automatically, so no changes to your ADK application code are needed.
+
+Although `a2a-sdk` 0.3.x is supported in compatibility mode, new integrations should target 1.x.x. If your code references `a2a-sdk` types directly (for example, custom executors or hand-constructed `AgentCard` instances), see the [A2A SDK v1.0 migration guide](https://github.com/a2aproject/a2a-python/tree/main/docs/migrations/v1_0) when moving to 1.x.x.
 
 ## Overview¶
 
@@ -420,7 +428,7 @@ As you'll see, the folder structure is as follows:
     
     a2a_root/
     ├── remote_a2a/
-    │   └── hello_world/    
+    │   └── hello_world/
     │       ├── __init__.py
     │       └── agent.py    # Remote Hello World Agent
     ├── README.md

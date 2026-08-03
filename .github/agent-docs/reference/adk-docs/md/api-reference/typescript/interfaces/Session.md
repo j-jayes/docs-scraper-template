@@ -26,7 +26,7 @@ state: Record<string, unknown>;
 userId: string;  
 }
 
-  * Defined in [sessions/session.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L12)
+  * Defined in [core/src/sessions/session.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L24)
 
 
 
@@ -38,7 +38,7 @@ appName: string
 
 The name of the app.
 
-  * Defined in [sessions/session.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L21)
+  * Defined in [core/src/sessions/session.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L33)
 
 
 
@@ -48,7 +48,7 @@ events: [Event](Event.html)[]
 
 The events of the session, e.g. user input, model response, function call/response, etc.
 
-  * Defined in [sessions/session.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L37)
+  * Defined in [core/src/sessions/session.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L49)
 
 
 
@@ -58,7 +58,7 @@ id: string
 
 The unique identifier of the session.
 
-  * Defined in [sessions/session.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L16)
+  * Defined in [core/src/sessions/session.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L28)
 
 
 
@@ -68,7 +68,7 @@ lastUpdateTime: number
 
 The last update time of the session.
 
-  * Defined in [sessions/session.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L42)
+  * Defined in [core/src/sessions/session.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L54)
 
 
 
@@ -78,7 +78,7 @@ state: Record<string, unknown>
 
 The state of the session.
 
-  * Defined in [sessions/session.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L31)
+  * Defined in [core/src/sessions/session.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L43)
 
 
 
@@ -88,7 +88,7 @@ userId: string
 
 The id of the user.
 
-  * Defined in [sessions/session.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/session.ts#L26)
+  * Defined in [core/src/sessions/session.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L38)
 
 
 
@@ -96,7 +96,7 @@ Properties
 
 appNameeventsidlastUpdateTimestateuserId
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

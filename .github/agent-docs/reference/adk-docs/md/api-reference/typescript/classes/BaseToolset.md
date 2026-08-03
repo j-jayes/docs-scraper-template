@@ -22,11 +22,14 @@ A toolset is a collection of tools that can be used by an agent.
 #### Hierarchy ([View Summary](../hierarchy.html#BaseToolset))
 
   * BaseToolset
+    * [AgentRegistrySingleMCPToolset](AgentRegistrySingleMCPToolset.html)
     * [MCPToolset](MCPToolset.html)
+    * [SkillToolset](SkillToolset.html)
+    * [OpenAPIToolset](OpenAPIToolset.html)
 
 
 
-  * Defined in [tools/base_toolset.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L43)
+  * Defined in [core/src/tools/base_toolset.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L43)
 
 
 
@@ -46,7 +49,7 @@ prefix?: string,
 
 #### Returns [BaseToolset]()
 
-    * Defined in [tools/base_toolset.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L46)
+    * Defined in [core/src/tools/base_toolset.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L46)
 
 
 
@@ -57,7 +60,7 @@ prefix?: string,
 
 "[BASE_TOOLSET_SIGNATURE_SYMBOL]": true
 
-  * Defined in [tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L44)
+  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L44)
 
 
 
@@ -65,7 +68,7 @@ prefix?: string,
 
 prefix?: string
 
-  * Defined in [tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L48)
+  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L48)
 
 
 
@@ -73,7 +76,7 @@ prefix?: string
 
 toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html)
 
-  * Defined in [tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L47)
+  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L47)
 
 
 
@@ -91,7 +94,7 @@ NOTE: This method is invoked, for example, at the end of an agent server's lifec
 
 A Promise that resolves when the toolset is closed.
 
-    * Defined in [tools/base_toolset.ts:70](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L70)
+    * Defined in [core/src/tools/base_toolset.ts:70](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L70)
 
 
 
@@ -112,7 +115,7 @@ Context used to filter tools available to the agent. If not defined, all tools i
 
 A Promise that resolves to the list of tools.
 
-    * Defined in [tools/base_toolset.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L58)
+    * Defined in [core/src/tools/base_toolset.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L58)
 
 
 
@@ -137,7 +140,7 @@ Context used to filter tools available to the agent.
 
 Whether the tool should be exposed to LLM.
 
-    * Defined in [tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L79)
+    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L79)
 
 
 
@@ -164,7 +167,7 @@ The outgoing LLM request, mutable this method.
 
 #### Returns Promise<void>
 
-    * Defined in [tools/base_toolset.ts:107](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_toolset.ts#L107)
+    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L111)
 
 
 
@@ -181,7 +184,7 @@ Methods
 
 closegetToolsisToolSelectedprocessLlmRequest
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

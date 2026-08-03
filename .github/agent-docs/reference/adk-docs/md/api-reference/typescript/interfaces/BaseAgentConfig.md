@@ -22,19 +22,21 @@ afterAgentCallback?: [AfterAgentCallback](../types/AfterAgentCallback.html);
 beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html);  
 description?: string;  
 name: string;  
-parentAgent?: [BaseAgent](../classes/BaseAgent.html);  
-subAgents?: [BaseAgent](../classes/BaseAgent.html)[];  
+parentAgent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig]()>;  
+subAgents?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig]()>[];  
 }
 
 #### Hierarchy ([View Summary](../hierarchy.html#BaseAgentConfig))
 
   * BaseAgentConfig
+    * [RemoteA2AAgentConfig](RemoteA2AAgentConfig.html)
     * [LlmAgentConfig](LlmAgentConfig.html)
     * [LoopAgentConfig](LoopAgentConfig.html)
+    * [RoutedAgentConfig](RoutedAgentConfig.html)
 
 
 
-  * Defined in [agents/base_agent.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L42)
+  * Defined in [core/src/agents/base_agent.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L42)
 
 
 
@@ -44,7 +46,7 @@ subAgents?: [BaseAgent](../classes/BaseAgent.html)[];
 
 afterAgentCallback?: [AfterAgentCallback](../types/AfterAgentCallback.html)
 
-  * Defined in [agents/base_agent.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L48)
+  * Defined in [core/src/agents/base_agent.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L48)
 
 
 
@@ -52,7 +54,7 @@ afterAgentCallback?: [AfterAgentCallback](../types/AfterAgentCallback.html)
 
 beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html)
 
-  * Defined in [agents/base_agent.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L47)
+  * Defined in [core/src/agents/base_agent.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L47)
 
 
 
@@ -60,7 +62,7 @@ beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html)
 
 description?: string
 
-  * Defined in [agents/base_agent.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L44)
+  * Defined in [core/src/agents/base_agent.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L44)
 
 
 
@@ -68,23 +70,23 @@ description?: string
 
 name: string
 
-  * Defined in [agents/base_agent.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L43)
+  * Defined in [core/src/agents/base_agent.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L43)
 
 
 
 ### `Optional`parentAgent
 
-parentAgent?: [BaseAgent](../classes/BaseAgent.html)
+parentAgent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig]()>
 
-  * Defined in [agents/base_agent.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L45)
+  * Defined in [core/src/agents/base_agent.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L45)
 
 
 
 ### `Optional`subAgents
 
-subAgents?: [BaseAgent](../classes/BaseAgent.html)[]
+subAgents?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig]()>[]
 
-  * Defined in [agents/base_agent.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L46)
+  * Defined in [core/src/agents/base_agent.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L46)
 
 
 
@@ -92,7 +94,7 @@ Properties
 
 afterAgentCallbackbeforeAgentCallbackdescriptionnameparentAgentsubAgents
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

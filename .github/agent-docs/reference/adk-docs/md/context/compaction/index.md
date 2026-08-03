@@ -86,6 +86,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -161,10 +162,18 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../)
+    * [ Agent context  ](../)
 
-Context 
-      * [ Context caching  ](../caching/)
+Agent context 
+      * [ Conversational context  ](../../sessions/)
+      * [ Sessions  ](../../sessions/session/)
+
+Sessions 
+        * [ Rewind sessions  ](../../sessions/session/rewind/)
+        * [ Migrate sessions  ](../../sessions/session/migrate/)
+      * [ State  ](../../sessions/state/)
+      * [ Events  ](../../events/)
+      * [ Memory  ](../../sessions/memory/)
       * Context compression  [ Context compression  ](./) Table of contents 
         * Choose your strategy 
         * Token-based compaction 
@@ -174,17 +183,7 @@ Context
         * Example of context compaction 
         * Configuration settings 
           * Define a Summarizer 
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
-      * [ Sessions  ](../../sessions/session/)
-
-Sessions 
-        * [ Rewind sessions  ](../../sessions/session/rewind/)
-        * [ Migrate sessions  ](../../sessions/session/migrate/)
-      * [ State  ](../../sessions/state/)
-      * [ Events  ](../../events/)
-      * [ Memory  ](../../sessions/memory/)
+      * [ Model context caching  ](../caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -260,7 +259,7 @@ Table of contents
 
   1. [ Home  ](../..)
   2. [ Components  ](../../get-started/about/)
-  3. [ Context  ](../)
+  3. [ Agent context  ](../)
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/context/compaction.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -78,9 +78,9 @@ An abstraction for a telemetry context, capable of bridging into ThreadLocal sto
 
 Link copied to clipboard
 
-interface [TelemetryContextElement](-telemetry-context-element/index.html) : [CoroutineContext.Element](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.coroutines/-coroutine-context/-element/index.html)
+interface [TelemetryContextElement](-telemetry-context-element/index.html)
 
-A [CoroutineContext.Element](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.coroutines/-coroutine-context/-element/index.html) that carries a [TelemetryContext](-telemetry-context/index.html) across coroutine suspension points.
+A CoroutineContext.Element that carries a [TelemetryContext](-telemetry-context/index.html) across coroutine suspension points.
 
 [Tracer](-tracer/index.html)
 

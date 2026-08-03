@@ -24,7 +24,7 @@ A session service that uses a SQL database for storage via MikroORM.
 
 
 
-  * Defined in [sessions/database_session_service.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L66)
+  * Defined in [core/src/sessions/database_session_service.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L66)
 
 
 
@@ -44,7 +44,7 @@ connectionStringOrOptions: string | Options,
 
 Overrides [BaseSessionService](BaseSessionService.html).[constructor](BaseSessionService.html#constructor)
 
-    * Defined in [sessions/database_session_service.ts:72](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L72)
+    * Defined in [core/src/sessions/database_session_service.ts:72](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L72)
 
 
 
@@ -69,7 +69,7 @@ A promise that resolves to the event that was appended.
 
 Overrides [BaseSessionService](BaseSessionService.html).[appendEvent](BaseSessionService.html#appendevent)
 
-    * Defined in [sessions/database_session_service.ts:309](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L309)
+    * Defined in [core/src/sessions/database_session_service.ts:369](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L369)
 
 
 
@@ -92,20 +92,20 @@ A promise that resolves to the newly created session instance.
 
 Overrides [BaseSessionService](BaseSessionService.html).[createSession](BaseSessionService.html#createsession)
 
-    * Defined in [sessions/database_session_service.ts:103](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L103)
+    * Defined in [core/src/sessions/database_session_service.ts:103](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L103)
 
 
 
 
 ### deleteSession
 
-  * deleteSession(request: [DeleteSessionRequest](../interfaces/DeleteSessionRequest.html)): Promise<void>
+  * deleteSession(request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)): Promise<void>
 
 Deletes a session.
 
 #### Parameters
 
-    * request: [DeleteSessionRequest](../interfaces/DeleteSessionRequest.html)
+    * request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)
 
 The request to delete a session.
 
@@ -115,7 +115,7 @@ A promise that resolves when the session is deleted.
 
 Overrides [BaseSessionService](BaseSessionService.html).[deleteSession](BaseSessionService.html#deletesession)
 
-    * Defined in [sessions/database_session_service.ts:297](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L297)
+    * Defined in [core/src/sessions/database_session_service.ts:357](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L357)
 
 
 
@@ -138,7 +138,7 @@ A promise that resolves to the session instance.
 
 Inherited from [BaseSessionService](BaseSessionService.html).[getOrCreateSession](BaseSessionService.html#getorcreatesession)
 
-    * Defined in [sessions/base_session_service.ts:124](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L124)
+    * Defined in [core/src/sessions/base_session_service.ts:129](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L129)
 
 
 
@@ -161,7 +161,7 @@ A promise that resolves to the session instance or undefined if not found.
 
 Overrides [BaseSessionService](BaseSessionService.html).[getSession](BaseSessionService.html#getsession)
 
-    * Defined in [sessions/database_session_service.ts:194](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L194)
+    * Defined in [core/src/sessions/database_session_service.ts:194](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L194)
 
 
 
@@ -172,7 +172,7 @@ Overrides [BaseSessionService](BaseSessionService.html).[getSession](BaseSession
 
 #### Returns Promise<void>
 
-    * Defined in [sessions/database_session_service.ts:88](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L88)
+    * Defined in [core/src/sessions/database_session_service.ts:88](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L88)
 
 
 
@@ -195,7 +195,7 @@ A promise that resolves to a list of sessions for the user.
 
 Overrides [BaseSessionService](BaseSessionService.html).[listSessions](BaseSessionService.html#listsessions)
 
-    * Defined in [sessions/database_session_service.ts:254](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/database_session_service.ts#L254)
+    * Defined in [core/src/sessions/database_session_service.ts:254](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/database_session_service.ts#L254)
 
 
 
@@ -208,7 +208,7 @@ Methods
 
 appendEventcreateSessiondeleteSessiongetOrCreateSessiongetSessioninitlistSessions
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

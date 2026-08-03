@@ -23,11 +23,12 @@ The service provides a set of methods for managing sessions and events.
 
   * BaseSessionService
     * [DatabaseSessionService](DatabaseSessionService.html)
+    * [VertexAiSessionService](VertexAiSessionService.html)
     * [InMemorySessionService](InMemorySessionService.html)
 
 
 
-  * Defined in [sessions/base_session_service.ts:100](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L100)
+  * Defined in [core/src/sessions/base_session_service.ts:105](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L105)
 
 
 
@@ -60,7 +61,7 @@ The request to append an event.
 
 A promise that resolves to the event that was appended.
 
-    * Defined in [sessions/base_session_service.ts:163](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L163)
+    * Defined in [core/src/sessions/base_session_service.ts:168](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L168)
 
 
 
@@ -81,20 +82,20 @@ The request to create a session.
 
 A promise that resolves to the newly created session instance.
 
-    * Defined in [sessions/base_session_service.ts:107](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L107)
+    * Defined in [core/src/sessions/base_session_service.ts:112](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L112)
 
 
 
 
 ### `Abstract`deleteSession
 
-  * deleteSession(request: [DeleteSessionRequest](../interfaces/DeleteSessionRequest.html)): Promise<void>
+  * deleteSession(request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)): Promise<void>
 
 Deletes a session.
 
 #### Parameters
 
-    * request: [DeleteSessionRequest](../interfaces/DeleteSessionRequest.html)
+    * request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)
 
 The request to delete a session.
 
@@ -102,7 +103,7 @@ The request to delete a session.
 
 A promise that resolves when the session is deleted.
 
-    * Defined in [sessions/base_session_service.ts:155](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L155)
+    * Defined in [core/src/sessions/base_session_service.ts:160](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L160)
 
 
 
@@ -123,7 +124,7 @@ The request to get or create a session.
 
 A promise that resolves to the session instance.
 
-    * Defined in [sessions/base_session_service.ts:124](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L124)
+    * Defined in [core/src/sessions/base_session_service.ts:129](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L129)
 
 
 
@@ -144,7 +145,7 @@ The request to get a session.
 
 A promise that resolves to the session instance or undefined if not found.
 
-    * Defined in [sessions/base_session_service.ts:116](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L116)
+    * Defined in [core/src/sessions/base_session_service.ts:121](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L121)
 
 
 
@@ -165,7 +166,7 @@ The request to list sessions.
 
 A promise that resolves to a list of sessions for the user.
 
-    * Defined in [sessions/base_session_service.ts:145](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L145)
+    * Defined in [core/src/sessions/base_session_service.ts:150](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L150)
 
 
 
@@ -178,7 +179,7 @@ Methods
 
 appendEventcreateSessiondeleteSessiongetOrCreateSessiongetSessionlistSessions
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -15,7 +15,7 @@ Preparing search index...
 
 # Enumeration AuthCredentialTypes
 
-  * Defined in [auth/auth_credential.ts:141](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L141)
+  * Defined in [core/src/auth/auth_credential.ts:161](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L161)
 
 
 
@@ -31,7 +31,7 @@ API Key credential:
 
 <https://swagger.io/docs/specification/v3_0/authentication/api-keys/>
 
-  * Defined in [auth/auth_credential.ts:146](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L146)
+  * Defined in [core/src/auth/auth_credential.ts:166](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L166)
 
 
 
@@ -45,7 +45,7 @@ Credentials for HTTP Auth schemes:
 
 <https://www.iana.org/assignments/http-authschemes/http-auth-schemes.xhtml>
 
-  * Defined in [auth/auth_credential.ts:152](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L152)
+  * Defined in [core/src/auth/auth_credential.ts:172](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L172)
 
 
 
@@ -59,7 +59,7 @@ OAuth2 credentials:
 
 <https://swagger.io/docs/specification/v3_0/authentication/oauth2/>
 
-  * Defined in [auth/auth_credential.ts:158](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L158)
+  * Defined in [core/src/auth/auth_credential.ts:178](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L178)
 
 
 
@@ -73,7 +73,7 @@ Open ID Connect credentials:
 
 <https://swagger.io/docs/specification/v3_0/authentication/openid-connect-discovery/>
 
-  * Defined in [auth/auth_credential.ts:164](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L164)
+  * Defined in [core/src/auth/auth_credential.ts:184](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L184)
 
 
 
@@ -87,7 +87,7 @@ Service Account credentials:
 
 <https://cloud.google.com/iam/docs/service-account-creds>
 
-  * Defined in [auth/auth_credential.ts:170](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/auth_credential.ts#L170)
+  * Defined in [core/src/auth/auth_credential.ts:190](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L190)
 
 
 
@@ -95,7 +95,7 @@ Enumeration Members
 
 API_KEYHTTPOAUTH2OPEN_ID_CONNECTSERVICE_ACCOUNT
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

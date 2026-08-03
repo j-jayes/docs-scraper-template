@@ -49,7 +49,7 @@ The summarization of the function response is considered another step, since it 
        [call_llm] [call_tool] [call_llm] [transfer]
     Copy
 
-  * Defined in [agents/invocation_context.ts:114](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L114)
+  * Defined in [core/src/agents/invocation_context.ts:113](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L113)
 
 
 
@@ -67,12 +67,20 @@ The parameters for creating an invocation context.
 
 #### Returns [InvocationContext]()
 
-    * Defined in [agents/invocation_context.ts:191](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L191)
+    * Defined in [core/src/agents/invocation_context.ts:191](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L191)
 
 
 
 
 ## Properties
+
+### `Optional` `Readonly`abortSignal
+
+abortSignal?: AbortSignal
+
+  * Defined in [core/src/agents/invocation_context.ts:186](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L186)
+
+
 
 ### `Optional`activeStreamingTools
 
@@ -80,7 +88,7 @@ activeStreamingTools?: Record<string, [ActiveStreamingTool](ActiveStreamingTool.
 
 The running streaming tools of this invocation.
 
-  * Defined in [agents/invocation_context.ts:181](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L181)
+  * Defined in [core/src/agents/invocation_context.ts:179](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L179)
 
 
 
@@ -90,15 +98,15 @@ agent: [BaseAgent](BaseAgent.html)
 
 The current agent of this invocation context.
 
-  * Defined in [agents/invocation_context.ts:139](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L139)
+  * Defined in [core/src/agents/invocation_context.ts:138](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L138)
 
 
 
 ### `Optional` `Readonly`artifactService
 
-artifactService?: [BaseArtifactService](../interfaces/BaseArtifactService.html)
+artifactService?: [SessionArtifactService](../interfaces/SessionArtifactService.html)
 
-  * Defined in [agents/invocation_context.ts:115](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L115)
+  * Defined in [core/src/agents/invocation_context.ts:114](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L114)
 
 
 
@@ -112,7 +120,7 @@ The format is like agent_1.agent_2.agent_3, where agent_1 is the parent of agent
 
 Branch is used when multiple sub-agents shouldn't see their peer agents' conversation history.
 
-  * Defined in [agents/invocation_context.ts:134](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L134)
+  * Defined in [core/src/agents/invocation_context.ts:133](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L133)
 
 
 
@@ -120,7 +128,7 @@ Branch is used when multiple sub-agents shouldn't see their peer agents' convers
 
 credentialService?: [BaseCredentialService](../interfaces/BaseCredentialService.html)
 
-  * Defined in [agents/invocation_context.ts:118](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L118)
+  * Defined in [core/src/agents/invocation_context.ts:117](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L117)
 
 
 
@@ -130,7 +138,7 @@ endInvocation: boolean
 
 Whether to end this invocation. Set to True in callbacks or tools to terminate this invocation.
 
-  * Defined in [agents/invocation_context.ts:155](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L155)
+  * Defined in [core/src/agents/invocation_context.ts:154](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L154)
 
 
 
@@ -140,17 +148,7 @@ invocationId: string
 
 The id of this invocation context.
 
-  * Defined in [agents/invocation_context.ts:123](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L123)
-
-
-
-### `Optional`liveRequestQueue
-
-liveRequestQueue?: [LiveRequestQueue](LiveRequestQueue.html)
-
-The queue to receive live requests.
-
-  * Defined in [agents/invocation_context.ts:176](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L176)
+  * Defined in [core/src/agents/invocation_context.ts:122](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L122)
 
 
 
@@ -158,7 +156,7 @@ The queue to receive live requests.
 
 memoryService?: [BaseMemoryService](../interfaces/BaseMemoryService.html)
 
-  * Defined in [agents/invocation_context.ts:117](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L117)
+  * Defined in [core/src/agents/invocation_context.ts:116](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L116)
 
 
 
@@ -168,7 +166,7 @@ pluginManager: [PluginManager](PluginManager.html)
 
 The manager for keeping track of plugins in this invocation.
 
-  * Defined in [agents/invocation_context.ts:186](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L186)
+  * Defined in [core/src/agents/invocation_context.ts:184](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L184)
 
 
 
@@ -178,7 +176,7 @@ runConfig?: [RunConfig](../interfaces/RunConfig.html)
 
 Configurations for live agents under this invocation.
 
-  * Defined in [agents/invocation_context.ts:165](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L165)
+  * Defined in [core/src/agents/invocation_context.ts:164](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L164)
 
 
 
@@ -188,7 +186,7 @@ session: [Session](../interfaces/Session.html)
 
 The current session of this invocation context.
 
-  * Defined in [agents/invocation_context.ts:149](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L149)
+  * Defined in [core/src/agents/invocation_context.ts:148](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L148)
 
 
 
@@ -196,7 +194,7 @@ The current session of this invocation context.
 
 sessionService?: [BaseSessionService](BaseSessionService.html)
 
-  * Defined in [agents/invocation_context.ts:116](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L116)
+  * Defined in [core/src/agents/invocation_context.ts:115](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L115)
 
 
 
@@ -206,7 +204,7 @@ transcriptionCache?: [TranscriptionEntry](../interfaces/TranscriptionEntry.html)
 
 Caches necessary, data audio or contents, that are needed by transcription.
 
-  * Defined in [agents/invocation_context.ts:160](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L160)
+  * Defined in [core/src/agents/invocation_context.ts:159](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L159)
 
 
 
@@ -216,7 +214,7 @@ userContent?: Content
 
 The user content that started this invocation.
 
-  * Defined in [agents/invocation_context.ts:144](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L144)
+  * Defined in [core/src/agents/invocation_context.ts:143](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L143)
 
 
 
@@ -230,7 +228,7 @@ The app name of the current session.
 
 #### Returns string
 
-    * Defined in [agents/invocation_context.ts:211](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L211)
+    * Defined in [core/src/agents/invocation_context.ts:220](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L220)
 
 
 
@@ -243,7 +241,7 @@ The user ID of the current session.
 
 #### Returns string
 
-    * Defined in [agents/invocation_context.ts:218](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L218)
+    * Defined in [core/src/agents/invocation_context.ts:227](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L227)
 
 
 
@@ -262,7 +260,7 @@ Tracks number of llm calls made.
 
 If number of llm calls made exceed the set threshold.
 
-    * Defined in [agents/invocation_context.ts:227](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/invocation_context.ts#L227)
+    * Defined in [core/src/agents/invocation_context.ts:236](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/invocation_context.ts#L236)
 
 
 
@@ -273,7 +271,7 @@ constructor
 
 Properties
 
-activeStreamingToolsagentartifactServicebranchcredentialServiceendInvocationinvocationIdliveRequestQueuememoryServicepluginManagerrunConfigsessionsessionServicetranscriptionCacheuserContent
+abortSignalactiveStreamingToolsagentartifactServicebranchcredentialServiceendInvocationinvocationIdmemoryServicepluginManagerrunConfigsessionsessionServicetranscriptionCacheuserContent
 
 Accessors
 
@@ -283,7 +281,7 @@ Methods
 
 incrementLlmCallCount
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

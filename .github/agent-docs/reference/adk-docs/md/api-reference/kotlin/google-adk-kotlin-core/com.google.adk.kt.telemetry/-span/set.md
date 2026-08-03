@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -65,6 +65,22 @@ the attribute value.
 abstract operator fun [set](set.html)(key: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), value: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)): [Span](index.html)
 
 Sets a boolean attribute on the span.
+
+#### Parameters
+
+ _key_
+
+the attribute key.
+
+_value_
+
+the attribute value.
+
+* * *
+
+abstract operator fun [set](set.html)(key: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), value: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>): [Span](index.html)
+
+Sets a string-array attribute on the span (e.g. OTEL `gen_ai.response.finish_reasons`).
 
 #### Parameters
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -56,6 +56,7 @@ Streaming agent
 
 Agents 
       * [ Simple agents  ](../../llm-agents/)
+      * [ Managed agents  ](../../managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -88,6 +89,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../models/agent-platform/)
       * [ Apigee AI Gateway  ](../../models/apigee/)
       * [ Model routing  ](../../models/routing/)
+      * [ OpenAI  ](../../models/openai/)
       * [ Ollama  ](../../models/ollama/)
       * [ vLLM  ](../../models/vllm/)
       * [ LiteLLM  ](../../models/litellm/)
@@ -163,14 +165,10 @@ Callbacks
         * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../../plugins/)
-    * [ Context  ](../../../context/)
+    * [ Agent context  ](../../../context/)
 
-Context 
-      * [ Context caching  ](../../../context/caching/)
-      * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions and Memory  ](../../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../../sessions/)
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
@@ -179,6 +177,8 @@ Sessions
       * [ State  ](../../../sessions/state/)
       * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
+      * [ Context compression  ](../../../context/compaction/)
+      * [ Model context caching  ](../../../context/caching/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -220,7 +220,9 @@ Integrations
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
       * [ Typescript ADK  ](../../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
       * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
@@ -250,7 +252,7 @@ Table of contents
   3. [ Multi-Agent Workflows  ](../../../workflows/)
   4. [ Template workflows  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/workflow-agents/loop-agents.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/workflow-agents/loop-agents.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/workflow-agents/loop-agents.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Loop template workflow agent¶
 
@@ -260,9 +262,9 @@ The **_LoopAgent_** class is a [template workflow](/agents/workflow-agents/) age
 
 Alternative: graph-based workflows
 
-Starting in ADK 2.0, templated workflows have been superseded
+Starting in ADK 2.0 for Python and Go, templated workflows have been superseded
 
-by more flexible workflow structures, including [graph-based workflows](/workflows/graphs/) and [dynamic workflows](/workflows/dynamic/).
+by more flexible workflow structures, including [graph-based workflows](/graphs/) and [dynamic workflows](/graphs/dynamic/).
 
 ### Example scenario¶
 
@@ -569,7 +571,7 @@ PythonTypescriptGoJava
     type ExitLoopResults struct{}
     
     // ExitLoop is a tool that signals the loop to terminate by setting Escalate to true.
-    func ExitLoop(ctx tool.Context, input ExitLoopArgs) (ExitLoopResults, error) {
+    func ExitLoop(ctx agent.Context, input ExitLoopArgs) (ExitLoopResults, error) {
         fmt.Printf("[Tool Call] exitLoop triggered by %s \n", ctx.AgentName())
         ctx.Actions().Escalate = true
         return ExitLoopResults{}, nil

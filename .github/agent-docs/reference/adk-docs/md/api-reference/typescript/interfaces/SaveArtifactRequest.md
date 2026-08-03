@@ -26,7 +26,14 @@ sessionId: string;
 userId: string;  
 }
 
-  * Defined in [artifacts/base_artifact_service.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L12)
+#### Hierarchy ([View Summary](../hierarchy.html#SaveArtifactRequest))
+
+  * [CompositeSessionKey](CompositeSessionKey.html)
+    * SaveArtifactRequest
+
+
+
+  * Defined in [core/src/artifacts/base_artifact_service.ts:13](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/base_artifact_service.ts#L13)
 
 
 
@@ -36,9 +43,11 @@ userId: string;
 
 appName: string
 
-The app name.
+The name of the application.
 
-  * Defined in [artifacts/base_artifact_service.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L14)
+Inherited from [CompositeSessionKey](CompositeSessionKey.html).[appName](CompositeSessionKey.html#appname)
+
+  * Defined in [core/src/sessions/session.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L14)
 
 
 
@@ -48,7 +57,7 @@ artifact: Part
 
 The artifact to save.
 
-  * Defined in [artifacts/base_artifact_service.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L22)
+  * Defined in [core/src/artifacts/base_artifact_service.ts:17](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/base_artifact_service.ts#L17)
 
 
 
@@ -58,7 +67,7 @@ customMetadata?: Record<string, unknown>
 
 Optional custom metadata to save with the artifact.
 
-  * Defined in [artifacts/base_artifact_service.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L26)
+  * Defined in [core/src/artifacts/base_artifact_service.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/base_artifact_service.ts#L21)
 
 
 
@@ -68,7 +77,7 @@ filename: string
 
 The filename of the artifact.
 
-  * Defined in [artifacts/base_artifact_service.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L20)
+  * Defined in [core/src/artifacts/base_artifact_service.ts:15](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/base_artifact_service.ts#L15)
 
 
 
@@ -76,9 +85,11 @@ The filename of the artifact.
 
 sessionId: string
 
-The session ID.
+The ID of the session.
 
-  * Defined in [artifacts/base_artifact_service.ts:18](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L18)
+Inherited from [CompositeSessionKey](CompositeSessionKey.html).[sessionId](CompositeSessionKey.html#sessionid)
+
+  * Defined in [core/src/sessions/session.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L18)
 
 
 
@@ -86,9 +97,11 @@ The session ID.
 
 userId: string
 
-The user ID.
+The ID of the user.
 
-  * Defined in [artifacts/base_artifact_service.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/base_artifact_service.ts#L16)
+Inherited from [CompositeSessionKey](CompositeSessionKey.html).[userId](CompositeSessionKey.html#userid)
+
+  * Defined in [core/src/sessions/session.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/session.ts#L16)
 
 
 
@@ -96,7 +109,7 @@ Properties
 
 appNameartifactcustomMetadatafilenamesessionIduserId
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

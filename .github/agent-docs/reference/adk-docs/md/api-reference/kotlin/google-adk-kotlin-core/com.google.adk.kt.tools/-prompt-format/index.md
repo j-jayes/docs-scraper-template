@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid
 
@@ -45,16 +45,6 @@ commonJvmAndroid
 Renders the tool description as a JSON representation.
 
 ## Properties
-
-[entries](entries.html)
-
-Link copied to clipboard
-
-commonJvmAndroid
-
-val [entries](entries.html): [EnumEntries](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.enums/-enum-entries/index.html)<[PromptFormat](index.html)>
-
-Returns a representation of an immutable list of all enum entries, in the order they're declared.
 
 [name](-j-s-o-n/index.html#-372974862%2FProperties%2F752004321)
 
