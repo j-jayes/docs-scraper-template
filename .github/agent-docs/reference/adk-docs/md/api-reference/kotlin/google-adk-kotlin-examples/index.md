@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../index.html)
 
-0.2.0 
+0.5.0 
 
 jvm
 
@@ -13,6 +13,12 @@ search in API
 # google-adk-kotlin-examples
 
 ## Packages
+
+[com.google.adk.kt.examples.a2a](com.google.adk.kt.examples.a2a/index.html)
+
+Link copied to clipboard
+
+jvm
 
 [com.google.adk.kt.examples.artifacts](com.google.adk.kt.examples.artifacts/index.html)
 
@@ -26,7 +32,43 @@ Link copied to clipboard
 
 jvm
 
+[com.google.adk.kt.examples.compaction](com.google.adk.kt.examples.compaction/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.github](com.google.adk.kt.examples.github/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.github.adkreleasedocs](com.google.adk.kt.examples.github.adkreleasedocs/index.html)
+
+Link copied to clipboard
+
+jvm
+
 [com.google.adk.kt.examples.hello](com.google.adk.kt.examples.hello/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.hitl](com.google.adk.kt.examples.hitl/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.litertlm](com.google.adk.kt.examples.litertlm/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.skills](com.google.adk.kt.examples.skills/index.html)
 
 Link copied to clipboard
 
@@ -38,7 +80,19 @@ Link copied to clipboard
 
 jvm
 
+[com.google.adk.kt.examples.telemetry](com.google.adk.kt.examples.telemetry/index.html)
+
+Link copied to clipboard
+
+jvm
+
 [com.google.adk.kt.examples.tools](com.google.adk.kt.examples.tools/index.html)
+
+Link copied to clipboard
+
+jvm
+
+[com.google.adk.kt.examples.transfer](com.google.adk.kt.examples.transfer/index.html)
 
 Link copied to clipboard
 

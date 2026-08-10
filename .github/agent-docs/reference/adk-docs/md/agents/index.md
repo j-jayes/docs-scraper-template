@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -45,17 +45,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](config/)
     * [ Agents  ](./)
 
 Agents 
       * [ Simple agents  ](llm-agents/)
+      * [ Managed agents  ](managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](models/agent-platform/)
       * [ Apigee AI Gateway  ](models/apigee/)
       * [ Model routing  ](models/routing/)
+      * [ OpenAI  ](models/openai/)
       * [ Ollama  ](models/ollama/)
       * [ vLLM  ](models/vllm/)
       * [ LiteLLM  ](models/litellm/)
@@ -160,14 +157,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -176,6 +169,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -192,17 +187,22 @@ A2A Protocol
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../live/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -216,8 +216,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -246,7 +248,7 @@ Table of contents
   2. [ Build Agents  ](../get-started/)
   3. [ Agents  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Agents¶
 
@@ -297,8 +299,10 @@ The capabilities of ADK agents can be extended and expanded using the following 
 Now that you have an overview of the different agent types available in ADK, dive deeper into how they work and how to use them effectively:
 
   * [**Simple agents:**](/agents/llm-agents/) Explore how to configure agents powered by AI models, including setting instructions, providing tools, and enabling advanced features like planning and code execution.
-  * [**Graph workflows:**](/graphs/) Discover how evolve your agents from plain language instructions to composable, reliable execution paths that combine AI reasoning with deterministic code logic.
+  * [**Managed agents:**](/agents/managed-agents/) Use Google's first-party, out-of-the-box agents (backed by the Managed Agents API) directly in your ADK flows, with built-in server-side tools like web search and code execution.
+  * [**Graph workflows:**](/graphs/) Discover how to evolve your agents from plain language instructions to composable, reliable execution paths that combine AI reasoning with deterministic code logic.
   * [**Multi-agent workflows:**](/workflows/) Explore how to build agent applications that combine multiple agents, execution nodes, a variety of task execution control mechanisms to fit the needs of your project.
+  * [**Agent optimization:**](/optimize/) Discover methodologies to evaluate, test, and enhance the performance, reliability, and cost-efficiency of your agent applications.
 
 
 

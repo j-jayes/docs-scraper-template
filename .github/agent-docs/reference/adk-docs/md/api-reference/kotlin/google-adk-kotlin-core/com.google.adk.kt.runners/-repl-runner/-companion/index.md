@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid
 
@@ -20,6 +20,18 @@ object [Companion](index.html)
 
 Members
 
+## Properties
+
+[RESPONSE_VALUE_KEY](-r-e-s-p-o-n-s-e_-v-a-l-u-e_-k-e-y.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+const val [RESPONSE_VALUE_KEY](-r-e-s-p-o-n-s-e_-v-a-l-u-e_-k-e-y.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+
+Key under which the user's reply is placed in the resume [FunctionResponse](../../../com.google.adk.kt.types/-function-response/index.html).
+
 ## Functions
 
 [resolvePendingConfirmations](resolve-pending-confirmations.html)
@@ -31,6 +43,16 @@ commonJvmAndroid
 fun [resolvePendingConfirmations](resolve-pending-confirmations.html)(event: [Event](../../../com.google.adk.kt.events/-event/index.html)): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [ToolConfirmation](../../../com.google.adk.kt.events/-tool-confirmation/index.html)>
 
 Resolves an event's Event.actions.requestedToolConfirmations into a map keyed by SYNTHETIC `adk_request_confirmation` call id (the id the wire-format `FunctionResponse` resume path expects), suitable to assign to [pendingConfirmations](../../../../google-adk-kotlin-core/com.google.adk.kt.runners/-repl-runner/pending-confirmations.html).
+
+[resolvePendingInputRequest](resolve-pending-input-request.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+fun [resolvePendingInputRequest](resolve-pending-input-request.html)(event: [Event](../../../com.google.adk.kt.events/-event/index.html)): [ReplRunner.PendingInputRequest](../-pending-input-request/index.html)?
+
+Resolves a paused long-running call awaiting user input (e.g. `adk_request_input`, `get_user_choice`) from an event. Returns the call whose id is in [Event.longRunningToolIds](../../../com.google.adk.kt.events/-event/long-running-tool-ids.html) and is not a confirmation call (those have dedicated handling), or null if there is none. Its `options` arg, when present, is captured so a numeric reply can select an option.
 
 [shouldDisplayError](should-display-error.html)
 

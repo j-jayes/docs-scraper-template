@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -17,6 +17,8 @@ search in API
 fun [branch](branch.html)(childAgent: [BaseAgent](../-base-agent/index.html)): [InvocationContext](index.html)
 
 Creates a new InvocationContext for a child agent, derived from this context. Appends the given agent's name to the branch path.
+
+Use this only to isolate an agent's conversation history from its siblings (e.g. [ParallelAgent](../-parallel-agent/index.html)); a plain agent entry or transfer should use [forAgent](for-agent.html) so the child shares the parent's branch, matching Python ADK 1.x.
 
 #### Return
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -45,17 +45,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -160,14 +157,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -176,6 +169,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -192,17 +187,22 @@ A2A Protocol
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -216,8 +216,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -238,6 +240,7 @@ Table of contents
 
   * Start the web interface 
   * Common options 
+  * Usage telemetry 
 
 
 
@@ -246,7 +249,7 @@ Table of contents
   3. [ Agent Runtime  ](../)
   4. [ Web Interface  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/runtime/web-interface/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/runtime/web-interface/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/runtime/web-interface/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Use the Web Interface¶
 
@@ -281,10 +284,33 @@ PythonTypeScriptGoJava
     
     npx adk web
     
+
+In Go, the web interface is not a standalone CLI tool. Instead, you embed the launcher directly in your agent's `main.go` and pass arguments at runtime. The `full.NewLauncher()` helper bundles the web server, REST API, and Web UI into a single binary:
+
+main.go
+    
+    
+    import (
+        "google.golang.org/adk/v2/cmd/launcher"
+        "google.golang.org/adk/v2/cmd/launcher/full"
+    )
+    
+    func main() {
+        // ... build your agent and config ...
+        l := full.NewLauncher()
+        if err := l.Execute(ctx, config, os.Args[1:]); err != nil {
+            log.Fatalf("Run failed: %v\n\n%s", err, l.CommandLineSyntax())
+        }
+    }
+    
+
+Then start the web interface by passing the `web`, `api`, and `webui` subcommands on the command line:
     
     
     go run agent.go web api webui
     
+
+The `web` keyword activates the HTTP server. `api` adds the ADK REST API backend, and `webui` serves the browser-based chat interface. Both `api` and `webui` are required to use the web interface together; either can be omitted if you only need the API or UI independently.
 
 Make sure to update the port number.
 
@@ -326,6 +352,31 @@ Finally, on the command-line, run the following command:
 In Java, the web interface and the API server are bundled together.
 
 Once started, the server prints the access URL to the console. Open it in your browser to use the web interface:
+
+PythonTypeScriptGoJava
+    
+    
+    +-----------------------------------------------------------------------------+
+    | ADK Web Server started                                                      |
+    |                                                                             |
+    | For local testing, access at http://localhost:8000.                         |
+    +-----------------------------------------------------------------------------+
+    
+    
+    
+    +-----------------------------------------------------------------------------+
+    | ADK Web Server started                                                      |
+    |                                                                             |
+    | For local testing, access at http://localhost:8000.                         |
+    +-----------------------------------------------------------------------------+
+    
+    
+    
+    2025/01/01 00:00:00 Starting the web server: &{port:8080 ...}
+    2025/01/01 00:00:00 Web servers starts on http://localhost:8080
+    2025/01/01 00:00:00        webui:  you can access API using http://localhost:8080/ui/
+    2025/01/01 00:00:00        api:  you can access API using http://localhost:8080/api
+    
     
     
     +-----------------------------------------------------------------------------+
@@ -336,6 +387,8 @@ Once started, the server prints the access URL to the console. Open it in your b
     
 
 ## Common options¶
+
+PythonTypeScriptGo
 
 Here are some commonly used options for the `adk web` command. Run `adk web --help` to see all available options.
 
@@ -352,6 +405,93 @@ For example:
     
     adk web --port 3000 --session_service_uri "sqlite:///sessions.db"
     
+
+Here are some commonly used options for the `adk web` command. Run `adk web --help` to see all available options.
+
+Option | Description | Default  
+---|---|---  
+`--port` | Port to run the server on | `8000`  
+`--host` | Host binding address | `127.0.0.1`  
+`--session_service_uri` | Custom session storage URI | In-memory  
+`--artifact_service_uri` | Custom artifact storage URI | Local `.adk/artifacts`  
+`--reload/--no-reload` | Enable auto-reload on code changes | `true`  
+  
+For example:
+    
+    
+    adk web --port 3000 --session_service_uri "sqlite:///sessions.db"
+    
+
+Go flags differ from Python/TypeScript
+
+The Go web launcher does not use the same flags as `adk web` in Python or TypeScript. Options like `--host`, `--session_service_uri`, `--artifact_service_uri`, and `--reload` are not available. Session and artifact services are configured in Go code when constructing the `launcher.Config`, not via command-line flags.
+
+Flags are split across the `web`, `api`, and `webui` subcommands. Pass flags after the relevant subcommand keyword.
+
+**`web` subcommand flags** (passed directly after `web`):
+
+Flag | Description | Default  
+---|---|---  
+`-port` | Port for the HTTP server | `8080`  
+`-write-timeout` | Timeout for writing HTTP responses | `15s`  
+`-read-timeout` | Timeout for reading HTTP requests | `15s`  
+`-idle-timeout` | Keep-alive idle connection timeout | `60s`  
+`-shutdown-timeout` | Graceful shutdown wait time | `15s`  
+`-otel_to_cloud` | Export OpenTelemetry data to GCP | `false`  
+  
+**`api` subcommand flags** (passed after `api`):
+
+Flag | Description | Default  
+---|---|---  
+`-webui_address` | WebUI origin allowed for CORS | `localhost:8080`  
+`-path_prefix` | URL path prefix for the REST API | `/api`  
+`-sse-write-timeout` | Timeout for SSE (streaming) responses | `120s`  
+`-trace_capacity` | Max in-memory traces to retain | `10000`  
+  
+**`webui` subcommand flags** (passed after `webui`):
+
+Flag | Description | Default  
+---|---|---  
+`-api_server_address` | REST API URL as seen from the browser | `http://localhost:8080/api`  
+  
+For example, to run on port 9090 with a custom API prefix:
+    
+    
+    go run agent.go web -port 9090 api -path_prefix /myapi webui -api_server_address http://localhost:9090/myapi
+    
+
+## Usage telemetry¶
+
+The ADK Web UI collects anonymous usage telemetry to understand feature adoption, discover usability issues, and improve your overall developer experience. Data collection is OFF by default until you explicitly choose to enable it. 
+
+You can enable or disable usage telemetry at any time by navigating to User Settings, the user icon on the top right of the screen, in the Web UI. This setting updates a single unified preference stored locally on your machine at `~/.adk/config.json`. If you prefer, you can manually deactivate data collection by editing this file directly and setting the `telemetry` attribute to `false`:
+    
+    
+    {
+      "telemetry": false
+    }
+    
+
+**What data is collected**
+
+When enabled, Web UI telemetry captures standard page events and feature interaction, including:
+
+  * **Standard Navigation** : Page views, session starts, and active session duration.
+  * **Environment** : ADK version and runtime language.
+  * **Feature Usage** : Using the builder mode feature, using the agent chat, toggling execution trace or event log viewers, creating evaluation sets, and clicking the agent structure graph view.
+
+
+
+**What data is not collected**
+
+The Web UI does not collect sensitive, private, or personal data, specifically:
+
+  * Contents of agent prompts, system instructions, or LLM responses.
+  * User credentials, usernames, API keys, OAuth tokens, or secrets.
+  * Google Cloud Project IDs or Cloud Account details.
+  * Personally Identifiable Information (PII).
+
+
 
 Back to top 
 

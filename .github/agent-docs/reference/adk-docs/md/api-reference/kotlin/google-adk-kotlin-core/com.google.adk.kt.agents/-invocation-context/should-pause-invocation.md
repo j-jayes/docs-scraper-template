@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 common
 
@@ -24,14 +24,16 @@ Pausing the current agent's run will also pause all the agents that depend on it
 
 Note that parallel sibling agents won't be affected, but their common ancestors will be paused after all the non-blocking sub-agents finished running.
 
-Should meet all following conditions to pause an invocation:
+Both of the following conditions must hold to pause an invocation:
 
-  1. The app is resumable.
+  1. The app is resumable ([isResumable](is-resumable.html)).
 
-  2. The current event has a long running function call.
+  2. The current event has a long running function call (this includes tool-confirmation / HITL requests, which are emitted as a synthetic long-running `adk_request_confirmation` call).
 
 
 
+
+Mirrors Python ADK 1.x `InvocationContext.should_pause_invocation`. (Pausing is tied to resumability: only a resumable app checkpoints the paused point so a later turn can resume it.)
 
 #### Return
 

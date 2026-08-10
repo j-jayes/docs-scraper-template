@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -45,17 +45,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -160,14 +157,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -186,6 +179,8 @@ Sessions
         * Additional Context and Event Details 
         * Best Practices for Working with Events 
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -202,17 +197,22 @@ A2A Protocol
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../live/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -226,8 +226,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -261,9 +263,9 @@ Table of contents
 
   1. [ Home  ](..)
   2. [ Components  ](../get-started/about/)
-  3. [ Sessions and Memory  ](../sessions/)
+  3. [ Agent context  ](../context/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/events/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/events/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/events/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Events¶
 
@@ -333,7 +335,7 @@ In TypeScript, this is an interface of type `Event`.
     }
     
 
-In Go, this is a struct of type `google.golang.org/adk/session.Event`.
+In Go, this is a struct of type `google.golang.org/adk/v2/session.Event`.
     
     
     // Conceptual Structure of an Event (Go - See session/session.go)
@@ -509,7 +511,7 @@ PythonTypeScriptGoJavaKotlin
       // Pseudocode: Basic event identification (Go)
     import (
       "fmt"
-      "google.golang.org/adk/session"
+      "google.golang.org/adk/v2/session"
       "google.golang.org/genai"
     )
     
@@ -662,7 +664,7 @@ PythonTypeScriptGoJava
         
         import (
             "fmt"
-            "google.golang.org/adk/session"
+            "google.golang.org/adk/v2/session"
             "google.golang.org/genai"
         )
         
@@ -725,7 +727,7 @@ PythonTypeScriptGoJava
         
         import (
             "fmt"
-            "google.golang.org/adk/session"
+            "google.golang.org/adk/v2/session"
             "google.golang.org/genai"
         )
         
@@ -794,7 +796,7 @@ PythonTypeScriptGoJava
         
         import (
             "fmt"
-            "google.golang.org/adk/session"
+            "google.golang.org/adk/v2/session"
         )
         
         func handleStateChanges(event *session.Event) {
@@ -839,12 +841,12 @@ PythonTypeScriptGoJava
         }
         
 
-`artifactChanges := event.Actions.ArtifactDelta` (a `map[string]artifact.Artifact`) 
+`artifactChanges := event.Actions.ArtifactDelta` (a `map[string]int64`) 
         
         import (
             "fmt"
-            "google.golang.org/adk/artifact"
-            "google.golang.org/adk/session"
+            "google.golang.org/adk/v2/artifact"
+            "google.golang.org/adk/v2/session"
         )
         
         func handleArtifactChanges(event *session.Event) {
@@ -852,8 +854,8 @@ PythonTypeScriptGoJava
                 fmt.Printf("  Artifacts saved: %v\n", event.Actions.ArtifactDelta)
                 // UI might refresh an artifact list
                 // Iterate through event.Actions.ArtifactDelta to get filename and artifact.Artifact details
-                for filename, art := range event.Actions.ArtifactDelta {
-                    fmt.Printf("    Filename: %s, Version: %d, MIMEType: %s\n", filename, art.Version, art.MIMEType)
+                for filename, version := range event.Actions.ArtifactDelta {
+                    fmt.Printf("    Filename: %s, Version: %d\n", filename, version)
                 }
             }
         }
@@ -916,7 +918,7 @@ PythonTypeScriptGoJava
           
           import (
               "fmt"
-              "google.golang.org/adk/session"
+              "google.golang.org/adk/v2/session"
           )
           
           func handleControlFlow(event *session.Event) {
@@ -1054,7 +1056,7 @@ PythonTypeScriptGoJava
         import (
             "fmt"
             "strings"
-            "google.golang.org/adk/session"
+            "google.golang.org/adk/v2/session"
             "google.golang.org/genai"
         )
         

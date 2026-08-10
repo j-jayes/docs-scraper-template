@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -45,17 +45,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -179,14 +176,10 @@ Callbacks
           * Event callbacks 
           * Runner end callbacks 
         * Next steps 
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -195,6 +188,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -211,17 +206,22 @@ A2A Protocol
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../live/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -235,8 +235,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -281,7 +283,7 @@ Table of contents
   2. [ Components  ](../get-started/about/)
   3. [ App management  ](../apps/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/plugins/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/plugins/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/plugins/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Plugins¶
 
@@ -326,13 +328,13 @@ ADK includes several plugins that you can add to your agent workflows immediatel
 
 ## Define and register Plugins¶
 
-This section explains how to define Plugin classes and register them as part of your agent workflow. For a complete code example, see [Plugin Basic](https://github.com/google/adk-python/tree/main/contributing/samples/plugin/plugin_basic) in the repository.
+This section explains how to define Plugin classes and register them as part of your agent workflow. For a complete code example, see [Plugin Basic](https://github.com/google/adk-python/tree/main/contributing/samples/plugins/plugin_basic) in the repository.
 
 ### Create Plugin class¶
 
 Start by extending the `BasePlugin` class and add one or more `callback` methods, as shown in the following code example:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
 
 count_plugin.py
     
@@ -461,10 +463,10 @@ count_plugin.go
     import (
         "fmt"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model"
-        "google.golang.org/adk/plugin"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model"
+        "google.golang.org/adk/v2/plugin"
         "google.golang.org/genai"
     )
     
@@ -511,7 +513,7 @@ This example code implements callbacks for `before_agent_callback` and `before_m
 
 Integrate your Plugin class by registering it during your agent initialization as part of your `Runner` class, using the `plugins` parameter. You can specify multiple Plugins with this parameter. The following code example shows how to register the `CountInvocationPlugin` plugin defined in the previous section with a simple ADK agent.
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     from google.adk.runners import InMemoryRunner
@@ -713,14 +715,14 @@ PythonTypescriptJavaGo
         "fmt"
         "log"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/plugin"
-        "google.golang.org/adk/runner"
-        "google.golang.org/adk/session"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/functiontool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/plugin"
+        "google.golang.org/adk/v2/runner"
+        "google.golang.org/adk/v2/session"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
         "google.golang.org/genai"
     )
     
@@ -813,7 +815,7 @@ PythonTypescriptJavaGo
 
 Run the plugin as you typically would. The following shows how to run the command line:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     python3 -m path.to.main.py
@@ -906,7 +908,7 @@ _A User Message c_ allback (`on_user_message_callback`) happens when a user send
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     async def on_user_message_callback(
@@ -946,15 +948,15 @@ PythonTypescriptJavaGo
 
 A _Runner start_ callback (`before_run_callback`) happens when the `Runner` object takes the potentially modified user message and prepares for execution. The `before_run_callback` fires here, allowing for global setup before any agent logic begins.
 
-  * **When It Runs:** Immediately after `runner.run()` is called, before any other processing.
-  * **Purpose:** The first opportunity to inspect or modify the user's raw input.
-  * **Flow Control:** Return a `types.Content` object to **replace** the user's original message.
+  * **When It Runs:** After the `on_user_message_callback`, when the `Runner` prepares for execution and before any agent logic begins.
+  * **Purpose:** Global setup or initialization before the invocation runs.
+  * **Flow Control:** Return a `types.Content` object to **halt execution** : the `Runner` exits early and ends the run with that content as the result. Return `None` to proceed normally.
 
 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     async def before_run_callback(
@@ -1019,7 +1021,7 @@ The on error callback for Model objects is only supported by the Plugins feature
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     async def on_model_error_callback(
@@ -1083,7 +1085,7 @@ The on error callback for Tool objects is only supported by the Plugins feature 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     async def on_tool_error_callback(
@@ -1135,7 +1137,7 @@ An _Event callback_ (`on_event_callback`) happens when an agent produces outputs
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     async def on_event_callback(
@@ -1179,7 +1181,7 @@ The _Runner end_ callback **(`after_run_callback`)** happens when the agent has 
 
 The following code example shows the basic syntax of this callback:
 
-PythonTypescriptJavaGo
+PythonTypeScriptJavaGo
     
     
     async def after_run_callback(

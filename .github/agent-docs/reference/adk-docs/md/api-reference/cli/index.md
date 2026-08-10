@@ -1,6 +1,6 @@
 # ADK CLI documentation¶
 
-This page contains the auto-generated command-line reference for ADK 2.0.0.
+This page contains the auto-generated command-line reference for ADK 2.6.0.
 
   * adk
 
@@ -21,6 +21,8 @@ This page contains the auto-generated command-line reference for ADK 2.0.0.
     * optimize
 
     * run
+
+    * telemetry
 
     * test
 
@@ -50,7 +52,7 @@ Show the version and exit.
 
 Starts a FastAPI server for agents.
 
-AGENTS_DIR: The directory of agents, where each subdirectory is a single agent, containing at least __init__.py and agent.py files.
+AGENTS_DIR: The directory of agents (where each subdirectory is a single agent containing agent.py, __init__.py, or root_agent.yaml) or a path pointing directly to a single agent folder.
 
 Example:
 
@@ -93,26 +95,6 @@ Optional. The port of the server
     
 
 Optional. Origins to allow for CORS. Can be literal origins (e.g., ‘<https://example.com>’) or regex patterns prefixed with ‘regex:’ (e.g., ‘regex:https://.*.example.com’).
-
--v, \--verbose¶
-    
-
-Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
-
-Default:
-    
-
-`False`
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
 
 \--trace_to_cloud¶
     
@@ -179,6 +161,26 @@ Optional. URL path prefix when the application is mounted behind a reverse proxy
 
 Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /apps/{app_name}/trigger/* endpoints for batch and event-driven agent invocations.
 
+-v, \--verbose¶
+    
+
+Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
+
+Default:
+    
+
+`False`
+
+\--log_level <log_level>¶
+    
+
+Optional. Set the logging level
+
+Options:
+    
+
+DEBUG | INFO | WARNING | ERROR | CRITICAL
+
 \--session_service_uri <session_service_uri>¶
     
 
@@ -232,7 +234,9 @@ Default:
 \--memory_service_uri <memory_service_uri>¶
     
 
-Optional. The URI of the memory service.
+Optional. The URI of the memory service. If set, ADK uses this service.
+
+If unset, ADK chooses a default memory service.
 
 \- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
 
@@ -255,6 +259,16 @@ Automatically create a session if it doesn’t exist when calling /run.
     
 
 Serve ADK Web UI if set.
+
+\--gemini_enterprise_app_name <gemini_enterprise_app_name>¶
+    
+
+The app_name to register with Gemini Enterprise via <https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-an-adk-agent>
+
+\--express_mode¶
+    
+
+Whether or not to initialize the server in express mode. This is only supported when gemini_enterprise_app_name is set. Defaults to False.
 
 Arguments
 
@@ -506,7 +520,7 @@ Options
 \--api_key <api_key>¶
     
 
-Optional. The API key to use for Express Mode. If not provided, the API key from the GOOGLE_API_KEY environment variable will be used. It will only be used if GOOGLE_GENAI_USE_VERTEXAI is true. (It will override GOOGLE_API_KEY in the .env file if it exists.)
+Optional. The API key to use for Express Mode. If not provided, the API key from the GOOGLE_API_KEY environment variable will be used. It will only be used if GOOGLE_GENAI_USE_ENTERPRISE is true. (It will override GOOGLE_API_KEY in the .env file if it exists.)
 
 \--project <project>¶
     
@@ -531,7 +545,7 @@ Optional. ID of the Agent Engine instance to update if it exists (default: None,
 \--trace_to_cloud, \--no-trace_to_cloud¶
     
 
-Optional. Whether to enable Cloud Trace for Agent Engine.
+NOTE: This flag is deprecated and will be removed in the future.
 
 \--otel_to_cloud¶
     
@@ -561,7 +575,7 @@ Default:
 \--adk_app <adk_app>¶
     
 
-Optional. Python file for defining the ADK application (default: a file named agent_engine_app.py)
+NOTE: This flag is deprecated and will be removed in the future.
 
 \--temp_folder <temp_folder>¶
     
@@ -571,17 +585,17 @@ Optional. Temp folder for the generated Agent Engine source files. If the folder
 \--adk_app_object <adk_app_object>¶
     
 
-Optional. Python object corresponding to the root ADK agent or app. It can only be root_agent or app. (default: root_agent)
+NOTE: This flag is deprecated and will be removed in the future.
 
 \--env_file <env_file>¶
     
 
-Optional. The filepath to the .env file for environment variables. (default: the .env file in the agent directory, if any.)
+NOTE: This flag is deprecated and will be removed in the future.
 
 \--requirements_file <requirements_file>¶
     
 
-Optional. The filepath to the requirements.txt file to use. (default: the requirements.txt file in the agent directory, if any.)
+NOTE: This flag is deprecated and will be removed in the future.
 
 \--absolutize_imports <absolutize_imports>¶
     
@@ -596,12 +610,101 @@ Optional. The filepath to the .agent_engine_config.json file to use. The values 
 \--validate-agent-import, \--no-validate-agent-import¶
     
 
-Optional. Validate that the agent module can be imported before deployment. This requires your local environment to have the same dependencies as the deployment environment. (default: disabled)
+NOTE: This flag is deprecated and will be removed in the future.
 
 \--skip-agent-import-validation¶
     
 
-Optional. Skip pre-deployment import validation of agent.py. This is the default; use –validate-agent-import to enable validation.
+NOTE: This flag is deprecated and will be removed in the future.
+
+\--trigger_sources <trigger_sources>¶
+    
+
+Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /trigger/* endpoints for batch and event-driven agent invocations.
+
+\--adk_version <adk_version>¶
+    
+
+Optional. The ADK version used in Agent Engine deployment. (default: the version in the dev environment)
+
+Default:
+    
+
+`'2.6.0'`
+
+\--extra_packages <extra_packages>¶
+    
+
+Optional. Additional local package paths (a file or directory) to stage and deploy alongside the agent, and make importable in the deployed image. Each entry is placed at /app/<basename> and /app is added to PYTHONPATH, so a top-level name that matches an installed dependency will shadow it at runtime; pick distinct names. Repeatable.
+
+\--session_service_uri <session_service_uri>¶
+    
+
+Optional. The URI of the session service. If set, ADK uses this service.
+
+If unset, ADK chooses a default session service (see
+
+–use_local_storage).
+
+\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
+
+sessions. <agent_engine> can either be the full qualified resource
+
+name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
+
+the resource id ‘123’.
+
+\- Use ‘memory://’ to run with the in-memory session service.
+
+\- Use ‘sqlite://<path_to_sqlite_file>’ to connect to a SQLite DB.
+
+\- See <https://docs.sqlalchemy.org/en/20/core/engines.html#backend-specific-urls>
+
+for supported database URIs.
+
+\--artifact_service_uri <artifact_service_uri>¶
+    
+
+Optional. The URI of the artifact service. If set, ADK uses this service.
+
+If unset, ADK chooses a default artifact service (see
+
+–use_local_storage).
+
+\- Use ‘gs://<bucket_name>’ to connect to the GCS artifact service.
+
+\- Use ‘memory://’ to force the in-memory artifact service.
+
+\- Use ‘[file:/](file:/)/<path>’ to store artifacts in a custom local directory.
+
+\--use_local_storage, \--no_use_local_storage¶
+    
+
+Optional. Whether to use local .adk storage when –session_service_uri and –artifact_service_uri are unset. Cannot be combined with explicit service URIs. When the agents directory isn’t writable (common in Cloud Run/Kubernetes), ADK falls back to in-memory unless overridden by ADK_FORCE_LOCAL_STORAGE=1 or ADK_DISABLE_LOCAL_STORAGE=1.
+
+Default:
+    
+
+`False`
+
+\--memory_service_uri <memory_service_uri>¶
+    
+
+Optional. The URI of the memory service. If set, ADK uses this service.
+
+If unset, ADK chooses a default memory service.
+
+\- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
+
+\- Use ‘agentengine://<agent_engine>’ to connect to Agent Engine
+
+sessions. <agent_engine> can either be the full qualified resource
+
+name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
+
+the resource id ‘123’.
+
+\- Use ‘memory://’ to force the in-memory memory service.
 
 Arguments
 
@@ -713,7 +816,7 @@ Optional. The ADK version used in Cloud Run deployment. (default: the version in
 Default:
     
 
-`'2.0.0'`
+`'2.6.0'`
 
 \--a2a¶
     
@@ -788,7 +891,9 @@ Default:
 \--memory_service_uri <memory_service_uri>¶
     
 
-Optional. The URI of the memory service.
+Optional. The URI of the memory service. If set, ADK uses this service.
+
+If unset, ADK chooses a default memory service.
 
 \- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
 
@@ -928,7 +1033,7 @@ Optional. The ADK version used in GKE deployment. (default: the version in the d
 Default:
     
 
-`'2.0.0'`
+`'2.6.0'`
 
 \--trigger_sources <trigger_sources>¶
     
@@ -988,7 +1093,9 @@ Default:
 \--memory_service_uri <memory_service_uri>¶
     
 
-Optional. The URI of the memory service.
+Optional. The URI of the memory service. If set, ADK uses this service.
+
+If unset, ADK chooses a default memory service.
 
 \- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
 
@@ -1305,6 +1412,11 @@ Options:
 
 DEBUG | INFO | WARNING | ERROR | CRITICAL
 
+\--allow-unsafe-unpickling, \--allow_unsafe_unpickling¶
+    
+
+Optional. Allow unsafe pickle loading for trusted legacy session databases.
+
 ### optimize¶
 
 Optimizes the root agent instructions using the GEPA optimizer.
@@ -1450,7 +1562,9 @@ Default:
 \--memory_service_uri <memory_service_uri>¶
     
 
-Optional. The URI of the memory service.
+Optional. The URI of the memory service. If set, ADK uses this service.
+
+If unset, ADK chooses a default memory service.
 
 \- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
 
@@ -1463,6 +1577,26 @@ name ‘projects/abc/locations/us-central1/reasoningEngines/123’ or
 the resource id ‘123’.
 
 \- Use ‘memory://’ to force the in-memory memory service.
+
+-v, \--verbose¶
+    
+
+Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
+
+Default:
+    
+
+`False`
+
+\--log_level <log_level>¶
+    
+
+Optional. Set the logging level
+
+Options:
+    
+
+DEBUG | INFO | WARNING | ERROR | CRITICAL
 
 \--save_session¶
     
@@ -1526,6 +1660,46 @@ QUERY¶
 
 Optional argument
 
+### telemetry¶
+
+Manage telemetry settings.
+
+Usage
+    
+    
+    adk telemetry [OPTIONS] COMMAND [ARGS]...
+    
+
+#### disable¶
+
+Disable telemetry collection.
+
+Usage
+    
+    
+    adk telemetry disable [OPTIONS]
+    
+
+#### enable¶
+
+Enable telemetry collection.
+
+Usage
+    
+    
+    adk telemetry enable [OPTIONS]
+    
+
+#### status¶
+
+Show telemetry collection status.
+
+Usage
+    
+    
+    adk telemetry status [OPTIONS]
+    
+
 ### test¶
 
 Runs pytest on agent test JSON files under the specified folder.
@@ -1561,7 +1735,7 @@ Optional argument
 
 Starts a FastAPI server with Web UI for agents.
 
-AGENTS_DIR: The directory of agents, where each subdirectory is a single agent, containing at least __init__.py and agent.py files.
+AGENTS_DIR: The directory of agents (where each subdirectory is a single agent containing agent.py, __init__.py, or root_agent.yaml) or a path pointing directly to a single agent folder.
 
 Example:
 
@@ -1604,26 +1778,6 @@ Optional. The port of the server
     
 
 Optional. Origins to allow for CORS. Can be literal origins (e.g., ‘<https://example.com>’) or regex patterns prefixed with ‘regex:’ (e.g., ‘regex:https://.*.example.com’).
-
--v, \--verbose¶
-    
-
-Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
-
-Default:
-    
-
-`False`
-
-\--log_level <log_level>¶
-    
-
-Optional. Set the logging level
-
-Options:
-    
-
-DEBUG | INFO | WARNING | ERROR | CRITICAL
 
 \--trace_to_cloud¶
     
@@ -1690,6 +1844,26 @@ Optional. URL path prefix when the application is mounted behind a reverse proxy
 
 Optional. Comma-separated list of trigger sources to enable (e.g., ‘pubsub,eventarc’). Registers /apps/{app_name}/trigger/* endpoints for batch and event-driven agent invocations.
 
+-v, \--verbose¶
+    
+
+Enable verbose (DEBUG) logging. Shortcut for –log_level DEBUG.
+
+Default:
+    
+
+`False`
+
+\--log_level <log_level>¶
+    
+
+Optional. Set the logging level
+
+Options:
+    
+
+DEBUG | INFO | WARNING | ERROR | CRITICAL
+
 \--logo-text <logo_text>¶
     
 
@@ -1753,7 +1927,9 @@ Default:
 \--memory_service_uri <memory_service_uri>¶
     
 
-Optional. The URI of the memory service.
+Optional. The URI of the memory service. If set, ADK uses this service.
+
+If unset, ADK chooses a default memory service.
 
 \- Use ‘rag://<rag_corpus_id>’ to connect to Vertex AI Rag Memory Service.
 
@@ -1781,4 +1957,4 @@ Optional argument
 
 ### Quick search
 
-(C)2026, Google. | Powered by [Sphinx 9.1.0](https://www.sphinx-doc.org/) & [Alabaster 1.0.0](https://alabaster.readthedocs.io) | [Page source](_sources/index.rst.txt)
+(C)2026, Google. | Powered by [Sphinx 9.0.4](https://www.sphinx-doc.org/) & [Alabaster 1.0.0](https://alabaster.readthedocs.io) | [Page source](_sources/index.rst.txt)

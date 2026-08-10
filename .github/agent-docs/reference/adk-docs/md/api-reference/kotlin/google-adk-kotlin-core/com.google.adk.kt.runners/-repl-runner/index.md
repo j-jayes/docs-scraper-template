@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 commonJvmAndroid
 
@@ -16,7 +16,7 @@ search in API
 
 commonJvmAndroid
 
-open class [ReplRunner](index.html)(val agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html)) : [InMemoryRunner](../-in-memory-runner/index.html)
+open class [ReplRunner](index.html)(agent: [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html)) : [InMemoryRunner](../-in-memory-runner/index.html)
 
 A runner for Kotlin agents that provides a simple REPL for debugging.
 
@@ -42,6 +42,16 @@ commonJvmAndroid
 
 object [Companion](-companion/index.html)
 
+[PendingInputRequest](-pending-input-request/index.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+data class [PendingInputRequest](-pending-input-request/index.html)(val callId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val toolName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val options: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)>?)
+
+A paused long-running call awaiting a user-provided response (not a confirmation).
+
 ## Properties
 
 [agent](../-abstract-runner/agent.html)
@@ -50,7 +60,15 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [agent](../-abstract-runner/agent.html): [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html)
+override val [agent](../-abstract-runner/agent.html): [BaseAgent](../../com.google.adk.kt.agents/-base-agent/index.html)
+
+[app](../-abstract-runner/app.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+val [app](../-abstract-runner/app.html): [App](../../com.google.adk.kt.apps/-app/index.html)?
 
 [appName](../-abstract-runner/app-name.html)
 
@@ -58,7 +76,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [appName](../-abstract-runner/app-name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+override val [appName](../-abstract-runner/app-name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
 
 [artifactService](../-abstract-runner/artifact-service.html)
 
@@ -66,7 +84,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [artifactService](../-abstract-runner/artifact-service.html): [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)?
+override val [artifactService](../-abstract-runner/artifact-service.html): [ArtifactService](../../com.google.adk.kt.artifacts/-artifact-service/index.html)?
 
 [memoryService](../-abstract-runner/memory-service.html)
 
@@ -74,7 +92,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [memoryService](../-abstract-runner/memory-service.html): [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)?
+override val [memoryService](../-abstract-runner/memory-service.html): [MemoryService](../../com.google.adk.kt.memory/-memory-service/index.html)?
 
 [pluginManager](../-abstract-runner/plugin-manager.html)
 
@@ -82,7 +100,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [pluginManager](../-abstract-runner/plugin-manager.html): [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html)
+override val [pluginManager](../-abstract-runner/plugin-manager.html): [PluginManager](../../com.google.adk.kt.plugins/-plugin-manager/index.html)
 
 [resumabilityConfig](../-abstract-runner/resumability-config.html)
 
@@ -90,7 +108,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [resumabilityConfig](../-abstract-runner/resumability-config.html): [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html)
+override val [resumabilityConfig](../-abstract-runner/resumability-config.html): [ResumabilityConfig](../../com.google.adk.kt.agents/-resumability-config/index.html)
 
 [sessionService](../-abstract-runner/session-service.html)
 
@@ -98,7 +116,7 @@ Link copied to clipboard
 
 commonJvmAndroid
 
-open override val [sessionService](../-abstract-runner/session-service.html): [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
+override val [sessionService](../-abstract-runner/session-service.html): [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
 
 ## Functions
 
@@ -111,6 +129,16 @@ commonJvmAndroid
 fun [applyStateDelta](../-abstract-runner/apply-state-delta.html)(event: [Event](../../com.google.adk.kt.events/-event/index.html), stateDelta: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>?)
 
 Applies the provided [stateDelta](../-abstract-runner/apply-state-delta.html) to the given [event](../-abstract-runner/apply-state-delta.html).
+
+[rewindAsync](../-abstract-runner/rewind-async.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+open suspend override fun [rewindAsync](../-abstract-runner/rewind-async.html)(userId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), sessionId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), rewindBeforeInvocationId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html))
+
+Rewinds the session to before the specified invocation.
 
 [run](../-abstract-runner/run.html)
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -45,17 +45,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../config/)
     * [ Agents  ](../../)
 
 Agents 
       * [ Simple agents  ](../../llm-agents/)
+      * [ Managed agents  ](../../managed-agents/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -82,12 +78,15 @@ Models for Agents
       * [ Gemini  ](../google-gemini/)
       * [ Gemma  ](../google-gemma/)
       * Claude  [ Claude  ](./) Table of contents 
-        * Get started 
-        * Prerequisites 
-        * Example implementation 
+        * Python 
+        * Java 
+          * Get started 
+          * Prerequisites 
+          * Example implementation 
       * [ Agent Platform hosted  ](../agent-platform/)
       * [ Apigee AI Gateway  ](../apigee/)
       * [ Model routing  ](../routing/)
+      * [ OpenAI  ](../openai/)
       * [ Ollama  ](../ollama/)
       * [ vLLM  ](../vllm/)
       * [ LiteLLM  ](../litellm/)
@@ -163,14 +162,10 @@ Callbacks
         * [ Types of callbacks  ](../../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../../plugins/)
-    * [ Context  ](../../../context/)
+    * [ Agent context  ](../../../context/)
 
-Context 
-      * [ Context caching  ](../../../context/caching/)
-      * [ Context compression  ](../../../context/compaction/)
-    * [ Sessions and Memory  ](../../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../../sessions/)
       * [ Sessions  ](../../../sessions/session/)
 
 Sessions 
@@ -179,6 +174,8 @@ Sessions
       * [ State  ](../../../sessions/state/)
       * [ Events  ](../../../events/)
       * [ Memory  ](../../../sessions/memory/)
+      * [ Context compression  ](../../../context/compaction/)
+      * [ Model context caching  ](../../../context/caching/)
     * [ MCP  ](../../../mcp/)
 
 MCP 
@@ -195,17 +192,22 @@ A2A Protocol
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../../streaming/)
+    * [ Live and Voice Agents  ](../../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../../live/get-started/streaming-python/)
+        * [ Java  ](../../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../../live/configuration/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -219,8 +221,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
-      * [ Typescript ADK  ](../../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../../../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../../api-reference/java/)
       * [ Kotlin ADK  ](../../../api-reference/kotlin/)
       * [ CLI Reference  ](../../../api-reference/cli/)
@@ -239,9 +243,11 @@ ADK 2.0
 
 Table of contents 
 
-  * Get started 
-  * Prerequisites 
-  * Example implementation 
+  * Python 
+  * Java 
+    * Get started 
+    * Prerequisites 
+    * Example implementation 
 
 
 
@@ -249,17 +255,30 @@ Table of contents
   2. [ Build Agents  ](../../../get-started/)
   3. [ Models for Agents  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/anthropic.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/agents/models/anthropic.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/anthropic.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Claude models for ADK agents¶
 
-Supported in ADKJava v0.2.0
+Supported in ADKPython v0.1.0Java v0.2.0
 
-You can integrate Anthropic's Claude models directly using an Anthropic API key or from an Agent Platform backend into your Java ADK applications by using the ADK's `Claude` wrapper class. You can also access Anthropic models through Google Cloud Agent Platform services. For more information, see the [Third-Party Models on Agent Platform](/agents/models/agent-platform/#anthropic-claude) section. You can also use Anthropic models through the [LiteLLM](/agents/models/litellm/) library for Python.
+You can use Anthropic's Claude models with ADK in both Python and Java. Choose the path that matches your language and backend below.
 
-## Get started¶
+## Python¶
 
-The following code examples show a basic implementation for using Anthropic models in your agents:
+You can use Claude models from Python in the following ways:
+
+  * **Native, on Agent Platform:** Pass a Claude model string directly; ADK's registry routes it to the `Claude` wrapper. See [Anthropic Claude on Agent Platform](/agents/models/agent-platform/#anthropic-claude).
+  * **Direct Anthropic API, via LiteLLM:** Use the `LiteLlm` connector with an Anthropic API key. See [LiteLLM](/agents/models/litellm/#anthropic-thinking-blocks).
+
+
+
+## Java¶
+
+In Java, you can integrate Claude models directly using an Anthropic API key or an Agent Platform backend with the ADK `Claude` wrapper class. You can also access Claude through Google Cloud Agent Platform services; see [Third-Party Models on Agent Platform](/agents/models/agent-platform/#anthropic-claude).
+
+### Get started¶
+
+The following code examples show a basic implementation for using Claude models in your agents:
     
     
     public static LlmAgent createAgent() {
@@ -280,18 +299,14 @@ The following code examples show a basic implementation for using Anthropic mode
     }
     
 
-## Prerequisites¶
+### Prerequisites¶
 
-  1. **Dependencies:**
-
-     * **Anthropic SDK Classes (Transitive):** The Java ADK's `com.google.adk.models.Claude` wrapper relies on classes from Anthropic's official Java SDK. These are typically included as _transitive dependencies_. For more information, see the [Anthropic Java SDK](https://github.com/anthropics/anthropic-sdk-java).
-  2. **Anthropic API Key:**
-
-     * Obtain an API key from Anthropic. Securely manage this key using a secret manager.
+  * **Dependencies:** The Java ADK's `com.google.adk.models.Claude` wrapper relies on classes from Anthropic's official Java SDK, typically included as _transitive dependencies_. For more information, see the [Anthropic Java SDK](https://github.com/anthropics/anthropic-sdk-java).
+  * **Anthropic API key:** Obtain an API key from Anthropic, and securely manage it using a secret manager.
 
 
 
-## Example implementation¶
+### Example implementation¶
 
 Instantiate `com.google.adk.models.Claude`, providing the desired Claude model name and an `AnthropicOkHttpClient` configured with your API key. Then, pass the `Claude` instance to your `LlmAgent`, as shown in the following example:
     
