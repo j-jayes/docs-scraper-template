@@ -45,11 +45,6 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
@@ -86,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -163,7 +159,9 @@ Custom Tools
           * Step 1: Create the MCP Server Script 
           * Step 2: Implement the Server Logic 
           * Step 3: Test your Custom MCP Server with an ADK Agent 
-        * Use MCP Tools in your own Agent out of adk web 
+        * Advanced use cases 
+          * Use MCP Tools without adk web 
+          * Handling progress updates 
         * Deploy Agents with MCP Tools 
           * Critical Deployment Requirement: Synchronous Agent Definition 
           * Quick Deployment Commands 
@@ -201,14 +199,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -217,6 +211,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -233,17 +229,22 @@ A2A Protocol
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -257,7 +258,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -299,7 +300,9 @@ Table of contents
     * Step 1: Create the MCP Server Script 
     * Step 2: Implement the Server Logic 
     * Step 3: Test your Custom MCP Server with an ADK Agent 
-  * Use MCP Tools in your own Agent out of adk web 
+  * Advanced use cases 
+    * Use MCP Tools without adk web 
+    * Handling progress updates 
   * Deploy Agents with MCP Tools 
     * Critical Deployment Requirement: Synchronous Agent Definition 
     * Quick Deployment Commands 
@@ -330,7 +333,7 @@ Table of contents
 
 # Model Context Protocol Tools¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.7.0
 
 This guide walks you through two ways of integrating Model Context Protocol (MCP) with ADK.
 
@@ -595,7 +598,7 @@ Assuming a folder containing three files named `first`, `second` and `third`, su
     Event received: {"id":"8fe7e594-3e47-4254-8b57-9106ad8463cb","invocationId":"e-c2458c56-e57a-45b2-97de-ae7292e505ef","author":"enterprise_assistant","content":{"parts":[{"text":"There are three files in the directory: first, second, and third."}],"role":"model"},"actions":{"stateDelta":{},"artifactDelta":{},"requestedAuthConfigs":{}},"timestamp":1747377544689}
     
 
-For Typescript, you can define an agent that initializes the `MCPToolset` as follows:
+For TypeScript, you can define an agent that initializes the `MCPToolset` as follows:
     
     
     import 'dotenv/config';
@@ -1080,7 +1083,11 @@ This example demonstrates how ADK tools can be encapsulated within an MCP server
 
 Refer to the [documentation](https://modelcontextprotocol.io/quickstart/server#core-mcp-concepts), to try it out with Claude Desktop.
 
-## Use MCP Tools in your own Agent out of `adk web`¶
+## Advanced use cases¶
+
+The following sections describe how to handle more advanced use cases with MCP Tools in agents.
+
+### Use MCP Tools without `adk web`¶
 
 This section is relevant to you if:
 
@@ -1192,6 +1199,20 @@ The following example is modified from the "Example 1: File System MCP Server" e
         asyncio.run(async_main())
       except Exception as e:
         print(f"An error occurred: {e}")
+    
+
+### Handling progress updates¶
+
+For long-running tools, `McpToolset` supports a `progress_callback`. This approach allows you to receive real-time updates from the MCP server. You can provide a simple callback function or a factory that creates callbacks with access to the runtime context, such as updating session state.
+    
+    
+    async def my_progress_callback(progress: float, total: float, message: str):
+        print(f"Progress: {progress}/{total} - {message}")
+    
+    toolset = McpToolset(
+        connection_params=...,
+        progress_callback=my_progress_callback
+    )
     
 
 ## Deploy Agents with MCP Tools¶
@@ -1416,7 +1437,7 @@ For production deployments requiring scalability, deploy MCP servers as separate
 
 **Agent Configuration for Remote MCP:**
 
-PythonJava
+PythonJavaKotlin
     
     
     # Your ADK agent connects to the remote MCP service via Streamable HTTP
@@ -1440,6 +1461,22 @@ PythonJava
             .build();
     
     McpToolset toolset = new McpToolset(streamableParams);
+    
+    
+    
+    import com.google.adk.kt.tools.mcp.McpConnectionParameters
+    import com.google.adk.kt.tools.mcp.McpToolset
+    
+    // Your ADK agent connects to the remote MCP service via Streamable HTTP
+    // headerProvider is suspend, so fetchToken() can await a fresh token per request;
+    // it also disables session reuse, so use StreamableHttp(headers = ...) for a fixed one.
+    val toolset =
+        McpToolset.McpToolsetConfig(
+            streamableHttpConnectionParams =
+                McpConnectionParameters.StreamableHttp(
+                    url = "https://your-mcp-server-url.run.app/mcp",
+                ),
+        ).toToolset(headerProvider = { mapOf("Authorization" to "Bearer ${fetchToken()}") })
     
 
 #### Pattern 3: Sidecar MCP Servers (GKE)¶

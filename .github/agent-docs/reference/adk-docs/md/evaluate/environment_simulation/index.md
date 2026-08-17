@@ -393,7 +393,8 @@ The following example shows how to create environment simulation as an ADK agent
     )
     
     app = App(
-        agent=my_agent,
+        name="my_app",
+        root_agent=my_agent,
         plugins=[EnvironmentSimulationFactory.create_plugin(config)],
     )
     

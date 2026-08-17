@@ -88,6 +88,10 @@ The base class for a live model connection.
 
 Represents the Claude Generative AI model by Anthropic.
 
+[FunctionCallIds](FunctionCallIds.html "class in com.google.adk.models")
+
+Constants and helpers for ADK-generated function call IDs.
+
 [Gemini](Gemini.html "class in com.google.adk.models")
 
 Represents the Gemini Generative AI model.

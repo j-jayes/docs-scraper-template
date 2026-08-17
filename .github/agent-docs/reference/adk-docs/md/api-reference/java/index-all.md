@@ -265,7 +265,7 @@ ADK Stale Issue Auditor for `google/adk-java`.
 
 Entry point for the ADK Java Stale Issue Auditor.
 
-[adkToMcpToolType(BaseTool)](com/google/adk/tools/mcp/ConversionUtils.html#adkToMcpToolType\(com.google.adk.tools.BaseTool\)) \- Method in class com.google.adk.tools.mcp.[ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
+[adkToMcpToolType(BaseTool)](com/google/adk/tools/mcp/ConversionUtils.html#adkToMcpToolType\(com.google.adk.tools.BaseTool\)) \- Static method in class com.google.adk.tools.mcp.[ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
      
 [AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging") \- Class in [com.example.adktriaging](com/example/adktriaging/package-summary.html)
     
@@ -905,8 +905,11 @@ A* forward search strategy that explores from preconditions toward the goal, act
 
 [AStarSearchStrategy()](com/google/adk/planner/goap/AStarSearchStrategy.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.planner.goap.[AStarSearchStrategy](com/google/adk/planner/goap/AStarSearchStrategy.html "class in com.google.adk.planner.goap")
      
-[attachCurrentSpan()](com/google/adk/plugins/agentanalytics/TraceManager.html#attachCurrentSpan\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
-     
+[attachCurrentSpan(InvocationContext)](com/google/adk/plugins/agentanalytics/TraceManager.html#attachCurrentSpan\(com.google.adk.agents.InvocationContext\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+    
+
+Records the ambient OpenTelemetry span's IDs as the invocation root without creating or owning any span, so plugin-emitted rows correlate with the host's existing tracing.
+
 [audio](com/google/adk/models/chat/ChatCompletionsRequest.html#audio) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
     
 
@@ -2110,6 +2113,11 @@ An OkHttp-based implementation of [`ChatCompletionsClient`](com/google/adk/model
 
 Constructs a new [`ChatCompletionsHttpClient`](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") that facilitates API interaction with the standard `/chat/completions` REST endpoint.
 
+[ChatCompletionsHttpClient(HttpOptions, ExecutorService)](com/google/adk/models/chat/ChatCompletionsHttpClient.html#%3Cinit%3E\(com.google.genai.types.HttpOptions,java.util.concurrent.ExecutorService\)) \- Constructor for class com.google.adk.models.chat.[ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
+    
+
+Constructs a [`ChatCompletionsHttpClient`](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") whose HTTP dispatcher runs on ` httpExecutorService`.
+
 [ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat") \- Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
     
 
@@ -2426,6 +2434,8 @@ Frequently used code snippets for collections.
 [com.google.adk.flows.llmflows.audio](com/google/adk/flows/llmflows/audio/package-summary.html) \- package com.google.adk.flows.llmflows.audio
      
 [com.google.adk.google_adk_maven_plugin](com/google/adk/google_adk_maven_plugin/package-summary.html) \- package com.google.adk.google_adk_maven_plugin
+     
+[com.google.adk.internal.http](com/google/adk/internal/http/package-summary.html) \- package com.google.adk.internal.http
      
 [com.google.adk.maven](com/google/adk/maven/package-summary.html) \- package com.google.adk.maven
      
@@ -3003,6 +3013,11 @@ Placeholder for creating an evaluation set.
 
 Create a final model response event from set_model_response JSON.
 
+[createHttpClient(ExecutorService)](com/google/adk/internal/http/HttpClientFactory.html#createHttpClient\(java.util.concurrent.ExecutorService\)) \- Static method in class com.google.adk.internal.http.[HttpClientFactory](com/google/adk/internal/http/HttpClientFactory.html "class in com.google.adk.internal.http")
+    
+
+Returns a new `OkHttpClient` whose dispatcher runs on `executorService`.
+
 [createIssue(String, String, String, String)](com/example/github/GitHubTools.html#createIssue\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
      
 [createOperation(String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperation\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
@@ -3133,6 +3148,8 @@ Tools for the user-defined config agent demo.
 
 Sets a dictionary of headers to be sent with the request.
 
+[customMetadata()](com/google/adk/agents/RunConfig.html#customMetadata\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+     
 [customMetadata()](com/google/adk/events/Event.html#customMetadata\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
     
 
@@ -3152,12 +3169,19 @@ Returns a read-only view of the tool metadata.
      
 [customMetadata(List)](com/google/adk/models/LlmResponse.Builder.html#customMetadata\(java.util.List\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
      
+[customMetadata(Map)](com/google/adk/agents/RunConfig.Builder.html#customMetadata\(java.util.Map\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+     
 [customTags()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#customTags\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
 [customTags(Map)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#customTags\(java.util.Map\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 
 ## D
+
+[daemonExecutor(String)](com/google/adk/internal/http/HttpClientFactory.html#daemonExecutor\(java.lang.String\)) \- Static method in class com.google.adk.internal.http.[HttpClientFactory](com/google/adk/internal/http/HttpClientFactory.html "class in com.google.adk.internal.http")
+    
+
+Returns an unbounded pool of daemon threads, matching OkHttp's own dispatcher pool but with daemon threads so a standalone JVM can exit once work is done.
 
 [datasetId()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#datasetId\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
@@ -4155,6 +4179,11 @@ Returns the underlying function [`Method`](https://docs.oracle.com/en/java/javas
      
 [functionCallId(String)](com/google/adk/tools/ToolContext.html#functionCallId\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
+[FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models") \- Class in [com.google.adk.models](com/google/adk/models/package-summary.html)
+    
+
+Constants and helpers for ADK-generated function call IDs.
+
 [FunctionCallingUtils](com/google/adk/tools/FunctionCallingUtils.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
     
 
@@ -4260,6 +4289,11 @@ Exception thrown when the the genai class has an empty field.
     
 
 Generates a unique ID for a function call.
+
+[generateClientFunctionCallId()](com/google/adk/models/FunctionCallIds.html#generateClientFunctionCallId\(\)) \- Static method in class com.google.adk.models.[FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models")
+    
+
+Returns a new client-side function call ID with the ADK prefix.
 
 [generateContent(LlmRequest, boolean)](com/google/adk/models/ApigeeLlm.html#generateContent\(com.google.adk.models.LlmRequest,boolean\)) \- Method in class com.google.adk.models.[ApigeeLlm](com/google/adk/models/ApigeeLlm.html "class in com.google.adk.models")
      
@@ -4376,9 +4410,9 @@ Retrieves service details for a given connection.
 
 Retrieves the invocation context associated with this agent invocation.
 
-[getCurrentSpanAndParent()](com/google/adk/plugins/agentanalytics/TraceManager.html#getCurrentSpanAndParent\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+[getCurrentSpanAndParent(InvocationContext)](com/google/adk/plugins/agentanalytics/TraceManager.html#getCurrentSpanAndParent\(com.google.adk.agents.InvocationContext\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
      
-[getCurrentSpanId()](com/google/adk/plugins/agentanalytics/TraceManager.html#getCurrentSpanId\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+[getCurrentSpanId(InvocationContext)](com/google/adk/plugins/agentanalytics/TraceManager.html#getCurrentSpanId\(com.google.adk.agents.InvocationContext\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
      
 [getCurrentTime(String)](com/google/adk/tutorials/CityTimeWeather.html#getCurrentTime\(java.lang.String\)) \- Static method in class com.google.adk.tutorials.[CityTimeWeather](com/google/adk/tutorials/CityTimeWeather.html "class in com.google.adk.tutorials")
      
@@ -4398,6 +4432,11 @@ Returns the input keys (dependencies) needed to produce the given output key.
      
 [getDotSrc()](com/google/adk/web/dto/GraphResponse.html#getDotSrc\(\)) \- Method in class com.google.adk.web.dto.[GraphResponse](com/google/adk/web/dto/GraphResponse.html "class in com.google.adk.web.dto")
      
+[getDropStats()](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#getDropStats\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryAgentAnalyticsPlugin](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")
+    
+
+Returns aggregated dropped-row counters keyed by reason (`queue_full`, ` append_error`, `serialization_error`).
+
 [getEmbeddingModel()](com/google/adk/models/springai/SpringAIEmbedding.html#getEmbeddingModel\(\)) \- Method in class com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
     
 
@@ -4555,6 +4594,11 @@ Gets the Micrometer MeterRegistry for direct access to metrics.
      
 [getOperationRequest()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#getOperationRequest\(\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
+[getOrCreateSharedHttpClient(String)](com/google/adk/internal/http/HttpClientFactory.html#getOrCreateSharedHttpClient\(java.lang.String\)) \- Static method in class com.google.adk.internal.http.[HttpClientFactory](com/google/adk/internal/http/HttpClientFactory.html "class in com.google.adk.internal.http")
+    
+
+Returns the shared `OkHttpClient` cached by `name`, using OkHttp's default threading.
+
 [getOrDefault(String, T)](com/google/adk/tools/BaseTool.ToolArgsConfig.html#getOrDefault\(java.lang.String,T\)) \- Method in class com.google.adk.tools.[BaseTool.ToolArgsConfig](com/google/adk/tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")
      
 [getOrEmpty(String, TypeReference)](com/google/adk/tools/BaseTool.ToolArgsConfig.html#getOrEmpty\(java.lang.String,com.fasterxml.jackson.core.type.TypeReference\)) \- Method in class com.google.adk.tools.[BaseTool.ToolArgsConfig](com/google/adk/tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")
@@ -4965,6 +5009,27 @@ Deprecated.
 
 Expected only for specific model endpoints.
 
+[groupFunctionResponsesInHistoryOverride()](com/google/adk/agents/RunConfig.html#groupFunctionResponsesInHistoryOverride\(\)) \- Method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
+    
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+[groupFunctionResponsesInHistoryOverride(boolean)](com/google/adk/agents/RunConfig.Builder.html#groupFunctionResponsesInHistoryOverride\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+    
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+[groupFunctionResponsesInHistoryOverride(Optional)](com/google/adk/agents/RunConfig.Builder.html#groupFunctionResponsesInHistoryOverride\(java.util.Optional\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
+    
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
 [gtechAssignees()](com/example/adktriaging/Settings.html#gtechAssignees\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
      
 [gtechRotation()](com/example/adktriaging/AdkTriagingAgent.html#gtechRotation\(\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
@@ -5012,8 +5077,6 @@ Handles errors that occur while recording metrics for the tool execution.
 [handleTextMessage(WebSocketSession, TextMessage)](com/google/adk/web/websocket/LiveWebSocketHandler.html#handleTextMessage\(org.springframework.web.socket.WebSocketSession,org.springframework.web.socket.TextMessage\)) \- Method in class com.google.adk.web.websocket.[LiveWebSocketHandler](com/google/adk/web/websocket/LiveWebSocketHandler.html "class in com.google.adk.web.websocket")
      
 [handleTransportError(WebSocketSession, Throwable)](com/google/adk/web/websocket/LiveWebSocketHandler.html#handleTransportError\(org.springframework.web.socket.WebSocketSession,java.lang.Throwable\)) \- Method in class com.google.adk.web.websocket.[LiveWebSocketHandler](com/google/adk/web/websocket/LiveWebSocketHandler.html "class in com.google.adk.web.websocket")
-     
-[hasAmbientSpan()](com/google/adk/plugins/agentanalytics/TraceManager.html#hasAmbientSpan\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
      
 [hasDelta()](com/google/adk/sessions/State.html#hasDelta\(\)) \- Method in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
@@ -5196,6 +5259,16 @@ Wraps a real HTTP response to expose the methods needed by the GenAI SDK.
 
 Constructs a HttpApiResponse instance with the response.
 
+[HttpClientFactory](com/google/adk/internal/http/HttpClientFactory.html "class in com.google.adk.internal.http") \- Class in [com.google.adk.internal.http](com/google/adk/internal/http/package-summary.html)
+    
+
+Creates `OkHttpClient`s for the ADK.
+
+[httpExecutorService(ExecutorService)](com/google/adk/models/Gemini.Builder.html#httpExecutorService\(java.util.concurrent.ExecutorService\)) \- Method in class com.google.adk.models.[Gemini.Builder](com/google/adk/models/Gemini.Builder.html "class in com.google.adk.models")
+    
+
+Sets the executor for the shared HTTP client's dispatcher.
+
 ## I
 
 [id()](com/google/adk/events/Event.html#id\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
@@ -5278,6 +5351,11 @@ Initialize the computer.
      
 [initTrace(InvocationContext)](com/google/adk/plugins/agentanalytics/TraceManager.html#initTrace\(com.google.adk.agents.InvocationContext\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
      
+[initTraceIfNeeded(InvocationContext)](com/google/adk/plugins/agentanalytics/TraceManager.html#initTraceIfNeeded\(com.google.adk.agents.InvocationContext\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+    
+
+Sets the root agent name from the invocation context if it is still the sentinel default.
+
 [injectSessionState(InvocationContext, String)](com/google/adk/utils/InstructionUtils.html#injectSessionState\(com.google.adk.agents.InvocationContext,java.lang.String\)) \- Static method in class com.google.adk.utils.[InstructionUtils](com/google/adk/utils/InstructionUtils.html "class in com.google.adk.utils")
     
 
@@ -5533,11 +5611,18 @@ Sets the unique ID for the invocation.
      
 [IS_LONG_RUNNING](com/google/adk/a2a/converters/A2AMetadataKey.html#IS_LONG_RUNNING) \- Enum constant in enum class com.google.adk.a2a.converters.[A2AMetadataKey](com/google/adk/a2a/converters/A2AMetadataKey.html "enum class in com.google.adk.a2a.converters")
      
+[isClientGeneratedFunctionCallId(String)](com/google/adk/models/FunctionCallIds.html#isClientGeneratedFunctionCallId\(java.lang.String\)) \- Static method in class com.google.adk.models.[FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models")
+    
+
+Returns whether `id` was generated client-side by the ADK.
+
 [isConfigurationValid(Optional)](com/google/adk/models/springai/ConfigMapper.html#isConfigurationValid\(java.util.Optional\)) \- Method in class com.google.adk.models.springai.[ConfigMapper](com/google/adk/models/springai/ConfigMapper.html "class in com.google.adk.models.springai")
     
 
 Validates that the configuration is compatible with Spring AI.
 
+[isConfineToSourceDir()](com/google/adk/web/config/AgentLoadingProperties.html#isConfineToSourceDir\(\)) \- Method in class com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
+     
 [isDryRun()](com/example/adkprtriaging/Settings.html#isDryRun\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
      
 [isDryRun()](com/example/adkspam/Settings.html#isDryRun\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
@@ -7580,8 +7665,16 @@ Manages the registration and execution of plugins.
      
 [plugins(List)](com/google/adk/runner/Runner.Builder.html#plugins\(java.util.List\)) \- Method in class com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
      
-[popSpan()](com/google/adk/plugins/agentanalytics/TraceManager.html#popSpan\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
-     
+[popSpan(InvocationContext, String)](com/google/adk/plugins/agentanalytics/TraceManager.html#popSpan\(com.google.adk.agents.InvocationContext,java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+    
+
+Pops the calling branch's top span record if its kind matches `expectedKindPrefix`.
+
+[popSpan(InvocationContext, String, String)](com/google/adk/plugins/agentanalytics/TraceManager.html#popSpan\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+    
+
+Pops the calling branch's matching span record.
+
 [populateClientFunctionCallId(Event)](com/google/adk/flows/llmflows/Functions.html#populateClientFunctionCallId\(com.google.adk.events.Event\)) \- Static method in class com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
     
 
@@ -7727,8 +7820,11 @@ Sets the URL of the Apigee proxy.
 
 [pullRequestNumber()](com/example/adkprtriaging/Settings.html#pullRequestNumber\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
      
-[pushSpan(String)](com/google/adk/plugins/agentanalytics/TraceManager.html#pushSpan\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
-     
+[pushSpan(InvocationContext, String)](com/google/adk/plugins/agentanalytics/TraceManager.html#pushSpan\(com.google.adk.agents.InvocationContext,java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
+    
+
+Pushes an ID-only span record onto the calling branch's stack.
+
 [put(String, Object)](com/google/adk/sessions/State.html#put\(java.lang.String,java.lang.Object\)) \- Method in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
 [put(String, Object)](com/google/adk/tools/BaseTool.ToolArgsConfig.html#put\(java.lang.String,java.lang.Object\)) \- Method in class com.google.adk.tools.[BaseTool.ToolArgsConfig](com/google/adk/tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")
@@ -9040,6 +9136,8 @@ Sets the common agent callbacks (before/after agent) from the config to the buil
      
 [setConfigPath(String)](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html#setConfigPath\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.AgentRefConfig](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")
      
+[setConfineToSourceDir(boolean)](com/google/adk/web/config/AgentLoadingProperties.html#setConfineToSourceDir\(boolean\)) \- Method in class com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
+     
 [setContent(Content)](com/google/adk/events/Event.html#setContent\(com.google.genai.types.Content\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setCredentials(GoogleCredentials)](com/google/adk/models/VertexCredentials.Builder.html#setCredentials\(com.google.auth.oauth2.GoogleCredentials\)) \- Method in class com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
@@ -10046,6 +10144,11 @@ Returns the value of the [`tokenThreshold`](./com/google/adk/summarizer/EventsCo
 
 Converts an ADK LlmRequest to a Spring AI Prompt.
 
+[toLlmPrompt(LlmRequest, ChatOptions)](com/google/adk/models/springai/MessageConverter.html#toLlmPrompt\(com.google.adk.models.LlmRequest,org.springframework.ai.chat.prompt.ChatOptions\)) \- Method in class com.google.adk.models.springai.[MessageConverter](com/google/adk/models/springai/MessageConverter.html "class in com.google.adk.models.springai")
+    
+
+Converts an ADK LlmRequest to a Spring AI Prompt, using the target model's own default options as the base for the prompt options.
+
 [toLlmResponse(ChatResponse)](com/google/adk/models/springai/MessageConverter.html#toLlmResponse\(org.springframework.ai.chat.model.ChatResponse\)) \- Method in class com.google.adk.models.springai.[MessageConverter](com/google/adk/models/springai/MessageConverter.html "class in com.google.adk.models.springai")
     
 
@@ -10340,7 +10443,7 @@ Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle.
 [TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics") \- Class in [com.google.adk.plugins.agentanalytics](com/google/adk/plugins/agentanalytics/package-summary.html)
     
 
-Manages OpenTelemetry-style trace and span context using InvocationContext callback data.
+Manages the BQAA-internal execution tree of span IDs for one invocation.
 
 [traceMergedToolCalls(Span, String, Event)](com/google/adk/telemetry/Tracing.html#traceMergedToolCalls\(io.opentelemetry.api.trace.Span,java.lang.String,com.google.adk.events.Event\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     

@@ -45,11 +45,6 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
@@ -86,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -170,14 +166,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -186,6 +178,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -202,17 +196,22 @@ A2A Protocol
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -226,7 +225,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -304,10 +303,6 @@ You can also specify a pre-built `user_persona` in the following manner:
     
 
 While the conversation plan dictates what must be accomplished, the persona dictates how the model phrases its queries and reacts to the agent's responses.
-
-Try it in Colab
-
-Test this entire workflow yourself in an interactive notebook on [Simulating User Conversations to Dynamically Evaluate ADK Agents](https://github.com/google/adk-samples/blob/main/python/notebooks/evaluation/user_simulation_in_adk_evals.ipynb). You'll define a conversation scenario, run a "dry run" to check the dialogue, and then perform a full evaluation to score the agent's responses.
 
 ## User personas¶
 
@@ -437,14 +432,16 @@ You can override the default user simulator configuration to change the model, i
             "thinking_budget": 10240
           }
         },
-        "max_allowed_invocations": 20
+        "max_allowed_invocations": 20,
+        "include_function_calls": false
       }
     }
     
 
   * `model`: The model backing the user simulator.
   * `model_configuration`: A [`GenerateContentConfig`](https://github.com/googleapis/python-genai/blob/6196b1b4251007e33661bb5d7dc27bafee3feefe/google/genai/types.py#L4295) which controls the model behavior.
-  * `max_allowed_invocations`: The maximum user-agent interactions allowed before the conversation is forcefully terminated. This should be set to be greater than the longest reasonable user-agent interaction in your `EvalSet`.
+  * `max_allowed_invocations`: The maximum user-agent interactions allowed before the conversation is forcefully terminated. This should be set to be greater than the longest reasonable user-agent interaction in your `EvalSet`. The initial fixed prompt counts as an invocation. Setting this value to `-1` removes the innovation limit, which is not recommended.
+  * `include_function_calls`: Optional. Whether to include function calls and responses in the conversation history prompt given to the user simulator. Defaults to `false`.
   * `custom_instructions`: Optional. Overrides the default instructions for the user simulator. The instruction string must contain the following formatting placeholders using [Jinja](https://jinja.palletsprojects.com/en/stable/templates/#) syntax (_do not substitute values in advance!_):
     * `{{ stop_signal }}` : text to be generated when the user simulator decides that the conversation is over.
     * `{{ conversation_plan }}` : the overall plan for the conversation that the user simulator must follow.

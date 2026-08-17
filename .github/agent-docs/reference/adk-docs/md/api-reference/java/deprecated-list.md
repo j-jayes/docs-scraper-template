@@ -50,6 +50,14 @@ Description
 
 Expected only for specific model endpoints.
 
+[com.google.adk.agents.RunConfig.Builder.groupFunctionResponsesInHistoryOverride(boolean)](com/google/adk/agents/RunConfig.Builder.html#groupFunctionResponsesInHistoryOverride\(boolean\))
+
+Expected only for specific model endpoints.
+
+[com.google.adk.agents.RunConfig.Builder.groupFunctionResponsesInHistoryOverride(Optional<Boolean>)](com/google/adk/agents/RunConfig.Builder.html#groupFunctionResponsesInHistoryOverride\(java.util.Optional\))
+
+Expected only for specific model endpoints.
+
 [com.google.adk.agents.RunConfig.Builder.setAutoCreateSession(boolean)](com/google/adk/agents/RunConfig.Builder.html#setAutoCreateSession\(boolean\))
 
 [com.google.adk.agents.RunConfig.Builder.setInputAudioTranscription(AudioTranscriptionConfig)](com/google/adk/agents/RunConfig.Builder.html#setInputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\))
@@ -69,6 +77,10 @@ Expected only for specific model endpoints.
 [com.google.adk.agents.RunConfig.Builder.setToolExecutionMode(RunConfig.ToolExecutionMode)](com/google/adk/agents/RunConfig.Builder.html#setToolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\))
 
 [com.google.adk.agents.RunConfig.groupFunctionResponsesInHistory()](com/google/adk/agents/RunConfig.html#groupFunctionResponsesInHistory\(\))
+
+Expected only for specific model endpoints.
+
+[com.google.adk.agents.RunConfig.groupFunctionResponsesInHistoryOverride()](com/google/adk/agents/RunConfig.html#groupFunctionResponsesInHistoryOverride\(\))
 
 Expected only for specific model endpoints.
 

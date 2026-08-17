@@ -35,19 +35,20 @@ Contents
      1. BigQueryAgentAnalyticsPlugin(BigQueryLoggerConfig)
      2. BigQueryAgentAnalyticsPlugin(BigQueryLoggerConfig, BigQuery)
   6. Method Details
-     1. close()
-     2. onUserMessageCallback(InvocationContext, Content)
-     3. onEventCallback(InvocationContext, Event)
-     4. beforeRunCallback(InvocationContext)
-     5. afterRunCallback(InvocationContext)
-     6. beforeAgentCallback(BaseAgent, CallbackContext)
-     7. afterAgentCallback(BaseAgent, CallbackContext)
-     8. beforeModelCallback(CallbackContext, LlmRequest.Builder)
-     9. afterModelCallback(CallbackContext, LlmResponse)
-     10. onModelErrorCallback(CallbackContext, LlmRequest.Builder, Throwable)
-     11. beforeToolCallback(BaseTool, Map, ToolContext)
-     12. afterToolCallback(BaseTool, Map, ToolContext, Map)
-     13. onToolErrorCallback(BaseTool, Map, ToolContext, Throwable)
+     1. getDropStats()
+     2. close()
+     3. onUserMessageCallback(InvocationContext, Content)
+     4. onEventCallback(InvocationContext, Event)
+     5. beforeRunCallback(InvocationContext)
+     6. afterRunCallback(InvocationContext)
+     7. beforeAgentCallback(BaseAgent, CallbackContext)
+     8. afterAgentCallback(BaseAgent, CallbackContext)
+     9. beforeModelCallback(CallbackContext, LlmRequest.Builder)
+     10. afterModelCallback(CallbackContext, LlmResponse)
+     11. onModelErrorCallback(CallbackContext, LlmRequest.Builder, Throwable)
+     12. beforeToolCallback(BaseTool, Map, ToolContext)
+     13. afterToolCallback(BaseTool, Map, ToolContext, Map)
+     14. onToolErrorCallback(BaseTool, Map, ToolContext, Throwable)
 
 Hide sidebar  Show sidebar
 
@@ -168,6 +169,12 @@ Callback executed before a tool is called.
 
 Method executed when the runner is closed.
 
+`com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Long](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html "class in java.lang")>`
+
+`getDropStats()`
+
+Returns aggregated dropped-row counters keyed by reason (`queue_full`, ` append_error`, `serialization_error`).
+
 `io.reactivex.rxjava3.core.Maybe<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 `onEventCallback([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Event](../../events/Event.html "class in com.google.adk.events") event)`
@@ -232,6 +239,12 @@ Throws:
     `[IOException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html "class in java.io")`
 
   * ## Method Details
+
+    * ### getDropStats
+
+public com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Long](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html "class in java.lang")> getDropStats()
+
+Returns aggregated dropped-row counters keyed by reason (`queue_full`, ` append_error`, `serialization_error`). Non-zero values indicate analytics rows that never reached BigQuery.
 
     * ### close
 

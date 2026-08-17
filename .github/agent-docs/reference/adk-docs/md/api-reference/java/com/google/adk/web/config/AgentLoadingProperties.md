@@ -35,6 +35,8 @@ Contents
      2. setSourceDir(String)
      3. getBuildOutputDirs()
      4. setBuildOutputDirs(String[])
+     5. isConfineToSourceDir()
+     6. setConfineToSourceDir(boolean)
 
 Hide sidebar  Show sidebar
 
@@ -84,9 +86,21 @@ Description
 
  
 
+`boolean`
+
+`isConfineToSourceDir()`
+
+ 
+
 `void`
 
 `setBuildOutputDirs([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")[] buildOutputDirs)`
+
+ 
+
+`void`
+
+`setConfineToSourceDir(boolean confineToSourceDir)`
 
  
 
@@ -126,6 +140,14 @@ public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/jav
     * ### setBuildOutputDirs
 
 public void setBuildOutputDirs([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")[] buildOutputDirs)
+
+    * ### isConfineToSourceDir
+
+public boolean isConfineToSourceDir()
+
+    * ### setConfineToSourceDir
+
+public void setConfineToSourceDir(boolean confineToSourceDir)
 
 
 

@@ -45,11 +45,6 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../config/)
     * [ Agents  ](../../)
@@ -199,17 +194,22 @@ A2A Protocol
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../../streaming/)
+    * [ Live and Voice Agents  ](../../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../../live/get-started/streaming-python/)
+        * [ Java  ](../../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../../live/configuration/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -223,7 +223,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../../api-reference/python/)
-      * [ Typescript ADK  ](../../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -263,7 +263,7 @@ Table of contents
 
 # Google Gemini models for ADK agents¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.2.0Kotlin v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.2.0Kotlin v0.1.0
 
 ADK supports the Google Gemini family of generative AI models that provide a powerful set of models with a wide range of features. ADK provides support for many Gemini features, including [Code Execution](/integrations/code-execution/), [Google Search](/integrations/google-search/), [Context caching](/context/caching/), [Computer use](/integrations/computer-use/) and the Interactions API.
 
@@ -441,9 +441,13 @@ There are two ways you can set retry options:
 
 **Option 1:** Set retry options on the Agent as a part of `generate_content_config`.
 
-You would use this option if you are instantiating this model adapter by yourself.
+You would use this option if you are passing the model as a name string and letting ADK create the model adapter for you.
 
 PythonJava
+         
+         from google.genai import types
+         
+         # ...
          
          root_agent = Agent(
              model='gemini-flash-latest',
@@ -456,7 +460,8 @@ PythonJava
                      # ...
                  ),
                  # ...
-             )
+             ),
+         )
          
          
          import com.google.adk.agents.LlmAgent;

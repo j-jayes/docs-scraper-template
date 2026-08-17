@@ -46,7 +46,7 @@ Method
 
 Description
 
-`abstract [BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")`
+`[BigQueryLoggerConfig](../BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")`
 
 BigQueryLoggerConfig.Builder.`[build](../BigQueryLoggerConfig.Builder.html#build\(\))()`
 

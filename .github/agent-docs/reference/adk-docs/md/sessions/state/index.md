@@ -45,11 +45,6 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
@@ -202,17 +197,22 @@ A2A Protocol
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -226,7 +226,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -324,6 +324,7 @@ Prefixes on state keys define their scope and persistence behavior, especially w
     * **Scope:** Tied to the `user_id`, shared across _all_ sessions for that user (within the same `app_name`).
     * **Persistence:** Persistent with `Database` or `VertexAI`. (Stored by `InMemory` but lost on restart).
     * **Use Cases:** User preferences (e.g., `'user:theme'`), profile details (e.g., `'user:name'`).
+    * **Reading without a session:** In Python, `await session_service.get_user_state(app_name=..., user_id=...)` returns the user-scoped keys with the `user:` prefix stripped, so you can read them before a session exists. `VertexAiSessionService` is the exception: it always raises `NotImplementedError`, because the Agent Runtime API does not expose user state independently of a session. There, enumerate sessions with `list_sessions` and call `get_session` on each result instead.
     * **Example:** `session.state['user:preferred_language'] = 'fr'`
   * **`app:` Prefix (App State):**
 
@@ -684,8 +685,9 @@ PythonTypeScriptGoJava
     print(f"Initial state: {session.state}")
     
     # --- Run the Agent ---
-    # Runner handles calling append_event, which uses the output_key
-    # to automatically create the state_delta.
+    # The agent uses the output_key to put its response into the event's
+    # state_delta; the Runner hands that event to append_event, which
+    # applies the delta to the session state.
     user_message = Content(parts=[Part(text="Hello")])
     for event in runner.run(user_id=user_id,
                             session_id=session_id,
@@ -869,7 +871,7 @@ PythonTypeScriptGoJava
     }
     
 
-Behind the scenes, the `Runner` uses the `output_key` to create the necessary `EventActions` with a `state_delta` and calls `append_event`.
+Behind the scenes, the agent itself uses the `output_key` to write the response into the `state_delta` of the `EventActions` on the event it yields; the `Runner` then passes that event to the `SessionService`'s `append_event`, which applies the delta.
 
 **2\. The Standard Way:`EventActions.state_delta` (for Complex Updates)**
 
@@ -1203,9 +1205,9 @@ PythonTypeScriptGoJavaKotlin
 
 **3\. Via`CallbackContext` or `ToolContext` (Recommended for Callbacks and Tools)**
 
-_(Note: In TypeScript, this is done via the unified`Context` type.)_
+_(Note: In Python and TypeScript,`CallbackContext` and `ToolContext` are unified into a single `Context` type, and in Python both names remain usable as aliases of it.)_
 
-Modifying state within agent callbacks (e.g., `on_before_agent_call`, `on_after_agent_call`) or tool functions is best done using the `state` attribute of the `CallbackContext` or `ToolContext` provided to your function.
+Modifying state within agent callbacks such as `before_agent_callback` and `after_agent_callback`, or within tool functions, is best done using the `state` attribute of the `CallbackContext` or `ToolContext` provided to your function.
 
   * `callback_context.state['my_key'] = my_value`
   * `tool_context.state['my_key'] = my_value`
@@ -1222,7 +1224,8 @@ PythonTypeScriptGoJavaKotlin
     
     
     # In an agent callback or tool function
-    from google.adk.agents import CallbackContext # or ToolContext
+    from google.adk.agents.callback_context import CallbackContext
+    # or, equivalently: from google.adk.tools.tool_context import ToolContext
     
     def my_callback_or_tool_function(context: CallbackContext, # Or ToolContext
                                      # ... other parameters ...
@@ -1382,7 +1385,7 @@ PythonTypeScriptGoJavaKotlin
   * Reads the `state_delta` from the event's `actions`.
   * Applies these changes to the state managed by the `SessionService`, correctly handling prefixes and persistence based on the service type.
   * Updates the session's `last_update_time`.
-  * Ensures thread-safety for concurrent updates.
+  * Serializes concurrent updates to the same session where the service supports it: `DatabaseSessionService` takes a per-session lock, while `InMemorySessionService` is not safe for multi-threaded use.
 
 
 

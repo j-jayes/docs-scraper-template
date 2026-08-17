@@ -72,7 +72,8 @@ This loader is thread-safe and uses memoized suppliers to ensure agents are crea
 Configuration: 
 
   * To enable this loader: `adk.agents.loader=compiled`
-  * To specify agent source directory: `adk.agents.source-dir=/path/to/agents` 
+  * To specify agent source directory: `adk.agents.source-dir=/path/to/agents`
+  * Directory confinement (recommended, off by default): ` adk.agents.confine-to-source-dir=true` restricts compiled classes to `source-dir`. A warning is logged while it is disabled. 
 
 
   * ## Constructor Summary

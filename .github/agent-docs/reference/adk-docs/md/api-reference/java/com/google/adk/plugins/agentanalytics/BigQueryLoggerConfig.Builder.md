@@ -89,7 +89,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsConcrete Methods
 
 Modifier and Type
 
@@ -115,7 +115,7 @@ Description
 
  
 
-`abstract [BigQueryLoggerConfig](BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")`
+`[BigQueryLoggerConfig](BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")`
 
 `build()`
 
@@ -360,7 +360,7 @@ public Builder()
 
     * ### build
 
-public abstract [BigQueryLoggerConfig](BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics") build()
+public [BigQueryLoggerConfig](BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics") build()
 
 
 

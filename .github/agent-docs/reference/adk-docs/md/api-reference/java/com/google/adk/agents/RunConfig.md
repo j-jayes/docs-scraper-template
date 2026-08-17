@@ -42,10 +42,12 @@ Contents
      8. inputAudioTranscription()
      9. maxLlmCalls()
      10. autoCreateSession()
-     11. groupFunctionResponsesInHistory()
-     12. toBuilder()
-     13. builder()
-     14. builder(RunConfig)
+     11. groupFunctionResponsesInHistoryOverride()
+     12. groupFunctionResponsesInHistory()
+     13. customMetadata()
+     14. toBuilder()
+     15. builder()
+     16. builder(RunConfig)
 
 Hide sidebar  Show sidebar
 
@@ -135,9 +137,23 @@ Description
 
  
 
-`abstract boolean`
+`abstract com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
+
+`customMetadata()`
+
+ 
+
+`final boolean`
 
 `groupFunctionResponsesInHistory()`
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")>`
+
+`groupFunctionResponsesInHistoryOverride()`
 
 Deprecated.
 
@@ -252,15 +268,33 @@ public abstract int maxLlmCalls()
 
 public abstract boolean autoCreateSession()
 
-    * ### groupFunctionResponsesInHistory
+    * ### groupFunctionResponsesInHistoryOverride
 
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public abstract boolean groupFunctionResponsesInHistory()
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")> groupFunctionResponsesInHistoryOverride()
 
 Deprecated.
 
 Expected only for specific model endpoints.
 
-Whether to group all function calls before all function responses in the request history (FC1, FC2, FR1, FR2) instead of pairing each response with its call (FC1, FR1, FC2, FR2). Opt-in and off by default.
+Three-state override for grouping function calls before function responses in history (FC1, FC2, FR1, FR2) instead of pairing each response with its call (FC1, FR1, FC2, FR2). 
+
+Empty (default) groups only for models that require it (Gemini 3); when present the value applies to all models. 
+
+Not needed for the core ADK Gemini implementation, which already groups automatically for Gemini 3. Kept for backwards compatibility with other model implementations that route to endpoints requiring the grouped form.
+
+    * ### groupFunctionResponsesInHistory
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public final boolean groupFunctionResponsesInHistory()
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+Whether grouping is explicitly enabled; equivalent to ` groupFunctionResponsesInHistoryOverride().orElse(false)`. Retained for backwards compatibility.
+
+    * ### customMetadata
+
+public abstract com.google.common.collect.ImmutableMap<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> customMetadata()
 
     * ### toBuilder
 

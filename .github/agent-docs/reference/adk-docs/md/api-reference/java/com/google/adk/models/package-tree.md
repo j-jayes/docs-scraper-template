@@ -38,6 +38,7 @@ Package Hierarchies:
       * com.google.adk.models.[ApigeeLlm](ApigeeLlm.html "class in com.google.adk.models")
       * com.google.adk.models.[Claude](Claude.html "class in com.google.adk.models")
       * com.google.adk.models.[Gemini](Gemini.html "class in com.google.adk.models")
+    * com.google.adk.models.[FunctionCallIds](FunctionCallIds.html "class in com.google.adk.models")
     * com.google.adk.models.[Gemini.Builder](Gemini.Builder.html "class in com.google.adk.models")
     * com.google.adk.models.[GeminiLlmConnection](GeminiLlmConnection.html "class in com.google.adk.models") (implements com.google.adk.models.[BaseLlmConnection](BaseLlmConnection.html "interface in com.google.adk.models"))
     * com.google.adk.models.[GeminiUtil](GeminiUtil.html "class in com.google.adk.models")

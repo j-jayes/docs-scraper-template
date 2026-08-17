@@ -25,22 +25,23 @@ beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html);
 beforeModelCallback?: [BeforeModelCallback](../types/BeforeModelCallback.html);  
 beforeToolCallback?: [BeforeToolCallback](../types/BeforeToolCallback.html);  
 codeExecutor?: [BaseCodeExecutor](../classes/BaseCodeExecutor.html);  
+contextCompactors?: [BaseContextCompactor](BaseContextCompactor.html)[];  
 description?: string;  
 disallowTransferToParent?: boolean;  
 disallowTransferToPeers?: boolean;  
 generateContentConfig?: GenerateContentConfig;  
 globalInstruction?: string | [InstructionProvider](../types/InstructionProvider.html);  
-includeContents?: "none" | "default";  
+includeContents?: "default" | "none";  
 inputSchema?: [LlmAgentSchema](../types/LlmAgentSchema.html);  
 instruction?: string | [InstructionProvider](../types/InstructionProvider.html);  
 model?: string | [BaseLlm](../classes/BaseLlm.html);  
 name: string;  
 outputKey?: string;  
 outputSchema?: [LlmAgentSchema](../types/LlmAgentSchema.html);  
-parentAgent?: [BaseAgent](../classes/BaseAgent.html);  
+parentAgent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>;  
 requestProcessors?: [BaseLlmRequestProcessor](../classes/BaseLlmRequestProcessor.html)[];  
 responseProcessors?: [BaseLlmResponseProcessor](../classes/BaseLlmResponseProcessor.html)[];  
-subAgents?: [BaseAgent](../classes/BaseAgent.html)[];  
+subAgents?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>[];  
 tools?: [ToolUnion](../types/ToolUnion.html)[];  
 }
 
@@ -51,7 +52,7 @@ tools?: [ToolUnion](../types/ToolUnion.html)[];
 
 
 
-  * Defined in [agents/llm_agent.ts:195](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L195)
+  * Defined in [core/src/agents/llm_agent.ts:202](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L202)
 
 
 
@@ -63,7 +64,7 @@ afterAgentCallback?: [AfterAgentCallback](../types/AfterAgentCallback.html)
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[afterAgentCallback](BaseAgentConfig.html#afteragentcallback)
 
-  * Defined in [agents/base_agent.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L48)
+  * Defined in [core/src/agents/base_agent.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L48)
 
 
 
@@ -73,7 +74,7 @@ afterModelCallback?: [AfterModelCallback](../types/AfterModelCallback.html)
 
 Callbacks to be called after calling the LLM.
 
-  * Defined in [agents/llm_agent.ts:275](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L275)
+  * Defined in [core/src/agents/llm_agent.ts:284](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L284)
 
 
 
@@ -83,7 +84,7 @@ afterToolCallback?: [AfterToolCallback](../types/AfterToolCallback.html)
 
 Callbacks to be called after calling the tool.
 
-  * Defined in [agents/llm_agent.ts:285](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L285)
+  * Defined in [core/src/agents/llm_agent.ts:294](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L294)
 
 
 
@@ -93,7 +94,7 @@ beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html)
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[beforeAgentCallback](BaseAgentConfig.html#beforeagentcallback)
 
-  * Defined in [agents/base_agent.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L47)
+  * Defined in [core/src/agents/base_agent.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L47)
 
 
 
@@ -103,7 +104,7 @@ beforeModelCallback?: [BeforeModelCallback](../types/BeforeModelCallback.html)
 
 Callbacks to be called before calling the LLM.
 
-  * Defined in [agents/llm_agent.ts:270](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L270)
+  * Defined in [core/src/agents/llm_agent.ts:279](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L279)
 
 
 
@@ -113,7 +114,7 @@ beforeToolCallback?: [BeforeToolCallback](../types/BeforeToolCallback.html)
 
 Callbacks to be called before calling the tool.
 
-  * Defined in [agents/llm_agent.ts:280](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L280)
+  * Defined in [core/src/agents/llm_agent.ts:289](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L289)
 
 
 
@@ -123,7 +124,17 @@ codeExecutor?: [BaseCodeExecutor](../classes/BaseCodeExecutor.html)
 
 Instructs the agent to make a plan and execute it step by step.
 
-  * Defined in [agents/llm_agent.ts:300](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L300)
+  * Defined in [core/src/agents/llm_agent.ts:315](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L315)
+
+
+
+### `Optional`contextCompactors
+
+contextCompactors?: [BaseContextCompactor](BaseContextCompactor.html)[]
+
+A list of context compactors to evaluate in priority order. Modifies the session history to keep context overhead within limits.
+
+  * Defined in [core/src/agents/llm_agent.ts:310](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L310)
 
 
 
@@ -133,7 +144,7 @@ description?: string
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[description](BaseAgentConfig.html#description)
 
-  * Defined in [agents/base_agent.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L44)
+  * Defined in [core/src/agents/base_agent.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L44)
 
 
 
@@ -145,7 +156,7 @@ Disallows LLM-controlled transferring to the parent agent.
 
 NOTE: Setting this as True also prevents this agent to continue reply to the end-user. This behavior prevents one-way transfer, in which end-user may be stuck with one agent that cannot transfer to other agents in the agent tree.
 
-  * Defined in [agents/llm_agent.ts:236](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L236)
+  * Defined in [core/src/agents/llm_agent.ts:245](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L245)
 
 
 
@@ -155,7 +166,7 @@ disallowTransferToPeers?: boolean
 
 Disallows LLM-controlled transferring to the peer agents.
 
-  * Defined in [agents/llm_agent.ts:239](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L239)
+  * Defined in [core/src/agents/llm_agent.ts:248](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L248)
 
 
 
@@ -169,7 +180,7 @@ NOTE: not all fields are usable, e.g. tools must be configured via `tools`, thin
 
 For example: use this config to adjust model temperature, configure safety settings, etc.
 
-  * Defined in [agents/llm_agent.ts:226](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L226)
+  * Defined in [core/src/agents/llm_agent.ts:235](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L235)
 
 
 
@@ -183,19 +194,23 @@ ONLY the globalInstruction in root agent will take effect.
 
 For example: use globalInstruction to make all agents have a stable identity or personality.
 
-  * Defined in [agents/llm_agent.ts:212](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L212)
+#### Deprecated
+
+Use GlobalInstructionPlugin instead.
+
+  * Defined in [core/src/agents/llm_agent.ts:221](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L221)
 
 
 
 ### `Optional`includeContents
 
-includeContents?: "none" | "default"
+includeContents?: "default" | "none"
 
 Controls content inclusion in model requests.
 
 Options: default: Model receives relevant conversation history none: Model receives no prior history, operates solely on current instruction and input
 
-  * Defined in [agents/llm_agent.ts:250](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L250)
+  * Defined in [core/src/agents/llm_agent.ts:259](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L259)
 
 
 
@@ -205,7 +220,7 @@ inputSchema?: [LlmAgentSchema](../types/LlmAgentSchema.html)
 
 The input schema when agent is used as a tool.
 
-  * Defined in [agents/llm_agent.ts:253](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L253)
+  * Defined in [core/src/agents/llm_agent.ts:262](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L262)
 
 
 
@@ -215,7 +230,7 @@ instruction?: string | [InstructionProvider](../types/InstructionProvider.html)
 
 Instructions for the LLM model, guiding the agent's behavior.
 
-  * Defined in [agents/llm_agent.ts:202](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L202)
+  * Defined in [core/src/agents/llm_agent.ts:209](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L209)
 
 
 
@@ -225,7 +240,7 @@ model?: string | [BaseLlm](../classes/BaseLlm.html)
 
 The model to use for the agent.
 
-  * Defined in [agents/llm_agent.ts:199](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L199)
+  * Defined in [core/src/agents/llm_agent.ts:206](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L206)
 
 
 
@@ -235,7 +250,7 @@ name: string
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[name](BaseAgentConfig.html#name)
 
-  * Defined in [agents/base_agent.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L43)
+  * Defined in [core/src/agents/base_agent.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L43)
 
 
 
@@ -252,7 +267,7 @@ Typically use cases:
 
 
 
-  * Defined in [agents/llm_agent.ts:265](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L265)
+  * Defined in [core/src/agents/llm_agent.ts:274](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L274)
 
 
 
@@ -262,17 +277,17 @@ outputSchema?: [LlmAgentSchema](../types/LlmAgentSchema.html)
 
 The output schema when agent replies.
 
-  * Defined in [agents/llm_agent.ts:256](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L256)
+  * Defined in [core/src/agents/llm_agent.ts:265](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L265)
 
 
 
 ### `Optional`parentAgent
 
-parentAgent?: [BaseAgent](../classes/BaseAgent.html)
+parentAgent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[parentAgent](BaseAgentConfig.html#parentagent)
 
-  * Defined in [agents/base_agent.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L45)
+  * Defined in [core/src/agents/base_agent.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L45)
 
 
 
@@ -282,7 +297,7 @@ requestProcessors?: [BaseLlmRequestProcessor](../classes/BaseLlmRequestProcessor
 
 Processors to run before the LLM request is sent.
 
-  * Defined in [agents/llm_agent.ts:290](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L290)
+  * Defined in [core/src/agents/llm_agent.ts:299](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L299)
 
 
 
@@ -292,17 +307,17 @@ responseProcessors?: [BaseLlmResponseProcessor](../classes/BaseLlmResponseProces
 
 Processors to run after the LLM response is received.
 
-  * Defined in [agents/llm_agent.ts:295](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L295)
+  * Defined in [core/src/agents/llm_agent.ts:304](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L304)
 
 
 
 ### `Optional`subAgents
 
-subAgents?: [BaseAgent](../classes/BaseAgent.html)[]
+subAgents?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>[]
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[subAgents](BaseAgentConfig.html#subagents)
 
-  * Defined in [agents/base_agent.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L46)
+  * Defined in [core/src/agents/base_agent.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L46)
 
 
 
@@ -312,15 +327,15 @@ tools?: [ToolUnion](../types/ToolUnion.html)[]
 
 Tools available to this agent.
 
-  * Defined in [agents/llm_agent.ts:215](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L215)
+  * Defined in [core/src/agents/llm_agent.ts:224](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L224)
 
 
 
 Properties
 
-afterAgentCallbackafterModelCallbackafterToolCallbackbeforeAgentCallbackbeforeModelCallbackbeforeToolCallbackcodeExecutordescriptiondisallowTransferToParentdisallowTransferToPeersgenerateContentConfigglobalInstructionincludeContentsinputSchemainstructionmodelnameoutputKeyoutputSchemaparentAgentrequestProcessorsresponseProcessorssubAgentstools
+afterAgentCallbackafterModelCallbackafterToolCallbackbeforeAgentCallbackbeforeModelCallbackbeforeToolCallbackcodeExecutorcontextCompactorsdescriptiondisallowTransferToParentdisallowTransferToPeersgenerateContentConfigglobalInstructionincludeContentsinputSchemainstructionmodelnameoutputKeyoutputSchemaparentAgentrequestProcessorsresponseProcessorssubAgentstools
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

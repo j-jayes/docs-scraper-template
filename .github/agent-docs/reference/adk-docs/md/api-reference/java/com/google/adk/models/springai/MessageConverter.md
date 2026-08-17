@@ -32,9 +32,10 @@ Contents
      1. MessageConverter(ObjectMapper)
   5. Method Details
      1. toLlmPrompt(LlmRequest)
-     2. getToolRegistry(LlmRequest)
-     3. toLlmResponse(ChatResponse)
-     4. toLlmResponse(ChatResponse, boolean)
+     2. toLlmPrompt(LlmRequest, ChatOptions)
+     3. getToolRegistry(LlmRequest)
+     4. toLlmResponse(ChatResponse)
+     5. toLlmResponse(ChatResponse, boolean)
 
 Hide sidebar  Show sidebar
 
@@ -93,6 +94,12 @@ Gets tool registry from ADK tools for internal tracking.
 
 Converts an ADK LlmRequest to a Spring AI Prompt.
 
+`org.springframework.ai.chat.prompt.Prompt`
+
+`toLlmPrompt([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, org.springframework.ai.chat.prompt.ChatOptions modelDefaultOptions)`
+
+Converts an ADK LlmRequest to a Spring AI Prompt, using the target model's own default options as the base for the prompt options.
+
 `[LlmResponse](../LlmResponse.html "class in com.google.adk.models")`
 
 `toLlmResponse(org.springframework.ai.chat.model.ChatResponse chatResponse)`
@@ -128,6 +135,20 @@ Converts an ADK LlmRequest to a Spring AI Prompt.
 
 Parameters:
     `llmRequest` \- The ADK request to convert
+Returns:
+    A Spring AI Prompt
+
+    * ### toLlmPrompt
+
+public org.springframework.ai.chat.prompt.Prompt toLlmPrompt([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, org.springframework.ai.chat.prompt.ChatOptions modelDefaultOptions)
+
+Converts an ADK LlmRequest to a Spring AI Prompt, using the target model's own default options as the base for the prompt options. 
+
+Provider-specific chat models (for example Spring AI OpenAI `2.0.0`) cast ` Prompt.getOptions()` directly to their own options type (e.g. `OpenAiChatOptions`) in `createRequest(...)`. Passing provider-neutral options such as ` DefaultToolCallingChatOptions` therefore triggers a [`ClassCastException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ClassCastException.html "class in java.lang"). To stay compatible with any provider, the prompt options are built on top of the model's own default options (obtained via `ChatModel.getOptions()`) so the resulting options keep the concrete type the provider expects, while overlaying the ADK tools and generation config.
+
+Parameters:
+    `llmRequest` \- The ADK request to convert
+    `modelDefaultOptions` \- The target model's default options, or `null` if unavailable
 Returns:
     A Spring AI Prompt
 

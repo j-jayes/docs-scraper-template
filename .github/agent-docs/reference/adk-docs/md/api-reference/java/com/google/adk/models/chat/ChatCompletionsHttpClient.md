@@ -30,6 +30,7 @@ Contents
   3. Method Summary
   4. Constructor Details
      1. ChatCompletionsHttpClient(HttpOptions)
+     2. ChatCompletionsHttpClient(HttpOptions, ExecutorService)
   5. Method Details
      1. complete(LlmRequest, boolean)
 
@@ -61,6 +62,10 @@ Description
 `ChatCompletionsHttpClient(com.google.genai.types.HttpOptions httpOptions)`
 
 Constructs a new [`ChatCompletionsHttpClient`](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") that facilitates API interaction with the standard `/chat/completions` REST endpoint.
+
+`ChatCompletionsHttpClient(com.google.genai.types.HttpOptions httpOptions, [ExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html "interface in java.util.concurrent") httpExecutorService)`
+
+Constructs a [`ChatCompletionsHttpClient`](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") whose HTTP dispatcher runs on ` httpExecutorService`.
 
   * ## Method Summary
 
@@ -113,6 +118,16 @@ Parameters:
     `httpOptions` \- HTTP configuration. Must not be `null`, and `HttpOptions.baseUrl()` must be present and parseable as an HTTP(S) URL.
 Throws:
     `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if `httpOptions.baseUrl()` is missing or is not a valid HTTP(S) URL.
+
+    * ### ChatCompletionsHttpClient
+
+public ChatCompletionsHttpClient(com.google.genai.types.HttpOptions httpOptions, [ExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html "interface in java.util.concurrent") httpExecutorService)
+
+Constructs a [`ChatCompletionsHttpClient`](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") whose HTTP dispatcher runs on ` httpExecutorService`. Pass [`HttpClientFactory.daemonExecutor(String)`](../../internal/http/HttpClientFactory.html#daemonExecutor\(java.lang.String\)) so a standalone or CLI JVM can exit once work is done, or a container-managed executor in a managed environment.
+
+Parameters:
+    `httpOptions` \- HTTP configuration; see `ChatCompletionsHttpClient(HttpOptions)`.
+    `httpExecutorService` \- executor for the HTTP dispatcher threads.
 
   * ## Method Details
 

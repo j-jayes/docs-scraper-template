@@ -82,7 +82,7 @@ Utility for defining the BigQuery events table schema.
 
 [TraceManager](TraceManager.html "class in com.google.adk.plugins.agentanalytics")
 
-Manages OpenTelemetry-style trace and span context using InvocationContext callback data.
+Manages the BQAA-internal execution tree of span IDs for one invocation.
 
 
 

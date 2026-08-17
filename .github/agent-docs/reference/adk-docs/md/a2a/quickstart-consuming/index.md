@@ -45,11 +45,6 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
@@ -86,6 +81,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -161,14 +157,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -177,6 +169,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -196,7 +190,7 @@ A2A Protocol
               * Main Agent (a2a_basic/agent.py) 
               * Remote Prime Agent (a2a_basic/remote_a2a/check_prime_agent/) 
             * 2\. Start the Remote Prime Agent server 
-            * 3\. Look out for the required agent card (agent-card.json) of the remote agent 
+            * 3\. Look out for the required agent card (agent.json) of the remote agent 
             * 4\. Run the Main (Consuming) Agent 
               * How it works 
             * Advanced Configuration: Custom Converters and Interceptors 
@@ -208,17 +202,22 @@ A2A Protocol
         * [ Go  ](../quickstart-consuming-go/)
         * [ Java  ](../quickstart-consuming-java/)
       * [ A2A Extension  ](../a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -232,7 +231,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -260,7 +259,7 @@ Table of contents
       * Main Agent (a2a_basic/agent.py) 
       * Remote Prime Agent (a2a_basic/remote_a2a/check_prime_agent/) 
     * 2\. Start the Remote Prime Agent server 
-    * 3\. Look out for the required agent card (agent-card.json) of the remote agent 
+    * 3\. Look out for the required agent card (agent.json) of the remote agent 
     * 4\. Run the Main (Consuming) Agent 
       * How it works 
     * Advanced Configuration: Custom Converters and Interceptors 
@@ -395,15 +394,15 @@ Once executed, you should see something like:
     INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
     
 
-### 3\. Look out for the required agent card (`agent-card.json`) of the remote agent¶
+### 3\. Look out for the required agent card (`agent.json`) of the remote agent¶
 
 A2A Protocol requires that each agent must have an agent card that describes what it does.
 
-If someone else has already built the remote A2A agent that you are looking to consume in your agent, then you should confirm that they have an agent card (`agent-card.json`).
+If someone else has already built the remote A2A agent that you are looking to consume in your agent, then you should confirm that they have an agent card (`agent.json`). The `adk api_server --a2a` command exposes over A2A only the agent folders that contain a file named exactly `agent.json`.
 
 In the sample, the `check_prime_agent` already has an agent card provided:
 
-a2a_basic/remote_a2a/check_prime_agent/agent-card.json
+a2a_basic/remote_a2a/check_prime_agent/agent.json
     
     
     {
@@ -433,12 +432,12 @@ In ADK, you can use a `to_a2a(root_agent)` wrapper which automatically generates
     
     
     # In a separate terminal, run the adk web server
-    adk web contributing/samples/
+    adk web contributing/samples/a2a/
     
 
 #### How it works¶
 
-The main agent uses the `RemoteA2aAgent()` function to consume the remote agent (`prime_agent` in our example). As you can see below, `RemoteA2aAgent()` requires the `name`, `description`, and the URL of the `agent_card`.
+The main agent uses the `RemoteA2aAgent` class to consume the remote agent (`prime_agent` in our example). As you can see below, `RemoteA2aAgent` requires the `name` and an `agent_card`, which can be an `AgentCard` object, a URL (as in the example below), or a path to a local agent card file; the `description` field is optional and defaults to an empty string.
 
 a2a_basic/agent.py
     
@@ -454,7 +453,6 @@ a2a_basic/agent.py
         agent_card=(
             f"http://localhost:8001/a2a/check_prime_agent{AGENT_CARD_WELL_KNOWN_PATH}"
         ),
-        use_legacy=False,
     )
     
     <...code truncated>
@@ -462,7 +460,7 @@ a2a_basic/agent.py
 
 Using the new A2A integration
 
-By setting `use_legacy=False`, the agent will use the new ADK-A2A integration, as it will send the [A2A extension](../a2a-extension/) to the remote agent.
+The `use_legacy` parameter defaults to `True`, so the sample above uses the legacy path. Set `use_legacy=False` to use the new ADK-A2A integration, which sends the [A2A extension](../a2a-extension/) to the remote agent.
 
 Then, you can simply use the `RemoteA2aAgent` in your agent. In this case, `prime_agent` is used as one of the sub-agents in the `root_agent` below:
 
@@ -543,6 +541,7 @@ Through interceptors, you can also modify the `ParametersConfig` for the A2A req
     
     <...code truncated...>
     
+    from google.adk.a2a.agent import A2aRemoteAgentConfig
     from google.adk.agents.remote_a2a_agent import AGENT_CARD_WELL_KNOWN_PATH
     from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
     

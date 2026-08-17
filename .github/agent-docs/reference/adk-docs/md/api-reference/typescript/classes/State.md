@@ -17,7 +17,7 @@ Preparing search index...
 
 A state mapping that maintains the current value and the pending-commit delta.
 
-  * Defined in [sessions/state.ts:11](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L11)
+  * Defined in [core/src/sessions/state.ts:11](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L11)
 
 
 
@@ -42,7 +42,7 @@ The delta change to the current value that hasn't been committed.
 
 #### Returns [State]()
 
-    * Defined in [sessions/state.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L16)
+    * Defined in [core/src/sessions/state.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L16)
 
 
 
@@ -53,7 +53,7 @@ The delta change to the current value that hasn't been committed.
 
 APP_PREFIX: "app:" = 'app:'
 
-  * Defined in [sessions/state.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L12)
+  * Defined in [core/src/sessions/state.ts:12](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L12)
 
 
 
@@ -61,7 +61,7 @@ APP_PREFIX: "app:" = 'app:'
 
 TEMP_PREFIX: "temp:" = 'temp:'
 
-  * Defined in [sessions/state.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L14)
+  * Defined in [core/src/sessions/state.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L14)
 
 
 
@@ -69,7 +69,7 @@ TEMP_PREFIX: "temp:" = 'temp:'
 
 USER_PREFIX: "user:" = 'user:'
 
-  * Defined in [sessions/state.ts:13](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L13)
+  * Defined in [core/src/sessions/state.ts:13](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L13)
 
 
 
@@ -99,7 +99,7 @@ The default value to return if the key is not found.
 
 The value of the state for the given key, or the default value if not found.
 
-    * Defined in [sessions/state.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L31)
+    * Defined in [core/src/sessions/state.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L31)
 
 
 
@@ -116,7 +116,7 @@ Whether the state has pending delta.
 
 #### Returns boolean
 
-    * Defined in [sessions/state.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L57)
+    * Defined in [core/src/sessions/state.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L57)
 
 
 
@@ -129,7 +129,7 @@ Whether the state has pending delta.
 
 #### Returns boolean
 
-    * Defined in [sessions/state.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L64)
+    * Defined in [core/src/sessions/state.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L64)
 
 
 
@@ -152,7 +152,7 @@ The value to set.
 
 #### Returns void
 
-    * Defined in [sessions/state.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L49)
+    * Defined in [core/src/sessions/state.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L49)
 
 
 
@@ -165,7 +165,7 @@ Returns the state as a plain JSON object.
 
 #### Returns Record<string, unknown>
 
-    * Defined in [sessions/state.ts:81](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L81)
+    * Defined in [core/src/sessions/state.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L82)
 
 
 
@@ -184,7 +184,7 @@ The delta to update the state with.
 
 #### Returns void
 
-    * Defined in [sessions/state.ts:73](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/state.ts#L73)
+    * Defined in [core/src/sessions/state.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L73)
 
 
 
@@ -201,7 +201,7 @@ Methods
 
 gethashasDeltasettoRecordupdate
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

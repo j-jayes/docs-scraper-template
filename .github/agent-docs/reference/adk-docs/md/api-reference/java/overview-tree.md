@@ -49,6 +49,7 @@ Package Hierarchies:
   * [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-tree.html), 
   * [com.google.adk.flows.llmflows.audio](com/google/adk/flows/llmflows/audio/package-tree.html), 
   * [com.google.adk.google_adk_maven_plugin](com/google/adk/google_adk_maven_plugin/package-tree.html), 
+  * [com.google.adk.internal.http](com/google/adk/internal/http/package-tree.html), 
   * [com.google.adk.maven](com/google/adk/maven/package-tree.html), 
   * [com.google.adk.memory](com/google/adk/memory/package-tree.html), 
   * [com.google.adk.models](com/google/adk/models/package-tree.html), 
@@ -266,6 +267,7 @@ Package Hierarchies:
     * com.google.adk.utils.[FirestoreProperties](com/google/adk/utils/FirestoreProperties.html "class in com.google.adk.utils")
     * com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions"))
     * com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
+    * com.google.adk.models.[FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models")
     * com.google.adk.tools.[FunctionCallingUtils](com/google/adk/tools/FunctionCallingUtils.html "class in com.google.adk.tools")
     * com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.artifacts.[GcsArtifactService](com/google/adk/artifacts/GcsArtifactService.html "class in com.google.adk.artifacts") (implements com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts"))
@@ -283,6 +285,7 @@ Package Hierarchies:
     * com.example.helloworld.[HelloWorldAgent](com/example/helloworld/HelloWorldAgent.html "class in com.example.helloworld")
     * com.example.helloworld.[HelloWorldRun](com/example/helloworld/HelloWorldRun.html "class in com.example.helloworld")
     * com.google.adk.sessions.[HttpApiClient](com/google/adk/sessions/HttpApiClient.html "class in com.google.adk.sessions")
+    * com.google.adk.internal.http.[HttpClientFactory](com/google/adk/internal/http/HttpClientFactory.html "class in com.google.adk.internal.http")
     * com.google.adk.flows.llmflows.[Identity](com/google/adk/flows/llmflows/Identity.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.artifacts.[InMemoryArtifactService](com/google/adk/artifacts/InMemoryArtifactService.html "class in com.google.adk.artifacts") (implements com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts"))
     * com.google.adk.memory.[InMemoryMemoryService](com/google/adk/memory/InMemoryMemoryService.html "class in com.google.adk.memory") (implements com.google.adk.memory.[BaseMemoryService](com/google/adk/memory/BaseMemoryService.html "interface in com.google.adk.memory"))

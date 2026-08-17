@@ -22,11 +22,11 @@ LlmAgentSchema:
 
 Input/output schema type for agent.
 
-  * Defined in [agents/llm_agent.ts:70](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L70)
+  * Defined in [core/src/agents/llm_agent.ts:77](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L77)
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 
