@@ -10,11 +10,6 @@ Context compression
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
-Initializing search 
-
-
-
-
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
   * [ Run Agents ](../../runtime/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
@@ -194,6 +190,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 
@@ -265,7 +262,7 @@ Table of contents
 
 # Compress agent context for performance¶
 
-Supported in ADKPython v1.16.0Java v0.2.0TypeScript v0.6.0
+Supported in ADKPython v1.16.0Java v0.2.0TypeScript v0.6.0Kotlin v0.7.0
 
 As an ADK agent runs it collects _context_ information, including user instructions, retrieved data, tool responses, and generated content. As the size of this context data grows, agent processing times typically also increase. More and more data is sent to the generative AI model used by the agent, increasing processing time and slowing down responses. ADK Context Compaction feature is designed to reduce the size of context as an agent is running by summarizing older session history—including instructions, inputs, and model responses. By maintaining a compact context window, this process **optimizes latency and reduces costs** while ensuring the agent retains access to essential recent interactions.
 
@@ -335,9 +332,9 @@ The Context Compaction feature uses a _sliding window_ approach for collecting a
 
 ## Configure context compaction¶
 
-Add context compaction to your agent workflow by adding an Events Compaction Configuration setting to the App object (Python/Java) or by configuring `contextCompactors` on the `LlmAgent` (TypeScript). As part of the configuration, you must specify a compaction interval and overlap size (Python/Java) or a token threshold and event retention size (TypeScript), as shown in the following sample code:
+Add context compaction to your agent workflow by adding an Events Compaction Configuration setting to the App object (Python/Java/Kotlin) or by configuring `contextCompactors` on the `LlmAgent` (TypeScript). As part of the configuration, you must specify a compaction interval and overlap size (Python/Java) or a token threshold and event retention size (TypeScript/Kotlin), as shown in the following sample code:
 
-PythonJavaTypeScript
+PythonJavaTypeScriptKotlin
     
     
     from google.adk.apps.app import App
@@ -383,6 +380,24 @@ PythonJavaTypeScript
         }),
       ],
     });
+    
+    
+    
+    import com.google.adk.kt.apps.App
+    import com.google.adk.kt.summarizer.EventsCompactionConfig
+    
+    // tokenThreshold and eventRetentionSize must be set together; either alone throws.
+    // Kotlin also accepts the compactionInterval/overlapSize pair used in the other tabs.
+    val app =
+        App(
+            appName = "my-agent",
+            rootAgent = rootAgent,
+            eventsCompactionConfig =
+                EventsCompactionConfig(
+                    tokenThreshold = 1000, // Compact when the last prompt exceeds 1000 tokens.
+                    eventRetentionSize = 1, // Keep at least 1 raw event.
+                ),
+        )
     
 
 Once configured, the ADK `Runner` handles the compaction process in the background each time the session reaches the interval.

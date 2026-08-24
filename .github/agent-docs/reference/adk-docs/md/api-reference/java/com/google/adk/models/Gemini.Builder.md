@@ -33,7 +33,8 @@ Contents
      2. apiClient(Client)
      3. apiKey(String)
      4. vertexCredentials(VertexCredentials)
-     5. build()
+     5. httpExecutorService(ExecutorService)
+     6. build()
 
 Hide sidebar  Show sidebar
 
@@ -79,6 +80,12 @@ Sets the Google Gemini API key.
 `build()`
 
 Builds the [`Gemini`](Gemini.html "class in com.google.adk.models") instance.
+
+`[Gemini.Builder](Gemini.Builder.html "class in com.google.adk.models")`
+
+`httpExecutorService([ExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html "interface in java.util.concurrent") httpExecutorService)`
+
+Sets the executor for the shared HTTP client's dispatcher.
 
 `[Gemini.Builder](Gemini.Builder.html "class in com.google.adk.models")`
 
@@ -142,6 +149,17 @@ Sets the Vertex AI credentials. If `apiClient(Client)` or `apiKey(String)` are a
 
 Parameters:
     `vertexCredentials` \- The Vertex AI credentials.
+Returns:
+    This builder.
+
+    * ### httpExecutorService
+
+@CanIgnoreReturnValue public [Gemini.Builder](Gemini.Builder.html "class in com.google.adk.models") httpExecutorService([ExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html "interface in java.util.concurrent") httpExecutorService)
+
+Sets the executor for the shared HTTP client's dispatcher. Pass [`HttpClientFactory.daemonExecutor(String)`](../internal/http/HttpClientFactory.html#daemonExecutor\(java.lang.String\)) so a standalone or CLI JVM can exit once work is done, or a container-managed executor in a managed environment. Applies only when the client is built from an API key, Vertex credentials, or the default; it is ignored when an explicit `apiClient` is supplied.
+
+Parameters:
+    `httpExecutorService` \- The executor for HTTP dispatcher threads.
 Returns:
     This builder.
 

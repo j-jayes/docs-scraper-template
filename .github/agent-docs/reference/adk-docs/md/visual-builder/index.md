@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Visual Builder 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,23 +33,21 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
+      * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -84,6 +77,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -99,6 +93,7 @@ Web Interface
           * Create an agent 
           * Supported components 
           * Generated project structure 
+          * Security and deployment 
       * [ Command Line  ](../runtime/command-line/)
       * [ API Server  ](../runtime/api-server/)
       * [ Ambient Agents  ](../runtime/ambient-agents/)
@@ -162,14 +157,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -178,6 +169,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -193,18 +186,24 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../live/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -218,8 +217,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -241,6 +242,7 @@ Table of contents
   * Create an agent 
   * Supported components 
   * Generated project structure 
+  * Security and deployment 
 
 
 
@@ -249,7 +251,7 @@ Table of contents
   3. [ Agent Runtime  ](../runtime/)
   4. [ Web Interface  ](../runtime/web-interface/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/visual-builder/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/visual-builder/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/visual-builder/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Use the Visual Builder¶
 
@@ -279,22 +281,22 @@ The Visual Builder tool writes project files to new subdirectories located in th
 
 To create an agent with Visual Builder:
 
-  1. In top left of the page, select the **+** (plus sign), as shown in _Figure 1_ , to start creating an agent.
+  1. In the top left of the web UI, select the **+** (plus sign), as shown in _Figure 1_ , to start creating an agent.
   2. Type a name for your agent application and select **Create**.
   3. Edit your agent by doing any of the following:
      * In the left panel, edit agent component values.
      * In the central panel, add new agent components.
      * In the right panel, use prompts to modify the agent or get help.
-  4. In bottom left corner, select **Save** to save your agent.
+  4. In the bottom left corner, select **Save** to save your agent.
   5. Interact with your new agent to test it.
-  6. In top left of the page, select the pencil icon, as shown in _Figure 1_ , to continue editing your agent.
+  6. In the top left of the web UI, select the pencil icon, as shown in _Figure 1_ , to continue editing your agent.
 
 
 
 Here are a few things to note when using Visual Builder:
 
   * **Create agent and save:** When creating an agent, make sure you select **Save** before exiting the editing interface, otherwise your new agent may not be editable.
-  * **Agent editing:** Edit (pencil icon) for agents is _only_ available for agents created with Visual Builder
+  * **Agent editing:** Edit (pencil icon) for agents is _only_ available for agents created with Visual Builder.
   * **Add tools:** When adding existing custom Tools to a Visual Builder agent, specify a fully-qualified Python function name.
 
 Try this prompt with the Visual Builder assistant
@@ -342,6 +344,14 @@ Editing generated agents
 You can edit the generated files in your development environment. However, some changes may not be compatible with Visual Builder.
 
 For more information on the Agent Config code format used by Visual Builder, see [Agent Config](/agents/config/) and [Agent Config YAML schema](/api-reference/agentconfig/).
+
+## Security and deployment¶
+
+The Visual Builder saves agent configuration files to your project directory through local API endpoints. For security reasons, these endpoints are available only when the web UI is served (for example, `adk web`). In headless or API-only deployments, such as the default `adk deploy cloud_run`, they are not registered, which prevents unauthorized file writes.
+
+File upload restrictions
+
+To prevent arbitrary file writes, file uploads through the Visual Builder accept only files with `.yaml` and `.yml` extensions. The server automatically rejects absolute paths, path traversal sequences (`..`), and YAML files containing blocked keys (such as `args`) that can execute arbitrary code.
 
 Back to top 
 

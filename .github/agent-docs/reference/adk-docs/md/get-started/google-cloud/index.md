@@ -10,11 +10,6 @@ Google Cloud
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
-Initializing search 
-
-
-
-
   * [ Home ](../..)
   * [ Build Agents ](../)
   * [ Run Agents ](../../runtime/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../go/)
       * [ Java  ](../java/)
       * [ Kotlin  ](../kotlin/)
+      * [ Agents CLI  ](../agents-cli/)
       * [ Installation  ](../installation/)
       * Google Cloud  [ Google Cloud  ](./) Table of contents 
         * Setup Google Cloud Agent Platform 
@@ -193,6 +189,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 

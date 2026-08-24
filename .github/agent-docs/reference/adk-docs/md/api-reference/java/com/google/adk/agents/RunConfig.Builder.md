@@ -51,8 +51,11 @@ Contents
      17. maxLlmCalls(int)
      18. setAutoCreateSession(boolean)
      19. autoCreateSession(boolean)
-     20. groupFunctionResponsesInHistory(boolean)
-     21. build()
+     20. customMetadata(Map)
+     21. groupFunctionResponsesInHistoryOverride(Optional)
+     22. groupFunctionResponsesInHistoryOverride(boolean)
+     23. groupFunctionResponsesInHistory(boolean)
+     24. build()
 
 Hide sidebar  Show sidebar
 
@@ -113,7 +116,29 @@ Description
 
 `abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
 
+`customMetadata([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> customMetadata)`
+
+ 
+
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
 `groupFunctionResponsesInHistory(boolean groupFunctionResponsesInHistory)`
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+`final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`groupFunctionResponsesInHistoryOverride(boolean groupFunctionResponsesInHistoryOverride)`
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+`abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")`
+
+`groupFunctionResponsesInHistoryOverride([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")> groupFunctionResponsesInHistoryOverride)`
 
 Deprecated.
 
@@ -330,13 +355,37 @@ Deprecated.
 
 @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") autoCreateSession(boolean autoCreateSession)
 
-    * ### groupFunctionResponsesInHistory
+    * ### customMetadata
 
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") groupFunctionResponsesInHistory(boolean groupFunctionResponsesInHistory)
+@CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") customMetadata([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> customMetadata)
+
+    * ### groupFunctionResponsesInHistoryOverride
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public abstract [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") groupFunctionResponsesInHistoryOverride([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")> groupFunctionResponsesInHistoryOverride)
 
 Deprecated.
 
 Expected only for specific model endpoints.
+
+Sets the three-state grouping override.
+
+    * ### groupFunctionResponsesInHistoryOverride
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") groupFunctionResponsesInHistoryOverride(boolean groupFunctionResponsesInHistoryOverride)
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+    * ### groupFunctionResponsesInHistory
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public final [RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents") groupFunctionResponsesInHistory(boolean groupFunctionResponsesInHistory)
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+Backwards-compatible alias for `groupFunctionResponsesInHistoryOverride(boolean)`.
 
     * ### build
 

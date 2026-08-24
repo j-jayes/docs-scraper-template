@@ -73,7 +73,29 @@ RunConfig.`[builder](../RunConfig.html#builder\(com.google.adk.agents.RunConfig\
 
 `abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
 
+RunConfig.Builder.`[customMetadata](../RunConfig.Builder.html#customMetadata\(java.util.Map\))([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> customMetadata)`
+
+ 
+
+`final [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
 RunConfig.Builder.`[groupFunctionResponsesInHistory](../RunConfig.Builder.html#groupFunctionResponsesInHistory\(boolean\))(boolean groupFunctionResponsesInHistory)`
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+`final [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[groupFunctionResponsesInHistoryOverride](../RunConfig.Builder.html#groupFunctionResponsesInHistoryOverride\(boolean\))(boolean groupFunctionResponsesInHistoryOverride)`
+
+Deprecated.
+
+Expected only for specific model endpoints.
+
+`abstract [RunConfig.Builder](../RunConfig.Builder.html "class in com.google.adk.agents")`
+
+RunConfig.Builder.`[groupFunctionResponsesInHistoryOverride](../RunConfig.Builder.html#groupFunctionResponsesInHistoryOverride\(java.util.Optional\))([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")> groupFunctionResponsesInHistoryOverride)`
 
 Deprecated.
 

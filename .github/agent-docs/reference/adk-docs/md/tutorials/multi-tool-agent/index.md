@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Multi-tool agent 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../)
@@ -66,17 +62,13 @@ Build your Agent
         * 🎉 Congratulations! 
         * 🛣️ Next steps 
       * [ Agent team  ](../agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -106,6 +98,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -181,14 +174,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -197,6 +186,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -212,18 +203,24 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -237,8 +234,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -285,11 +284,11 @@ Table of contents
   2. [ Build Agents  ](../../get-started/)
   3. [ Build your Agent  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/tutorials/multi-tool-agent.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/tutorials/multi-tool-agent.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/tutorials/multi-tool-agent.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Build a multi-tool agent¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 This quickstart guides you through installing Agent Development Kit (ADK), setting up a basic agent with multiple tools, and running it locally either in the terminal or in the interactive, browser-based dev UI.
 
@@ -360,7 +359,7 @@ If you are starting a new project, you can create a new Go module:
 To add the ADK to your project, run the following command:
     
     
-    go get google.golang.org/adk
+    go get google.golang.org/adk/v2
     
 
 This will add the ADK as a dependency to your `go.mod` file.
@@ -502,7 +501,7 @@ multi_tool_agent/agent.py
     
     root_agent = Agent(
         name="weather_time_agent",
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         description=(
             "Agent to answer questions about the time and weather in a city."
         ),
@@ -610,7 +609,7 @@ agent.ts
     
     export const rootAgent = new LlmAgent({
       name: 'weather_time_agent',
-      model: 'gemini-2.5-flash',
+      model: 'gemini-flash-latest',
       description: 'Agent to answer questions about the time and weather in a city.',
       instruction: 'You are a helpful agent who can answer user questions about the time and weather in a city.',
       tools: [getWeather, getCurrentTime],
@@ -667,38 +666,100 @@ agent.go
         "context"
         "log"
         "os"
+        "strings"
+        "time"
     
         "google.golang.org/genai"
     
-        "google.golang.org/adk/agent"
-        "google.golang.org/adk/agent/llmagent"
-        "google.golang.org/adk/cmd/launcher"
-        "google.golang.org/adk/cmd/launcher/full"
-        "google.golang.org/adk/model/gemini"
-        "google.golang.org/adk/tool"
-        "google.golang.org/adk/tool/geminitool"
+        "google.golang.org/adk/v2/agent"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/cmd/launcher"
+        "google.golang.org/adk/v2/cmd/launcher/full"
+        "google.golang.org/adk/v2/model/gemini"
+        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/tool/functiontool"
     )
+    
+    type CityArgs struct {
+        City string `json:"city"`
+    }
     
     func main() {
         ctx := context.Background()
     
         // 1. Setup the model.
         // Note: Authentication is handled via GOOGLE_API_KEY environment variable.
-        model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+        model, err := gemini.NewModel(ctx, "gemini-flash-latest", &genai.ClientConfig{
             APIKey: os.Getenv("GOOGLE_API_KEY"),
         })
         if err != nil {
             log.Fatalf("Failed to create model: %v", err)
         }
     
+        weatherTool, err := functiontool.New[CityArgs, map[string]any](
+            functiontool.Config{
+                Name:        "get_weather",
+                Description: "Retrieves the current weather report for a specified city.",
+            },
+            func(ctx agent.Context, args CityArgs) (map[string]any, error) {
+                if strings.EqualFold(args.City, "new york") {
+                    return map[string]any{
+                        "status": "success",
+                        "report": "The weather in New York is sunny with a temperature of 25 degrees Celsius (77 degrees Fahrenheit).",
+                    }, nil
+                }
+                return map[string]any{
+                    "status":        "error",
+                    "error_message": "Weather information for '" + args.City + "' is not available.",
+                }, nil
+            },
+        )
+        if err != nil {
+            log.Fatalf("Failed to create get_weather tool: %v", err)
+        }
+    
+        currentTimeTool, err := functiontool.New[CityArgs, map[string]any](
+            functiontool.Config{
+                Name:        "get_current_time",
+                Description: "Returns the current time in a specified city.",
+            },
+            func(ctx agent.Context, args CityArgs) (map[string]any, error) {
+                var tzIdentifier string
+                if strings.EqualFold(args.City, "new york") {
+                    tzIdentifier = "America/New_York"
+                } else {
+                    return map[string]any{
+                        "status":        "error",
+                        "error_message": "Sorry, I don't have timezone information for " + args.City + ".",
+                    }, nil
+                }
+    
+                tz, err := time.LoadLocation(tzIdentifier)
+                if err != nil {
+                    return nil, err
+                }
+    
+                now := time.Now().In(tz)
+                report := "The current time in " + args.City + " is " + now.Format("2006-01-02 15:04:05 MST-0700")
+                return map[string]any{
+                    "status": "success",
+                    "report": report,
+                }, nil
+            },
+        )
+        if err != nil {
+            log.Fatalf("Failed to create get_current_time tool: %v", err)
+        }
+    
         // 2. Define the agent.
         a, err := llmagent.New(llmagent.Config{
-            Name:        "multi_tool_agent",
+            Name:        "weather_time_agent",
             Model:       model,
-            Description: "An agent that can answer questions using Google Search.",
-            Instruction: "You are a helpful assistant. Use the available tools to answer questions.",
+            Description: "Agent to answer questions about the time and weather in a city.",
+            Instruction: "You are a helpful agent who can answer user questions about the time and weather in a city.",
             Tools: []tool.Tool{
-                geminitool.GoogleSearch{},
+                weatherTool,
+                currentTimeTool,
             },
         })
         if err != nil {
@@ -784,7 +845,7 @@ agents/multitool/MultiToolAgent.java
         public static BaseAgent initAgent() {
             return LlmAgent.builder()
                 .name(NAME)
-                .model("gemini-2.0-flash")
+                .model("gemini-flash-latest")
                 .description("Agent to answer questions about the time and weather in a city.")
                 .instruction(
                     "You are a helpful agent who can answer user questions about the time and weather"

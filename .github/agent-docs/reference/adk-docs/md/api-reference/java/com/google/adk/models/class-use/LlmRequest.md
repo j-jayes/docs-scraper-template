@@ -380,6 +380,12 @@ MessageConverter.`[toLlmPrompt](../springai/MessageConverter.html#toLlmPrompt\(c
 
 Converts an ADK LlmRequest to a Spring AI Prompt.
 
+`org.springframework.ai.chat.prompt.Prompt`
+
+MessageConverter.`[toLlmPrompt](../springai/MessageConverter.html#toLlmPrompt\(com.google.adk.models.LlmRequest,org.springframework.ai.chat.prompt.ChatOptions\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest, org.springframework.ai.chat.prompt.ChatOptions modelDefaultOptions)`
+
+Converts an ADK LlmRequest to a Spring AI Prompt, using the target model's own default options as the base for the prompt options.
+
   * ## Uses of [LlmRequest](../LlmRequest.html "class in com.google.adk.models") in [com.google.adk.plugins.recordings](../../plugins/recordings/package-summary.html)
 
 Methods in [com.google.adk.plugins.recordings](../../plugins/recordings/package-summary.html) that return types with arguments of type [LlmRequest](../LlmRequest.html "class in com.google.adk.models")

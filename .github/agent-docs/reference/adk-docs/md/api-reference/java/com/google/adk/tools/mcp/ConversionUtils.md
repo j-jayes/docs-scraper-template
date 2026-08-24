@@ -46,7 +46,7 @@ Utility class for converting between different representations of MCP tools.
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsConcrete Methods
 
 Modifier and Type
 
@@ -54,7 +54,7 @@ Method
 
 Description
 
-`io.modelcontextprotocol.spec.McpSchema.Tool`
+`static io.modelcontextprotocol.spec.McpSchema.Tool`
 
 `adkToMcpToolType([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool)`
 
@@ -71,7 +71,7 @@ Description
 
     * ### adkToMcpToolType
 
-public io.modelcontextprotocol.spec.McpSchema.Tool adkToMcpToolType([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool)
+public static io.modelcontextprotocol.spec.McpSchema.Tool adkToMcpToolType([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool)
 
 
 

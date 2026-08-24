@@ -67,6 +67,12 @@ Returns a new Builder instance for constructing Gemini objects.
 
 `[Gemini.Builder](../Gemini.Builder.html "class in com.google.adk.models")`
 
+Gemini.Builder.`[httpExecutorService](../Gemini.Builder.html#httpExecutorService\(java.util.concurrent.ExecutorService\))([ExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html "interface in java.util.concurrent") httpExecutorService)`
+
+Sets the executor for the shared HTTP client's dispatcher.
+
+`[Gemini.Builder](../Gemini.Builder.html "class in com.google.adk.models")`
+
 Gemini.Builder.`[modelName](../Gemini.Builder.html#modelName\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName)`
 
 Sets the name of the Gemini model to use.

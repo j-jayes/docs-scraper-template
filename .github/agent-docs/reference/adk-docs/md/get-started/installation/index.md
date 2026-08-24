@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Installation 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../go/)
       * [ Java  ](../java/)
       * [ Kotlin  ](../kotlin/)
+      * [ Agents CLI  ](../agents-cli/)
       * [ Installation  ](./)
       * [ Google Cloud  ](../google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
@@ -45,17 +41,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../streaming/)
-
-Streaming agent 
-        * [ Python  ](../streaming/quickstart-streaming/)
-        * [ Java  ](../streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +77,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -160,14 +153,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -176,6 +165,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -191,18 +182,24 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../../live/configuration/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -216,8 +213,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -238,7 +237,7 @@ ADK 2.0
   2. [ Build Agents  ](../)
   3. [ Get Started  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/installation.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/get-started/installation.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/get-started/installation.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Advanced setup¶
 
@@ -285,6 +284,8 @@ Now, you can activate the virtual environment using the appropriate command for 
     npm install @google/adk @google/adk-devtools
     
 
+**Prerequisites:** Go 1.25 or later is required for ADK Go v2.0.0.
+
 **Create a new Go module**
 
 If you are starting a new project, you can create a new Go module:
@@ -293,17 +294,27 @@ If you are starting a new project, you can create a new Go module:
     go mod init example.com/my-agent
     
 
-**Install ADK**
+**Install ADK Go v2.0.0**
 
-To add the ADK to your project, run the following command:
+To add ADK Go v2.0.0 to your project, run the following command:
     
     
-    go get google.golang.org/adk
+    go get google.golang.org/adk/v2
     
 
-This will add the ADK as a dependency to your `go.mod` file.
+This will add ADK Go v2.0.0 as a dependency to your `go.mod` file.
 
-(Optional) Verify your installation by checking your `go.mod` file for the `google.golang.org/adk` entry.
+(Optional) Verify your installation by checking your `go.mod` file for the `google.golang.org/adk/v2` entry.
+
+Still using ADK Go v1.x?
+
+If you are not yet ready to upgrade to v2.0.0, you can continue using the v1.x release line:
+    
+    
+    go get google.golang.org/adk@v1
+    
+
+See the [ADK 2.0 release page](/2.0/) for upgrade guidance, including breaking changes and migration steps for ADK Go 1.x projects.
 
 You can either use maven or gradle to add the `google-adk` and `google-adk-dev` package.
 
@@ -336,13 +347,13 @@ pom.xml
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk</artifactId>
-                <version>1.4.0</version>
+                <version>1.6.0</version>
             </dependency>
             <!-- The ADK dev web UI to debug your agent -->
             <dependency>
                 <groupId>com.google.adk</groupId>
                 <artifactId>google-adk-dev</artifactId>
-                <version>1.4.0</version>
+                <version>1.6.0</version>
             </dependency>
         </dependencies>
     
@@ -357,8 +368,8 @@ build.gradle
     
     
     dependencies {
-        implementation 'com.google.adk:google-adk:1.4.0'
-        implementation 'com.google.adk:google-adk-dev:1.4.0'
+        implementation 'com.google.adk:google-adk:1.6.0'
+        implementation 'com.google.adk:google-adk-dev:1.6.0'
     }
     
 
@@ -377,8 +388,8 @@ build.gradle.kts
     }
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.2.0")
-        ksp("com.google.adk:google-adk-kotlin-processor:0.2.0")
+        implementation("com.google.adk:google-adk-kotlin-core:0.8.0")
+        ksp("com.google.adk:google-adk-kotlin-processor:0.8.0")
     }
     
 

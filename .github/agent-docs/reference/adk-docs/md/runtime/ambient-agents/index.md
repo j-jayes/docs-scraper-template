@@ -10,11 +10,6 @@ Ambient Agents
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
-Initializing search 
-
-
-
-
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
   * [ Run Agents ](../)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
@@ -211,6 +207,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 
@@ -363,7 +360,7 @@ The following [Cloud Run function](https://cloud.google.com/functions/docs/writi
         payload = request.get_json(silent=True) or {}
     
         requests.post(
-            f"{AGENT_URL}/apps/my_agent/run",
+            f"{AGENT_URL}/run",
             json={
                 "app_name": "my_agent",
                 "user_id": payload.get("account", "webhook-caller"),
@@ -381,7 +378,7 @@ The following [Cloud Run function](https://cloud.google.com/functions/docs/writi
 Example: Send an event with curl
     
     
-    curl -X POST http://localhost:8000/apps/my_agent/run \
+    curl -X POST http://localhost:8000/run \
       -H "Content-Type: application/json" \
       -d '{
         "app_name": "my_agent",
