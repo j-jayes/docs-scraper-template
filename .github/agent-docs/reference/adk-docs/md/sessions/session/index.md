@@ -10,11 +10,6 @@ Session: Tracking individual conversations
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
-Initializing search 
-
-
-
-
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
   * [ Run Agents ](../../runtime/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
@@ -186,6 +182,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 
@@ -511,12 +508,13 @@ PythonTypeScriptGoJavaKotlin
 
 ### `VertexAiSessionService`¶
 
-Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0Kotlin v0.7.0
 
   * **How it works:** Uses Google Cloud Agent Platform infrastructure via API calls for session management.
   * **Persistence:** Yes. Data is managed reliably and scalably via [Agent Runtime](/deploy/agent-runtime/).
   * **Requires:**
-    * A Google Cloud project (`pip install vertexai`)
+    * A Google Cloud project.
+    * The `gcp` extra, installed with `pip install google-adk[gcp]`.
     * A Google Cloud storage bucket that can be configured by this [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
     * An Agent Runtime resource name/ID that can setup following this [tutorial](/deploy/agent-runtime/).
     * If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Agent Platform Express Mode](/integrations/express-mode/).
@@ -524,10 +522,10 @@ Supported in ADKPython v0.1.0Go v0.1.0Java v0.1.0
 
 
 
-PythonGoJava
+PythonGoJavaKotlin
     
     
-    # Requires: pip install google-adk[vertexai]
+    # Requires: pip install google-adk[gcp]
     # Plus GCP setup and authentication
     from google.adk.sessions import VertexAiSessionService
     
@@ -538,7 +536,7 @@ PythonGoJava
     
     session_service = VertexAiSessionService(project=PROJECT_ID, location=LOCATION)
     # Use REASONING_ENGINE_APP_NAME when calling service methods, e.g.:
-    # session_service = await session_service.create_session(app_name=REASONING_ENGINE_APP_NAME, ...)
+    # session = await session_service.create_session(app_name=REASONING_ENGINE_APP_NAME, ...)
     
     
     
@@ -581,6 +579,34 @@ PythonGoJava
             .blockingGet();
     
 
+`VertexAiSessionService` is JVM-only in ADK Kotlin. It is not available on Android; use it from a server-side agent.
+    
+    
+    import com.google.adk.kt.sessions.SessionKey
+    import com.google.adk.kt.sessions.VertexAiSessionService
+    import kotlinx.coroutines.runBlocking
+    
+    // The reasoning engine is pinned here, at construction. In the other tabs
+    // the engine is chosen per call, through `app_name`; in Kotlin `appName`
+    // is never parsed for it and is only a label on the session.
+    val sessionService =
+        VertexAiSessionService(
+            project = "your-gcp-project-id",
+            location = "us-central1",
+            // The bare numeric engine id. A full
+            // "projects/.../reasoningEngines/..." resource name is rejected;
+            // project and location are separate arguments.
+            reasoningEngineId = "1234567890",
+        )
+    
+    // Session methods are suspend functions; `runBlocking` here is the
+    // counterpart of the Java tab's `.blockingGet()`.
+    val mySession = runBlocking {
+        // A null id lets the service assign one.
+        sessionService.createSession(SessionKey("example-app", "u_123", id = null))
+    }
+    
+
 For more information on connecting to Google Cloud from ADK agents, see [Connect to Google Cloud and Agent Platform](/get-started/google-cloud/).
 
 ### `DatabaseSessionService`¶
@@ -589,7 +615,7 @@ Supported in ADKPython v0.1.0Go v0.1.0
 
   * **How it works:** Connects to a relational database (e.g., PostgreSQL, MySQL, SQLite) to store session data persistently in tables.
   * **Persistence:** Yes. Data survives application restarts.
-  * **Requires:** A configured database.
+  * **Requires:** A configured database and the `db` extra, installed with `pip install google-adk[db]`.
   * **Best for:** Applications needing reliable, persistent storage that you manage yourself.
 
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 jvm
 
@@ -16,7 +16,7 @@ search in API
 
 jvm
 
-data class [Stdio](index.html)(val serverParameters: ServerParameters, val timeoutDuration: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5)) : [McpConnectionParameters](../index.html)
+data class [Stdio](index.html)(val serverParameters: ServerParameters, val timeoutDuration: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5)) : [McpConnectionParameters](../index.html)
 
 Parameters for establishing a MCP Stdio connection.
 
@@ -30,7 +30,7 @@ Link copied to clipboard
 
 jvm
 
-constructor(serverParameters: ServerParameters, timeoutDuration: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5))
+constructor(serverParameters: ServerParameters, timeoutDuration: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5))
 
 ## Properties
 
@@ -50,7 +50,7 @@ Link copied to clipboard
 
 jvm
 
-val [timeoutDuration](timeout-duration.html): [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html)
+val [timeoutDuration](timeout-duration.html): [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)
 
 Timeout for establishing the connection to the MCP stdio server.
 

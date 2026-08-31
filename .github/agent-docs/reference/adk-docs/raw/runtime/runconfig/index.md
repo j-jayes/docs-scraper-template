@@ -65,6 +65,7 @@ For long-running sessions, you can control how much history is loaded and whethe
 - `get_session_config`: Limits which events are fetched when loading a session. Use `num_recent_events` or `after_timestamp` to avoid loading the full event history on every invocation.
 - `context_window_compression`: Enables context window compression for LLM input, useful when sessions approach model context limits.
 - `include_thoughts_from_other_agents`: Controls whether thought parts from other agents are included in the LLM context. Disabled by default.
+- `model_input_context`: A list of `types.Content` added to the LLM request for this invocation only. The runner does not persist it to the session, so you can supply per-turn context without changing the conversation history.
 
 ```python
 from google.adk.agents.run_config import RunConfig
@@ -222,6 +223,8 @@ When using `runner.run_live()`, configure real-time behavior with these addition
 - `save_live_blob`: When `True`, saves live audio and video data to the session and artifact service.
 - `tool_thread_pool_config`: Runs tool executions in a background thread pool to keep the event loop responsive to user interruptions.
 - `explicit_vad_signal`: Enables explicit voice activity detection (VAD) signals from the model.
+- `history_config`: Configures the exchange of history between the client and the server.
+- `translation_config`: Configures real-time speech-to-speech translation. Only translation models support it.
 
 Not all parameters are available in every language. See the [API reference](#api-reference) for language-specific details.
 
@@ -253,8 +256,8 @@ const config: RunConfig = {
 
 Use these parameters to control runtime guardrails and debugging:
 
-- `max_llm_calls`: Caps the total number of LLM calls per run (default: 500). Set to 0 or negative for unlimited calls, though this is not recommended for production. Values at or above `sys.maxsize` raise an error.
-- `save_input_blobs_as_artifacts`: When `True`, saves input blobs (e.g., uploaded files) as run artifacts for debugging and auditing.
+- `max_llm_calls`: Caps the total number of LLM calls per run (default: 500). Set to 0 or negative for unlimited calls, though this is not recommended for production. Values at or above `sys.maxsize` raises an error.
+- `save_input_blobs_as_artifacts`: When `True`, saves input blobs (e.g., uploaded files) as run artifacts for debugging and auditing. Deprecated in Python in favor of `SaveFilesAsArtifactsPlugin`.
 - `custom_metadata`: A `dict[str, Any]` of arbitrary metadata attached to the invocation, useful for tracing or logging.
 
 ## API reference

@@ -50,14 +50,14 @@ App app = App.builder()
 ```
 
 ```kotlin
-@file:OptIn(ExperimentalContextCachingFeature::class)
-
 import com.google.adk.kt.agents.ContextCacheConfig
 import com.google.adk.kt.agents.LlmAgent
 import com.google.adk.kt.annotations.ExperimentalContextCachingFeature
 import com.google.adk.kt.apps.App
 import com.google.adk.kt.models.Gemini
+import com.google.adk.kt.types.HttpOptions
 import kotlin.time.Duration.Companion.minutes
+import kotlin.time.Duration.Companion.seconds
 
 val rootAgent =
     LlmAgent(
@@ -67,17 +67,19 @@ val rootAgent =
     )
 
 // Create the app with context caching configuration
+@OptIn(ExperimentalContextCachingFeature::class)
 val app =
     App(
         appName = "my-caching-agent-app",
         rootAgent = rootAgent,
         contextCacheConfig =
             ContextCacheConfig(
-                // Gemini enforces a hard 4096-token floor of its own, so only a
-                // value above that has any further effect.
+                // Gemini applies its own minimum cacheable size, which varies by model
                 minTokens = 8192,
                 ttl = 10.minutes, // Store for up to 10 minutes
                 cacheIntervals = 5, // Refresh after 5 uses
+                // On timeout the create fails and the request proceeds uncached.
+                createHttpOptions = HttpOptions(timeout = 10.seconds),
             ),
     )
 ```
@@ -89,6 +91,43 @@ The `ContextCacheConfig` class has the following settings that control how cachi
 - **`min_tokens`** (int): The minimum number of tokens required in a request to enable caching. This setting allows you to avoid the overhead of caching for very small requests where the performance benefit would be negligible. Defaults to `0`.
 - **`ttl_seconds`** (int): The time-to-live (TTL) for the cache in seconds. This setting determines how long the cached content is stored before it is refreshed. Defaults to `1800` (30 minutes).
 - **`cache_intervals`** (int): The maximum number of times the same cached content can be used before it expires. This setting allows you to control how frequently the cache is updated, even if the TTL has not expired. Defaults to `10`.
+- **`create_http_options`** (HttpOptions): The HTTP options for the cache creation call, which lets you set a timeout on it. If the call times out, it fails and the request proceeds without caching. Available in Python and Kotlin; defaults to none.
+
+## Check whether the cache is being used
+
+Supported in ADKKotlin v0.6.0
+
+When caching is enabled, an event backed by an LLM response can carry a `CacheMetadata` reporting what the cache did for that call. It is null when caching is disabled, and also when the call produced no cache information, so check for it before reading it. When present it has two states: an **active cache**, where `cacheName`, `expireTime` and `invocationsUsed` are all set, and a **fingerprint-only** state, where all three are null.
+
+```kotlin
+/** Reports whether the context cache was used for the LLM call behind [event]. */
+fun logCacheUse(event: Event) {
+    // Null when caching is disabled, and on any event whose LLM call produced
+    // no cache information.
+    val cache = event.cacheMetadata ?: return
+
+    if (!cache.isActive) {
+        // Fingerprint-only: ADK measured the cacheable prefix but no cache is in
+        // use. That is the first turn, a prefix that changed since the last turn,
+        // or a cache ADK did not create -- most often because the cacheable
+        // prefix was below minTokens.
+        println("Not cached yet; fingerprinted ${cache.contentsCount} contents.")
+        return
+    }
+
+    println("Cache ${cache.cacheName} reused ${cache.invocationsUsed} time(s).")
+    if (cache.expireSoon) {
+        // Advisory only. ADK goes on reusing the cache until it actually expires,
+        // so this is a heads-up for your own code, not a prediction about the
+        // next turn.
+        println("Cache is at or near expiry.")
+    }
+}
+```
+
+`expireSoon` means the cache expires within about two minutes, or has already expired. It is a signal for your own code, not something ADK acts on: ADK keeps reusing a cache until it is actually past `expireTime`, has run past `cacheIntervals`, or its cached prefix changes.
+
+Token counts are not on `CacheMetadata`; read them from `LlmResponse.usageMetadata`.
 
 ## Next steps
 

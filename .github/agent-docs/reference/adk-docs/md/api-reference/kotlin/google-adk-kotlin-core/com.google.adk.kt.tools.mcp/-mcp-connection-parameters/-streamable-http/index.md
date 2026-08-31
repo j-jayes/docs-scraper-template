@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 jvm
 
@@ -16,7 +16,7 @@ search in API
 
 jvm
 
-data class [StreamableHttp](index.html)(val url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), val timeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5), val readTimeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofMinutes(5)) : [McpConnectionParameters](../index.html)
+data class [StreamableHttp](index.html)(val url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), val timeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5), val readTimeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofMinutes(5)) : [McpConnectionParameters](../index.html)
 
 Parameters for establishing a MCP Streamable HTTP connection.
 
@@ -30,7 +30,7 @@ Link copied to clipboard
 
 jvm
 
-constructor(url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), timeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5), readTimeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofMinutes(5))
+constructor(url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), timeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5), readTimeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofMinutes(5))
 
 ## Properties
 
@@ -50,7 +50,7 @@ Link copied to clipboard
 
 jvm
 
-val [readTimeout](read-timeout.html): [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html)
+val [readTimeout](read-timeout.html): [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)
 
 The read timeout.
 
@@ -60,7 +60,7 @@ Link copied to clipboard
 
 jvm
 
-val [timeout](timeout.html): [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html)
+val [timeout](timeout.html): [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)
 
 The connection timeout.
 

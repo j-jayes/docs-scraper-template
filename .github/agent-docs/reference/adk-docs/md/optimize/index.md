@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Optimization 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
@@ -45,17 +41,13 @@ Get Started
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -85,6 +77,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -138,9 +131,10 @@ Evaluation
         * Available Samplers and Agent Optimizers 
           * LocalEvalSampler 
           * GEPARootAgentPromptOptimizer 
+          * GEPARootAgentOptimizer 
           * SimplePromptOptimizer 
-          * Configuration 
-          * Implementation Example 
+            * Configuration 
+            * Implementation Example 
         * Key Data Types 
           * Sampler Results 
           * Agent Optimizer Results 
@@ -179,14 +173,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -195,6 +185,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -210,18 +202,24 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../live/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -235,8 +233,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -264,9 +264,10 @@ Table of contents
   * Available Samplers and Agent Optimizers 
     * LocalEvalSampler 
     * GEPARootAgentPromptOptimizer 
+    * GEPARootAgentOptimizer 
     * SimplePromptOptimizer 
-    * Configuration 
-    * Implementation Example 
+      * Configuration 
+      * Implementation Example 
   * Key Data Types 
     * Sampler Results 
     * Agent Optimizer Results 
@@ -281,7 +282,7 @@ Table of contents
   2. [ Run Agents  ](../runtime/)
   3. [ Evaluation  ](../evaluate/)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/optimize/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/optimize/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/optimize/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Optimize agents¶
 
@@ -425,7 +426,7 @@ The final output varies, but might look similar to the following:
     adk optimize [OPTIONS] AGENT_MODULE_FILE_PATH
     
 
-  * `AGENT_MODULE_FILE_PATH`: The path to the `__init__.py` file that contains a module by the name `agent`. The `agent` module must contain a `root_agent`. For an example of a valid setup, examine the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) agent.
+  * `AGENT_MODULE_FILE_PATH`: The path to the agent directory, not a file, whose `__init__.py` exposes a module by the name `agent`. The `agent` module must contain a `root_agent`. For an example of a valid setup, examine the [`hello_world`](https://github.com/google/adk-python/tree/main/contributing/samples/core/hello_world) agent.
   * `--sampler_config_file_path PATH`: The path to the config for the sampler. The sampler implementation and config format are described below.
   * `--optimizer_config_file_path PATH` (optional): The path to the config for the agent optimizer. If not provided, the default config will be used. The optimizer implementation, config format, and default config are described below.
   * `--print_detailed_results` (optional): Enables printing some detailed metrics measured by the agent optimizer.
@@ -458,12 +459,32 @@ The [`GEPARootAgentPromptOptimizer`](https://github.com/google/adk-python/blob/m
 
 Note: The `GEPARootAgentPromptOptimizer` does not improve any sub-agents, agent tools, skills, or any other aspect of the root agent.
 
+Note: The `GEPARootAgentPromptOptimizer` is experimental. It emits a warning when constructed, and its API may change or be removed without notice.
+
 You can configure the `GEPARootAgentPromptOptimizer` with a `GEPARootAgentPromptOptimizerConfig` that contains the following fields:
 
-  * `optimizer_model` (optional): The model used to analyze evaluation results and optimize the agent. Defaults to `"gemini-flash-latest"`.
+  * `optimizer_model` (optional): The model used to analyze evaluation results and optimize the agent.
   * `model_configuration` (optional): The configuration for the optimizer model. Defaults to a config with a 10K token thinking budget.
   * `max_metric_calls` (optional): The maximum number of evaluations to run during optimization. Defaults to 100.
   * `reflection_minibatch_size` (optional): The number of examples to use at a time to update the agent instructions. Defaults to 3.
+  * `run_dir` (optional): The directory to save intermediate and final optimization results if desired. Facilitates warm starts.
+
+
+
+### `GEPARootAgentOptimizer`¶
+
+The [`GEPARootAgentOptimizer`](https://github.com/google/adk-python/blob/main/src/google/adk/optimization/gepa_root_agent_optimizer.py) improves both the instructions of the root agent and the instructions of skills provided to it via a [`SkillToolset`](https://github.com/google/adk-python/blob/main/src/google/adk/tools/skill_toolset.py) using the [GEPA](https://gepa-ai.github.io/gepa/) optimizer. In many ways it can be considered to be an extension of the `GEPARootAgentPromptOptimizer`. It expects the sampler to provide eval results as an `UnstructuredSamplingResult`. Its output is a subclass of `OptimizerResult` which specifies a list of optimized agents with scores and additional metrics collected during optimization.
+
+Note: The `GEPARootAgentOptimizer` does not improve any sub-agents or agent tools.
+
+Note: The `GEPARootAgentOptimizer` is experimental. It emits a warning when constructed, and its API may change or be removed without notice.
+
+You can configure the `GEPARootAgentOptimizer` with a `GEPARootAgentOptimizerConfig` that contains the following fields:
+
+  * `optimizer_model` (optional): The model used to analyze evaluation results and optimize the agent.
+  * `model_configuration` (optional): The configuration for the optimizer model. Defaults to a config with a `ThinkingLevel` of `HIGH`.
+  * `max_metric_calls` (optional): The maximum number of evaluations to run during optimization. Defaults to 100.
+  * `reflection_minibatch_size` (optional): The number of examples to use at a time to update the instructions. Defaults to 3.
   * `run_dir` (optional): The directory to save intermediate and final optimization results if desired. Facilitates warm starts.
 
 
@@ -476,28 +497,31 @@ The optimizer automatically executes an asynchronous, four-stage feedback loop:
 
   1. **Execute:** The target agent processes a specific batch of evaluation tasks managed by an implementation of the `Sampler` class. 
   2. **Evaluate** : The Sampler scores the agent's outputs against your evaluation datasets and returns a structured `SamplingResult`. 
-  3. **Critique** : An underlying optimization large language model (LLM) (defaulting to Gemini-2.5-flash) analyzes the historical evaluation scores alongside the current prompt to isolate specific behavioral weaknesses or gaps. 
+  3. **Critique** : An underlying optimization large language model (LLM) analyzes the historical evaluation scores alongside the current prompt to isolate specific behavioral weaknesses or gaps. 
   4. **Rewrite** : The optimization model generates an updated variation of the system prompt tailored to address the discovered weaknesses. This new prompt is then fed directly into the next iteration.
 
 
 
 **Note:** The optimization loop does not mutate your initial agent instance in place. Upon completion, it returns an `OptimizerResult` containing the highest-scoring agent variation extracted during the process.
 
-### Configuration¶
+#### Configuration¶
 
 Configure the behavior of the loop by passing a `SimplePromptOptimizerConfig` instance to the optimizer.
 
 Parameter | Type | Default | Description  
 ---|---|---|---  
-`num_iterations` | int | _Required_ | The total number of optimization rounds to execute.  
-`batch_size` | int | _Required_ | The number of evaluation sample cases processed by the sampler during each individual iteration.  
+`num_iterations` | int | `10` | The total number of optimization rounds to execute.  
+`batch_size` | int | `5` | The number of evaluation sample cases processed by the sampler during each individual iteration.  
+`optimizer_model` | str | `"gemini-2.5-flash"` | The model used to critique the current prompt and generate the next one.  
+`model_configuration` | GenerateContentConfig | thinking budget of 10K tokens | The configuration for the optimizer model.  
   
-### Implementation Example¶
+#### Implementation Example¶
 
 Once your configuration is defined, run the optimization with:
     
     
-    from google.adk.optimization import SimplePromptOptimizer, SimplePromptOptimizerConfig
+    from google.adk.optimization.simple_prompt_optimizer import SimplePromptOptimizer
+    from google.adk.optimization.simple_prompt_optimizer import SimplePromptOptimizerConfig
     
     # Define your Agent and Sampler first...
     

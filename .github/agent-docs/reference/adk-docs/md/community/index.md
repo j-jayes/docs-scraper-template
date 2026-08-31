@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Community Resources 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,23 +33,21 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
+      * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
 
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
+      * [ Managed agents  ](../agents/managed-agents/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -84,6 +77,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../agents/models/apigee/)
       * [ Model routing  ](../agents/models/routing/)
+      * [ OpenAI  ](../agents/models/openai/)
       * [ Ollama  ](../agents/models/ollama/)
       * [ vLLM  ](../agents/models/vllm/)
       * [ LiteLLM  ](../agents/models/litellm/)
@@ -159,14 +153,10 @@ Callbacks
         * [ Types of callbacks  ](../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../plugins/)
-    * [ Context  ](../context/)
+    * [ Agent context  ](../context/)
 
-Context 
-      * [ Context caching  ](../context/caching/)
-      * [ Context compression  ](../context/compaction/)
-    * [ Sessions and Memory  ](../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../sessions/)
       * [ Sessions  ](../sessions/session/)
 
 Sessions 
@@ -175,6 +165,8 @@ Sessions
       * [ State  ](../sessions/state/)
       * [ Events  ](../events/)
       * [ Memory  ](../sessions/memory/)
+      * [ Context compression  ](../context/compaction/)
+      * [ Model context caching  ](../context/caching/)
     * [ MCP  ](../mcp/)
 
 MCP 
@@ -190,18 +182,24 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
+        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
+        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
+        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
+        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
+        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
+      * [ Streaming Tools  ](../live/streaming-tools/)
+      * [ Configuring streaming behavior  ](../live/configuration/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -215,8 +213,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../api-reference/java/)
       * [ Kotlin ADK  ](../api-reference/kotlin/)
       * [ CLI Reference  ](../api-reference/cli/)
@@ -249,7 +249,7 @@ Table of contents
   1. [ Home  ](..)
   2. [ Community  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/community/index.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/community/index.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/community/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Community Resources¶
 
@@ -275,7 +275,7 @@ Google and the ADK team do not provide support for the content linked in these e
 
 Join the [ADK Community Google Group](https://groups.google.com/g/adk-community) for updates on the next call. Recent recordings are below, or browse the full [YouTube playlist](https://www.youtube.com/playlist?list=PLwi6PfxEP7zZbBPmWiZ8QbPcuKyAY5RR3).
 
-[ Community Call 📞 May 2026 Recording Discussions include the ADK Python 2.0 GA release, initial release of ADK for Kotlin and Android, demos of Agents CLI and Skills for dynamic capability loading, and a community spotlight on Beever Atlas. ](https://www.youtube.com/watch?v=vbqKmK0rArI) [ Community Call 📞 Mar 2026 Recording Discussions include the ADK 2.0 alpha release, Workflows for graph-based agent composition, Agent Modes for structured multi-agent coordination, and a community spotlight on Restate durable agents. ](https://www.youtube.com/watch?v=bPngDY7EuOQ) [ Community Call 📞 Feb 2026 Recording Discussions include ADK evaluations with built-in metrics, token-based context compaction, the BigQuery observability plugin, and a community spotlight on Redis integration. ](https://www.youtube.com/watch?v=cXDr4RYJxK0)
+[ Community Call 📞 July 2026 Recording Discussions include the ADK Go 2.0 release, the Agents CLI reaching GA with automated evaluations, using ADK to automate PR and issue triage, the new Managed Agents and Antigravity integration, and a community spotlight on CopilotKit with the AG-UI and A2UI protocols. ](https://www.youtube.com/watch?v=-L8ys-nKCWc) [ Community Call 📞 June 2026 Recording Discussions include multi-language SDK support, native GCS integration, the new ADK Environments feature, the Agents CLI and Agent Eval CLI, and a community spotlight on a prompt optimization taxonomy plugin. ](https://www.youtube.com/watch?v=XAvXSACGdEQ) [ Community Call 📞 May 2026 Recording Discussions include the ADK Python 2.0 GA release, initial release of ADK for Kotlin and Android, demos of Agents CLI and Skills for dynamic capability loading, and a community spotlight on Beever Atlas. ](https://www.youtube.com/watch?v=vbqKmK0rArI)
 
 ## Courses & Deep Dives¶
 

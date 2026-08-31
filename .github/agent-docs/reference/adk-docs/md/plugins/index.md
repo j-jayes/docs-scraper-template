@@ -10,11 +10,6 @@ Plugins
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
-Initializing search 
-
-
-
-
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
   * [ Run Agents ](../runtime/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
@@ -205,6 +201,7 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../live/)
 
@@ -287,7 +284,7 @@ Table of contents
 
 # Plugins¶
 
-Supported in ADKPython v1.7.0TypeScript v0.2.5Go v0.4.0Java v0.3.0
+Supported in ADKPython v1.7.0TypeScript v0.2.5Go v0.4.0Java v0.3.0Kotlin v0.7.0
 
 A Plugin in Agent Development Kit (ADK) is a custom code module that can be executed at various stages of an agent workflow lifecycle using callback hooks. You use Plugins for functionality that is applicable across your agent workflow. Some typical applications of Plugins are as follows:
 
@@ -334,7 +331,7 @@ This section explains how to define Plugin classes and register them as part of 
 
 Start by extending the `BasePlugin` class and add one or more `callback` methods, as shown in the following code example:
 
-PythonTypeScriptJavaGo
+PythonTypeScriptJavaGoKotlin
 
 count_plugin.py
     
@@ -506,6 +503,38 @@ count_plugin.go
         return nil, nil
     }
     
+    
+    
+    /** A custom plugin that counts agent runs and LLM requests. */
+    class CountInvocationPlugin : Plugin {
+        override val name = "count_invocation"
+    
+        var agentCount = 0
+            private set
+    
+        var llmRequestCount = 0
+            private set
+    
+        // Plugin declares one abstract member, `name`; every callback has a default,
+        // so a plugin only overrides the ones it cares about.
+        override suspend fun beforeAgent(
+            context: CallbackContext,
+        ): CallbackChoice<EventActions, Content> {
+            agentCount++
+            println("[Plugin] Agent run count: $agentCount")
+            return CallbackChoice.Continue(EventActions())
+        }
+    
+        override suspend fun beforeModel(
+            context: CallbackContext,
+            request: LlmRequest,
+        ): CallbackChoice<LlmRequest, LlmResponse> {
+            llmRequestCount++
+            println("[Plugin] LLM request count: $llmRequestCount")
+            return CallbackChoice.Continue(request)
+        }
+    }
+    
 
 This example code implements callbacks for `before_agent_callback` and `before_model_callback` to count execution of these tasks during the lifecycle of the agent.
 
@@ -513,7 +542,7 @@ This example code implements callbacks for `before_agent_callback` and `before_m
 
 Integrate your Plugin class by registering it during your agent initialization as part of your `Runner` class, using the `plugins` parameter. You can specify multiple Plugins with this parameter. The following code example shows how to register the `CountInvocationPlugin` plugin defined in the previous section with a simple ADK agent.
 
-PythonTypeScriptJavaGo
+PythonTypeScriptJavaGoKotlin
     
     
     from google.adk.runners import InMemoryRunner
@@ -809,6 +838,24 @@ PythonTypeScriptJavaGo
             }
         }
     }
+    
+    
+    
+    val rootAgent =
+        LlmAgent(
+            name = "hello_world",
+            model = Gemini(name = "gemini-flash-latest"),
+            instruction = Instruction("Greet the user."),
+        )
+    
+    // Since adk-kotlin 0.7.0 the agent-based InMemoryRunner constructor accepts
+    // plugins directly; before that they had to be set on an App.
+    val runner =
+        InMemoryRunner(
+            agent = rootAgent,
+            appName = "test_app_with_plugin",
+            plugins = listOf(CountInvocationPlugin()),
+        )
     
 
 ### Run the agent with the Plugin¶

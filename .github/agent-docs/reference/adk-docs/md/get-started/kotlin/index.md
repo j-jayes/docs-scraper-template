@@ -10,11 +10,6 @@ Kotlin
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
-Initializing search 
-
-
-
-
   * [ Home ](../..)
   * [ Build Agents ](../)
   * [ Run Agents ](../../runtime/)
@@ -47,6 +42,7 @@ Get Started
           * Run with command-line interface 
           * Run with web interface 
         * Next: Build your agent 
+      * [ Agents CLI  ](../agents-cli/)
       * [ Installation  ](../installation/)
       * [ Google Cloud  ](../google-cloud/)
     * [ Build your Agent  ](../../tutorials/)
@@ -195,6 +191,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 
@@ -364,8 +361,8 @@ my_agent/build.gradle.kts (partial)
     
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.5.0")
-        ksp("com.google.adk:google-adk-kotlin-processor:0.5.0")
+        implementation("com.google.adk:google-adk-kotlin-core:0.8.0")
+        ksp("com.google.adk:google-adk-kotlin-processor:0.8.0")
     }
     
 
@@ -387,9 +384,9 @@ my_agent/build.gradle.kts
     }
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.5.0")
-        implementation("com.google.adk:google-adk-kotlin-webserver:0.5.0")
-        ksp("com.google.adk:google-adk-kotlin-processor:0.5.0")
+        implementation("com.google.adk:google-adk-kotlin-core:0.8.0")
+        implementation("com.google.adk:google-adk-kotlin-webserver:0.8.0")
+        ksp("com.google.adk:google-adk-kotlin-processor:0.8.0")
     }
     
     kotlin {
@@ -488,9 +485,9 @@ my_agent/build.gradle.kts (add to dependencies)
     
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.5.0")
-        implementation("com.google.adk:google-adk-kotlin-webserver:0.5.0")
-        ksp("com.google.adk:google-adk-kotlin-processor:0.5.0")
+        implementation("com.google.adk:google-adk-kotlin-core:0.8.0")
+        implementation("com.google.adk:google-adk-kotlin-webserver:0.8.0")
+        ksp("com.google.adk:google-adk-kotlin-processor:0.8.0")
     }
     
 

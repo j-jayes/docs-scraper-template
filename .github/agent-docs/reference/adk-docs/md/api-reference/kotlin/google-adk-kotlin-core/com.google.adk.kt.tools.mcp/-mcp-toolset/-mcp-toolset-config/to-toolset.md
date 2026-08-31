@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../../index.html)
 
-0.2.0 
+0.5.0 
 
 jvm
 
@@ -32,7 +32,7 @@ Callbacks invoked for every McpSchema.ProgressNotification received from the MCP
 
 #### Throws
 
-[IllegalArgumentException](https://developer.android.com/reference/kotlin/java/lang/IllegalArgumentException.html)
+[IllegalArgumentException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html)
 
 if zero or more than one of [stdioConnectionParams](stdio-connection-params.html), [sseConnectionParams](sse-connection-params.html), and [streamableHttpConnectionParams](streamable-http-connection-params.html) is set.
 

@@ -2,7 +2,7 @@ toggle menu
 
 [ google-adk-kotlin ](../../../index.html)
 
-0.2.0 
+0.5.0 
 
 jvm
 
@@ -38,7 +38,7 @@ Link copied to clipboard
 
 jvm
 
-data class [Sse](-sse/index.html)(val url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val sseEndpoint: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "sse", val headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), val timeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5), val sseReadTimeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofMinutes(5)) : [McpConnectionParameters](index.html)
+data class [Sse](-sse/index.html)(val url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val sseEndpoint: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "sse", val headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), val timeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5), val sseReadTimeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofMinutes(5)) : [McpConnectionParameters](index.html)
 
 Parameters for establishing a MCP Server-Sent Events (SSE) connection.
 
@@ -48,7 +48,7 @@ Link copied to clipboard
 
 jvm
 
-data class [Stdio](-stdio/index.html)(val serverParameters: ServerParameters, val timeoutDuration: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5)) : [McpConnectionParameters](index.html)
+data class [Stdio](-stdio/index.html)(val serverParameters: ServerParameters, val timeoutDuration: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5)) : [McpConnectionParameters](index.html)
 
 Parameters for establishing a MCP Stdio connection.
 
@@ -58,7 +58,7 @@ Link copied to clipboard
 
 jvm
 
-data class [StreamableHttp](-streamable-http/index.html)(val url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), val timeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofSeconds(5), val readTimeout: [Duration](https://developer.android.com/reference/kotlin/java/time/Duration.html) = Duration.ofMinutes(5)) : [McpConnectionParameters](index.html)
+data class [StreamableHttp](-streamable-http/index.html)(val url: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), val headers: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)> = emptyMap(), val timeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofSeconds(5), val readTimeout: [Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) = Duration.ofMinutes(5)) : [McpConnectionParameters](index.html)
 
 Parameters for establishing a MCP Streamable HTTP connection.
 
