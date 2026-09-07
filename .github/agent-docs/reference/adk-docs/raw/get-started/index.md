@@ -42,4 +42,12 @@ Agent Development Kit (ADK) is designed to empower developers to quickly build, 
 
   [Start with Kotlin](https://adk.dev/get-started/kotlin/index.md)
 
+- **Agents CLI Quickstart**
+
+  ______________________________________________________________________
+
+  Create your first ADK agent with your coding agent.
+
+  [Start with Agents CLI](https://adk.dev/get-started/agents-cli/index.md)
+
 To get started with a technical overview check this [link](https://adk.dev/get-started/about/index.md).

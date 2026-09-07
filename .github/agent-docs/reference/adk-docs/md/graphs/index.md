@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Graph-based agent workflows 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
     * [ Build your Agent  ](../tutorials/)
@@ -186,6 +182,7 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../live/)
 
@@ -195,14 +192,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../live/get-started/streaming-python/)
         * [ Java  ](../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../live/workflows/)
+        * [ Tools  ](../live/tools/)
+        * [ Sessions  ](../live/sessions/)
+        * [ Events  ](../live/events/)
+        * [ Audio and video  ](../live/audio-video/)
+        * [ Configuration  ](../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../live/evaluation/)
+        * [ Build a custom server  ](../live/custom-server/)
+      * [ Supported models  ](../live/models/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -252,7 +252,7 @@ Table of contents
 
 # Graph-based agent workflows¶
 
-Supported in ADKPython v2.0.0Go v2.0.0
+Supported in ADKPython v2.0.0TypeScript v2.0.0Go v2.0.0
 
 Graph-based agent workflows in ADK let you build agents with more precise control, creating deterministic processes that combine code logic and AI reasoning capabilities. Graph-based workflows allow you to define your agent logic as a graph of execution nodes and edges, combining AI-powered agent reasoning with deterministic tools and code.
 
@@ -281,7 +281,7 @@ ADK offers three complementary ways to compose multi-step work:
 
 This section describes how to get started with graph-based agents. The following example shows how to create a sequential graph-based agent workflow that generates a city name, looks up the current time in that city with a code function, and the final agent reports the information.
 
-PythonGo
+PythonTypeScriptGo
     
     
     from google.adk import Agent
@@ -326,6 +326,70 @@ PythonGo
               city_report_agent, completed_message_function)
         ],
     )
+    
+
+In ADK TypeScript v2.0.0, a `Workflow` takes an `edges` array. Each row lists the nodes to run in order. The `node()` function wraps a function, an agent, a tool, or another `Workflow` as a graph node, and sets the node's name and its `inputSchema` and `outputSchema` contracts. Schemas are Zod objects or a genai `Schema`. Each node's return value is passed to the next node as its input, so you do not need to write to session state.
+    
+    
+    import {
+      createEvent,
+      LlmAgent,
+      node,
+      NodeContext,
+      Workflow,
+    } from '@google/adk';
+    import { z } from 'zod';
+    
+    const cityGeneratorAgent = new LlmAgent({
+      name: 'city_generator_agent',
+      model: 'gemini-flash-latest',
+      instruction: `Return the name of a random city.
+          Return only the name, nothing else.`,
+    });
+    
+    /** The structured payload handed from the lookup node to the report agent. */
+    const cityTimeSchema = z.object({
+      timeInfo: z.string().describe('Time information.'),
+      city: z.string().describe('City name.'),
+    });
+    type CityTime = z.infer<typeof cityTimeSchema>;
+    
+    /** Simulates returning the current time in the specified city. */
+    function lookupTimeFunction(_ctx: NodeContext, nodeInput: string): CityTime {
+      return { timeInfo: '10:10 AM', city: nodeInput.trim() };
+    }
+    
+    const cityReportAgent = new LlmAgent({
+      name: 'city_report_agent',
+      model: 'gemini-flash-latest',
+      instruction: `Output the following line:
+        It is {CityTime.timeInfo} in {CityTime.city} right now.`,
+    });
+    
+    function completedMessageFunction(_ctx: NodeContext, nodeInput: string) {
+      return createEvent({
+        content: {
+          role: 'model',
+          parts: [{ text: `${nodeInput}\n WORKFLOW COMPLETED.` }],
+        },
+      });
+    }
+    
+    export const rootAgent = new Workflow({
+      name: 'root_agent',
+      edges: [
+        [
+          'START',
+          cityGeneratorAgent,
+          node(lookupTimeFunction, {
+            name: 'lookup_time_function',
+            outputSchema: cityTimeSchema,
+          }),
+          node(cityReportAgent, { inputSchema: cityTimeSchema }),
+          node(completedMessageFunction, { name: 'completed_message_function' }),
+        ],
+      ],
+    });
     
 
 In ADK Go v2.0.0, sequential workflows use the graph engine: `workflow.NewFunctionNode` wraps each step, and `workflow.Chain` wires the nodes into a sequential `edges` slice. The framework automatically passes each node's typed return value to the next node via `event.Output` — no session state writes are needed. The whole graph is wrapped in `workflowagent.New`, which produces a standard `agent.Agent`.
@@ -402,7 +466,7 @@ Moving from prompt-based agents to graph-based workflow agents allows you to exp
 
 The following code sample shows how the workflow graph in Figure 2 could be translated into a graph-based agent:
 
-PythonGo
+PythonTypeScriptGo
     
     
     process_message = Agent(
@@ -442,6 +506,77 @@ PythonGo
            )
        ],
     )
+    
+
+In ADK TypeScript v2.0.0, a router node returns an event carrying a `route` value, created with `createEvent({route})`. A second edge row maps each route value to the node that handles it. Setting `route` to an array dispatches to every matching branch, which lets the classifier in this example return more than one category. The `DEFAULT_ROUTE` setting catches any value that no branch matched.
+    
+    
+    import {
+      createEvent,
+      DEFAULT_ROUTE,
+      LlmAgent,
+      node,
+      NodeContext,
+      Workflow,
+    } from '@google/adk';
+    
+    /** The routes this graph has edges for. */
+    const ROUTES = ['BUG', 'CUSTOMER_SUPPORT', 'LOGISTICS'] as const;
+    
+    const processMessage = new LlmAgent({
+      name: 'process_message',
+      model: 'gemini-flash-latest',
+      instruction: `Classify user message into either "BUG", "CUSTOMER_SUPPORT",
+          or "LOGISTICS". If you think a message applies to more than one category,
+          reply with a comma separated list of categories.
+          Reply with the categories only, nothing else.`,
+    });
+    
+    const router = node(
+      (_ctx: NodeContext, nodeInput: string) => {
+        const text = String(nodeInput).toUpperCase();
+        const matched = ROUTES.filter((route) =>
+          new RegExp(`\\b${route}\\b`).test(text),
+        );
+        return createEvent({ route: matched.length > 0 ? matched : DEFAULT_ROUTE });
+      },
+      { name: 'router' },
+    );
+    
+    /** Emits a user-facing message: `content`, with no `output`. */
+    const message = (text: string) =>
+      createEvent({ content: { role: 'model', parts: [{ text }] } });
+    
+    const response1Bug = node(() => message('Handling bug...'), {
+      name: 'response_1_bug',
+    });
+    const response2Support = node(() => message('Handling customer support...'), {
+      name: 'response_2_support',
+    });
+    const response3Logistics = node(() => message('Handling logistics...'), {
+      name: 'response_3_logistics',
+    });
+    const responseUnknown = node(
+      (_ctx: NodeContext, nodeInput: string) =>
+        message(`Could not classify that (classifier said: ${nodeInput}).`),
+      { name: 'response_unknown' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'routing_workflow',
+      edges: [
+        ['START', processMessage, router],
+        [
+          router,
+          {
+            BUG: response1Bug,
+            CUSTOMER_SUPPORT: response2Support,
+            LOGISTICS: response3Logistics,
+            [DEFAULT_ROUTE]: responseUnknown,
+          },
+        ],
+      ],
+    });
     
 
 In ADK Go v2.0.0, conditional routing uses `workflow.NewEmittingFunctionNode` to set `event.Routes` and `workflow.StringRoute` edges to dispatch to the matching handler — the direct equivalent of Python's `router` function and dict dispatch. `workflow.Concat` merges the chain and the conditional edges into a single `edges` slice passed to `workflowagent.New`.
@@ -542,7 +677,6 @@ This sample code demonstrates how you can compose a sequence of agents to define
 
 There are some known limitations with graph-based workflows. They are _not compatible_ with the following ADK features:
 
-  * **Live streaming:** Not supported in graph-based workflows.
   * **Integrations:** Some third-party [integrations](/integrations/) may not be compatible with graph-based workflows.
 
 

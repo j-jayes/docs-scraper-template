@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Migrate sessions 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../../..)
   * [ Build Agents ](../../../get-started/)
@@ -38,6 +33,7 @@ Get Started
       * [ Go  ](../../../get-started/go/)
       * [ Java  ](../../../get-started/java/)
       * [ Kotlin  ](../../../get-started/kotlin/)
+      * [ Agents CLI  ](../../../get-started/agents-cli/)
       * [ Installation  ](../../../get-started/installation/)
       * [ Google Cloud  ](../../../get-started/google-cloud/)
     * [ Build your Agent  ](../../../tutorials/)
@@ -187,6 +183,7 @@ A2A Protocol
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../../live/)
 
@@ -196,14 +193,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../../live/get-started/streaming-python/)
         * [ Java  ](../../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../../live/workflows/)
+        * [ Tools  ](../../../live/tools/)
+        * [ Sessions  ](../../../live/sessions/)
+        * [ Events  ](../../../live/events/)
+        * [ Audio and video  ](../../../live/audio-video/)
+        * [ Configuration  ](../../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../../live/evaluation/)
+        * [ Build a custom server  ](../../../live/custom-server/)
+      * [ Supported models  ](../../../live/models/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 

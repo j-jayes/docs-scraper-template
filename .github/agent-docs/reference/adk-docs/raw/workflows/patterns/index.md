@@ -1,6 +1,6 @@
 # Multi-agent workflow patterns
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 This guide provides a number of agent patterns which you can implement with Agent Development Kit (ADK), including code examples. These patterns are useful across a broad set of applications and you should evaluate and test them against your project requirements before committing to a full implementation.
 
@@ -802,7 +802,7 @@ import type { Event, createEvent, createEventActions } from '@google/genai';
 // Agent to generate/refine code based on state['current_code'] and state['requirements']
 const codeRefiner = new LlmAgent({
     name: 'CodeRefiner',
-    instruction: 'Read state["current_code"] (if exists) and state["requirements"]. Generate/refine Typescript code to meet requirements. Save to state["current_code"].',
+    instruction: 'Read state["current_code"] (if exists) and state["requirements"]. Generate/refine TypeScript code to meet requirements. Save to state["current_code"].',
     outputKey: 'current_code' // Overwrites previous code in state
 });
 
@@ -1197,7 +1197,7 @@ class ExternalApprovalTool : BaseTool(
 
     override suspend fun run(
         context: ToolContext,
-        args: Map<String, Any>,
+        args: Map<String, Any?>,
     ): Any {
         // Simulate calling external system (e.g., UI, ticketing system)
         // In a real app, this might poll for a result or wait for a webhook.

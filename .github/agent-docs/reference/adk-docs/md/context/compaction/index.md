@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -200,14 +200,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -428,9 +431,9 @@ The configuration settings for this feature control how frequently event data is
 
 ### Define a Summarizer¶
 
-You can customize the process of context compression by defining a summarizer. The `LlmEventSummarizer` (Python/Java) or `LlmSummarizer` (TypeScript) class allows you to specify a particular model for summarization. The following code example demonstrates how to define and configure a custom summarizer:
+You can customize the process of context compression by defining a summarizer. The `LlmEventSummarizer` (Python, Java and Kotlin) or `LlmSummarizer` (TypeScript) class allows you to specify a particular model for summarization. The following code example demonstrates how to define and configure a custom summarizer:
 
-PythonJavaTypeScript
+PythonJavaTypeScriptKotlin
     
     
     from google.adk.apps.app import App, EventsCompactionConfig
@@ -503,8 +506,34 @@ PythonJavaTypeScript
       ],
     });
     
+    
+    
+    import com.google.adk.kt.apps.App
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.summarizer.EventsCompactionConfig
+    import com.google.adk.kt.summarizer.LlmEventSummarizer
+    
+    // Define the AI model to be used for summarization:
+    val summarizationLlm = Gemini(name = "gemini-flash-latest")
+    
+    // Create the summarizer with the custom model:
+    val mySummarizer = LlmEventSummarizer(model = summarizationLlm)
+    
+    // Configure the App with the custom summarizer and compaction settings:
+    val app =
+        App(
+            appName = "my-agent",
+            rootAgent = rootAgent,
+            eventsCompactionConfig =
+                EventsCompactionConfig(
+                    compactionInterval = 3,
+                    overlapSize = 1,
+                    summarizer = mySummarizer,
+                ),
+        )
+    
 
-You can further refine the compactor by modifying its summarizer. In Python and Java, customize the `prompt_template` on `LlmEventSummarizer`. In TypeScript, customize the `prompt` on `LlmSummarizer`. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60) or [`LlmSummarizer` code](https://github.com/google/adk-js/blob/main/core/src/context/summarizers/llm_summarizer.ts).
+You can further refine the compactor by modifying its summarizer. In Python, Java and Kotlin, customize the prompt template on `LlmEventSummarizer` — the property is `prompt_template` in Python, and `promptTemplate` in Java and Kotlin. In TypeScript, customize the `prompt` on `LlmSummarizer`. For more details, see the [`LlmEventSummarizer` code](https://github.com/google/adk-python/blob/main/src/google/adk/apps/llm_event_summarizer.py#L60) or [`LlmSummarizer` code](https://github.com/google/adk-js/blob/main/core/src/context/summarizers/llm_summarizer.ts).
 
 Back to top 
 
