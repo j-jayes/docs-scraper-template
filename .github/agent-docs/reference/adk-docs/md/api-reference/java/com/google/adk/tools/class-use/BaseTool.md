@@ -670,7 +670,7 @@ Method
 
 Description
 
-`io.modelcontextprotocol.spec.McpSchema.Tool`
+`static io.modelcontextprotocol.spec.McpSchema.Tool`
 
 ConversionUtils.`[adkToMcpToolType](../mcp/ConversionUtils.html#adkToMcpToolType\(com.google.adk.tools.BaseTool\))([BaseTool](../BaseTool.html "class in com.google.adk.tools") tool)`
 

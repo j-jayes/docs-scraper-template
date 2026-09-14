@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Custom Tools for ADK 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,18 +33,15 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../get-started/migrate/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
@@ -191,18 +183,27 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Building  Building 
+        * [ Workflows  ](../live/workflows/)
+        * [ Tools  ](../live/tools/)
+        * [ Sessions  ](../live/sessions/)
+        * [ Events  ](../live/events/)
+        * [ Audio and video  ](../live/audio-video/)
+        * [ Configuration  ](../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../live/evaluation/)
+        * [ Build a custom server  ](../live/custom-server/)
+      * [ Supported models  ](../live/models/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -216,7 +217,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -257,6 +258,7 @@ Table of contents
     * The BaseToolset Interface 
     * Using Toolsets with Agents 
     * Example: A Simple Math Toolset 
+    * Filter tools in toolsets 
 
 
 
@@ -268,7 +270,7 @@ Table of contents
 
 # Custom Tools for ADK¶
 
-Supported in ADKPython v0.1.0Typescript v0.2.0Go v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0TypeScript v0.2.0Go v0.1.0Java v0.1.0Kotlin v0.1.0
 
 In an ADK agent workflow, Tools are programming functions with structured input and output that can be called by an ADK Agent to perform actions. ADK Tools function similarly to how you use a [Function Call](https://ai.google.dev/gemini-api/docs/function-calling) with Gemini or other generative AI models. You can perform various actions and programming functions with an ADK Tool, such as:
 
@@ -340,7 +342,7 @@ Furthermore, ADK supports the sequential use of tools, where the output of one t
 
 The following example showcases how an agent can use tools by **referencing their function names in its instructions**. It also demonstrates how to guide the agent to **handle different return values from tools** , such as success or error messages, and how to orchestrate the **sequential use of multiple tools** to accomplish a task.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # Copyright 2025 Google LLC
@@ -879,6 +881,134 @@ PythonTypeScriptGoJava
       }
     }
     
+    
+    
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.runners.InMemoryRunner
+    import com.google.adk.kt.sessions.InMemorySessionService
+    import com.google.adk.kt.sessions.SessionKey
+    import com.google.adk.kt.types.Content
+    import com.google.adk.kt.types.Part
+    import com.google.adk.kt.types.Role
+    import kotlinx.coroutines.flow.toList
+    import kotlinx.coroutines.runBlocking
+    
+    private const val APP_NAME = "weather_sentiment_agent"
+    private const val USER_ID = "user1234"
+    private const val SESSION_ID = "1234"
+    
+    class WeatherSentimentTools {
+        /**
+         * Retrieves the current weather report for a specified city.
+         *
+         * Returns a map with a "status" key ("success" or "error"), plus a "report"
+         * with the weather details on success or an "error_message" on failure.
+         */
+        @Tool
+        fun getWeatherReport(
+            @Param("The city to retrieve the weather report for.") city: String,
+        ): Map<String, String> =
+            when (city.lowercase()) {
+                "london" ->
+                    mapOf(
+                        "status" to "success",
+                        "report" to
+                            "The current weather in London is cloudy with a temperature " +
+                            "of 18 degrees Celsius and a chance of rain.",
+                    )
+                "paris" ->
+                    mapOf(
+                        "status" to "success",
+                        "report" to
+                            "The weather in Paris is sunny with a temperature of " +
+                            "25 degrees Celsius.",
+                    )
+                else ->
+                    mapOf(
+                        "status" to "error",
+                        "error_message" to "Weather information for '$city' is not available.",
+                    )
+            }
+    
+        /**
+         * Analyzes the sentiment of the given text.
+         *
+         * Returns a map with a "sentiment" ("positive", "negative" or "neutral") and
+         * a "confidence" score.
+         */
+        @Tool
+        fun analyzeSentiment(
+            @Param("The text to analyze.") text: String,
+        ): Map<String, Any> {
+            val lowered = text.lowercase()
+            return when {
+                "good" in lowered || "sunny" in lowered ->
+                    mapOf("sentiment" to "positive", "confidence" to 0.8)
+                "rain" in lowered || "bad" in lowered ->
+                    mapOf("sentiment" to "negative", "confidence" to 0.7)
+                else -> mapOf("sentiment" to "neutral", "confidence" to 0.6)
+            }
+        }
+    }
+    
+    fun main() =
+        runBlocking {
+            // The instruction names each tool and says how to handle its return values,
+            // including chaining one tool's output into the next.
+            val weatherSentimentAgent =
+                LlmAgent(
+                    name = "weather_sentiment_agent",
+                    model = Gemini(name = "gemini-flash-latest"),
+                    instruction =
+                        Instruction(
+                            """
+                            You are a helpful assistant that provides weather information
+                            and analyzes the sentiment of user feedback.
+    
+                            If the user asks about the weather in a specific city, use the
+                            getWeatherReport tool. If it returns a "success" status, provide
+                            the report to the user. If it returns an "error" status, tell the
+                            user the information is unavailable and ask for another city.
+    
+                            After providing a weather report, if the user gives feedback on
+                            the weather, use the analyzeSentiment tool to understand their
+                            sentiment, then briefly acknowledge it.
+                            """.trimIndent(),
+                        ),
+                    tools = WeatherSentimentTools().generatedTools(),
+                )
+    
+            val sessionService = InMemorySessionService()
+            val runner =
+                InMemoryRunner(
+                    agent = weatherSentimentAgent,
+                    appName = APP_NAME,
+                    sessionService = sessionService,
+                )
+            sessionService.createSession(SessionKey(APP_NAME, USER_ID, SESSION_ID))
+    
+            val query = "weather in london?"
+            println("User Query: $query")
+            val userContent = Content(role = Role.USER, parts = listOf(Part(text = query)))
+    
+            val events =
+                runner.runAsync(
+                    userId = USER_ID,
+                    sessionId = SESSION_ID,
+                    newMessage = userContent,
+                ).toList()
+    
+            for (event in events) {
+                if (event.isFinalResponse) {
+                    println("Agent Response: ${event.content?.parts?.firstOrNull()?.text}")
+                }
+            }
+        }
+    
 
 ## Tool Context¶
 
@@ -924,8 +1054,22 @@ The `tool_context.state` attribute provides direct read and write access to the 
 
 
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
+    
+    # Copyright 2025 Google LLC
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #     http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
     
     from google.adk.tools import ToolContext, FunctionTool
     
@@ -1045,10 +1189,50 @@ PythonTypeScriptGoJava
       // resulting tool response event's actions.stateDelta.
     }
     
+    
+    
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    import com.google.adk.kt.tools.ToolContext
+    
+    class UserPreferenceTools {
+        /**
+         * Updates a user-specific preference.
+         */
+        @Tool
+        fun updateUserPreference(
+            @Param("The name of the preference to update.") preference: String,
+            @Param("The value to set the preference to.") value: String,
+            context: ToolContext,
+        ): Map<String, String> {
+            // One key per preference, so each write stands on its own. The "user:"
+            // prefix scopes the value to this user across all their sessions.
+            val userPrefsKey = "user:preferences:$preference"
+    
+            // Read through the readonly view of the context.
+            val previous = context.context.state[userPrefsKey] as? String
+    
+            // Kotlin has no mutable `state` on ToolContext. Writing through
+            // actions.stateDelta is what puts the change on the resulting event, which
+            // is the same effect as assigning to `tool_context.state` in Python.
+            context.actions.stateDelta[userPrefsKey] = value
+    
+            println("Tool: Updated user preference '$preference' from '$previous' to '$value'")
+            return mapOf("status" to "success", "updated_preference" to preference)
+        }
+    }
+    
+    // In an agent:
+    //   LlmAgent(..., tools = UserPreferenceTools().generatedTools())
+    //
+    // When the LLM calls updateUserPreference(preference = "theme", value = "dark"),
+    // the delta is written to the session state and travels on the resulting tool
+    // response event as actions.stateDelta.
+    
 
 ### **Controlling Agent Flow**¶
 
-The `tool_context.actions` attribute in Python and TypeScript, `ToolContext.actions()` in Java, and `tool.Context.Actions()` in Go, holds an **EventActions** object. Modifying attributes on this object allows your tool to influence what the agent or framework does after the tool finishes execution.
+The `tool_context.actions` attribute in Python and TypeScript, `ToolContext.actions()` in Java, and `agent.Context.Actions()` in Go, holds an **EventActions** object. Modifying attributes on this object allows your tool to influence what the agent or framework does after the tool finishes execution.
 
   * **`skip_summarization: bool`** : (Default: False) If set to True, instructs the ADK to bypass the LLM call that typically summarizes the tool's output. This is useful if your tool's return value is already a user-ready message.
 
@@ -1061,7 +1245,7 @@ The `tool_context.actions` attribute in Python and TypeScript, `ToolContext.acti
 
 #### Example¶
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # Copyright 2025 Google LLC
@@ -1495,6 +1679,102 @@ PythonTypeScriptGoJava
       }
     }
     
+    
+    
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.runners.InMemoryRunner
+    import com.google.adk.kt.sessions.InMemorySessionService
+    import com.google.adk.kt.sessions.SessionKey
+    import com.google.adk.kt.tools.ToolContext
+    import com.google.adk.kt.types.Content
+    import com.google.adk.kt.types.Part
+    import com.google.adk.kt.types.Role
+    import kotlinx.coroutines.flow.toList
+    import kotlinx.coroutines.runBlocking
+    
+    private const val APP_NAME = "customer_support_agent"
+    private const val USER_ID = "user1234"
+    private const val SESSION_ID = "1234"
+    
+    class EscalationTools {
+        /**
+         * Checks if the query requires escalation and transfers to another agent if needed.
+         */
+        @Tool
+        fun checkAndTransfer(
+            @Param("The user query to triage.") query: String,
+            context: ToolContext,
+        ): String =
+            if ("urgent" in query.lowercase()) {
+                println("Tool: Detected urgency, transferring to the support agent.")
+                // Setting transferToAgent on the actions hands control to the named
+                // agent once this tool returns.
+                context.actions.transferToAgent = "support_agent"
+                "Transferring to the support agent..."
+            } else {
+                "Processed query: '$query'. No further action needed."
+            }
+    }
+    
+    fun main() =
+        runBlocking {
+            val supportAgent =
+                LlmAgent(
+                    name = "support_agent",
+                    model = Gemini(name = "gemini-flash-latest"),
+                    instruction =
+                        Instruction(
+                            "You are the dedicated support agent. Mention that you are a " +
+                                "support handler and help the user with their urgent issue.",
+                        ),
+                )
+    
+            val mainAgent =
+                LlmAgent(
+                    name = "main_agent",
+                    model = Gemini(name = "gemini-flash-latest"),
+                    instruction =
+                        Instruction(
+                            "You are the first point of contact for customer support of an " +
+                                "analytics tool. Answer general queries. If the user indicates " +
+                                "urgency, use the checkAndTransfer tool.",
+                        ),
+                    tools = EscalationTools().generatedTools(),
+                    subAgents = listOf(supportAgent),
+                )
+    
+            val sessionService = InMemorySessionService()
+            val runner =
+                InMemoryRunner(
+                    agent = mainAgent,
+                    appName = APP_NAME,
+                    sessionService = sessionService,
+                )
+            sessionService.createSession(
+                SessionKey(APP_NAME, USER_ID, SESSION_ID),
+            )
+    
+            val query = "this is urgent, i cant login"
+            val userContent = Content(role = Role.USER, parts = listOf(Part(text = query)))
+    
+            val events =
+                runner.runAsync(
+                    userId = USER_ID,
+                    sessionId = SESSION_ID,
+                    newMessage = userContent,
+                ).toList()
+    
+            for (event in events) {
+                if (event.isFinalResponse) {
+                    println("Agent Response: ${event.content?.parts?.firstOrNull()?.text}")
+                }
+            }
+        }
+    
 
 ##### Explanation¶
 
@@ -1541,7 +1821,7 @@ These methods provide convenient ways for your tool to interact with persistent 
 
 #### Example¶
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # Copyright 2025 Google LLC
@@ -1816,6 +2096,63 @@ PythonTypeScriptGoJava
     // In the Agent, include this function tool.
     // LlmAgent agent = LlmAgent().builder().tools(processDocumentTool).build();
     
+    
+    
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    import com.google.adk.kt.tools.ToolContext
+    import com.google.adk.kt.types.Part
+    
+    class DocAnalysisTools {
+        /**
+         * Analyzes a document held in the session's artifacts.
+         *
+         * Artifact access is suspending in Kotlin, so the tool is a `suspend fun`.
+         * `searchMemory` is not available on the Kotlin ToolContext; to bring
+         * long-term memory into a turn, add LoadMemoryTool or PreloadMemoryTool to
+         * the agent instead.
+         */
+        @Tool
+        suspend fun processDocument(
+            @Param("The name of the document to analyze.") documentName: String,
+            @Param("The query for the analysis.") analysisQuery: String,
+            context: ToolContext,
+        ): Map<String, String> {
+            // 1. List all available artifacts.
+            println("Tool: Available artifacts: ${context.listArtifacts()}")
+    
+            // 2. Load the requested artifact.
+            println("Tool: Attempting to load artifact: $documentName")
+            val documentPart = context.loadArtifact(documentName)
+            if (documentPart == null) {
+                println("Tool: Document '$documentName' not found.")
+                return mapOf(
+                    "status" to "error",
+                    "message" to "Document '$documentName' not found.",
+                )
+            }
+    
+            val documentText = documentPart.text.orEmpty()
+            println("Tool: Loaded '$documentName' (${documentText.length} chars).")
+    
+            // 3. Perform the analysis (placeholder).
+            val analysisResult =
+                "Analysis of '$documentName' regarding '$analysisQuery' " +
+                    "[Placeholder Analysis Result]"
+            println("Tool: Performed analysis.")
+    
+            // 4. Save the analysis back as a new artifact. saveArtifact returns the
+            // new version number and records the change in actions.artifactDelta.
+            val newArtifactName = "analysis_$documentName"
+            context.saveArtifact(newArtifactName, Part(text = analysisResult))
+    
+            return mapOf(
+                "status" to "success",
+                "analysis_artifact" to newArtifactName,
+            )
+        }
+    }
+    
 
 By leveraging the **ToolContext** , developers can create more sophisticated and context-aware custom tools that seamlessly integrate with ADK's architecture and enhance the overall capabilities of their agents.
 
@@ -1859,7 +2196,7 @@ Here are key guidelines for defining effective tool functions:
 
 
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     def lookup_order_status(order_id: str) -> dict:
@@ -1996,6 +2333,50 @@ PythonTypeScriptGoJava
         return response;
     }
     
+    
+    
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    
+    class OrderTools {
+        /**
+         * Fetches the current status of a customer's order using its ID.
+         *
+         * Use this tool ONLY when a user explicitly asks for the status of a specific
+         * order and provides the order ID. Do not use it for general inquiries.
+         *
+         * Returns a map indicating the outcome. On success, "status" is "success" and
+         * an "order" map holds the "state" and "tracking_number". On failure, "status"
+         * is "error" and "error_message" explains why.
+         */
+        @Tool
+        fun lookupOrderStatus(
+            @Param("The unique identifier of the order to look up.") orderId: String,
+        ): Map<String, Any> {
+            val statusDetails = fetchStatusFromBackend(orderId)
+            return if (statusDetails != null) {
+                mapOf(
+                    "status" to "success",
+                    "order" to
+                        mapOf(
+                            "state" to statusDetails.state,
+                            "tracking_number" to statusDetails.tracking,
+                        ),
+                )
+            } else {
+                mapOf(
+                    "status" to "error",
+                    "error_message" to "Order ID $orderId not found.",
+                )
+            }
+        }
+    }
+    
+    private data class OrderStatusDetails(val state: String, val tracking: String)
+    
+    private fun fetchStatusFromBackend(orderId: String): OrderStatusDetails? =
+        if (orderId == "1Z9") OrderStatusDetails(state = "shipped", tracking = "1Z9...") else null
+    
 
   * **Simplicity and Focus:**
     * **Keep Tools Focused:** Each tool should ideally perform one well-defined task.
@@ -2009,7 +2390,7 @@ By adhering to these guidelines, you provide the LLM with the clarity and struct
 
 ## Toolsets: Grouping and Dynamically Providing Tools¶
 
-Supported in ADKPython v0.5.0Typescript v0.2.0
+Supported in ADKPython v0.5.0TypeScript v0.2.0Java v0.3.0Kotlin v0.1.0
 
 Beyond individual tools, ADK introduces the concept of a **Toolset** via the `BaseToolset` interface (defined in `google.adk.tools.base_toolset`). A toolset allows you to manage and provide a collection of `BaseTool` instances, often dynamically, to an agent.
 
@@ -2049,7 +2430,7 @@ When the agent initializes or needs to determine its available capabilities, the
 
 Let's create a basic example of a toolset that provides simple arithmetic operations.
 
-PythonTypeScriptJava
+PythonTypeScriptJavaKotlin
     
     
     import asyncio
@@ -2406,6 +2787,93 @@ PythonTypeScriptJava
       }
     }
     
+    
+    
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.agents.ReadonlyContext
+    import com.google.adk.kt.annotations.Param
+    import com.google.adk.kt.annotations.Tool
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.tools.BaseTool
+    import com.google.adk.kt.tools.ToolContext
+    import com.google.adk.kt.tools.ToolFilter
+    import com.google.adk.kt.tools.Toolset
+    import com.google.adk.kt.tools.isToolSelected
+    
+    /** The individual tools, exposed by the @Tool annotation. */
+    class MathTools {
+        /**
+         * Adds two integer numbers.
+         */
+        @Tool
+        fun addNumbers(
+            @Param("The first number.") a: Int,
+            @Param("The second number.") b: Int,
+            context: ToolContext,
+        ): Map<String, Any> {
+            // Example: recording something in the session state.
+            context.actions.stateDelta["last_math_operation"] = "addition"
+            return mapOf("status" to "success", "result" to a + b)
+        }
+    
+        /**
+         * Subtracts the second number from the first.
+         */
+        @Tool
+        fun subtractNumbers(
+            @Param("The first number.") a: Int,
+            @Param("The second number.") b: Int,
+        ): Map<String, Any> = mapOf("status" to "success", "result" to a - b)
+    }
+    
+    /** An individual tool, defined outside any toolset. */
+    class GreetTools {
+        /**
+         * Greets the user.
+         */
+        @Tool
+        fun greetUser(
+            @Param("The name of the user to greet.") name: String,
+        ): Map<String, String> {
+            println("Tool: greetUser called with name=$name")
+            return mapOf("greeting" to "Hello, $name!")
+        }
+    }
+    
+    /**
+     * A toolset that narrows what it exposes with an optional [ToolFilter].
+     *
+     * A null filter selects every tool, so the filter is genuinely optional.
+     */
+    class SimpleMathToolset(private val filter: ToolFilter? = null) : Toolset {
+        private val tools = MathTools().generatedTools()
+    
+        override suspend fun getTools(readonlyContext: ReadonlyContext?): List<BaseTool> =
+            tools.filter { filter.isToolSelected(it, readonlyContext) }
+    
+        /** Releases anything the toolset holds. There is nothing to release here. */
+        override fun close() {}
+    }
+    
+    /**
+     * An agent using both an individual tool and a toolset. Kotlin keeps the two
+     * apart: individual tools go in `tools`, toolsets in `toolsets`.
+     */
+    val calculatorAgent =
+        LlmAgent(
+            name = "calculator_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            instruction =
+                Instruction(
+                    "You are a helpful calculator and greeter. Use greetUser for " +
+                        "greetings. Use addNumbers to add and subtractNumbers to " +
+                        "subtract. Announce the state of 'last_math_operation' if it is set.",
+                ),
+            tools = GreetTools().generatedTools(),
+            toolsets = listOf(SimpleMathToolset()),
+        )
+    
 
 In this example:
 
@@ -2414,8 +2882,34 @@ In this example:
   * When `calculator_agent` is run, ADK will call `math_toolset_instance.get_tools()`. The agent's LLM will then have access to `greet_user`, `calculator_add_numbers`, and `calculator_subtract_numbers` to handle user requests.
   * The `add_numbers` tool demonstrates writing to `tool_context.state`, and the agent's instruction mentions reading this state.
   * The `close()` method is called to ensure any resources held by the toolset are released.
+  * The Kotlin example does not prefix the tool names, because adk-kotlin has no prefix mechanism and `BaseTool.name` is read-only. Its tools stay `greetUser`, `addNumbers` and `subtractNumbers`. Kotlin also keeps the two kinds of tool apart: individual tools go in `tools`, toolsets in `toolsets`.
 
 
+
+### Filter tools in toolsets¶
+
+Supported in ADKKotlin v0.7.0
+
+Every SDK lets a toolset narrow what it hands to the model, by name or by a predicate that sees the current context; Python, Java and TypeScript take that filter on `BaseToolset`. The example here is the Kotlin form.
+
+Rather than hard-coding the list inside `getTools()`, a toolset can accept a `ToolFilter` and apply it with `isToolSelected`, as `SimpleMathToolset` does in the Kotlin example above. `ToolFilter.allowList` selects tools by name, while `ToolFilter.Predicate` receives the `ReadonlyContext`, so the tool list can depend on session state or the current user. A null filter selects everything, which is why the same class also works unfiltered.
+    
+    
+    // SimpleMathToolset, defined above, applies its optional ToolFilter inside
+    // getTools(). Passing one narrows what the same toolset exposes.
+    
+    // Expose a fixed subset by name.
+    val addOnlyMath = SimpleMathToolset(ToolFilter.allowList("addNumbers"))
+    
+    // Or decide per invocation. The predicate receives the ReadonlyContext, so the
+    // tool list can depend on session state, the user, or anything else on it.
+    val contextAwareMath =
+        SimpleMathToolset(
+            ToolFilter.Predicate { tool, context ->
+                tool.name == "addNumbers" || context?.state?.get("enable_advanced_math") == true
+            },
+        )
+    
 
 Toolsets offer a powerful way to organize, manage, and dynamically provide collections of tools to your ADK agents, leading to more modular, maintainable, and adaptable agentic applications.
 

@@ -1,12 +1,12 @@
 # Skills for ADK agents
 
-Supported in ADKPython v1.25.0TypeScript v0.6.1Go v1.2.0Experimental
+Supported in ADKPython v1.25.0TypeScript v0.6.1Go v1.2.0Kotlin v0.1.0Experimental
 
 An agent ***Skill*** is a self-contained unit of functionality that an ADK agent can use to perform a specific task. An agent Skill encapsulates the necessary instructions, resources, and tools required for a task, based on the [Agent Skill specification](https://agentskills.io/specification). The structure of a Skill allows it to be loaded incrementally to minimize the impact on the operating context window of the agent.
 
 Experimental
 
-The Skills feature is experimental. We welcome your feedback via the respective ADK GitHub repositories: [ADK Python](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=skills), [ADK TypeScript](https://github.com/google/adk-js/issues/new?template=feature_request.md&labels=skills), [ADK Go](https://github.com/google/adk-go/issues/new?template=feature_request.md&labels=skills).
+The Skills feature is experimental. We welcome your feedback via the respective ADK GitHub repositories: [ADK Python](https://github.com/google/adk-python/issues/new?template=feature_request.md&labels=skills), [ADK TypeScript](https://github.com/google/adk-js/issues/new?template=feature_request.md&labels=skills), [ADK Go](https://github.com/google/adk-go/issues/new?template=feature_request.md&labels=skills), [ADK Kotlin](https://github.com/google/adk-kotlin/issues/new).
 
 ## Get started
 
@@ -114,6 +114,26 @@ if err != nil {
 ```
 
 For a complete example, see the code sample in [skills](https://github.com/google/adk-go/tree/main/examples/skills).
+
+```kotlin
+// NewFileSystemSource discovers every skill directory under the base directory,
+// so there is no per-skill load call.
+val mySkillToolset = SkillToolset(NewFileSystemSource("skills"))
+
+val skillUserAgent =
+    LlmAgent(
+        name = "skill_user_agent",
+        model = Gemini(name = "gemini-flash-latest"),
+        description = "An agent that can use specialized skills.",
+        instruction =
+            Instruction("You are a helpful assistant that can leverage skills to perform tasks."),
+        // A SkillToolset contributes only the skill tools. Any other tool the agent
+        // needs is passed separately in `tools`.
+        toolsets = listOf(mySkillToolset),
+    )
+```
+
+For a complete example, see the code sample in [skills](https://github.com/google/adk-kotlin/tree/main/examples/src/main/kotlin/com/google/adk/kt/examples/skills).
 
 Check your working directory
 
@@ -302,6 +322,90 @@ func (s *StaticSource) LoadResource(ctx context.Context, name, resourcePath stri
 
 Note
 
+ADK Kotlin does not currently provide a standard Source for inline skills. To define skills directly in code, you must implement the `SkillSource` interface yourself, as shown below.
+
+```kotlin
+/**
+ * ADK Kotlin does not provide a standard [SkillSource] for skills defined in code, so implement the
+ * interface yourself to serve them from memory.
+ */
+class StaticSkillSource : SkillSource {
+    private val greetingSkill =
+        Frontmatter(
+            name = "greeting-skill",
+            description = "A friendly greeting skill that can say hello to a specific person.",
+        )
+
+    private val instructions =
+        "Step 1: Read the 'references/hello_world.txt' file to understand how to greet the " +
+            "user. Step 2: Return a greeting based on the reference."
+
+    private val resources =
+        mapOf(
+            "references/hello_world.txt" to "Hello! So glad to have you here!",
+            "references/example.md" to "This is an example reference.",
+        )
+
+    private fun notFound(skillName: String) = SkillSourceException("Skill $skillName not found.")
+
+    override suspend fun listFrontmatters(): Result<List<Frontmatter>> =
+        Result.success(listOf(greetingSkill))
+
+    override suspend fun loadFrontmatter(skillName: String): Result<Frontmatter> =
+        if (skillName == greetingSkill.name) {
+            Result.success(greetingSkill)
+        } else {
+            Result.failure(notFound(skillName))
+        }
+
+    override suspend fun loadInstructions(skillName: String): Result<String> =
+        if (skillName == greetingSkill.name) {
+            Result.success(instructions)
+        } else {
+            Result.failure(notFound(skillName))
+        }
+
+    override suspend fun listResources(
+        skillName: String,
+        resourceDirectoryPath: String,
+    ): Result<List<String>> {
+        if (skillName != greetingSkill.name) return Result.failure(notFound(skillName))
+        val prefix = resourceDirectoryPath.removePrefix("./").removeSuffix("/")
+        if (prefix.isEmpty() || prefix == ".") return Result.success(resources.keys.toList())
+        // Skill resources live only under references/, assets/ and scripts/.
+        if (prefix.substringBefore("/") !in SkillSource.VALID_RESOURCE_DIRS) {
+            return Result.failure(
+                SkillSourceException("Invalid resource path: $resourceDirectoryPath"),
+            )
+        }
+        return Result.success(resources.keys.filter { it.startsWith("$prefix/") })
+    }
+
+    override suspend fun loadResource(
+        skillName: String,
+        resourcePath: String,
+    ): Result<ByteArray> {
+        if (skillName != greetingSkill.name) return Result.failure(notFound(skillName))
+        val content =
+            resources[resourcePath]
+                ?: return Result.failure(
+                    SkillSourceException("Resource $resourcePath not found in skill $skillName."),
+                )
+        return Result.success(content.encodeToByteArray())
+    }
+}
+
+val inlineSkillAgent =
+    LlmAgent(
+        name = "greeting_agent",
+        model = Gemini(name = "gemini-flash-latest"),
+        instruction = Instruction("Greet the user by following the greeting skill."),
+        toolsets = listOf(SkillToolset(StaticSkillSource())),
+    )
+```
+
+Note
+
 The `Source` interface can be backed by any data store (such as a database) to support dynamic use cases like live updates and personalization.
 
 ### Read Skills from filesystem
@@ -351,6 +455,14 @@ if err != nil {
 }
 ```
 
+```kotlin
+// Every immediate subdirectory of "skills" that contains a SKILL.md is exposed as
+// a skill, so individual skills are discovered rather than named one by one.
+val filesystemSource = NewFileSystemSource("skills")
+
+val filesystemSkillToolset = SkillToolset(filesystemSource)
+```
+
 ## Skill processing and validation
 
 When you include skills in your agent, the agent uses a standardized process to interact with them. This process includes a system-level instruction for how to use skills, a defined format for how skills are represented, and a set of validation rules for skill definitions.
@@ -361,4 +473,5 @@ Check out these resources for building agents with Skills:
 
 - [Skills in Python - code sample](https://github.com/google/adk-python/tree/main/contributing/samples/environment_and_skills/skills_agent)
 - [Skills in Go - code sample](https://github.com/google/adk-go/tree/main/examples/skills)
+- [Skills in Kotlin - code sample](https://github.com/google/adk-kotlin/tree/main/examples/src/main/kotlin/com/google/adk/kt/examples/skills)
 - Agent Skills [specification documentation](https://agentskills.io/)

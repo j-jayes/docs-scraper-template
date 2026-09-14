@@ -1,19 +1,14 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
 [ Agent Development Kit (ADK) ](.. "Agent Development Kit \(ADK\)")
 
-ADK Gemini Live API Toolkit 
+Live and voice agents 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,8 +33,10 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../get-started/migrate/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -186,6 +183,7 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](./)
 
@@ -195,14 +193,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](get-started/streaming-python/)
         * [ Java  ](get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](dev-guide/part1/)
-        * [ Part 2. Sending messages  ](dev-guide/part2/)
-        * [ Part 3. Event handling  ](dev-guide/part3/)
-        * [ Part 4. Run configuration  ](dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](dev-guide/part5/)
-      * [ Streaming Tools  ](streaming-tools/)
-      * [ Configuring streaming behavior  ](configuration/)
+      * Building  Building 
+        * [ Workflows  ](workflows/)
+        * [ Tools  ](tools/)
+        * [ Sessions  ](sessions/)
+        * [ Events  ](events/)
+        * [ Audio and video  ](audio-video/)
+        * [ Configuration  ](configuration/)
+      * Production  Production 
+        * [ Evaluation  ](evaluation/)
+        * [ Build a custom server  ](custom-server/)
+      * [ Supported models  ](models/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -238,7 +239,10 @@ ADK 2.0
 
 Table of contents 
 
-  * Live Demos 
+  * Build live agents 
+  * Which kind of streaming do you need? 
+  * Why build live agents on ADK 
+  * Demos and resources 
 
 
 
@@ -248,75 +252,107 @@ Table of contents
 
 [ ](https://github.com/google/adk-docs/edit/main/docs/live/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
-# ADK Gemini Live API Toolkit¶
+# Live and voice agents¶
 
-Supported in ADKPython v0.5.0Experimental
+Supported in ADKPython v0.5.0Java v0.2.0Experimental
 
-Gemini Live API Toolkit in ADK adds the low-latency bidirectional voice and video interaction capability of [Gemini Live API](https://ai.google.dev/gemini-api/docs/live) to AI agents.
+ADK is the framework for building live and voice agents. A live agent holds an open, two-way connection with the user: instead of sending a message and waiting for a reply, the user and the agent both speak, listen, and respond at the same time, and the user can interrupt the agent mid-sentence the way people interrupt each other in real conversation. Live agents accept text, audio, and video input and reply with text or speech.
 
-With ADK Gemini Live API Toolkit, you can provide end users with the experience of natural, human-like voice conversations, including the ability for the user to interrupt the agent's responses with voice commands. Agents with streaming can process text, audio, and video inputs, and they can provide text and audio output.
+A live agent is an ADK agent, built with the same agent, tool, and session abstractions you use everywhere else. You describe the agent's behavior; ADK manages the real-time connection, tool execution, and session state underneath. Today that connection runs on the [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api); ADK handles the wiring so your agent code stays the same as the platform evolves.
 
-## Live Demos¶
+## Build live agents¶
+
+  * **Get started**
+
+* * *
+
+Build your first live agent and talk to it in the browser.
+
+    * [Start here](get-started/) — pick a language and build one
+    * Jump straight to [Python](get-started/streaming-python/) or [Java](get-started/streaming-java/)
+  * **Building**
+
+* * *
+
+The capability pages, roughly in the order you will need them.
+
+    * [Sessions](sessions/) — `run_live()`, resumption, scale
+    * [Events](events/) — what comes back and how to handle it
+    * [Tools](tools/) — automatic execution and streaming tools
+    * [Workflows](workflows/) — multi-agent under a live connection
+    * [Audio and video](audio-video/) — formats and streaming
+    * [Configuration](configuration/) — `RunConfig`, voice, transcription, turn detection
+  * **Production**
+
+* * *
+
+Take a live agent beyond `adk web`.
+
+    * [Evaluation](evaluation/) — score voice conversations before you ship
+    * [Build a custom server](custom-server/)
+    * [Supported models](models/)
+
+
+
+## Which kind of streaming do you need?¶
+
+"Streaming" covers three different things in ADK, and picking the wrong one is a common source of confusion.
+
+| What it does | User can interrupt? | Use it when | Where  
+---|---|---|---|---  
+**Server-side streaming** | One-way flow from server to client, like a live feed. | No | You push dashboard or feed updates, not a conversation. | Outside ADK  
+**Token-level streaming** | Text arrives word by word, but you wait for it to finish before sending more. | No | You want a responsive text chat. | `StreamingMode.SSE` ([Configuration](configuration/#streamingmode-bidi-or-sse))  
+**Bidirectional streaming** | Both sides speak, listen, and respond at once over one open connection. | **Yes** | You are building voice or video conversation. | `runner.run_live()` — these pages  
+  
+These pages are about the third row.
+    
+    
+    sequenceDiagram
+        participant Client as User
+        participant Agent
+    
+        Client->>Agent: "Explain the history of Japan"
+        Agent->>Client: "Sure! Japan's history is a..." (partial)
+        Client->>Agent: "Ah, wait."
+        Agent->>Client: "OK, how can I help?" [interrupted: true]
+
+## Why build live agents on ADK¶
+
+The Live API gives you the streaming protocol. ADK gives you everything around it, so you write agent behavior instead of streaming infrastructure.
+
+| Raw Live API (`google-genai`) | ADK  
+---|---|---  
+Tool execution | Manual | [Automatic](tools/#automatic-tool-execution)  
+Reconnection | Manual | [Automatic session resumption](sessions/#session-resumption)  
+Events | Custom structures | [Unified event model](events/)  
+Async coordination | Manual | [`LiveRequestQueue` \+ `run_live()`](sessions/)  
+Session persistence | Manual | [SQL, Agent Platform, in-memory](../sessions/)  
+Multi-agent | Not available | [Workflows, sub-agents, transfer](workflows/)  
+  
+## Demos and resources¶
 
   * **LensMosaic: Visual Shopping with Live AI**
 
 * * *
 
-[](https://lens-mosaic-nhhfh7g7iq-uc.a.run.app)
+Merges live camera input, voice, and product discovery. Point your camera at any object to find similar products. Built with ADK live agents, Gemini Embedding, Vector Search, and FastAPI.
 
-A demo app that merges live camera input, voice interaction, and intelligent product discovery. Point your camera at any object to find similar products, combine visual and voice input for personalized recommendations, or chat with a real-time AI shopping assistant. Built with ADK Gemini Live API Toolkit, Gemini Embedding, Vector Search, and FastAPI.
-
-    * [LensMosaic Demo](https://lens-mosaic-nhhfh7g7iq-uc.a.run.app)
-    * [Source Code](https://github.com/kazunori279/lens-mosaic)
-
-
-
-  * **Quickstart (Gemini Live API Toolkit)**
+    * [Live demo](https://lens-mosaic-nhhfh7g7iq-uc.a.run.app)
+    * [Source](https://github.com/kazunori279/lens-mosaic)
+  * **A Visual Guide to Bidi-streaming**
 
 * * *
 
-In this quickstart, you'll build a simple agent and use streaming in ADK to implement low-latency and bidirectional voice and video communication.
+Diagrams and illustrations covering how streaming works and how to build interactive agents with ADK.
 
-    * [Quickstart (Gemini Live API Toolkit)](get-started/streaming-python/)
-  * **Blog post: ADK Gemini Live API Toolkit Visual Guide**
-
-* * *
-
-A visual guide to real-time multimodal AI agent development with ADK Gemini Live API Toolkit. This article provides intuitive diagrams and illustrations to help you understand how streaming works and how to build interactive AI agents.
-
-    * [Blog post: ADK Gemini Live API Toolkit Visual Guide](https://medium.com/google-cloud/adk-bidi-streaming-a-visual-guide-to-real-time-multimodal-ai-agent-development-62dd08c81399)
-  * **Gemini Live API Toolkit development guide series**
+    * [Read the post](https://medium.com/google-cloud/adk-bidi-streaming-a-visual-guide-to-real-time-multimodal-ai-agent-development-62dd08c81399)
+  * **Google ADK + Gemini Live API**
 
 * * *
 
-A series of articles for diving deeper into the Gemini Live API Toolkit development with ADK. You can learn basic concepts and use cases, the core API, and end-to-end application design.
+Using live agents for real-time audio/video, with a Python server example built on `LiveRequestQueue`.
 
-    * [Part 1: Introduction to ADK Gemini Live API Toolkit](dev-guide/part1/) \- Fundamentals of streaming, Live API technology, ADK architecture components, and complete application lifecycle with FastAPI examples
-    * [Part 2: Sending messages with LiveRequestQueue](dev-guide/part2/) \- Upstream message flow, sending text/audio/video, activity signals, and concurrency patterns
-    * [Part 3: Event handling with run_live()](dev-guide/part3/) \- Processing events, handling text/audio/transcriptions, automatic tool execution, and multi-agent workflows
-    * [Part 4: Understanding RunConfig](dev-guide/part4/) \- Response modalities, streaming modes, session management, session resumption, context window compression, and quota management
-    * [Part 5: How to Use Audio, Image and Video](dev-guide/part5/) \- Audio specifications, model architectures, audio transcription, voice activity detection, and proactive/affective dialog features
-  * **Streaming Tools**
-
-* * *
-
-Streaming tools allow tools (functions) to stream intermediate results back to agents and agents can respond to those intermediate results. For example, we can use streaming tools to monitor the changes of the stock price and have the agent react to it. Another example is we can have the agent monitor the video stream, and when there are changes in video stream, the agent can report the changes.
-
-    * [Streaming Tools](streaming-tools/)
-  * **Blog post: Google ADK + Gemini Live API**
-
-* * *
-
-This article shows how to use Gemini Live API Toolkit in ADK for real-time audio/video streaming. It offers a Python server example using LiveRequestQueue to build custom, interactive AI agents.
-
-    * [Blog post: Google ADK + Gemini Live API](https://medium.com/google-cloud/google-adk-vertex-ai-live-api-125238982d5e)
-  * **Blog post: Supercharge ADK Development with Claude Code Skills**
-
-* * *
-
-This article demonstrates how to use Claude Code Skills to accelerate ADK development, with an example of building a streaming chat app. Learn how to leverage AI-powered coding assistance to build better agents faster.
-
-    * [Blog post: Supercharge ADK Development with Claude Code Skills](https://medium.com/@kazunori279/supercharge-adk-development-with-claude-code-skills-d192481cbe72)
+    * [Read the post](https://medium.com/google-cloud/google-adk-vertex-ai-live-api-125238982d5e)
 
 
 

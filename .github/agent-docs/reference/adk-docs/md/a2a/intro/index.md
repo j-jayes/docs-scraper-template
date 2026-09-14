@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Python 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents, and check out [ADK Kotlin](/get-started/kotlin/)! 
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Introduction to A2A 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -38,24 +33,22 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
 
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
+      * [ Managed agents  ](../../agents/managed-agents/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -85,6 +78,7 @@ Models for Agents
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
       * [ Apigee AI Gateway  ](../../agents/models/apigee/)
       * [ Model routing  ](../../agents/models/routing/)
+      * [ OpenAI  ](../../agents/models/openai/)
       * [ Ollama  ](../../agents/models/ollama/)
       * [ vLLM  ](../../agents/models/vllm/)
       * [ LiteLLM  ](../../agents/models/litellm/)
@@ -160,14 +154,10 @@ Callbacks
         * [ Types of callbacks  ](../../callbacks/types-of-callbacks/)
         * [ Callback patterns  ](../../callbacks/design-patterns-and-best-practices/)
       * [ Plugins  ](../../plugins/)
-    * [ Context  ](../../context/)
+    * [ Agent context  ](../../context/)
 
-Context 
-      * [ Context caching  ](../../context/caching/)
-      * [ Context compression  ](../../context/compaction/)
-    * [ Sessions and Memory  ](../../sessions/)
-
-Sessions and Memory 
+Agent context 
+      * [ Conversational context  ](../../sessions/)
       * [ Sessions  ](../../sessions/session/)
 
 Sessions 
@@ -176,6 +166,8 @@ Sessions
       * [ State  ](../../sessions/state/)
       * [ Events  ](../../events/)
       * [ Memory  ](../../sessions/memory/)
+      * [ Context compression  ](../../context/compaction/)
+      * [ Model context caching  ](../../context/caching/)
     * [ MCP  ](../../mcp/)
 
 MCP 
@@ -183,18 +175,19 @@ MCP
 
 A2A Protocol 
       * Introduction to A2A  [ Introduction to A2A  ](./) Table of contents 
-        * When to Use A2A vs. Local Sub-Agents 
-          * When to Use A2A: Concrete Examples 
-          * When NOT to Use A2A: Concrete Examples (Prefer Local Sub-Agents) 
-        * The A2A Workflow in ADK: A Simplified View 
-        * Visualizing the A2A Workflow 
-          * Exposing an Agent 
-          * Consuming an Agent 
-          * Final System (Combined View) 
-        * Concrete Use Case: Customer Service and Product Catalog Agents 
+        * When to use A2A vs. local sub-agents 
+          * When to use A2A: concrete examples 
+          * When NOT to use A2A: concrete examples (prefer local sub-agents) 
+        * The A2A workflow in ADK: a simplified view 
+        * Supported capabilities in A2A 
+        * Visualizing the A2A workflow 
+          * Exposing an agent 
+          * Consuming an agent 
+          * Final system (combined view) 
+        * Concrete use case: customer service and product catalog agents 
           * Before A2A 
           * After A2A 
-        * Next Steps 
+        * Next steps 
       * A2A Quickstart (Exposing)  A2A Quickstart (Exposing) 
         * [ Python  ](../quickstart-exposing/)
         * [ Go  ](../quickstart-exposing-go/)
@@ -203,18 +196,27 @@ A2A Protocol
         * [ Python  ](../quickstart-consuming/)
         * [ Go  ](../quickstart-consuming-go/)
         * [ Java  ](../quickstart-consuming-java/)
+        * [ Kotlin  ](../quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -228,8 +230,10 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
-      * [ Go ADK  ](https://pkg.go.dev/google.golang.org/adk)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
+      * Go ADK  Go ADK 
+        * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
+        * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
       * [ Java ADK  ](../../api-reference/java/)
       * [ Kotlin ADK  ](../../api-reference/kotlin/)
       * [ CLI Reference  ](../../api-reference/cli/)
@@ -248,18 +252,19 @@ ADK 2.0
 
 Table of contents 
 
-  * When to Use A2A vs. Local Sub-Agents 
-    * When to Use A2A: Concrete Examples 
-    * When NOT to Use A2A: Concrete Examples (Prefer Local Sub-Agents) 
-  * The A2A Workflow in ADK: A Simplified View 
-  * Visualizing the A2A Workflow 
-    * Exposing an Agent 
-    * Consuming an Agent 
-    * Final System (Combined View) 
-  * Concrete Use Case: Customer Service and Product Catalog Agents 
+  * When to use A2A vs. local sub-agents 
+    * When to use A2A: concrete examples 
+    * When NOT to use A2A: concrete examples (prefer local sub-agents) 
+  * The A2A workflow in ADK: a simplified view 
+  * Supported capabilities in A2A 
+  * Visualizing the A2A workflow 
+    * Exposing an agent 
+    * Consuming an agent 
+    * Final system (combined view) 
+  * Concrete use case: customer service and product catalog agents 
     * Before A2A 
     * After A2A 
-  * Next Steps 
+  * Next steps 
 
 
 
@@ -267,13 +272,13 @@ Table of contents
   2. [ Components  ](../../get-started/about/)
   3. [ A2A Protocol  ](../)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/a2a/intro.md "Edit this page on GitHub") [ ](https://github.com/google/adk-docs/raw/main/docs/a2a/intro.md "View Markdown source")
+[ ](https://github.com/google/adk-docs/edit/main/docs/a2a/intro.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Introduction to A2A¶
 
 As you build more complex agentic systems, you will find that a single agent is often not enough. You will want to create specialized agents that can collaborate to solve a problem. The [**Agent2Agent (A2A) Protocol**](https://a2a-protocol.org) is the standard that allows these agents to communicate with each other.
 
-## When to Use A2A vs. Local Sub-Agents¶
+## When to use A2A vs. local sub-agents¶
 
   * **Local Sub-Agents:** These are agents that run _within the same application process_ as your main agent. They are like internal modules or libraries, used to organize your code into logical, reusable components. Communication between a main agent and its local sub-agents is very fast because it happens directly in memory, without network overhead.
 
@@ -291,7 +296,7 @@ Consider using **A2A** when:
 
 
 
-### When to Use A2A: Concrete Examples¶
+### When to use A2A: concrete examples¶
 
   * **Integrating with a Third-Party Service:** Your main agent needs to get real-time stock prices from an external financial data provider. This provider exposes its data through an A2A-compatible agent.
   * **Microservices Architecture:** You have a large system broken down into smaller, independent services (e.g., an Order Processing Agent, an Inventory Management Agent, a Shipping Agent). A2A is ideal for these services to communicate with each other across network boundaries.
@@ -300,7 +305,7 @@ Consider using **A2A** when:
 
 
 
-### When NOT to Use A2A: Concrete Examples (Prefer Local Sub-Agents)¶
+### When NOT to use A2A: concrete examples (prefer local sub-agents)¶
 
   * **Internal Code Organization:** You are breaking down a complex task within a single agent into smaller, manageable functions or modules (e.g., a `DataValidator` sub-agent that cleans input data before processing). These are best handled as local sub-agents for performance and simplicity.
   * **Performance-Critical Internal Operations:** A sub-agent is responsible for a high-frequency, low-latency operation that is tightly coupled with the main agent's execution (e.g., a `RealTimeAnalytics` sub-agent that processes data streams within the same application).
@@ -309,24 +314,34 @@ Consider using **A2A** when:
 
 
 
-## The A2A Workflow in ADK: A Simplified View¶
+## The A2A workflow in ADK: a simplified view¶
 
 Agent Development Kit (ADK) simplifies the process of building and connecting agents using the A2A protocol. Here's a straightforward breakdown of how it works:
 
-  1. **Making an Agent Accessible (Exposing):** You start with an existing ADK agent that you want other agents to be able to interact with. The ADK provides a simple way to "expose" this agent, turning it into an **A2AServer**. This server acts as a public interface, allowing other agents to send requests to your agent over a network. Think of it like setting up a web server for your agent.
+  1. **Making an Agent Accessible (Exposing):** You start with an existing ADK agent that you want other agents to be able to interact with. ADK provides a simple way to "expose" this agent, turning it into an **A2AServer**. This server acts as a public interface, allowing other agents to send requests to your agent over a network. Think of it like setting up a web server for your agent.
 
   2. **Connecting to an Accessible Agent (Consuming):** In a separate agent (which could be running on the same machine or a different one), you'll use a special ADK component called `RemoteA2aAgent`. This `RemoteA2aAgent` acts as a client that knows how to communicate with the **A2AServer** you exposed earlier. It handles all the complexities of network communication, authentication, and data formatting behind the scenes.
 
 
 
 
-From your perspective as a developer, once you've set up this connection, interacting with the remote agent feels just like interacting with a local tool or function. The ADK abstracts away the network layer, making distributed agent systems as easy to work with as local ones.
+From your perspective as a developer, once you've set up this connection, interacting with the remote agent feels just like interacting with a local tool or function. ADK abstracts away the network layer, making distributed agent systems as easy to work with as local ones.
 
-## Visualizing the A2A Workflow¶
+## Supported capabilities in A2A¶
+
+ADK's A2A integration provides three core capabilities for complex agentic systems:
+
+  * **Reasoning:** Preserves a model's reasoning/thought traces when messages pass between agents over A2A.
+  * **Long-Running Tools:** Tracks tool calls that run longer than a standard response, so long-running operations don't time out.
+  * **Artifacts:** Passes file artifacts (such as generated files) between agents over A2A.
+
+
+
+## Visualizing the A2A workflow¶
 
 To further clarify the A2A workflow, let's look at the "before and after" for both exposing and consuming agents, and then the combined system.
 
-### Exposing an Agent¶
+### Exposing an agent¶
 
 **Before Exposing:** Your agent code runs as a standalone component, but in this scenario, you want to expose it so that other remote agents can interact with your agent.
     
@@ -359,7 +374,7 @@ To further clarify the A2A workflow, let's look at the "before and after" for bo
     +-----------------------------+
     
 
-### Consuming an Agent¶
+### Consuming an agent¶
 
 **Before Consuming:** Your agent (referred to as the "Root Agent" in this context) is the application you are developing that needs to interact with a remote agent. Before consuming, it lacks the direct mechanism to do so.
     
@@ -385,7 +400,7 @@ To further clarify the A2A workflow, let's look at the "before and after" for bo
           (Now talks to remote agent via RemoteA2aAgent)
     
 
-### Final System (Combined View)¶
+### Final system (combined view)¶
 
 This diagram shows how the consuming and exposing parts connect to form a complete A2A system.
     
@@ -416,7 +431,7 @@ This diagram shows how the consuming and exposing parts connect to form a comple
                                                    +-------------------+
     
 
-## Concrete Use Case: Customer Service and Product Catalog Agents¶
+## Concrete use case: customer service and product catalog agents¶
 
 Let's consider a practical example: a **Customer Service Agent** that needs to retrieve product information from a separate **Product Catalog Agent**.
 
@@ -463,7 +478,7 @@ By using the A2A Protocol, the Product Catalog Agent can expose its functionalit
 
 In this setup, first, the Product Catalog Agent needs to be exposed via an A2A Server. Then, the Customer Service Agent can simply call methods on the `RemoteA2aAgent` as if it were a tool, and the ADK handles all the underlying communication to the Product Catalog Agent. This allows for clear separation of concerns and easy integration of specialized agents.
 
-## Next Steps¶
+## Next steps¶
 
 Now that you understand the "why" of A2A, let's dive into the "how."
 

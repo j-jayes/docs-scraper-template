@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Authentication 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -38,18 +33,15 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
@@ -157,8 +149,8 @@ Custom Tools
         * Tools and integrations quick guide 
         * Build agentic applications with authenticated tools 
           * Configure tools with authentication 
-            * Use OpenAPI-based toolsets (OpenAPIToolset, APIHubToolset, etc.) 
-            * Use Google API toolsets (e.g., calendar_tool_set) 
+            * Use OpenAPI-based toolsets 
+            * Use Google API toolsets 
             * Use ID token 
               * Configuration 
               * Key takeaways 
@@ -214,18 +206,27 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -239,7 +240,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -272,8 +273,8 @@ Table of contents
   * Tools and integrations quick guide 
   * Build agentic applications with authenticated tools 
     * Configure tools with authentication 
-      * Use OpenAPI-based toolsets (OpenAPIToolset, APIHubToolset, etc.) 
-      * Use Google API toolsets (e.g., calendar_tool_set) 
+      * Use OpenAPI-based toolsets 
+      * Use Google API toolsets 
       * Use ID token 
         * Configuration 
         * Key takeaways 
@@ -383,7 +384,7 @@ When adding an authenticated tool to your agent, you need to provide its require
 
 You can configure authentication differently depending on your toolset type, OpenAPI-based or Google API toolsets, and, for services protected by Cloud IAM, whether the service needs an ID token instead of an access token. The following subsections cover each case.
 
-#### Use OpenAPI-based toolsets (`OpenAPIToolset`, `APIHubToolset`, etc.)¶
+#### Use OpenAPI-based toolsets¶
 
 Pass the scheme and credential during toolset initialization. The toolset applies them to all generated tools. Here are few ways to create tools with authentication in ADK.
 
@@ -491,7 +492,7 @@ Create a tool requiring OpenID connect.
     )
     
 
-#### Use Google API toolsets (e.g., `calendar_tool_set`)¶
+#### Use Google API toolsets¶
 
 These toolsets often have dedicated configuration methods.
 
@@ -499,17 +500,19 @@ Tip: For how to create a Google OAuth Client ID & Secret, see this guide: [Get y
     
     
     # Example: Configuring Google Calendar Tools
-    from google.adk.tools.google_api_tool import calendar_tool_set
+    from google.adk.tools.google_api_tool import CalendarToolset
     
     client_id = "YOUR_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com"
     client_secret = "YOUR_GOOGLE_OAUTH_CLIENT_SECRET"
     
+    calendar_toolset = CalendarToolset()
+    
     # Use the specific configure method for this toolset type
-    calendar_tool_set.configure_auth(
-        client_id=oauth_client_id, client_secret=oauth_client_secret
+    calendar_toolset.configure_auth(
+        client_id=client_id, client_secret=client_secret
     )
     
-    # agent = LlmAgent(..., tools=calendar_tool_set.get_tool('calendar_tool_set'))
+    # agent = LlmAgent(..., tools=[calendar_toolset])
     
 
 #### Use ID token¶
@@ -588,19 +591,15 @@ Always use `use_id_token=True` and `audience` together. If you provide one witho
 
 The `external_access_token_key` feature allows your agent to use an existing access token provided by the runtime environment, such as a token provided by a frontend application, instead of starting a new authentication flow. When configured, the credential manager skips standard OAuth flows. Instead, retrieves the key in the agent's `tool_context.state` and directly uses the token for authentication. The use of this configuration parameter is mutually exclusive, and cannot include `credentials`, `client_id`, `client_secret`, or scopes parameters in the same configuration block.
 
-Follow this example to configure the key:
+Set the key on the credentials configuration of the toolset you are using. The following example uses BigQuery:
     
     
-    from google.adk.auth.auth_credential import AuthCredential
-    from google.adk.auth.auth_credential import AuthCredentialTypes
+    from google.adk.integrations.bigquery import BigQueryCredentialsConfig
     
-    # Configure the tool to look for "my_frontend_token" in the session state
-    credentials_config = AuthCredential(
-        auth_type=AuthCredentialTypes.GOOGLE_CREDENTIALS,
-        google_credentials_config={
-            # Do not hardcode authentication keys in production code
-            "external_access_token_key": "get_my_frontend_token" 
-        }
+    # Configure the toolset to look for "my_frontend_token" in the session state
+    credentials_config = BigQueryCredentialsConfig(
+        # Do not hardcode authentication keys in production code
+        external_access_token_key="my_frontend_token"
     )
     
 
@@ -1070,6 +1069,20 @@ tools_and_agent.py
 agent_cli.py
     
     
+    # Copyright 2026 Google LLC
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #     http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
+    
     import asyncio
     from dotenv import load_dotenv
     from google.adk.artifacts.in_memory_artifact_service import InMemoryArtifactService
@@ -1094,7 +1107,7 @@ agent_cli.py
       artifacts_service = InMemoryArtifactService()
     
       # Create a new user session to maintain conversation state.
-      session = session_service.create_session(
+      session = await session_service.create_session(
           state={},  # Optional state dictionary for session-specific data
           app_name='my_app', # Application identifier
           user_id='user' # User identifier
@@ -1224,6 +1237,20 @@ agent_cli.py
 
 helpers.py
     
+    
+    # Copyright 2025 Google LLC
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #     http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
     
     from google.adk.auth import AuthConfig
     from google.adk.events import Event

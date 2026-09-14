@@ -30,18 +30,19 @@ Contents
   3. Method Details
      1. getRootAgentName()
      2. initTrace(InvocationContext)
-     3. getTraceId(InvocationContext)
-     4. hasAmbientSpan()
-     5. pushSpan(String)
-     6. attachCurrentSpan()
+     3. initTraceIfNeeded(InvocationContext)
+     4. getTraceId(InvocationContext)
+     5. pushSpan(InvocationContext, String)
+     6. attachCurrentSpan(InvocationContext)
      7. ensureInvocationSpan(InvocationContext)
-     8. popSpan()
-     9. clearStack()
-     10. getCurrentSpanAndParent()
-     11. getCurrentSpanId()
-     12. recordFirstToken(String)
-     13. getStartTime(String)
-     14. getFirstTokenTime(String)
+     8. popSpan(InvocationContext, String)
+     9. popSpan(InvocationContext, String, String)
+     10. clearStack()
+     11. getCurrentSpanAndParent(InvocationContext)
+     12. getCurrentSpanId(InvocationContext)
+     13. recordFirstToken(String)
+     14. getStartTime(String)
+     15. getFirstTokenTime(String)
 
 Hide sidebar  Show sidebar
 
@@ -55,9 +56,11 @@ com.google.adk.plugins.agentanalytics.TraceManager
 
 public final class TraceManager extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
-Manages OpenTelemetry-style trace and span context using InvocationContext callback data. 
+Manages the BQAA-internal execution tree of span IDs for one invocation. 
 
-Uses a stack of SpanRecord objects to keep span, ID, ownership, and timing in sync.
+No OpenTelemetry spans are created: records are ID-only, so a host with an SDK exporter configured never receives a duplicate plugin-owned span tree next to ADK's framework spans. Ambient OpenTelemetry context is still consulted for the `trace_id` (and the invocation root's `span_id`) so BigQuery rows stay joinable to Cloud Trace. 
+
+Span records are kept in per-branch stacks keyed by [`InvocationContext.branch()`](../../agents/InvocationContext.html#branch\(\)). Concurrently scheduled `ParallelAgent` branches (which share an invocation ID but carry distinct branch strings) never touch each other's stacks, so a branch completing first can no longer pop another branch's span. Within one branch, agent and model spans execute sequentially and use top-of-stack semantics, but ADK executes an event's function calls CONCURRENTLY by default: tool spans therefore carry an operation identity (the function-call ID) plus a parent captured at push time, and are popped by identity rather than stack position. Pops additionally verify the record's `kind`, so an error callback firing without its matching push cannot pop an unrelated record.
 
   * ## Method Summary
 
@@ -71,9 +74,9 @@ Description
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
-`attachCurrentSpan()`
+`attachCurrentSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
 
- 
+Records the ambient OpenTelemetry span's IDs as the invocation root without creating or owning any span, so plugin-emitted rows correlate with the host's existing tracing.
 
 `void`
 
@@ -89,13 +92,13 @@ Description
 
 `com.google.adk.plugins.agentanalytics.TraceManager.SpanIds`
 
-`getCurrentSpanAndParent()`
+`getCurrentSpanAndParent([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
 
  
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
 
-`getCurrentSpanId()`
+`getCurrentSpanId([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
 
  
 
@@ -123,29 +126,35 @@ Description
 
  
 
-`boolean`
-
-`hasAmbientSpan()`
-
- 
-
 `void`
 
 `initTrace([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
 
  
 
+`void`
+
+`initTraceIfNeeded([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)`
+
+Sets the root agent name from the invocation context if it is still the sentinel default.
+
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData>`
 
-`popSpan()`
+`popSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") expectedKindPrefix)`
 
- 
+Pops the calling branch's top span record if its kind matches `expectedKindPrefix`.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData>`
+
+`popSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") expectedKindPrefix, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") operationId)`
+
+Pops the calling branch's matching span record.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
-`pushSpan([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName)`
+`pushSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName)`
 
- 
+Pushes an ID-only span record onto the calling branch's stack.
 
 `void`
 
@@ -170,21 +179,27 @@ public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/jav
 
 public void initTrace([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
 
+    * ### initTraceIfNeeded
+
+public void initTraceIfNeeded([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
+
+Sets the root agent name from the invocation context if it is still the sentinel default. Null-safe: workflow-driven callbacks with no current agent leave the sentinel in place for a later event to resolve.
+
     * ### getTraceId
 
 public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") getTraceId([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
 
-    * ### hasAmbientSpan
-
-public boolean hasAmbientSpan()
-
     * ### pushSpan
 
-@CanIgnoreReturnValue public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") pushSpan([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName)
+@CanIgnoreReturnValue public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") pushSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName)
+
+Pushes an ID-only span record onto the calling branch's stack. No OTel span is created.
 
     * ### attachCurrentSpan
 
-@CanIgnoreReturnValue public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") attachCurrentSpan()
+@CanIgnoreReturnValue public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") attachCurrentSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
+
+Records the ambient OpenTelemetry span's IDs as the invocation root without creating or owning any span, so plugin-emitted rows correlate with the host's existing tracing.
 
     * ### ensureInvocationSpan
 
@@ -192,7 +207,19 @@ public void ensureInvocationSpan([InvocationContext](../../agents/InvocationCont
 
     * ### popSpan
 
-@CanIgnoreReturnValue public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData> popSpan()
+@CanIgnoreReturnValue public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData> popSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") expectedKindPrefix)
+
+Pops the calling branch's top span record if its kind matches `expectedKindPrefix`. 
+
+The branch scoping prevents a concurrently completing `ParallelAgent` branch from popping another branch's span; the kind check prevents a mismatched pop (e.g. an error callback firing without its corresponding push) from corrupting the stack.
+
+    * ### popSpan
+
+@CanIgnoreReturnValue public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData> popSpan([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") expectedKindPrefix, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") operationId)
+
+Pops the calling branch's matching span record. 
+
+With an `operationId`, the record is located by kind AND operation identity (newest-first) rather than stack position: ADK executes an event's function calls concurrently by default within one branch, so a completion must remove its own record even when a sibling tool's record sits above it. Without an `operationId`, only the branch's top record is popped, and only when its kind matches.
 
     * ### clearStack
 
@@ -200,11 +227,11 @@ public void clearStack()
 
     * ### getCurrentSpanAndParent
 
-public com.google.adk.plugins.agentanalytics.TraceManager.SpanIds getCurrentSpanAndParent()
+public com.google.adk.plugins.agentanalytics.TraceManager.SpanIds getCurrentSpanAndParent([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
 
     * ### getCurrentSpanId
 
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> getCurrentSpanId()
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> getCurrentSpanId([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") context)
 
     * ### recordFirstToken
 

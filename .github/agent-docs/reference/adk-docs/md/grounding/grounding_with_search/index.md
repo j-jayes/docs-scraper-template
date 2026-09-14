@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Grounding with Search 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -38,8 +33,10 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -186,6 +183,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 
@@ -195,14 +193,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../)
 
 Grounding 
@@ -273,7 +274,7 @@ Table of contents
 
 # Grounding with Search for agents¶
 
-Supported in ADKPython v0.1.0Java v0.1.0
+Supported in ADKPython v0.1.0Java v0.1.0Kotlin v0.2.0
 
 [Agent Search](/integrations/agent-search/) is a powerful tool for the Agent Development Kit (ADK) that enables AI agents to access information from your private enterprise documents and data repositories. By connecting your agents to indexed enterprise content, you can provide users with answers grounded in your organization's knowledge base.
 
@@ -285,12 +286,12 @@ Before creating a grounded agent, you must have an existing Agent Search Data St
 
 ## Authentication Setup¶
 
-**Note: Agent Search requires Google Cloud Platform (Agent Platform) authentication. Google AI Studio is not supported for this tool.**
+Agent Search requires your ADK agent to be connected to a Google Cloud project authentication. You can not use a Gemini API Key from Google AI Studio when using this tool. For more information on connecting your ADK agent to Google Cloud projects, see the [Connect to Google Cloud](/get-started/google-cloud/) guide.
 
   * Set up the [gcloud CLI](https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart-multimodal#setup-local)
   * Authenticate to Google Cloud, from the terminal by running `gcloud auth login`.
   * For Python, open the **`.env`** file and specify your project ID and location.
-  * For Java, ensure your application environment has Google Cloud default credentials configured (`GOOGLE_APPLICATION_CREDENTIALS`).
+  * For Java and Kotlin, ensure your application environment has Google Cloud default credentials configured (`GOOGLE_APPLICATION_CREDENTIALS`), and set the variables below in that same environment rather than in a `.env` file.
 
 
 
@@ -308,7 +309,7 @@ For more information on connecting to Google Cloud from ADK agents, see [Connect
 
 To enable Grounding with Search, you include the search tool in your agent definition, providing the `data_store_id`.
 
-PythonJava
+PythonJavaKotlin
     
     
     from google.adk.agents import Agent
@@ -340,6 +341,30 @@ PythonJava
         .description("Enterprise document search assistant with Agent Search capabilities")
         .tools(VertexAiSearchTool.builder().dataStoreId(DATASTORE_ID).build())
         .build();
+    
+    
+    
+    import com.google.adk.kt.agents.Instruction
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.models.Gemini
+    import com.google.adk.kt.tools.VertexAiSearchTool
+    
+    // Configuration
+    val DATASTORE_ID =
+        "projects/YOUR_PROJECT_ID/locations/global/collections/default_collection/dataStores/YOUR_DATASTORE_ID"
+    
+    val rootAgent =
+        LlmAgent(
+            name = "vertex_search_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            instruction =
+                Instruction(
+                    "Answer questions using Agent Search to find information from internal " +
+                        "documents. Always cite sources when available.",
+                ),
+            description = "Enterprise document search assistant with Agent Search capabilities",
+            tools = listOf(VertexAiSearchTool(dataStoreId = DATASTORE_ID)),
+        )
     
 
 ## How Grounding with Search works¶
@@ -443,7 +468,7 @@ Since grounding metadata is provided, you can choose to implement citation displ
 
 **Simple Text Display (Minimal Implementation):**
 
-PythonJava
+PythonJavaKotlin
     
     
     for event in events:
@@ -463,6 +488,20 @@ PythonJava
             // Optional: Show source count
             if (event.groundingMetadata().isPresent()) {
                 System.out.println("\nBased on " + event.groundingMetadata().get().groundingChunks().size() + " documents");
+            }
+        }
+    }
+    
+    
+    
+    events.collect { event ->
+        if (event.isFinalResponse) {
+            println(event.content?.parts?.firstOrNull()?.text)
+    
+            // Optional: Show source count
+            val chunks = event.groundingMetadata?.groundingChunks
+            if (!chunks.isNullOrEmpty()) {
+                println("\nBased on ${chunks.size} documents")
             }
         }
     }

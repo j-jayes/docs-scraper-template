@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../get-started/migrate/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
@@ -294,7 +295,6 @@ PythonTypeScriptGo
         model="gemini-flash-latest",
         instruction="""Return the name of a random city.
           Return only the name, nothing else.""",
-        output_schema=str,
     )
     
     class CityTime(BaseModel):
@@ -311,7 +311,6 @@ PythonTypeScriptGo
         input_schema=CityTime,
         instruction="""Output following line:
         It is {CityTime.time_info} in {CityTime.city} right now.""",
-        output_schema=str,
     )
     
     def completed_message_function(node_input: str):
@@ -476,7 +475,6 @@ PythonTypeScriptGo
           or "LOGISTICS". If you think a message applies to more than one category,
           reply with a comma separated list of categories.
        """,
-        output_schema=str,
     )
     
     def router(node_input: str):

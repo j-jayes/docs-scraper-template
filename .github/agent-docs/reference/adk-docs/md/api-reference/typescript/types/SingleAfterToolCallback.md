@@ -74,11 +74,11 @@ When present, the returned record will be used as tool result.
 
 
 
-  * Defined in [agents/llm_agent.ts:164](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/llm_agent.ts#L164)
+  * Defined in [core/src/agents/llm_agent.ts:171](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L171)
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

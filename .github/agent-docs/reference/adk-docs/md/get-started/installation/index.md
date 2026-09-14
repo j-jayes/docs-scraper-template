@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../agents-cli/)
       * [ Installation  ](./)
       * [ Google Cloud  ](../google-cloud/)
+      * [ Migrate to ADK  ](../migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -391,8 +392,8 @@ build.gradle.kts
     }
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.9.0")
-        ksp("com.google.adk:google-adk-kotlin-processor:0.9.0")
+        implementation("com.google.adk:google-adk-kotlin-core:1.0.0")
+        ksp("com.google.adk:google-adk-kotlin-processor:1.0.0")
     }
     
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Safety and Security for AI Agents 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](..)
   * [ Build Agents ](../get-started/)
@@ -38,18 +33,15 @@ Get Started
       * [ Go  ](../get-started/go/)
       * [ Java  ](../get-started/java/)
       * [ Kotlin  ](../get-started/kotlin/)
+      * [ Agents CLI  ](../get-started/agents-cli/)
       * [ Installation  ](../get-started/installation/)
       * [ Google Cloud  ](../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../get-started/migrate/)
     * [ Build your Agent  ](../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../tutorials/multi-tool-agent/)
       * [ Agent team  ](../tutorials/agent-team/)
-      * [ Streaming agent  ](../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../tutorials/coding-with-ai/)
       * [ Agent Config  ](../agents/config/)
     * [ Agents  ](../agents/)
@@ -191,18 +183,27 @@ A2A Protocol
         * [ Python  ](../a2a/quickstart-consuming/)
         * [ Go  ](../a2a/quickstart-consuming-go/)
         * [ Java  ](../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../streaming/)
+    * [ Live and Voice Agents  ](../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../live/get-started/)
+
+Get started 
+        * [ Python  ](../live/get-started/streaming-python/)
+        * [ Java  ](../live/get-started/streaming-java/)
+      * Building  Building 
+        * [ Workflows  ](../live/workflows/)
+        * [ Tools  ](../live/tools/)
+        * [ Sessions  ](../live/sessions/)
+        * [ Events  ](../live/events/)
+        * [ Audio and video  ](../live/audio-video/)
+        * [ Configuration  ](../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../live/evaluation/)
+        * [ Build a custom server  ](../live/custom-server/)
+      * [ Supported models  ](../live/models/)
     * [ Grounding  ](../grounding/)
 
 Grounding 
@@ -216,7 +217,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../api-reference/python/)
-      * [ Typescript ADK  ](../api-reference/typescript/)
+      * [ TypeScript ADK  ](../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -263,7 +264,7 @@ Table of contents
 
 # Safety and Security for AI Agents¶
 
-Supported in ADKPythonTypeScriptGoJava
+Supported in ADKPythonTypeScriptGoJavaKotlin
 
 As AI agents grow in capability, ensuring they operate safely, securely, and align with your brand values is paramount. Uncontrolled agents can pose risks, including executing misaligned or harmful actions, such as data exfiltration, and generating inappropriate content that can impact your brand’s reputation. **Sources of risk include vague instructions, model hallucination, jailbreaks and prompt injections from adversarial users, and indirect prompt injections via tool use.**
 
@@ -483,10 +484,10 @@ PythonTypeScriptGoJava
         "fmt"
         "strings"
     
-        "google.golang.org/adk/v2/tool"
+        "google.golang.org/adk/v2/agent"
     )
     
-    func query(ctx tool.Context, args QueryArgs) (map[string]any, error) {
+    func query(ctx agent.Context, args QueryArgs) (map[string]any, error) {
         // Assume 'policy' is retrieved from context, e.g., via session state:
         policyAny, err := ctx.Session().State().Get("query_tool_policy")
         if err != nil {
@@ -542,8 +543,10 @@ PythonTypeScriptGoJava
       public Object query(String query, ToolContext toolContext) {
     
         // Assume 'policy' is retrieved from context, e.g., via session state:
+        @SuppressWarnings("unchecked")
         Map<String, Object> queryToolPolicy =
-            toolContext.invocationContext.session().state().getOrDefault("query_tool_policy", null);
+            (Map<String, Object>)
+                toolContext.invocationContext.session().state().getOrDefault("query_tool_policy", null);
         List<String> actualTables = explainQuery(query);
     
         // --- Placeholder Policy Enforcement ---
@@ -584,13 +587,14 @@ Gemini models come with in-built safety mechanisms that can be leveraged to impr
 
 
 
-PythonGo
+PythonGoKotlin
     
     
     from google.adk.agents import Agent
     from google.genai import types
     
     agent = Agent(
+        name="safety_agent",
         # ...
         generate_content_config=types.GenerateContentConfig(
             safety_settings=[
@@ -621,6 +625,29 @@ PythonGo
         },
     })
     
+    
+    
+    import com.google.adk.kt.agents.LlmAgent
+    import com.google.adk.kt.types.GenerateContentConfig
+    import com.google.adk.kt.types.HarmBlockThreshold
+    import com.google.adk.kt.types.HarmCategory
+    import com.google.adk.kt.types.SafetySetting
+    
+    val agent =
+        LlmAgent(
+            // ...
+            generateContentConfig =
+                GenerateContentConfig(
+                    safetySettings =
+                        listOf(
+                            SafetySetting(
+                                category = HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                                threshold = HarmBlockThreshold.OFF,
+                            ),
+                        ),
+                ),
+        )
+    
 
   * **System instructions for safety** : [System instructions](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/safety-system-instructions) for Gemini models on Agent Platform provide direct guidance to the model on how to behave and what type of content to generate. By providing specific instructions, you can proactively steer the model away from generating undesirable content to meet your organization’s unique needs. You can craft system instructions to define content safety guidelines, such as prohibited and sensitive topics, and disclaimer language, as well as brand safety guidelines to ensure the model's outputs align with your brand's voice, tone, values, and target audience.
 
@@ -639,7 +666,6 @@ PythonTypeScriptGoJava
     
     # Hypothetical callback function
     def validate_tool_params(
-        callback_context: CallbackContext, # Correct context type
         tool: BaseTool,
         args: Dict[str, Any],
         tool_context: ToolContext
@@ -648,7 +674,7 @@ PythonTypeScriptGoJava
       print(f"Callback triggered for tool: {tool.name}, args: {args}")
     
       # Example validation: Check if a required user ID from state matches an arg
-      expected_user_id = callback_context.state.get("session_user_id")
+      expected_user_id = tool_context.state.get("session_user_id")
       actual_user_id_in_args = args.get("user_id_param") # Assuming tool takes 'user_id_param'
     
       if actual_user_id_in_args != expected_user_id:
@@ -716,13 +742,14 @@ PythonTypeScriptGoJava
     import (
         "fmt"
     
+        "google.golang.org/adk/v2/agent"
         "google.golang.org/adk/v2/agent/llmagent"
         "google.golang.org/adk/v2/tool"
     )
     
     // Hypothetical callback function
     func validateToolParams(
-        ctx tool.Context,
+        ctx agent.Context,
         t tool.Tool,
         args map[string]any,
     ) (map[string]any, error) {

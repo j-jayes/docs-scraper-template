@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../../get-started/agents-cli/)
       * [ Installation  ](../../../get-started/installation/)
       * [ Google Cloud  ](../../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../../get-started/migrate/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -435,8 +436,8 @@ In your `build.gradle.kts`, add `com.google.adk:google-adk-kotlin-litertlm` and 
     }
     
     dependencies {
-        implementation("com.google.adk:google-adk-kotlin-core:0.9.0")
-        implementation("com.google.adk:google-adk-kotlin-litertlm:0.9.0")
+        implementation("com.google.adk:google-adk-kotlin-core:1.0.0")
+        implementation("com.google.adk:google-adk-kotlin-litertlm:1.0.0")
         implementation("com.google.ai.edge.litertlm:litertlm-jvm:0.13.1")
         // other dependencies...
     }

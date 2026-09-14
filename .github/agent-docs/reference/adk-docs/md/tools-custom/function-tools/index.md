@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -220,14 +221,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -1458,6 +1462,8 @@ Note: Long running function response with Resume feature
 
 If your ADK agent workflow is configured with the [Resume](/runtime/resume/) feature, you also must include the Invocation ID (`invocation_id`) parameter with the long running function response. The Invocation ID you provide must be the same invocation that generated the long running function request, otherwise the system starts a new invocation with the response. If your agent uses the Resume feature, consider including the Invocation ID as a parameter with your long running function request, so it can be included with the response. For more details on using the Resume feature, see [Resume stopped agents](/runtime/resume/).
 
+In **Kotlin** , the runner resolves the invocation from the function response's own call ID, so you do not need to pass `invocationId` to `runAsync`. A response whose ID matches no function call in the session throws instead.
+
 Applies to only Java ADK
 
 When passing `ToolContext` with Function Tools, ensure that one of the following is true:
@@ -1493,7 +1499,7 @@ OR
     </build>
     
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     # Agent Interaction
@@ -2031,6 +2037,57 @@ The following example demonstrates a multi-turn workflow. First, the user asks t
       }
     }
     
+    
+    
+    private fun printText(event: Event) {
+        val text = event.content?.parts?.mapNotNull { it.text }?.joinToString("").orEmpty()
+        if (text.isNotEmpty()) println("[${event.author}]: $text")
+    }
+    
+    suspend fun callReimbursementAgent(
+        runner: InMemoryRunner,
+        userId: String,
+        sessionId: String,
+        query: String,
+    ) {
+        var pendingCallId: String? = null
+        var pendingResponse: FunctionResponse? = null
+    
+        runner
+            .runAsync(
+                userId = userId,
+                sessionId = sessionId,
+                newMessage = Content(role = "user", parts = listOf(Part(text = query))),
+            ).collect { event ->
+                val callId = pendingCallId
+                if (callId == null) {
+                    // A long-running call is the one whose id the event lists in longRunningToolIds.
+                    pendingCallId =
+                        event
+                            .functionCalls()
+                            .firstOrNull { it.id != null && it.id in event.longRunningToolIds }
+                            ?.id
+                } else {
+                    event
+                        .functionResponses()
+                        .firstOrNull { it.id == callId }
+                        ?.let { pendingResponse = it }
+                }
+                printText(event)
+            }
+    
+        // The tool returned "pending" and the invocation paused. Resume it by sending the
+        // outcome back as a FunctionResponse carrying the same id.
+        val paused = pendingResponse ?: return
+        val updated = paused.copy(response = mapOf("status" to "approved"))
+        runner
+            .runAsync(
+                userId = userId,
+                sessionId = sessionId,
+                newMessage = Content(role = "user", parts = listOf(Part(functionResponse = updated))),
+            ).collect(::printText)
+    }
+    
 
 Python complete example: File Processing Simulation
     
@@ -2190,6 +2247,8 @@ Python complete example: File Processing Simulation
   * **`LongRunningFunctionTool`** : Wraps the supplied method/function; the framework handles sending yielded updates and the final return value as sequential FunctionResponses.
   * **Agent instruction** : Directs the LLM to use the tool and understand the incoming FunctionResponse stream (progress vs. completion) for user updates.
   * **Final return** : The function returns the final result dictionary, which is sent in the concluding FunctionResponse to indicate completion.
+  * **Kotlin has no`LongRunningFunctionTool` class**: Annotate the function with `@Tool(isLongRunning = true)`, or pass `isLongRunning = true` to a `BaseTool` subclass.
+  * **Kotlin turn count** : The tool above returns a value rather than `Unit`, so non-resumable apps send that placeholder to the model and call it a second time, ending turn 1 in an interim reply. A resumable app pauses on the function call with no second model call. Returning `Unit` suppresses the placeholder response entirely, ending the turn on the function call in either mode.
 
 
 

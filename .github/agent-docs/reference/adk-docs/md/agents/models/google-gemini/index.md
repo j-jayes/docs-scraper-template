@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../../get-started/agents-cli/)
       * [ Installation  ](../../../get-started/installation/)
       * [ Google Cloud  ](../../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../../get-started/migrate/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 

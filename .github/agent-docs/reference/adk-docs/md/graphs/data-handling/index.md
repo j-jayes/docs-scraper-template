@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -200,14 +201,17 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -262,7 +266,7 @@ Table of contents
 
 # Data handling for agent workflows¶
 
-Supported in ADKPython v2.0.0Go v2.0.0
+Supported in ADKPython v2.0.0TypeScript v2.0.0Go v2.0.0
 
 Structuring and managing data between agents and graph-based nodes is critical for building reliable processes with ADK. This guide explains data handling within graph-based workflows and collaboration agents, including how information is transmitted and received between graph nodes. It covers the essential parameters for passing data, content, and state, and explains how to implement structured data transfer for both function and agent nodes using data format schemas and specific instruction syntax.
 
@@ -270,7 +274,7 @@ Structuring and managing data between agents and graph-based nodes is critical f
 
 Within a graph-based workflow, nodes pass data to downstream steps through events. A step writes its output to a named event field, and the next step receives it as its typed input.
 
-PythonGo
+PythonTypeScriptGo
 
 In Python, data is exchanged between graph nodes using **_Events_**. The key parameters for node data handling are:
 
@@ -280,6 +284,23 @@ In Python, data is exchanged between graph nodes using **_Events_**. The key par
 
 
 
+In ADK TypeScript v2.0.0, nodes exchange data through events. The key fields for node data handling are:
+
+  * **`output`** : the value passed to the next node. Return a value directly and ADK wraps it in an event, or set the field explicitly with `createEvent({output})`.
+  * **`content`** : a message for the user. The runtime renders this field, but the graph does not pass it to the next node.
+  * **`route`** : the routing keys that select which conditional edge to follow.
+
+
+
+Session state is separate from the event. A node reads and writes state through `ctx.state`, and the accumulated delta is attached to that node's events. State keys can carry a prefix that controls their lifetime and scope:
+
+Prefix | Scope  
+---|---  
+`app:` | Shared across all users and sessions for the app  
+`user:` | Tied to the user, shared across their sessions  
+`temp:` | Discarded after the current invocation ends  
+_(none)_ | Persists for the lifetime of the session  
+  
 In ADK Go v2.0.0, the data-passing mechanism depends on which agent style you use:
 
 **workflow package** (`FunctionNode`, `AgentNode`, `DynamicNode`): nodes communicate through `session.Event` fields, mirroring Python closely:
@@ -311,7 +332,7 @@ _(none)_ | — | Persists for the lifetime of the session
 
 Each step in a workflow produces output for its successor.
 
-PythonGo
+PythonTypeScriptGo
 
 Use the **_return_** or **_yield_** syntax to hand off data to the next node:
     
@@ -324,6 +345,44 @@ Use the **_return_** or **_yield_** syntax to hand off data to the next node:
     
 
 Use the **_return_** syntax when outputting **_Event_** data that does not require additional processing. When emitting data that requires additional processing, or if you are generating more than one data item, you can use more than one **_yield_** command. Each **_yield_** call adds to a list of data objects on the Event which is passed to the next node of a graph. A **_return_** or **_yield_** command without a parameter passes a `None` value to the next node.
+
+There are three equivalent ways to produce a node's output: return a value directly, return `createEvent({output})`, or yield events from an async generator to stream progress alongside the result.
+    
+    
+    import { createEvent, node, NodeContext, Workflow } from '@google/adk';
+    
+    const returnRawValue = node(
+      (_ctx: NodeContext, nodeInput: string) => nodeInput.toUpperCase(),
+      { name: 'return_raw_value' },
+    );
+    
+    const returnEventOutput = node(
+      (_ctx: NodeContext, nodeInput: string) =>
+        createEvent({ output: `${nodeInput}!` }),
+      { name: 'return_event_output' },
+    );
+    
+    const yieldProgressThenOutput = node(
+      async function* (_ctx: NodeContext, nodeInput: string) {
+        yield createEvent({
+          content: { role: 'model', parts: [{ text: 'Working on it...' }] },
+        });
+        yield createEvent({ output: `<<${nodeInput}>>` });
+      },
+      { name: 'yield_progress_then_output' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'node_output_workflow',
+      edges: [
+        ['START', returnRawValue, returnEventOutput, yieldProgressThenOutput],
+      ],
+    });
+    
+
+Caution: emit `output` from one event per execution
+
+A node can yield any number of events carrying `output`, and ADK does not raise an error in this case. Each event overwrites the previous one, and the successor node receives only the final value. Use `content` for progress messages instead.
 
 **workflow package** : a `FunctionNode` simply returns a typed Go value. The framework automatically wraps the return value in a `session.Event` and sets `Event.Output`. The successor node receives this value as its typed `input` parameter — no manual event construction needed:
     
@@ -404,7 +463,7 @@ Use the **_return_** syntax when outputting **_Event_** data that does not requi
 
 ### Node output: passing structured data¶
 
-PythonGo
+PythonTypeScriptGo
 
 You can pass longer, structured data in a serializable format:
     
@@ -421,6 +480,39 @@ You can pass longer, structured data in a serializable format:
 Caution: Event.output limitation
 
 Nodes are only allowed to emit a single **_Event.output_** data payload per execution. This limitation means that while you can use more than one **_yield_** in a node, having two or more **_yield_** commands with an **_Event.output_** results in a runtime error.
+
+The `output` field is not limited to text. Any serializable value is passed to the next node, which receives it as a typed object, with no JSON parsing or state reads required. Attaching an `outputSchema` to the producing node, or an `inputSchema` to the consuming node, makes the contract explicit and validates it at runtime:
+    
+    
+    import { createEvent, node, NodeContext, Workflow } from '@google/adk';
+    import { z } from 'zod';
+    
+    const cityInfoSchema = z.object({
+      cityName: z.string(),
+      cityTime: z.string(),
+    });
+    type CityInfo = z.infer<typeof cityInfoSchema>;
+    
+    const emitStructuredOutput = node(
+      async function* () {
+        yield createEvent({
+          output: { cityName: 'Paris', cityTime: '10:10 AM' } satisfies CityInfo,
+        });
+      },
+      { name: 'emit_structured_output', outputSchema: cityInfoSchema },
+    );
+    
+    const consumeStructuredOutput = node(
+      (_ctx: NodeContext, cityInfo: CityInfo) =>
+        `It is ${cityInfo.cityTime} in ${cityInfo.cityName} right now.`,
+      { name: 'consume_structured_output', inputSchema: cityInfoSchema },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'structured_output_workflow',
+      edges: [['START', emitStructuredOutput, consumeStructuredOutput]],
+    });
+    
 
 **workflow package** : a `FunctionNode` can return any JSON-serializable Go struct. The framework serializes it into `Event.Output` and deserializes it back into the successor node's typed `input` parameter. There is no single-payload restriction — each node has exactly one typed return value:
     
@@ -482,13 +574,58 @@ Nodes are only allowed to emit a single **_Event.output_** data payload per exec
 
 ### Routing output¶
 
-PythonGo
+PythonTypeScriptGo
 
 Use the `route` parameter of an **_Event_** to drive conditional edge dispatch:
     
     
     def router(node_input: str):
         return Event(route="BUG")
+    
+
+The `route` value is independent of `output`, so one event can both select a branch and forward a payload to it. The `DEFAULT_ROUTE` setting catches any value that no other branch matched:
+    
+    
+    import {
+      createEvent,
+      DEFAULT_ROUTE,
+      node,
+      NodeContext,
+      Workflow,
+    } from '@google/adk';
+    
+    const router = node(
+      (_ctx: NodeContext, nodeInput: string) =>
+        createEvent({
+          route: /bug|crash|error/i.test(nodeInput) ? 'BUG' : 'OTHER',
+          output: nodeInput,
+        }),
+      { name: 'router' },
+    );
+    
+    const handleBug = node(
+      (_ctx: NodeContext, nodeInput: string) => `Filed a bug for: ${nodeInput}`,
+      { name: 'handle_bug' },
+    );
+    
+    const handleAnythingElse = node(
+      (_ctx: NodeContext, nodeInput: string) => `No bug detected in: ${nodeInput}`,
+      { name: 'handle_anything_else' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'routing_output_workflow',
+      edges: [
+        ['START', router],
+        [
+          router,
+          {
+            BUG: handleBug,
+            [DEFAULT_ROUTE]: handleAnythingElse,
+          },
+        ],
+      ],
+    });
     
 
 **workflow package** : an emitting `FunctionNode` constructs a `session.Event` directly, sets `Event.Routes` to the desired route keys, and sets `Event.Output` to forward the payload to the successor. The workflow engine reads `Event.Routes` at dispatch time to select the matching edge:
@@ -562,7 +699,7 @@ Use the `route` parameter of an **_Event_** to drive conditional edge dispatch:
 
 ### User-facing messages¶
 
-PythonGo
+PythonTypeScriptGo
 
 Use the **_message_** parameter of an **_Event_** to send a response to a user rather than pass data to the next node:
     
@@ -570,6 +707,42 @@ Use the **_message_** parameter of an **_Event_** to send a response to a user r
     async def user_message(node_input: str):
       """Tell user research process is starting."""
       yield Event(message="Beginning research process...")
+    
+
+A message for the user is the event's `content` field. The runtime renders `content`, but the graph does not pass it to the next node. Use `content` for the user and `output` for the next node. A node can emit both by sending two events, where only one carries `output`:
+    
+    
+    import { createEvent, node, NodeContext, Workflow } from '@google/adk';
+    
+    /** Emits a user-facing message: `content`, with no `output`. */
+    const message = (text: string) =>
+      createEvent({ content: { role: 'model', parts: [{ text }] } });
+    
+    const userMessage = node(
+      async function* (_ctx: NodeContext, nodeInput: string) {
+        yield message(`Beginning research process for "${nodeInput}"...`);
+      },
+      { name: 'user_message' },
+    );
+    
+    const research = node(
+      async function* (_ctx: NodeContext) {
+        yield message('Gathering sources...');
+        yield createEvent({ output: ['source-a', 'source-b', 'source-c'] });
+      },
+      { name: 'research' },
+    );
+    
+    const report = node(
+      (_ctx: NodeContext, sources: string[]) =>
+        `Research complete. ${sources.length} sources: ${sources.join(', ')}.`,
+      { name: 'report' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'user_message_workflow',
+      edges: [['START', userMessage, research, report]],
+    });
     
 
 **workflow package** : to emit a user-visible message without advancing the node's typed output, set `Event.Content` on an intermediate event emitted via the `emit` callback in an `EmittingFunctionNode`. The terminal return value (or `nil`) controls `Event.Output`.
@@ -580,7 +753,7 @@ Use the **_message_** parameter of an **_Event_** to send a response to a user r
 
 Session state persists data across turns within a session. It is the primary data-sharing mechanism for the prebuilt workflow agents, and is also available inside tools and callbacks regardless of which agent style you use.
 
-PythonGo
+PythonTypeScriptGo
 
 Use the **_state_** parameter of an **_Event_** to maintain values across nodes. Nodes can modify state values, and the modified state values are available to downstream nodes:
     
@@ -611,6 +784,46 @@ Use the **_state_** parameter of an **_Event_** to maintain values across nodes.
 Caution: `state` property data limitations
 
 The state parameter _should not be used to persist large amounts of data_ between nodes. Use artifacts or other data persistence mechanisms, such as database Tools, to persist large data resources during the life cycle of a Workflow.
+
+Write state through `ctx.state` rather than returning it. A write is visible to every later node in the same run, and is committed with the writing node's events:
+    
+    
+    import { node, NodeContext, Workflow } from '@google/adk';
+    
+    const initStateNode = node(
+      (ctx: NodeContext, nodeInput: string) => {
+        ctx.state.set('topic', nodeInput.trim());
+        ctx.state.set('temp:started_at', new Date().toISOString());
+        ctx.state.set('attempts', 0);
+      },
+      { name: 'init_state_node' },
+    );
+    
+    const taskAttemptNode = node(
+      (ctx: NodeContext) => {
+        const attempts = ctx.state.get<number>('attempts') ?? 0;
+        ctx.state.set('attempts', attempts + 1);
+      },
+      { name: 'task_attempt_node' },
+    );
+    
+    const readStateNode = node(
+      (ctx: NodeContext) =>
+        `attempts state: ${ctx.state.get('attempts')} ` +
+        `(topic: ${ctx.state.get('topic')}, ` +
+        `started: ${ctx.state.get('temp:started_at')})`,
+      { name: 'read_state_node' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'session_state_workflow',
+      edges: [['START', initStateNode, taskAttemptNode, readStateNode]],
+    });
+    
+
+Caution: `state` data limitations
+
+Session state is a lightweight key-value store. Do not use it to move large payloads between nodes; use artifacts or a database tool instead. When only the next node needs a value, pass it along the edge as node `output`. Use state when a value must outlive the run, or be read by a tool, a callback, or `{key}` instruction templating.
 
 State is written with `ctx.Session().State().Set(key, value)` and read with `.Get(key)`. The `session` package defines prefix constants that map to the same lifetime scopes as Python's state parameter. This pattern applies to prebuilt workflow agents and to tools and callbacks in any agent style:
     
@@ -667,7 +880,7 @@ For the `workflow` package (`FunctionNode`, `AgentNode`, `DynamicNode`), pass da
 
 You can set input and output data schemas to constrain the data formats accepted and produced by any agent node.
 
-PythonGo
+PythonTypeScriptGo
 
 Use `input_schema` and `output_schema` with a class that extends **_BaseModel_** to constrain any agent's input and output:
     
@@ -701,6 +914,115 @@ Use `input_schema` and `output_schema` with a class that extends **_BaseModel_**
         sub_agents=[flight_searcher],
         ...
     )
+    
+
+Schemas are Zod objects or a genai `Schema`. The location of the schema determines its effect:
+
+  * The `LlmAgent.outputSchema` option requires the model to answer in that shape.
+  * The `LlmAgent.inputSchema` option applies only when the agent is exposed as a tool. Inside a graph, set the schema that validates a node's input on the node itself, using `node(agent, {inputSchema})`.
+
+
+
+Agents in a graph must run in `single_turn` mode, which is the default, or `task` mode.
+    
+    
+    import {
+      FunctionTool,
+      LlmAgent,
+      node,
+      NodeContext,
+      Workflow,
+    } from '@google/adk';
+    import { z } from 'zod';
+    
+    const flightSearchInputSchema = z.object({
+      origin: z.string().describe('Origin airport code, e.g. "SFO".'),
+      destination: z.string().describe('Destination airport code, e.g. "CDG".'),
+      departureDate: z.string().describe('Departure date, e.g. "2026-03-15".'),
+      passengers: z.number().describe('Number of passengers.'),
+    });
+    type FlightSearchInput = z.infer<typeof flightSearchInputSchema>;
+    
+    const flightSchema = z.object({
+      carrier: z.string(),
+      flightNumber: z.string(),
+      price: z.number(),
+    });
+    
+    const flightSearchOutputSchema = z.object({
+      flights: z.array(flightSchema),
+      cheapestPrice: z.number(),
+    });
+    type FlightSearchOutput = z.infer<typeof flightSearchOutputSchema>;
+    
+    /** Stands in for a real flight-search API. */
+    const searchFlightsApi = new FunctionTool({
+      name: 'search_flights_api',
+      description: 'Searches available flights for a route and date.',
+      parameters: flightSearchInputSchema,
+      execute: ({ origin, destination }) => [
+        {
+          carrier: 'AF',
+          flightNumber: `AF${origin.length}${destination.length}0`,
+          price: 812.4,
+        },
+        {
+          carrier: 'UA',
+          flightNumber: `UA${origin.length}${destination.length}1`,
+          price: 947.0,
+        },
+      ],
+    });
+    
+    const parseRequest = node(
+      (_ctx: NodeContext, nodeInput: string): FlightSearchInput => {
+        const codes = nodeInput.toUpperCase().match(/\b[A-Z]{3}\b/g) ?? [];
+        const date = nodeInput.match(/\d{4}-\d{2}-\d{2}/)?.[0];
+        const passengers = Number(
+          nodeInput.match(/(\d+)\s*(people|pax|passengers?)/i)?.[1],
+        );
+        return {
+          origin: codes[0] ?? 'SFO',
+          destination: codes[1] ?? 'CDG',
+          departureDate: date ?? '2026-03-15',
+          passengers: Number.isFinite(passengers) ? passengers : 1,
+        };
+      },
+      { name: 'parse_request', outputSchema: flightSearchInputSchema },
+    );
+    
+    const flightSearcher = new LlmAgent({
+      name: 'flight_searcher',
+      model: 'gemini-flash-latest',
+      mode: 'single_turn',
+      instruction:
+        'Search for available flights with the search_flights_api tool and report ' +
+        'every flight it returns plus the cheapest price.',
+      inputSchema: flightSearchInputSchema,
+      outputSchema: flightSearchOutputSchema,
+      tools: [searchFlightsApi],
+    });
+    
+    const renderResults = node(
+      (_ctx: NodeContext, results: FlightSearchOutput) =>
+        `Cheapest: $${results.cheapestPrice}\n` +
+        results.flights
+          .map((f) => `  ${f.carrier} ${f.flightNumber} — $${f.price}`)
+          .join('\n'),
+      { name: 'render_results', inputSchema: flightSearchOutputSchema },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'flight_workflow',
+      edges: [
+        [
+          'START',
+          parseRequest,
+          node(flightSearcher, { inputSchema: flightSearchInputSchema }),
+          renderResults,
+        ],
+      ],
+    });
     
 
 **workflow package** : use `workflow.NewAgentNodeTyped[Input, Output]` to attach schemas to an agent node. The generic type parameters are reflected into `*jsonschema.Schema` automatically — no hand-built schema construction needed. The node's `Event.Output` carries the structured result to the successor — no `OutputKey` or state write is needed:
@@ -780,7 +1102,7 @@ Use `input_schema` and `output_schema` with a class that extends **_BaseModel_**
 
 ## Access structured data in agents¶
 
-PythonGo
+PythonTypeScriptGo
 
 Use the curly-brace `{ }` syntax to select properties from the input schema, or `< >` to select a property and also qualify it by the name of the source node:
     
@@ -818,6 +1140,62 @@ Use the curly-brace `{ }` syntax to select properties from the input schema, or 
             (START, city_generator_agent, lookup_time_function, city_report_agent)
         ],
     )
+    
+
+Two data-selection forms are available inside an agent instruction:
+
+  * The `{Class.field}` form reads a field from this node's input.
+  * The `<Class.field from source_node>` form reads a field from a named predecessor's output. Use this form when several upstream nodes share a field name.
+
+
+
+Both forms are distinct from `{state_key}`, which reads session state. The `Class.` prefix is documentation only; resolution uses the field name after the dot.
+    
+    
+    import { LlmAgent, node, NodeContext, Workflow } from '@google/adk';
+    import { z } from 'zod';
+    
+    const cityTimeSchema = z.object({
+      timeInfo: z.string().describe('Time information.'),
+      city: z.string().describe('City name.'),
+    });
+    type CityTime = z.infer<typeof cityTimeSchema>;
+    
+    const cityGeneratorAgent = new LlmAgent({
+      name: 'city_generator_agent',
+      model: 'gemini-flash-latest',
+      instruction: 'Return the name of a random city. Return only the name.',
+    });
+    
+    /** Simulates returning the current time in the specified city. */
+    const lookupTimeFunction = node(
+      (_ctx: NodeContext, city: string): CityTime => ({
+        timeInfo: '10:10 AM',
+        city: city.trim(),
+      }),
+      { name: 'lookup_time_function', outputSchema: cityTimeSchema },
+    );
+    
+    const cityReportAgent = new LlmAgent({
+      name: 'city_report_agent',
+      model: 'gemini-flash-latest',
+      instruction:
+        'Return a sentence in the following format: It is ' +
+        '<CityTime.timeInfo from lookup_time_function> in ' +
+        '<CityTime.city from lookup_time_function> right now.',
+    });
+    
+    export const rootAgent = new Workflow({
+      name: 'root_agent',
+      edges: [
+        [
+          'START',
+          cityGeneratorAgent,
+          lookupTimeFunction,
+          node(cityReportAgent, { inputSchema: cityTimeSchema }),
+        ],
+      ],
+    });
     
 
 In ADK Go v2.0.0, a `FunctionNode` returns a typed struct and the framework serializes it into `Event.Output`. The successor `AgentNode` receives the struct as its user content — the fields are available to the agent's `Instruction` without any `{key}` template syntax. This is the direct equivalent of Python's `input_schema=CityTime` with `{CityTime.time_info}` template placeholders: the struct fields are delivered as typed input rather than looked up by name from state.
