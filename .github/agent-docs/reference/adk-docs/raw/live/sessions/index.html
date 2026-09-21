@@ -26,31 +26,31 @@
       
       
       
-        <link rel="canonical" href="https://adk.dev/api-reference/">
+        <link rel="canonical" href="https://adk.dev/live/sessions/">
       
       
-        <link rel="prev" href="../integrations/">
+        <link rel="prev" href="../tools/">
       
       
-        <link rel="next" href="python/">
+        <link rel="next" href="../events/">
       
       
         
       
       
-      <link rel="icon" href="../assets/agent-development-kit.png">
+      <link rel="icon" href="../../assets/agent-development-kit.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>API Reference - Agent Development Kit (ADK)</title>
+        <title>Sessions - Agent Development Kit (ADK)</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -69,11 +69,11 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/custom.css">
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
     
-      <link rel="stylesheet" href="../stylesheets/language-tags.css">
+      <link rel="stylesheet" href="../../stylesheets/language-tags.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -110,8 +110,8 @@
 
   <!-- Pagefind search UI. hooks/pagefind.py builds the index and guards both
        filenames, so a third asset added here needs adding there too. -->
-  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
-  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <link rel="stylesheet" href="../../pagefind/pagefind-component-ui.css">
+  <script type="module" src="../../pagefind/pagefind-component-ui.js"></script>
   <!-- `| url` covers only the assets above. document.currentScript is null in a
        module script, so the bundle always fetches its index from the origin
        root: correct at a root domain, wrong under a subpath. -->
@@ -239,7 +239,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-reference" class="md-skip">
+        <a href="#sessions-for-live-agents" class="md-skip">
           Skip to content
         </a>
       
@@ -294,14 +294,14 @@
 
     <!-- Link to home -->
     <a
-      href=".."
+      href="../.."
       title="Agent Development Kit (ADK)"
       class="md-header__button md-logo"
       aria-label="Agent Development Kit (ADK)"
       data-md-component="logo"
     >
       
-  <img src="../assets/agent-development-kit.png" alt="logo">
+  <img src="../../assets/agent-development-kit.png" alt="logo">
 
     </a>
 
@@ -317,7 +317,7 @@
         <div class="md-header__topic">
           <span class="md-ellipsis">
             <a
-      href=".."
+      href="../.."
       title="Agent Development Kit (ADK)"
       aria-label="Agent Development Kit (ADK)"
       data-md-component="logo"
@@ -329,7 +329,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              API Reference
+              Sessions
             
             </a>
           </span>
@@ -442,7 +442,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -470,7 +470,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../get-started/" class="md-tabs__link">
+        <a href="../../get-started/" class="md-tabs__link">
           
   
   
@@ -502,7 +502,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../runtime/" class="md-tabs__link">
+        <a href="../../runtime/" class="md-tabs__link">
           
   
   
@@ -523,11 +523,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../get-started/about/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../get-started/about/" class="md-tabs__link">
           
   
   
@@ -549,7 +551,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../integrations/" class="md-tabs__link">
+        <a href="../../integrations/" class="md-tabs__link">
           
   
   
@@ -567,8 +569,6 @@
   
   
   
-    
-  
   
     
     
@@ -576,13 +576,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../api-reference/" class="md-tabs__link">
           
   
   
@@ -607,7 +605,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../community/" class="md-tabs__link">
+        <a href="../../community/" class="md-tabs__link">
           
   
   
@@ -629,7 +627,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../2.0/" class="md-tabs__link">
+        <a href="../../2.0/" class="md-tabs__link">
           
   
   
@@ -749,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -883,7 +881,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../get-started/" class="md-nav__link ">
+            <a href="../../get-started/" class="md-nav__link ">
               
   
   
@@ -927,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/python/" class="md-nav__link">
+      <a href="../../get-started/python/" class="md-nav__link">
         
   
   
@@ -955,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/typescript/" class="md-nav__link">
+      <a href="../../get-started/typescript/" class="md-nav__link">
         
   
   
@@ -983,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/go/" class="md-nav__link">
+      <a href="../../get-started/go/" class="md-nav__link">
         
   
   
@@ -1011,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/java/" class="md-nav__link">
+      <a href="../../get-started/java/" class="md-nav__link">
         
   
   
@@ -1039,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/kotlin/" class="md-nav__link">
+      <a href="../../get-started/kotlin/" class="md-nav__link">
         
   
   
@@ -1067,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/agents-cli/" class="md-nav__link">
+      <a href="../../get-started/agents-cli/" class="md-nav__link">
         
   
   
@@ -1095,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/installation/" class="md-nav__link">
+      <a href="../../get-started/installation/" class="md-nav__link">
         
   
   
@@ -1123,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/google-cloud/" class="md-nav__link">
+      <a href="../../get-started/google-cloud/" class="md-nav__link">
         
   
   
@@ -1151,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/migrate/" class="md-nav__link">
+      <a href="../../get-started/migrate/" class="md-nav__link">
         
   
   
@@ -1218,7 +1216,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../tutorials/" class="md-nav__link ">
+            <a href="../../tutorials/" class="md-nav__link ">
               
   
   
@@ -1262,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/multi-tool-agent/" class="md-nav__link">
+      <a href="../../tutorials/multi-tool-agent/" class="md-nav__link">
         
   
   
@@ -1290,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/agent-team/" class="md-nav__link">
+      <a href="../../tutorials/agent-team/" class="md-nav__link">
         
   
   
@@ -1318,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/coding-with-ai/" class="md-nav__link">
+      <a href="../../tutorials/coding-with-ai/" class="md-nav__link">
         
   
   
@@ -1346,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/config/" class="md-nav__link">
+      <a href="../../agents/config/" class="md-nav__link">
         
   
   
@@ -1409,7 +1407,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../agents/" class="md-nav__link ">
+            <a href="../../agents/" class="md-nav__link ">
               
   
   
@@ -1453,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/llm-agents/" class="md-nav__link">
+      <a href="../../agents/llm-agents/" class="md-nav__link">
         
   
   
@@ -1481,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/managed-agents/" class="md-nav__link">
+      <a href="../../agents/managed-agents/" class="md-nav__link">
         
   
   
@@ -1548,7 +1546,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../graphs/" class="md-nav__link ">
+            <a href="../../graphs/" class="md-nav__link ">
               
   
   
@@ -1592,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphs/routes/" class="md-nav__link">
+      <a href="../../graphs/routes/" class="md-nav__link">
         
   
   
@@ -1620,7 +1618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphs/data-handling/" class="md-nav__link">
+      <a href="../../graphs/data-handling/" class="md-nav__link">
         
   
   
@@ -1648,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphs/human-input/" class="md-nav__link">
+      <a href="../../graphs/human-input/" class="md-nav__link">
         
   
   
@@ -1676,7 +1674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphs/dynamic/" class="md-nav__link">
+      <a href="../../graphs/dynamic/" class="md-nav__link">
         
   
   
@@ -1743,7 +1741,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../workflows/" class="md-nav__link ">
+            <a href="../../workflows/" class="md-nav__link ">
               
   
   
@@ -1787,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workflows/collaboration/" class="md-nav__link">
+      <a href="../../workflows/collaboration/" class="md-nav__link">
         
   
   
@@ -1846,7 +1844,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../agents/workflow-agents/" class="md-nav__link ">
+            <a href="../../agents/workflow-agents/" class="md-nav__link ">
               
   
   
@@ -1890,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/workflow-agents/sequential-agents/" class="md-nav__link">
+      <a href="../../agents/workflow-agents/sequential-agents/" class="md-nav__link">
         
   
   
@@ -1918,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/workflow-agents/loop-agents/" class="md-nav__link">
+      <a href="../../agents/workflow-agents/loop-agents/" class="md-nav__link">
         
   
   
@@ -1946,7 +1944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/workflow-agents/parallel-agents/" class="md-nav__link">
+      <a href="../../agents/workflow-agents/parallel-agents/" class="md-nav__link">
         
   
   
@@ -1974,7 +1972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/custom-agents/" class="md-nav__link">
+      <a href="../../agents/custom-agents/" class="md-nav__link">
         
   
   
@@ -2010,7 +2008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/routing/" class="md-nav__link">
+      <a href="../../agents/routing/" class="md-nav__link">
         
   
   
@@ -2038,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workflows/patterns/" class="md-nav__link">
+      <a href="../../workflows/patterns/" class="md-nav__link">
         
   
   
@@ -2119,7 +2117,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../agents/models/" class="md-nav__link ">
+            <a href="../../agents/models/" class="md-nav__link ">
               
   
   
@@ -2163,7 +2161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/google-gemini/" class="md-nav__link">
+      <a href="../../agents/models/google-gemini/" class="md-nav__link">
         
   
   
@@ -2191,7 +2189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/google-gemma/" class="md-nav__link">
+      <a href="../../agents/models/google-gemma/" class="md-nav__link">
         
   
   
@@ -2219,7 +2217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/anthropic/" class="md-nav__link">
+      <a href="../../agents/models/anthropic/" class="md-nav__link">
         
   
   
@@ -2247,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/agent-platform/" class="md-nav__link">
+      <a href="../../agents/models/agent-platform/" class="md-nav__link">
         
   
   
@@ -2275,7 +2273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/apigee/" class="md-nav__link">
+      <a href="../../agents/models/apigee/" class="md-nav__link">
         
   
   
@@ -2303,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/routing/" class="md-nav__link">
+      <a href="../../agents/models/routing/" class="md-nav__link">
         
   
   
@@ -2331,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/openai/" class="md-nav__link">
+      <a href="../../agents/models/openai/" class="md-nav__link">
         
   
   
@@ -2359,7 +2357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/ollama/" class="md-nav__link">
+      <a href="../../agents/models/ollama/" class="md-nav__link">
         
   
   
@@ -2387,7 +2385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/vllm/" class="md-nav__link">
+      <a href="../../agents/models/vllm/" class="md-nav__link">
         
   
   
@@ -2415,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/litellm/" class="md-nav__link">
+      <a href="../../agents/models/litellm/" class="md-nav__link">
         
   
   
@@ -2443,7 +2441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/models/litert-lm/" class="md-nav__link">
+      <a href="../../agents/models/litert-lm/" class="md-nav__link">
         
   
   
@@ -2589,7 +2587,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../runtime/" class="md-nav__link ">
+            <a href="../../runtime/" class="md-nav__link ">
               
   
   
@@ -2658,7 +2656,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../runtime/web-interface/" class="md-nav__link ">
+            <a href="../../runtime/web-interface/" class="md-nav__link ">
               
   
   
@@ -2702,7 +2700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual-builder/" class="md-nav__link">
+      <a href="../../visual-builder/" class="md-nav__link">
         
   
   
@@ -2738,7 +2736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/command-line/" class="md-nav__link">
+      <a href="../../runtime/command-line/" class="md-nav__link">
         
   
   
@@ -2766,7 +2764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/api-server/" class="md-nav__link">
+      <a href="../../runtime/api-server/" class="md-nav__link">
         
   
   
@@ -2794,7 +2792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/ambient-agents/" class="md-nav__link">
+      <a href="../../runtime/ambient-agents/" class="md-nav__link">
         
   
   
@@ -2822,7 +2820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/resume/" class="md-nav__link">
+      <a href="../../runtime/resume/" class="md-nav__link">
         
   
   
@@ -2850,7 +2848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/cancel/" class="md-nav__link">
+      <a href="../../runtime/cancel/" class="md-nav__link">
         
   
   
@@ -2878,7 +2876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/runconfig/" class="md-nav__link">
+      <a href="../../runtime/runconfig/" class="md-nav__link">
         
   
   
@@ -2906,7 +2904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime/event-loop/" class="md-nav__link">
+      <a href="../../runtime/event-loop/" class="md-nav__link">
         
   
   
@@ -2971,7 +2969,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../deploy/" class="md-nav__link ">
+            <a href="../../deploy/" class="md-nav__link ">
               
   
   
@@ -3044,7 +3042,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../deploy/agent-runtime/" class="md-nav__link ">
+            <a href="../../deploy/agent-runtime/" class="md-nav__link ">
               
   
   
@@ -3088,7 +3086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/agent-runtime/deploy/" class="md-nav__link">
+      <a href="../../deploy/agent-runtime/deploy/" class="md-nav__link">
         
   
   
@@ -3116,7 +3114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/agent-runtime/agents-cli/" class="md-nav__link">
+      <a href="../../deploy/agent-runtime/agents-cli/" class="md-nav__link">
         
   
   
@@ -3144,7 +3142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/agent-runtime/test/" class="md-nav__link">
+      <a href="../../deploy/agent-runtime/test/" class="md-nav__link">
         
   
   
@@ -3180,7 +3178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/cloud-run/" class="md-nav__link">
+      <a href="../../deploy/cloud-run/" class="md-nav__link">
         
   
   
@@ -3208,7 +3206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deploy/gke/" class="md-nav__link">
+      <a href="../../deploy/gke/" class="md-nav__link">
         
   
   
@@ -3273,7 +3271,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../observability/" class="md-nav__link ">
+            <a href="../../observability/" class="md-nav__link ">
               
   
   
@@ -3317,7 +3315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../observability/logging/" class="md-nav__link">
+      <a href="../../observability/logging/" class="md-nav__link">
         
   
   
@@ -3345,7 +3343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../observability/metrics/" class="md-nav__link">
+      <a href="../../observability/metrics/" class="md-nav__link">
         
   
   
@@ -3373,7 +3371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../observability/traces/" class="md-nav__link">
+      <a href="../../observability/traces/" class="md-nav__link">
         
   
   
@@ -3442,7 +3440,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../evaluate/" class="md-nav__link ">
+            <a href="../../evaluate/" class="md-nav__link ">
               
   
   
@@ -3486,7 +3484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../evaluate/criteria/" class="md-nav__link">
+      <a href="../../evaluate/criteria/" class="md-nav__link">
         
   
   
@@ -3514,7 +3512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../evaluate/user-sim/" class="md-nav__link">
+      <a href="../../evaluate/user-sim/" class="md-nav__link">
         
   
   
@@ -3542,7 +3540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../evaluate/environment_simulation/" class="md-nav__link">
+      <a href="../../evaluate/environment_simulation/" class="md-nav__link">
         
   
   
@@ -3570,7 +3568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../evaluate/custom_metrics/" class="md-nav__link">
+      <a href="../../evaluate/custom_metrics/" class="md-nav__link">
         
   
   
@@ -3598,7 +3596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../optimize/" class="md-nav__link">
+      <a href="../../optimize/" class="md-nav__link">
         
   
   
@@ -3657,7 +3655,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../safety/" class="md-nav__link ">
+            <a href="../../safety/" class="md-nav__link ">
               
   
   
@@ -3708,8 +3706,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -3737,19 +3737,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -3767,7 +3770,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3785,7 +3788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-started/about/" class="md-nav__link">
+      <a href="../../get-started/about/" class="md-nav__link">
         
   
   
@@ -3835,10 +3838,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -3846,7 +3852,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../tools-custom/" class="md-nav__link ">
+            <a href="../../tools-custom/" class="md-nav__link ">
               
   
   
@@ -3864,7 +3870,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -3950,7 +3956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-custom/function-tools/" class="md-nav__link">
+      <a href="../../tools-custom/function-tools/" class="md-nav__link">
         
   
   
@@ -3978,7 +3984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-custom/performance/" class="md-nav__link">
+      <a href="../../tools-custom/performance/" class="md-nav__link">
         
   
   
@@ -4006,7 +4012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-custom/confirmation/" class="md-nav__link">
+      <a href="../../tools-custom/confirmation/" class="md-nav__link">
         
   
   
@@ -4042,7 +4048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-custom/mcp-tools/" class="md-nav__link">
+      <a href="../../tools-custom/mcp-tools/" class="md-nav__link">
         
   
   
@@ -4070,7 +4076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-custom/openapi-tools/" class="md-nav__link">
+      <a href="../../tools-custom/openapi-tools/" class="md-nav__link">
         
   
   
@@ -4098,7 +4104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-custom/authentication/" class="md-nav__link">
+      <a href="../../tools-custom/authentication/" class="md-nav__link">
         
   
   
@@ -4126,7 +4132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/limitations/" class="md-nav__link">
+      <a href="../../tools/limitations/" class="md-nav__link">
         
   
   
@@ -4174,10 +4180,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -4185,7 +4194,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../artifacts/" class="md-nav__link ">
+            <a href="../../artifacts/" class="md-nav__link ">
               
   
   
@@ -4244,10 +4253,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -4255,7 +4267,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../skills/" class="md-nav__link ">
+            <a href="../../skills/" class="md-nav__link ">
               
   
   
@@ -4318,10 +4330,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -4329,7 +4344,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../apps/" class="md-nav__link ">
+            <a href="../../apps/" class="md-nav__link ">
               
   
   
@@ -4347,7 +4362,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -4400,7 +4415,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../callbacks/" class="md-nav__link ">
+            <a href="../../callbacks/" class="md-nav__link ">
               
   
   
@@ -4444,7 +4459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../callbacks/types-of-callbacks/" class="md-nav__link">
+      <a href="../../callbacks/types-of-callbacks/" class="md-nav__link">
         
   
   
@@ -4472,7 +4487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../callbacks/design-patterns-and-best-practices/" class="md-nav__link">
+      <a href="../../callbacks/design-patterns-and-best-practices/" class="md-nav__link">
         
   
   
@@ -4508,7 +4523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/" class="md-nav__link">
+      <a href="../../plugins/" class="md-nav__link">
         
   
   
@@ -4570,10 +4585,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -4581,7 +4599,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../context/" class="md-nav__link ">
+            <a href="../../context/" class="md-nav__link ">
               
   
   
@@ -4599,7 +4617,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -4625,7 +4643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sessions/" class="md-nav__link">
+      <a href="../../sessions/" class="md-nav__link">
         
   
   
@@ -4680,7 +4698,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../sessions/session/" class="md-nav__link ">
+            <a href="../../sessions/session/" class="md-nav__link ">
               
   
   
@@ -4724,7 +4742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sessions/session/rewind/" class="md-nav__link">
+      <a href="../../sessions/session/rewind/" class="md-nav__link">
         
   
   
@@ -4752,7 +4770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sessions/session/migrate/" class="md-nav__link">
+      <a href="../../sessions/session/migrate/" class="md-nav__link">
         
   
   
@@ -4788,7 +4806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sessions/state/" class="md-nav__link">
+      <a href="../../sessions/state/" class="md-nav__link">
         
   
   
@@ -4816,7 +4834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../events/" class="md-nav__link">
+      <a href="../../events/" class="md-nav__link">
         
   
   
@@ -4844,7 +4862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sessions/memory/" class="md-nav__link">
+      <a href="../../sessions/memory/" class="md-nav__link">
         
   
   
@@ -4872,7 +4890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context/compaction/" class="md-nav__link">
+      <a href="../../context/compaction/" class="md-nav__link">
         
   
   
@@ -4900,7 +4918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context/caching/" class="md-nav__link">
+      <a href="../../context/caching/" class="md-nav__link">
         
   
   
@@ -4948,10 +4966,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -4959,7 +4980,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../mcp/" class="md-nav__link ">
+            <a href="../../mcp/" class="md-nav__link ">
               
   
   
@@ -5026,10 +5047,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -5037,7 +5061,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../a2a/" class="md-nav__link ">
+            <a href="../../a2a/" class="md-nav__link ">
               
   
   
@@ -5055,7 +5079,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -5081,7 +5105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/intro/" class="md-nav__link">
+      <a href="../../a2a/intro/" class="md-nav__link">
         
   
   
@@ -5169,7 +5193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-exposing/" class="md-nav__link">
+      <a href="../../a2a/quickstart-exposing/" class="md-nav__link">
         
   
   
@@ -5197,7 +5221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-exposing-go/" class="md-nav__link">
+      <a href="../../a2a/quickstart-exposing-go/" class="md-nav__link">
         
   
   
@@ -5225,7 +5249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-exposing-java/" class="md-nav__link">
+      <a href="../../a2a/quickstart-exposing-java/" class="md-nav__link">
         
   
   
@@ -5323,7 +5347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-consuming/" class="md-nav__link">
+      <a href="../../a2a/quickstart-consuming/" class="md-nav__link">
         
   
   
@@ -5351,7 +5375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-consuming-go/" class="md-nav__link">
+      <a href="../../a2a/quickstart-consuming-go/" class="md-nav__link">
         
   
   
@@ -5379,7 +5403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-consuming-java/" class="md-nav__link">
+      <a href="../../a2a/quickstart-consuming-java/" class="md-nav__link">
         
   
   
@@ -5407,7 +5431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/quickstart-consuming-kotlin/" class="md-nav__link">
+      <a href="../../a2a/quickstart-consuming-kotlin/" class="md-nav__link">
         
   
   
@@ -5443,7 +5467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a/a2a-extension/" class="md-nav__link">
+      <a href="../../a2a/a2a-extension/" class="md-nav__link">
         
   
   
@@ -5476,6 +5500,8 @@
                 
   
   
+    
+  
   
   
     
@@ -5499,18 +5525,21 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../live/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -5528,13 +5557,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5581,7 +5610,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../live/get-started/" class="md-nav__link ">
+            <a href="../get-started/" class="md-nav__link ">
               
   
   
@@ -5625,7 +5654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/get-started/streaming-python/" class="md-nav__link">
+      <a href="../get-started/streaming-python/" class="md-nav__link">
         
   
   
@@ -5653,7 +5682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/get-started/streaming-java/" class="md-nav__link">
+      <a href="../get-started/streaming-java/" class="md-nav__link">
         
   
   
@@ -5686,8 +5715,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -5712,11 +5743,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3" checked>
         
           
           <label class="md-nav__link" for="__nav_4_9_3" id="__nav_4_9_3_label" tabindex="0">
@@ -5737,7 +5768,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_9_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_9_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_9_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5755,7 +5786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/workflows/" class="md-nav__link">
+      <a href="../workflows/" class="md-nav__link">
         
   
   
@@ -5783,7 +5814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/tools/" class="md-nav__link">
+      <a href="../tools/" class="md-nav__link">
         
   
   
@@ -5808,10 +5839,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../live/sessions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sessions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5827,6 +5885,165 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-a-live-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up a live application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liverequestqueue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LiveRequestQueue
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LiveRequestQueue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-and-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency and ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-run_live-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The run_live() loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The run_live() loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-run_live-exits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When run_live() exits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-saved-to-the-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What gets saved to the session
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adk-session-vs-live-api-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADK Session vs Live API session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADK Session vs Live API session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-resumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session resumption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-window-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context window compression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrent-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrent sessions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5839,7 +6056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/events/" class="md-nav__link">
+      <a href="../events/" class="md-nav__link">
         
   
   
@@ -5867,7 +6084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/audio-video/" class="md-nav__link">
+      <a href="../audio-video/" class="md-nav__link">
         
   
   
@@ -5895,7 +6112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -5989,7 +6206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/evaluation/" class="md-nav__link">
+      <a href="../evaluation/" class="md-nav__link">
         
   
   
@@ -6017,7 +6234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/custom-server/" class="md-nav__link">
+      <a href="../custom-server/" class="md-nav__link">
         
   
   
@@ -6053,7 +6270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live/models/" class="md-nav__link">
+      <a href="../models/" class="md-nav__link">
         
   
   
@@ -6105,10 +6322,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -6116,7 +6336,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../grounding/" class="md-nav__link ">
+            <a href="../../grounding/" class="md-nav__link ">
               
   
   
@@ -6134,7 +6354,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -6160,7 +6380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../grounding/google_search_grounding/" class="md-nav__link">
+      <a href="../../grounding/google_search_grounding/" class="md-nav__link">
         
   
   
@@ -6188,7 +6408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../grounding/grounding_with_search/" class="md-nav__link">
+      <a href="../../grounding/grounding_with_search/" class="md-nav__link">
         
   
   
@@ -6254,7 +6474,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../integrations/" class="md-nav__link ">
+            <a href="../../integrations/" class="md-nav__link ">
               
   
   
@@ -6297,10 +6517,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -6312,22 +6530,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -6345,7 +6560,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -6360,8 +6575,6 @@
                 
   
   
-    
-  
   
   
     
@@ -6393,21 +6606,18 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../api-reference/" class="md-nav__link ">
               
   
   
@@ -6425,13 +6635,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -6451,7 +6661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/" class="md-nav__link">
+      <a href="../../api-reference/python/" class="md-nav__link">
         
   
   
@@ -6479,7 +6689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="typescript/" class="md-nav__link">
+      <a href="../../api-reference/typescript/" class="md-nav__link">
         
   
   
@@ -6629,7 +6839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="java/" class="md-nav__link">
+      <a href="../../api-reference/java/" class="md-nav__link">
         
   
   
@@ -6657,7 +6867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kotlin/" class="md-nav__link">
+      <a href="../../api-reference/kotlin/" class="md-nav__link">
         
   
   
@@ -6685,7 +6895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cli/" class="md-nav__link">
+      <a href="../../api-reference/cli/" class="md-nav__link">
         
   
   
@@ -6713,7 +6923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentconfig/" class="md-nav__link">
+      <a href="../../api-reference/agentconfig/" class="md-nav__link">
         
   
   
@@ -6741,7 +6951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rest/" class="md-nav__link">
+      <a href="../../api-reference/rest/" class="md-nav__link">
         
   
   
@@ -6777,7 +6987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/" class="md-nav__link">
+      <a href="../../release-notes/" class="md-nav__link">
         
   
   
@@ -6837,7 +7047,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../community/" class="md-nav__link ">
+            <a href="../../community/" class="md-nav__link ">
               
   
   
@@ -6881,7 +7091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../community/contributing-guide/" class="md-nav__link">
+      <a href="../../community/contributing-guide/" class="md-nav__link">
         
   
   
@@ -6939,7 +7149,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../2.0/" class="md-nav__link ">
+            <a href="../../2.0/" class="md-nav__link ">
               
   
   
@@ -6998,6 +7208,153 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-a-live-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up a live application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liverequestqueue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LiveRequestQueue
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LiveRequestQueue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-and-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency and ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-run_live-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The run_live() loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The run_live() loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-run_live-exits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When run_live() exits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-saved-to-the-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What gets saved to the session
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adk-session-vs-live-api-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADK Session vs Live API session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADK Session vs Live API session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-resumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session resumption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-window-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context window compression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrent-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrent sessions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7021,7 +7378,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -7038,23 +7395,15 @@
   
     
     
-      
-  
-  
-    
-    
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../../get-started/about/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Reference
+    Components
   </span>
 
         </a>
       </li>
-    
-  
-
     
   
 
@@ -7065,10 +7414,28 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    API Reference
+    Live and Voice Agents
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../workflows/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Building
   </span>
 
         </a>
@@ -7087,7 +7454,7 @@
 
 
   
-    <a href="https://github.com/google/adk-docs/edit/main/docs/api-reference/index.md" title="Edit this page on GitHub" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/google/adk-docs/edit/main/docs/live/sessions.md" title="Edit this page on GitHub" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -7105,84 +7472,349 @@
   </button>
 
 
-<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
-<p>The Agent Development Kit (ADK) provides comprehensive API references across supported languages, allowing you to dive deep into all available classes, methods, and functionalities.</p>
-<div class="grid cards">
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span> <strong>Python API Reference</strong></p>
-<hr />
-<p>Explore the complete API documentation for the Python Agent Development Kit. Discover detailed information on all modules, classes, functions, and examples to build sophisticated AI agents with Python.</p>
-<p><a href="https://adk.dev/api-reference/python/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View Python API Docs</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M0 32v448h448V32zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6"/></svg></span> <strong>TypeScript API Reference</strong></p>
-<hr />
-<p>Access the complete API documentation for the TypeScript Agent Development Kit. Find detailed information on all packages, classes, and methods to build powerful and flexible AI agents with TypeScript.</p>
-<p><a href="https://adk.dev/api-reference/typescript/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View TypeScript API Docs</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M400.1 194.8c-10.9 2.8-19.9 4.3-29.1 7.6-7.3 1.9-14.7 3.9-23.2 6.1l-.6.1c-4.2 1.2-4.6 1.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4 4.7-21.2 13.7-32.1 34-31.8 59.2.3 25 17.4 45.5 41.2 48.9 22 2.8 39.8-4.6 53.8-20.5 2.1-2.6 4-5.3 6.1-8.3.8-1 1.5-2.1 2.3-3.3h-60.1c-6.5 0-8.1-4-5.9-9.3 4-9.7 11.5-25.9 15.9-34 .9-1.8 3.1-5.8 6.9-5.8h101.1c4.5-13.4 11.8-26.9 21.6-39.7 22.7-29.9 49.3-45.5 87.2-52 31.8-5.6 61.7-2.5 88.9 15.9 24.6 16.8 39.8 39.6 43.9 69.5 5.3 42.1-6.9 76.3-36.7 105.6-19.7 20.9-44.9 34-73.9 39.9-5.6 1-11.1 1.5-16.5 2-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7 7.3-8 14.4-14 21.1-21.6 29.6-50.9 48-87.9 52.9-30.6 4.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34 5.9-65.4 26.4-91.3 22.2-29 51.5-47.4 87.3-53.9 29.3-6.2 57.3-1.9 82.6 15.3 16.5 10.9 28.3 25.8 36.1 43.9 1.9 2.8.6 4.4-3.1 5.3m-351.8 5.6c-1.3 0-1.6-.6-.9-1.6l6.6-8.4c.6-.9 2.2-1.5 3.4-1.5h111.3c1.2 0 1.5.9.9 1.8l-5.3 8.1c-.6 1-2.2 1.9-3.1 1.9l-112.8-.3zM1.2 229.1c-1.2 0-1.6-.7-.9-1.6l6.5-8.4c.6-.9 2.2-1.6 3.4-1.6h142.1c1.2 0 1.8 1 1.5 1.9l-2.5 7.5c-.3 1.2-1.5 1.9-2.8 1.9zm74.5 26.8c-.6.9-.3 1.8.9 1.8l68 .3c.9 0 2.2-.9 2.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2 0-2.5.9-3.1 1.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29 6.5-47.7 24.9-54.5 54.2-5.6 24.3 6.2 48.9 28.6 58.9 17.2 7.5 34.3 6.6 50.8-1.9 24.6-13.6 38-32.7 39.6-59.5-.1-1.2-.1-2.3-.2-3.3"/></svg></span> <strong>Go API Reference</strong></p>
-<hr />
-<p>Explore the complete API documentation for the Go Agent Development Kit. Discover detailed information on all modules, classes, and functions to build sophisticated AI agents with Go.</p>
-<p><a href="https://pkg.go.dev/google.golang.org/adk/v2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View Go v2.x API Docs</a> <br>
-<a href="https://pkg.go.dev/google.golang.org/adk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View Go v1.x API Docs</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M277.8 312.9c9.8-6.7 23.4-12.5 23.4-12.5s-38.7 7-77.2 10.2c-47.1 3.9-97.7 4.7-123.1 1.3-60.1-8 33-30.1 33-30.1s-36.1-2.4-80.6 19c-52.5 25.4 130 37 224.5 12.1m-85.4-32.1c-19-42.7-83.1-80.2 0-145.8C296.1 53.2 242.9 0 242.9 0c21.5 84.5-75.6 110.1-110.7 162.6-23.9 35.9 11.7 74.4 60.2 118.2M307 104.6c.1 0-175.2 43.8-91.5 140.2 24.7 28.4-6.5 54-6.5 54s62.7-32.4 33.9-72.9c-26.9-37.8-47.5-56.6 64.1-121.3m-6.1 270.5c-.5 1-1.2 1.8-2 2.6 128.3-33.7 81.1-118.9 19.8-97.3-3.3 1.2-6.2 3.4-8.2 6.3 3.6-1.3 7.3-2.3 11-3 31-6.5 75.5 41.5-20.6 91.4m47.1 62.3s14.5 11.9-15.9 21.2c-57.9 17.5-240.8 22.8-291.6.7-18.3-7.9 16-19 26.8-21.3 11.2-2.4 17.7-2 17.7-2-20.3-14.3-131.3 28.1-56.4 40.2C232.8 509.4 401 461.3 348 437.4M124.5 396c-78.7 22 47.9 67.4 148.1 24.5q-14.7-5.7-28.2-13.8c-44.7 8.5-65.4 9.1-106 4.5-33.5-3.8-13.9-15.2-13.9-15.2m179.8 97.2C225.6 508 128.5 506.3 71 496.8c0-.1 11.8 9.7 72.4 13.6 92.2 5.9 233.8-3.3 237.1-46.9 0 0-6.4 16.5-76.2 29.7M260.7 353c-59.2 11.4-93.5 11.1-136.8 6.6-33.5-3.5-11.6-19.7-11.6-19.7-86.8 28.8 48.2 61.4 169.5 25.9-7.8-2.8-15-7.1-21.1-12.8"/></svg></span> <strong>Java API Reference</strong></p>
-<hr />
-<p>Access the comprehensive Javadoc for the Java Agent Development Kit. This reference provides detailed specifications for all packages, classes, interfaces, and methods, enabling you to develop robust AI agents using Java.</p>
-<p><a href="https://adk.dev/api-reference/java/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View Java API Docs</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 24H0V0h24L12 12Z"/></svg></span> <strong>Kotlin API Reference</strong></p>
-<hr />
-<p>Access the complete KDoc documentation for the Kotlin Agent Development Kit. This reference covers all packages, classes, and functions for building AI agents with Kotlin.</p>
-<p><a href="https://adk.dev/api-reference/kotlin/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View Kotlin API Docs</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></svg></span> <strong>CLI Reference</strong></p>
-<hr />
-<p>Explore the complete API documentation for the CLI including all of the
-valid options and subcommands.</p>
-<p><a href="https://adk.dev/api-reference/cli/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View CLI Docs</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 2h14v14H5zm2 2v2h10V7zm0 4v2h10v-2zm0 4v2h7v-2z"/></svg></span> <strong>Agent Config YAML reference</strong></p>
-<hr />
-<p>View the full Agent Config syntax for configuring ADK with
-YAML text files.</p>
-<p><a href="https://adk.dev/api-reference/agentconfig/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View Agent Config reference</a> <br></p>
-</li>
-</ul>
-<!-- This comment forces a block separation -->
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m-2 12c-.25 0-.46-.18-.5-.42l-.37-2.65c-.63-.25-1.17-.59-1.69-.99l-2.49 1.01c-.22.08-.49 0-.61-.22l-2-3.46a.493.493 0 0 1 .12-.64l2.11-1.66L4.5 12l.07-1-2.11-1.63a.493.493 0 0 1-.12-.64l2-3.46c.12-.22.39-.31.61-.22l2.49 1c.52-.39 1.06-.73 1.69-.98l.37-2.65c.04-.24.25-.42.5-.42h4c.25 0 .46.18.5.42l.37 2.65c.63.25 1.17.59 1.69.98l2.49-1c.22-.09.49 0 .61.22l2 3.46c.13.22.07.49-.12.64L19.43 11l.07 1-.07 1 2.11 1.63c.19.15.25.42.12.64l-2 3.46c-.12.22-.39.31-.61.22l-2.49-1c-.52.39-1.06.73-1.69.98l-.37 2.65c-.04.24-.25.42-.5.42zm1.25-18-.37 2.61c-1.2.25-2.26.89-3.03 1.78L5.44 7.35l-.75 1.3L6.8 10.2a5.55 5.55 0 0 0 0 3.6l-2.12 1.56.75 1.3 2.43-1.04c.77.88 1.82 1.52 3.01 1.76l.37 2.62h1.52l.37-2.61c1.19-.25 2.24-.89 3.01-1.77l2.43 1.04.75-1.3-2.12-1.55c.4-1.17.4-2.44 0-3.61l2.11-1.55-.75-1.3-2.41 1.04a5.42 5.42 0 0 0-3.03-1.77L12.75 4z"/></svg></span> <strong>REST API Reference</strong></p>
-<hr />
-<p>Explore the REST API for the ADK web server. This reference provides details on the available endpoints, request and response formats, and more.</p>
-<p><a href="https://adk.dev/api-reference/rest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> View REST API Docs</a> <br></p>
-</li>
-</ul>
+<h1 id="sessions-for-live-agents">Sessions for live agents<a class="headerlink" href="#sessions-for-live-agents" title="Permanent link">&para;</a></h1>
+<div class="language-support-tag">
+    <span class="lst-supported">Supported in ADK</span><span class="lst-python">Python v0.1.0</span>
 </div>
+
+<p>A live agent is a connection that stays open while the user talks, listens, interrupts, and
+falls silent.</p>
+<p>Live agents use the same <code>Session</code>, <code>SessionService</code>, and state model as any ADK agent, all
+covered in <a href="../../sessions/">Conversational context</a>. What a live session adds is a
+<em>connection</em>: one that can drop, time out, or outlive the model's context window. For what
+comes <em>back</em> out of that connection, see <a href="../events/">Events</a>; for the settings that shape
+it, see <a href="../configuration/">Configuration</a>.</p>
+<h2 id="set-up-a-live-application">Set up a live application<a class="headerlink" href="#set-up-a-live-application" title="Permanent link">&para;</a></h2>
+<p>A live application has two kinds of objects: ones you create once at startup and reuse for
+every session, and ones you create fresh per session.</p>
+<p><strong>Create once, reuse everywhere:</strong></p>
+<ul>
+<li><strong><code>Agent</code></strong>: your model, tools, and instructions. Stateless and reusable.</li>
+<li><strong><code>SessionService</code></strong>: stores conversation history so sessions survive reconnects and
+  restarts.</li>
+<li><strong><code>Runner</code></strong>: the runtime that drives the agent and yields events.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.agents</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.runners</span><span class="w"> </span><span class="kn">import</span> <span class="n">Runner</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.sessions</span><span class="w"> </span><span class="kn">import</span> <span class="n">InMemorySessionService</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">google_search</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">APP_NAME</span> <span class="o">=</span> <span class="s2">"live-agent"</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"google_search_agent"</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">model</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"DEMO_AGENT_MODEL"</span><span class="p">,</span> <span class="s2">"gemini-live-2.5-flash-native-audio"</span><span class="p">),</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">google_search</span><span class="p">],</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">instruction</span><span class="o">=</span><span class="s2">"You are a helpful assistant that can search the web."</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">runner</span> <span class="o">=</span> <span class="n">Runner</span><span class="p">(</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">app_name</span><span class="o">=</span><span class="n">APP_NAME</span><span class="p">,</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">agent</span><span class="o">=</span><span class="n">agent</span><span class="p">,</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">session_service</span><span class="o">=</span><span class="n">InMemorySessionService</span><span class="p">(),</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><code>InMemorySessionService</code> loses state when the process stops. For production, use
+<code>DatabaseSessionService</code> (SQLite, PostgreSQL, or MySQL) or <code>VertexAiSessionService</code> (managed
+on Google Cloud). See <a href="../../sessions/">Session services</a>.</p>
+<p><strong>Create per session:</strong></p>
+<ul>
+<li>A <a href="#adk-session-vs-live-api-session"><code>Session</code></a>, fetched or created before the loop runs.</li>
+<li>A <a href="../configuration/"><code>RunConfig</code></a>, which can differ per user (voice, transcription, limits).</li>
+<li>A <a href="#liverequestqueue"><code>LiveRequestQueue</code></a>, the channel you send user input through.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.agents.live_request_queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiveRequestQueue</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.agents.run_config</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunConfig</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">types</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Get-or-create handles both new conversations and reconnections.</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">session</span> <span class="o">=</span> <span class="k">await</span> <span class="n">session_service</span><span class="o">.</span><span class="n">get_session</span><span class="p">(</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">app_name</span><span class="o">=</span><span class="n">APP_NAME</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="k">await</span> <span class="n">session_service</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">app_name</span><span class="o">=</span><span class="n">APP_NAME</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">run_config</span> <span class="o">=</span> <span class="n">RunConfig</span><span class="p">(</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">response_modalities</span><span class="o">=</span><span class="p">[</span><span class="s2">"AUDIO"</span><span class="p">],</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">session_resumption</span><span class="o">=</span><span class="n">types</span><span class="o">.</span><span class="n">SessionResumptionConfig</span><span class="p">(),</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">live_request_queue</span> <span class="o">=</span> <span class="n">LiveRequestQueue</span><span class="p">()</span>
+</span></code></pre></div>
+<p><code>user_id</code> and <code>session_id</code> are arbitrary strings you define; ADK generates a UUID if you
+pass <code>session_id=None</code>. The session must exist before you call <code>run_live()</code> with the same
+identifiers, or <code>run_live()</code> raises <code>ValueError: Session not found</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">One queue per session</p>
+<p>Never reuse a <code>LiveRequestQueue</code> across sessions. The close signal persists in the queue
+and would carry over, corrupting the next session. Create a fresh queue for every
+<code>run_live()</code> call.</p>
+</div>
+<h2 id="liverequestqueue">LiveRequestQueue<a class="headerlink" href="#liverequestqueue" title="Permanent link">&para;</a></h2>
+<p><code>LiveRequestQueue</code> is your channel for sending messages to the agent. Every message is a
+<code>LiveRequest</code>, a single container for the different kinds of input:</p>
+<div class="language-python highlight"><span class="filename">Reference: &lt;a href=&quot;../api-reference/python/google-adk.html#google.adk.agents.LiveRequestQueue&quot;&gt;LiveRequestQueue&lt;/a&gt;</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LiveRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Content</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>            <span class="c1"># Text and structured data</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">blob</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Blob</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>                  <span class="c1"># Audio/video bytes</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">activity_start</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ActivityStart</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Manual turn start</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">activity_end</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ActivityEnd</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>      <span class="c1"># Manual turn end</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">close</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>                          <span class="c1"># Graceful termination</span>
+</span></code></pre></div>
+<p><code>content</code> and <code>blob</code> are mutually exclusive. Use the convenience methods rather than building
+<code>LiveRequest</code> objects yourself; they set the right field and keep you within that constraint.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Sends</th>
+<th>Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>send_content(content)</code></td>
+<td>Text, as a discrete turn</td>
+<td>Turn-by-turn; triggers a response</td>
+</tr>
+<tr>
+<td><code>send_realtime(blob)</code></td>
+<td>Audio, image, or video bytes</td>
+<td>Continuous streaming</td>
+</tr>
+<tr>
+<td><code>send_activity_start()</code> / <code>send_activity_end()</code></td>
+<td>Manual turn boundaries</td>
+<td>Only when automatic VAD is disabled</td>
+</tr>
+<tr>
+<td><code>close()</code></td>
+<td>Termination signal</td>
+<td>Ends the session</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">types</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Text turn.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">live_request_queue</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">Content</span><span class="p">(</span><span class="n">parts</span><span class="o">=</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">Part</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">user_text</span><span class="p">)]))</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Audio chunk (streamed continuously).</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">live_request_queue</span><span class="o">.</span><span class="n">send_realtime</span><span class="p">(</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">types</span><span class="o">.</span><span class="n">Blob</span><span class="p">(</span><span class="n">mime_type</span><span class="o">=</span><span class="s2">"audio/pcm;rate=16000"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">audio_data</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>For audio, image, and video formats, see <a href="../audio-video/">Audio and video</a>. For manual turn
+control with activity signals, see
+<a href="../configuration/#voice-activity-detection-vad">Voice activity detection</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Send one text Part per call</p>
+<p>Send a single text <code>Part</code> per <code>send_content()</code> call. Some Live models treat a multi-part
+<code>Content</code> as conversation seeding (priming history) rather than a turn to respond to, so
+one Part per call keeps behavior consistent across models.</p>
+</div>
+<h3 id="concurrency-and-ordering">Concurrency and ordering<a class="headerlink" href="#concurrency-and-ordering" title="Permanent link">&para;</a></h3>
+<p><code>LiveRequestQueue</code> wraps an <code>asyncio.Queue</code>, which has three consequences:</p>
+<ul>
+<li><strong>Send methods are synchronous.</strong> They call <code>put_nowait()</code> underneath, so they never block
+  and never need <code>await</code>.</li>
+<li><strong>Delivery is FIFO and uncoalesced.</strong> Requests reach the model in send order, one per call.</li>
+<li><strong>The queue is unbounded.</strong> Sending faster than the model consumes grows memory rather than
+  applying backpressure, so cap your own send rate for high-rate audio or video.</li>
+</ul>
+<p>Create the queue inside an async context so it binds to the event loop that runs
+<code>run_live()</code>. <code>asyncio.Queue</code> is safe for concurrent access within a single event loop
+thread; to feed it from another thread, use <code>loop.call_soon_threadsafe()</code>.</p>
+<h2 id="the-run_live-loop">The run_live() loop<a class="headerlink" href="#the-run_live-loop" title="Permanent link">&para;</a></h2>
+<p><code>run_live()</code> is an async generator. It yields <code>Event</code> objects the moment they are generated,
+with no buffering or polling, while you send new input concurrently through the queue. That
+concurrency is what makes interruption work: the agent can be speaking while the user starts
+talking over it.</p>
+<div class="language-python highlight"><span class="filename">Reference: &lt;a href=&quot;../api-reference/python/google-adk.html#google.adk.runners.Runner.run_live&quot;&gt;Runner.run_live()&lt;/a&gt;</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">async</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">runner</span><span class="o">.</span><span class="n">run_live</span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">live_request_queue</span><span class="o">=</span><span class="n">live_request_queue</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">run_config</span><span class="o">=</span><span class="n">run_config</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">):</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">(</span><span class="n">exclude_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">by_alias</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></code></pre></div>
+<p><code>run_live()</code> opens the Live API connection when you call it, streams both directions while
+the loop runs, and closes the connection when you call <code>live_request_queue.close()</code>. For the
+event types it yields and how to handle them, see <a href="../events/">Events</a>.</p>
+<h3 id="when-run_live-exits">When run_live() exits<a class="headerlink" href="#when-run_live-exits" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Exit condition</th>
+<th>Trigger</th>
+<th>Graceful</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual close</td>
+<td><code>live_request_queue.close()</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Workflow complete</td>
+<td>Last agent in a live workflow calls <code>task_completed()</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Session timeout</td>
+<td>Live API duration limit reached (without compression)</td>
+<td>Connection closed</td>
+</tr>
+<tr>
+<td>Early exit</td>
+<td><code>end_invocation</code> set by a tool or callback</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>Connection failure or unhandled exception</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Always call <code>close()</code> when the session ends, even on error. Skipping it leaves the Live API
+without a graceful termination signal, which can strand "zombie" sessions that count against
+your <a href="#concurrent-sessions">concurrent-session quota</a> until they time out.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">upstream_task</span><span class="p">(),</span> <span class="n">downstream_task</span><span class="p">())</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">except</span> <span class="n">WebSocketDisconnect</span><span class="p">:</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">pass</span>  <span class="c1"># Client disconnected normally.</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">live_request_queue</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Always close the queue.</span>
+</span></code></pre></div>
+<p>For error handling inside the loop, see <a href="../events/#handling-errors">Error events</a>. For the full
+upstream/downstream server pattern, see <a href="../custom-server/">Custom server</a>.</p>
+<h3 id="what-gets-saved-to-the-session">What gets saved to the session<a class="headerlink" href="#what-gets-saved-to-the-session" title="Permanent link">&para;</a></h3>
+<p>When <code>run_live()</code> exits, only some events persist to the ADK <code>Session</code>:</p>
+<ul>
+<li><strong>Saved:</strong> final (non-partial) transcriptions, usage metadata, function calls and
+  responses, and most control events. Audio files are saved only when
+  <a href="../configuration/#save_live_blob"><code>save_live_blob</code></a> is <code>True</code>.</li>
+<li><strong>Ephemeral:</strong> raw audio bytes (<code>inline_data</code>) and partial transcriptions, yielded for
+  real-time playback and display but not stored.</li>
+</ul>
+<h2 id="adk-session-vs-live-api-session">ADK Session vs Live API session<a class="headerlink" href="#adk-session-vs-live-api-session" title="Permanent link">&para;</a></h2>
+<p>Two different things share the word "session":</p>
+<ul>
+<li><strong>ADK <code>Session</code></strong> (managed by <code>SessionService</code>) is persistent conversation storage. It
+  survives across many <code>run_live()</code> calls and application restarts.</li>
+<li><strong>Live API session</strong> (managed by the Live API backend) is a transient streaming context
+  that exists only while the loop runs.</li>
+</ul>
+<p>When <code>run_live()</code> starts, ADK loads history from the ADK <code>Session</code>, initializes a new Live
+API session with it, and updates the ADK <code>Session</code> as events occur. When the loop ends, the
+Live API session is destroyed and the ADK <code>Session</code> persists. The next call rebuilds a Live
+API session from the stored history. This separation is what lets conversations continue
+across network drops and restarts.</p>
+<p>At the transport layer, one more distinction matters for reliability:</p>
+<ul>
+<li>A <strong>connection</strong> is the WebSocket link between ADK and the Live API. It can time out.</li>
+<li>A <strong>session</strong> is the conversation context, which can span multiple connections through
+  <a href="#session-resumption">session resumption</a>.</li>
+</ul>
+<h3 id="platform-limits">Platform limits<a class="headerlink" href="#platform-limits" title="Permanent link">&para;</a></h3>
+<p>Both backends cap connection duration, session duration, and concurrent sessions. The exact
+numbers differ by backend and change over time, so
+<a href="../models/#platform-limits-and-quotas">Supported models</a> tracks them in one place.</p>
+<p>Two of those caps change how you write the code.
+<a href="#context-window-compression">Context window compression</a> lifts the session-duration limit,
+and the concurrent-session ceiling is what you design against in
+<a href="#concurrent-sessions">Concurrent sessions</a>.</p>
+<h2 id="session-resumption">Session resumption<a class="headerlink" href="#session-resumption" title="Permanent link">&para;</a></h2>
+<p>The Live API closes each WebSocket connection after about 10 minutes.
+<a href="https://ai.google.dev/gemini-api/docs/live-api/session-management#session-resumption">Session resumption</a>
+migrates the conversation across connections so it continues past that limit. Enable it and
+<strong>ADK handles all reconnection for you</strong>, caching resumption handles, detecting closures,
+and reconnecting in the background. Your <code>run_live()</code> loop keeps yielding events without
+interruption.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">types</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">run_config</span> <span class="o">=</span> <span class="n">RunConfig</span><span class="p">(</span><span class="n">session_resumption</span><span class="o">=</span><span class="n">types</span><span class="o">.</span><span class="n">SessionResumptionConfig</span><span class="p">())</span>
+</span></code></pre></div>
+<p>ADK manages the ADK-to-Live-API connection only. Your application still owns its own client
+connections (for example, the user's WebSocket to your server) and any client-side reconnect
+logic.</p>
+<p>How ADK reconnects:</p>
+<ol>
+<li>The Live API sends <code>session_resumption_update</code> messages; ADK caches the latest handle.</li>
+<li>Before the limit, the Live API may send a <code>go_away</code> warning; ADK reconnects <em>before</em> the
+   drop, so the handover is invisible.</li>
+<li>When a connection closes gracefully, ADK's loop reconnects with the cached handle and the
+   session continues with full context.</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    participant App as Your Application
+    participant ADK as ADK (run_live)
+    participant API as Live API
+
+    App-&gt;&gt;ADK: run_live(run_config with session_resumption)
+    ADK-&gt;&gt;API: WebSocket connect()
+    Note over ADK,API: Streaming (0-10 min)
+    API--&gt;&gt;ADK: session_resumption_update { handle }
+    ADK-&gt;&gt;ADK: Cache handle
+    Note over API: ~10 min: connection closes gracefully
+    ADK-&gt;&gt;API: reconnect(handle)
+    API--&gt;&gt;ADK: Session resumed with full context
+    Note over App,API: Loop continues, uninterrupted</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Reconnection attempts are capped</p>
+<p>ADK retries a maximum of <strong>5 consecutive</strong> reconnections
+(<a href="https://github.com/google/adk-python/blob/main/src/google/adk/flows/llm_flows/base_llm_flow.py"><code>DEFAULT_MAX_RECONNECT_ATTEMPTS</code></a>).
+The counter resets on each successful reconnect, so a long conversation is limited only to
+five <em>failures in a row</em>, not five reconnects total. ADK retries only when a resumption
+handle exists; without <code>session_resumption</code> enabled, the first drop propagates straight
+out of <code>run_live()</code>, and your application must handle it.</p>
+</div>
+<p>Skip resumption only for short sessions (under 10 minutes), stateless request-response
+interactions, or development where a fresh session per run aids debugging.</p>
+<h2 id="context-window-compression">Context window compression<a class="headerlink" href="#context-window-compression" title="Permanent link">&para;</a></h2>
+<p>Long conversations hit two limits: the session duration caps, and the model's context window
+(varies by model).
+<a href="https://ai.google.dev/gemini-api/docs/live-api/session-management#context-window-compression">Context window compression</a>
+addresses both. It compresses older conversation history with a sliding window when the token
+count crosses a threshold, keeping recent turns in full. <strong>Enabling it removes the session
+duration limits.</strong> The trade-off: older context becomes a summary, not verbatim history.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">types</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.agents.run_config</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunConfig</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># For a 128k-context model.</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">run_config</span> <span class="o">=</span> <span class="n">RunConfig</span><span class="p">(</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">context_window_compression</span><span class="o">=</span><span class="n">types</span><span class="o">.</span><span class="n">ContextWindowCompressionConfig</span><span class="p">(</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="n">trigger_tokens</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>  <span class="c1"># Start compressing near ~78% of the window.</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="n">sliding_window</span><span class="o">=</span><span class="n">types</span><span class="o">.</span><span class="n">SlidingWindow</span><span class="p">(</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            <span class="n">target_tokens</span><span class="o">=</span><span class="mi">80000</span><span class="p">,</span>  <span class="c1"># Compress down to ~62%, keeping recent turns.</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="p">),</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="p">)</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Set <code>trigger_tokens</code> to roughly 70-80% of the model's context window for headroom, and
+<code>target_tokens</code> to 60-70% so each compression frees enough room for several turns. Test with
+your own conversation patterns. Enable compression when sessions must run longer than the
+platform limits or may exceed the token limit; leave it off for short sessions or when
+precise recall of early turns is critical.</p>
+<h2 id="concurrent-sessions">Concurrent sessions<a class="headerlink" href="#concurrent-sessions" title="Permanent link">&para;</a></h2>
+<p>Each user needs their own Live API session, and both backends cap concurrent sessions. Your
+concurrent-session ceiling is a hard cap on simultaneous users. For the current ceilings and
+how to request increases, see <a href="../models/#platform-limits-and-quotas">Supported models</a>.</p>
+<p>Design for the ceiling:</p>
+<ul>
+<li><strong>One session per user</strong> is the default and correct choice while peak concurrency fits
+  inside the quota.</li>
+<li><strong>A session pool</strong> (a fixed set of sessions handed out through a queue) keeps you inside
+  the quota when peak concurrency exceeds it, at the cost of wait time. Reset per-session
+  state on release so conversations do not leak between users.</li>
+</ul>
+<p>Either way, count active sessions yourself and queue or reject new connections before the
+platform does. A quota rejection surfaces as a connection failure, a worse experience than a
+visible queue position.</p>
 
 
 
@@ -7323,12 +7955,12 @@ YAML text files.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.top", "navigation.tabs", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.top", "navigation.tabs", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../javascript/copy-page.js"></script>
+        <script src="../../javascript/copy-page.js"></script>
       
     
   </body>

@@ -869,6 +869,8 @@
       
         
       
+        
+      
     
     
     
@@ -1137,6 +1139,34 @@
     
   
     Google Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/migrate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrate to ADK
   
 
     
@@ -8490,7 +8520,7 @@ actions:</p>
 <p>You can then replace the <code>model</code> string in <code>root_agent</code> in the <code>agent.py</code> file you created earlier (<a href="#agentpy">jump to section</a>). Your code should look something like:</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">root_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
 </span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"weather_time_agent"</span><span class="p">,</span>
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"replace-me-with-model-id"</span><span class="p">,</span> <span class="c1">#e.g. gemini-2.0-flash-live-001</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"replace-me-with-model-id"</span><span class="p">,</span> <span class="c1">#e.g. gemini-live-2.5-flash-native-audio</span>
 </span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>    <span class="o">...</span>
 </span></code></pre></div>
 </div>
@@ -8501,7 +8531,7 @@ actions:</p>
 <p class="admonition-title">Tip</p>
 <p>When using <code>adk run</code> you can inject prompts into the agent to start by
 piping text to the command like so:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Please start by listing files"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>adk<span class="w"> </span>run<span class="w"> </span>file_listing_agent
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Please start by listing files"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>adk<span class="w"> </span>run<span class="w"> </span>multi_tool_agent
 </span></code></pre></div>
 </div>
 <p>Run the following command, to chat with your Weather agent.</p>

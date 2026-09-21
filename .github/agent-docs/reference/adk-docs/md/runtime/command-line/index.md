@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Command Line 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -38,18 +33,15 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
       * [ Multi-tool agent  ](../../tutorials/multi-tool-agent/)
       * [ Agent team  ](../../tutorials/agent-team/)
-      * [ Streaming agent  ](../../get-started/streaming/)
-
-Streaming agent 
-        * [ Python  ](../../get-started/streaming/quickstart-streaming/)
-        * [ Java  ](../../get-started/streaming/quickstart-streaming-java/)
       * [ Code with AI  ](../../tutorials/coding-with-ai/)
       * [ Agent Config  ](../../agents/config/)
     * [ Agents  ](../../agents/)
@@ -108,6 +100,7 @@ Web Interface
         * Storage options 
           * Example with storage options 
         * All options 
+        * Usage telemetry 
       * [ API Server  ](../api-server/)
       * [ Ambient Agents  ](../ambient-agents/)
       * [ Resume Agents  ](../resume/)
@@ -199,18 +192,27 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
-    * [ Gemini Live API Toolkit  ](../../streaming/)
+    * [ Live and Voice Agents  ](../../live/)
 
-Gemini Live API Toolkit 
-      * Gemini Live API Toolkit development guide series  Gemini Live API Toolkit development guide series 
-        * [ Part 1. Intro to streaming  ](../../streaming/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../streaming/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../streaming/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../streaming/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../streaming/dev-guide/part5/)
-      * [ Streaming Tools  ](../../streaming/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../streaming/configuration/)
+Live and Voice Agents 
+      * [ Get started  ](../../live/get-started/)
+
+Get started 
+        * [ Python  ](../../live/get-started/streaming-python/)
+        * [ Java  ](../../live/get-started/streaming-java/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -224,7 +226,7 @@ Integrations
 
 API Reference 
       * [ Python ADK  ](../../api-reference/python/)
-      * [ Typescript ADK  ](../../api-reference/typescript/)
+      * [ TypeScript ADK  ](../../api-reference/typescript/)
       * Go ADK  Go ADK 
         * [ Go v2.x  ](https://pkg.go.dev/google.golang.org/adk/v2)
         * [ Go v1.x  ](https://pkg.go.dev/google.golang.org/adk)
@@ -254,6 +256,7 @@ Table of contents
   * Storage options 
     * Example with storage options 
   * All options 
+  * Usage telemetry 
 
 
 
@@ -409,8 +412,8 @@ The `--session_service_uri` and `--artifact_service_uri` command-line flags are 
 
 Option | Description | Default  
 ---|---|---  
-`--session_service_uri` | Custom session storage URI | SQLite under `.adk/session.db`  
-`--artifact_service_uri` | Custom artifact storage URI | Local `.adk/artifacts`  
+`--session_service_uri` | Custom session storage URI | Per-agent SQLite at `<agents_dir>/<agent>/.adk/session.db`  
+`--artifact_service_uri` | Custom artifact storage URI | Per-agent directory at `<agents_dir>/<agent>/.adk/artifacts`  
 `--memory_service_uri` | Custom memory service URI | In-memory  
   
 ### Example with storage options¶
@@ -423,6 +426,12 @@ Option | Description | Default
 
 PythonGo
 
+To send a single message and exit instead of starting an interactive session, pass the query as an argument:
+    
+    
+    adk run path/to/my_agent "hello"
+    
+
 Option | Description  
 ---|---  
 `--save_session` | Save the session to a JSON file on exit  
@@ -432,6 +441,12 @@ Option | Description
 `--session_service_uri` | Custom session storage URI  
 `--artifact_service_uri` | Custom artifact storage URI  
 `--memory_service_uri` | Custom memory service URI  
+`--use_local_storage/--no_use_local_storage` | Use the local `.adk` folder when no service URI is set  
+`--state` | Initial state for the run as a JSON string  
+`--timeout` | Timeout for a single turn or query, such as `30s` or `5m`  
+`--in_memory` | Do not persist session data  
+`--jsonl` | Output structured JSONL instead of human-readable text  
+`--default_llm_model` | Default model when the agent does not set one  
   
 Go flags differ from Python
 
@@ -456,6 +471,45 @@ Or to force SSE streaming (token-by-token output):
     
     go run agent.go -streaming_mode sse
     
+
+## Usage telemetry¶
+
+The ADK CLI collects anonymous usage telemetry to understand feature adoption, guide development priorities, and improve tool performance. Data collection is OFF by default until you explicitly choose to enable it.
+
+Your telemetry preference is stored locally on your machine in `~/.adk/config.json`. You can manage telemetry data collection at any time through the terminal:
+
+  * **Enable** : `adk telemetry enable`
+  * **Disable** : `adk telemetry disable`
+  * **Check status** : `adk telemetry status`
+
+
+
+You can also manually deactivate telemetry data collection at any time by opening `~/.adk/config.json` and setting the `telemetry` attribute to `false`:
+    
+    
+    {
+      "telemetry": false
+    }
+    
+
+**What data is collected**
+
+  * **Environment Properties** : Operating system information, runtime language and version, and installed ADK CLI version.
+  * **Command Execution Events** : Generic command and subcommand names, flags passed, execution duration, exit codes, and exception types if an error occurs. We also log a sequence number and an ephemeral session ID that is discarded after command execution.
+
+
+
+**What data is not collected**
+
+The CLI does not collect sensitive, private, or personal data, specifically:
+
+  * Arguments or parameter values passed to commands or flags, such as agent names, prompt strings, file paths.
+  * User credentials, usernames, API keys, OAuth tokens, or secrets.
+  * Google Cloud Project IDs or Cloud Account details.
+  * Source code files, file contents, or directory paths.
+  * Personally Identifiable Information (PII).
+
+
 
 Back to top 
 

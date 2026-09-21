@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -604,7 +605,7 @@ Some Live models offer two conversational features, both off by default:
 
 Both behaviors are probabilistic and make responses less predictable, so leave them off for formal or high-precision contexts and while debugging.
 
-These settings apply to `gemini-live-2.5-flash-native-audio`. Some Live models build the behavior in and ignore both settings, so you do not need to set them. See [Supported models](../models/#live-models).
+Both settings are model-dependent: Gemini 2.5 Flash Live supports them, Gemini 3.1 Flash Live does not, and leaving them set is the most common failure when moving to 3.1. See [Per-model feature support](../models/#per-model-feature-support).
 
 Back to top 
 

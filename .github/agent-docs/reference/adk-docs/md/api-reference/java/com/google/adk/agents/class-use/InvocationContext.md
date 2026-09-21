@@ -678,6 +678,12 @@ BigQueryAgentAnalyticsPlugin.`[afterRunCallback](../../plugins/agentanalytics/Bi
 
  
 
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+TraceManager.`[attachCurrentSpan](../../plugins/agentanalytics/TraceManager.html#attachCurrentSpan\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context)`
+
+Records the ambient OpenTelemetry span's IDs as the invocation root without creating or owning any span, so plugin-emitted rows correlate with the host's existing tracing.
+
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
 
 BigQueryAgentAnalyticsPlugin.`[beforeRunCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#beforeRunCallback\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext)`
@@ -687,6 +693,18 @@ BigQueryAgentAnalyticsPlugin.`[beforeRunCallback](../../plugins/agentanalytics/B
 `void`
 
 TraceManager.`[ensureInvocationSpan](../../plugins/agentanalytics/TraceManager.html#ensureInvocationSpan\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context)`
+
+ 
+
+`com.google.adk.plugins.agentanalytics.TraceManager.SpanIds`
+
+TraceManager.`[getCurrentSpanAndParent](../../plugins/agentanalytics/TraceManager.html#getCurrentSpanAndParent\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context)`
+
+ 
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
+
+TraceManager.`[getCurrentSpanId](../../plugins/agentanalytics/TraceManager.html#getCurrentSpanId\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context)`
 
  
 
@@ -702,6 +720,12 @@ TraceManager.`[initTrace](../../plugins/agentanalytics/TraceManager.html#initTra
 
  
 
+`void`
+
+TraceManager.`[initTraceIfNeeded](../../plugins/agentanalytics/TraceManager.html#initTraceIfNeeded\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context)`
+
+Sets the root agent name from the invocation context if it is still the sentinel default.
+
 `io.reactivex.rxjava3.core.Maybe<[Event](../../events/Event.html "class in com.google.adk.events")>`
 
 BigQueryAgentAnalyticsPlugin.`[onEventCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onEventCallback\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [Event](../../events/Event.html "class in com.google.adk.events") event)`
@@ -713,6 +737,24 @@ BigQueryAgentAnalyticsPlugin.`[onEventCallback](../../plugins/agentanalytics/Big
 BigQueryAgentAnalyticsPlugin.`[onUserMessageCallback](../../plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html#onUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, com.google.genai.types.Content userMessage)`
 
  
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData>`
+
+TraceManager.`[popSpan](../../plugins/agentanalytics/TraceManager.html#popSpan\(com.google.adk.agents.InvocationContext,java.lang.String\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") expectedKindPrefix)`
+
+Pops the calling branch's top span record if its kind matches `expectedKindPrefix`.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.adk.plugins.agentanalytics.TraceManager.RecordData>`
+
+TraceManager.`[popSpan](../../plugins/agentanalytics/TraceManager.html#popSpan\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.String\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") expectedKindPrefix, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") operationId)`
+
+Pops the calling branch's matching span record.
+
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+TraceManager.`[pushSpan](../../plugins/agentanalytics/TraceManager.html#pushSpan\(com.google.adk.agents.InvocationContext,java.lang.String\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") context, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") spanName)`
+
+Pushes an ID-only span record onto the calling branch's stack.
 
   * ## Uses of [InvocationContext](../InvocationContext.html "class in com.google.adk.agents") in [com.google.adk.telemetry](../../telemetry/package-summary.html)
 
