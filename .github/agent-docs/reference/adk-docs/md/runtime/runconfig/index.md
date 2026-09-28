@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -141,6 +142,12 @@ Custom Tools
         * [ Tool performance  ](../../tools-custom/performance/)
         * [ Action confirmations  ](../../tools-custom/confirmation/)
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -173,9 +180,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -206,6 +210,7 @@ Get started
         * [ Audio and video  ](../../live/audio-video/)
         * [ Configuration  ](../../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
         * [ Evaluation  ](../../live/evaluation/)
         * [ Build a custom server  ](../../live/custom-server/)
       * [ Supported models  ](../../live/models/)
@@ -327,7 +332,7 @@ Supported in ADKPython
 
 For long-running sessions, you can control how much history is loaded and whether the context window is compressed:
 
-  * `get_session_config`: Limits which events are fetched when loading a session. Use `num_recent_events` or `after_timestamp` to avoid loading the full event history on every invocation.
+  * `get_session_config`: Limits which events are fetched when loading a session. Use `num_recent_events` or `after_timestamp` to avoid loading the full event history on every invocation. These filters limit the loaded view without deleting stored events. New events are appended to the stored history, preserving older events excluded from the loaded view.
   * `context_window_compression`: Enables context window compression for LLM input, useful when sessions approach model context limits.
   * `include_thoughts_from_other_agents`: Controls whether thought parts from other agents are included in the LLM context. Disabled by default.
   * `model_input_context`: A list of `types.Content` added to the LLM request for this invocation only. The runner does not persist it to the session, so you can supply per-turn context without changing the conversation history.

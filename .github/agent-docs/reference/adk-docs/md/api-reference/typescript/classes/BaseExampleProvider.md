@@ -19,7 +19,7 @@ Base class for example providers.
 
 This class defines the interface for providing examples for a given query.
 
-  * Defined in [examples/base_example_provider.ts:38](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/examples/base_example_provider.ts#L38)
+  * Defined in [core/src/examples/base_example_provider.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/examples/base_example_provider.ts#L38)
 
 
 
@@ -42,7 +42,7 @@ This class defines the interface for providing examples for a given query.
 
 A unique symbol to identify ADK example provider classes.
 
-  * Defined in [examples/base_example_provider.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/examples/base_example_provider.ts#L42)
+  * Defined in [core/src/examples/base_example_provider.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/examples/base_example_provider.ts#L42)
 
 
 
@@ -64,7 +64,7 @@ The query to get examples for.
 
 A list of Example objects.
 
-    * Defined in [examples/base_example_provider.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/examples/base_example_provider.ts#L50)
+    * Defined in [core/src/examples/base_example_provider.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/examples/base_example_provider.ts#L50)
 
 
 
@@ -81,7 +81,7 @@ Methods
 
 getExamples
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

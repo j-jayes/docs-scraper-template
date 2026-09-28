@@ -17,7 +17,7 @@ Preparing search index...
 
 The streaming mode for the run config.
 
-  * Defined in [agents/run_config.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L20)
+  * Defined in [core/src/agents/run_config.ts:20](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/run_config.ts#L20)
 
 
 
@@ -27,7 +27,7 @@ The streaming mode for the run config.
 
 BIDI: "bidi"
 
-  * Defined in [agents/run_config.ts:23](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L23)
+  * Defined in [core/src/agents/run_config.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/run_config.ts#L23)
 
 
 
@@ -35,7 +35,7 @@ BIDI: "bidi"
 
 NONE: "none"
 
-  * Defined in [agents/run_config.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L21)
+  * Defined in [core/src/agents/run_config.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/run_config.ts#L21)
 
 
 
@@ -43,7 +43,7 @@ NONE: "none"
 
 SSE: "sse"
 
-  * Defined in [agents/run_config.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/run_config.ts#L22)
+  * Defined in [core/src/agents/run_config.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/run_config.ts#L22)
 
 
 
@@ -51,7 +51,7 @@ Enumeration Members
 
 BIDINONESSE
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

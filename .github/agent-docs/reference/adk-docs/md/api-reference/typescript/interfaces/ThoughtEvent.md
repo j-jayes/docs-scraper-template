@@ -22,7 +22,7 @@ content: string;
 type: [THOUGHT](../enums/EventType.html#thought);  
 }
 
-  * Defined in [events/structured_events.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L35)
+  * Defined in [core/src/events/structured_events.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L48)
 
 
 
@@ -32,7 +32,7 @@ type: [THOUGHT](../enums/EventType.html#thought);
 
 content: string
 
-  * Defined in [events/structured_events.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L37)
+  * Defined in [core/src/events/structured_events.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L50)
 
 
 
@@ -40,7 +40,7 @@ content: string
 
 type: [THOUGHT](../enums/EventType.html#thought)
 
-  * Defined in [events/structured_events.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L36)
+  * Defined in [core/src/events/structured_events.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L49)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 contenttype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

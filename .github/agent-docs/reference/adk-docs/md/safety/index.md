@@ -136,6 +136,12 @@ Custom Tools
         * [ Tool performance  ](../tools-custom/performance/)
         * [ Action confirmations  ](../tools-custom/confirmation/)
       * [ MCP tools  ](../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
@@ -168,9 +174,6 @@ Sessions
       * [ Memory  ](../sessions/memory/)
       * [ Context compression  ](../context/compaction/)
       * [ Model context caching  ](../context/caching/)
-    * [ MCP  ](../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../a2a/)
 
 A2A Protocol 
@@ -201,6 +204,7 @@ Get started
         * [ Audio and video  ](../live/audio-video/)
         * [ Configuration  ](../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../live/guardrails/)
         * [ Evaluation  ](../live/evaluation/)
         * [ Build a custom server  ](../live/custom-server/)
       * [ Supported models  ](../live/models/)
@@ -827,7 +831,7 @@ Some examples include:
 
   * **Gemini as a Judge Plugin** : This plugin uses Gemini Flash Lite to evaluate user inputs, tool input and output, and agent's response for appropriateness, prompt injection, and jailbreak detection. The plugin configures Gemini to act as a safety filter to mitigate against content safety, brand safety, and agent misalignment. The plugin is configured to pass user input, tool input and output, and model output to Gemini Flash Lite, who decides if the input to the agent is safe or unsafe. If Gemini decides the input is unsafe, the agent returns a predetermined response: "Sorry I cannot help with that. Can I help you with something else?".
 
-  * **Model Armor Plugin** : A plugin that queries the model armor API to check for potential content safety violations at specified points of agent execution. Similar to the _Gemini as a Judge_ plugin, if Model Armor finds matches of harmful content, it returns a predetermined response to the user.
+  * **[Model Armor Plugin](../integrations/model-armor/)** : A plugin that ships with ADK and queries the Model Armor API to check for potential content safety violations at specified points of agent execution. Similar to the _Gemini as a Judge_ plugin, if Model Armor finds matches of harmful content, it returns a predetermined response to the user.
 
   * **PII Redaction Plugin** : A specialized plugin with design for the [Before Tool Callback](/plugins/#tool-callbacks) and specifically created to redact personally identifiable information before it’s processed by a tool or sent to an external service.
 

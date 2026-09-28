@@ -22,7 +22,7 @@ input: Content;
 output: Content[];  
 }
 
-  * Defined in [examples/example.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/examples/example.ts#L12)
+  * Defined in [core/src/examples/example.ts:12](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/examples/example.ts#L12)
 
 
 
@@ -34,7 +34,7 @@ input: Content
 
 The input content for the example.
 
-  * Defined in [examples/example.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/examples/example.ts#L16)
+  * Defined in [core/src/examples/example.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/examples/example.ts#L16)
 
 
 
@@ -44,7 +44,7 @@ output: Content[]
 
 The expected output content for the example.
 
-  * Defined in [examples/example.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/examples/example.ts#L20)
+  * Defined in [core/src/examples/example.ts:20](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/examples/example.ts#L20)
 
 
 
@@ -52,7 +52,7 @@ Properties
 
 inputoutput
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

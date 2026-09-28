@@ -2,7 +2,7 @@
 
 Supported in ADKPython v0.1.0
 
-ADK agents can use the [Google Gemma](https://ai.google.dev/gemma/docs) family of generative AI models that offer a wide range of capabilities. ADK supports many Gemma features, including [Tool Calling](/tools-custom/) and [Structured Output](/agents/llm-agents/#structuring-data-input_schema-output_schema-output_key).
+ADK agents can use the [Google Gemma](https://ai.google.dev/gemma/docs) family of generative AI models that offer a wide range of capabilities. ADK supports many Gemma features, including [Tool Calling](/tools-custom/) and [Structured Output](/agents/llm-agents/#data-handling).
 
 You can use Gemma 4 through the [Gemini API](https://ai.google.dev/gemini-api/docs), or with one of many self-hosting options on Google Cloud: [Agent Platform](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma4), [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm), [Cloud Run](https://docs.cloud.google.com/run/docs/run-gemma-on-cloud-run).
 

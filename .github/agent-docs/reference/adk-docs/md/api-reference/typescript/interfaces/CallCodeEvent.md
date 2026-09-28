@@ -22,7 +22,7 @@ code: ExecutableCode;
 type: [CALL_CODE](../enums/EventType.html#call_code);  
 }
 
-  * Defined in [events/structured_events.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L67)
+  * Defined in [core/src/events/structured_events.ts:80](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L80)
 
 
 
@@ -32,7 +32,7 @@ type: [CALL_CODE](../enums/EventType.html#call_code);
 
 code: ExecutableCode
 
-  * Defined in [events/structured_events.ts:69](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L69)
+  * Defined in [core/src/events/structured_events.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L82)
 
 
 
@@ -40,7 +40,7 @@ code: ExecutableCode
 
 type: [CALL_CODE](../enums/EventType.html#call_code)
 
-  * Defined in [events/structured_events.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L68)
+  * Defined in [core/src/events/structured_events.ts:81](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L81)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 codetype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

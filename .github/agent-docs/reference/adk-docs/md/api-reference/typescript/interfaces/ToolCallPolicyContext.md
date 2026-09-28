@@ -15,12 +15,14 @@ Preparing search index...
 
 # Interface ToolCallPolicyContext
 
+Context passed to a policy engine when evaluating a tool call.
+
 interface ToolCallPolicyContext {  
 tool: [BaseTool](../classes/BaseTool.html);  
 toolArgs: Record<string, unknown>;  
 }
 
-  * Defined in [plugins/security_plugin.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L44)
+  * Defined in [core/src/plugins/security_plugin.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L48)
 
 
 
@@ -30,7 +32,9 @@ toolArgs: Record<string, unknown>;
 
 tool: [BaseTool](../classes/BaseTool.html)
 
-  * Defined in [plugins/security_plugin.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L45)
+The tool being invoked.
+
+  * Defined in [core/src/plugins/security_plugin.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L50)
 
 
 
@@ -38,7 +42,9 @@ tool: [BaseTool](../classes/BaseTool.html)
 
 toolArgs: Record<string, unknown>
 
-  * Defined in [plugins/security_plugin.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L46)
+The arguments supplied to the tool call.
+
+  * Defined in [core/src/plugins/security_plugin.ts:52](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L52)
 
 
 
@@ -46,7 +52,7 @@ Properties
 
 tooltoolArgs
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

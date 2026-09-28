@@ -144,6 +144,12 @@ Custom Tools
           * Next steps 
         * [ Action confirmations  ](../confirmation/)
       * [ MCP tools  ](../mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../mcp-tools/advanced/)
+        * [ Deployment  ](../mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../openapi-tools/)
       * [ Authentication  ](../authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -176,9 +182,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -209,6 +212,7 @@ Get started
         * [ Audio and video  ](../../live/audio-video/)
         * [ Configuration  ](../../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
         * [ Evaluation  ](../../live/evaluation/)
         * [ Build a custom server  ](../../live/custom-server/)
       * [ Supported models  ](../../live/models/)

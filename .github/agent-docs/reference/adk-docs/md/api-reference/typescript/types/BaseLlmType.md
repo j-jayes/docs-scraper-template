@@ -21,11 +21,11 @@ supportedModels: (string | RegExp)[];
 
 type[BaseLlm] equivalent in TypeScript, represents a class that can be new-ed to create a BaseLlm instance.
 
-  * Defined in [models/registry.ts:17](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L17)
+  * Defined in [core/src/models/registry.ts:17](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/registry.ts#L17)
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

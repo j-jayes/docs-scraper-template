@@ -26,7 +26,7 @@ When called by an LLM agent inside a LoopAgent, this tool sets the `escalate` an
 
 
 
-  * Defined in [tools/exit_loop_tool.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/exit_loop_tool.ts#L20)
+  * Defined in [core/src/tools/exit_loop_tool.ts:20](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/exit_loop_tool.ts#L20)
 
 
 
@@ -36,11 +36,13 @@ When called by an LLM agent inside a LoopAgent, this tool sets the `escalate` an
 
   * new ExitLoopTool(): [ExitLoopTool]()
 
+Creates an ExitLoopTool with its fixed name and description.
+
 #### Returns [ExitLoopTool]()
 
 Overrides [BaseTool](BaseTool.html).[constructor](BaseTool.html#constructor)
 
-    * Defined in [tools/exit_loop_tool.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/exit_loop_tool.ts#L21)
+    * Defined in [core/src/tools/exit_loop_tool.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/exit_loop_tool.ts#L22)
 
 
 
@@ -55,7 +57,7 @@ A unique symbol to identify ADK base tool class.
 
 Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool.html#base_tool_signature_symbol)
 
-  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+  * Defined in [core/src/tools/base_tool.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L64)
 
 
 
@@ -65,7 +67,7 @@ description: string
 
 Inherited from [BaseTool](BaseTool.html).[description](BaseTool.html#description)
 
-  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
+  * Defined in [core/src/tools/base_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -75,7 +77,7 @@ isLongRunning: boolean
 
 Inherited from [BaseTool](BaseTool.html).[isLongRunning](BaseTool.html#islongrunning)
 
-  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
+  * Defined in [core/src/tools/base_tool.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -85,7 +87,7 @@ name: string
 
 Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
-  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
+  * Defined in [core/src/tools/base_tool.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -101,7 +103,7 @@ The Google API LLM variant to use.
 
 Inherited from BaseTool.apiVariant
 
-    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
+    * Defined in [core/src/tools/base_tool.ts:151](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -112,20 +114,13 @@ Inherited from BaseTool.apiVariant
 
   * _getDeclaration(): FunctionDeclaration
 
-Gets the OpenAPI specification of this tool in the form of a FunctionDeclaration.
-
-NOTE
-
-    * Required if subclass uses the default implementation of `processLlmRequest` to add function declaration to LLM request.
-    * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+Returns the function declaration for this tool.
 
 #### Returns FunctionDeclaration
 
-The FunctionDeclaration of this tool, or undefined if it doesn't need to be added to LlmRequest.config.
-
 Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclaration)
 
-    * Defined in [tools/exit_loop_tool.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/exit_loop_tool.ts#L29)
+    * Defined in [core/src/tools/exit_loop_tool.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/exit_loop_tool.ts#L31)
 
 
 
@@ -151,7 +146,7 @@ The request to process the LLM request.
 
 Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#processllmrequest)
 
-    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
+    * Defined in [core/src/tools/base_tool.ts:120](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -160,26 +155,21 @@ Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#proce
 
   * runAsync(request: [RunAsyncToolRequest](../interfaces/RunAsyncToolRequest.html)): Promise<unknown>
 
-Runs the tool with the given arguments and context.
-
-NOTE
-
-    * Required if this tool needs to run at the client side.
-    * Otherwise, can be skipped, e.g. for a built-in GoogleSearch tool for Gemini.
+Sets `escalate` and `skipSummarization` on the event actions, signalling the [LoopAgent](LoopAgent.html) to stop iterating.
 
 #### Parameters
 
     * request: [RunAsyncToolRequest](../interfaces/RunAsyncToolRequest.html)
 
-The request to run the tool.
+The tool request containing the current tool context.
 
 #### Returns Promise<unknown>
 
-A promise that resolves to the tool response.
+An empty string response.
 
 Overrides [BaseTool](BaseTool.html).[runAsync](BaseTool.html#runasync)
 
-    * Defined in [tools/exit_loop_tool.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/exit_loop_tool.ts#L36)
+    * Defined in [core/src/tools/exit_loop_tool.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/exit_loop_tool.ts#L45)
 
 
 
@@ -200,7 +190,7 @@ Methods
 
 _getDeclarationprocessLlmRequestrunAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

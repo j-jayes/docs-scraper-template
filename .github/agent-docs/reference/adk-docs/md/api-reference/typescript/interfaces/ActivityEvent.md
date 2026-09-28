@@ -23,7 +23,7 @@ kind: string;
 type: [ACTIVITY](../enums/EventType.html#activity);  
 }
 
-  * Defined in [events/structured_events.ts:91](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L91)
+  * Defined in [core/src/events/structured_events.ts:104](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L104)
 
 
 
@@ -33,7 +33,7 @@ type: [ACTIVITY](../enums/EventType.html#activity);
 
 detail: Record<string, unknown>
 
-  * Defined in [events/structured_events.ts:94](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L94)
+  * Defined in [core/src/events/structured_events.ts:107](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L107)
 
 
 
@@ -41,7 +41,7 @@ detail: Record<string, unknown>
 
 kind: string
 
-  * Defined in [events/structured_events.ts:93](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L93)
+  * Defined in [core/src/events/structured_events.ts:106](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L106)
 
 
 
@@ -49,7 +49,7 @@ kind: string
 
 type: [ACTIVITY](../enums/EventType.html#activity)
 
-  * Defined in [events/structured_events.ts:92](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L92)
+  * Defined in [core/src/events/structured_events.ts:105](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L105)
 
 
 
@@ -57,7 +57,7 @@ Properties
 
 detailkindtype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

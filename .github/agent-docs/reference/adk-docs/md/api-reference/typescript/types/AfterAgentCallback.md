@@ -19,11 +19,11 @@ AfterAgentCallback: [SingleAgentCallback](SingleAgentCallback.html) | [SingleAge
 
 Type for after agent callbacks, which can be a single callback or an array of callbacks.
 
-  * Defined in [agents/base_agent.ts:37](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L37)
+  * Defined in [core/src/agents/base_agent.ts:37](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L37)
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

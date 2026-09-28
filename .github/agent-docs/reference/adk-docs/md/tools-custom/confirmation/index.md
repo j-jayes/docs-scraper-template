@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Action confirmations 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../..)
   * [ Build Agents ](../../get-started/)
@@ -38,8 +33,10 @@ Get Started
       * [ Go  ](../../get-started/go/)
       * [ Java  ](../../get-started/java/)
       * [ Kotlin  ](../../get-started/kotlin/)
+      * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -146,6 +143,12 @@ Custom Tools
           * Known limitations 
           * Next steps 
       * [ MCP tools  ](../mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../mcp-tools/advanced/)
+        * [ Deployment  ](../mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../openapi-tools/)
       * [ Authentication  ](../authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -178,9 +181,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -193,6 +193,7 @@ A2A Protocol
         * [ Python  ](../../a2a/quickstart-consuming/)
         * [ Go  ](../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../live/)
 
@@ -202,14 +203,18 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -264,7 +269,7 @@ Table of contents
 
 # Get action confirmation for ADK Tools¶
 
-Supported in ADKPython v1.14.0TypeScript v0.2.0Go v0.3.0Experimental
+Supported in ADKPython v1.14.0TypeScript v0.2.0Go v0.3.0Kotlin v0.1.0Experimental
 
 Some agent workflows require confirmation for decision making, verification, security, or general oversight. In these cases, you want to get a response from a human or supervising system before proceeding with a workflow. The _Tool Confirmation_ feature in the Agent Development Kit (ADK) allows an ADK Tool to pause its execution and interact with a user or other system for confirmation or to gather structured data before proceeding. You can use Tool Confirmation with an ADK Tool in the following ways:
 
@@ -285,11 +290,11 @@ The following sections describe how to use this feature for the confirmation sce
 
 ## Boolean confirmation¶
 
-When your tool only requires a simple `yes` or `no` from the user, you can append a confirmation step. In Python, Go, and Java, you can enable this by wrapping the tool with the `FunctionTool` class and setting the `require_confirmation` parameter (or equivalent) to `True`. In TypeScript, you implement this logic manually within the `execute` function using the `ToolContext`.
+When your tool only requires a simple `yes` or `no` from the user, you can append a confirmation step. In Python, Go, and Java, you can enable this by wrapping the tool with the `FunctionTool` class and setting the `require_confirmation` parameter (or equivalent) to `True`. In Kotlin, you set `requireConfirmation = true` on the tool function's `@Tool` annotation. In TypeScript, you implement this logic manually within the `execute` function using the `ToolContext`.
 
 The following examples show how to enable boolean confirmation:
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     root_agent = Agent(
@@ -380,7 +385,7 @@ ADK for TypeScript currently requires manual implementation of confirmation logi
         // Set RequireConfirmation to true to require user confirmation
         // for the tool call.
         RequireConfirmation: true,
-    }, func(ctx tool.Context, args ReimburseArgs) (ReimburseResult, error) {
+    }, func(ctx agent.Context, args ReimburseArgs) (ReimburseResult, error) {
         // actual implementation
         return ReimburseResult{Status: "ok"}, nil
     })
@@ -402,12 +407,29 @@ ADK for TypeScript currently requires manual implementation of confirmation logi
         // ...
         .build();
     
+    
+    
+    class ReimbursementTools {
+        /** Reimburse an amount. */
+        @Tool(requireConfirmation = true) // Pause for user confirmation before every call.
+        fun reimburse(
+            @Param("The amount to reimburse.") amount: Int,
+        ): Map<String, Any?> = mapOf("status" to "ok", "reimbursedAmount" to amount)
+    }
+    
+    val reimbursementAgent =
+        LlmAgent(
+            name = "reimbursement_agent",
+            model = Gemini(name = "gemini-flash-latest"),
+            tools = ReimbursementTools().generatedTools(),
+        )
+    
 
 ### Require confirmation function¶
 
-You can modify the behavior of the confirmation requirement by using a function that returns a boolean response based on the tool's input. In TypeScript, this is handled by adding conditional logic to your `execute` function.
+You can modify the behavior of the confirmation requirement by using a function that returns a boolean response based on the tool's input. In TypeScript, this is handled by adding conditional logic to your `execute` function. In Kotlin, the `@Tool` annotation's flag is a compile-time constant, so the conditional logic goes inside the tool function.
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     async def confirmation_threshold(
@@ -442,7 +464,7 @@ PythonTypeScriptGoJava
         RequireConfirmationProvider: func(args ReimburseArgs) bool {
             return args.Amount > 1000
         },
-    }, func(ctx tool.Context, args ReimburseArgs) (ReimburseResult, error) {
+    }, func(ctx agent.Context, args ReimburseArgs) (ReimburseResult, error) {
         // actual implementation
         return ReimburseResult{Status: "ok"}, nil
     })
@@ -479,6 +501,36 @@ PythonTypeScriptGoJava
         // ...
         .build();
     
+    
+    
+    class ReimbursementTools {
+        /** Reimburse an amount, requiring manager approval above a threshold. */
+        @Tool
+        fun reimburse(
+            context: ToolContext,
+            @Param("The amount to reimburse.") amount: Int,
+        ): Map<String, Any?> {
+            // The @Tool annotation's requireConfirmation flag is a compile-time constant,
+            // so the threshold is evaluated here using the ToolContext instead.
+            if (amount > 1000) {
+                val confirmation = context.toolConfirmation
+                if (confirmation == null) {
+                    context.requestConfirmation(hint = "Amount > 1000 requires approval.")
+                    // Return an intermediate status while the confirmation is pending.
+                    return mapOf("status" to "Pending manager approval.")
+                }
+                if (!confirmation.confirmed) {
+                    return mapOf("status" to "Reimbursement rejected.")
+                }
+            }
+            return mapOf("status" to "ok", "reimbursedAmount" to amount)
+        }
+    }
+    
+
+Note
+
+The `@Tool` annotation's `requireConfirmation` flag is a compile-time constant, so a threshold is evaluated inside the tool using the `ToolContext`, as in ADK Java.
 
 ## Advanced confirmation¶
 
@@ -499,7 +551,7 @@ For a complete example of this approach, see the [human_tool_confirmation](https
 
 The following code shows an example implementation for a tool that processes time off requests for an employee:
 
-PythonTypeScriptGoJava
+PythonTypeScriptGoJavaKotlin
     
     
     def request_time_off(days: int, tool_context: ToolContext):
@@ -607,7 +659,7 @@ PythonTypeScriptGoJava
     
     
     
-    func requestTimeOff(ctx tool.Context, args RequestTimeOffArgs) (map[string]any, error) {
+    func requestTimeOff(ctx agent.Context, args RequestTimeOffArgs) (map[string]any, error) {
         confirmation := ctx.ToolConfirmation()
         if confirmation == nil {
             ctx.RequestConfirmation(
@@ -666,6 +718,40 @@ PythonTypeScriptGoJava
             "status", "ok",
             "approved_days", approvedDays
         );
+    }
+    
+    
+    
+    class TimeOffTools {
+        /** Request day off for the employee. */
+        @Tool
+        fun requestTimeOff(
+            context: ToolContext,
+            @Param("The number of days requested.") days: Int,
+        ): Map<String, Any?> {
+            val confirmation = context.toolConfirmation
+            if (confirmation == null) {
+                context.requestConfirmation(
+                    hint =
+                        "Please approve or reject the tool call requestTimeOff() by responding " +
+                            "with a FunctionResponse with an expected ToolConfirmation payload.",
+                    payload = mapOf("approved_days" to 0),
+                )
+                // Return an intermediate status indicating that the tool is waiting for
+                // a confirmation response:
+                return mapOf("status" to "Manager approval is required.")
+            }
+    
+            // The payload comes back decoded from JSON, so the number may arrive as any
+            // Number subtype. Read it through Number rather than casting straight to Int.
+            val payload = confirmation.payload as? Map<*, *>
+            val approvedDays =
+                minOf((payload?.get("approved_days") as? Number)?.toInt() ?: 0, days)
+            if (approvedDays == 0) {
+                return mapOf("status" to "The time off request is rejected.", "approved_days" to 0)
+            }
+            return mapOf("status" to "ok", "approved_days" to approvedDays)
+        }
     }
     
 

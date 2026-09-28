@@ -22,7 +22,7 @@ confirmations: Record<string, unknown>;
 type: [TOOL_CONFIRMATION](../enums/EventType.html#tool_confirmation);  
 }
 
-  * Defined in [events/structured_events.ts:100](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L100)
+  * Defined in [core/src/events/structured_events.ts:113](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L113)
 
 
 
@@ -32,7 +32,7 @@ type: [TOOL_CONFIRMATION](../enums/EventType.html#tool_confirmation);
 
 confirmations: Record<string, unknown>
 
-  * Defined in [events/structured_events.ts:102](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L102)
+  * Defined in [core/src/events/structured_events.ts:115](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L115)
 
 
 
@@ -40,7 +40,7 @@ confirmations: Record<string, unknown>
 
 type: [TOOL_CONFIRMATION](../enums/EventType.html#tool_confirmation)
 
-  * Defined in [events/structured_events.ts:101](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L101)
+  * Defined in [core/src/events/structured_events.ts:114](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L114)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 confirmationstype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

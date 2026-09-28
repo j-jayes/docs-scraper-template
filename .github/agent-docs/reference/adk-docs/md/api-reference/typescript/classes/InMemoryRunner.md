@@ -15,6 +15,23 @@ Preparing search index...
 
 # Class InMemoryRunner
 
+A [Runner](Runner.html) pre-configured with in-memory services.
+
+Suitable for local development, testing, and prototyping. All session, artifact, and memory data is stored in-process and is not persisted between runs.
+
+Example:
+    
+    
+    const runner = new InMemoryRunner({agent: myAgent});  
+      
+    for await (const event of runner.runEphemeral({  
+      userId: 'user1',  
+      newMessage: {parts: [{text: 'Hello'}]},  
+    })) {  
+      console.log(event);  
+    }
+    Copy
+
 #### Hierarchy ([View Summary](../hierarchy.html#InMemoryRunner))
 
   * [Runner](Runner.html)
@@ -22,7 +39,7 @@ Preparing search index...
 
 
 
-  * Defined in [runner/in_memory_runner.ts:15](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/in_memory_runner.ts#L15)
+  * Defined in [core/src/runner/in_memory_runner.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/in_memory_runner.ts#L36)
 
 
 
@@ -31,27 +48,69 @@ Preparing search index...
 ### constructor
 
   * new InMemoryRunner(  
-__namedParameters: {  
-agent: [BaseAgent](BaseAgent.html);  
+params: {  
+agent?: [BaseAgent](BaseAgent.html)<[BaseAgentConfig](../interfaces/BaseAgentConfig.html)>;  
+app?: [App](App.html);  
 appName?: string;  
 plugins?: [BasePlugin](BasePlugin.html)[];  
+resumabilityConfig?: [ResumabilityConfig](../interfaces/ResumabilityConfig.html);  
 },  
 ): [InMemoryRunner]()
 
+Creates a new InMemoryRunner instance.
+
 #### Parameters
 
-    * __namedParameters: { agent: [BaseAgent](BaseAgent.html); appName?: string; plugins?: [BasePlugin](BasePlugin.html)[] }
+    * params: {  
+agent?: [BaseAgent](BaseAgent.html)<[BaseAgentConfig](../interfaces/BaseAgentConfig.html)>;  
+app?: [App](App.html);  
+appName?: string;  
+plugins?: [BasePlugin](BasePlugin.html)[];  
+resumabilityConfig?: [ResumabilityConfig](../interfaces/ResumabilityConfig.html);  
+}
+
+The configuration for the runner.
+
+      * ##### `Optional`agent?: [BaseAgent](BaseAgent.html)<[BaseAgentConfig](../interfaces/BaseAgentConfig.html)>
+
+The root agent to run.
+
+      * ##### `Optional`app?: [App](App.html)
+
+An optional application instance to run.
+
+      * ##### `Optional`appName?: string
+
+The application name. Defaults to `'InMemoryRunner'`.
+
+      * ##### `Optional`plugins?: [BasePlugin](BasePlugin.html)[]
+
+An optional list of plugins.
+
+      * ##### `Optional`resumabilityConfig?: [ResumabilityConfig](../interfaces/ResumabilityConfig.html)
+
+An optional resumability configuration.
 
 #### Returns [InMemoryRunner]()
 
 Overrides [Runner](Runner.html).[constructor](Runner.html#constructor)
 
-    * Defined in [runner/in_memory_runner.ts:16](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/in_memory_runner.ts#L16)
+    * Defined in [core/src/runner/in_memory_runner.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/in_memory_runner.ts#L47)
 
 
 
 
 ## Properties
+
+### `Readonly`[RUNNER_SIGNATURE_SYMBOL]
+
+"[RUNNER_SIGNATURE_SYMBOL]": true
+
+Inherited from [Runner](Runner.html).[[RUNNER_SIGNATURE_SYMBOL]](Runner.html#runner_signature_symbol)
+
+  * Defined in [core/src/runner/runner.ts:139](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L139)
+
+
 
 ### `Readonly`agent
 
@@ -59,7 +118,7 @@ agent: [BaseAgent](BaseAgent.html)
 
 Inherited from [Runner](Runner.html).[agent](Runner.html#agent)
 
-  * Defined in [runner/runner.ts:59](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L59)
+  * Defined in [core/src/runner/runner.ts:141](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L141)
 
 
 
@@ -69,7 +128,7 @@ appName: string
 
 Inherited from [Runner](Runner.html).[appName](Runner.html#appname)
 
-  * Defined in [runner/runner.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L58)
+  * Defined in [core/src/runner/runner.ts:140](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L140)
 
 
 
@@ -79,7 +138,7 @@ artifactService?: [BaseArtifactService](../interfaces/BaseArtifactService.html)
 
 Inherited from [Runner](Runner.html).[artifactService](Runner.html#artifactservice)
 
-  * Defined in [runner/runner.ts:61](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L61)
+  * Defined in [core/src/runner/runner.ts:143](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L143)
 
 
 
@@ -89,7 +148,7 @@ credentialService?: [BaseCredentialService](../interfaces/BaseCredentialService.
 
 Inherited from [Runner](Runner.html).[credentialService](Runner.html#credentialservice)
 
-  * Defined in [runner/runner.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L64)
+  * Defined in [core/src/runner/runner.ts:146](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L146)
 
 
 
@@ -99,7 +158,7 @@ memoryService?: [BaseMemoryService](../interfaces/BaseMemoryService.html)
 
 Inherited from [Runner](Runner.html).[memoryService](Runner.html#memoryservice)
 
-  * Defined in [runner/runner.ts:63](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L63)
+  * Defined in [core/src/runner/runner.ts:145](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L145)
 
 
 
@@ -109,7 +168,17 @@ pluginManager: [PluginManager](PluginManager.html)
 
 Inherited from [Runner](Runner.html).[pluginManager](Runner.html#pluginmanager)
 
-  * Defined in [runner/runner.ts:60](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L60)
+  * Defined in [core/src/runner/runner.ts:142](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L142)
+
+
+
+### `Optional` `Readonly`resumabilityConfig
+
+resumabilityConfig?: [ResumabilityConfig](../interfaces/ResumabilityConfig.html)
+
+Inherited from [Runner](Runner.html).[resumabilityConfig](Runner.html#resumabilityconfig)
+
+  * Defined in [core/src/runner/runner.ts:147](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L147)
 
 
 
@@ -119,7 +188,7 @@ sessionService: [BaseSessionService](BaseSessionService.html)
 
 Inherited from [Runner](Runner.html).[sessionService](Runner.html#sessionservice)
 
-  * Defined in [runner/runner.ts:62](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L62)
+  * Defined in [core/src/runner/runner.ts:144](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L144)
 
 
 
@@ -129,6 +198,8 @@ Inherited from [Runner](Runner.html).[sessionService](Runner.html#sessionservice
 
   * runAsync(  
 params: {  
+abortSignal?: AbortSignal;  
+customMetadata?: Record<string, unknown>;  
 newMessage: Content;  
 runConfig?: [RunConfig](../interfaces/RunConfig.html);  
 sessionId: string;  
@@ -142,12 +213,18 @@ Runs the agent with the given message, and returns an async generator of events.
 #### Parameters
 
     * params: {  
+abortSignal?: AbortSignal;  
+customMetadata?: Record<string, unknown>;  
 newMessage: Content;  
 runConfig?: [RunConfig](../interfaces/RunConfig.html);  
 sessionId: string;  
 stateDelta?: Record<string, unknown>;  
 userId: string;  
 }
+      * ##### `Optional`abortSignal?: AbortSignal
+
+      * ##### `Optional`customMetadata?: Record<string, unknown>
+
       * ##### newMessage: Content
 
 A new message to append to the session.
@@ -176,7 +253,7 @@ The events generated by the agent.
 
 Inherited from [Runner](Runner.html).[runAsync](Runner.html#runasync)
 
-    * Defined in [runner/runner.ts:126](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L126)
+    * Defined in [core/src/runner/runner.ts:227](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L227)
 
 
 
@@ -185,6 +262,7 @@ Inherited from [Runner](Runner.html).[runAsync](Runner.html#runasync)
 
   * runEphemeral(  
 params: {  
+customMetadata?: Record<string, unknown>;  
 newMessage: Content;  
 runConfig?: [RunConfig](../interfaces/RunConfig.html);  
 stateDelta?: Record<string, unknown>;  
@@ -197,11 +275,14 @@ Runs the agent with a new, ephemeral session.
 #### Parameters
 
     * params: {  
+customMetadata?: Record<string, unknown>;  
 newMessage: Content;  
 runConfig?: [RunConfig](../interfaces/RunConfig.html);  
 stateDelta?: Record<string, unknown>;  
 userId: string;  
 }
+      * ##### `Optional`customMetadata?: Record<string, unknown>
+
       * ##### newMessage: Content
 
 A new message to append to the session.
@@ -226,7 +307,7 @@ The Events generated by the agent.
 
 Inherited from [Runner](Runner.html).[runEphemeral](Runner.html#runephemeral)
 
-    * Defined in [runner/runner.ts:85](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L85)
+    * Defined in [core/src/runner/runner.ts:184](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L184)
 
 
 
@@ -237,13 +318,13 @@ constructor
 
 Properties
 
-agentappNameartifactServicecredentialServicememoryServicepluginManagersessionService
+[RUNNER_SIGNATURE_SYMBOL]agentappNameartifactServicecredentialServicememoryServicepluginManagerresumabilityConfigsessionService
 
 Methods
 
 runAsyncrunEphemeral
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../../.. "Agent Development Kit \(ADK\)")
 
@@ -9,11 +9,6 @@ Skip to content
 Rewind sessions 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
-
-Initializing search 
-
-
-
 
   * [ Home ](../../..)
   * [ Build Agents ](../../../get-started/)
@@ -38,8 +33,10 @@ Get Started
       * [ Go  ](../../../get-started/go/)
       * [ Java  ](../../../get-started/java/)
       * [ Kotlin  ](../../../get-started/kotlin/)
+      * [ Agents CLI  ](../../../get-started/agents-cli/)
       * [ Installation  ](../../../get-started/installation/)
       * [ Google Cloud  ](../../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../../get-started/migrate/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -139,6 +136,12 @@ Custom Tools
         * [ Tool performance  ](../../../tools-custom/performance/)
         * [ Action confirmations  ](../../../tools-custom/confirmation/)
       * [ MCP tools  ](../../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
       * [ Tool limitations  ](../../../tools/limitations/)
@@ -174,9 +177,6 @@ Sessions
       * [ Memory  ](../../memory/)
       * [ Context compression  ](../../../context/compaction/)
       * [ Model context caching  ](../../../context/caching/)
-    * [ MCP  ](../../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../../a2a/)
 
 A2A Protocol 
@@ -189,6 +189,7 @@ A2A Protocol
         * [ Python  ](../../../a2a/quickstart-consuming/)
         * [ Go  ](../../../a2a/quickstart-consuming-go/)
         * [ Java  ](../../../a2a/quickstart-consuming-java/)
+        * [ Kotlin  ](../../../a2a/quickstart-consuming-kotlin/)
       * [ A2A Extension  ](../../../a2a/a2a-extension/)
     * [ Live and Voice Agents  ](../../../live/)
 
@@ -198,14 +199,18 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../../live/get-started/streaming-python/)
         * [ Java  ](../../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../../live/workflows/)
+        * [ Tools  ](../../../live/tools/)
+        * [ Sessions  ](../../../live/sessions/)
+        * [ Events  ](../../../live/events/)
+        * [ Audio and video  ](../../../live/audio-video/)
+        * [ Configuration  ](../../../live/configuration/)
+      * Production  Production 
+        * [ Guardrails  ](../../../live/guardrails/)
+        * [ Evaluation  ](../../../live/evaluation/)
+        * [ Build a custom server  ](../../../live/custom-server/)
+      * [ Supported models  ](../../../live/models/)
     * [ Grounding  ](../../../grounding/)
 
 Grounding 
@@ -256,13 +261,15 @@ Table of contents
 
 # Rewind sessions for agents¶
 
-Supported in ADKPython v1.17.0
+Supported in ADKPython v1.17.0Kotlin v0.3.0
 
 The ADK session Rewind feature allows you to revert a session to a previous request state, enabling you to undo mistakes, explore alternative paths, or restart a process from a known good point. This document provides an overview of the feature, how to use it, and its limitations.
 
 ## Rewind a session¶
 
 When you rewind a session, you specify a user request, or **_invocation_** , that you want to undo, and the system undoes that request and the requests after it. So if you have three requests (A, B, C) and you want to return to the state at request A, you specify B, which undoes the changes from requests B and C. You rewind a session by using the rewind method on a **_Runner_** instance, specifying the user, session, and invocation id, as shown in the following code snippet:
+
+PythonKotlin
     
     
     # Create runner
@@ -293,6 +300,45 @@ When you rewind a session, you specify a user request, or **_invocation_** , tha
         session_id=session.id,
         rewind_before_invocation_id=rewind_invocation_id,
     )
+    
+    
+    
+    suspend fun rewindSession(rootAgent: BaseAgent) {
+        val sessionService = InMemorySessionService()
+        val runner =
+            InMemoryRunner(agent = rootAgent, appName = APP_NAME, sessionService = sessionService)
+    
+        // Create a session. The service assigns the id, which is held on Session.key.
+        val session = sessionService.createSession(SessionKey(APP_NAME, USER_ID, id = null))
+        val sessionId = checkNotNull(session.key.id)
+    
+        // Call the agent
+        callAgent(runner, sessionId, "set state color to red")
+        // ... more agent calls ...
+        val events = callAgent(runner, sessionId, "update state color to blue")
+    
+        // Get the invocation id of the request to undo
+        val rewindInvocationId = events[1].invocationId ?: return
+    
+        // Rewind invocations (state color: red)
+        runner.rewindAsync(
+            userId = USER_ID,
+            sessionId = sessionId,
+            rewindBeforeInvocationId = rewindInvocationId,
+        )
+    }
+    
+    private suspend fun callAgent(
+        runner: InMemoryRunner,
+        sessionId: String,
+        query: String,
+    ): List<Event> =
+        runner
+            .runAsync(
+                userId = USER_ID,
+                sessionId = sessionId,
+                newMessage = Content(role = Role.USER, parts = listOf(Part(text = query))),
+            ).toList()
     
 
 When you call the **_rewind_** method, all ADK managed session-level resources are restored to the state they were in _before_ the request you specified with the **_invocation id_**. However, global resources, such as app-level or user-level state and artifacts, are not restored. For a complete example of an agent session rewind, see the [rewind_session](https://github.com/google/adk-python/tree/main/contributing/samples/context_management/rewind_session) sample code. For more information on the limitations of the Rewind feature, see Limitations.

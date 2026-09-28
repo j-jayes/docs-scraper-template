@@ -20,6 +20,8 @@ input: [ToolExecuteArgument](ToolExecuteArgument.html)<TParameters>,
 tool_context?: [Context](../classes/Context.html),  
 ) => Promise<unknown> | unknown
 
+The signature of the user-provided function executed by a [FunctionTool](../classes/FunctionTool.html).
+
 #### Type Parameters
 
   * TParameters extends [ToolInputParameters](ToolInputParameters.html)
@@ -42,11 +44,11 @@ tool_context?: [Context](../classes/Context.html),
 
 
 
-  * Defined in [tools/function_tool.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L40)
+  * Defined in [core/src/tools/function_tool.ts:41](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L41)
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -15,7 +15,9 @@ Preparing search index...
 
 # Class FunctionTool<TParameters>
 
-The base class for all tools.
+A tool that wraps a user-defined function, making it callable by an LLM.
+
+The function's name, description, and parameter schema are exposed to the model as a function declaration. When the model requests a call, the framework validates the arguments and invokes the user-provided `execute` callback.
 
 #### Type Parameters
 
@@ -31,7 +33,7 @@ The base class for all tools.
 
 
 
-  * Defined in [tools/function_tool.ts:95](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L95)
+  * Defined in [core/src/tools/function_tool.ts:104](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L104)
 
 
 
@@ -59,7 +61,7 @@ The configuration for the tool.
 
 Overrides [BaseTool](BaseTool.html).[constructor](BaseTool.html#constructor)
 
-    * Defined in [tools/function_tool.ts:110](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L110)
+    * Defined in [core/src/tools/function_tool.ts:119](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L119)
 
 
 
@@ -74,7 +76,7 @@ A unique symbol to identify ADK base tool class.
 
 Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool.html#base_tool_signature_symbol)
 
-  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+  * Defined in [core/src/tools/base_tool.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L64)
 
 
 
@@ -84,7 +86,7 @@ Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool
 
 A unique symbol to identify ADK function tool class.
 
-  * Defined in [tools/function_tool.ts:99](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L99)
+  * Defined in [core/src/tools/function_tool.ts:108](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L108)
 
 
 
@@ -94,7 +96,7 @@ description: string
 
 Inherited from [BaseTool](BaseTool.html).[description](BaseTool.html#description)
 
-  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
+  * Defined in [core/src/tools/base_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -104,7 +106,7 @@ isLongRunning: boolean
 
 Inherited from [BaseTool](BaseTool.html).[isLongRunning](BaseTool.html#islongrunning)
 
-  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
+  * Defined in [core/src/tools/base_tool.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -114,7 +116,7 @@ name: string
 
 Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
-  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
+  * Defined in [core/src/tools/base_tool.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -130,7 +132,7 @@ The Google API LLM variant to use.
 
 Inherited from BaseTool.apiVariant
 
-    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
+    * Defined in [core/src/tools/base_tool.ts:151](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -141,13 +143,13 @@ Inherited from BaseTool.apiVariant
 
   * _getDeclaration(): FunctionDeclaration
 
-Provide a schema for the function.
+Returns the function declaration derived from the tool's name, description, and parameter schema.
 
 #### Returns FunctionDeclaration
 
 Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclaration)
 
-    * Defined in [tools/function_tool.ts:129](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L129)
+    * Defined in [core/src/tools/function_tool.ts:139](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L139)
 
 
 
@@ -173,7 +175,7 @@ The request to process the LLM request.
 
 Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#processllmrequest)
 
-    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
+    * Defined in [core/src/tools/base_tool.ts:120](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -182,17 +184,21 @@ Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#proce
 
   * runAsync(req: [RunAsyncToolRequest](../interfaces/RunAsyncToolRequest.html)): Promise<unknown>
 
-Logic for running the tool.
+Validates the model-provided arguments against the parameter schema and invokes the user-defined `execute` function.
 
 #### Parameters
 
     * req: [RunAsyncToolRequest](../interfaces/RunAsyncToolRequest.html)
 
+The tool request containing arguments and tool context.
+
 #### Returns Promise<unknown>
+
+A promise resolving to the function's return value.
 
 Overrides [BaseTool](BaseTool.html).[runAsync](BaseTool.html#runasync)
 
-    * Defined in [tools/function_tool.ts:140](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L140)
+    * Defined in [core/src/tools/function_tool.ts:154](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L154)
 
 
 
@@ -213,7 +219,7 @@ Methods
 
 _getDeclarationprocessLlmRequestrunAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

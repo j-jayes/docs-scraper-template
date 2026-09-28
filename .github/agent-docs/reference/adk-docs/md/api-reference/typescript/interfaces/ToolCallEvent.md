@@ -22,7 +22,7 @@ call: FunctionCall;
 type: [TOOL_CALL](../enums/EventType.html#tool_call);  
 }
 
-  * Defined in [events/structured_events.ts:51](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L51)
+  * Defined in [core/src/events/structured_events.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L64)
 
 
 
@@ -32,7 +32,7 @@ type: [TOOL_CALL](../enums/EventType.html#tool_call);
 
 call: FunctionCall
 
-  * Defined in [events/structured_events.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L53)
+  * Defined in [core/src/events/structured_events.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L66)
 
 
 
@@ -40,7 +40,7 @@ call: FunctionCall
 
 type: [TOOL_CALL](../enums/EventType.html#tool_call)
 
-  * Defined in [events/structured_events.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L52)
+  * Defined in [core/src/events/structured_events.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L65)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 calltype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

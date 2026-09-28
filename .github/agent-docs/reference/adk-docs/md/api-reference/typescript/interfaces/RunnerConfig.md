@@ -18,38 +18,50 @@ Preparing search index...
 The configuration parameters for the Runner.
 
 interface RunnerConfig {  
-agent: [BaseAgent](../classes/BaseAgent.html);  
-appName: string;  
+agent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>;  
+app?: [App](../classes/App.html);  
+appName?: string;  
 artifactService?: [BaseArtifactService](BaseArtifactService.html);  
 credentialService?: [BaseCredentialService](BaseCredentialService.html);  
 memoryService?: [BaseMemoryService](BaseMemoryService.html);  
 plugins?: [BasePlugin](../classes/BasePlugin.html)[];  
+resumabilityConfig?: [ResumabilityConfig](ResumabilityConfig.html);  
 sessionService: [BaseSessionService](../classes/BaseSessionService.html);  
 }
 
-  * Defined in [runner/runner.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L40)
+  * Defined in [core/src/runner/runner.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L46)
 
 
 
 ## Properties
 
-### agent
+### `Optional`agent
 
-agent: [BaseAgent](../classes/BaseAgent.html)
+agent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>
 
-The agent to run.
+The agent to run. Required if `app` is not provided.
 
-  * Defined in [runner/runner.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L49)
+  * Defined in [core/src/runner/runner.ts:60](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L60)
 
 
 
-### appName
+### `Optional`app
 
-appName: string
+app?: [App](../classes/App.html)
 
-The application name.
+The application object. If provided, `appName`, `agent`, and `plugins` will default from this app.
 
-  * Defined in [runner/runner.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L44)
+  * Defined in [core/src/runner/runner.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L50)
+
+
+
+### `Optional`appName
+
+appName?: string
+
+The application name. Required if `app` is not provided.
+
+  * Defined in [core/src/runner/runner.ts:55](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L55)
 
 
 
@@ -57,7 +69,9 @@ The application name.
 
 artifactService?: [BaseArtifactService](BaseArtifactService.html)
 
-  * Defined in [runner/runner.ts:51](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L51)
+An optional service for storing and retrieving artifacts.
+
+  * Defined in [core/src/runner/runner.ts:70](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L70)
 
 
 
@@ -65,7 +79,9 @@ artifactService?: [BaseArtifactService](BaseArtifactService.html)
 
 credentialService?: [BaseCredentialService](BaseCredentialService.html)
 
-  * Defined in [runner/runner.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L54)
+An optional service for managing authentication credentials.
+
+  * Defined in [core/src/runner/runner.ts:85](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L85)
 
 
 
@@ -73,7 +89,9 @@ credentialService?: [BaseCredentialService](BaseCredentialService.html)
 
 memoryService?: [BaseMemoryService](BaseMemoryService.html)
 
-  * Defined in [runner/runner.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L53)
+An optional service for storing and querying agent memory.
+
+  * Defined in [core/src/runner/runner.ts:80](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L80)
 
 
 
@@ -81,7 +99,19 @@ memoryService?: [BaseMemoryService](BaseMemoryService.html)
 
 plugins?: [BasePlugin](../classes/BasePlugin.html)[]
 
-  * Defined in [runner/runner.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L50)
+An optional list of plugins to apply globally across all agents.
+
+  * Defined in [core/src/runner/runner.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L65)
+
+
+
+### `Optional`resumabilityConfig
+
+resumabilityConfig?: [ResumabilityConfig](ResumabilityConfig.html)
+
+An optional resumability configuration applied to the runner.
+
+  * Defined in [core/src/runner/runner.ts:90](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L90)
 
 
 
@@ -89,15 +119,17 @@ plugins?: [BasePlugin](../classes/BasePlugin.html)[]
 
 sessionService: [BaseSessionService](../classes/BaseSessionService.html)
 
-  * Defined in [runner/runner.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/runner/runner.ts#L52)
+The service for managing sessions.
+
+  * Defined in [core/src/runner/runner.ts:75](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/runner/runner.ts#L75)
 
 
 
 Properties
 
-agentappNameartifactServicecredentialServicememoryServicepluginssessionService
+agentappappNameartifactServicecredentialServicememoryServicepluginsresumabilityConfigsessionService
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -19,10 +19,10 @@ The parameters for creating an ActiveStreamingTool.
 
 interface ActiveStreamingToolParams {  
 stream?: [LiveRequestQueue](../classes/LiveRequestQueue.html);  
-task?: Promise<void>;  
+task?: Promise<void> | [Task](../classes/Task.html)<void>;  
 }
 
-  * Defined in [agents/active_streaming_tool.ts:12](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L12)
+  * Defined in [core/src/agents/active_streaming_tool.ts:13](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L13)
 
 
 
@@ -32,15 +32,15 @@ task?: Promise<void>;
 
 stream?: [LiveRequestQueue](../classes/LiveRequestQueue.html)
 
-  * Defined in [agents/active_streaming_tool.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L14)
+  * Defined in [core/src/agents/active_streaming_tool.ts:15](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L15)
 
 
 
 ### `Optional`task
 
-task?: Promise<void>
+task?: Promise<void> | [Task](../classes/Task.html)<void>
 
-  * Defined in [agents/active_streaming_tool.ts:13](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L13)
+  * Defined in [core/src/agents/active_streaming_tool.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L14)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 streamtask
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

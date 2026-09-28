@@ -136,6 +136,12 @@ Custom Tools
         * [ Tool performance  ](../../tools-custom/performance/)
         * [ Action confirmations  ](../../tools-custom/confirmation/)
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -168,9 +174,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -215,6 +218,7 @@ Get started
           * Voice activity detection (VAD) 
           * Proactivity and affective dialog 
       * Production  Production 
+        * [ Guardrails  ](../guardrails/)
         * [ Evaluation  ](../evaluation/)
         * [ Build a custom server  ](../custom-server/)
       * [ Supported models  ](../models/)

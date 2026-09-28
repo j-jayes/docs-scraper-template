@@ -29,7 +29,7 @@ Artifact paths are derived from the provided filenames: separators create nested
 
 
 
-  * Defined in [artifacts/file_artifact_service.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L58)
+  * Defined in [core/src/artifacts/file_artifact_service.ts:59](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L59)
 
 
 
@@ -45,7 +45,7 @@ Artifact paths are derived from the provided filenames: separators create nested
 
 #### Returns [FileArtifactService]()
 
-    * Defined in [artifacts/file_artifact_service.ts:61](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L61)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:62](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L62)
 
 
 
@@ -70,7 +70,7 @@ A promise that resolves when the artifact is deleted.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[deleteArtifact](../interfaces/BaseArtifactService.html#deleteartifact)
 
-    * Defined in [artifacts/file_artifact_service.ts:267](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L267)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:282](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L282)
 
 
 
@@ -95,20 +95,20 @@ A promise that resolves to the artifact version metadata or undefined.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[getArtifactVersion](../interfaces/BaseArtifactService.html#getartifactversion)
 
-    * Defined in [artifacts/file_artifact_service.ts:351](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L351)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:366](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L366)
 
 
 
 
 ### listArtifactKeys
 
-  * listArtifactKeys(request: [ListArtifactKeysRequest](../interfaces/ListArtifactKeysRequest.html)): Promise<string[]>
+  * listArtifactKeys(request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)): Promise<string[]>
 
 Lists all the artifact filenames within a session.
 
 #### Parameters
 
-    * request: [ListArtifactKeysRequest](../interfaces/ListArtifactKeysRequest.html)
+    * request: [CompositeSessionKey](../interfaces/CompositeSessionKey.html)
 
 The request to list artifact keys.
 
@@ -118,7 +118,7 @@ A promise that resolves to a list of all artifact filenames within a session.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[listArtifactKeys](../interfaces/BaseArtifactService.html#listartifactkeys)
 
-    * Defined in [artifacts/file_artifact_service.ts:233](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L233)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:248](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L248)
 
 
 
@@ -141,7 +141,7 @@ A promise that resolves to a list of artifact version metadata.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[listArtifactVersions](../interfaces/BaseArtifactService.html#listartifactversions)
 
-    * Defined in [artifacts/file_artifact_service.ts:310](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L310)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:325](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L325)
 
 
 
@@ -164,7 +164,7 @@ A promise that resolves to a list of all available versions of the artifact.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[listVersions](../interfaces/BaseArtifactService.html#listversions)
 
-    * Defined in [artifacts/file_artifact_service.ts:288](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L288)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:303](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L303)
 
 
 
@@ -189,7 +189,7 @@ A promise that resolves to the artifact or undefined if not found.
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[loadArtifact](../interfaces/BaseArtifactService.html#loadartifact)
 
-    * Defined in [artifacts/file_artifact_service.ts:132](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L132)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:141](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L141)
 
 
 
@@ -214,7 +214,7 @@ A promise that resolves to The revision ID. The first version of the artifact ha
 
 Implementation of [BaseArtifactService](../interfaces/BaseArtifactService.html).[saveArtifact](../interfaces/BaseArtifactService.html#saveartifact)
 
-    * Defined in [artifacts/file_artifact_service.ts:72](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/artifacts/file_artifact_service.ts#L72)
+    * Defined in [core/src/artifacts/file_artifact_service.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/artifacts/file_artifact_service.ts#L73)
 
 
 
@@ -227,7 +227,7 @@ Methods
 
 deleteArtifactgetArtifactVersionlistArtifactKeyslistArtifactVersionslistVersionsloadArtifactsaveArtifact
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

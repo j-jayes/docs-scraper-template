@@ -15,13 +15,15 @@ Preparing search index...
 
 # Class InMemoryPolicyEngine
 
+In-memory policy engine that permits all tool calls. Intended for prototyping.
+
 #### Implements
 
   * [BasePolicyEngine](../interfaces/BasePolicyEngine.html)
 
 
 
-  * Defined in [plugins/security_plugin.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L53)
+  * Defined in [core/src/plugins/security_plugin.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L67)
 
 
 
@@ -42,11 +44,15 @@ Preparing search index...
 
   * evaluate(): Promise<[PolicyCheckResult](../interfaces/PolicyCheckResult.html)>
 
+Always returns [PolicyOutcome.ALLOW](../enums/PolicyOutcome.html#allow) for every tool call.
+
 #### Returns Promise<[PolicyCheckResult](../interfaces/PolicyCheckResult.html)>
+
+A promise resolving to an ALLOW result.
 
 Implementation of [BasePolicyEngine](../interfaces/BasePolicyEngine.html).[evaluate](../interfaces/BasePolicyEngine.html#evaluate)
 
-    * Defined in [plugins/security_plugin.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L54)
+    * Defined in [core/src/plugins/security_plugin.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L73)
 
 
 
@@ -59,7 +65,7 @@ Methods
 
 evaluate
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

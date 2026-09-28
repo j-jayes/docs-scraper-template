@@ -22,7 +22,7 @@ agent: [BaseAgent](../classes/BaseAgent.html);
 skipSummarization?: boolean;  
 }
 
-  * Defined in [tools/agent_tool.ts:23](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L23)
+  * Defined in [core/src/tools/agent_tool.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/agent_tool.ts#L25)
 
 
 
@@ -34,7 +34,7 @@ agent: [BaseAgent](../classes/BaseAgent.html)
 
 The reference to the agent instance.
 
-  * Defined in [tools/agent_tool.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L27)
+  * Defined in [core/src/tools/agent_tool.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/agent_tool.ts#L29)
 
 
 
@@ -44,7 +44,7 @@ skipSummarization?: boolean
 
 Whether to skip summarization of the agent output.
 
-  * Defined in [tools/agent_tool.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/agent_tool.ts#L32)
+  * Defined in [core/src/tools/agent_tool.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/agent_tool.ts#L34)
 
 
 
@@ -52,7 +52,7 @@ Properties
 
 agentskipSummarization
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

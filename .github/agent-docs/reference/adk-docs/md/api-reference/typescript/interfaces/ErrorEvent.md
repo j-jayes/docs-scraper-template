@@ -22,7 +22,7 @@ error: Error;
 type: [ERROR](../enums/EventType.html#error);  
 }
 
-  * Defined in [events/structured_events.ts:83](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L83)
+  * Defined in [core/src/events/structured_events.ts:96](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L96)
 
 
 
@@ -32,7 +32,7 @@ type: [ERROR](../enums/EventType.html#error);
 
 error: Error
 
-  * Defined in [events/structured_events.ts:85](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L85)
+  * Defined in [core/src/events/structured_events.ts:98](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L98)
 
 
 
@@ -40,7 +40,7 @@ error: Error
 
 type: [ERROR](../enums/EventType.html#error)
 
-  * Defined in [events/structured_events.ts:84](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L84)
+  * Defined in [core/src/events/structured_events.ts:97](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L97)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 errortype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

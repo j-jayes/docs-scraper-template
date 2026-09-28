@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -43,6 +43,7 @@ Get Started
           * Agent Platform express mode for testing 
         * Google Cloud hosted models 
         * Additional Google Cloud services connections 
+      * [ Migrate to ADK  ](../migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -142,6 +143,12 @@ Custom Tools
         * [ Tool performance  ](../../tools-custom/performance/)
         * [ Action confirmations  ](../../tools-custom/confirmation/)
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -174,9 +181,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -199,14 +203,18 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -375,6 +383,7 @@ Many Google Cloud services provide ADK integrations with authentication helpers 
   * [BigQuery Toolset](/integrations/bigquery/)
   * [BigQuery Agent Analytics](/integrations/bigquery-agent-analytics/)
   * [Data Agent](/integrations/data-agent/)
+  * [Model Armor](/integrations/model-armor/)
 
 
 

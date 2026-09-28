@@ -23,6 +23,7 @@ headers?: Record<string, string>;
 location?: string;  
 model?: string;  
 project?: string;  
+useInteractionsApi?: boolean;  
 vertexai?: boolean;  
 }
 
@@ -33,7 +34,7 @@ vertexai?: boolean;
 
 
 
-  * Defined in [models/google_llm.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L31)
+  * Defined in [core/src/models/google_llm.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L32)
 
 
 
@@ -45,7 +46,7 @@ apiKey?: string
 
 The API key to use for the Gemini API. If not provided, it will look for the GOOGLE_GENAI_API_KEY or GEMINI_API_KEY environment variable.
 
-  * Defined in [models/google_llm.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L40)
+  * Defined in [core/src/models/google_llm.ts:41](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L41)
 
 
 
@@ -55,7 +56,7 @@ headers?: Record<string, string>
 
 Headers to merge with internally crafted headers.
 
-  * Defined in [models/google_llm.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L57)
+  * Defined in [core/src/models/google_llm.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L58)
 
 
 
@@ -65,7 +66,7 @@ location?: string
 
 The Vertex AI location. Required if `vertexai` is true.
 
-  * Defined in [models/google_llm.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L53)
+  * Defined in [core/src/models/google_llm.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L54)
 
 
 
@@ -75,7 +76,7 @@ model?: string
 
 The name of the model to use. Defaults to 'gemini-2.5-flash'.
 
-  * Defined in [models/google_llm.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L35)
+  * Defined in [core/src/models/google_llm.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L36)
 
 
 
@@ -85,7 +86,17 @@ project?: string
 
 The Vertex AI project ID. Required if `vertexai` is true.
 
-  * Defined in [models/google_llm.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L49)
+  * Defined in [core/src/models/google_llm.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L50)
+
+
+
+### `Optional`useInteractionsApi
+
+useInteractionsApi?: boolean
+
+Whether to use the Interactions API for stateful conversations.
+
+  * Defined in [core/src/models/google_llm.ts:62](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L62)
 
 
 
@@ -95,15 +106,15 @@ vertexai?: boolean
 
 Whether to use Vertex AI. If true, `project`, `location` should be provided.
 
-  * Defined in [models/google_llm.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/google_llm.ts#L45)
+  * Defined in [core/src/models/google_llm.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L46)
 
 
 
 Properties
 
-apiKeyheaderslocationmodelprojectvertexai
+apiKeyheaderslocationmodelprojectuseInteractionsApivertexai
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

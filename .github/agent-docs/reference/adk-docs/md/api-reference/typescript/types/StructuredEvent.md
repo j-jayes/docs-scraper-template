@@ -29,11 +29,11 @@ StructuredEvent:
 
 A standard structured event parsed from the raw Event stream.
 
-  * Defined in [events/structured_events.ts:116](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L116)
+  * Defined in [core/src/events/structured_events.ts:129](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L129)
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -15,9 +15,9 @@ Preparing search index...
 
 # Class BaseLlmResponseProcessor`Abstract`
 
-Base class for LLM response processor.
+Base class for LLM response processors. Implementations inspect or transform the [LlmResponse](../interfaces/LlmResponse.html) after it is received from the model.
 
-  * Defined in [agents/processors/base_llm_processor.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/processors/base_llm_processor.ts#L28)
+  * Defined in [core/src/agents/processors/base_llm_processor.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/base_llm_processor.ts#L33)
 
 
 
@@ -41,16 +41,21 @@ invocationContext: [InvocationContext](InvocationContext.html),
 llmResponse: [LlmResponse](../interfaces/LlmResponse.html),  
 ): AsyncGenerator<[Event](../interfaces/Event.html), void, void>
 
-Processes the LLM response.
+Runs the processor, optionally yielding intermediate [Event](../interfaces/Event.html)s.
 
 #### Parameters
 
     * invocationContext: [InvocationContext](InvocationContext.html)
+
+The current invocation context.
+
     * llmResponse: [LlmResponse](../interfaces/LlmResponse.html)
+
+The response received from the model.
 
 #### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
 
-    * Defined in [agents/processors/base_llm_processor.ts:32](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/processors/base_llm_processor.ts#L32)
+    * Defined in [core/src/agents/processors/base_llm_processor.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/base_llm_processor.ts#L40)
 
 
 
@@ -63,7 +68,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

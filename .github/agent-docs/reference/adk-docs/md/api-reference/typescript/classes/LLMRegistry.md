@@ -17,7 +17,7 @@ Preparing search index...
 
 Registry for LLMs.
 
-  * Defined in [models/registry.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L58)
+  * Defined in [core/src/models/registry.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/registry.ts#L58)
 
 
 
@@ -50,7 +50,7 @@ The model name.
 
 The LLM instance.
 
-    * Defined in [models/registry.ts:71](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L71)
+    * Defined in [core/src/models/registry.ts:71](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/registry.ts#L71)
 
 
 
@@ -77,7 +77,7 @@ The class that implements the model.
 
 #### Returns void
 
-    * Defined in [models/registry.ts:91](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L91)
+    * Defined in [core/src/models/registry.ts:91](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/registry.ts#L91)
 
 
 
@@ -102,7 +102,7 @@ The BaseLlm subclass.
 
 If the model is not found.
 
-    * Defined in [models/registry.ts:107](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/registry.ts#L107)
+    * Defined in [core/src/models/registry.ts:107](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/registry.ts#L107)
 
 
 
@@ -115,7 +115,7 @@ Methods
 
 newLlmregisterresolve
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

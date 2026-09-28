@@ -1,6 +1,6 @@
 Skip to content 
 
-[ ADK Go 2.0 GA ](/2.0/) is LIVE with graph workflows and collaborative agents! [Get started.](/get-started/go/)
+**Released!** [ ADK TypeScript 2.0 GA ](/2.0/) is now available with graph workflows support! [Get started](/graphs/#typescript)
 
 [ ](../.. "Agent Development Kit \(ADK\)")
 
@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -140,6 +141,12 @@ Custom Tools
         * [ Tool performance  ](../../tools-custom/performance/)
         * [ Action confirmations  ](../../tools-custom/confirmation/)
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -172,9 +179,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -197,14 +201,18 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
-      * Gemini Live API Toolkit development guide  Gemini Live API Toolkit development guide 
-        * [ Part 1. Intro to streaming  ](../../live/dev-guide/part1/)
-        * [ Part 2. Sending messages  ](../../live/dev-guide/part2/)
-        * [ Part 3. Event handling  ](../../live/dev-guide/part3/)
-        * [ Part 4. Run configuration  ](../../live/dev-guide/part4/)
-        * [ Part 5. Audio, Images, and Video  ](../../live/dev-guide/part5/)
-      * [ Streaming Tools  ](../../live/streaming-tools/)
-      * [ Configuring streaming behavior  ](../../live/configuration/)
+      * Building  Building 
+        * [ Workflows  ](../../live/workflows/)
+        * [ Tools  ](../../live/tools/)
+        * [ Sessions  ](../../live/sessions/)
+        * [ Events  ](../../live/events/)
+        * [ Audio and video  ](../../live/audio-video/)
+        * [ Configuration  ](../../live/configuration/)
+      * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
+        * [ Evaluation  ](../../live/evaluation/)
+        * [ Build a custom server  ](../../live/custom-server/)
+      * [ Supported models  ](../../live/models/)
     * [ Grounding  ](../../grounding/)
 
 Grounding 
@@ -256,13 +264,13 @@ Table of contents
 
 # Human input for agent workflows¶
 
-Supported in ADKPython v2.0.0Go v2.0.0
+Supported in ADKPython v2.0.0TypeScript v2.0.0Go v2.0.0
 
 Being able to request human input for data input, decision verification, or action permission is an important part of many agent-powered workflows. Graph-based workflows in ADK can include human in the loop (HITL) nodes specifically built for obtaining input from humans as part of a workflow. These nodes do not require artificial intelligence (AI) models to run, which can make the input process more predictable and reliable.
 
 ## Get started¶
 
-PythonGo
+PythonTypeScriptGo
 
 You can implement a human input node in a graph using the **_RequestInput_** class and a text prompt for the user. The following code example shows how to add a human input node to a Workflow graph:
     
@@ -283,6 +291,36 @@ You can implement a human input node in a graph using the **_RequestInput_** cla
     
 
 In this code example, `step1` pauses the execution of the agent until the system receives an input from a user. Once the system receives input from the user, that input is passed to the next node.
+
+In ADK TypeScript v2.0.0, a human input node yields a `RequestInput`. The `step1` node pauses the workflow until the user replies, and the reply is passed to the next node as its input. A human-in-the-loop node does not require a model, which makes the pause deterministic.
+    
+    
+    import { node, NodeContext, RequestInput, Workflow } from '@google/adk';
+    
+    const step1 = node(
+      async function* () {
+        yield new RequestInput({ message: 'Enter a number:' });
+      },
+      { name: 'step1' },
+    );
+    
+    const step2 = node(
+      (_ctx: NodeContext, nodeInput: string | number) => {
+        const value = Number(nodeInput);
+        return Number.isFinite(value)
+          ? value * 2
+          : `"${nodeInput}" is not a number.`;
+      },
+      { name: 'step2' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'root_agent',
+      edges: [['START', step1, step2]],
+    });
+    
+
+This implementation shows the default `rerunOnResume: false` handoff: the interrupted node does not re-run. It completes with the user's reply as its output. A node that calls `ctx.runNode()` needs `rerunOnResume: true` instead. For more information, see [human input in dynamic workflows](/graphs/dynamic/#human-input).
 
 In ADK Go v2.0.0, a HITL graph node is built with `workflow.NewEmittingFunctionNode` and `workflow.ResumeOrRequestInput`. This is the direct equivalent of Python's `RequestInput` node:
 
@@ -354,7 +392,7 @@ In ADK Go v2.0.0, a HITL graph node is built with `workflow.NewEmittingFunctionN
 
 ## Configuration options¶
 
-PythonGo
+PythonTypeScriptGo
 
 Human input nodes can use the **_RequestInput_** class with the following configuration options:
 
@@ -364,9 +402,20 @@ Human input nodes can use the **_RequestInput_** class with the following config
 
 
 
-Note: Response schema input limitations
+The `RequestInput` class takes the following configuration options:
 
-For the **response_schema** setting, the **_RequestInput_** class does not automatically reformat human responses to fit a specified data structure. The human response must be provided in the specified format. For a better user experience, consider providing a user interface to collect structured data or use an Agent node to conform unstructured data to the format required.
+  * **`message`:** Text shown to the user explaining what is being asked.
+  * **`payload`:** Structured data sent with the prompt, so a client can render additional context.
+  * **`responseSchema`:** The shape the reply is expected to take. The schema travels on the interrupt as `functionCall.args.response_schema`, which a client reads to render a form for the reply.
+
+
+
+The `rerunOnResume` option on the node controls what happens when the reply arrives:
+
+  * **`false`** (the leaf default): the reply is routed to the node's successor as input, bypassing the interrupted node.
+  * **`true`** : the node body re-runs from the top. This setting is required for any node that calls `ctx.runNode()`, so it can deliver cached child results on resume.
+
+
 
 `session.RequestInput` carries the following fields, which map directly to Python's `RequestInput` parameters:
 
@@ -387,13 +436,17 @@ Note: Structured response from the client
 
 ADK Go does not automatically parse or validate the structure of the human's reply payload. If your workflow needs structured feedback, include a UI or a downstream agent node to validate the response before acting on it.
 
+Note: Response schema input limitations
+
+A response schema does not reformat a human reply to fit the specified structure. The reply must already be in that format. For a better user experience, collect structured data in your client interface, or place an agent node after the pause to convert the reply into the required format.
+
 ## Human input examples¶
 
 The following code examples demonstrate more detailed human input requests.
 
 ### Request input with a message and payload¶
 
-PythonGo
+PythonTypeScriptGo
 
 The following code sample shows how to construct a **_RequestInput_** object in a workflow node, including a **_payload_** and **_response schema_**. In this example, the `ActivitiesList` is expected to be completed by an agent node that composes a list of activities, and the `get_user_feedback()` node requests feedback from the user.
     
@@ -424,6 +477,81 @@ The following code sample shows how to construct a **_RequestInput_** object in 
            payload=node_input,
             response_schema=UserFeedback,
        )
+    
+
+The following three-node graph builds a structured itinerary, sends it as `payload` with the prompt so a client can render it, and then acts on the user's feedback:
+    
+    
+    import { node, NodeContext, RequestInput, Workflow } from '@google/adk';
+    import { z } from 'zod';
+    
+    /**
+     * Itinerary is a list of activities. Each activity has a name and a
+     * description.
+     */
+    const activitiesListSchema = z.object({
+      itinerary: z.array(z.object({ name: z.string(), description: z.string() })),
+    });
+    type ActivitiesList = z.infer<typeof activitiesListSchema>;
+    
+    /** Expected response structure from the user. */
+    const userFeedbackSchema = z.object({
+      userResponse: z.string(),
+    });
+    
+    const buildItinerary = node(
+      (_ctx: NodeContext, city: string): ActivitiesList => {
+        const place = city.trim() || 'your city';
+        return {
+          itinerary: [
+            { name: 'Morning walk', description: `A stroll through old ${place}.` },
+            { name: 'Local lunch', description: `Regional food in ${place}.` },
+            { name: 'Museum visit', description: `The main museum of ${place}.` },
+          ],
+        };
+      },
+      { name: 'build_itinerary', outputSchema: activitiesListSchema },
+    );
+    
+    /**
+     * Retrieves the user's thoughts on the agent's initial itinerary in order to
+     * either expand on it, change the list, or exit the loop.
+     */
+    const getUserFeedback = node(
+      async function* (_ctx: NodeContext, nodeInput: ActivitiesList) {
+        const rendered = nodeInput.itinerary
+          .map((a, i) => `  ${i + 1}. ${a.name} — ${a.description}`)
+          .join('\n');
+    
+        yield new RequestInput({
+          message:
+            `Here is your recommended base itinerary:\n${rendered}\n\n` +
+            'Which of these items appeal to you (if any)?',
+          payload: nodeInput,
+          responseSchema: userFeedbackSchema,
+        });
+      },
+      { name: 'get_user_feedback' },
+    );
+    
+    const applyFeedback = node(
+      (_ctx: NodeContext, nodeInput: unknown) => {
+        const feedback =
+          typeof nodeInput === 'string'
+            ? nodeInput
+            : String(
+                (nodeInput as { userResponse?: unknown } | null)?.userResponse ??
+                  JSON.stringify(nodeInput),
+              );
+        return `Noted. Building the final itinerary around: ${feedback}`;
+      },
+      { name: 'apply_feedback' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'concierge_workflow',
+      edges: [['START', buildItinerary, getUserFeedback, applyFeedback]],
+    });
     
 
 The following code sample shows a three-node graph: a builder node generates a structured itinerary, a HITL node sends it as `Payload` alongside the prompt, and a final node acts on the user's feedback. The `Payload` field lets the client render the full itinerary for the user before they respond:
@@ -500,7 +628,7 @@ The following code sample shows a three-node graph: a builder node generates a s
 
 Tool-confirmation is a separate, LLM-agent–level mechanism for yes/no approval prompts. Unlike graph HITL nodes, tool-confirmation works inside an `llmagent` tool function rather than as a standalone graph node. It is useful when you want an LLM agent to pause and ask for approval before executing a specific tool call.
 
-PythonGo
+PythonTypeScriptGo
 
 The following code sample shows how to construct a **_RequestInput_** object in a workflow node, including a **_response schema_** :
     
@@ -519,6 +647,54 @@ The following code sample shows how to construct a **_RequestInput_** object in 
                Example of attraction you liked
        """
        yield RequestInput(message=input_message, response_schema=str)
+    
+
+Set `requireConfirmation: true` on a `FunctionTool` to make the agent pause for approval before that tool runs. A graph human-in-the-loop node serves a different purpose: instead of confirming a tool call, it can start the workflow by asking the user for input. The `responseSchema: z.string()` option requests a plain text reply:
+    
+    
+    import { node, NodeContext, RequestInput, Workflow } from '@google/adk';
+    import { z } from 'zod';
+    
+    /** Asks the user for itinerary information. */
+    const initialPrompt = node(
+      async function* () {
+        const inputMessage = `
+            This is an interactive concierge workflow tasked with making you a great
+            itinerary for you in your city of choice. If you give some details about
+            yourself or what you are generally looking for I can better personalize
+            your itinerary.
+            For example, input your:
+                City (Required),
+                Age,
+                Hobby,
+                Example of attraction you liked
+        `;
+        yield new RequestInput({
+          message: inputMessage,
+          responseSchema: z.string(),
+        });
+      },
+      { name: 'initial_prompt' },
+    );
+    
+    const buildItinerary = node(
+      (_ctx: NodeContext, nodeInput: string) => {
+        const [city = 'your city'] = nodeInput.split(',');
+        return (
+          `Personalized itinerary for ${city.trim()}:\n` +
+          '  1. Morning walk through the old town\n' +
+          '  2. Lunch at a neighbourhood favourite\n' +
+          '  3. An afternoon activity matched to your hobby\n\n' +
+          `(based on: ${nodeInput.trim()})`
+        );
+      },
+      { name: 'build_itinerary' },
+    );
+    
+    export const rootAgent = new Workflow({
+      name: 'concierge_workflow',
+      edges: [['START', initialPrompt, buildItinerary]],
+    });
     
 
 Set `RequireConfirmation: true` in `functiontool.Config` for a static yes/no approval before a tool executes, or call `ctx.RequestConfirmation` from inside the tool for a custom hint message:

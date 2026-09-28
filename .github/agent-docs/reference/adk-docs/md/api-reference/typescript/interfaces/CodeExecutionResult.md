@@ -23,7 +23,7 @@ stderr: string;
 stdout: string;  
 }
 
-  * Defined in [code_executors/code_execution_utils.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L54)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:90](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L90)
 
 
 
@@ -35,7 +35,7 @@ outputFiles: [File](File.html)[]
 
 The output files from the code execution.
 
-  * Defined in [code_executors/code_execution_utils.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L68)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:104](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L104)
 
 
 
@@ -45,7 +45,7 @@ stderr: string
 
 The standard error of the code execution.
 
-  * Defined in [code_executors/code_execution_utils.ts:63](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L63)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:99](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L99)
 
 
 
@@ -55,7 +55,7 @@ stdout: string
 
 The standard output of the code execution.
 
-  * Defined in [code_executors/code_execution_utils.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L58)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L94)
 
 
 
@@ -63,7 +63,7 @@ Properties
 
 outputFilesstderrstdout
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

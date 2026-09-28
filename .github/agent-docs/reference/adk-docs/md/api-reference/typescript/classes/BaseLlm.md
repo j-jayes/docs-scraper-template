@@ -21,10 +21,11 @@ The BaseLLM class.
 
   * BaseLlm
     * [Gemini](Gemini.html)
+    * [RoutedLlm](RoutedLlm.html)
 
 
 
-  * Defined in [models/base_llm.ts:36](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L36)
+  * Defined in [core/src/models/base_llm.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L36)
 
 
 
@@ -48,7 +49,7 @@ The name of the LLM, e.g. gemini-1.5-flash or gemini-1.5-flash-001.
 
 #### Returns [BaseLlm]()
 
-    * Defined in [models/base_llm.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L50)
+    * Defined in [core/src/models/base_llm.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L50)
 
 
 
@@ -61,7 +62,7 @@ The name of the LLM, e.g. gemini-1.5-flash or gemini-1.5-flash-001.
 
 A unique symbol to identify BaseLlm classes.
 
-  * Defined in [models/base_llm.ts:40](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L40)
+  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L40)
 
 
 
@@ -69,7 +70,7 @@ A unique symbol to identify BaseLlm classes.
 
 model: string
 
-  * Defined in [models/base_llm.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L42)
+  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L42)
 
 
 
@@ -79,7 +80,7 @@ supportedModels: (string | RegExp)[] = []
 
 List of supported models in regex for LlmRegistry.
 
-  * Defined in [models/base_llm.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L57)
+  * Defined in [core/src/models/base_llm.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L57)
 
 
 
@@ -91,7 +92,7 @@ List of supported models in regex for LlmRegistry.
 
 #### Returns Record<string, string>
 
-    * Defined in [models/base_llm.ts:80](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L80)
+    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L81)
 
 
 
@@ -114,7 +115,7 @@ LlmRequest, the request to send to the LLM.
 
 A live connection to the LLM.
 
-    * Defined in [models/base_llm.ts:78](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L78)
+    * Defined in [core/src/models/base_llm.ts:79](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L79)
 
 
 
@@ -124,6 +125,7 @@ A live connection to the LLM.
   * generateContentAsync(  
 llmRequest: [LlmRequest](../interfaces/LlmRequest.html),  
 stream?: boolean,  
+abortSignal?: AbortSignal,  
 ): AsyncGenerator<[LlmResponse](../interfaces/LlmResponse.html), void>
 
 Generates one content from the given contents and tools.
@@ -138,11 +140,13 @@ LlmRequest, the request to send to the LLM.
 
 whether to do streaming call. For non-streaming call, it will only yield one Content.
 
+    * `Optional`abortSignal: AbortSignal
+
 #### Returns AsyncGenerator<[LlmResponse](../interfaces/LlmResponse.html), void>
 
 A generator of LlmResponse.
 
-    * Defined in [models/base_llm.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L67)
+    * Defined in [core/src/models/base_llm.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L67)
 
 
 
@@ -161,7 +165,7 @@ LlmRequest, the request to send to the LLM.
 
 #### Returns void
 
-    * Defined in [models/base_llm.ts:94](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm.ts#L94)
+    * Defined in [core/src/models/base_llm.ts:95](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L95)
 
 
 
@@ -182,7 +186,7 @@ Methods
 
 connectgenerateContentAsyncmaybeAppendUserContent
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

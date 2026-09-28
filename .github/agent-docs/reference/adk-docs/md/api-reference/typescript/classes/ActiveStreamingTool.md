@@ -17,7 +17,7 @@ Preparing search index...
 
 Manages streaming tool related resources during invocation.
 
-  * Defined in [agents/active_streaming_tool.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L20)
+  * Defined in [core/src/agents/active_streaming_tool.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L21)
 
 
 
@@ -33,7 +33,7 @@ Manages streaming tool related resources during invocation.
 
 #### Returns [ActiveStreamingTool]()
 
-    * Defined in [agents/active_streaming_tool.ts:33](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L33)
+    * Defined in [core/src/agents/active_streaming_tool.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L32)
 
 
 
@@ -46,17 +46,17 @@ stream?: [LiveRequestQueue](LiveRequestQueue.html)
 
 The active (input) streams of this streaming tool.
 
-  * Defined in [agents/active_streaming_tool.ts:31](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L31)
+  * Defined in [core/src/agents/active_streaming_tool.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L30)
 
 
 
 ### `Optional`task
 
-task?: Promise<void>
+task?: [Task](Task.html)<void>
 
-The active task of this streaming tool. TODO: Replace 'Promise' with a proper Task type if available in this env.
+The active task of this streaming tool.
 
-  * Defined in [agents/active_streaming_tool.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/active_streaming_tool.ts#L26)
+  * Defined in [core/src/agents/active_streaming_tool.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/active_streaming_tool.ts#L25)
 
 
 
@@ -68,7 +68,7 @@ Properties
 
 streamtask
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

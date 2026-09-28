@@ -15,7 +15,9 @@ Preparing search index...
 
 # Class LongRunningFunctionTool<TParameters>
 
-The base class for all tools.
+A [FunctionTool](FunctionTool.html) for long-running operations whose result is returned asynchronously.
+
+The framework invokes the user-provided function and delivers the response back to the model once it completes, identified by the `function_call_id`. The model is also instructed not to re-invoke the tool while a call is already in flight.
 
 #### Type Parameters
 
@@ -30,7 +32,7 @@ The base class for all tools.
 
 
 
-  * Defined in [tools/long_running_tool.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/long_running_tool.ts#L28)
+  * Defined in [core/src/tools/long_running_tool.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/long_running_tool.ts#L28)
 
 
 
@@ -58,7 +60,7 @@ The configuration for the tool.
 
 Overrides [FunctionTool](FunctionTool.html).[constructor](FunctionTool.html#constructor)
 
-    * Defined in [tools/long_running_tool.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/long_running_tool.ts#L35)
+    * Defined in [core/src/tools/long_running_tool.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/long_running_tool.ts#L35)
 
 
 
@@ -73,7 +75,7 @@ A unique symbol to identify ADK base tool class.
 
 Inherited from [FunctionTool](FunctionTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](FunctionTool.html#base_tool_signature_symbol)
 
-  * Defined in [tools/base_tool.ts:64](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L64)
+  * Defined in [core/src/tools/base_tool.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L64)
 
 
 
@@ -85,7 +87,7 @@ A unique symbol to identify ADK function tool class.
 
 Inherited from [FunctionTool](FunctionTool.html).[[FUNCTION_TOOL_SIGNATURE_SYMBOL]](FunctionTool.html#function_tool_signature_symbol)
 
-  * Defined in [tools/function_tool.ts:99](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L99)
+  * Defined in [core/src/tools/function_tool.ts:108](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L108)
 
 
 
@@ -95,7 +97,7 @@ description: string
 
 Inherited from [FunctionTool](FunctionTool.html).[description](FunctionTool.html#description)
 
-  * Defined in [tools/base_tool.ts:67](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L67)
+  * Defined in [core/src/tools/base_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L67)
 
 
 
@@ -105,7 +107,7 @@ isLongRunning: boolean
 
 Inherited from [FunctionTool](FunctionTool.html).[isLongRunning](FunctionTool.html#islongrunning)
 
-  * Defined in [tools/base_tool.ts:68](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L68)
+  * Defined in [core/src/tools/base_tool.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L68)
 
 
 
@@ -115,7 +117,7 @@ name: string
 
 Inherited from [FunctionTool](FunctionTool.html).[name](FunctionTool.html#name)
 
-  * Defined in [tools/base_tool.ts:66](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L66)
+  * Defined in [core/src/tools/base_tool.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L66)
 
 
 
@@ -131,7 +133,7 @@ The Google API LLM variant to use.
 
 Inherited from FunctionTool.apiVariant
 
-    * Defined in [tools/base_tool.ts:151](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L151)
+    * Defined in [core/src/tools/base_tool.ts:151](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L151)
 
 
 
@@ -142,13 +144,13 @@ Inherited from FunctionTool.apiVariant
 
   * _getDeclaration(): FunctionDeclaration
 
-Provide a schema for the function.
+Returns the function declaration with an appended instruction warning the model not to re-invoke the tool while it is still running.
 
 #### Returns FunctionDeclaration
 
 Overrides [FunctionTool](FunctionTool.html).[_getDeclaration](FunctionTool.html#_getdeclaration)
 
-    * Defined in [tools/long_running_tool.ts:42](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/long_running_tool.ts#L42)
+    * Defined in [core/src/tools/long_running_tool.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/long_running_tool.ts#L43)
 
 
 
@@ -174,7 +176,7 @@ The request to process the LLM request.
 
 Inherited from [FunctionTool](FunctionTool.html).[processLlmRequest](FunctionTool.html#processllmrequest)
 
-    * Defined in [tools/base_tool.ts:120](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/base_tool.ts#L120)
+    * Defined in [core/src/tools/base_tool.ts:120](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L120)
 
 
 
@@ -183,17 +185,21 @@ Inherited from [FunctionTool](FunctionTool.html).[processLlmRequest](FunctionToo
 
   * runAsync(req: [RunAsyncToolRequest](../interfaces/RunAsyncToolRequest.html)): Promise<unknown>
 
-Logic for running the tool.
+Validates the model-provided arguments against the parameter schema and invokes the user-defined `execute` function.
 
 #### Parameters
 
     * req: [RunAsyncToolRequest](../interfaces/RunAsyncToolRequest.html)
 
+The tool request containing arguments and tool context.
+
 #### Returns Promise<unknown>
+
+A promise resolving to the function's return value.
 
 Inherited from [FunctionTool](FunctionTool.html).[runAsync](FunctionTool.html#runasync)
 
-    * Defined in [tools/function_tool.ts:140](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L140)
+    * Defined in [core/src/tools/function_tool.ts:154](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L154)
 
 
 
@@ -214,7 +220,7 @@ Methods
 
 _getDeclarationprocessLlmRequestrunAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

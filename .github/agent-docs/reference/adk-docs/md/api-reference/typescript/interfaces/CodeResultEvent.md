@@ -22,7 +22,7 @@ result: CodeExecutionResult;
 type: [CODE_RESULT](../enums/EventType.html#code_result);  
 }
 
-  * Defined in [events/structured_events.ts:75](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L75)
+  * Defined in [core/src/events/structured_events.ts:88](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L88)
 
 
 
@@ -32,7 +32,7 @@ type: [CODE_RESULT](../enums/EventType.html#code_result);
 
 result: CodeExecutionResult
 
-  * Defined in [events/structured_events.ts:77](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L77)
+  * Defined in [core/src/events/structured_events.ts:90](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L90)
 
 
 
@@ -40,7 +40,7 @@ result: CodeExecutionResult
 
 type: [CODE_RESULT](../enums/EventType.html#code_result)
 
-  * Defined in [events/structured_events.ts:76](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L76)
+  * Defined in [core/src/events/structured_events.ts:89](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L89)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 resulttype
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

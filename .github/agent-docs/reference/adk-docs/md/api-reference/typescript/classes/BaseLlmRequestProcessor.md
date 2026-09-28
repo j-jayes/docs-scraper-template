@@ -15,9 +15,25 @@ Preparing search index...
 
 # Class BaseLlmRequestProcessor`Abstract`
 
-Base class for LLM request processor.
+Base class for LLM request processors. Implementations mutate or augment the [LlmRequest](../interfaces/LlmRequest.html) before it is sent to the model.
 
-  * Defined in [agents/processors/base_llm_processor.ts:15](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/processors/base_llm_processor.ts#L15)
+#### Hierarchy ([View Summary](../hierarchy.html#BaseLlmRequestProcessor))
+
+  * BaseLlmRequestProcessor
+    * [AgentTransferLlmRequestProcessor](AgentTransferLlmRequestProcessor.html)
+    * [AuthPreprocessor](AuthPreprocessor.html)
+
+
+
+#### Implemented by
+
+  * [ContentRequestProcessor](ContentRequestProcessor.html)
+  * [ContextCompactorRequestProcessor](ContextCompactorRequestProcessor.html)
+  * [InteractionsRequestProcessor](InteractionsRequestProcessor.html)
+
+
+
+  * Defined in [core/src/agents/processors/base_llm_processor.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/base_llm_processor.ts#L16)
 
 
 
@@ -41,16 +57,21 @@ invocationContext: [InvocationContext](InvocationContext.html),
 llmRequest: [LlmRequest](../interfaces/LlmRequest.html),  
 ): AsyncGenerator<[Event](../interfaces/Event.html), void, void>
 
-Runs the processor.
+Runs the processor, optionally yielding intermediate [Event](../interfaces/Event.html)s.
 
 #### Parameters
 
     * invocationContext: [InvocationContext](InvocationContext.html)
+
+The current invocation context.
+
     * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
+
+The request object to populate or mutate in place.
 
 #### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
 
-    * Defined in [agents/processors/base_llm_processor.ts:19](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/processors/base_llm_processor.ts#L19)
+    * Defined in [core/src/agents/processors/base_llm_processor.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/base_llm_processor.ts#L23)
 
 
 
@@ -63,7 +84,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

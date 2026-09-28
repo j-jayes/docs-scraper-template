@@ -17,7 +17,9 @@ Preparing search index...
 
 The types of events that can be parsed from a raw Event.
 
-  * Defined in [events/structured_events.ts:19](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L19)
+Each value corresponds to one category of structured output that [toStructuredEvents](../functions/toStructuredEvents.html) may produce from a raw [Event](../interfaces/Event.html).
+
+  * Defined in [core/src/events/structured_events.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L22)
 
 
 
@@ -27,7 +29,9 @@ The types of events that can be parsed from a raw Event.
 
 ACTIVITY: "activity"
 
-  * Defined in [events/structured_events.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L27)
+A generic activity or status update.
+
+  * Defined in [core/src/events/structured_events.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L38)
 
 
 
@@ -35,7 +39,9 @@ ACTIVITY: "activity"
 
 CALL_CODE: "call_code"
 
-  * Defined in [events/structured_events.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L24)
+A request from the model to execute code.
+
+  * Defined in [core/src/events/structured_events.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L32)
 
 
 
@@ -43,7 +49,9 @@ CALL_CODE: "call_code"
 
 CODE_RESULT: "code_result"
 
-  * Defined in [events/structured_events.ts:25](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L25)
+The result of a code execution.
+
+  * Defined in [core/src/events/structured_events.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L34)
 
 
 
@@ -51,7 +59,9 @@ CODE_RESULT: "code_result"
 
 CONTENT: "content"
 
-  * Defined in [events/structured_events.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L21)
+A text delta intended for the end user.
+
+  * Defined in [core/src/events/structured_events.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L26)
 
 
 
@@ -59,7 +69,9 @@ CONTENT: "content"
 
 ERROR: "error"
 
-  * Defined in [events/structured_events.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L26)
+A runtime error signalled via `event.errorCode`.
+
+  * Defined in [core/src/events/structured_events.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L36)
 
 
 
@@ -67,7 +79,9 @@ ERROR: "error"
 
 FINISHED: "finished"
 
-  * Defined in [events/structured_events.ts:29](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L29)
+The agent has produced its final response for this turn.
+
+  * Defined in [core/src/events/structured_events.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L42)
 
 
 
@@ -75,7 +89,9 @@ FINISHED: "finished"
 
 THOUGHT: "thought"
 
-  * Defined in [events/structured_events.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L20)
+A reasoning trace (thought) emitted by the model.
+
+  * Defined in [core/src/events/structured_events.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L24)
 
 
 
@@ -83,7 +99,9 @@ THOUGHT: "thought"
 
 TOOL_CALL: "tool_call"
 
-  * Defined in [events/structured_events.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L22)
+A request from the model to execute a tool (function call).
+
+  * Defined in [core/src/events/structured_events.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L28)
 
 
 
@@ -91,7 +109,9 @@ TOOL_CALL: "tool_call"
 
 TOOL_CONFIRMATION: "tool_confirmation"
 
-  * Defined in [events/structured_events.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L28)
+A request for the user to confirm one or more tool calls.
+
+  * Defined in [core/src/events/structured_events.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L40)
 
 
 
@@ -99,7 +119,9 @@ TOOL_CONFIRMATION: "tool_confirmation"
 
 TOOL_RESULT: "tool_result"
 
-  * Defined in [events/structured_events.ts:23](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/events/structured_events.ts#L23)
+The result returned by a tool execution (function response).
+
+  * Defined in [core/src/events/structured_events.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/structured_events.ts#L30)
 
 
 
@@ -107,7 +129,7 @@ Enumeration Members
 
 ACTIVITYCALL_CODECODE_RESULTCONTENTERRORFINISHEDTHOUGHTTOOL_CALLTOOL_CONFIRMATIONTOOL_RESULT
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

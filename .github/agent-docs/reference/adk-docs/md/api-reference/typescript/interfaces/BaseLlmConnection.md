@@ -20,12 +20,14 @@ The base class for a live model connection.
 interface BaseLlmConnection {  
 close(): Promise<void>;  
 receive(): AsyncGenerator<[LlmResponse](LlmResponse.html), void, void>;  
+sendActivityEnd?(): Promise<void>;  
+sendActivityStart?(): Promise<void>;  
 sendContent(content: Content): Promise<void>;  
 sendHistory(history: Content[]): Promise<void>;  
 sendRealtime(blob: Blob_2): Promise<void>;  
 }
 
-  * Defined in [models/base_llm_connection.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L14)
+  * Defined in [core/src/models/base_llm_connection.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L14)
 
 
 
@@ -39,7 +41,7 @@ Closes the llm server connection.
 
 #### Returns Promise<void>
 
-    * Defined in [models/base_llm_connection.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L57)
+    * Defined in [core/src/models/base_llm_connection.ts:69](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L69)
 
 
 
@@ -54,7 +56,33 @@ Receives the model response using the llm server connection.
 
 A generator of LlmResponse.
 
-    * Defined in [models/base_llm_connection.ts:52](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L52)
+    * Defined in [core/src/models/base_llm_connection.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L64)
+
+
+
+
+### `Optional`sendActivityEnd
+
+  * sendActivityEnd?(): Promise<void>
+
+Optionally signals the end of user activity (e.g. user finishes speaking) for models that support manual activity boundaries.
+
+#### Returns Promise<void>
+
+    * Defined in [core/src/models/base_llm_connection.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L57)
+
+
+
+
+### `Optional`sendActivityStart
+
+  * sendActivityStart?(): Promise<void>
+
+Optionally signals the start of user activity (e.g. user begins speaking) for models that support manual activity boundaries.
+
+#### Returns Promise<void>
+
+    * Defined in [core/src/models/base_llm_connection.ts:51](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L51)
 
 
 
@@ -75,7 +103,7 @@ The content to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [models/base_llm_connection.ts:35](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L35)
+    * Defined in [core/src/models/base_llm_connection.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L35)
 
 
 
@@ -96,7 +124,7 @@ The conversation history to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [models/base_llm_connection.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L24)
+    * Defined in [core/src/models/base_llm_connection.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L24)
 
 
 
@@ -117,16 +145,16 @@ The blob to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [models/base_llm_connection.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/models/base_llm_connection.ts#L45)
+    * Defined in [core/src/models/base_llm_connection.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L45)
 
 
 
 
 Methods
 
-closereceivesendContentsendHistorysendRealtime
+closereceivesendActivityEndsendActivityStartsendContentsendHistorysendRealtime
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

@@ -25,12 +25,12 @@ Removes temporary state delta keys from the event.
 
 #### Returns [Event](../interfaces/Event.html)
 
-    * Defined in [sessions/base_session_service.ts:197](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/sessions/base_session_service.ts#L197)
+    * Defined in [core/src/sessions/base_session_service.ts:207](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/base_session_service.ts#L207)
 
 
 
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

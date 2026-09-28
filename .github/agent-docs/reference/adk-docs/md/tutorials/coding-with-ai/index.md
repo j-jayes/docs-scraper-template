@@ -143,6 +143,12 @@ Custom Tools
         * [ Tool performance  ](../../tools-custom/performance/)
         * [ Action confirmations  ](../../tools-custom/confirmation/)
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -175,9 +181,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -208,6 +211,7 @@ Get started
         * [ Audio and video  ](../../live/audio-video/)
         * [ Configuration  ](../../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
         * [ Evaluation  ](../../live/evaluation/)
         * [ Build a custom server  ](../../live/custom-server/)
       * [ Supported models  ](../../live/models/)
@@ -313,6 +317,8 @@ To add the ADK docs MCP server to [Antigravity](https://antigravity.google/) (re
                "args": [
                  "--from",
                  "mcpdoc",
+                 "--with",
+                 "mcp<2",
                  "mcpdoc",
                  "--urls",
                  "AgentDevelopmentKit:https://adk.dev/llms.txt",
@@ -332,7 +338,7 @@ To add the ADK docs MCP server to [Antigravity](https://antigravity.google/) (re
 To add the ADK docs MCP server to [Claude Code](https://code.claude.com/docs/en/overview):
     
     
-    claude mcp add adk-docs --transport stdio -- uvx --from mcpdoc mcpdoc --urls AgentDevelopmentKit:https://adk.dev/llms.txt --transport stdio
+    claude mcp add adk-docs --transport stdio -- uvx --from mcpdoc --with "mcp<2" mcpdoc --urls AgentDevelopmentKit:https://adk.dev/llms.txt --transport stdio
     
 
 ### Cursor¶
@@ -350,6 +356,8 @@ To add the ADK docs MCP server to [Cursor](https://cursor.com/) (requires [`uv`]
                "args": [
                  "--from",
                  "mcpdoc",
+                 "--with",
+                 "mcp<2",
                  "mcpdoc",
                  "--urls",
                  "AgentDevelopmentKit:https://adk.dev/llms.txt",
@@ -363,6 +371,10 @@ To add the ADK docs MCP server to [Cursor](https://cursor.com/) (requires [`uv`]
 
 
 
+
+MCP version setting
+
+The `mcp<2` constraint setting keeps `mcpdoc` compatible with the MCP 1.x FastMCP API it currently uses.
 
 ### Other Tools¶
 

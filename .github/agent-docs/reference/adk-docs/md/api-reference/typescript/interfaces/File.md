@@ -19,11 +19,12 @@ A structure that contains a file name and its content
 
 interface File {  
 content: string;  
+contentEncoding?: [FileContentEncoding](../enums/FileContentEncoding.html);  
 mimeType: string;  
 name: string;  
 }
 
-  * Defined in [code_executors/code_execution_utils.ts:14](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L14)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:19](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L19)
 
 
 
@@ -33,9 +34,19 @@ name: string;
 
 content: string
 
-The base64 - encoded bytes of the file content.
+The encoded bytes of the file content.
 
-  * Defined in [code_executors/code_execution_utils.ts:23](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L23)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L28)
+
+
+
+### `Optional`contentEncoding
+
+contentEncoding?: [FileContentEncoding](../enums/FileContentEncoding.html)
+
+The encoding of the file content.
+
+  * Defined in [core/src/code_executors/code_execution_utils.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L33)
 
 
 
@@ -45,7 +56,7 @@ mimeType: string
 
 The mime type of the file (e.g., ' image / png')
 
-  * Defined in [code_executors/code_execution_utils.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L28)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L38)
 
 
 
@@ -55,15 +66,15 @@ name: string
 
 The name of the file with file extension(e.g., ' file.csv')
 
-  * Defined in [code_executors/code_execution_utils.ts:18](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/code_executors/code_execution_utils.ts#L18)
+  * Defined in [core/src/code_executors/code_execution_utils.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/code_execution_utils.ts#L23)
 
 
 
 Properties
 
-contentmimeTypename
+contentcontentEncodingmimeTypename
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

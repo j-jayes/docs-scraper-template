@@ -26,7 +26,7 @@ setLogLevel(level: [LogLevel](../enums/LogLevel.html)): void;
 warn(...args: unknown[]): void;  
 }
 
-  * Defined in [utils/logger.ts:19](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L19)
+  * Defined in [core/src/utils/logger.ts:19](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L19)
 
 
 
@@ -42,7 +42,7 @@ warn(...args: unknown[]): void;
 
 #### Returns void
 
-    * Defined in [utils/logger.ts:22](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L22)
+    * Defined in [core/src/utils/logger.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L22)
 
 
 
@@ -57,7 +57,7 @@ warn(...args: unknown[]): void;
 
 #### Returns void
 
-    * Defined in [utils/logger.ts:28](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L28)
+    * Defined in [core/src/utils/logger.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L28)
 
 
 
@@ -72,7 +72,7 @@ warn(...args: unknown[]): void;
 
 #### Returns void
 
-    * Defined in [utils/logger.ts:24](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L24)
+    * Defined in [core/src/utils/logger.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L24)
 
 
 
@@ -88,7 +88,7 @@ warn(...args: unknown[]): void;
 
 #### Returns void
 
-    * Defined in [utils/logger.ts:20](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L20)
+    * Defined in [core/src/utils/logger.ts:20](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L20)
 
 
 
@@ -103,7 +103,7 @@ warn(...args: unknown[]): void;
 
 #### Returns void
 
-    * Defined in [utils/logger.ts:30](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L30)
+    * Defined in [core/src/utils/logger.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L30)
 
 
 
@@ -118,7 +118,7 @@ warn(...args: unknown[]): void;
 
 #### Returns void
 
-    * Defined in [utils/logger.ts:26](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/utils/logger.ts#L26)
+    * Defined in [core/src/utils/logger.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/utils/logger.ts#L26)
 
 
 
@@ -127,7 +127,7 @@ Methods
 
 debugerrorinfologsetLogLevelwarn
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

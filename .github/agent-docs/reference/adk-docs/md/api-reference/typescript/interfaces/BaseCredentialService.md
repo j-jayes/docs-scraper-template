@@ -25,7 +25,14 @@ toolContext: [Context](../classes/Context.html),
 saveCredential(authConfig: [AuthConfig](AuthConfig.html), toolContext: [Context](../classes/Context.html)): Promise<void>;  
 }
 
-  * Defined in [auth/credential_service/base_credential_service.ts:15](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/credential_service/base_credential_service.ts#L15)
+#### Implemented by
+
+  * [InMemoryCredentialService](../classes/InMemoryCredentialService.html)
+  * [SessionStateCredentialService](../classes/SessionStateCredentialService.html)
+
+
+
+  * Defined in [core/src/auth/credential_service/base_credential_service.ts:15](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/credential_service/base_credential_service.ts#L15)
 
 
 
@@ -54,7 +61,7 @@ The context of the current invocation when the tool is trying to load the creden
 
 A promise that resolves to the credential saved in the store.
 
-    * Defined in [auth/credential_service/base_credential_service.ts:27](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/credential_service/base_credential_service.ts#L27)
+    * Defined in [core/src/auth/credential_service/base_credential_service.ts:27](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/credential_service/base_credential_service.ts#L27)
 
 
 
@@ -70,7 +77,7 @@ A promise that resolves to the credential saved in the store.
 
 #### Returns Promise<void>
 
-    * Defined in [auth/credential_service/base_credential_service.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/auth/credential_service/base_credential_service.ts#L43)
+    * Defined in [core/src/auth/credential_service/base_credential_service.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/credential_service/base_credential_service.ts#L43)
 
 
 
@@ -79,7 +86,7 @@ Methods
 
 loadCredentialsaveCredential
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

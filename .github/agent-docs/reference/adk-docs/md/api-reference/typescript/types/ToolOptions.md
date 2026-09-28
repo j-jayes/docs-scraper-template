@@ -33,7 +33,7 @@ parameters?: TParameters;
 
 
 
-  * Defined in [tools/function_tool.ts:53](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L53)
+  * Defined in [core/src/tools/function_tool.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L54)
 
 
 
@@ -43,7 +43,7 @@ parameters?: TParameters;
 
 description: string
 
-  * Defined in [tools/function_tool.ts:55](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L55)
+  * Defined in [core/src/tools/function_tool.ts:56](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L56)
 
 
 
@@ -51,7 +51,7 @@ description: string
 
 execute: [ToolExecuteFunction](ToolExecuteFunction.html)<TParameters>
 
-  * Defined in [tools/function_tool.ts:57](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L57)
+  * Defined in [core/src/tools/function_tool.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L58)
 
 
 
@@ -59,7 +59,7 @@ execute: [ToolExecuteFunction](ToolExecuteFunction.html)<TParameters>
 
 isLongRunning?: boolean
 
-  * Defined in [tools/function_tool.ts:58](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L58)
+  * Defined in [core/src/tools/function_tool.ts:59](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L59)
 
 
 
@@ -67,7 +67,7 @@ isLongRunning?: boolean
 
 name?: string
 
-  * Defined in [tools/function_tool.ts:54](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L54)
+  * Defined in [core/src/tools/function_tool.ts:55](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L55)
 
 
 
@@ -75,7 +75,7 @@ name?: string
 
 parameters?: TParameters
 
-  * Defined in [tools/function_tool.ts:56](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/tools/function_tool.ts#L56)
+  * Defined in [core/src/tools/function_tool.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/function_tool.ts#L57)
 
 
 
@@ -83,7 +83,7 @@ Properties
 
 descriptionexecuteisLongRunningnameparameters
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

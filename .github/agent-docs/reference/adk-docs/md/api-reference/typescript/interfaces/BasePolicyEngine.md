@@ -15,6 +15,8 @@ Preparing search index...
 
 # Interface BasePolicyEngine
 
+Interface for policy engines that gate tool call execution.
+
 interface BasePolicyEngine {  
 evaluate(context: [ToolCallPolicyContext](ToolCallPolicyContext.html)): Promise<[PolicyCheckResult](PolicyCheckResult.html)>;  
 }
@@ -25,7 +27,7 @@ evaluate(context: [ToolCallPolicyContext](ToolCallPolicyContext.html)): Promise<
 
 
 
-  * Defined in [plugins/security_plugin.ts:49](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L49)
+  * Defined in [core/src/plugins/security_plugin.ts:56](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L56)
 
 
 
@@ -35,13 +37,19 @@ evaluate(context: [ToolCallPolicyContext](ToolCallPolicyContext.html)): Promise<
 
   * evaluate(context: [ToolCallPolicyContext](ToolCallPolicyContext.html)): Promise<[PolicyCheckResult](PolicyCheckResult.html)>
 
+Evaluates whether a tool call should be allowed, denied, or confirmed.
+
 #### Parameters
 
     * context: [ToolCallPolicyContext](ToolCallPolicyContext.html)
 
+The tool and its arguments to evaluate.
+
 #### Returns Promise<[PolicyCheckResult](PolicyCheckResult.html)>
 
-    * Defined in [plugins/security_plugin.ts:50](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L50)
+A promise resolving to the policy decision.
+
+    * Defined in [core/src/plugins/security_plugin.ts:63](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L63)
 
 
 
@@ -50,7 +58,7 @@ Methods
 
 evaluate
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

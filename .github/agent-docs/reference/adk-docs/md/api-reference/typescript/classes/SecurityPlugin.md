@@ -24,7 +24,7 @@ Security Plugin for running Orcas agents.
 
 
 
-  * Defined in [plugins/security_plugin.ts:69](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L69)
+  * Defined in [core/src/plugins/security_plugin.ts:88](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L88)
 
 
 
@@ -38,11 +38,13 @@ Security Plugin for running Orcas agents.
 
     * `Optional`params: { policyEngine?: [BasePolicyEngine](../interfaces/BasePolicyEngine.html) }
 
+Optional configuration. Defaults to [InMemoryPolicyEngine](InMemoryPolicyEngine.html) when no policy engine is provided.
+
 #### Returns [SecurityPlugin]()
 
 Overrides [BasePlugin](BasePlugin.html).[constructor](BasePlugin.html#constructor)
 
-    * Defined in [plugins/security_plugin.ts:72](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L72)
+    * Defined in [core/src/plugins/security_plugin.ts:95](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L95)
 
 
 
@@ -55,7 +57,7 @@ name: string
 
 Inherited from [BasePlugin](BasePlugin.html).[name](BasePlugin.html#name)
 
-  * Defined in [plugins/base_plugin.ts:101](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L101)
+  * Defined in [core/src/plugins/base_plugin.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L111)
 
 
 
@@ -88,7 +90,40 @@ An optional `Content` object. If a value is returned, it will replace the agent'
 
 Inherited from [BasePlugin](BasePlugin.html).[afterAgentCallback](BasePlugin.html#afteragentcallback)
 
-    * Defined in [plugins/base_plugin.ts:221](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L221)
+    * Defined in [core/src/plugins/base_plugin.ts:231](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L231)
+
+
+
+
+### afterContextCompaction
+
+  * afterContextCompaction(  
+params: {  
+invocationContext: [InvocationContext](InvocationContext.html);  
+trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html);  
+},  
+): Promise<void>
+
+Callback executed after context compaction.
+
+This callback provides an opportunity to inspect the context after it has been compacted.
+
+#### Parameters
+
+    * params: { invocationContext: [InvocationContext](InvocationContext.html); trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html) }
+      * ##### invocationContext: [InvocationContext](InvocationContext.html)
+
+The context for the entire invocation.
+
+      * ##### trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html)
+
+The trigger for the context compaction.
+
+#### Returns Promise<void>
+
+Inherited from [BasePlugin](BasePlugin.html).[afterContextCompaction](BasePlugin.html#aftercontextcompaction)
+
+    * Defined in [core/src/plugins/base_plugin.ts:352](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L352)
 
 
 
@@ -120,7 +155,7 @@ An optional value. A non-`undefined` return may be used by the framework to modi
 
 Inherited from [BasePlugin](BasePlugin.html).[afterModelCallback](BasePlugin.html#aftermodelcallback)
 
-    * Defined in [plugins/base_plugin.ts:262](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L262)
+    * Defined in [core/src/plugins/base_plugin.ts:272](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L272)
 
 
 
@@ -148,7 +183,7 @@ undefined
 
 Inherited from [BasePlugin](BasePlugin.html).[afterRunCallback](BasePlugin.html#afterruncallback)
 
-    * Defined in [plugins/base_plugin.ts:182](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L182)
+    * Defined in [core/src/plugins/base_plugin.ts:192](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L192)
 
 
 
@@ -198,7 +233,7 @@ An optional dictionary. If a dictionary is returned, it will **replace** the ori
 
 Inherited from [BasePlugin](BasePlugin.html).[afterToolCallback](BasePlugin.html#aftertoolcallback)
 
-    * Defined in [plugins/base_plugin.ts:331](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L331)
+    * Defined in [core/src/plugins/base_plugin.ts:398](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L398)
 
 
 
@@ -230,7 +265,40 @@ An optional `Content` object. If a value is returned, it will bypass the agent's
 
 Inherited from [BasePlugin](BasePlugin.html).[beforeAgentCallback](BasePlugin.html#beforeagentcallback)
 
-    * Defined in [plugins/base_plugin.ts:201](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L201)
+    * Defined in [core/src/plugins/base_plugin.ts:211](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L211)
+
+
+
+
+### beforeContextCompaction
+
+  * beforeContextCompaction(  
+params: {  
+invocationContext: [InvocationContext](InvocationContext.html);  
+trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html);  
+},  
+): Promise<void>
+
+Callback executed before context compaction.
+
+This callback provides an opportunity to inspect or modify the context before it is compacted.
+
+#### Parameters
+
+    * params: { invocationContext: [InvocationContext](InvocationContext.html); trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html) }
+      * ##### invocationContext: [InvocationContext](InvocationContext.html)
+
+The context for the entire invocation.
+
+      * ##### trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html)
+
+The trigger for the context compaction.
+
+#### Returns Promise<void>
+
+Inherited from [BasePlugin](BasePlugin.html).[beforeContextCompaction](BasePlugin.html#beforecontextcompaction)
+
+    * Defined in [core/src/plugins/base_plugin.ts:334](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L334)
 
 
 
@@ -262,7 +330,7 @@ An optional value. The interpretation of a non-`undefined` trigger an early exit
 
 Inherited from [BasePlugin](BasePlugin.html).[beforeModelCallback](BasePlugin.html#beforemodelcallback)
 
-    * Defined in [plugins/base_plugin.ts:242](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L242)
+    * Defined in [core/src/plugins/base_plugin.ts:252](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L252)
 
 
 
@@ -290,7 +358,7 @@ An optional `Event` to be returned to the ADK. Returning a value to halt executi
 
 Inherited from [BasePlugin](BasePlugin.html).[beforeRunCallback](BasePlugin.html#beforeruncallback)
 
-    * Defined in [plugins/base_plugin.ts:146](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L146)
+    * Defined in [core/src/plugins/base_plugin.ts:156](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L156)
 
 
 
@@ -305,9 +373,7 @@ toolContext: [Context](Context.html);
 },  
 ): Promise<{ [key: string]: unknown } | undefined>
 
-Callback executed before a tool is called.
-
-This callback is useful for logging tool usage, input validation, or modifying the arguments before they are passed to the tool.
+Intercepts tool calls, evaluating them against the policy engine before execution and handling confirmation flows for calls that require it.
 
 #### Parameters
 
@@ -315,11 +381,46 @@ This callback is useful for logging tool usage, input validation, or modifying t
 
 #### Returns Promise<{ [key: string]: unknown } | undefined>
 
-An optional dictionary. If a dictionary is returned, it will stop the tool execution and return this response immediately. Returning `undefined` uses the original, unmodified arguments.
+A partial or error response object if the call is blocked or awaiting confirmation, or `undefined` to allow execution to proceed.
 
 Overrides [BasePlugin](BasePlugin.html).[beforeToolCallback](BasePlugin.html#beforetoolcallback)
 
-    * Defined in [plugins/security_plugin.ts:77](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/security_plugin.ts#L77)
+    * Defined in [core/src/plugins/security_plugin.ts:107](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L107)
+
+
+
+
+### beforeToolSelection
+
+  * beforeToolSelection(  
+params: {  
+callbackContext: [Context](Context.html);  
+tools: Readonly<Record<string, [BaseTool](BaseTool.html)>>;  
+},  
+): Promise<Readonly<Record<string, [BaseTool](BaseTool.html)>> | undefined>
+
+Callback executed before a tool is selected.
+
+This callback provides an opportunity to inspect, log, or modify the available tools before they are selected.
+
+#### Parameters
+
+    * params: { callbackContext: [Context](Context.html); tools: Readonly<Record<string, [BaseTool](BaseTool.html)>> }
+      * ##### callbackContext: [Context](Context.html)
+
+The context for the current agent call.
+
+      * ##### tools: Readonly<Record<string, [BaseTool](BaseTool.html)>>
+
+The available tools.
+
+#### Returns Promise<Readonly<Record<string, [BaseTool](BaseTool.html)>> | undefined>
+
+An optional value. A non-`undefined` return may be used by the framework to modify or replace the available tools. Returning `undefined` allows the original tools to be used.
+
+Inherited from [BasePlugin](BasePlugin.html).[beforeToolSelection](BasePlugin.html#beforetoolselection)
+
+    * Defined in [core/src/plugins/base_plugin.ts:316](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L316)
 
 
 
@@ -351,7 +452,7 @@ An optional value. A non-`undefined` return may be used by the framework to modi
 
 Inherited from [BasePlugin](BasePlugin.html).[onEventCallback](BasePlugin.html#oneventcallback)
 
-    * Defined in [plugins/base_plugin.ts:165](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L165)
+    * Defined in [core/src/plugins/base_plugin.ts:175](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L175)
 
 
 
@@ -391,7 +492,7 @@ An optional LlmResponse. If an LlmResponse is returned, it will be used instead 
 
 Inherited from [BasePlugin](BasePlugin.html).[onModelErrorCallback](BasePlugin.html#onmodelerrorcallback)
 
-    * Defined in [plugins/base_plugin.ts:284](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L284)
+    * Defined in [core/src/plugins/base_plugin.ts:294](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L294)
 
 
 
@@ -443,7 +544,7 @@ An optional dictionary. If a dictionary is returned, it will be used as the tool
 
 Inherited from [BasePlugin](BasePlugin.html).[onToolErrorCallback](BasePlugin.html#ontoolerrorcallback)
 
-    * Defined in [plugins/base_plugin.ts:365](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L365)
+    * Defined in [core/src/plugins/base_plugin.ts:432](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L432)
 
 
 
@@ -475,7 +576,7 @@ An optional `Content` to be returned to the ADK. Returning a value to replace th
 
 Inherited from [BasePlugin](BasePlugin.html).[onUserMessageCallback](BasePlugin.html#onusermessagecallback)
 
-    * Defined in [plugins/base_plugin.ts:126](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/plugins/base_plugin.ts#L126)
+    * Defined in [core/src/plugins/base_plugin.ts:136](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L136)
 
 
 
@@ -490,9 +591,9 @@ name
 
 Methods
 
-afterAgentCallbackafterModelCallbackafterRunCallbackafterToolCallbackbeforeAgentCallbackbeforeModelCallbackbeforeRunCallbackbeforeToolCallbackonEventCallbackonModelErrorCallbackonToolErrorCallbackonUserMessageCallback
+afterAgentCallbackafterContextCompactionafterModelCallbackafterRunCallbackafterToolCallbackbeforeAgentCallbackbeforeContextCompactionbeforeModelCallbackbeforeRunCallbackbeforeToolCallbackbeforeToolSelectiononEventCallbackonModelErrorCallbackonToolErrorCallbackonUserMessageCallback
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 

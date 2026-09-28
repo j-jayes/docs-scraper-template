@@ -23,8 +23,8 @@ beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html);
 description?: string;  
 maxIterations?: number;  
 name: string;  
-parentAgent?: [BaseAgent](../classes/BaseAgent.html);  
-subAgents?: [BaseAgent](../classes/BaseAgent.html)[];  
+parentAgent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>;  
+subAgents?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>[];  
 }
 
 #### Hierarchy ([View Summary](../hierarchy.html#LoopAgentConfig))
@@ -34,7 +34,7 @@ subAgents?: [BaseAgent](../classes/BaseAgent.html)[];
 
 
 
-  * Defined in [agents/loop_agent.ts:15](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/loop_agent.ts#L15)
+  * Defined in [core/src/agents/loop_agent.ts:15](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/loop_agent.ts#L15)
 
 
 
@@ -46,7 +46,7 @@ afterAgentCallback?: [AfterAgentCallback](../types/AfterAgentCallback.html)
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[afterAgentCallback](BaseAgentConfig.html#afteragentcallback)
 
-  * Defined in [agents/base_agent.ts:48](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L48)
+  * Defined in [core/src/agents/base_agent.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L48)
 
 
 
@@ -56,7 +56,7 @@ beforeAgentCallback?: [BeforeAgentCallback](../types/BeforeAgentCallback.html)
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[beforeAgentCallback](BaseAgentConfig.html#beforeagentcallback)
 
-  * Defined in [agents/base_agent.ts:47](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L47)
+  * Defined in [core/src/agents/base_agent.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L47)
 
 
 
@@ -66,7 +66,7 @@ description?: string
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[description](BaseAgentConfig.html#description)
 
-  * Defined in [agents/base_agent.ts:44](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L44)
+  * Defined in [core/src/agents/base_agent.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L44)
 
 
 
@@ -78,7 +78,7 @@ The maximum number of iterations the loop agent will run.
 
 If not provided, the loop agent will run indefinitely.
 
-  * Defined in [agents/loop_agent.ts:21](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/loop_agent.ts#L21)
+  * Defined in [core/src/agents/loop_agent.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/loop_agent.ts#L21)
 
 
 
@@ -88,27 +88,27 @@ name: string
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[name](BaseAgentConfig.html#name)
 
-  * Defined in [agents/base_agent.ts:43](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L43)
+  * Defined in [core/src/agents/base_agent.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L43)
 
 
 
 ### `Optional`parentAgent
 
-parentAgent?: [BaseAgent](../classes/BaseAgent.html)
+parentAgent?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[parentAgent](BaseAgentConfig.html#parentagent)
 
-  * Defined in [agents/base_agent.ts:45](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L45)
+  * Defined in [core/src/agents/base_agent.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L45)
 
 
 
 ### `Optional`subAgents
 
-subAgents?: [BaseAgent](../classes/BaseAgent.html)[]
+subAgents?: [BaseAgent](../classes/BaseAgent.html)<[BaseAgentConfig](BaseAgentConfig.html)>[]
 
 Inherited from [BaseAgentConfig](BaseAgentConfig.html).[subAgents](BaseAgentConfig.html#subagents)
 
-  * Defined in [agents/base_agent.ts:46](https://github.com/google/adk-js/blob/1a012d266d3a60055efc59d994f42dce293500af/core/src/agents/base_agent.ts#L46)
+  * Defined in [core/src/agents/base_agent.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L46)
 
 
 
@@ -116,7 +116,7 @@ Properties
 
 afterAgentCallbackbeforeAgentCallbackdescriptionmaxIterationsnameparentAgentsubAgents
 
-[ADK for TypeScript: API Reference](../index.html)
+[ADK for TypeScript: API Reference - v1.5.0](../index.html)
 
   * Loading...
 
