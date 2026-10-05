@@ -28,6 +28,9 @@ Contents
   1. Description
   2. Constructor Summary
   3. Method Summary
+     1. Methods inherited from class BaseCodeExecutor
+     2. Methods inherited from class JsonBaseModel
+     3. Methods inherited from class Object
   4. Constructor Details
      1. ContainerCodeExecutor(String, String, String)
   5. Method Details
@@ -35,9 +38,14 @@ Contents
      2. fromImage(String)
      3. fromDockerPath(String, String)
      4. fromDockerPath(String)
-     5. stateful()
-     6. optimizeDataFile()
-     7. executeCode(InvocationContext, CodeExecutionUtils.CodeExecutionInput)
+     5. setNetworkEnabled(boolean)
+     6. setExecutionTimeoutSeconds(long)
+     7. setMemoryLimitBytes(long)
+     8. setStrictSandbox(boolean)
+     9. stateful()
+     10. optimizeDataFile()
+     11. executeCode(InvocationContext, CodeExecutionUtils.CodeExecutionInput)
+     12. close()
 
 Hide sidebar  Show sidebar
 
@@ -51,11 +59,22 @@ Hide sidebar  Show sidebar
 
 com.google.adk.codeexecutors.ContainerCodeExecutor
 
+All Implemented Interfaces:
+    `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`
+
 * * *
 
-public class ContainerCodeExecutor extends [BaseCodeExecutor](BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
+public class ContainerCodeExecutor extends [BaseCodeExecutor](BaseCodeExecutor.html "class in com.google.adk.codeexecutors") implements [AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")
 
-A code executor that uses a custom container to execute code.
+A code executor that runs code in a Docker container. 
+
+Code is run via `docker exec` (as in ADK Python), so the image only needs ` python3` on its PATH; any image `ENTRYPOINT` is bypassed. By default a single container is created on first use and reused for every `executeCode(InvocationContext, CodeExecutionUtils.CodeExecutionInput)` call, as in ADK Python. With the strict sandbox enabled, each execution instead runs in a fresh container that is force-removed afterwards, so one execution cannot observe or affect another's environment. 
+
+**Sandboxing is opt-in.** By default the execution container is unrestricted (network enabled, writable filesystem, no resource or time limits), matching the previous behavior so existing callers are not broken; a warning is logged when it is used this way. Call `setStrictSandbox(true)` to harden each container: no network (unless re-enabled via `setNetworkEnabled(boolean)`), all Linux capabilities dropped, no privilege escalation, a read-only root filesystem with a small writable `/tmp` tmpfs, memory/PID limits, and a wall-clock execution timeout. Strict sandboxing becomes the default in ADK 2.0. 
+
+The execution timeout and memory limit used by the strict sandbox are configurable via `setExecutionTimeoutSeconds(long)` and `setMemoryLimitBytes(long)`. 
+
+This executor holds a `DockerClient`; call `close()` (or rely on the registered JVM shutdown hook) to release its connections and threads. As with ADK Python, an abrupt JVM termination (e.g. SIGKILL) during an execution may leave a container behind.
 
   * ## Constructor Summary
 
@@ -80,6 +99,12 @@ Modifier and Type
 Method
 
 Description
+
+`void`
+
+`close()`
+
+Removes the shared container, if one was created, and closes the underlying Docker client, releasing its connections and threads.
 
 `[CodeExecutionUtils.CodeExecutionResult](CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors")`
 
@@ -116,6 +141,30 @@ Creates a ContainerCodeExecutor from an image.
 `optimizeDataFile()`
 
 If true, extract and process data files from the model request and attach them to the code executor.
+
+`[ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`setExecutionTimeoutSeconds(long executionTimeoutSeconds)`
+
+Sets the maximum wall-clock time (in seconds) a single execution may run, in the strict sandbox, before its container is force-removed (killed).
+
+`[ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`setMemoryLimitBytes(long memoryLimitBytes)`
+
+Sets the per-execution container memory limit, in bytes, used by the strict sandbox.
+
+`[ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`setNetworkEnabled(boolean networkEnabled)`
+
+Enables or disables container networking when the strict sandbox is on.
+
+`[ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
+
+`setStrictSandbox(boolean strictSandbox)`
+
+Enables the strict sandbox.
 
 `boolean`
 
@@ -258,6 +307,32 @@ Creates a ContainerCodeExecutor from a Dockerfile path.
 Parameters:
     `dockerPath` \- The path to the directory containing the Dockerfile.
 
+    * ### setNetworkEnabled
+
+public [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") setNetworkEnabled(boolean networkEnabled)
+
+Enables or disables container networking when the strict sandbox is on. In strict mode networking is disabled by default so executed code cannot reach the network (including the cloud metadata endpoint); pass `true` to allow it. Has no effect unless `setStrictSandbox(boolean)` is enabled — without the sandbox the container always has network access.
+
+    * ### setExecutionTimeoutSeconds
+
+public [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") setExecutionTimeoutSeconds(long executionTimeoutSeconds)
+
+Sets the maximum wall-clock time (in seconds) a single execution may run, in the strict sandbox, before its container is force-removed (killed). Defaults to 60 seconds. Has no effect unless `setStrictSandbox(boolean)` is enabled.
+
+    * ### setMemoryLimitBytes
+
+public [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") setMemoryLimitBytes(long memoryLimitBytes)
+
+Sets the per-execution container memory limit, in bytes, used by the strict sandbox. Defaults to 512 MiB. Has no effect unless `setStrictSandbox(boolean)` is enabled.
+
+    * ### setStrictSandbox
+
+public [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") setStrictSandbox(boolean strictSandbox)
+
+Enables the strict sandbox. When enabled, each execution runs in its own fresh container (force-removed afterwards) that is hardened: no network (unless re-enabled via `setNetworkEnabled(boolean)`), all Linux capabilities dropped, no privilege escalation, a read-only root filesystem (writable `/tmp` only), memory/PID limits, and a wall-clock timeout. While disabled, a single unrestricted container is reused across executions, as before. 
+
+Disabled by default so enabling the sandbox is not a breaking change for existing callers. While it is disabled a warning is logged, because running untrusted, model-generated code without the sandbox is dangerous. Strict sandboxing becomes the default in ADK 2.0.
+
     * ### stateful
 
 public boolean stateful()
@@ -299,6 +374,15 @@ Parameters:
     `codeExecutionInput` \- The code execution input.
 Returns:
     The code execution result.
+
+    * ### close
+
+public void close()
+
+Removes the shared container, if one was created, and closes the underlying Docker client, releasing its connections and threads.
+
+Specified by:
+    `[close](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html#close\(\))` in interface `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`
 
 
 

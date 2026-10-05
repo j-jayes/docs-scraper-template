@@ -73,6 +73,14 @@ Session.Builder.`[events](../Session.Builder.html#events\(java.util.List\))([Lis
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
+Session.Builder.`[eventsView](../Session.Builder.html#eventsView\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+
+Deprecated.
+
+Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use [`Session.Builder.events(List)`](../Session.Builder.html#events\(java.util.List\)) instead.
+
+`[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
+
 Session.Builder.`[id](../Session.Builder.html#id\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") id)`
 
  

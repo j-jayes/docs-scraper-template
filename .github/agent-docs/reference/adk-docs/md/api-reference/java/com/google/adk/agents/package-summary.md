@@ -276,6 +276,10 @@ Context provided to a [`Planner`](Planner.html "interface in com.google.adk.agen
 
 Provides read-only access to the context of an agent run.
 
+[Role](Role.html "class in com.google.adk.agents")
+
+Standard role names for `Content` and event authors.
+
 [RunConfig](RunConfig.html "class in com.google.adk.agents")
 
 Configuration to modify an agent's LLM's underlying behavior.

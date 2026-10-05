@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../../get-started/agents-cli/)
       * [ Installation  ](../../../get-started/installation/)
       * [ Google Cloud  ](../../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../../get-started/migrate/)
     * [ Build your Agent  ](../../../tutorials/)
 
 Build your Agent 
@@ -72,6 +73,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../google-gemini/deferred-schedule/)
       * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Agent Platform hosted  ](../agent-platform/)
@@ -79,6 +83,7 @@ Models for Agents
       * [ Model routing  ](../routing/)
       * OpenAI  [ OpenAI  ](./) Table of contents 
         * Get started 
+        * Chat Completions API 
         * Supported features 
         * Limitations 
         * Configuration options 
@@ -140,6 +145,12 @@ Custom Tools
         * [ Tool performance  ](../../../tools-custom/performance/)
         * [ Action confirmations  ](../../../tools-custom/confirmation/)
       * [ MCP tools  ](../../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../../tools-custom/authentication/)
       * [ Tool limitations  ](../../../tools/limitations/)
@@ -172,9 +183,6 @@ Sessions
       * [ Memory  ](../../../sessions/memory/)
       * [ Context compression  ](../../../context/compaction/)
       * [ Model context caching  ](../../../context/caching/)
-    * [ MCP  ](../../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../../a2a/)
 
 A2A Protocol 
@@ -205,6 +213,7 @@ Get started
         * [ Audio and video  ](../../../live/audio-video/)
         * [ Configuration  ](../../../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../../../live/guardrails/)
         * [ Evaluation  ](../../../live/evaluation/)
         * [ Build a custom server  ](../../../live/custom-server/)
       * [ Supported models  ](../../../live/models/)
@@ -244,6 +253,7 @@ ADK 2.0
 Table of contents 
 
   * Get started 
+  * Chat Completions API 
   * Supported features 
   * Limitations 
   * Configuration options 
@@ -267,16 +277,18 @@ The `openaimodel` package is experimental and its behavior may change or be remo
 
 You can use OpenAI models with ADK. How you connect depends on the language:
 
-  * **Go — native support:** ADK Go provides a direct `openaimodel` package that implements the `model.LLM` interface, targeting the OpenAI Responses API. Get started.
+  * **Go — native support:** ADK Go provides a direct `openaimodel` package that implements the `model.LLM` interface, targeting the OpenAI Responses API or the Chat Completions API. Get started.
   * **Python — via LiteLLM:** ADK Python accesses OpenAI models (and many other providers) through the LiteLLM connector. See [LiteLLM](/agents/models/litellm/).
 
 
 
 ## Get started¶
 
-The `openaimodel` package provides a client for interacting with OpenAI's API. It implements the `model.LLM` interface, making it compatible with providers that expose the OpenAI Responses API surface. The following code example shows a basic implementation for using OpenAI models in your agents:
+The `openaimodel` package provides a client for interacting with OpenAI's API. It implements the `model.LLM` interface and uses the OpenAI Responses API by default, or the Chat Completions API when `ClientConfig.API` selects it. The following code example shows a basic implementation for using OpenAI models in your agents:
 
 Go
+
+Responses APIChat Completions API
     
     
     import (
@@ -305,7 +317,60 @@ Go
     }
     
 
-For a complete, runnable sample, see [examples/openai/](https://github.com/google/adk-go/tree/main/examples/openai) in the ADK Go repository.
+For a complete, runnable sample, see [examples/openai/responses/](https://github.com/google/adk-go/tree/main/examples/openai/responses) in the ADK Go repository.
+
+Requires ADK Go v2.5.0 or later.
+    
+    
+    import (
+        "context"
+        "log"
+        "os"
+    
+        "github.com/openai/openai-go/v3"
+        "google.golang.org/adk/v2/agent/llmagent"
+        "google.golang.org/adk/v2/model/openaimodel"
+    )
+    
+    // Instantiate the model on the Chat Completions API
+    llm, err := openaimodel.NewModel(context.Background(), openai.ChatModelGPT4oMini, &openaimodel.ClientConfig{
+      APIKey: os.Getenv("OPENAI_API_KEY"),
+      API:    openaimodel.APIChatCompletions,
+    })
+    if err != nil {
+      log.Fatal(err)
+    }
+    
+    // Create the agent
+    agent, err := llmagent.New(llmagent.Config{
+      Name:        "openai_agent",
+      Model:       llm,
+      Instruction: "You are a helpful AI assistant.",
+    })
+    if err != nil {
+      log.Fatal(err)
+    }
+    
+
+For a complete, runnable sample, see [examples/openai/completions/](https://github.com/google/adk-go/tree/main/examples/openai/completions) in the ADK Go repository.
+
+## Chat Completions API¶
+
+Supported in ADKGo v2.5.0Experimental
+
+By default, `openaimodel` sends requests to the OpenAI [Responses API](https://platform.openai.com/docs/api-reference/responses) (`POST /v1/responses`). Nearly every OpenAI-compatible provider implements the [Chat Completions API](https://platform.openai.com/docs/api-reference/chat) (`POST /v1/chat/completions`), and some implement only that one. To use it, set the `API` field of `ClientConfig` to `openaimodel.APIChatCompletions`, as the Chat Completions API tab under Get started shows. Agents, tools, and the runner work the same way with either API.
+
+Set the API key for other providers
+
+To reach another OpenAI-compatible provider, set `BaseURL` to its endpoint and `APIKey` to its key. When `APIKey` is empty, the `openai-go` SDK falls back to the `OPENAI_API_KEY` environment variable and sends that key to `BaseURL`.
+
+The two APIs support the same features, with these differences:
+
+  * **Generation settings:** `StopSequences`, `FrequencyPenalty`, `PresencePenalty`, and `Seed` are sent to the Chat Completions API. The Responses API has no equivalent fields and returns an error for them.
+  * **Reasoning output:** The Chat Completions API does not return reasoning text, so responses contain no thought parts, and `ThinkingConfig.IncludeThoughts` is ignored. Reasoning effort and reasoning-token counts work with both APIs.
+  * **Output token limit:** `MaxOutputTokens` is sent as `max_completion_tokens`. Some compatible servers honor only the older `max_tokens` field, so the limit has no effect there.
+
+
 
 ## Supported features¶
 
@@ -322,7 +387,7 @@ For a complete, runnable sample, see [examples/openai/](https://github.com/googl
   * **Text only** — multimodal input (images, audio, files) is not supported.
   * **Function tools only** — built-in tools (Google Search, code execution, etc.) are not supported.
   * **Structured output uses OpenAI strict mode** — every field declared in an `OutputSchema` is treated as required.
-  * Some `GenerateContentConfig` options return an error rather than being silently ignored: `TopK`, stop sequences, multiple candidates, frequency/presence penalties, request labels, and safety settings.
+  * Some `GenerateContentConfig` options return an error rather than being silently ignored: `TopK`, multiple candidates, request labels, and safety settings. The Responses API also rejects stop sequences, frequency/presence penalties, and seed, which the Chat Completions API supports.
 
 
 
@@ -334,6 +399,7 @@ The `ClientConfig` provides several options for configuring the client:
   * `BaseURL`: Custom endpoint URL, which can be useful for OpenAI-compatible endpoints.
   * `HTTPClient`: A custom `*http.Client`.
   * `Options`: Advanced `openai-go` request options (`[]option.RequestOption`).
+  * `API`: The OpenAI API to call: `openaimodel.APIResponses` (the default) or `openaimodel.APIChatCompletions`. See Chat Completions API.
 
 
 
@@ -343,7 +409,7 @@ If `APIKey` or `BaseURL` are left empty, they will automatically fall back to th
 
 When using OpenAI models, you must provide an API key to authenticate with the OpenAI API. The most direct way to provide this information is to use environment variables or an `.env` file.
 
-The `openaimodel` package also supports OpenAI-compatible endpoints (such as local models served via Ollama, LM Studio, or vLLM) by configuring the base URL.
+The `openaimodel` package also supports OpenAI-compatible endpoints (such as local models served via Ollama, LM Studio, or vLLM) by configuring the base URL. If the endpoint does not serve the Responses API, also set `API` to `openaimodel.APIChatCompletions`, as described in Chat Completions API.
 
 OpenAI APIOpenAI-compatible Endpoint
     

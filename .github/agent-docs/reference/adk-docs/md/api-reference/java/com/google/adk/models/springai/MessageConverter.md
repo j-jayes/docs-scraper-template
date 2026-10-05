@@ -55,10 +55,9 @@ This converter handles the translation between ADK's Content/Part format (based 
 
   * Text content in all message types 
   * Tool/function calls in assistant messages 
+  * Tool/function responses as `ToolResponseMessage`s 
   * System instructions and configuration options 
 
-
-Note: Media attachments and tool responses are currently not supported due to Spring AI 1.1.0 API limitations (protected/private constructors). These will be added once Spring AI provides public APIs for these features.
 
   * ## Constructor Summary
 

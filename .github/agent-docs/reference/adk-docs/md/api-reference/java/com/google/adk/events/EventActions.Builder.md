@@ -42,9 +42,10 @@ Contents
      8. requestedToolConfirmations(Map)
      9. endOfAgent(boolean)
      10. endInvocation(boolean)
-     11. compaction(EventCompaction)
-     12. merge(EventActions)
-     13. build()
+     11. agentState(Map)
+     12. compaction(EventCompaction)
+     13. merge(EventActions)
+     14. build()
 
 Hide sidebar  Show sidebar
 
@@ -84,6 +85,12 @@ Modifier and Type
 Method
 
 Description
+
+`[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
+
+`agentState(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)`
+
+ 
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
@@ -223,6 +230,10 @@ public Builder()
 Deprecated.
 
 Use `endOfAgent(boolean)` instead.
+
+    * ### agentState
+
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") agentState(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)
 
     * ### compaction
 

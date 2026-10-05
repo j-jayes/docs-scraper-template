@@ -32,7 +32,8 @@ Contents
      1. ApiResponse()
   5. Method Details
      1. getResponseBody()
-     2. close()
+     2. getStatusCode()
+     3. close()
 
 Hide sidebar  Show sidebar
 
@@ -68,7 +69,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsConcrete Methods
 
 Modifier and Type
 
@@ -87,6 +88,12 @@ Description
 `getResponseBody()`
 
 Gets the HttpEntity.
+
+`int`
+
+`getStatusCode()`
+
+Gets the HTTP status code of the response.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -108,6 +115,12 @@ public ApiResponse()
 public abstract okhttp3.ResponseBody getResponseBody()
 
 Gets the HttpEntity.
+
+    * ### getStatusCode
+
+public int getStatusCode()
+
+Gets the HTTP status code of the response.
 
     * ### close
 

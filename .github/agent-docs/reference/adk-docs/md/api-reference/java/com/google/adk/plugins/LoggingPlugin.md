@@ -208,7 +208,7 @@ Description
 
 ### Methods inherited from interface [Plugin](Plugin.html#method-summary "interface in com.google.adk.plugins")
 
-`[close](Plugin.html#close\(\) "close\(\)")`
+`[close](Plugin.html#close\(\) "close\(\)"), [onRunErrorCallback](Plugin.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\) "onRunErrorCallback\(InvocationContext, Throwable\)")`
 
 Modifier and Type
 
@@ -221,6 +221,12 @@ Description
 `[close](Plugin.html#close\(\))()`
 
 Method executed when the runner is closed.
+
+`default io.reactivex.rxjava3.core.Completable`
+
+`[onRunErrorCallback](Plugin.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\))([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+Callback executed when a run encounters an error.
 
 
 

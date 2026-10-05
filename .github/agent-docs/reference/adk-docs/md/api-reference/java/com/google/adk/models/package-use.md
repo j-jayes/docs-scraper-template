@@ -187,6 +187,10 @@ Represents the Gemini Generative AI model.
 
 Builder for [`Gemini`](Gemini.html "class in com.google.adk.models").
 
+[GeminiLiveTransport](class-use/GeminiLiveTransport.html#com.google.adk.models)
+
+The bidirectional live transport that [`GeminiLlmConnection`](GeminiLlmConnection.html "class in com.google.adk.models") drives.
+
 [LlmRegistry.LlmFactory](class-use/LlmRegistry.LlmFactory.html#com.google.adk.models)
 
 The factory interface for creating LLM instances.

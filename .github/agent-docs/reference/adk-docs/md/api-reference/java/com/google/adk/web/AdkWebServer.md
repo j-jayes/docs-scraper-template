@@ -86,13 +86,13 @@ Description
 
 `addResourceHandlers(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry registry)`
 
-Configures resource handlers for serving static content (like the Dev UI).
+Maps requests under "/dev-ui/" to the directory named by the 'adk.web.ui.dir' property, or to the bundled copy on the classpath when that is unset.
 
 `void`
 
 `addViewControllers(org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry)`
 
-Configures simple automated controllers: - Redirects the root path "/" to "/dev-ui".
+Configures simple automated controllers: "/" and "/dev-ui" both redirect to "/dev-ui/", which forwards to the UI's index.html.
 
 `[BaseArtifactService](../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")`
 
@@ -201,7 +201,7 @@ Returns:
 
 public void addResourceHandlers(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry registry)
 
-Configures resource handlers for serving static content (like the Dev UI). Maps requests starting with "/dev-ui/" to the directory specified by the 'adk.web.ui.dir' system property.
+Maps requests under "/dev-ui/" to the directory named by the 'adk.web.ui.dir' property, or to the bundled copy on the classpath when that is unset.
 
 Specified by:
     `addResourceHandlers` in interface `org.springframework.web.servlet.config.annotation.WebMvcConfigurer`
@@ -210,7 +210,7 @@ Specified by:
 
 public void addViewControllers(org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry)
 
-Configures simple automated controllers: - Redirects the root path "/" to "/dev-ui". - Forwards requests to "/dev-ui" to "/dev-ui/index.html" so the ResourceHandler serves it.
+Configures simple automated controllers: "/" and "/dev-ui" both redirect to "/dev-ui/", which forwards to the UI's index.html. The trailing slash is required: index.html declares a ` <base href="./">`, so served from "/dev-ui" the app resolves its own router path to "dev-ui" and matches none of its routes. The query string is carried across because the UI selects its agent from `?app=` and the sample READMEs send users to the slashless "/dev-ui", so a redirect that dropped it would silently ignore the selection.
 
 Specified by:
     `addViewControllers` in interface `org.springframework.web.servlet.config.annotation.WebMvcConfigurer`

@@ -80,6 +80,10 @@ Properties for configuring CORS in ADK Web.
 
 Properties for loading agents.
 
+[DevUiAssets](DevUiAssets.html "class in com.google.adk.web.config")
+
+Where the dev UI's static assets live.
+
 [OpenTelemetryConfig](OpenTelemetryConfig.html "class in com.google.adk.web.config")
 
 Configuration class for OpenTelemetry, setting up the tracer provider and span exporter.

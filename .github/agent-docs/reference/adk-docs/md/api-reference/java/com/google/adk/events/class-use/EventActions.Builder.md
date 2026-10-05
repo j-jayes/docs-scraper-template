@@ -49,6 +49,12 @@ Description
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
+EventActions.Builder.`[agentState](../EventActions.Builder.html#agentState\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)`
+
+ 
+
+`[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
+
 EventActions.Builder.`[artifactDelta](../EventActions.Builder.html#artifactDelta\(java.util.Map\))(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")> value)`
 
  

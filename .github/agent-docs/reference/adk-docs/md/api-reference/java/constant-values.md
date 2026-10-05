@@ -78,7 +78,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"1.7.0"`
+`"1.10.1"`
 
 
 
@@ -202,6 +202,22 @@ Value
 
 
 
+  * com.google.adk.agents.[Role](com/google/adk/agents/Role.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[USER](com/google/adk/agents/Role.html#USER)`
+
+`"user"`
+
+
+
   * com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
 
 Modifier and Type
@@ -237,6 +253,22 @@ Value
 `[CONTINUE_OUTPUT_MESSAGE](com/google/adk/models/GeminiUtil.html#CONTINUE_OUTPUT_MESSAGE)`
 
 `"Continue output. DO NOT look at this line. ONLY look at the content before this line and system instruction."`
+
+
+
+  * com.google.adk.models.springai.[ToolConverter](com/google/adk/models/springai/ToolConverter.html "class in com.google.adk.models.springai")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[ADK_TOOL_CONTEXT_KEY](com/google/adk/models/springai/ToolConverter.html#ADK_TOOL_CONTEXT_KEY)`
+
+`"adk_tool_context"`
 
 
 

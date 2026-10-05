@@ -40,9 +40,10 @@ Contents
      5. appName(String)
      6. userId(String)
      7. events(List)
-     8. lastUpdateTime(Instant)
-     9. lastUpdateTimeSeconds(double)
-     10. build()
+     8. eventsView(List)
+     9. lastUpdateTime(Instant)
+     10. lastUpdateTimeSeconds(double)
+     11. build()
 
 Hide sidebar  Show sidebar
 
@@ -79,7 +80,7 @@ Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -104,6 +105,14 @@ Description
 `events([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
 
  
+
+`[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
+
+`eventsView([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
+
+Deprecated.
+
+Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use `events(List)` instead.
 
 `[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
 
@@ -197,6 +206,16 @@ Sets the session key.
     * ### events
 
 @CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") events([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
+
+    * ### eventsView
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") eventsView([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
+
+Deprecated.
+
+Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use `events(List)` instead.
+
+Backs [`Session.events()`](Session.html#events\(\)) with the given list directly, **without copying** , so the session reflects a caller-owned live or converting view whose events grow as the owner appends. The caller keeps ownership and the list's own semantics - thread-safety, and a read-only view throwing on `add` \- so ordinary code should use `events(List)`, which defensively copies.
 
     * ### lastUpdateTime
 

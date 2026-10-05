@@ -94,7 +94,7 @@ The persistent context used to configure the code executor.
 
 [ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
 
-A code executor that uses a custom container to execute code.
+A code executor that runs code in a Docker container.
 
 [VertexAiCodeExecutor](VertexAiCodeExecutor.html "class in com.google.adk.codeexecutors")
 

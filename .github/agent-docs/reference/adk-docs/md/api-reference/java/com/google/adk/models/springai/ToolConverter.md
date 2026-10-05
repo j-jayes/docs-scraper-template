@@ -27,11 +27,14 @@ Contents
 
   1. Description
   2. Nested Class Summary
-  3. Constructor Summary
-  4. Method Summary
-  5. Constructor Details
+  3. Field Summary
+  4. Constructor Summary
+  5. Method Summary
+  6. Field Details
+     1. ADK_TOOL_CONTEXT_KEY
+  7. Constructor Details
      1. ToolConverter()
-  6. Method Details
+  8. Method Details
      1. createToolRegistry(Map)
      2. convertSchemaToSpringAi(Schema)
      3. convertToSpringAiTools(Map)
@@ -67,6 +70,22 @@ Description
 `[ToolConverter.ToolMetadata](ToolConverter.ToolMetadata.html "class in com.google.adk.models.springai")`
 
 Simple metadata holder for tool information.
+
+  * ## Field Summary
+
+Fields
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`ADK_TOOL_CONTEXT_KEY`
+
+Key for passing an ADK [`ToolContext`](../../tools/ToolContext.html "class in com.google.adk.tools") through Spring AI's tool context map.
 
   * ## Constructor Summary
 
@@ -114,6 +133,18 @@ Creates a tool registry from ADK tools for internal tracking.
 
 
 
+
+  * ## Field Details
+
+    * ### ADK_TOOL_CONTEXT_KEY
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") ADK_TOOL_CONTEXT_KEY
+
+Key for passing an ADK [`ToolContext`](../../tools/ToolContext.html "class in com.google.adk.tools") through Spring AI's tool context map.
+
+See Also:
+    
+      * [Constant Field Values](../../../../../constant-values.html#com.google.adk.models.springai.ToolConverter.ADK_TOOL_CONTEXT_KEY)
 
   * ## Constructor Details
 

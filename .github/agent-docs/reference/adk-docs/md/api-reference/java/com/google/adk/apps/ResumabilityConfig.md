@@ -33,7 +33,8 @@ Contents
      1. ResumabilityConfig()
   6. Method Details
      1. isResumable()
-     2. builder()
+     2. isPlainTextContinuationAutoResume()
+     3. builder()
 
 Hide sidebar  Show sidebar
 
@@ -105,6 +106,14 @@ Deprecated.
 
 `abstract boolean`
 
+`isPlainTextContinuationAutoResume()`
+
+Deprecated.
+
+Back-compat shim for callers that deliver a resume as a plain-text turn.
+
+`abstract boolean`
+
 `isResumable()`
 
 Deprecated.
@@ -135,6 +144,16 @@ public abstract boolean isResumable()
 Deprecated.
 
 Whether the app supports agent resumption.
+
+    * ### isPlainTextContinuationAutoResume
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public abstract boolean isPlainTextContinuationAutoResume()
+
+Deprecated.
+
+Back-compat shim for callers that deliver a resume as a plain-text turn. Migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` (or send a function response to the paused call) and stop setting this flag; it will be removed.
+
+Whether a plain-text `runAsync` continuation -- a user message that is not a function response -- resumes the last unfinished invocation instead of starting a new one. Off by default, matching Python ADK, where a plain-text `runAsync` always starts a new invocation and a paused invocation is resumed explicitly.
 
     * ### builder
 

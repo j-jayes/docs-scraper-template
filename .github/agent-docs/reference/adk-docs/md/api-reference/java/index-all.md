@@ -186,7 +186,7 @@ Adds the processed file name to the session state.
 [addResourceHandlers(ResourceHandlerRegistry)](com/google/adk/web/AdkWebServer.html#addResourceHandlers\(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry\)) \- Method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
     
 
-Configures resource handlers for serving static content (like the Dev UI).
+Maps requests under "/dev-ui/" to the directory named by the 'adk.web.ui.dir' property, or to the bundled copy on the classpath when that is unset.
 
 [addSessionToEvalSet(String, String, AddSessionToEvalSetRequest)](com/google/adk/web/controller/EvaluationController.html#addSessionToEvalSet\(java.lang.String,java.lang.String,com.google.adk.web.dto.AddSessionToEvalSetRequest\)) \- Method in class com.google.adk.web.controller.[EvaluationController](com/google/adk/web/controller/EvaluationController.html "class in com.google.adk.web.controller")
     
@@ -217,12 +217,17 @@ Adds a session to memory.
 [addViewControllers(ViewControllerRegistry)](com/google/adk/web/AdkWebServer.html#addViewControllers\(org.springframework.web.servlet.config.annotation.ViewControllerRegistry\)) \- Method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
     
 
-Configures simple automated controllers: - Redirects the root path "/" to "/dev-ui".
+Configures simple automated controllers: "/" and "/dev-ui" both redirect to "/dev-ui/", which forwards to the UI's index.html.
 
 [ADK_CONTEXT_ID_KEY](com/google/adk/a2a/converters/EventConverter.html#ADK_CONTEXT_ID_KEY) \- Static variable in class com.google.adk.a2a.converters.[EventConverter](com/google/adk/a2a/converters/EventConverter.html "class in com.google.adk.a2a.converters")
      
 [ADK_TASK_ID_KEY](com/google/adk/a2a/converters/EventConverter.html#ADK_TASK_ID_KEY) \- Static variable in class com.google.adk.a2a.converters.[EventConverter](com/google/adk/a2a/converters/EventConverter.html "class in com.google.adk.a2a.converters")
      
+[ADK_TOOL_CONTEXT_KEY](com/google/adk/models/springai/ToolConverter.html#ADK_TOOL_CONTEXT_KEY) \- Static variable in class com.google.adk.models.springai.[ToolConverter](com/google/adk/models/springai/ToolConverter.html "class in com.google.adk.models.springai")
+    
+
+Key for passing an ADK [`ToolContext`](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools") through Spring AI's tool context map.
+
 [AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils") \- Interface in [com.google.adk.utils](com/google/adk/utils/package-summary.html)
     
 
@@ -596,6 +601,13 @@ Executes an agent run and streams the resulting events using Server-Sent Events 
 
 Returns the value of the `agents` record component.
 
+[agentState()](com/google/adk/events/EventActions.html#agentState\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+    
+
+The checkpointed state of the authoring agent at this event, used for session resumability.
+
+[agentState(Map)](com/google/adk/events/EventActions.Builder.html#agentState\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
+     
 [AgentStaticLoader](com/google/adk/web/AgentStaticLoader.html "class in com.google.adk.web") \- Class in [com.google.adk.web](com/google/adk/web/package-summary.html)
     
 
@@ -890,6 +902,11 @@ Sets the artifact service for persisting artifacts.
     
 
 Converts an artifact to an ADK event.
+
+[assetRoot(String)](com/google/adk/web/config/DevUiAssets.html#assetRoot\(java.lang.String\)) \- Static method in class com.google.adk.web.config.[DevUiAssets](com/google/adk/web/config/DevUiAssets.html "class in com.google.adk.web.config")
+    
+
+Returns the asset root: `webUiDir` as a `file:` URL when set, else the bundled classpath copy.
 
 [assignGtechOwnerToIssue(int)](com/example/adktriaging/AdkTriagingAgent.html#assignGtechOwnerToIssue\(int\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
     
@@ -2118,6 +2135,13 @@ Constructs a new [`ChatCompletionsHttpClient`](com/google/adk/models/chat/ChatCo
 
 Constructs a [`ChatCompletionsHttpClient`](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") whose HTTP dispatcher runs on ` httpExecutorService`.
 
+[ChatCompletionsHttpException](com/google/adk/models/chat/ChatCompletionsHttpException.html "class in com.google.adk.models.chat") \- Exception Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
+    
+
+Thrown by [`ChatCompletionsHttpClient`](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") when the server returns a non-successful HTTP status code.
+
+[ChatCompletionsHttpException(int, String, String)](com/google/adk/models/chat/ChatCompletionsHttpException.html#%3Cinit%3E\(int,java.lang.String,java.lang.String\)) \- Constructor for exception class com.google.adk.models.chat.[ChatCompletionsHttpException](com/google/adk/models/chat/ChatCompletionsHttpException.html "class in com.google.adk.models.chat")
+     
 [ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat") \- Class in [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
     
 
@@ -2216,6 +2240,11 @@ Returns whether the connection should be closed.
      
 [close()](com/google/adk/agents/LlmAgent.html#close\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
+[close()](com/google/adk/codeexecutors/ContainerCodeExecutor.html#close\(\)) \- Method in class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+    
+
+Removes the shared container, if one was created, and closes the underlying Docker client, releasing its connections and threads.
+
 [close()](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html#close\(\)) \- Method in interface com.google.adk.flows.llmflows.audio.[SpeechClientInterface](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html "interface in com.google.adk.flows.llmflows.audio")
     
 
@@ -2227,6 +2256,11 @@ Closes the client and releases any resources.
     
 
 Closes the connection.
+
+[close()](com/google/adk/models/GeminiLiveTransport.html#close\(\)) \- Method in interface com.google.adk.models.[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models")
+    
+
+Closes the transport.
 
 [close()](com/google/adk/models/GeminiLlmConnection.html#close\(\)) \- Method in class com.google.adk.models.[GeminiLlmConnection](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models")
      
@@ -2414,6 +2448,8 @@ Frequently used code snippets for collections.
 [com.google.adk.a2a.executor](com/google/adk/a2a/executor/package-summary.html) \- package com.google.adk.a2a.executor
      
 [com.google.adk.agents](com/google/adk/agents/package-summary.html) \- package com.google.adk.agents
+     
+[com.google.adk.annotations](com/google/adk/annotations/package-summary.html) \- package com.google.adk.annotations
      
 [com.google.adk.apps](com/google/adk/apps/package-summary.html) \- package com.google.adk.apps
      
@@ -2731,6 +2767,11 @@ Represents details of a connection.
 
 Represents the schema and available operations for an entity.
 
+[connectLiveTransport(String, LiveConnectConfig)](com/google/adk/models/Gemini.html#connectLiveTransport\(java.lang.String,com.google.genai.types.LiveConnectConfig\)) \- Method in class com.google.adk.models.[Gemini](com/google/adk/models/Gemini.html "class in com.google.adk.models")
+    
+
+Opens the live transport the connection drives.
+
 [connectorPayload(Map)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#connectorPayload\(java.util.Map\)) \- Method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils") \- Class in [com.google.adk.utils](com/google/adk/utils/package-summary.html)
@@ -2741,7 +2782,7 @@ Constants used across Firestore session service tests.
 [ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") \- Class in [com.google.adk.codeexecutors](com/google/adk/codeexecutors/package-summary.html)
     
 
-A code executor that uses a custom container to execute code.
+A code executor that runs code in a Docker container.
 
 [ContainerCodeExecutor(String, String, String)](com/google/adk/codeexecutors/ContainerCodeExecutor.html#%3Cinit%3E\(java.lang.String,java.lang.String,java.lang.String\)) \- Constructor for class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
     
@@ -3068,7 +3109,10 @@ Creates a new session with the specified parameters.
 [createSession(String, String, Map, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
      
 [createSession(String, String, Map, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
-     
+    
+
+Creates a session, requesting `sessionId` as its id when one is given.
+
 [createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
     
 
@@ -3328,6 +3372,11 @@ What the skill does and when the model should use it.
      
 [determineLlmFlow()](com/google/adk/agents/LlmAgent.html#determineLlmFlow\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
+[DevUiAssets](com/google/adk/web/config/DevUiAssets.html "class in com.google.adk.web.config") \- Class in [com.google.adk.web.config](com/google/adk/web/config/package-summary.html)
+    
+
+Where the dev UI's static assets live.
+
 [DfsSearchStrategy](com/google/adk/planner/goap/DfsSearchStrategy.html "class in com.google.adk.planner.goap") \- Class in [com.google.adk.planner.goap](com/google/adk/planner/goap/package-summary.html)
     
 
@@ -3768,6 +3817,13 @@ Iterable stream of [`Event`](com/google/adk/events/Event.html "class in com.goog
 
 Constructs a new event stream.
 
+[eventsView(List)](com/google/adk/sessions/Session.Builder.html#eventsView\(java.util.List\)) \- Method in class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
+    
+
+Deprecated.
+
+Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use [`Session.Builder.events(List)`](com/google/adk/sessions/Session.Builder.html#events\(java.util.List\)) instead.
+
 [Example](com/google/adk/examples/Example.html "class in com.google.adk.examples") \- Class in [com.google.adk.examples](com/google/adk/examples/package-summary.html)
     
 
@@ -3851,6 +3907,11 @@ Exit the [`LoopAgent`](com/google/adk/agents/LoopAgent.html "class in com.google
     
 
 Tool for exiting execution of [`LoopAgent`](com/google/adk/agents/LoopAgent.html "class in com.google.adk.agents").
+
+[Experimental](com/google/adk/annotations/Experimental.html "annotation interface in com.google.adk.annotations") \- Annotation Interface in [com.google.adk.annotations](com/google/adk/annotations/package-summary.html)
+    
+
+Marks the annotated element as experimental, exempt from standard stability guarantees.
 
 [EXPONENTIAL_BACKOFF](com/google/adk/models/springai/error/SpringAIErrorMapper.RetryStrategy.html#EXPONENTIAL_BACKOFF) \- Enum constant in enum class com.google.adk.models.springai.error.[SpringAIErrorMapper.RetryStrategy](com/google/adk/models/springai/error/SpringAIErrorMapper.RetryStrategy.html "enum class in com.google.adk.models.springai.error")
     
@@ -4263,6 +4324,11 @@ Constructs a new Gemini instance with a Google Gemini API key.
     
 
 Builder for [`Gemini`](com/google/adk/models/Gemini.html "class in com.google.adk.models").
+
+[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models") \- Interface in [com.google.adk.models](com/google/adk/models/package-summary.html)
+    
+
+The bidirectional live transport that [`GeminiLlmConnection`](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models") drives.
 
 [GeminiLlmConnection](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models") \- Class in [com.google.adk.models](com/google/adk/models/package-summary.html)
     
@@ -4734,6 +4800,13 @@ Retrieves trace spans for a given session ID.
 Gets the state delta to update in the persistent session state.
 
 [getStateDelta()](com/google/adk/web/dto/AgentRunRequest.html#getStateDelta\(\)) \- Method in class com.google.adk.web.dto.[AgentRunRequest](com/google/adk/web/dto/AgentRunRequest.html "class in com.google.adk.web.dto")
+     
+[getStatusCode()](com/google/adk/sessions/ApiResponse.html#getStatusCode\(\)) \- Method in class com.google.adk.sessions.[ApiResponse](com/google/adk/sessions/ApiResponse.html "class in com.google.adk.sessions")
+    
+
+Gets the HTTP status code of the response.
+
+[getStatusCode()](com/google/adk/sessions/HttpApiResponse.html#getStatusCode\(\)) \- Method in class com.google.adk.sessions.[HttpApiResponse](com/google/adk/sessions/HttpApiResponse.html "class in com.google.adk.sessions")
      
 [getStopWords()](com/google/adk/utils/FirestoreProperties.html#getStopWords\(\)) \- Method in class com.google.adk.utils.[FirestoreProperties](com/google/adk/utils/FirestoreProperties.html "class in com.google.adk.utils")
     
@@ -5678,6 +5751,13 @@ Checks if the given iterable is null or empty.
 
 [isObservable()](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.RequestContext.html#isObservable\(\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler.RequestContext](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.RequestContext.html "class in com.google.adk.models.springai.observability")
      
+[isPlainTextContinuationAutoResume()](com/google/adk/apps/ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\)) \- Method in class com.google.adk.apps.[ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
+    
+
+Deprecated.
+
+Back-compat shim for callers that deliver a resume as a plain-text turn. Migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` (or send a function response to the paused call) and stop setting this flag; it will be removed.
+
 [isResumable()](com/google/adk/agents/InvocationContext.html#isResumable\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
     
 
@@ -7289,6 +7369,13 @@ Callback executed when a model call encounters an error.
      
 [onModelErrorCallbackSync(Callbacks.OnModelErrorCallbackSync)](com/google/adk/agents/LlmAgent.Builder.html#onModelErrorCallbackSync\(com.google.adk.agents.Callbacks.OnModelErrorCallbackSync\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
      
+[onRunErrorCallback(InvocationContext, Throwable)](com/google/adk/plugins/Plugin.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\)) \- Method in interface com.google.adk.plugins.[Plugin](com/google/adk/plugins/Plugin.html "interface in com.google.adk.plugins")
+    
+
+Callback executed when a run encounters an error.
+
+[onRunErrorCallback(InvocationContext, Throwable)](com/google/adk/plugins/PluginManager.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
+     
 [onSuccess(BiConsumer)](com/google/adk/telemetry/Tracing.TracerProvider.html#onSuccess\(java.util.function.BiConsumer\)) \- Method in class com.google.adk.telemetry.[Tracing.TracerProvider](com/google/adk/telemetry/Tracing.TracerProvider.html "class in com.google.adk.telemetry")
     
 
@@ -7568,6 +7655,13 @@ Indicates whether the text content is part of a unfinished text stream.
     
 
 Lets [`BaseLlmFlow`](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")'s multi-step loop wait until the `Runner` \-- the sole event persister -- has appended the current step's events, so the next step's request (built from `session.events()` by [`Contents`](com/google/adk/flows/llmflows/Contents.html "class in com.google.adk.flows.llmflows")) is not assembled from a stale session.
+
+[plainTextContinuationAutoResume(boolean)](com/google/adk/apps/ResumabilityConfig.Builder.html#plainTextContinuationAutoResume\(boolean\)) \- Method in class com.google.adk.apps.[ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps")
+    
+
+Deprecated.
+
+Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (or send a function response to the paused call). See [`ResumabilityConfig.isPlainTextContinuationAutoResume()`](com/google/adk/apps/ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\)).
 
 [planner()](com/google/adk/agents/PlannerAgent.html#planner\(\)) \- Method in class com.google.adk.agents.[PlannerAgent](com/google/adk/agents/PlannerAgent.html "class in com.google.adk.agents")
     
@@ -7873,6 +7967,11 @@ Receives the model responses.
 
 [receive()](com/google/adk/models/GeminiLlmConnection.html#receive\(\)) \- Method in class com.google.adk.models.[GeminiLlmConnection](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models")
      
+[receive(Consumer, Runnable)](com/google/adk/models/GeminiLiveTransport.html#receive\(java.util.function.Consumer,java.lang.Runnable\)) \- Method in interface com.google.adk.models.[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models")
+    
+
+Registers the callback for messages the transport yields and a callback for when its receive stream ends.
+
 [recognize(RecognitionConfig, RecognitionAudio)](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html#recognize\(com.google.cloud.speech.v1.RecognitionConfig,com.google.cloud.speech.v1.RecognitionAudio\)) \- Method in interface com.google.adk.flows.llmflows.audio.[SpeechClientInterface](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html "interface in com.google.adk.flows.llmflows.audio")
     
 
@@ -8279,6 +8378,8 @@ Resolves a toolset instance by name from the registry.
      
 [RESPONSE_PROCESSORS](com/google/adk/flows/llmflows/SingleFlow.html#RESPONSE_PROCESSORS) \- Static variable in class com.google.adk.flows.llmflows.[SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
      
+[responseBody()](com/google/adk/models/chat/ChatCompletionsHttpException.html#responseBody\(\)) \- Method in exception class com.google.adk.models.chat.[ChatCompletionsHttpException](com/google/adk/models/chat/ChatCompletionsHttpException.html "class in com.google.adk.models.chat")
+     
 [ResponseConverter](com/google/adk/a2a/converters/ResponseConverter.html "class in com.google.adk.a2a.converters") \- Class in [com.google.adk.a2a.converters](com/google/adk/a2a/converters/package-summary.html)
     
 
@@ -8360,6 +8461,11 @@ Deprecated.
      
 [RetryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[Role](com/google/adk/agents/Role.html "class in com.google.adk.agents") \- Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
+    
+
+Standard role names for `Content` and event authors.
+
 [ROLL_AGENT](com/example/a2a_basic/A2AAgent.html#ROLL_AGENT) \- Static variable in class com.example.a2a_basic.[A2AAgent](com/example/a2a_basic/A2AAgent.html "class in com.example.a2a_basic")
      
 [ROLL_DIE_INSTANCE](com/example/CustomDieTool.html#ROLL_DIE_INSTANCE) \- Static variable in class com.example.[CustomDieTool](com/example/CustomDieTool.html "class in com.example")
@@ -8738,6 +8844,8 @@ Service for creating and caching Runner instances.
 
 [RunnerService(AgentLoader, BaseArtifactService, BaseSessionService, BaseMemoryService, List)](com/google/adk/web/service/RunnerService.html#%3Cinit%3E\(com.google.adk.web.AgentLoader,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List\)) \- Constructor for class com.google.adk.web.service.[RunnerService](com/google/adk/web/service/RunnerService.html "class in com.google.adk.web.service")
      
+[runOnRunErrorCallback(InvocationContext, Throwable)](com/google/adk/plugins/PluginManager.html#runOnRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
+     
 [runOnUserMessageCallback(InvocationContext, Content)](com/google/adk/plugins/PluginManager.html#runOnUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
      
 
@@ -8909,6 +9017,11 @@ This is a safe cast to the concrete builder type.
 
 [send(LiveRequest)](com/google/adk/agents/LiveRequestQueue.html#send\(com.google.adk.agents.LiveRequest\)) \- Method in class com.google.adk.agents.[LiveRequestQueue](com/google/adk/agents/LiveRequestQueue.html "class in com.google.adk.agents")
      
+[sendClientContent(LiveSendClientContentParameters)](com/google/adk/models/GeminiLiveTransport.html#sendClientContent\(com.google.genai.types.LiveSendClientContentParameters\)) \- Method in interface com.google.adk.models.[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models")
+    
+
+Sends a client-content turn to the transport.
+
 [sendContent(Content)](com/google/adk/models/BaseLlmConnection.html#sendContent\(com.google.genai.types.Content\)) \- Method in interface com.google.adk.models.[BaseLlmConnection](com/google/adk/models/BaseLlmConnection.html "interface in com.google.adk.models")
     
 
@@ -8930,6 +9043,16 @@ Sends a chunk of audio or a frame of video to the model in realtime.
 
 [sendRealtime(Blob)](com/google/adk/models/GeminiLlmConnection.html#sendRealtime\(com.google.genai.types.Blob\)) \- Method in class com.google.adk.models.[GeminiLlmConnection](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models")
      
+[sendRealtimeInput(LiveSendRealtimeInputParameters)](com/google/adk/models/GeminiLiveTransport.html#sendRealtimeInput\(com.google.genai.types.LiveSendRealtimeInputParameters\)) \- Method in interface com.google.adk.models.[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models")
+    
+
+Sends realtime input (audio, video, or text) to the transport.
+
+[sendToolResponse(LiveSendToolResponseParameters)](com/google/adk/models/GeminiLiveTransport.html#sendToolResponse\(com.google.genai.types.LiveSendToolResponseParameters\)) \- Method in interface com.google.adk.models.[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models")
+    
+
+Sends a tool response to the transport.
+
 [SEQUENTIAL](com/google/adk/agents/RunConfig.ToolExecutionMode.html#SEQUENTIAL) \- Enum constant in enum class com.google.adk.agents.[RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
      
 [SequentialAgent](com/google/adk/agents/SequentialAgent.html "class in com.google.adk.agents") \- Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
@@ -9104,6 +9227,8 @@ Utility functions for session service.
      
 [setAgentClass(String)](com/google/adk/agents/BaseAgentConfig.html#setAgentClass\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
+[setAgentState(Map)](com/google/adk/events/EventActions.html#setAgentState\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+     
 [setArgs(BaseTool.ToolArgsConfig)](com/google/adk/tools/BaseTool.ToolConfig.html#setArgs\(com.google.adk.tools.BaseTool.ToolArgsConfig\)) \- Method in class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
      
 [setArtifactDelta(Map)](com/google/adk/events/EventActions.html#setArtifactDelta\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
@@ -9204,6 +9329,11 @@ Deprecated.
 
 Sets the session ID for the code executor.
 
+[setExecutionTimeoutSeconds(long)](com/google/adk/codeexecutors/ContainerCodeExecutor.html#setExecutionTimeoutSeconds\(long\)) \- Method in class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+    
+
+Sets the maximum wall-clock time (in seconds) a single execution may run, in the strict sandbox, before its container is force-removed (killed).
+
 [setFailFast(boolean)](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html#setFailFast\(boolean\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties.Validation](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html "class in com.google.adk.models.springai.properties")
      
 [setFinishReason(FinishReason)](com/google/adk/events/Event.html#setFinishReason\(com.google.genai.types.FinishReason\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
@@ -9272,6 +9402,11 @@ Deprecated.
 
 Deprecated.
 
+[setMemoryLimitBytes(long)](com/google/adk/codeexecutors/ContainerCodeExecutor.html#setMemoryLimitBytes\(long\)) \- Method in class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+    
+
+Sets the per-execution container memory limit, in bytes, used by the strict sandbox.
+
 [setMeterForTesting(Meter)](com/google/adk/telemetry/Metrics.html#setMeterForTesting\(io.opentelemetry.api.metrics.Meter\)) \- Static method in class com.google.adk.telemetry.[Metrics](com/google/adk/telemetry/Metrics.html "class in com.google.adk.telemetry")
     
 
@@ -9302,6 +9437,11 @@ Internal tool used for output schema workaround.
     
 
 Deprecated.
+
+[setNetworkEnabled(boolean)](com/google/adk/codeexecutors/ContainerCodeExecutor.html#setNetworkEnabled\(boolean\)) \- Method in class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+    
+
+Enables or disables container networking when the strict sandbox is on.
 
 [setObservability(SpringAIProperties.Observability)](com/google/adk/models/springai/properties/SpringAIProperties.html#setObservability\(com.google.adk.models.springai.properties.SpringAIProperties.Observability\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
      
@@ -9366,6 +9506,11 @@ Deprecated.
     
 
 Deprecated.
+
+[setStrictSandbox(boolean)](com/google/adk/codeexecutors/ContainerCodeExecutor.html#setStrictSandbox\(boolean\)) \- Method in class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+    
+
+Enables the strict sandbox.
 
 [setSubAgents(List)](com/google/adk/agents/BaseAgentConfig.html#setSubAgents\(java.util.List\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
@@ -9779,6 +9924,13 @@ Whether the code executor is stateful.
     
 
 Creates an instance of a `Static` record class.
+
+[statusCode()](com/google/adk/models/chat/ChatCompletionsHttpException.html#statusCode\(\)) \- Method in exception class com.google.adk.models.chat.[ChatCompletionsHttpException](com/google/adk/models/chat/ChatCompletionsHttpException.html "class in com.google.adk.models.chat")
+     
+[statusCode()](com/google/adk/sessions/VertexAiApiException.html#statusCode\(\)) \- Method in exception class com.google.adk.sessions.[VertexAiApiException](com/google/adk/sessions/VertexAiApiException.html "class in com.google.adk.sessions")
+    
+
+Returns the HTTP status code returned by the API.
 
 [stderr()](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.html#stderr\(\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors")
     
@@ -10587,6 +10739,11 @@ Usage metadata about the response(s).
 
 Deprecated, use safety_identifier and prompt_cache_key instead.
 
+[USER](com/google/adk/agents/Role.html#USER) \- Static variable in class com.google.adk.agents.[Role](com/google/adk/agents/Role.html "class in com.google.adk.agents")
+    
+
+The user interacting with the agent or model: a `Content` role and an event author.
+
 [USER_PREFIX](com/google/adk/sessions/State.html#USER_PREFIX) \- Static variable in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
 [USER_STATE_COLLECTION](com/google/adk/utils/Constants.html#USER_STATE_COLLECTION) \- Static variable in class com.google.adk.utils.[Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils")
@@ -10808,6 +10965,11 @@ Tracks the current ADK version.
     
 
 Returns whether the client is using Vertex AI APIs.
+
+[VertexAiApiException](com/google/adk/sessions/VertexAiApiException.html "class in com.google.adk.sessions") \- Exception Class in [com.google.adk.sessions](com/google/adk/sessions/package-summary.html)
+    
+
+Signals a non-2xx, non-404 HTTP status from the Vertex AI Session API.
 
 [VertexAiCodeExecutor](com/google/adk/codeexecutors/VertexAiCodeExecutor.html "class in com.google.adk.codeexecutors") \- Class in [com.google.adk.codeexecutors](com/google/adk/codeexecutors/package-summary.html)
     

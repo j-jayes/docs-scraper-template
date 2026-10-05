@@ -41,7 +41,7 @@ Package Hierarchies:
     * com.google.adk.[JsonBaseModel](../JsonBaseModel.html "class in com.google.adk")
       * com.google.adk.codeexecutors.[BaseCodeExecutor](BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
         * com.google.adk.codeexecutors.[BuiltInCodeExecutor](BuiltInCodeExecutor.html "class in com.google.adk.codeexecutors")
-        * com.google.adk.codeexecutors.[ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+        * com.google.adk.codeexecutors.[ContainerCodeExecutor](ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") (implements java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang"))
         * com.google.adk.codeexecutors.[VertexAiCodeExecutor](VertexAiCodeExecutor.html "class in com.google.adk.codeexecutors")
       * com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionInput](CodeExecutionUtils.CodeExecutionInput.html "class in com.google.adk.codeexecutors")
       * com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult](CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors")

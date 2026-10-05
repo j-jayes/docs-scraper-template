@@ -31,6 +31,7 @@ Contents
   4. Method Summary
      1. Methods inherited from class BasePlugin
      2. Methods inherited from class Object
+     3. Methods inherited from interface Plugin
   5. Constructor Details
      1. BigQueryAgentAnalyticsPlugin(BigQueryLoggerConfig)
      2. BigQueryAgentAnalyticsPlugin(BigQueryLoggerConfig, BigQuery)
@@ -218,6 +219,22 @@ Description
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
+
+### Methods inherited from interface [Plugin](../Plugin.html#method-summary "interface in com.google.adk.plugins")
+
+`[onRunErrorCallback](../Plugin.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\) "onRunErrorCallback\(InvocationContext, Throwable\)")`
+
+Modifier and Type
+
+Method
+
+Description
+
+`default io.reactivex.rxjava3.core.Completable`
+
+`[onRunErrorCallback](../Plugin.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+Callback executed when a run encounters an error.
 
 
 

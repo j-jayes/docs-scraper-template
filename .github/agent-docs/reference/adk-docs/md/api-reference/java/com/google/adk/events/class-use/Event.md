@@ -866,6 +866,14 @@ Session.Builder.`[events](../../sessions/Session.Builder.html#events\(java.util.
 
  
 
+`[Session.Builder](../../sessions/Session.Builder.html "class in com.google.adk.sessions")`
+
+Session.Builder.`[eventsView](../../sessions/Session.Builder.html#eventsView\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Deprecated.
+
+Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use [`Session.Builder.events(List)`](../../sessions/Session.Builder.html#events\(java.util.List\)) instead.
+
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.summarizer](../../summarizer/package-summary.html)
 
 Methods in [com.google.adk.summarizer](../../summarizer/package-summary.html) that return types with arguments of type [Event](../Event.html "class in com.google.adk.events")

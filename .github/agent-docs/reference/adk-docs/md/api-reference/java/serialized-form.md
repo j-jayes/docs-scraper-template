@@ -53,6 +53,22 @@ class ConfigurationException extends [Exception](https://docs.oracle.com/en/java
 
 class LlmCallsLimitExceededException extends [Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
 
+  * ## Package [com.google.adk.models.chat](com/google/adk/models/chat/package-summary.html)
+
+    * ### Exception Class [com.google.adk.models.chat.ChatCompletionsHttpException](com/google/adk/models/chat/ChatCompletionsHttpException.html "class in com.google.adk.models.chat")
+
+class ChatCompletionsHttpException extends [IOException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html "class in java.io") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
+
+      * #### Serialized Fields
+
+        * ##### responseBody
+              
+              [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") responseBody
+
+        * ##### statusCode
+              
+              int statusCode
+
   * ## Package [com.google.adk.models.springai](com/google/adk/models/springai/package-summary.html)
 
     * ### Exception Class [com.google.adk.models.springai.MessageConversionException](com/google/adk/models/springai/MessageConversionException.html "class in com.google.adk.models.springai")
@@ -78,6 +94,16 @@ class SessionException extends [RuntimeException](https://docs.oracle.com/en/jav
     * ### Exception Class [com.google.adk.sessions.SessionNotFoundException](com/google/adk/sessions/SessionNotFoundException.html "class in com.google.adk.sessions")
 
 class SessionNotFoundException extends [SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
+
+    * ### Exception Class [com.google.adk.sessions.VertexAiApiException](com/google/adk/sessions/VertexAiApiException.html "class in com.google.adk.sessions")
+
+class VertexAiApiException extends [SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions") implements [Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")
+
+      * #### Serialized Fields
+
+        * ##### statusCode
+              
+              int statusCode
 
   * ## Package [com.google.adk.skills](com/google/adk/skills/package-summary.html)
 

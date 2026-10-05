@@ -57,6 +57,14 @@ Deprecated.
 
 `abstract [ResumabilityConfig.Builder](../ResumabilityConfig.Builder.html "class in com.google.adk.apps")`
 
+ResumabilityConfig.Builder.`[plainTextContinuationAutoResume](../ResumabilityConfig.Builder.html#plainTextContinuationAutoResume\(boolean\))(boolean value)`
+
+Deprecated.
+
+Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (or send a function response to the paused call).
+
+`abstract [ResumabilityConfig.Builder](../ResumabilityConfig.Builder.html "class in com.google.adk.apps")`
+
 ResumabilityConfig.Builder.`[resumable](../ResumabilityConfig.Builder.html#resumable\(boolean\))(boolean isResumable)`
 
  

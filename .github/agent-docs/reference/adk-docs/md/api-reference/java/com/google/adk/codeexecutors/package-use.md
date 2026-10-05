@@ -85,7 +85,7 @@ Builder for [`CodeExecutionUtils.File`](CodeExecutionUtils.File.html "class in c
 
 [ContainerCodeExecutor](class-use/ContainerCodeExecutor.html#com.google.adk.codeexecutors)
 
-A code executor that uses a custom container to execute code.
+A code executor that runs code in a Docker container.
 
 
 

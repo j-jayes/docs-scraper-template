@@ -39,6 +39,7 @@ Package Hierarchies:
   * [com.google.adk.a2a.converters](com/google/adk/a2a/converters/package-tree.html), 
   * [com.google.adk.a2a.executor](com/google/adk/a2a/executor/package-tree.html), 
   * [com.google.adk.agents](com/google/adk/agents/package-tree.html), 
+  * [com.google.adk.annotations](com/google/adk/annotations/package-tree.html), 
   * [com.google.adk.apps](com/google/adk/apps/package-tree.html), 
   * [com.google.adk.artifacts](com/google/adk/artifacts/package-tree.html), 
   * [com.google.adk.codeexecutors](com/google/adk/codeexecutors/package-tree.html), 
@@ -248,6 +249,7 @@ Package Hierarchies:
     * com.google.adk.web.controller.[DebugController](com/google/adk/web/controller/DebugController.html "class in com.google.adk.web.controller")
     * com.google.adk.tools.mcp.[DefaultMcpTransportBuilder](com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html "class in com.google.adk.tools.mcp") (implements com.google.adk.tools.mcp.[McpTransportBuilder](com/google/adk/tools/mcp/McpTransportBuilder.html "interface in com.google.adk.tools.mcp"))
     * com.google.adk.planner.goap.[DependencyGraphSearch](com/google/adk/planner/goap/DependencyGraphSearch.html "class in com.google.adk.planner.goap")
+    * com.google.adk.web.config.[DevUiAssets](com/google/adk/web/config/DevUiAssets.html "class in com.google.adk.web.config")
     * com.google.adk.planner.goap.[DfsSearchStrategy](com/google/adk/planner/goap/DfsSearchStrategy.html "class in com.google.adk.planner.goap") (implements com.google.adk.planner.goap.[SearchStrategy](com/google/adk/planner/goap/SearchStrategy.html "interface in com.google.adk.planner.goap"))
     * com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     * com.google.adk.web.controller.[EvaluationController](com/google/adk/web/controller/EvaluationController.html "class in com.google.adk.web.controller")
@@ -306,7 +308,7 @@ Package Hierarchies:
     * com.google.adk.[JsonBaseModel](com/google/adk/JsonBaseModel.html "class in com.google.adk")
       * com.google.adk.codeexecutors.[BaseCodeExecutor](com/google/adk/codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
         * com.google.adk.codeexecutors.[BuiltInCodeExecutor](com/google/adk/codeexecutors/BuiltInCodeExecutor.html "class in com.google.adk.codeexecutors")
-        * com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+        * com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors") (implements java.lang.[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang"))
         * com.google.adk.codeexecutors.[VertexAiCodeExecutor](com/google/adk/codeexecutors/VertexAiCodeExecutor.html "class in com.google.adk.codeexecutors")
       * com.google.adk.tools.[BaseTool.ToolArgsConfig](com/google/adk/tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")
       * com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
@@ -382,6 +384,7 @@ Package Hierarchies:
     * com.google.adk.flows.llmflows.[ResponseProcessor.ResponseProcessingResult](com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.apps.[ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
     * com.google.adk.apps.[ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps")
+    * com.google.adk.agents.[Role](com/google/adk/agents/Role.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
     * com.google.adk.web.dto.[RunEvalRequest](com/google/adk/web/dto/RunEvalRequest.html "class in com.google.adk.web.dto")
@@ -431,6 +434,8 @@ Package Hierarchies:
     * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 
       * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")
         * com.google.adk.agents.[ConfigAgentUtils.ConfigurationException](com/google/adk/agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")
+        * java.io.[IOException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html "class in java.io")
+          * com.google.adk.models.chat.[ChatCompletionsHttpException](com/google/adk/models/chat/ChatCompletionsHttpException.html "class in com.google.adk.models.chat")
         * com.google.adk.models.[LlmCallsLimitExceededException](com/google/adk/models/LlmCallsLimitExceededException.html "class in com.google.adk.models")
         * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang")
           * com.google.adk.a2a.common.[A2AClientError](com/google/adk/a2a/common/A2AClientError.html "class in com.google.adk.a2a.common")
@@ -447,6 +452,7 @@ Package Hierarchies:
           * com.google.adk.plugins.[ReplayVerificationError](com/google/adk/plugins/ReplayVerificationError.html "class in com.google.adk.plugins")
           * com.google.adk.sessions.[SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions")
             * com.google.adk.sessions.[SessionNotFoundException](com/google/adk/sessions/SessionNotFoundException.html "class in com.google.adk.sessions")
+            * com.google.adk.sessions.[VertexAiApiException](com/google/adk/sessions/VertexAiApiException.html "class in com.google.adk.sessions")
         * com.google.adk.skills.[SkillSourceException](com/google/adk/skills/SkillSourceException.html "class in com.google.adk.skills")
     * com.google.adk.events.[ToolConfirmation.Builder](com/google/adk/events/ToolConfirmation.Builder.html "class in com.google.adk.events")
     * com.google.adk.tools.[ToolContext.Builder](com/google/adk/tools/ToolContext.Builder.html "class in com.google.adk.tools")
@@ -517,6 +523,7 @@ Package Hierarchies:
   * com.google.adk.models.chat.[ChatCompletionsClient](com/google/adk/models/chat/ChatCompletionsClient.html "interface in com.google.adk.models.chat")
   * com.google.adk.tools.applicationintegrationtoolset.[CredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset")
   * com.google.adk.summarizer.[EventCompactor](com/google/adk/summarizer/EventCompactor.html "interface in com.google.adk.summarizer")
+  * com.google.adk.models.[GeminiLiveTransport](com/google/adk/models/GeminiLiveTransport.html "interface in com.google.adk.models")
   * com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents")
   * com.google.adk.models.[LlmRegistry.LlmFactory](com/google/adk/models/LlmRegistry.LlmFactory.html "interface in com.google.adk.models")
   * com.google.adk.tools.mcp.[McpTransportBuilder](com/google/adk/tools/mcp/McpTransportBuilder.html "interface in com.google.adk.tools.mcp")
@@ -535,6 +542,7 @@ Package Hierarchies:
 ## Annotation Interface Hierarchy
 
   * com.google.adk.tools.[Annotations.Schema](com/google/adk/tools/Annotations.Schema.html "annotation interface in com.google.adk.tools") (implements java.lang.annotation.[Annotation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html "interface in java.lang.annotation"))
+  * com.google.adk.annotations.[Experimental](com/google/adk/annotations/Experimental.html "annotation interface in com.google.adk.annotations") (implements java.lang.annotation.[Annotation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html "interface in java.lang.annotation"))
 
 
 

@@ -61,6 +61,7 @@ Package Hierarchies:
 ## Interface Hierarchy
 
   * com.google.adk.models.[BaseLlmConnection](BaseLlmConnection.html "interface in com.google.adk.models")
+  * com.google.adk.models.[GeminiLiveTransport](GeminiLiveTransport.html "interface in com.google.adk.models")
   * com.google.adk.models.[LlmRegistry.LlmFactory](LlmRegistry.LlmFactory.html "interface in com.google.adk.models")
 
 

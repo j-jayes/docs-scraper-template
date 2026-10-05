@@ -54,7 +54,7 @@ Description
 
  
 
-  * All Classes and InterfacesInterfacesClasses
+  * All Classes and InterfacesInterfacesClassesException Classes
 
 Class
 
@@ -67,6 +67,10 @@ A client for interacting with OpenAI-compatible chat completions endpoints.
 [ChatCompletionsHttpClient](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
 
 An OkHttp-based implementation of [`ChatCompletionsClient`](ChatCompletionsClient.html "interface in com.google.adk.models.chat") that targets OpenAI-compatible chat completions endpoints.
+
+[ChatCompletionsHttpException](ChatCompletionsHttpException.html "class in com.google.adk.models.chat")
+
+Thrown by [`ChatCompletionsHttpClient`](ChatCompletionsHttpClient.html "class in com.google.adk.models.chat") when the server returns a non-successful HTTP status code.
 
 [ChatCompletionsRequest](ChatCompletionsRequest.html "class in com.google.adk.models.chat")
 

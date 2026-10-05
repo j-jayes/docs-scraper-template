@@ -128,6 +128,10 @@ Utility functions for session service.
 
 A [`State`](State.html "class in com.google.adk.sessions") object that also keeps track of the changes to the state.
 
+[VertexAiApiException](VertexAiApiException.html "class in com.google.adk.sessions")
+
+Signals a non-2xx, non-404 HTTP status from the Vertex AI Session API.
+
 [VertexAiSessionService](VertexAiSessionService.html "class in com.google.adk.sessions")
 
 Connects to the managed Vertex AI Session Service.

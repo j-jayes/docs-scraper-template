@@ -33,15 +33,16 @@ Contents
      3. beforeRunCallback(InvocationContext)
      4. onEventCallback(InvocationContext, Event)
      5. afterRunCallback(InvocationContext)
-     6. close()
-     7. beforeAgentCallback(BaseAgent, CallbackContext)
-     8. afterAgentCallback(BaseAgent, CallbackContext)
-     9. beforeModelCallback(CallbackContext, LlmRequest.Builder)
-     10. afterModelCallback(CallbackContext, LlmResponse)
-     11. onModelErrorCallback(CallbackContext, LlmRequest.Builder, Throwable)
-     12. beforeToolCallback(BaseTool, Map, ToolContext)
-     13. afterToolCallback(BaseTool, Map, ToolContext, Map)
-     14. onToolErrorCallback(BaseTool, Map, ToolContext, Throwable)
+     6. onRunErrorCallback(InvocationContext, Throwable)
+     7. close()
+     8. beforeAgentCallback(BaseAgent, CallbackContext)
+     9. afterAgentCallback(BaseAgent, CallbackContext)
+     10. beforeModelCallback(CallbackContext, LlmRequest.Builder)
+     11. afterModelCallback(CallbackContext, LlmResponse)
+     12. onModelErrorCallback(CallbackContext, LlmRequest.Builder, Throwable)
+     13. beforeToolCallback(BaseTool, Map, ToolContext)
+     14. afterToolCallback(BaseTool, Map, ToolContext, Map)
+     15. onToolErrorCallback(BaseTool, Map, ToolContext, Throwable)
 
 Hide sidebar  Show sidebar
 
@@ -142,6 +143,12 @@ Callback executed after an event is yielded from runner.
 
 Callback executed when a model call encounters an error.
 
+`default io.reactivex.rxjava3.core.Completable`
+
+`onRunErrorCallback([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+Callback executed when a run encounters an error.
+
 `default io.reactivex.rxjava3.core.Maybe<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>>`
 
 `onToolErrorCallback([BaseTool](../tools/BaseTool.html "class in com.google.adk.tools") tool, [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> toolArgs, [ToolContext](../tools/ToolContext.html "class in com.google.adk.tools") toolContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
@@ -206,6 +213,16 @@ Callback executed after an ADK runner run has completed.
 
 Parameters:
     `invocationContext` \- The context for the entire invocation.
+
+    * ### onRunErrorCallback
+
+default io.reactivex.rxjava3.core.Completable onRunErrorCallback([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)
+
+Callback executed when a run encounters an error.
+
+Parameters:
+    `invocationContext` \- The context for the entire invocation.
+    `error` \- The exception that was raised.
 
     * ### close
 

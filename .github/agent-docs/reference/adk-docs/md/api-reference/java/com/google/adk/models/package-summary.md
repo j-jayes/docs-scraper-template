@@ -100,6 +100,10 @@ Represents the Gemini Generative AI model.
 
 Builder for [`Gemini`](Gemini.html "class in com.google.adk.models").
 
+[GeminiLiveTransport](GeminiLiveTransport.html "interface in com.google.adk.models")
+
+The bidirectional live transport that [`GeminiLlmConnection`](GeminiLlmConnection.html "class in com.google.adk.models") drives.
+
 [GeminiLlmConnection](GeminiLlmConnection.html "class in com.google.adk.models")
 
 Manages a persistent, bidirectional connection to the Gemini model via WebSockets for real-time interaction.

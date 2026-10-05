@@ -160,7 +160,7 @@ A structure that contains a file name and its content.
 
 `[ContainerCodeExecutor](../codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
 
-A code executor that uses a custom container to execute code.
+A code executor that runs code in a Docker container.
 
 `final class `
 

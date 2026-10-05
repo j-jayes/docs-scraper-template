@@ -137,7 +137,9 @@ public io.reactivex.rxjava3.core.Flowable<[LlmResponse](../LlmResponse.html "cla
 
 Description copied from interface: `[ChatCompletionsClient](ChatCompletionsClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))`
 
-Generates a conversational response from the chat completions endpoint based on the provided messages. This encapsulates building the payload, sending the request to the completions endpoint, and initiating the handling of complete calls.
+Generates a conversational response from the chat completions endpoint based on the provided messages. This encapsulates building the payload, sending the request to the completions endpoint, and initiating the handling of complete calls. 
+
+On a non-2xx HTTP response the returned `Flowable` emits a [`ChatCompletionsHttpException`](ChatCompletionsHttpException.html "class in com.google.adk.models.chat"); callers can inspect [`ChatCompletionsHttpException.statusCode()`](ChatCompletionsHttpException.html#statusCode\(\)) without parsing the message text. On a connection-level failure a plain [`IOException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html "class in java.io") is emitted instead.
 
 Specified by:
     `[complete](ChatCompletionsClient.html#complete\(com.google.adk.models.LlmRequest,boolean\))` in interface `[ChatCompletionsClient](ChatCompletionsClient.html "interface in com.google.adk.models.chat")`

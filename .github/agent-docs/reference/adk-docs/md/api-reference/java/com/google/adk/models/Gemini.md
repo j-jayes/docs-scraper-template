@@ -37,6 +37,7 @@ Contents
      1. builder()
      2. generateContent(LlmRequest, boolean)
      3. connect(LlmRequest)
+     4. connectLiveTransport(String, LiveConnectConfig)
 
 Hide sidebar  Show sidebar
 
@@ -113,6 +114,12 @@ Returns a new Builder instance for constructing Gemini objects.
 `connect([LlmRequest](LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
 Creates a live connection to the LLM.
+
+`protected [CompletableFuture](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html "class in java.util.concurrent")<[GeminiLiveTransport](GeminiLiveTransport.html "interface in com.google.adk.models")>`
+
+`connectLiveTransport([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, com.google.genai.types.LiveConnectConfig config)`
+
+Opens the live transport the connection drives.
 
 `io.reactivex.rxjava3.core.Flowable<[LlmResponse](LlmResponse.html "class in com.google.adk.models")>`
 
@@ -212,6 +219,12 @@ Creates a live connection to the LLM.
 
 Specified by:
     `[connect](BaseLlm.html#connect\(com.google.adk.models.LlmRequest\))` in class `[BaseLlm](BaseLlm.html "class in com.google.adk.models")`
+
+    * ### connectLiveTransport
+
+protected [CompletableFuture](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html "class in java.util.concurrent")<[GeminiLiveTransport](GeminiLiveTransport.html "interface in com.google.adk.models")> connectLiveTransport([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelName, com.google.genai.types.LiveConnectConfig config)
+
+Opens the live transport the connection drives. Overridable so a test can supply an in-process [`GeminiLiveTransport`](GeminiLiveTransport.html "interface in com.google.adk.models") double and exercise the real [`GeminiLlmConnection`](GeminiLlmConnection.html "class in com.google.adk.models") without a network.
 
 
 

@@ -55,6 +55,7 @@ Package Hierarchies:
         * java.lang.[RuntimeException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html "class in java.lang")
           * com.google.adk.sessions.[SessionException](SessionException.html "class in com.google.adk.sessions")
             * com.google.adk.sessions.[SessionNotFoundException](SessionNotFoundException.html "class in com.google.adk.sessions")
+            * com.google.adk.sessions.[VertexAiApiException](VertexAiApiException.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[VertexAiSessionService](VertexAiSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions"))
 
 

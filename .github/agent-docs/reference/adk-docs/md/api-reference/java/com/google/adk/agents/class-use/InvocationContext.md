@@ -632,6 +632,18 @@ PluginManager.`[onEventCallback](../../plugins/PluginManager.html#onEventCallbac
 
  
 
+`default io.reactivex.rxjava3.core.Completable`
+
+Plugin.`[onRunErrorCallback](../../plugins/Plugin.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+Callback executed when a run encounters an error.
+
+`io.reactivex.rxjava3.core.Completable`
+
+PluginManager.`[onRunErrorCallback](../../plugins/PluginManager.html#onRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
+
+ 
+
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
 
 LoggingPlugin.`[onUserMessageCallback](../../plugins/LoggingPlugin.html#onUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, @Nullable com.google.genai.types.Content userMessage)`
@@ -653,6 +665,12 @@ PluginManager.`[onUserMessageCallback](../../plugins/PluginManager.html#onUserMe
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Content>`
 
 PluginManager.`[runBeforeRunCallback](../../plugins/PluginManager.html#runBeforeRunCallback\(com.google.adk.agents.InvocationContext\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext)`
+
+ 
+
+`io.reactivex.rxjava3.core.Completable`
+
+PluginManager.`[runOnRunErrorCallback](../../plugins/PluginManager.html#runOnRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\))([InvocationContext](../InvocationContext.html "class in com.google.adk.agents") invocationContext, [Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") error)`
 
  
 

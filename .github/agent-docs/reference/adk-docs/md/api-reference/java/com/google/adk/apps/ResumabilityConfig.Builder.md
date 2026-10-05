@@ -33,7 +33,8 @@ Contents
      1. Builder()
   5. Method Details
      1. resumable(boolean)
-     2. build()
+     2. plainTextContinuationAutoResume(boolean)
+     3. build()
 
 Hide sidebar  Show sidebar
 
@@ -66,7 +67,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -79,6 +80,14 @@ Description
 `build()`
 
  
+
+`abstract [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")`
+
+`plainTextContinuationAutoResume(boolean value)`
+
+Deprecated.
+
+Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (or send a function response to the paused call).
 
 `abstract [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")`
 
@@ -104,6 +113,14 @@ public Builder()
     * ### resumable
 
 @CanIgnoreReturnValue public abstract [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps") resumable(boolean isResumable)
+
+    * ### plainTextContinuationAutoResume
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @CanIgnoreReturnValue public abstract [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps") plainTextContinuationAutoResume(boolean value)
+
+Deprecated.
+
+Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (or send a function response to the paused call). See [`ResumabilityConfig.isPlainTextContinuationAutoResume()`](ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\)).
 
     * ### build
 

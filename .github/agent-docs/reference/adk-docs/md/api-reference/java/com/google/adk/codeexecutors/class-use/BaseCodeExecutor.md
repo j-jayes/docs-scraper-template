@@ -90,7 +90,7 @@ A code executor that uses the Model's built-in code executor.
 
 `[ContainerCodeExecutor](../ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")`
 
-A code executor that uses a custom container to execute code.
+A code executor that runs code in a Docker container.
 
 `final class `
 

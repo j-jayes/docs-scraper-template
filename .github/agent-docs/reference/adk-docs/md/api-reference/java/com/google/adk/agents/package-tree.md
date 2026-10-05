@@ -65,6 +65,7 @@ Package Hierarchies:
     * com.google.adk.agents.[PlanningContext](PlanningContext.html "class in com.google.adk.agents")
     * com.google.adk.agents.[ReadonlyContext](ReadonlyContext.html "class in com.google.adk.agents")
       * com.google.adk.agents.[CallbackContext](CallbackContext.html "class in com.google.adk.agents")
+    * com.google.adk.agents.[Role](Role.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig](RunConfig.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig.Builder](RunConfig.Builder.html "class in com.google.adk.agents")
     * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 

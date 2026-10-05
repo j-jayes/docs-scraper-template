@@ -98,7 +98,7 @@ Appends an event to an in-memory session object and updates the session's state 
 
 `createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId)`
 
-Creates a new session with the specified parameters.
+Creates a session, requesting `sessionId` as its id when one is given.
 
 `io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")>`
 
@@ -239,9 +239,9 @@ Returns:
 
 public io.reactivex.rxjava3.core.Single<[Session](Session.html "class in com.google.adk.sessions")> createSession([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> state, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId)
 
-Description copied from interface: `[BaseSessionService](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))`
+Creates a session, requesting `sessionId` as its id when one is given. A non-empty id must match `[a-zA-Z0-9_-]+`; an empty or null one asks the backend to generate it. 
 
-Creates a new session with the specified parameters.
+The backend's rule is narrower still - up to 63 characters from `[a-z0-9-]`, starting with a letter and ending with a letter or digit - so it rejects some ids that pass validation here.
 
 Specified by:
     `[createSession](BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\))` in interface `[BaseSessionService](BaseSessionService.html "interface in com.google.adk.sessions")`

@@ -56,12 +56,14 @@ Contents
      20. setEndOfAgent(boolean)
      21. endInvocation()
      22. setEndInvocation(boolean)
-     23. compaction()
-     24. setCompaction(EventCompaction)
-     25. builder()
-     26. toBuilder()
-     27. equals(Object)
-     28. hashCode()
+     23. agentState()
+     24. setAgentState(Map)
+     25. compaction()
+     26. setCompaction(EventCompaction)
+     27. builder()
+     28. toBuilder()
+     29. equals(Object)
+     30. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -116,6 +118,12 @@ Modifier and Type
 Method
 
 Description
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>>`
+
+`agentState()`
+
+The checkpointed state of the authoring agent at this event, used for session resumability.
 
 `[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")>`
 
@@ -188,6 +196,12 @@ Removes a key from the state delta.
 `[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")>`
 
 `requestedToolConfirmations()`
+
+ 
+
+`void`
+
+`setAgentState(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)`
 
  
 
@@ -456,6 +470,16 @@ Use `endOfAgent()` instead.
 Deprecated.
 
 Use `setEndOfAgent(boolean)` instead.
+
+    * ### agentState
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>> agentState()
+
+The checkpointed state of the authoring agent at this event, used for session resumability. Only set by ADK workflow/agent machinery on resumable invocations.
+
+    * ### setAgentState
+
+public void setAgentState(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)
 
     * ### compaction
 

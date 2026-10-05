@@ -88,6 +88,14 @@ Expected only for specific model endpoints.
 
 See [`ResumabilityConfig`](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
 
+[com.google.adk.apps.ResumabilityConfig.Builder.plainTextContinuationAutoResume(boolean)](com/google/adk/apps/ResumabilityConfig.Builder.html#plainTextContinuationAutoResume\(boolean\))
+
+Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (or send a function response to the paused call). See [`ResumabilityConfig.isPlainTextContinuationAutoResume()`](com/google/adk/apps/ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\)).
+
+[com.google.adk.apps.ResumabilityConfig.isPlainTextContinuationAutoResume()](com/google/adk/apps/ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\))
+
+Back-compat shim for callers that deliver a resume as a plain-text turn. Migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` (or send a function response to the paused call) and stop setting this flag; it will be removed.
+
 [com.google.adk.events.Event.setFinishReason(Optional<FinishReason>)](com/google/adk/events/Event.html#setFinishReason\(java.util.Optional\))
 
 [com.google.adk.events.EventActions.Builder.endInvocation(boolean)](com/google/adk/events/EventActions.Builder.html#endInvocation\(boolean\))
@@ -117,6 +125,10 @@ Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.h
 [com.google.adk.sessions.BaseSessionService.createSession(String, String, ConcurrentMap<String, Object>, String)](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\))
 
 Use [`BaseSessionService.createSession(String, String, Map, String)`](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) instead.
+
+[com.google.adk.sessions.Session.Builder.eventsView(List<Event>)](com/google/adk/sessions/Session.Builder.html#eventsView\(java.util.List\))
+
+Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use [`Session.Builder.events(List)`](com/google/adk/sessions/Session.Builder.html#events\(java.util.List\)) instead.
 
 [com.google.adk.telemetry.Instrumentation.recordAgentInvocation(InvocationContext, BaseAgent)](com/google/adk/telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\))
 
