@@ -1,6 +1,6 @@
 # Graph-based agent workflows
 
-Supported in ADKPython v2.0.0Go v2.0.0
+Supported in ADKPython v2.0.0TypeScript v2.0.0Go v2.0.0
 
 Graph-based agent workflows in ADK let you build agents with more precise control, creating deterministic processes that combine code logic and AI reasoning capabilities. Graph-based workflows allow you to define your agent logic as a graph of execution nodes and edges, combining AI-powered agent reasoning with deterministic tools and code.
 
@@ -36,7 +36,6 @@ city_generator_agent = Agent(
     model="gemini-flash-latest",
     instruction="""Return the name of a random city.
       Return only the name, nothing else.""",
-    output_schema=str,
 )
 
 class CityTime(BaseModel):
@@ -53,7 +52,6 @@ city_report_agent = Agent(
     input_schema=CityTime,
     instruction="""Output following line:
     It is {CityTime.time_info} in {CityTime.city} right now.""",
-    output_schema=str,
 )
 
 def completed_message_function(node_input: str):
@@ -68,6 +66,70 @@ root_agent = Workflow(
           city_report_agent, completed_message_function)
     ],
 )
+```
+
+In ADK TypeScript v2.0.0, a `Workflow` takes an `edges` array. Each row lists the nodes to run in order. The `node()` function wraps a function, an agent, a tool, or another `Workflow` as a graph node, and sets the node's name and its `inputSchema` and `outputSchema` contracts. Schemas are Zod objects or a genai `Schema`. Each node's return value is passed to the next node as its input, so you do not need to write to session state.
+
+```typescript
+import {
+  createEvent,
+  LlmAgent,
+  node,
+  NodeContext,
+  Workflow,
+} from '@google/adk';
+import { z } from 'zod';
+
+const cityGeneratorAgent = new LlmAgent({
+  name: 'city_generator_agent',
+  model: 'gemini-flash-latest',
+  instruction: `Return the name of a random city.
+      Return only the name, nothing else.`,
+});
+
+/** The structured payload handed from the lookup node to the report agent. */
+const cityTimeSchema = z.object({
+  timeInfo: z.string().describe('Time information.'),
+  city: z.string().describe('City name.'),
+});
+type CityTime = z.infer<typeof cityTimeSchema>;
+
+/** Simulates returning the current time in the specified city. */
+function lookupTimeFunction(_ctx: NodeContext, nodeInput: string): CityTime {
+  return { timeInfo: '10:10 AM', city: nodeInput.trim() };
+}
+
+const cityReportAgent = new LlmAgent({
+  name: 'city_report_agent',
+  model: 'gemini-flash-latest',
+  instruction: `Output the following line:
+    It is {CityTime.timeInfo} in {CityTime.city} right now.`,
+});
+
+function completedMessageFunction(_ctx: NodeContext, nodeInput: string) {
+  return createEvent({
+    content: {
+      role: 'model',
+      parts: [{ text: `${nodeInput}\n WORKFLOW COMPLETED.` }],
+    },
+  });
+}
+
+export const rootAgent = new Workflow({
+  name: 'root_agent',
+  edges: [
+    [
+      'START',
+      cityGeneratorAgent,
+      node(lookupTimeFunction, {
+        name: 'lookup_time_function',
+        outputSchema: cityTimeSchema,
+      }),
+      node(cityReportAgent, { inputSchema: cityTimeSchema }),
+      node(completedMessageFunction, { name: 'completed_message_function' }),
+    ],
+  ],
+});
 ```
 
 In ADK Go v2.0.0, sequential workflows use the graph engine: `workflow.NewFunctionNode` wraps each step, and `workflow.Chain` wires the nodes into a sequential `edges` slice. The framework automatically passes each node's typed return value to the next node via `event.Output` — no session state writes are needed. The whole graph is wrapped in `workflowagent.New`, which produces a standard `agent.Agent`.
@@ -152,7 +214,6 @@ process_message = Agent(
       or "LOGISTICS". If you think a message applies to more than one category,
       reply with a comma separated list of categories.
    """,
-    output_schema=str,
 )
 
 def router(node_input: str):
@@ -182,6 +243,77 @@ root_agent = Workflow(
        )
    ],
 )
+```
+
+In ADK TypeScript v2.0.0, a router node returns an event carrying a `route` value, created with `createEvent({route})`. A second edge row maps each route value to the node that handles it. Setting `route` to an array dispatches to every matching branch, which lets the classifier in this example return more than one category. The `DEFAULT_ROUTE` setting catches any value that no branch matched.
+
+```typescript
+import {
+  createEvent,
+  DEFAULT_ROUTE,
+  LlmAgent,
+  node,
+  NodeContext,
+  Workflow,
+} from '@google/adk';
+
+/** The routes this graph has edges for. */
+const ROUTES = ['BUG', 'CUSTOMER_SUPPORT', 'LOGISTICS'] as const;
+
+const processMessage = new LlmAgent({
+  name: 'process_message',
+  model: 'gemini-flash-latest',
+  instruction: `Classify user message into either "BUG", "CUSTOMER_SUPPORT",
+      or "LOGISTICS". If you think a message applies to more than one category,
+      reply with a comma separated list of categories.
+      Reply with the categories only, nothing else.`,
+});
+
+const router = node(
+  (_ctx: NodeContext, nodeInput: string) => {
+    const text = String(nodeInput).toUpperCase();
+    const matched = ROUTES.filter((route) =>
+      new RegExp(`\\b${route}\\b`).test(text),
+    );
+    return createEvent({ route: matched.length > 0 ? matched : DEFAULT_ROUTE });
+  },
+  { name: 'router' },
+);
+
+/** Emits a user-facing message: `content`, with no `output`. */
+const message = (text: string) =>
+  createEvent({ content: { role: 'model', parts: [{ text }] } });
+
+const response1Bug = node(() => message('Handling bug...'), {
+  name: 'response_1_bug',
+});
+const response2Support = node(() => message('Handling customer support...'), {
+  name: 'response_2_support',
+});
+const response3Logistics = node(() => message('Handling logistics...'), {
+  name: 'response_3_logistics',
+});
+const responseUnknown = node(
+  (_ctx: NodeContext, nodeInput: string) =>
+    message(`Could not classify that (classifier said: ${nodeInput}).`),
+  { name: 'response_unknown' },
+);
+
+export const rootAgent = new Workflow({
+  name: 'routing_workflow',
+  edges: [
+    ['START', processMessage, router],
+    [
+      router,
+      {
+        BUG: response1Bug,
+        CUSTOMER_SUPPORT: response2Support,
+        LOGISTICS: response3Logistics,
+        [DEFAULT_ROUTE]: responseUnknown,
+      },
+    ],
+  ],
+});
 ```
 
 In ADK Go v2.0.0, conditional routing uses `workflow.NewEmittingFunctionNode` to set `event.Routes` and `workflow.StringRoute` edges to dispatch to the matching handler — the direct equivalent of Python's `router` function and dict dispatch. `workflow.Concat` merges the chain and the conditional edges into a single `edges` slice passed to `workflowagent.New`.
@@ -282,7 +414,6 @@ This sample code demonstrates how you can compose a sequence of agents to define
 
 There are some known limitations with graph-based workflows. They are *not compatible* with the following ADK features:
 
-- **Live streaming:** Not supported in graph-based workflows.
 - **Integrations:** Some third-party [integrations](/integrations/) may not be compatible with graph-based workflows.
 
 Go: graph workflow API

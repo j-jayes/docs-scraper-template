@@ -230,6 +230,12 @@ Method
 
 Description
 
+`com.google.common.collect.ImmutableList<[Event](../Event.html "class in com.google.adk.events")>`
+
+InvocationContext.`[events](../../agents/InvocationContext.html#events\(boolean,boolean\))(boolean currentInvocation, boolean currentBranch)`
+
+Returns the current session's events, optionally filtered to the current invocation and/or the current branch.
+
 `[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")>`
 
 PlanningContext.`[events](../../agents/PlanningContext.html#events\(\))()`
@@ -241,6 +247,12 @@ Returns all events in the current session.
 ReadonlyContext.`[events](../../agents/ReadonlyContext.html#events\(\))()`
 
 Returns an unmodifiable view of the events of the session.
+
+`com.google.common.collect.ImmutableList<[Event](../Event.html "class in com.google.adk.events")>`
+
+InvocationContext.`[eventsOnCurrentBranch](../../agents/InvocationContext.html#eventsOnCurrentBranch\(\))()`
+
+Returns a snapshot of the session's events, keeping only those on the branch this invocation is running on.
 
 `io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
 
@@ -325,6 +337,20 @@ PlannerAgent.`[runLiveImpl](../../agents/PlannerAgent.html#runLiveImpl\(com.goog
 SequentialAgent.`[runLiveImpl](../../agents/SequentialAgent.html#runLiveImpl\(com.google.adk.agents.InvocationContext\))([InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
 Runs sub-agents sequentially in live mode.
+
+Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`boolean`
+
+InvocationContext.`[shouldPauseInvocation](../../agents/InvocationContext.html#shouldPauseInvocation\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
+
+Returns whether to pause the invocation right after this event: it is resumable and the event carries a long-running function call, including a synthetic `adk_request_confirmation` HITL request.
 
   * ## Uses of [Event](../Event.html "class in com.google.adk.events") in [com.google.adk.events](../package-summary.html)
 
@@ -526,7 +552,7 @@ Gets the ask user confirmation function calls from the event.
 
 OutputSchema.`[getStructuredModelResponse](../../flows/llmflows/OutputSchema.html#getStructuredModelResponse\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") functionResponseEvent)`
 
-Check if function response contains set_model_response and extract JSON.
+Extracts a successfully validated `set_model_response` result as JSON.
 
 `static io.reactivex.rxjava3.core.Maybe<[Event](../Event.html "class in com.google.adk.events")>`
 
@@ -738,6 +764,12 @@ Runner.`[runAsync](../../runner/Runner.html#runAsync\(java.lang.String,java.lang
 
 Runs the agent with an invocation-based mode.
 
+`io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
+
+Runner.`[runAsync](../../runner/Runner.html#runAsync\(java.lang.String,java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") invocationId, @Nullable com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)`
+
+Runs the agent, resuming an existing invocation instead of starting a new one.
+
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
 
 Runner.`[runAsyncImpl](../../runner/Runner.html#runAsyncImpl\(com.google.adk.sessions.Session,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session, com.google.genai.types.Content newMessage, [RunConfig](../../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)`
@@ -812,7 +844,15 @@ ListEventsResponse.`[events](../../sessions/ListEventsResponse.html#events\(\))(
 
 Session.`[events](../../sessions/Session.html#events\(\))()`
 
- 
+Deprecated.
+
+Prefer [`Session.immutableEvents()`](../../sessions/Session.html#immutableEvents\(\)) when reading or iterating over events (to avoid [`ConcurrentModificationException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ConcurrentModificationException.html "class in java.util")), and [`Session.addEvent(Event)`](../../sessions/Session.html#addEvent\(com.google.adk.events.Event\)) or [`Session.addEvents(Collection)`](../../sessions/Session.html#addEvents\(java.util.Collection\)) when appending events.
+
+`com.google.common.collect.ImmutableList<[Event](../Event.html "class in com.google.adk.events")>`
+
+Session.`[immutableEvents](../../sessions/Session.html#immutableEvents\(\))()`
+
+Returns a thread-safe, immutable snapshot of the session's events, synchronizing on the backing [`Session.events()`](../../sessions/Session.html#events\(\)) list.
 
 Methods in [com.google.adk.sessions](../../sessions/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
 
@@ -821,6 +861,12 @@ Modifier and Type
 Method
 
 Description
+
+`void`
+
+Session.`[addEvent](../../sessions/Session.html#addEvent\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") event)`
+
+Appends a single [`Event`](../Event.html "class in com.google.adk.events") to the session's event list while synchronizing on the backing [`Session.events()`](../../sessions/Session.html#events\(\)) list; prefer over `events().add(event)`.
 
 `default io.reactivex.rxjava3.core.Single<[Event](../Event.html "class in com.google.adk.events")>`
 
@@ -854,6 +900,12 @@ Method
 
 Description
 
+`void`
+
+Session.`[addEvents](../../sessions/Session.html#addEvents\(java.util.Collection\))([Collection](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+
+Appends all [`Event`](../Event.html "class in com.google.adk.events")s in the given collection to the session's event list while synchronizing on the backing [`Session.events()`](../../sessions/Session.html#events\(\)) list; prefer over ` events().addAll(events)`.
+
 `abstract [ListEventsResponse.Builder](../../sessions/ListEventsResponse.Builder.html "class in com.google.adk.sessions")`
 
 ListEventsResponse.Builder.`[events](../../sessions/ListEventsResponse.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
@@ -862,7 +914,7 @@ ListEventsResponse.Builder.`[events](../../sessions/ListEventsResponse.Builder.h
 
 `[Session.Builder](../../sessions/Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[events](../../sessions/Session.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
+Session.Builder.`[events](../../sessions/Session.Builder.html#events\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../Event.html "class in com.google.adk.events")> events)`
 
  
 

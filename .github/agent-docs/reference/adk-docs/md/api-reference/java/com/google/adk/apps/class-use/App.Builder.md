@@ -87,9 +87,7 @@ App.Builder.`[plugins](../App.Builder.html#plugins\(java.util.List\))([List](htt
 
 App.Builder.`[resumabilityConfig](../App.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\))([ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
 
-Deprecated.
-
-See [`ResumabilityConfig`](../ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
+ 
 
 `[App.Builder](../App.Builder.html "class in com.google.adk.apps")`
 

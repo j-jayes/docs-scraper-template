@@ -251,7 +251,7 @@ protected io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class
 
 Runs sub-agents sequentially. 
 
-When resumability is enabled, on resume execution fast-forwards to the sub-agent being resumed (completed ones are not re-run) and pauses on a pending long-running call; when disabled, sub-agents simply run in order (matches Python ADK v1 with resumability off). Temporary, event-based.
+Three modes: with resumability on, a resume fast-forwards to the checkpointed sub-agent and pauses on a long-running call; with the deprecated shim on, the same happens but the resume point is reconstructed from history and nothing is checkpointed; with neither, sub-agents just run in order.
 
 Specified by:
     `[runAsyncImpl](BaseAgent.html#runAsyncImpl\(com.google.adk.agents.InvocationContext\))` in class `[BaseAgent](BaseAgent.html "class in com.google.adk.agents")`

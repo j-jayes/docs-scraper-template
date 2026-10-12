@@ -255,7 +255,7 @@ Description
 
 `clearBeforeModelCallbacks()`
 
- 
+Removes any before-model callbacks set on this builder.
 
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
@@ -551,6 +551,8 @@ public Builder()
     * ### clearBeforeModelCallbacks
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") clearBeforeModelCallbacks()
+
+Removes any before-model callbacks set on this builder.
 
     * ### beforeModelCallback
 

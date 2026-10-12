@@ -73,6 +73,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../google-gemini/deferred-schedule/)
       * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Agent Platform hosted  ](../agent-platform/)

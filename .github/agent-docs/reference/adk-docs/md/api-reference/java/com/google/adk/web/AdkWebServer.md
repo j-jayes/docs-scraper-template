@@ -33,15 +33,16 @@ Contents
   4. Constructor Details
      1. AdkWebServer()
   5. Method Details
-     1. sessionService()
-     2. artifactService()
-     3. memoryService()
-     4. objectMapper()
-     5. mappingJackson2HttpMessageConverter(ObjectMapper)
-     6. addResourceHandlers(ResourceHandlerRegistry)
-     7. addViewControllers(ViewControllerRegistry)
-     8. main(String[])
-     9. start(BaseAgent...)
+     1. backendUrl()
+     2. sessionService()
+     3. artifactService()
+     4. memoryService()
+     5. objectMapper()
+     6. mappingJackson2HttpMessageConverter(ObjectMapper)
+     7. addResourceHandlers(ResourceHandlerRegistry)
+     8. addViewControllers(ViewControllerRegistry)
+     9. main(String[])
+     10. start(BaseAgent...)
 
 Hide sidebar  Show sidebar
 
@@ -92,13 +93,19 @@ Maps requests under "/dev-ui/" to the directory named by the 'adk.web.ui.dir' pr
 
 `addViewControllers(org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry)`
 
-Configures simple automated controllers: "/" and "/dev-ui" both redirect to "/dev-ui/", which forwards to the UI's index.html.
+Configures simple automated controllers: "/" and "/dev-ui" both redirect to the UI, at ` adk.web.backend-url`'s path when a usable value is set, and it forwards to index.html.
 
 `[BaseArtifactService](../artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")`
 
 `artifactService()`
 
 Provides the singleton instance of the ArtifactService (InMemory).
+
+`[BackendUrl](config/BackendUrl.html "class in com.google.adk.web.config")`
+
+`backendUrl()`
+
+One bean, so this and the runtime-config endpoint cannot read the property differently.
 
 `static void`
 
@@ -155,6 +162,12 @@ public AdkWebServer()
 
   * ## Method Details
 
+    * ### backendUrl
+
+@Bean public [BackendUrl](config/BackendUrl.html "class in com.google.adk.web.config") backendUrl()
+
+One bean, so this and the runtime-config endpoint cannot read the property differently.
+
     * ### sessionService
 
 @Bean public [BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService()
@@ -210,7 +223,7 @@ Specified by:
 
 public void addViewControllers(org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry)
 
-Configures simple automated controllers: "/" and "/dev-ui" both redirect to "/dev-ui/", which forwards to the UI's index.html. The trailing slash is required: index.html declares a ` <base href="./">`, so served from "/dev-ui" the app resolves its own router path to "dev-ui" and matches none of its routes. The query string is carried across because the UI selects its agent from `?app=` and the sample READMEs send users to the slashless "/dev-ui", so a redirect that dropped it would silently ignore the selection.
+Configures simple automated controllers: "/" and "/dev-ui" both redirect to the UI, at ` adk.web.backend-url`'s path when a usable value is set, and it forwards to index.html. The trailing slash is required: index.html declares a `<base href="./">`, so served from "/dev-ui" the app resolves its own router path to "dev-ui" and matches none of its routes. The query string is carried across because the UI selects its agent from `?app=`.
 
 Specified by:
     `addViewControllers` in interface `org.springframework.web.servlet.config.annotation.WebMvcConfigurer`

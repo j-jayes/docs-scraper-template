@@ -70,11 +70,11 @@ Method
 
 Description
 
-`abstract [ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps")`
+`[ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps")`
 
 ResumabilityConfig.Builder.`[build](../ResumabilityConfig.Builder.html#build\(\))()`
 
- 
+Builds the config, rejecting a combination of flags that has no defined behavior.
 
 `@Nullable [ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps")`
 
@@ -94,9 +94,7 @@ Description
 
 App.Builder.`[resumabilityConfig](../App.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\))([ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
 
-Deprecated.
-
-See [`ResumabilityConfig`](../ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
+ 
 
   * ## Uses of [ResumabilityConfig](../ResumabilityConfig.html "class in com.google.adk.apps") in [com.google.adk.runner](../../runner/package-summary.html)
 

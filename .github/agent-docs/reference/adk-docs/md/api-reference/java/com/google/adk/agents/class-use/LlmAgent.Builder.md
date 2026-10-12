@@ -155,7 +155,7 @@ Returns a [`LlmAgent.Builder`](../LlmAgent.Builder.html "class in com.google.adk
 
 LlmAgent.Builder.`[clearBeforeModelCallbacks](../LlmAgent.Builder.html#clearBeforeModelCallbacks\(\))()`
 
- 
+Removes any before-model callbacks set on this builder.
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 

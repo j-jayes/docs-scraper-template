@@ -46,13 +46,13 @@ com.google.adk.apps.ResumabilityConfig
 
 * * *
 
-[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public abstract class ResumabilityConfig extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public abstract class ResumabilityConfig extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
-Deprecated.
+Resumability config for every agent in an app: pause on a long-running call and resume from the last event. 
 
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented. Full session resumability (persisted agent state, durable resume, other workflow agents) is not yet available. Forward-compatible: the same config will drive full resumability once it lands.
+The two flags select different resumption flows and are mutually exclusive: `isResumable()` checkpoints agent state and resumes from it, `isPlainTextContinuationAutoResume()` selects the deprecated legacy flow, and with neither set the app never pauses. 
 
-App resumability config, mirroring Python ADK v1's `ResumabilityConfig`: pause on a long-running call and resume from the last event. Applies to all agents in the app.
+Experimental: resume is best-effort and at-least-once, so a resuming tool must be idempotent and in-memory state is lost on resumption.
 
   * ## Nested Class Summary
 
@@ -68,8 +68,6 @@ Description
 
 `[ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")`
 
-Deprecated.
-
 Builder for [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps").
 
   * ## Constructor Summary
@@ -81,8 +79,6 @@ Constructor
 Description
 
 `ResumabilityConfig()`
-
-Deprecated.
 
  
 
@@ -100,8 +96,6 @@ Description
 
 `builder()`
 
-Deprecated.
-
  
 
 `abstract boolean`
@@ -110,15 +104,13 @@ Deprecated.
 
 Deprecated.
 
-Back-compat shim for callers that deliver a resume as a plain-text turn.
+Back-compat shim for callers that deliver a resume as a plain-text turn; migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` or answer the paused call with a function response, and set `isResumable()` instead; this flag will be removed.
 
 `abstract boolean`
 
 `isResumable()`
 
-Deprecated.
-
-Whether the app supports agent resumption.
+Whether the app supports agent resumption, checkpointing agent state as it runs.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -133,17 +125,13 @@ Whether the app supports agent resumption.
 
 public ResumabilityConfig()
 
-Deprecated.
-
   * ## Method Details
 
     * ### isResumable
 
 public abstract boolean isResumable()
 
-Deprecated.
-
-Whether the app supports agent resumption.
+Whether the app supports agent resumption, checkpointing agent state as it runs.
 
     * ### isPlainTextContinuationAutoResume
 
@@ -151,15 +139,15 @@ Whether the app supports agent resumption.
 
 Deprecated.
 
-Back-compat shim for callers that deliver a resume as a plain-text turn. Migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` (or send a function response to the paused call) and stop setting this flag; it will be removed.
+Back-compat shim for callers that deliver a resume as a plain-text turn; migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` or answer the paused call with a function response, and set `isResumable()` instead; this flag will be removed.
 
-Whether a plain-text `runAsync` continuation -- a user message that is not a function response -- resumes the last unfinished invocation instead of starting a new one. Off by default, matching Python ADK, where a plain-text `runAsync` always starts a new invocation and a paused invocation is resumed explicitly.
+Whether a plain-text `runAsync` continuation -- a user message that is not a function response -- resumes the last unfinished invocation instead of starting a new one; off by default. 
+
+Selects the legacy resumption flow, which reconstructs the resume point from session events and never persists agent state; mutually exclusive with `isResumable()`.
 
     * ### builder
 
 public static [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps") builder()
-
-Deprecated.
 
 
 

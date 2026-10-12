@@ -117,6 +117,18 @@ EventActions.Builder.`[requestedToolConfirmations](../EventActions.Builder.html#
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
+EventActions.Builder.`[rewindBeforeInvocationId](../EventActions.Builder.html#rewindBeforeInvocationId\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)`
+
+ 
+
+`[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
+
+EventActions.Builder.`[setModelResponse](../EventActions.Builder.html#setModelResponse\(java.lang.Object\))(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)`
+
+ 
+
+`[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
+
 EventActions.Builder.`[skipSummarization](../EventActions.Builder.html#skipSummarization\(java.lang.Boolean\))(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") skipSummarization)`
 
  

@@ -25,12 +25,6 @@ Package Hierarchies:
 
   * [com.example](com/example/package-tree.html), 
   * [com.example.a2a_basic](com/example/a2a_basic/package-tree.html), 
-  * [com.example.adkdocs](com/example/adkdocs/package-tree.html), 
-  * [com.example.adkprtriaging](com/example/adkprtriaging/package-tree.html), 
-  * [com.example.adkspam](com/example/adkspam/package-tree.html), 
-  * [com.example.adkstale](com/example/adkstale/package-tree.html), 
-  * [com.example.adktriaging](com/example/adktriaging/package-tree.html), 
-  * [com.example.github](com/example/github/package-tree.html), 
   * [com.example.helloworld](com/example/helloworld/package-tree.html), 
   * [com.example.mcpfilesystem](com/example/mcpfilesystem/package-tree.html), 
   * [com.google.adk](com/google/adk/package-tree.html), 
@@ -110,14 +104,6 @@ Package Hierarchies:
     * com.google.adk.agents.[ActiveStreamingTool](com/google/adk/agents/ActiveStreamingTool.html "class in com.google.adk.agents")
     * com.google.adk.utils.[AdditionalAdkComponentProvider](com/google/adk/utils/AdditionalAdkComponentProvider.html "class in com.google.adk.utils") (implements com.google.adk.utils.[AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils"))
     * com.google.adk.web.dto.[AddSessionToEvalSetRequest](com/google/adk/web/dto/AddSessionToEvalSetRequest.html "class in com.google.adk.web.dto")
-    * com.example.adkdocs.[AdkDocsReleaseAnalyzerAgent](com/example/adkdocs/AdkDocsReleaseAnalyzerAgent.html "class in com.example.adkdocs")
-    * com.example.adkdocs.[AdkDocsReleaseAnalyzerRun](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html "class in com.example.adkdocs") (implements java.lang.[Runnable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html "interface in java.lang"))
-    * com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    * com.example.adkprtriaging.[AdkPrTriagingAgentRun](com/example/adkprtriaging/AdkPrTriagingAgentRun.html "class in com.example.adkprtriaging")
-    * com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-    * com.example.adkstale.[AdkStaleAgentRun](com/example/adkstale/AdkStaleAgentRun.html "class in com.example.adkstale")
-    * com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    * com.example.adktriaging.[AdkTriagingAgentRun](com/example/adktriaging/AdkTriagingAgentRun.html "class in com.example.adktriaging")
     * com.google.adk.web.config.[AdkWebCorsConfig](com/google/adk/web/config/AdkWebCorsConfig.html "class in com.google.adk.web.config")
     * com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web") (implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer)
     * com.google.adk.samples.a2aagent.agent.[Agent](com/google/adk/samples/a2aagent/agent/Agent.html "class in com.google.adk.samples.a2aagent.agent")
@@ -147,6 +133,7 @@ Package Hierarchies:
     * com.google.adk.tools.applicationintegrationtoolset.[ApplicationIntegrationToolset](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset") (implements com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools"))
     * com.google.adk.web.controller.[ArtifactController](com/google/adk/web/controller/ArtifactController.html "class in com.google.adk.web.controller")
     * com.google.adk.planner.goap.[AStarSearchStrategy](com/google/adk/planner/goap/AStarSearchStrategy.html "class in com.google.adk.planner.goap") (implements com.google.adk.planner.goap.[SearchStrategy](com/google/adk/planner/goap/SearchStrategy.html "interface in com.google.adk.planner.goap"))
+    * com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
     * com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LoopAgent](com/google/adk/agents/LoopAgent.html "class in com.google.adk.agents")
@@ -278,7 +265,6 @@ Package Hierarchies:
     * com.google.adk.models.[GeminiUtil](com/google/adk/models/GeminiUtil.html "class in com.google.adk.models")
     * com.google.adk.sessions.[GetSessionConfig](com/google/adk/sessions/GetSessionConfig.html "class in com.google.adk.sessions")
     * com.google.adk.sessions.[GetSessionConfig.Builder](com/google/adk/sessions/GetSessionConfig.Builder.html "class in com.google.adk.sessions")
-    * com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
     * com.google.adk.planner.goap.[GoalOrientedPlanner](com/google/adk/planner/goap/GoalOrientedPlanner.html "class in com.google.adk.planner.goap") (implements com.google.adk.agents.[Planner](com/google/adk/agents/Planner.html "interface in com.google.adk.agents"))
     * com.google.adk.planner.goap.[GoalOrientedSearchGraph](com/google/adk/planner/goap/GoalOrientedSearchGraph.html "class in com.google.adk.planner.goap")
     * com.google.adk.tools.applicationintegrationtoolset.[GoogleCredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/GoogleCredentialsHelper.html "class in com.google.adk.tools.applicationintegrationtoolset") (implements com.google.adk.tools.applicationintegrationtoolset.[CredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset"))
@@ -393,6 +379,7 @@ Package Hierarchies:
       * com.google.adk.runner.[InMemoryRunner](com/google/adk/runner/InMemoryRunner.html "class in com.google.adk.runner")
     * com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
     * com.google.adk.web.service.[RunnerService](com/google/adk/web/service/RunnerService.html "class in com.google.adk.web.service")
+    * com.google.adk.web.controller.[RuntimeConfigController](com/google/adk/web/controller/RuntimeConfigController.html "class in com.google.adk.web.controller")
     * com.google.adk.[SchemaUtils](com/google/adk/SchemaUtils.html "class in com.google.adk")
     * com.google.adk.memory.[SearchMemoryResponse](com/google/adk/memory/SearchMemoryResponse.html "class in com.google.adk.memory")
     * com.google.adk.memory.[SearchMemoryResponse.Builder](com/google/adk/memory/SearchMemoryResponse.Builder.html "class in com.google.adk.memory")
@@ -401,14 +388,8 @@ Package Hierarchies:
     * com.google.adk.web.controller.[SessionController](com/google/adk/web/controller/SessionController.html "class in com.google.adk.web.controller")
     * com.google.adk.web.dto.[SessionRequest](com/google/adk/web/dto/SessionRequest.html "class in com.google.adk.web.dto")
     * com.google.adk.sessions.[SessionUtils](com/google/adk/sessions/SessionUtils.html "class in com.google.adk.sessions")
-    * com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-    * com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-    * com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    * com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
     * com.google.adk.tools.skills.[SkillToolset](com/google/adk/tools/skills/SkillToolset.html "class in com.google.adk.tools.skills") (implements com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools"))
     * com.google.adk.summarizer.[SlidingWindowEventCompactor](com/google/adk/summarizer/SlidingWindowEventCompactor.html "class in com.google.adk.summarizer") (implements com.google.adk.summarizer.[EventCompactor](com/google/adk/summarizer/EventCompactor.html "interface in com.google.adk.summarizer"))
-    * com.example.adkspam.[SpamDetectionAgent](com/example/adkspam/SpamDetectionAgent.html "class in com.example.adkspam")
-    * com.example.adkspam.[SpamDetectionAgentRun](com/example/adkspam/SpamDetectionAgentRun.html "class in com.example.adkspam")
     * com.google.adk.models.springai.autoconfigure.[SpringAIAutoConfiguration](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html "class in com.google.adk.models.springai.autoconfigure")
     * com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
     * com.google.adk.models.springai.error.[SpringAIErrorMapper](com/google/adk/models/springai/error/SpringAIErrorMapper.html "class in com.google.adk.models.springai.error")
@@ -465,6 +446,7 @@ Package Hierarchies:
     * com.google.adk.telemetry.[Tracing.ContextTransformer](com/google/adk/telemetry/Tracing.ContextTransformer.html "class in com.google.adk.telemetry")<T> (implements io.reactivex.rxjava3.core.CompletableTransformer, io.reactivex.rxjava3.core.FlowableTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.MaybeTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.SingleTransformer<Upstream, Downstream>)
     * com.google.adk.telemetry.[Tracing.TracerProvider](com/google/adk/telemetry/Tracing.TracerProvider.html "class in com.google.adk.telemetry")<T> (implements io.reactivex.rxjava3.core.CompletableTransformer, io.reactivex.rxjava3.core.FlowableTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.MaybeTransformer<Upstream, Downstream>, io.reactivex.rxjava3.core.SingleTransformer<Upstream, Downstream>)
     * com.google.adk.[Version](com/google/adk/Version.html "class in com.google.adk")
+    * com.google.adk.web.controller.[VersionController](com/google/adk/web/controller/VersionController.html "class in com.google.adk.web.controller")
     * com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
     * com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions") (implements com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions"))
     * com.google.adk.models.[VertexCredentials](com/google/adk/models/VertexCredentials.html "class in com.google.adk.models")
@@ -558,6 +540,7 @@ Package Hierarchies:
       * com.google.adk.a2a.executor.[AgentExecutorConfig.OutputMode](com/google/adk/a2a/executor/AgentExecutorConfig.OutputMode.html "enum class in com.google.adk.a2a.executor")
       * com.google.adk.models.[ApigeeLlm.ApiType](com/google/adk/models/ApigeeLlm.ApiType.html "enum class in com.google.adk.models")
       * com.google.adk.tools.computeruse.[ComputerEnvironment](com/google/adk/tools/computeruse/ComputerEnvironment.html "enum class in com.google.adk.tools.computeruse")
+      * com.google.adk.sessions.[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
       * com.google.adk.agents.[LlmAgent.IncludeContents](com/google/adk/agents/LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.StreamingMode](com/google/adk/agents/RunConfig.StreamingMode.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")

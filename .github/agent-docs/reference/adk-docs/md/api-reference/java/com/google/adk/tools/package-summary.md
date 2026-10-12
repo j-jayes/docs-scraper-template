@@ -134,7 +134,7 @@ A tool that wraps a sub-agent that only uses google_search tool.
 
 [GoogleSearchTool](GoogleSearchTool.html "class in com.google.adk.tools")
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini models to retrieve search results from Google Search.
 
 [LoadArtifactsTool](LoadArtifactsTool.html "class in com.google.adk.tools")
 
@@ -174,7 +174,7 @@ Functional interface to decide whether a tool should be exposed to the LLM based
 
 [UrlContextTool](UrlContextTool.html "class in com.google.adk.tools")
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs.
+A built-in tool that is automatically invoked by Gemini models to retrieve information from the given URLs.
 
 [VertexAiSearchAgentTool](VertexAiSearchAgentTool.html "class in com.google.adk.tools")
 

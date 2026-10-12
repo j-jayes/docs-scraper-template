@@ -152,7 +152,7 @@ public @Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class i
 
     * ### resumabilityConfig
 
-public @Nullable [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig()
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public @Nullable [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig()
 
     * ### builder
 

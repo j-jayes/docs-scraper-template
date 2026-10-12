@@ -128,19 +128,20 @@ Manages streaming tool related resources during invocation.
 
 Returns a map of tool call IDs to active streaming tools for the current invocation.
 
-[addCommentToIssue(String, String, int, String)](com/example/github/GitHubTools.html#addCommentToIssue\(java.lang.String,java.lang.String,int,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[addCommentToPr(int, String)](com/example/adkprtriaging/AdkPrTriagingAgent.html#addCommentToPr\(int,java.lang.String\)) \- Static method in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
+[addEvent(Event)](com/google/adk/sessions/Session.html#addEvent\(com.google.adk.events.Event\)) \- Method in class com.google.adk.sessions.[Session](com/google/adk/sessions/Session.html "class in com.google.adk.sessions")
     
 
-Posts the specified comment on a pull request.
+Appends a single [`Event`](com/google/adk/events/Event.html "class in com.google.adk.events") to the session's event list while synchronizing on the backing [`Session.events()`](com/google/adk/sessions/Session.html#events\(\)) list; prefer over `events().add(event)`.
 
-[addCommentToPullRequest(String, String, int, String)](com/example/github/GitHubTools.html#addCommentToPullRequest\(java.lang.String,java.lang.String,int,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [addEvent(Event)](com/google/adk/telemetry/Instrumentation.AgentInvocation.html#addEvent\(com.google.adk.events.Event\)) \- Method in class com.google.adk.telemetry.[Instrumentation.AgentInvocation](com/google/adk/telemetry/Instrumentation.AgentInvocation.html "class in com.google.adk.telemetry")
     
 
 Adds an event to the list of events tracked during this agent invocation.
+
+[addEvents(Collection)](com/google/adk/sessions/Session.html#addEvents\(java.util.Collection\)) \- Method in class com.google.adk.sessions.[Session](com/google/adk/sessions/Session.html "class in com.google.adk.sessions")
+    
+
+Appends all [`Event`](com/google/adk/events/Event.html "class in com.google.adk.events")s in the given collection to the session's event list while synchronizing on the backing [`Session.events()`](com/google/adk/sessions/Session.html#events\(\)) list; prefer over ` events().addAll(events)`.
 
 [addExample(Example)](com/google/adk/tools/ExampleTool.Builder.html#addExample\(com.google.adk.examples.Example\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
      
@@ -155,22 +156,6 @@ Adds the input files to the code executor context.
 Provides ADK components that are part of core.
 
 [AdditionalAdkComponentProvider()](com/google/adk/utils/AdditionalAdkComponentProvider.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.utils.[AdditionalAdkComponentProvider](com/google/adk/utils/AdditionalAdkComponentProvider.html "class in com.google.adk.utils")
-     
-[addLabelToIssue(int, String)](com/example/adkstale/AdkStaleAgent.html#addLabelToIssue\(int,java.lang.String\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-     
-[addLabelToIssue(int, String)](com/example/adktriaging/AdkTriagingAgent.html#addLabelToIssue\(int,java.lang.String\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Adds the specified label to a GitHub issue, validating it is on the allowlist.
-
-[addLabelToIssue(String, String, int, String)](com/example/github/GitHubTools.html#addLabelToIssue\(java.lang.String,java.lang.String,int,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[addLabelToPr(int, String)](com/example/adkprtriaging/AdkPrTriagingAgent.html#addLabelToPr\(int,java.lang.String\)) \- Static method in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    
-
-Adds the specified label to a pull request, validating it is on the allowlist.
-
-[addLabelToPullRequest(String, String, int, String)](com/example/github/GitHubTools.html#addLabelToPullRequest\(java.lang.String,java.lang.String,int,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
      
 [addProcessedFileNames(List)](com/google/adk/codeexecutors/CodeExecutorContext.html#addProcessedFileNames\(java.util.List\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutorContext](com/google/adk/codeexecutors/CodeExecutorContext.html "class in com.google.adk.codeexecutors")
     
@@ -212,12 +197,10 @@ Adds a session to memory.
 
 [addSessionToMemory(Session)](com/google/adk/memory/InMemoryMemoryService.html#addSessionToMemory\(com.google.adk.sessions.Session\)) \- Method in class com.google.adk.memory.[InMemoryMemoryService](com/google/adk/memory/InMemoryMemoryService.html "class in com.google.adk.memory")
      
-[addStaleLabelAndComment(int)](com/example/adkstale/AdkStaleAgent.html#addStaleLabelAndComment\(int\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-     
 [addViewControllers(ViewControllerRegistry)](com/google/adk/web/AdkWebServer.html#addViewControllers\(org.springframework.web.servlet.config.annotation.ViewControllerRegistry\)) \- Method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
     
 
-Configures simple automated controllers: "/" and "/dev-ui" both redirect to "/dev-ui/", which forwards to the UI's index.html.
+Configures simple automated controllers: "/" and "/dev-ui" both redirect to the UI, at ` adk.web.backend-url`'s path when a usable value is set, and it forwards to index.html.
 
 [ADK_CONTEXT_ID_KEY](com/google/adk/a2a/converters/EventConverter.html#ADK_CONTEXT_ID_KEY) \- Static variable in class com.google.adk.a2a.converters.[EventConverter](com/google/adk/a2a/converters/EventConverter.html "class in com.google.adk.a2a.converters")
      
@@ -233,55 +216,13 @@ Key for passing an ADK [`ToolContext`](com/google/adk/tools/ToolContext.html "cl
 
 Service provider interface for ADK components to be registered in [`ComponentRegistry`](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils").
 
-[AdkDocsReleaseAnalyzerAgent](com/example/adkdocs/AdkDocsReleaseAnalyzerAgent.html "class in com.example.adkdocs") \- Class in [com.example.adkdocs](com/example/adkdocs/package-summary.html)
-    
-
-Analyzes the diff between two code releases, files a deduplicated GitHub issue listing the documentation updates needed, and opens a pull request per recommendation that applies the edit.
-
-[AdkDocsReleaseAnalyzerRun](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html "class in com.example.adkdocs") \- Class in [com.example.adkdocs](com/example/adkdocs/package-summary.html)
-    
-
-Console entry point for the ADK Docs Release Analyzer.
-
-[AdkDocsReleaseAnalyzerRun()](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html#%3Cinit%3E\(\)) \- Constructor for class com.example.adkdocs.[AdkDocsReleaseAnalyzerRun](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html "class in com.example.adkdocs")
-     
 [AdkMetadataKey](com/google/adk/a2a/converters/AdkMetadataKey.html "enum class in com.google.adk.a2a.converters") \- Enum Class in [com.google.adk.a2a.converters](com/google/adk/a2a/converters/package-summary.html)
     
 
 Enum for the type of ADK metadata.
 
-[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging") \- Class in [com.example.adkprtriaging](com/example/adkprtriaging/package-summary.html)
-    
-
-ADK Pull Request (PR) Triaging Agent for `google/adk-java`.
-
-[AdkPrTriagingAgentRun](com/example/adkprtriaging/AdkPrTriagingAgentRun.html "class in com.example.adkprtriaging") \- Class in [com.example.adkprtriaging](com/example/adkprtriaging/package-summary.html)
-    
-
-Entry point for the ADK Java PR triaging agent.
-
-[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale") \- Class in [com.example.adkstale](com/example/adkstale/package-summary.html)
-    
-
-ADK Stale Issue Auditor for `google/adk-java`.
-
-[AdkStaleAgentRun](com/example/adkstale/AdkStaleAgentRun.html "class in com.example.adkstale") \- Class in [com.example.adkstale](com/example/adkstale/package-summary.html)
-    
-
-Entry point for the ADK Java Stale Issue Auditor.
-
 [adkToMcpToolType(BaseTool)](com/google/adk/tools/mcp/ConversionUtils.html#adkToMcpToolType\(com.google.adk.tools.BaseTool\)) \- Static method in class com.google.adk.tools.mcp.[ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
      
-[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging") \- Class in [com.example.adktriaging](com/example/adktriaging/package-summary.html)
-    
-
-ADK Issue Triaging Agent for `google/adk-java`.
-
-[AdkTriagingAgentRun](com/example/adktriaging/AdkTriagingAgentRun.html "class in com.example.adktriaging") \- Class in [com.example.adktriaging](com/example/adktriaging/package-summary.html)
-    
-
-Entry point for the ADK Java issue triaging agent.
-
 [AdkWebCorsConfig](com/google/adk/web/config/AdkWebCorsConfig.html "class in com.google.adk.web.config") \- Class in [com.google.adk.web.config](com/google/adk/web/config/package-summary.html)
     
 
@@ -608,6 +549,11 @@ The checkpointed state of the authoring agent at this event, used for session re
 
 [agentState(Map)](com/google/adk/events/EventActions.Builder.html#agentState\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
+[agentStates()](com/google/adk/agents/InvocationContext.html#agentStates\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns an unmodifiable view of the per-agent resumability checkpoint states for this invocation, keyed by agent name.
+
 [AgentStaticLoader](com/google/adk/web/AgentStaticLoader.html "class in com.google.adk.web") \- Class in [com.google.adk.web](com/google/adk/web/package-summary.html)
     
 
@@ -633,17 +579,10 @@ AgentTool implements a tool that allows an agent to call another agent.
      
 [AGGREGATED](com/google/adk/a2a/common/A2AMetadata.Key.html#AGGREGATED) \- Enum constant in enum class com.google.adk.a2a.common.[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
      
-[alertMaintainerOfEdit(int)](com/example/adkstale/AdkStaleAgent.html#alertMaintainerOfEdit\(int\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-     
 [allowCredentials()](com/google/adk/web/config/AdkWebCorsProperties.html#allowCredentials\(\)) \- Method in record class com.google.adk.web.config.[AdkWebCorsProperties](com/google/adk/web/config/AdkWebCorsProperties.html "class in com.google.adk.web.config")
     
 
 Returns the value of the `allowCredentials` record component.
-
-[ALLOWED_LABELS](com/example/adkprtriaging/AdkPrTriagingAgent.html#ALLOWED_LABELS) \- Static variable in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    
-
-The set of labels the agent is allowed to apply to a pull request.
 
 [allowedTools()](com/google/adk/skills/Frontmatter.html#allowedTools\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
     
@@ -903,18 +842,16 @@ Sets the artifact service for persisting artifacts.
 
 Converts an artifact to an ADK event.
 
+[assetLocation(String, String)](com/google/adk/web/config/DevUiAssets.html#assetLocation\(java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.web.config.[DevUiAssets](com/google/adk/web/config/DevUiAssets.html "class in com.google.adk.web.config")
+    
+
+The location of a single asset, given relative to the asset root.
+
 [assetRoot(String)](com/google/adk/web/config/DevUiAssets.html#assetRoot\(java.lang.String\)) \- Static method in class com.google.adk.web.config.[DevUiAssets](com/google/adk/web/config/DevUiAssets.html "class in com.google.adk.web.config")
     
 
 Returns the asset root: `webUiDir` as a `file:` URL when set, else the bundled classpath copy.
 
-[assignGtechOwnerToIssue(int)](com/example/adktriaging/AdkTriagingAgent.html#assignGtechOwnerToIssue\(int\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Round-robin assigns a gTech triager to the issue using `issue_number % N`.
-
-[assignIssue(String, String, int, List)](com/example/github/GitHubTools.html#assignIssue\(java.lang.String,java.lang.String,int,java.util.List\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [AStarSearchStrategy](com/google/adk/planner/goap/AStarSearchStrategy.html "class in com.google.adk.planner.goap") \- Class in [com.google.adk.planner.goap](com/google/adk/planner/goap/package-summary.html)
     
 
@@ -997,6 +934,16 @@ Error code if the response is an error.
 Completes once every event in `events` has been [`PersistBarrier.markPersisted(InvocationContext, String)`](com/google/adk/flows/llmflows/PersistBarrier.html#markPersisted\(com.google.adk.agents.InvocationContext,java.lang.String\)), or fails if any was [`PersistBarrier.markFailed(InvocationContext, String, Throwable)`](com/google/adk/flows/llmflows/PersistBarrier.html#markFailed\(com.google.adk.agents.InvocationContext,java.lang.String,java.lang.Throwable\)); completes immediately if the barrier was never [`PersistBarrier.enable(InvocationContext)`](com/google/adk/flows/llmflows/PersistBarrier.html#enable\(com.google.adk.agents.InvocationContext\))d.
 
 ## B
+
+[backendUrl()](com/google/adk/web/AdkWebServer.html#backendUrl\(\)) \- Method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
+    
+
+One bean, so this and the runtime-config endpoint cannot read the property differently.
+
+[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config") \- Class in [com.google.adk.web.config](com/google/adk/web/config/package-summary.html)
+    
+
+Parsed representation of `adk.web.backend-url`, shared by the runtime-config endpoint and the dev UI entry redirects.
 
 [BASE_AGENT](com/google/adk/utils/AgentEnums.AgentOrigin.html#BASE_AGENT) \- Enum constant in enum class com.google.adk.utils.[AgentEnums.AgentOrigin](com/google/adk/utils/AgentEnums.AgentOrigin.html "enum class in com.google.adk.utils")
      
@@ -1331,10 +1278,6 @@ Returns the blob of the request.
 
 [blob(Blob)](com/google/adk/agents/LiveRequest.Builder.html#blob\(com.google.genai.types.Blob\)) \- Method in class com.google.adk.agents.[LiveRequest.Builder](com/google/adk/agents/LiveRequest.Builder.html "class in com.google.adk.agents")
      
-[botAlertSignature()](com/example/adkspam/Settings.html#botAlertSignature\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[botName()](com/example/adkspam/Settings.html#botName\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
 [branch()](com/google/adk/agents/InvocationContext.html#branch\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
     
 
@@ -1399,9 +1342,8 @@ Builds the [`InvocationContext`](com/google/adk/agents/InvocationContext.html "c
 [build()](com/google/adk/apps/ResumabilityConfig.Builder.html#build\(\)) \- Method in class com.google.adk.apps.[ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps")
     
 
-Deprecated.
+Builds the config, rejecting a combination of flags that has no defined behavior.
 
- 
 [build()](com/google/adk/artifacts/ListArtifactsResponse.Builder.html#build\(\)) \- Method in class com.google.adk.artifacts.[ListArtifactsResponse.Builder](com/google/adk/artifacts/ListArtifactsResponse.Builder.html "class in com.google.adk.artifacts")
      
 [build()](com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html#build\(\)) \- Method in class com.google.adk.artifacts.[ListArtifactVersionsResponse.Builder](com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html "class in com.google.adk.artifacts")
@@ -1469,7 +1411,10 @@ Builds the [`Gemini`](com/google/adk/models/Gemini.html "class in com.google.adk
 [build()](com/google/adk/runner/Runner.Builder.html#build\(\)) \- Method in class com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
      
 [build()](com/google/adk/sessions/GetSessionConfig.Builder.html#build\(\)) \- Method in class com.google.adk.sessions.[GetSessionConfig.Builder](com/google/adk/sessions/GetSessionConfig.Builder.html "class in com.google.adk.sessions")
-     
+    
+
+Builds the config.
+
 [build()](com/google/adk/sessions/ListEventsResponse.Builder.html#build\(\)) \- Method in class com.google.adk.sessions.[ListEventsResponse.Builder](com/google/adk/sessions/ListEventsResponse.Builder.html "class in com.google.adk.sessions")
      
 [build()](com/google/adk/sessions/ListSessionsResponse.Builder.html#build\(\)) \- Method in class com.google.adk.sessions.[ListSessionsResponse.Builder](com/google/adk/sessions/ListSessionsResponse.Builder.html "class in com.google.adk.sessions")
@@ -1554,11 +1499,7 @@ Returns a new [`PlannerAgent.Builder`](com/google/adk/agents/PlannerAgent.Builde
 [builder()](com/google/adk/apps/App.html#builder\(\)) \- Static method in class com.google.adk.apps.[App](com/google/adk/apps/App.html "class in com.google.adk.apps")
      
 [builder()](com/google/adk/apps/ResumabilityConfig.html#builder\(\)) \- Static method in class com.google.adk.apps.[ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
-    
-
-Deprecated.
-
- 
+     
 [builder()](com/google/adk/artifacts/ListArtifactsResponse.html#builder\(\)) \- Static method in class com.google.adk.artifacts.[ListArtifactsResponse](com/google/adk/artifacts/ListArtifactsResponse.html "class in com.google.adk.artifacts")
      
 [builder()](com/google/adk/artifacts/ListArtifactVersionsResponse.html#builder\(\)) \- Static method in class com.google.adk.artifacts.[ListArtifactVersionsResponse](com/google/adk/artifacts/ListArtifactVersionsResponse.html "class in com.google.adk.artifacts")
@@ -1697,11 +1638,7 @@ Creates a new [`Session.Builder`](com/google/adk/sessions/Session.Builder.html "
 [Builder()](com/google/adk/apps/App.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.apps.[App.Builder](com/google/adk/apps/App.Builder.html "class in com.google.adk.apps")
      
 [Builder()](com/google/adk/apps/ResumabilityConfig.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.apps.[ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps")
-    
-
-Deprecated.
-
- 
+     
 [Builder()](com/google/adk/artifacts/ListArtifactsResponse.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.artifacts.[ListArtifactsResponse.Builder](com/google/adk/artifacts/ListArtifactsResponse.Builder.html "class in com.google.adk.artifacts")
      
 [Builder()](com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.artifacts.[ListArtifactVersionsResponse.Builder](com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html "class in com.google.adk.artifacts")
@@ -2203,7 +2140,10 @@ Constructs a new Claude instance.
 [clear()](com/google/adk/sessions/State.html#clear\(\)) \- Method in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
 [clearBeforeModelCallbacks()](com/google/adk/agents/LlmAgent.Builder.html#clearBeforeModelCallbacks\(\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Removes any before-model callbacks set on this builder.
+
 [clearInputFiles()](com/google/adk/codeexecutors/CodeExecutorContext.html#clearInputFiles\(\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutorContext](com/google/adk/codeexecutors/CodeExecutorContext.html "class in com.google.adk.codeexecutors")
     
 
@@ -2288,7 +2228,7 @@ Closes the Http response.
 [close()](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#close\(\)) \- Method in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
     
 
-Closes the scope and ends the underlying span, recording any applicable metrics.
+Ends the underlying span and records any applicable metrics.
 
 [close()](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html#close\(\)) \- Method in class com.google.adk.tools.applicationintegrationtoolset.[ApplicationIntegrationToolset](com/google/adk/tools/applicationintegrationtoolset/ApplicationIntegrationToolset.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
@@ -2319,20 +2259,11 @@ Closes the connection with an error.
 
 [close(Throwable)](com/google/adk/models/GeminiLlmConnection.html#close\(java.lang.Throwable\)) \- Method in class com.google.adk.models.[GeminiLlmConnection](com/google/adk/models/GeminiLlmConnection.html "class in com.google.adk.models")
      
-[closeAsStale(int)](com/example/adkstale/AdkStaleAgent.html#closeAsStale\(int\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-     
 [closed](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#closed) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
     
 
 Whether this scope has been closed.
 
-[closeHoursAfterStaleThreshold()](com/example/adkstale/Settings.html#closeHoursAfterStaleThreshold\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    
-
-Hours an issue may stay marked stale before it is closed.
-
-[closeIssue(String, String, int)](com/example/github/GitHubTools.html#closeIssue\(java.lang.String,java.lang.String,int\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [closeSession(Session)](com/google/adk/sessions/BaseSessionService.html#closeSession\(com.google.adk.sessions.Session\)) \- Method in interface com.google.adk.sessions.[BaseSessionService](com/google/adk/sessions/BaseSessionService.html "interface in com.google.adk.sessions")
     
 
@@ -2424,18 +2355,6 @@ Initializes the code executor context.
 Frequently used code snippets for collections.
 
 [com.example](com/example/package-summary.html) \- package com.example
-     
-[com.example.adkdocs](com/example/adkdocs/package-summary.html) \- package com.example.adkdocs
-     
-[com.example.adkprtriaging](com/example/adkprtriaging/package-summary.html) \- package com.example.adkprtriaging
-     
-[com.example.adkspam](com/example/adkspam/package-summary.html) \- package com.example.adkspam
-     
-[com.example.adkstale](com/example/adkstale/package-summary.html) \- package com.example.adkstale
-     
-[com.example.adktriaging](com/example/adktriaging/package-summary.html) \- package com.example.adktriaging
-     
-[com.example.github](com/example/github/package-summary.html) \- package com.example.github
      
 [com.google.adk](com/google/adk/package-summary.html) \- package com.google.adk
      
@@ -2612,11 +2531,6 @@ Generates a conversational response from the chat completions endpoint based on 
 
 [complete(LlmRequest, boolean)](com/google/adk/models/chat/ChatCompletionsHttpClient.html#complete\(com.google.adk.models.LlmRequest,boolean\)) \- Method in class com.google.adk.models.chat.[ChatCompletionsHttpClient](com/google/adk/models/chat/ChatCompletionsHttpClient.html "class in com.google.adk.models.chat")
      
-[COMPONENT_LABELS](com/example/adktriaging/AdkTriagingAgent.html#COMPONENT_LABELS) \- Static variable in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-The set of labels the agent is allowed to apply.
-
 [ComponentRegistry](com/google/adk/utils/ComponentRegistry.html "class in com.google.adk.utils") \- Class in [com.google.adk.utils](com/google/adk/utils/package-summary.html)
     
 
@@ -2915,11 +2829,6 @@ Returns the context ID from the event.
 
 [CONTINUE_OUTPUT_MESSAGE](com/google/adk/models/GeminiUtil.html#CONTINUE_OUTPUT_MESSAGE) \- Static variable in class com.google.adk.models.[GeminiUtil](com/google/adk/models/GeminiUtil.html "class in com.google.adk.models")
      
-[contributingGuidelines()](com/example/adkprtriaging/Settings.html#contributingGuidelines\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-    
-
-Reads the repository's `CONTRIBUTING.md` (path overridable via ` CONTRIBUTING_MD_PATH`) so the agent can check pull requests against the real contribution guidelines, mirroring the Python agent's `read_file(CONTRIBUTING.md)`.
-
 [ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp") \- Class in [com.google.adk.tools.mcp](com/google/adk/tools/mcp/package-summary.html)
     
 
@@ -3059,13 +2968,9 @@ Create a final model response event from set_model_response JSON.
 
 Returns a new `OkHttpClient` whose dispatcher runs on `executorService`.
 
-[createIssue(String, String, String, String)](com/example/github/GitHubTools.html#createIssue\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [createOperation(String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperation\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [createOperationRequest(String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperationRequest\(java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
-     
-[createPullRequest(String, String, String, List, List, String, String)](com/example/github/GitHubTools.html#createPullRequest\(java.lang.String,java.lang.String,java.lang.String,java.util.List,java.util.List,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
      
 [createRequest(String)](com/google/adk/models/springai/EmbeddingConverter.html#createRequest\(java.lang.String\)) \- Static method in class com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     
@@ -3106,6 +3011,11 @@ Creates a new session where the ID is generated by the service.
 
 Creates a new session with the specified parameters.
 
+[createSession(String, String, Map, String)](com/google/adk/sessions/FirestoreSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions")
+    
+
+Creates a new session in Firestore.
+
 [createSession(String, String, Map, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
      
 [createSession(String, String, Map, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
@@ -3120,20 +3030,15 @@ Deprecated.
 
 Use [`BaseSessionService.createSession(String, String, Map, String)`](com/google/adk/sessions/BaseSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) instead.
 
-[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
-     
-[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
-     
 [createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/FirestoreSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions")
     
 
 Creates a new session in Firestore.
 
-[createSession(String, String, Map, String)](com/google/adk/sessions/FirestoreSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.Map,java.lang.String\)) \- Method in class com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions")
-    
-
-Creates a new session in Firestore.
-
+[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/InMemorySessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
+     
+[createSession(String, String, ConcurrentMap, String)](com/google/adk/sessions/VertexAiSessionService.html#createSession\(java.lang.String,java.lang.String,java.util.concurrent.ConcurrentMap,java.lang.String\)) \- Method in class com.google.adk.sessions.[VertexAiSessionService](com/google/adk/sessions/VertexAiSessionService.html "class in com.google.adk.sessions")
+     
 [createSessionWithId(String, String, String, SessionRequest)](com/google/adk/web/controller/SessionController.html#createSessionWithId\(java.lang.String,java.lang.String,java.lang.String,com.google.adk.web.dto.SessionRequest\)) \- Method in class com.google.adk.web.controller.[SessionController](com/google/adk/web/controller/SessionController.html "class in com.google.adk.web.controller")
     
 
@@ -3420,11 +3325,6 @@ Creates an instance of a `DoneWithResult` record class.
 
 Drag and drop.
 
-[dryRun](com/example/github/GitHubTools.html#dryRun) \- Static variable in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-    
-
-When true, `create_issue`/`create_pull_request` return a preview instead of writing.
-
 ## E
 
 [embed(String)](com/google/adk/models/springai/SpringAIEmbedding.html#embed\(java.lang.String\)) \- Method in class com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
@@ -3489,6 +3389,11 @@ Use [`EventActions.Builder.endOfAgent(boolean)`](com/google/adk/events/EventActi
      
 [endOfAgent(boolean)](com/google/adk/events/EventActions.Builder.html#endOfAgent\(boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
+[endOfAgents()](com/google/adk/agents/InvocationContext.html#endOfAgents\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns an unmodifiable view of the per-agent end-of-agent flags for this invocation, keyed by agent name.
+
 [endTimestamp()](com/google/adk/events/EventCompaction.html#endTimestamp\(\)) \- Method in class com.google.adk.events.[EventCompaction](com/google/adk/events/EventCompaction.html "class in com.google.adk.events")
      
 [endTimestamp(long)](com/google/adk/events/EventCompaction.Builder.html#endTimestamp\(long\)) \- Method in class com.google.adk.events.[EventCompaction.Builder](com/google/adk/events/EventCompaction.Builder.html "class in com.google.adk.events")
@@ -3726,14 +3631,6 @@ Returns the ID of the event associated with this context.
 
 [eventId(String)](com/google/adk/tools/ToolContext.Builder.html#eventId\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext.Builder](com/google/adk/tools/ToolContext.Builder.html "class in com.google.adk.tools")
      
-[eventName()](com/example/adkprtriaging/Settings.html#eventName\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-     
-[eventName()](com/example/adkspam/Settings.html#eventName\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[eventName()](com/example/adkstale/Settings.html#eventName\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[eventName()](com/example/adktriaging/Settings.html#eventName\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
 [eventRetentionSize()](com/google/adk/summarizer/EventsCompactionConfig.html#eventRetentionSize\(\)) \- Method in record class com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
     
 
@@ -3764,10 +3661,20 @@ Events generated during processing.
 [events()](com/google/adk/sessions/ListEventsResponse.html#events\(\)) \- Method in class com.google.adk.sessions.[ListEventsResponse](com/google/adk/sessions/ListEventsResponse.html "class in com.google.adk.sessions")
      
 [events()](com/google/adk/sessions/Session.html#events\(\)) \- Method in class com.google.adk.sessions.[Session](com/google/adk/sessions/Session.html "class in com.google.adk.sessions")
+    
+
+Deprecated.
+
+Prefer [`Session.immutableEvents()`](com/google/adk/sessions/Session.html#immutableEvents\(\)) when reading or iterating over events (to avoid [`ConcurrentModificationException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ConcurrentModificationException.html "class in java.util")), and [`Session.addEvent(Event)`](com/google/adk/sessions/Session.html#addEvent\(com.google.adk.events.Event\)) or [`Session.addEvents(Collection)`](com/google/adk/sessions/Session.html#addEvents\(java.util.Collection\)) when appending events.
+
+[events(boolean, boolean)](com/google/adk/agents/InvocationContext.html#events\(boolean,boolean\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns the current session's events, optionally filtered to the current invocation and/or the current branch.
+
+[events(List)](com/google/adk/sessions/Session.Builder.html#events\(java.util.List\)) \- Method in class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
      
 [events(List)](com/google/adk/sessions/ListEventsResponse.Builder.html#events\(java.util.List\)) \- Method in class com.google.adk.sessions.[ListEventsResponse.Builder](com/google/adk/sessions/ListEventsResponse.Builder.html "class in com.google.adk.sessions")
-     
-[events(List)](com/google/adk/sessions/Session.Builder.html#events\(java.util.List\)) \- Method in class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
      
 [EVENTS_SUBCOLLECTION_NAME](com/google/adk/utils/Constants.html#EVENTS_SUBCOLLECTION_NAME) \- Static variable in class com.google.adk.utils.[Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils")
     
@@ -3806,6 +3713,11 @@ Creates an instance of a `EventsCompactionConfig` record class.
     
 
 Builder for [`EventsCompactionConfig`](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer").
+
+[eventsOnCurrentBranch()](com/google/adk/agents/InvocationContext.html#eventsOnCurrentBranch\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns a snapshot of the session's events, keeping only those on the branch this invocation is running on.
 
 [EventStream](com/google/adk/events/EventStream.html "class in com.google.adk.events") \- Class in [com.google.adk.events](com/google/adk/events/package-summary.html)
     
@@ -3974,8 +3886,6 @@ Finds an agent (this or descendant) by name.
 
 Finds an available agent by name.
 
-[findDocIssues(String, String, String)](com/example/github/GitHubTools.html#findDocIssues\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [findMatchingFunctionCallEvent(List)](com/google/adk/flows/llmflows/Functions.html#findMatchingFunctionCallEvent\(java.util.List\)) \- Static method in class com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
     
 
@@ -3986,8 +3896,6 @@ Returns the most recent function-call event whose call id matches a function res
 
 Find the most similar embedding from a list of candidates.
 
-[findPullRequestsForIssue(String, String, int)](com/example/github/GitHubTools.html#findPullRequestsForIssue\(java.lang.String,java.lang.String,int\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [findResourcePath(String, String)](com/google/adk/skills/AbstractSkillSource.html#findResourcePath\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[AbstractSkillSource](com/google/adk/skills/AbstractSkillSource.html "class in com.google.adk.skills")
     
 
@@ -4094,17 +4002,17 @@ Select the first action to execute.
 
 Retry with fixed delay
 
-[flagIssueAsSpam(int, String)](com/example/adkspam/SpamDetectionAgent.html#flagIssueAsSpam\(int,java.lang.String\)) \- Static method in class com.example.adkspam.[SpamDetectionAgent](com/example/adkspam/SpamDetectionAgent.html "class in com.example.adkspam")
-    
-
-Flags an issue as spam by applying the configured spam label and posting one alert comment for maintainers.
-
 [flush()](com/google/adk/web/service/ApiServerSpanExporter.html#flush\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
      
 [frequencyPenalty](com/google/adk/models/chat/ChatCompletionsRequest.html#frequencyPenalty) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
     
 
 See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20frequency_penalty%20%3E%20(schema)
+
+[from(String)](com/google/adk/web/config/BackendUrl.html#from\(java.lang.String\)) \- Static method in class com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
+    
+
+Parses `configured`.
 
 [fromConfig(BaseAgentConfig, String)](com/google/adk/agents/BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\)) \- Static method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
     
@@ -4462,8 +4370,6 @@ Normalizes before-agent callbacks.
      
 [getCategory()](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html#getCategory\(\)) \- Method in class com.google.adk.models.springai.error.[SpringAIErrorMapper.MappedError](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html "class in com.google.adk.models.springai.error")
      
-[getChangedFiles(String, String, String, String, String)](com/example/github/GitHubTools.html#getChangedFiles\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [getConnectionDetails()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#getConnectionDetails\(\)) \- Method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
     
 
@@ -4558,10 +4464,6 @@ Returns the BigQuery TableSchema for the events table (Storage Write API).
 
 Gets the session ID for the code executor.
 
-[getFileContent(String, String, String)](com/example/github/GitHubTools.html#getFileContent\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[getFileDiff(String, String, String, String, String)](com/example/github/GitHubTools.html#getFileDiff\(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [getFinalResponse()](com/google/adk/models/springai/StreamingResponseAggregator.html#getFinalResponse\(\)) \- Method in class com.google.adk.models.springai.[StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai")
     
 
@@ -4611,12 +4513,6 @@ Returns a singleton instance of FirestoreProperties.
 
 Returns the value of the `getInstruction` record component.
 
-[getIssue(String, String, int)](com/example/github/GitHubTools.html#getIssue\(java.lang.String,java.lang.String,int\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[getIssueComments(String, String, int)](com/example/github/GitHubTools.html#getIssueComments\(java.lang.String,java.lang.String,int\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[getIssueState(int)](com/example/adkstale/AdkStaleAgent.html#getIssueState\(int\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-     
 [getLastUpdateTimeAsDouble()](com/google/adk/sessions/Session.html#getLastUpdateTimeAsDouble\(\)) \- Method in class com.google.adk.sessions.[Session](com/google/adk/sessions/Session.html "class in com.google.adk.sessions")
      
 [getLlm(String)](com/google/adk/models/LlmRegistry.html#getLlm\(java.lang.String\)) \- Static method in class com.google.adk.models.[LlmRegistry](com/google/adk/models/LlmRegistry.html "class in com.google.adk.models")
@@ -4698,13 +4594,6 @@ Returns the agent name that produces the given output key.
     
 
 Functionality to read a property from the loaded properties file.
-
-[getPullRequest(String, String, int)](com/example/github/GitHubTools.html#getPullRequest\(java.lang.String,java.lang.String,int\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[getPullRequestDetails(int)](com/example/adkprtriaging/AdkPrTriagingAgent.html#getPullRequestDetails\(int\)) \- Static method in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    
-
-Fetches the details of the specified pull request via the shared [`GitHubTools`](com/example/github/GitHubTools.html "class in com.example.github").
 
 [getRequestType()](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.RequestContext.html#getRequestType\(\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler.RequestContext](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.RequestContext.html "class in com.google.adk.models.springai.observability")
      
@@ -4818,7 +4707,7 @@ Get the stop words for keyword extraction from the properties file, or return th
 [getStructuredModelResponse(Event)](com/google/adk/flows/llmflows/OutputSchema.html#getStructuredModelResponse\(com.google.adk.events.Event\)) \- Static method in class com.google.adk.flows.llmflows.[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows")
     
 
-Check if function response contains set_model_response and extract JSON.
+Extracts a successfully validated `set_model_response` result as JSON.
 
 [getSystemInstructions()](com/google/adk/models/LlmRequest.html#getSystemInstructions\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
     
@@ -4930,31 +4819,6 @@ Returns TTL as string format for cache creation.
      
 [getWeather(String)](com/google/adk/tutorials/LiveAudioSingleAgent.html#getWeather\(java.lang.String\)) \- Static method in class com.google.adk.tutorials.[LiveAudioSingleAgent](com/google/adk/tutorials/LiveAudioSingleAgent.html "class in com.google.adk.tutorials")
      
-[githubToken()](com/example/adkprtriaging/Settings.html#githubToken\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-    
-
-Returns the GitHub token, throwing a clear error if it is not configured.
-
-[githubToken()](com/example/adkspam/Settings.html#githubToken\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-    
-
-Returns the GitHub token, throwing a clear error if it is not configured.
-
-[githubToken()](com/example/adkstale/Settings.html#githubToken\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    
-
-Returns the GitHub token, throwing a clear error if it is not configured.
-
-[githubToken()](com/example/adktriaging/Settings.html#githubToken\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-    
-
-Returns the GitHub token, throwing a clear error if it is not configured.
-
-[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github") \- Class in [com.example.github](com/example/github/package-summary.html)
-    
-
-Reusable GitHub function tools backed by the `org.kohsuke:github-api` client.
-
 [globalInstruction()](com/google/adk/agents/LlmAgent.html#globalInstruction\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
 [globalInstruction(Instruction)](com/google/adk/agents/LlmAgent.Builder.html#globalInstruction\(com.google.adk.agents.Instruction\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
@@ -5023,7 +4887,7 @@ A tool that wraps a sub-agent that only uses google_search tool.
 [GoogleSearchTool](com/google/adk/tools/GoogleSearchTool.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
     
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini models to retrieve search results from Google Search.
 
 [GoogleSearchTool()](com/google/adk/tools/GoogleSearchTool.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.tools.[GoogleSearchTool](com/google/adk/tools/GoogleSearchTool.html "class in com.google.adk.tools")
      
@@ -5033,12 +4897,6 @@ A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrie
 Controller handling graph generation endpoints.
 
 [GraphController(BaseSessionService, AgentLoader)](com/google/adk/web/controller/GraphController.html#%3Cinit%3E\(com.google.adk.sessions.BaseSessionService,com.google.adk.web.AgentLoader\)) \- Constructor for class com.google.adk.web.controller.[GraphController](com/google/adk/web/controller/GraphController.html "class in com.google.adk.web.controller")
-     
-[graphqlCommentLimit()](com/example/adkstale/Settings.html#graphqlCommentLimit\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[graphqlEditLimit()](com/example/adkstale/Settings.html#graphqlEditLimit\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[graphqlTimelineLimit()](com/example/adkstale/Settings.html#graphqlTimelineLimit\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
      
 [GraphResponse](com/google/adk/web/dto/GraphResponse.html "class in com.google.adk.web.dto") \- Class in [com.google.adk.web.dto](com/google/adk/web/dto/package-summary.html)
     
@@ -5103,13 +4961,6 @@ Deprecated.
 
 Expected only for specific model endpoints.
 
-[gtechAssignees()](com/example/adktriaging/Settings.html#gtechAssignees\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
-[gtechRotation()](com/example/adktriaging/AdkTriagingAgent.html#gtechRotation\(\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Round-robin rotation of triagers.
-
 ## H
 
 [handleFunctionCalls(InvocationContext, Event, Map)](com/google/adk/flows/llmflows/Functions.html#handleFunctionCalls\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,java.util.Map\)) \- Static method in class com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
@@ -5153,26 +5004,6 @@ Handles errors that occur while recording metrics for the tool execution.
      
 [hasDelta()](com/google/adk/sessions/State.html#hasDelta\(\)) \- Method in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
-[hasGithubToken()](com/example/adkprtriaging/Settings.html#hasGithubToken\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-    
-
-Returns true if a `GITHUB_TOKEN` is configured, without throwing.
-
-[hasGithubToken()](com/example/adkspam/Settings.html#hasGithubToken\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-    
-
-Returns true if a `GITHUB_TOKEN` is configured, without throwing.
-
-[hasGithubToken()](com/example/adkstale/Settings.html#hasGithubToken\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    
-
-Returns true if a `GITHUB_TOKEN` is configured, without throwing.
-
-[hasGithubToken()](com/example/adktriaging/Settings.html#hasGithubToken\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-    
-
-Returns true if a `GITHUB_TOKEN` is configured, without throwing.
-
 [hashCode()](com/google/adk/agents/ContextCacheConfig.html#hashCode\(\)) \- Method in record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
     
 
@@ -5291,6 +5122,11 @@ Sets the headers for the SSE connection request.
 
 [headers(Map)](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html#headers\(java.util.Map\)) \- Method in class com.google.adk.tools.mcp.[StreamableHttpServerParameters.Builder](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")
      
+[health()](com/google/adk/web/controller/VersionController.html#health\(\)) \- Method in class com.google.adk.web.controller.[VersionController](com/google/adk/web/controller/VersionController.html "class in com.google.adk.web.controller")
+    
+
+Returns a fixed OK status, so a load balancer can tell the server is up.
+
 [HelloWorldAgent](com/example/helloworld/HelloWorldAgent.html "class in com.example.helloworld") \- Class in [com.example.helloworld](com/example/helloworld/package-summary.html)
     
 
@@ -5375,6 +5211,11 @@ Creates an instance of a `Ignore` record class.
     
 
 Retry immediately (for transient network issues)
+
+[immutableEvents()](com/google/adk/sessions/Session.html#immutableEvents\(\)) \- Method in class com.google.adk.sessions.[Session](com/google/adk/sessions/Session.html "class in com.google.adk.sessions")
+    
+
+Returns a thread-safe, immutable snapshot of the session's events, synchronizing on the backing [`Session.events()`](com/google/adk/sessions/Session.html#events\(\)) list.
 
 [includeContents()](com/google/adk/agents/LlmAgent.html#includeContents\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
@@ -5468,6 +5309,16 @@ An in-memory implementation of [`BaseSessionService`](com/google/adk/sessions/Ba
     
 
 Creates a new instance of the in-memory session service with empty storage.
+
+[InMemorySessionService(InMemorySessionService.DuplicateSessionIdBehavior)](com/google/adk/sessions/InMemorySessionService.html#%3Cinit%3E\(com.google.adk.sessions.InMemorySessionService.DuplicateSessionIdBehavior\)) \- Constructor for class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
+    
+
+Creates a new instance of the in-memory session service with empty storage.
+
+[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") \- Enum Class in [com.google.adk.sessions](com/google/adk/sessions/package-summary.html)
+    
+
+What `createSession` does when `sessionId` is already in use.
 
 [InMemorySkillSource](com/google/adk/skills/InMemorySkillSource.html "class in com.google.adk.skills") \- Class in [com.google.adk.skills](com/google/adk/skills/package-summary.html)
     
@@ -5696,14 +5547,6 @@ Validates that the configuration is compatible with Spring AI.
 
 [isConfineToSourceDir()](com/google/adk/web/config/AgentLoadingProperties.html#isConfineToSourceDir\(\)) \- Method in class com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
      
-[isDryRun()](com/example/adkprtriaging/Settings.html#isDryRun\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-     
-[isDryRun()](com/example/adkspam/Settings.html#isDryRun\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[isDryRun()](com/example/adkstale/Settings.html#isDryRun\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[isDryRun()](com/example/adktriaging/Settings.html#isDryRun\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
 [isEmpty()](com/google/adk/models/springai/StreamingResponseAggregator.html#isEmpty\(\)) \- Method in class com.google.adk.models.springai.[StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai")
     
 
@@ -5727,21 +5570,18 @@ Returns true if no content has been processed yet.
      
 [isIncludeContent()](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html#isIncludeContent\(\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties.Observability](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties")
      
-[isInitialFullScan()](com/example/adkspam/Settings.html#isInitialFullScan\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
 [isInstanceOfGemini(Object)](com/google/adk/utils/ModelNameUtils.html#isInstanceOfGemini\(java.lang.Object\)) \- Static method in class com.google.adk.utils.[ModelNameUtils](com/google/adk/utils/ModelNameUtils.html "class in com.google.adk.utils")
     
 
 Checks whether an object is an instance of [`Gemini`](com/google/adk/models/Gemini.html "class in com.google.adk.models"), by searching through its class hierarchy for a class whose name equals the hardcoded String name of Gemini class.
 
-[isInteractive()](com/example/adkprtriaging/Settings.html#isInteractive\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-     
-[isInteractive()](com/example/adkspam/Settings.html#isInteractive\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[isInteractive()](com/example/adkstale/Settings.html#isInteractive\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[isInteractive()](com/example/adktriaging/Settings.html#isInteractive\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
+[isLegacyResumability()](com/google/adk/agents/InvocationContext.html#isLegacyResumability\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Deprecated.
+
+Reports the deprecated plain-text continuation shim and goes away with it; use [`InvocationContext.isResumable()`](com/google/adk/agents/InvocationContext.html#isResumable\(\)).
+
 [isMetricsEnabled()](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html#isMetricsEnabled\(\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties.Observability](com/google/adk/models/springai/properties/SpringAIProperties.Observability.html "class in com.google.adk.models.springai.properties")
      
 [isNullOrEmpty(Iterable)](com/google/adk/utils/CollectionUtils.html#isNullOrEmpty\(java.lang.Iterable\)) \- Static method in class com.google.adk.utils.[CollectionUtils](com/google/adk/utils/CollectionUtils.html "class in com.google.adk.utils")
@@ -5756,7 +5596,7 @@ Checks if the given iterable is null or empty.
 
 Deprecated.
 
-Back-compat shim for callers that deliver a resume as a plain-text turn. Migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` (or send a function response to the paused call) and stop setting this flag; it will be removed.
+Back-compat shim for callers that deliver a resume as a plain-text turn; migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` or answer the paused call with a function response, and set [`ResumabilityConfig.isResumable()`](com/google/adk/apps/ResumabilityConfig.html#isResumable\(\)) instead; this flag will be removed.
 
 [isResumable()](com/google/adk/agents/InvocationContext.html#isResumable\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
     
@@ -5766,9 +5606,7 @@ Returns whether the current invocation is resumable.
 [isResumable()](com/google/adk/apps/ResumabilityConfig.html#isResumable\(\)) \- Method in class com.google.adk.apps.[ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
     
 
-Deprecated.
-
-Whether the app supports agent resumption.
+Whether the app supports agent resumption, checkpointing agent state as it runs.
 
 [isRetryable()](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html#isRetryable\(\)) \- Method in class com.google.adk.models.springai.error.[SpringAIErrorMapper.MappedError](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html "class in com.google.adk.models.springai.error")
      
@@ -5784,26 +5622,6 @@ Determines if an error is retryable based on its category.
 
 Returns true if the wrapped function returns a Flowable and can be used for streaming.
 
-[issueBody()](com/example/adkspam/Settings.html#issueBody\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[issueBody()](com/example/adktriaging/Settings.html#issueBody\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
-[issueCountToProcess()](com/example/adkstale/Settings.html#issueCountToProcess\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[issueCountToProcess()](com/example/adktriaging/Settings.html#issueCountToProcess\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
-[issueNumber()](com/example/adkspam/Settings.html#issueNumber\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[issueNumber()](com/example/adkstale/Settings.html#issueNumber\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[issueNumber()](com/example/adktriaging/Settings.html#issueNumber\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
-[issueScanLimit()](com/example/adkspam/Settings.html#issueScanLimit\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[issueTitle()](com/example/adkspam/Settings.html#issueTitle\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[issueTitle()](com/example/adktriaging/Settings.html#issueTitle\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
 [isToolSelected(BaseTool, Object, ReadonlyContext)](com/google/adk/tools/BaseToolset.html#isToolSelected\(com.google.adk.tools.BaseTool,java.lang.Object,com.google.adk.agents.ReadonlyContext\)) \- Method in interface com.google.adk.tools.[BaseToolset](com/google/adk/tools/BaseToolset.html "interface in com.google.adk.tools")
     
 
@@ -5888,16 +5706,6 @@ Presses key combination.
      
 
 ## L
-
-[LABEL_GUIDELINES](com/example/adkprtriaging/AdkPrTriagingAgent.html#LABEL_GUIDELINES) \- Static variable in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    
-
-Label rubric used in the agent's system instruction.
-
-[LABEL_GUIDELINES](com/example/adktriaging/AdkTriagingAgent.html#LABEL_GUIDELINES) \- Static variable in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Label rubric used in the agent's system instruction.
 
 [LangChain4j](com/google/adk/models/langchain4j/LangChain4j.html "class in com.google.adk.models.langchain4j") \- Class in [com.google.adk.models.langchain4j](com/google/adk/models/langchain4j/package-summary.html)
      
@@ -6067,17 +5875,9 @@ Builder for [`ListEventsResponse`](com/google/adk/sessions/ListEventsResponse.ht
 
 Lists all available [`Frontmatter`](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")s for discovered skills.
 
-[listOpenIssues(String, String, Integer)](com/example/github/GitHubTools.html#listOpenIssues\(java.lang.String,java.lang.String,java.lang.Integer\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[listOpenIssuesUpdatedSince(String, String, String, Integer)](com/example/github/GitHubTools.html#listOpenIssuesUpdatedSince\(java.lang.String,java.lang.String,java.lang.String,java.lang.Integer\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [listOperation(String, String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#listOperation\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [listOperationRequest()](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#listOperationRequest\(\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
-     
-[listReleases(String, String)](com/example/github/GitHubTools.html#listReleases\(java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[listRepositoryCollaborators(String, String)](com/example/github/GitHubTools.html#listRepositoryCollaborators\(java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
      
 [listResources(String, String)](com/google/adk/skills/ClassPathSkillSource.html#listResources\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.skills.[ClassPathSkillSource](com/google/adk/skills/ClassPathSkillSource.html "class in com.google.adk.skills")
      
@@ -6135,11 +5935,6 @@ Returns a `Flowable` of skills as a pair of skill name and the path to the SKILL
      
 [listSkills()](com/google/adk/skills/LocalSkillSource.html#listSkills\(\)) \- Method in class com.google.adk.skills.[LocalSkillSource](com/google/adk/skills/LocalSkillSource.html "class in com.google.adk.skills")
      
-[listUntriagedIssues(int)](com/example/adktriaging/AdkTriagingAgent.html#listUntriagedIssues\(int\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Lists open issues that still need triaging.
-
 [listVersions(SessionKey, String)](com/google/adk/artifacts/BaseArtifactService.html#listVersions\(com.google.adk.sessions.SessionKey,java.lang.String\)) \- Method in interface com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")
      
 [listVersions(String, String, String, String)](com/google/adk/artifacts/BaseArtifactService.html#listVersions\(java.lang.String,java.lang.String,java.lang.String,java.lang.String\)) \- Method in interface com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")
@@ -6547,16 +6342,6 @@ A planner that cycles through sub-agents repeatedly, stopping when an escalate e
 
 [main(String[])](com/example/a2a_basic/A2AAgentRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.a2a_basic.[A2AAgentRun](com/example/a2a_basic/A2AAgentRun.html "class in com.example.a2a_basic")
      
-[main(String[])](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.adkdocs.[AdkDocsReleaseAnalyzerRun](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html "class in com.example.adkdocs")
-     
-[main(String[])](com/example/adkprtriaging/AdkPrTriagingAgentRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.adkprtriaging.[AdkPrTriagingAgentRun](com/example/adkprtriaging/AdkPrTriagingAgentRun.html "class in com.example.adkprtriaging")
-     
-[main(String[])](com/example/adkspam/SpamDetectionAgentRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.adkspam.[SpamDetectionAgentRun](com/example/adkspam/SpamDetectionAgentRun.html "class in com.example.adkspam")
-     
-[main(String[])](com/example/adkstale/AdkStaleAgentRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.adkstale.[AdkStaleAgentRun](com/example/adkstale/AdkStaleAgentRun.html "class in com.example.adkstale")
-     
-[main(String[])](com/example/adktriaging/AdkTriagingAgentRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgentRun](com/example/adktriaging/AdkTriagingAgentRun.html "class in com.example.adktriaging")
-     
 [main(String[])](com/example/helloworld/HelloWorldRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.helloworld.[HelloWorldRun](com/example/helloworld/HelloWorldRun.html "class in com.example.helloworld")
      
 [main(String[])](com/example/mcpfilesystem/McpFilesystemRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.mcpfilesystem.[McpFilesystemRun](com/example/mcpfilesystem/McpFilesystemRun.html "class in com.example.mcpfilesystem")
@@ -6573,8 +6358,6 @@ Entry point for the sample runner.
 
 Main entry point for the Spring Boot application.
 
-[maintainersOverride()](com/example/adkstale/Settings.html#maintainersOverride\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
 [mapError(Throwable)](com/google/adk/models/springai/error/SpringAIErrorMapper.html#mapError\(java.lang.Throwable\)) \- Static method in class com.google.adk.models.springai.error.[SpringAIErrorMapper](com/google/adk/models/springai/error/SpringAIErrorMapper.html "class in com.google.adk.models.springai.error")
     
 
@@ -7015,26 +6798,6 @@ See https://developers.openai.com/api/reference/resources/chat/subresources/comp
     
 
 See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20model%20%3E%20(schema)
-
-[model()](com/example/adkprtriaging/Settings.html#model\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-    
-
-Returns the Gemini model used for triaging.
-
-[model()](com/example/adkspam/Settings.html#model\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-    
-
-Returns the Gemini model used for moderation.
-
-[model()](com/example/adkstale/Settings.html#model\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    
-
-Returns the Gemini model used for reasoning.
-
-[model()](com/example/adktriaging/Settings.html#model\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-    
-
-Returns the Gemini model used for triaging.
 
 [model()](com/google/adk/agents/LlmAgent.html#model\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
@@ -7528,14 +7291,12 @@ Returns the value of the [`overlapSize`](./com/google/adk/summarizer/EventsCompa
 
 [overlapSize(Integer)](com/google/adk/summarizer/EventsCompactionConfig.Builder.html#overlapSize\(java.lang.Integer\)) \- Method in class com.google.adk.summarizer.[EventsCompactionConfig.Builder](com/google/adk/summarizer/EventsCompactionConfig.Builder.html "class in com.google.adk.summarizer")
      
-[owner()](com/example/adkprtriaging/Settings.html#owner\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-     
-[owner()](com/example/adkspam/Settings.html#owner\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[owner()](com/example/adkstale/Settings.html#owner\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[owner()](com/example/adktriaging/Settings.html#owner\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
+[OVERWRITE](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#OVERWRITE) \- Enum constant in enum class com.google.adk.sessions.[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
+    
+
+Deprecated.
+
+Construct the service with [`InMemorySessionService.DuplicateSessionIdBehavior.REJECT`](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#REJECT) instead, which becomes the default in a future release.
 
 ## P
 
@@ -7602,26 +7363,6 @@ Retrieves the parent agent in the agent tree.
 
 Sets the parent agent.
 
-[parseNumberString(String, int)](com/example/adkprtriaging/Settings.html#parseNumberString\(java.lang.String,int\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-    
-
-Parses a number from a string, falling back to `defaultValue` on null/blank/invalid input.
-
-[parseNumberString(String, int)](com/example/adkspam/Settings.html#parseNumberString\(java.lang.String,int\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-    
-
-Parses a number from a string, falling back to `defaultValue` on null/blank/invalid input.
-
-[parseNumberString(String, int)](com/example/adkstale/Settings.html#parseNumberString\(java.lang.String,int\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    
-
-Parses a number from a string, falling back to `defaultValue` on null/blank/invalid input.
-
-[parseNumberString(String, int)](com/example/adktriaging/Settings.html#parseNumberString\(java.lang.String,int\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-    
-
-Parses a number from a string, falling back to `defaultValue` on null/blank/invalid input.
-
 [PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters") \- Class in [com.google.adk.a2a.converters](com/google/adk/a2a/converters/package-summary.html)
     
 
@@ -7647,6 +7388,11 @@ Indicates whether the text content is part of a unfinished text stream.
      
 [PARTS_KEY](com/google/adk/a2a/converters/PartConverter.html#PARTS_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
+[pathPrefix()](com/google/adk/web/config/BackendUrl.html#pathPrefix\(\)) \- Method in class com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
+    
+
+Returns the URL path prefix to prepend to the entry redirect, or empty if unset or ignored.
+
 [payload()](com/google/adk/events/ToolConfirmation.html#payload\(\)) \- Method in class com.google.adk.events.[ToolConfirmation](com/google/adk/events/ToolConfirmation.html "class in com.google.adk.events")
      
 [payload(Object)](com/google/adk/events/ToolConfirmation.Builder.html#payload\(java.lang.Object\)) \- Method in class com.google.adk.events.[ToolConfirmation.Builder](com/google/adk/events/ToolConfirmation.Builder.html "class in com.google.adk.events")
@@ -7778,6 +7524,11 @@ Populates missing function call IDs in the provided event's content.
     
 
 Populates the headers (such as Authorization or x-goog-project) in the HttpRequest.Builder with the metadata from the credentials.
+
+[populateInvocationAgentStates()](com/google/adk/agents/InvocationContext.html#populateInvocationAgentStates\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Rehydrates [`InvocationContext.agentStates()`](com/google/adk/agents/InvocationContext.html#agentStates\(\)) and [`InvocationContext.endOfAgents()`](com/google/adk/agents/InvocationContext.html#endOfAgents\(\)) from the current invocation's history when this invocation is resumable.
 
 [postprocess(InvocationContext, Event, LlmRequest, LlmResponse, Context)](com/google/adk/flows/llmflows/BaseLlmFlow.html#postprocess\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.models.LlmRequest,com.google.adk.models.LlmResponse,io.opentelemetry.context.Context\)) \- Method in class com.google.adk.flows.llmflows.[BaseLlmFlow](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
     
@@ -7912,8 +7663,6 @@ Creates an instance of a `Provider` record class.
 
 Sets the URL of the Apigee proxy.
 
-[pullRequestNumber()](com/example/adkprtriaging/Settings.html#pullRequestNumber\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-     
 [pushSpan(InvocationContext, String)](com/google/adk/plugins/agentanalytics/TraceManager.html#pushSpan\(com.google.adk.agents.InvocationContext,java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics")
     
 
@@ -8119,6 +7868,11 @@ Registers a new plugin.
 
 [registerWebSocketHandlers(WebSocketHandlerRegistry)](com/google/adk/web/websocket/WebSocketConfig.html#registerWebSocketHandlers\(org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry\)) \- Method in class com.google.adk.web.websocket.[WebSocketConfig](com/google/adk/web/websocket/WebSocketConfig.html "class in com.google.adk.web.websocket")
      
+[REJECT](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#REJECT) \- Enum constant in enum class com.google.adk.sessions.[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
+    
+
+Rejects the call with [`SessionException`](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions").
+
 [RemoteA2AAgent](com/google/adk/a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent") \- Class in [com.google.adk.a2a.agent](com/google/adk/a2a/agent/package-summary.html)
     
 
@@ -8158,10 +7912,6 @@ Removes client-side function call IDs from the request.
 
 Sentinel object to mark removed entries in the delta map.
 
-[removeLabelFromIssue(int, String)](com/example/adkstale/AdkStaleAgent.html#removeLabelFromIssue\(int,java.lang.String\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-     
-[removeLabelFromIssue(String, String, int, String)](com/example/github/GitHubTools.html#removeLabelFromIssue\(java.lang.String,java.lang.String,int,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [removeStateByKey(String)](com/google/adk/events/EventActions.html#removeStateByKey\(java.lang.String\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
     
 
@@ -8223,14 +7973,6 @@ Exception raised when replay verification fails.
      
 [ReplayVerificationError(String, Throwable)](com/google/adk/plugins/ReplayVerificationError.html#%3Cinit%3E\(java.lang.String,java.lang.Throwable\)) \- Constructor for exception class com.google.adk.plugins.[ReplayVerificationError](com/google/adk/plugins/ReplayVerificationError.html "class in com.google.adk.plugins")
      
-[repo()](com/example/adkprtriaging/Settings.html#repo\(\)) \- Static method in class com.example.adkprtriaging.[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging")
-     
-[repo()](com/example/adkspam/Settings.html#repo\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
-     
-[repo()](com/example/adkstale/Settings.html#repo\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
-[repo()](com/example/adktriaging/Settings.html#repo\(\)) \- Static method in class com.example.adktriaging.[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging")
-     
 [request(String, String, String)](com/google/adk/sessions/HttpApiClient.html#request\(java.lang.String,java.lang.String,java.lang.String\)) \- Method in class com.google.adk.sessions.[HttpApiClient](com/google/adk/sessions/HttpApiClient.html "class in com.google.adk.sessions")
     
 
@@ -8244,8 +7986,6 @@ Sends a Http request given the http method, path, and request json string.
 The function call name for the request confirmation function.
 
 [REQUEST_PROCESSORS](com/google/adk/flows/llmflows/SingleFlow.html#REQUEST_PROCESSORS) \- Static variable in class com.google.adk.flows.llmflows.[SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
-     
-[requestClarificationLabel()](com/example/adkstale/Settings.html#requestClarificationLabel\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
      
 [requestConfirmation()](com/google/adk/tools/ToolContext.html#requestConfirmation\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
     
@@ -8423,43 +8163,33 @@ Returns the value of the `result` record component.
 Sets the resumability configuration for the invocation.
 
 [resumabilityConfig(ResumabilityConfig)](com/google/adk/apps/App.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\)) \- Method in class com.google.adk.apps.[App.Builder](com/google/adk/apps/App.Builder.html "class in com.google.adk.apps")
-    
-
-Deprecated.
-
-See [`ResumabilityConfig`](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
-
+     
 [ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps") \- Class in [com.google.adk.apps](com/google/adk/apps/package-summary.html)
     
 
-Deprecated.
-
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented. Full session resumability (persisted agent state, durable resume, other workflow agents) is not yet available. Forward-compatible: the same config will drive full resumability once it lands.
+Resumability config for every agent in an app: pause on a long-running call and resume from the last event.
 
 [ResumabilityConfig()](com/google/adk/apps/ResumabilityConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.apps.[ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
-    
-
-Deprecated.
-
- 
+     
 [ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps") \- Class in [com.google.adk.apps](com/google/adk/apps/package-summary.html)
     
-
-Deprecated.
 
 Builder for [`ResumabilityConfig`](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps").
 
 [resumable(boolean)](com/google/adk/apps/ResumabilityConfig.Builder.html#resumable\(boolean\)) \- Method in class com.google.adk.apps.[ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps")
-    
-
-Deprecated.
-
- 
+     
 [retryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#retryConfig\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
 [retryConfig(BigQueryLoggerConfig.RetryConfig)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#retryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
 [RetryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
+     
+[rewindBeforeInvocationId()](com/google/adk/events/EventActions.html#rewindBeforeInvocationId\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+    
+
+On a rewind event, the ID of the invocation to rewind before: the history from that invocation up to the rewind event is dropped.
+
+[rewindBeforeInvocationId(String)](com/google/adk/events/EventActions.Builder.html#rewindBeforeInvocationId\(java.lang.String\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
 [Role](com/google/adk/agents/Role.html "class in com.google.adk.agents") \- Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
     
@@ -8476,28 +8206,6 @@ Standard role names for `Content` and event authors.
      
 [rollDie(int, ToolContext)](com/example/helloworld/HelloWorldAgent.html#rollDie\(int,com.google.adk.tools.ToolContext\)) \- Static method in class com.example.helloworld.[HelloWorldAgent](com/example/helloworld/HelloWorldAgent.html "class in com.example.helloworld")
      
-[ROOT_AGENT](com/example/adkdocs/AdkDocsReleaseAnalyzerAgent.html#ROOT_AGENT) \- Static variable in class com.example.adkdocs.[AdkDocsReleaseAnalyzerAgent](com/example/adkdocs/AdkDocsReleaseAnalyzerAgent.html "class in com.example.adkdocs")
-     
-[ROOT_AGENT](com/example/adkprtriaging/AdkPrTriagingAgent.html#ROOT_AGENT) \- Static variable in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    
-
-Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
-
-[ROOT_AGENT](com/example/adkspam/SpamDetectionAgent.html#ROOT_AGENT) \- Static variable in class com.example.adkspam.[SpamDetectionAgent](com/example/adkspam/SpamDetectionAgent.html "class in com.example.adkspam")
-    
-
-Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
-
-[ROOT_AGENT](com/example/adkstale/AdkStaleAgent.html#ROOT_AGENT) \- Static variable in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-    
-
-Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
-
-[ROOT_AGENT](com/example/adktriaging/AdkTriagingAgent.html#ROOT_AGENT) \- Static variable in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Exposed for `adk web` / dev-UI agent loaders that look up a `public static final BaseAgent ROOT_AGENT` field on the class.
-
 [ROOT_AGENT](com/example/helloworld/HelloWorldAgent.html#ROOT_AGENT) \- Static variable in class com.example.helloworld.[HelloWorldAgent](com/example/helloworld/HelloWorldAgent.html "class in com.example.helloworld")
      
 [ROOT_AGENT](com/example/mcpfilesystem/McpFilesystemAgent.html#ROOT_AGENT) \- Static variable in class com.example.mcpfilesystem.[McpFilesystemAgent](com/example/mcpfilesystem/McpFilesystemAgent.html "class in com.example.mcpfilesystem")
@@ -8514,26 +8222,6 @@ Root agent instance exposed to runners and registries.
 
 root collection name fof firestore
 
-[rootAgent()](com/example/adkprtriaging/AdkPrTriagingAgent.html#rootAgent\(\)) \- Static method in class com.example.adkprtriaging.[AdkPrTriagingAgent](com/example/adkprtriaging/AdkPrTriagingAgent.html "class in com.example.adkprtriaging")
-    
-
-Builds the [`LlmAgent`](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents").
-
-[rootAgent()](com/example/adkspam/SpamDetectionAgent.html#rootAgent\(\)) \- Static method in class com.example.adkspam.[SpamDetectionAgent](com/example/adkspam/SpamDetectionAgent.html "class in com.example.adkspam")
-    
-
-Builds the [`LlmAgent`](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents").
-
-[rootAgent()](com/example/adkstale/AdkStaleAgent.html#rootAgent\(\)) \- Static method in class com.example.adkstale.[AdkStaleAgent](com/example/adkstale/AdkStaleAgent.html "class in com.example.adkstale")
-    
-
-Builds the [`LlmAgent`](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents").
-
-[rootAgent()](com/example/adktriaging/AdkTriagingAgent.html#rootAgent\(\)) \- Static method in class com.example.adktriaging.[AdkTriagingAgent](com/example/adktriaging/AdkTriagingAgent.html "class in com.example.adktriaging")
-    
-
-Builds the [`LlmAgent`](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents").
-
 [rootAgent()](com/google/adk/agents/BaseAgent.html#rootAgent\(\)) \- Method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
     
 
@@ -8542,8 +8230,6 @@ Returns the root agent for this agent by traversing up the parent chain.
 [rootAgent()](com/google/adk/apps/App.html#rootAgent\(\)) \- Method in class com.google.adk.apps.[App](com/google/adk/apps/App.html "class in com.google.adk.apps")
      
 [rootAgent(BaseAgent)](com/google/adk/apps/App.Builder.html#rootAgent\(com.google.adk.agents.BaseAgent\)) \- Method in class com.google.adk.apps.[App.Builder](com/google/adk/apps/App.Builder.html "class in com.google.adk.apps")
-     
-[run()](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html#run\(\)) \- Method in class com.example.adkdocs.[AdkDocsReleaseAnalyzerRun](com/example/adkdocs/AdkDocsReleaseAnalyzerRun.html "class in com.example.adkdocs")
      
 [run(InvocationContext)](com/google/adk/flows/BaseFlow.html#run\(com.google.adk.agents.InvocationContext\)) \- Method in interface com.google.adk.flows.[BaseFlow](com/google/adk/flows/BaseFlow.html "interface in com.google.adk.flows")
     
@@ -8616,6 +8302,11 @@ See [`Runner.runAsync(String, String, Content, RunConfig, Map)`](com/google/adk/
     
 
 Runs the agent with an invocation-based mode.
+
+[runAsync(String, String, String, Content, RunConfig, Map)](com/google/adk/runner/Runner.html#runAsync\(java.lang.String,java.lang.String,java.lang.String,com.google.genai.types.Content,com.google.adk.agents.RunConfig,java.util.Map\)) \- Method in class com.google.adk.runner.[Runner](com/google/adk/runner/Runner.html "class in com.google.adk.runner")
+    
+
+Runs the agent, resuming an existing invocation instead of starting a new one.
 
 [runAsync(Map, ToolContext)](com/google/adk/tools/AgentTool.html#runAsync\(java.util.Map,com.google.adk.tools.ToolContext\)) \- Method in class com.google.adk.tools.[AgentTool](com/google/adk/tools/AgentTool.html "class in com.google.adk.tools")
      
@@ -8848,6 +8539,25 @@ Service for creating and caching Runner instances.
      
 [runOnUserMessageCallback(InvocationContext, Content)](com/google/adk/plugins/PluginManager.html#runOnUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
      
+[RUNTIME_CONFIG_PATH](com/google/adk/web/config/DevUiAssets.html#RUNTIME_CONFIG_PATH) \- Static variable in class com.google.adk.web.config.[DevUiAssets](com/google/adk/web/config/DevUiAssets.html "class in com.google.adk.web.config")
+    
+
+The runtime config, relative to the asset root.
+
+[runtimeConfig()](com/google/adk/web/controller/RuntimeConfigController.html#runtimeConfig\(\)) \- Method in class com.google.adk.web.controller.[RuntimeConfigController](com/google/adk/web/controller/RuntimeConfigController.html "class in com.google.adk.web.controller")
+    
+
+Serves the bundled config with `backendUrl` taken from configuration when set.
+
+[RuntimeConfigController](com/google/adk/web/controller/RuntimeConfigController.html "class in com.google.adk.web.controller") \- Class in [com.google.adk.web.controller](com/google/adk/web/controller/package-summary.html)
+    
+
+Serves the dev UI's runtime configuration, shadowing the copy bundled in the static assets so `adk.web.backend-url` can point the UI at the address browsers reach this server on.
+
+[RuntimeConfigController(ResourceLoader, ObjectMapper, String, BackendUrl)](com/google/adk/web/controller/RuntimeConfigController.html#%3Cinit%3E\(org.springframework.core.io.ResourceLoader,com.fasterxml.jackson.databind.ObjectMapper,java.lang.String,com.google.adk.web.config.BackendUrl\)) \- Constructor for class com.google.adk.web.controller.[RuntimeConfigController](com/google/adk/web/controller/RuntimeConfigController.html "class in com.google.adk.web.controller")
+    
+
+Reads the bundled config through `resourceLoader`, or from `webUiDir` if set.
 
 ## S
 
@@ -8915,11 +8625,6 @@ Saves an artifact in memory and assigns a new version.
 
 Utility class for validating schemas.
 
-[scope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#scope) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
-    
-
-The OpenTelemetry scope associated with this span.
-
 [screenshot()](com/google/adk/tools/computeruse/ComputerState.html#screenshot\(\)) \- Method in class com.google.adk.tools.computeruse.[ComputerState](com/google/adk/tools/computeruse/ComputerState.html "class in com.google.adk.tools.computeruse")
      
 [screenshot(byte[])](com/google/adk/tools/computeruse/ComputerState.Builder.html#screenshot\(byte%5B%5D\)) \- Method in class com.google.adk.tools.computeruse.[ComputerState.Builder](com/google/adk/tools/computeruse/ComputerState.Builder.html "class in com.google.adk.tools.computeruse")
@@ -8951,8 +8656,6 @@ Jumps to search.
 
 Finds the ordered list of agent names that must execute to produce the goal.
 
-[searchCode(String, String, String)](com/example/github/GitHubTools.html#searchCode\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
 [searchEngineId()](com/google/adk/tools/VertexAiSearchTool.html#searchEngineId\(\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool](com/google/adk/tools/VertexAiSearchTool.html "class in com.google.adk.tools")
      
 [searchEngineId(String)](com/google/adk/tools/VertexAiSearchTool.Builder.html#searchEngineId\(java.lang.String\)) \- Method in class com.google.adk.tools.[VertexAiSearchTool.Builder](com/google/adk/tools/VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
@@ -9109,6 +8812,11 @@ Sets the session associated with this invocation.
     
 
 A [`Session`](com/google/adk/sessions/Session.html "class in com.google.adk.sessions") object that encapsulates the [`State`](com/google/adk/sessions/State.html "class in com.google.adk.sessions") and [`Event`](com/google/adk/events/Event.html "class in com.google.adk.events")s of a session.
+
+[SESSION_ALREADY_EXISTS](com/google/adk/sessions/SessionException.html#SESSION_ALREADY_EXISTS) \- Static variable in exception class com.google.adk.sessions.[SessionException](com/google/adk/sessions/SessionException.html "class in com.google.adk.sessions")
+    
+
+Message used when `createSession` is given a session id that is already taken.
 
 [SESSION_COLLECTION_NAME](com/google/adk/utils/Constants.html#SESSION_COLLECTION_NAME) \- Static variable in class com.google.adk.utils.[Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils")
     
@@ -9343,6 +9051,8 @@ Sets the maximum wall-clock time (in seconds) a single execution may run, in the
 
 Deprecated.
 
+Use [`Event.setFinishReason(FinishReason)`](com/google/adk/events/Event.html#setFinishReason\(com.google.genai.types.FinishReason\)) with `finishReason.orElse(null)` instead.
+
 [setFunctionResponseEvent(Event)](com/google/adk/telemetry/Instrumentation.TelemetryContext.html#setFunctionResponseEvent\(com.google.adk.events.Event\)) \- Method in class com.google.adk.telemetry.[Instrumentation.TelemetryContext](com/google/adk/telemetry/Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")
     
 
@@ -9418,6 +9128,13 @@ Sets the OpenTelemetry Meter to be used for metrics.
      
 [setModel(String)](com/google/adk/models/springai/properties/SpringAIProperties.html#setModel\(java.lang.String\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
      
+[setModelResponse()](com/google/adk/events/EventActions.html#setModelResponse\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+    
+
+The successfully validated structured response set by the `set_model_response` tool.
+
+[setModelResponse(Object)](com/google/adk/events/EventActions.Builder.html#setModelResponse\(java.lang.Object\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
+     
 [SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
     
 
@@ -9475,11 +9192,15 @@ Deprecated.
 
 Deprecated.
 
+[setRewindBeforeInvocationId(String)](com/google/adk/events/EventActions.html#setRewindBeforeInvocationId\(java.lang.String\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+     
 [setSaveInputBlobsAsArtifacts(boolean)](com/google/adk/agents/RunConfig.Builder.html#setSaveInputBlobsAsArtifacts\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
     
 
 Deprecated.
 
+[setSetModelResponse(Object)](com/google/adk/events/EventActions.html#setSetModelResponse\(java.lang.Object\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+     
 [setSkipSummarization(boolean)](com/google/adk/events/EventActions.html#setSkipSummarization\(boolean\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setSkipSummarization(Boolean)](com/google/adk/events/EventActions.html#setSkipSummarization\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
@@ -9497,6 +9218,8 @@ Deprecated.
     
 
 Deprecated.
+
+Update the map returned by [`EventActions.stateDelta()`](com/google/adk/events/EventActions.html#stateDelta\(\)) instead, and use [`EventActions.removeStateByKey(String)`](com/google/adk/events/EventActions.html#removeStateByKey\(java.lang.String\)) to remove a key.
 
 [setStdioConnectionParams(StdioConnectionParameters)](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html#setStdioConnectionParams\(com.google.adk.tools.mcp.StdioConnectionParameters\)) \- Method in class com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
      
@@ -9518,26 +9241,6 @@ Enables the strict sandbox.
      
 [setTimestamp(long)](com/google/adk/events/Event.html#setTimestamp\(long\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
-[Settings](com/example/adkprtriaging/Settings.html "class in com.example.adkprtriaging") \- Class in [com.example.adkprtriaging](com/example/adkprtriaging/package-summary.html)
-    
-
-Configuration read from environment variables.
-
-[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam") \- Class in [com.example.adkspam](com/example/adkspam/package-summary.html)
-    
-
-Configuration read from environment variables.
-
-[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale") \- Class in [com.example.adkstale](com/example/adkstale/package-summary.html)
-    
-
-Configuration read from environment variables.
-
-[Settings](com/example/adktriaging/Settings.html "class in com.example.adktriaging") \- Class in [com.example.adktriaging](com/example/adktriaging/package-summary.html)
-    
-
-Configuration read from environment variables.
-
 [setToolExecutionMode(RunConfig.ToolExecutionMode)](com/google/adk/agents/RunConfig.Builder.html#setToolExecutionMode\(com.google.adk.agents.RunConfig.ToolExecutionMode\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
     
 
@@ -9573,6 +9276,11 @@ Extracts boolean value from the close field or returns false if unset.
     
 
 Determines if accumulated text should be emitted based on the current LlmResponse.
+
+[shouldPauseInvocation(Event)](com/google/adk/agents/InvocationContext.html#shouldPauseInvocation\(com.google.adk.events.Event\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns whether to pause the invocation right after this event: it is resumable and the event carries a long-running function call, including a synthetic `adk_request_confirmation` HITL request.
 
 [shutdown()](com/google/adk/web/service/ApiServerSpanExporter.html#shutdown\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
      
@@ -9655,26 +9363,12 @@ Initializes the SkillToolset with a SkillSource.
      
 [skipSummarization(Boolean)](com/google/adk/events/EventActions.Builder.html#skipSummarization\(java.lang.Boolean\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
-[sleepBetweenIssuesMs()](com/example/adkstale/Settings.html#sleepBetweenIssuesMs\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-     
 [SlidingWindowEventCompactor](com/google/adk/summarizer/SlidingWindowEventCompactor.html "class in com.google.adk.summarizer") \- Class in [com.google.adk.summarizer](com/google/adk/summarizer/package-summary.html)
     
 
 This class performs events compaction in a sliding window fashion based on the [`EventsCompactionConfig`](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer").
 
 [SlidingWindowEventCompactor(EventsCompactionConfig)](com/google/adk/summarizer/SlidingWindowEventCompactor.html#%3Cinit%3E\(com.google.adk.summarizer.EventsCompactionConfig\)) \- Constructor for class com.google.adk.summarizer.[SlidingWindowEventCompactor](com/google/adk/summarizer/SlidingWindowEventCompactor.html "class in com.google.adk.summarizer")
-     
-[SpamDetectionAgent](com/example/adkspam/SpamDetectionAgent.html "class in com.example.adkspam") \- Class in [com.example.adkspam](com/example/adkspam/package-summary.html)
-    
-
-ADK Issue Monitoring (Spam Detection) Agent for `google/adk-java`.
-
-[SpamDetectionAgentRun](com/example/adkspam/SpamDetectionAgentRun.html "class in com.example.adkspam") \- Class in [com.example.adkspam](com/example/adkspam/package-summary.html)
-    
-
-Entry point for the ADK Java issue monitoring (spam detection) agent.
-
-[spamLabel()](com/example/adkspam/Settings.html#spamLabel\(\)) \- Static method in class com.example.adkspam.[Settings](com/example/adkspam/Settings.html "class in com.example.adkspam")
      
 [span](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html#span) \- Variable in class com.google.adk.telemetry.[Instrumentation.ClosableTelemetryScope](com/google/adk/telemetry/Instrumentation.ClosableTelemetryScope.html "class in com.google.adk.telemetry")
     
@@ -9843,13 +9537,6 @@ Parameters for establishing a MCP Server-Sent Events (SSE) connection.
 Builder for [`SseServerParameters`](com/google/adk/tools/mcp/SseServerParameters.html "class in com.google.adk.tools.mcp").
 
 [sseServerParams()](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html#sseServerParams\(\)) \- Method in class com.google.adk.tools.mcp.[McpToolset.McpToolsetConfig](com/google/adk/tools/mcp/McpToolset.McpToolsetConfig.html "class in com.google.adk.tools.mcp")
-     
-[staleHoursThreshold()](com/example/adkstale/Settings.html#staleHoursThreshold\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
-    
-
-Hours of inactivity after a maintainer question before an issue is marked stale.
-
-[staleLabel()](com/example/adkstale/Settings.html#staleLabel\(\)) \- Static method in class com.example.adkstale.[Settings](com/example/adkstale/Settings.html "class in com.example.adkstale")
      
 [start(BaseAgent...)](com/google/adk/web/AdkWebServer.html#start\(com.google.adk.agents.BaseAgent...\)) \- Static method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
      
@@ -10590,7 +10277,7 @@ Traces a call to the LLM.
 [traceFlowable(Context, Span, Supplier)](com/google/adk/telemetry/Tracing.html#traceFlowable\(io.opentelemetry.context.Context,io.opentelemetry.api.trace.Span,java.util.function.Supplier\)) \- Static method in class com.google.adk.telemetry.[Tracing](com/google/adk/telemetry/Tracing.html "class in com.google.adk.telemetry")
     
 
-Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle.
+Executes a `Flowable` supplier within `spanContext` and propagates that context across subscription and stream emissions via [`Tracing.withContext(Context)`](com/google/adk/telemetry/Tracing.html#withContext\(io.opentelemetry.context.Context\)).
 
 [TraceManager](com/google/adk/plugins/agentanalytics/TraceManager.html "class in com.google.adk.plugins.agentanalytics") \- Class in [com.google.adk.plugins.agentanalytics](com/google/adk/plugins/agentanalytics/package-summary.html)
     
@@ -10717,7 +10404,7 @@ Sets the URL of the SSE server.
 [UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools") \- Class in [com.google.adk.tools](com/google/adk/tools/package-summary.html)
     
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs.
+A built-in tool that is automatically invoked by Gemini models to retrieve information from the given URLs.
 
 [UrlContextTool()](com/google/adk/tools/UrlContextTool.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.tools.[UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools")
      
@@ -10815,6 +10502,11 @@ Validates an output string against a schema.
 
 [Validation()](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.springai.properties.[SpringAIProperties.Validation](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html "class in com.google.adk.models.springai.properties")
      
+[value()](com/google/adk/web/config/BackendUrl.html#value\(\)) \- Method in class com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
+    
+
+Returns the URL to report in `runtime-config.json`, or empty when unset or ignored.
+
 [valueOf(String)](com/google/adk/a2a/common/A2AMetadata.Key.html#valueOf\(java.lang.String\)) \- Static method in enum class com.google.adk.a2a.common.[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
     
 
@@ -10866,6 +10558,11 @@ Returns the enum constant of this class with the specified name.
 Returns the enum constant of this class with the specified name.
 
 [valueOf(String)](com/google/adk/models/springai/error/SpringAIErrorMapper.RetryStrategy.html#valueOf\(java.lang.String\)) \- Static method in enum class com.google.adk.models.springai.error.[SpringAIErrorMapper.RetryStrategy](com/google/adk/models/springai/error/SpringAIErrorMapper.RetryStrategy.html "enum class in com.google.adk.models.springai.error")
+    
+
+Returns the enum constant of this class with the specified name.
+
+[valueOf(String)](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#valueOf\(java.lang.String\)) \- Static method in enum class com.google.adk.sessions.[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
     
 
 Returns the enum constant of this class with the specified name.
@@ -10935,6 +10632,11 @@ Returns an array containing the constants of this enum class, in the order they 
 
 Returns an array containing the constants of this enum class, in the order they are declared.
 
+[values()](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#values\(\)) \- Static method in enum class com.google.adk.sessions.[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
+    
+
+Returns an array containing the constants of this enum class, in the order they are declared.
+
 [values()](com/google/adk/sessions/State.html#values\(\)) \- Method in class com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions")
      
 [values()](com/google/adk/tools/computeruse/ComputerEnvironment.html#values\(\)) \- Static method in enum class com.google.adk.tools.computeruse.[ComputerEnvironment](com/google/adk/tools/computeruse/ComputerEnvironment.html "enum class in com.google.adk.tools.computeruse")
@@ -10952,11 +10654,23 @@ Returns an array containing the constants of this enum class, in the order they 
 
 See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20verbosity%20%3E%20(schema)
 
+[version()](com/google/adk/web/controller/VersionController.html#version\(\)) \- Method in class com.google.adk.web.controller.[VersionController](com/google/adk/web/controller/VersionController.html "class in com.google.adk.web.controller")
+    
+
+Returns the ADK version, the implementation language, and the running JVM's version.
+
 [Version](com/google/adk/Version.html "class in com.google.adk") \- Class in [com.google.adk](com/google/adk/package-summary.html)
     
 
 Tracks the current ADK version.
 
+[VersionController](com/google/adk/web/controller/VersionController.html "class in com.google.adk.web.controller") \- Class in [com.google.adk.web.controller](com/google/adk/web/controller/package-summary.html)
+    
+
+Reports the ADK and language versions, which the dev UI requests on startup, plus a liveness endpoint.
+
+[VersionController()](com/google/adk/web/controller/VersionController.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.web.controller.[VersionController](com/google/adk/web/controller/VersionController.html "class in com.google.adk.web.controller")
+     
 [versions()](com/google/adk/artifacts/ListArtifactVersionsResponse.html#versions\(\)) \- Method in class com.google.adk.artifacts.[ListArtifactVersionsResponse](com/google/adk/artifacts/ListArtifactVersionsResponse.html "class in com.google.adk.artifacts")
      
 [versions(List)](com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html#versions\(java.util.List\)) \- Method in class com.google.adk.artifacts.[ListArtifactVersionsResponse.Builder](com/google/adk/artifacts/ListArtifactVersionsResponse.Builder.html "class in com.google.adk.artifacts")
@@ -11101,13 +10815,6 @@ Pattern to match words for keyword extraction.
 
 [wrapCallResult(ObjectMapper, String, McpSchema.CallToolResult)](com/google/adk/tools/mcp/AbstractMcpTool.html#wrapCallResult\(com.fasterxml.jackson.databind.ObjectMapper,java.lang.String,io.modelcontextprotocol.spec.McpSchema.CallToolResult\)) \- Static method in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      
-[writeRepoName](com/example/github/GitHubTools.html#writeRepoName) \- Static variable in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-     
-[writeRepoOwner](com/example/github/GitHubTools.html#writeRepoOwner) \- Static variable in class com.example.github.[GitHubTools](com/example/github/GitHubTools.html "class in com.example.github")
-    
-
-When both are set, `create_issue`/`create_pull_request` refuse to write to any other repository, regardless of the owner/repo the model passes.
-
 A B C D E F G H I J K L M N O P Q R S T U V W   
 [All Classes and Interfaces](allclasses-index.html)|[All Packages](allpackages-index.html)|[Constant Field Values](constant-values.html)|[Serialized Form](serialized-form.html)
 

@@ -35,30 +35,6 @@ Description
 
  
 
-[com.example.adkdocs](com/example/adkdocs/package-summary.html)
-
- 
-
-[com.example.adkprtriaging](com/example/adkprtriaging/package-summary.html)
-
- 
-
-[com.example.adkspam](com/example/adkspam/package-summary.html)
-
- 
-
-[com.example.adkstale](com/example/adkstale/package-summary.html)
-
- 
-
-[com.example.adktriaging](com/example/adktriaging/package-summary.html)
-
- 
-
-[com.example.github](com/example/github/package-summary.html)
-
- 
-
 [com.example.helloworld](com/example/helloworld/package-summary.html)
 
  

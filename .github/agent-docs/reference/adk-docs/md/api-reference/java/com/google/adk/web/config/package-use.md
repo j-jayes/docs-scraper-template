@@ -39,6 +39,10 @@ com.google.adk.web.config
 
  
 
+com.google.adk.web.controller
+
+ 
+
 com.google.adk.web.websocket
 
  
@@ -53,6 +57,10 @@ Description
 
 Properties for loading agents.
 
+[BackendUrl](class-use/BackendUrl.html#com.google.adk.web)
+
+Parsed representation of `adk.web.backend-url`, shared by the runtime-config endpoint and the dev UI entry redirects.
+
   * Classes in [com.google.adk.web.config](package-summary.html) used by [com.google.adk.web.config](package-summary.html)
 
 Class
@@ -62,6 +70,20 @@ Description
 [AdkWebCorsProperties](class-use/AdkWebCorsProperties.html#com.google.adk.web.config)
 
 Properties for configuring CORS in ADK Web.
+
+[BackendUrl](class-use/BackendUrl.html#com.google.adk.web.config)
+
+Parsed representation of `adk.web.backend-url`, shared by the runtime-config endpoint and the dev UI entry redirects.
+
+  * Classes in [com.google.adk.web.config](package-summary.html) used by [com.google.adk.web.controller](../controller/package-summary.html)
+
+Class
+
+Description
+
+[BackendUrl](class-use/BackendUrl.html#com.google.adk.web.controller)
+
+Parsed representation of `adk.web.backend-url`, shared by the runtime-config endpoint and the dev UI entry redirects.
 
   * Classes in [com.google.adk.web.config](package-summary.html) used by [com.google.adk.web.websocket](../websocket/package-summary.html)
 

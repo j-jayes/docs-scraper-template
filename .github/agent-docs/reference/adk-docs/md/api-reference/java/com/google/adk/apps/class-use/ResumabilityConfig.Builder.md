@@ -51,8 +51,6 @@ Description
 
 ResumabilityConfig.`[builder](../ResumabilityConfig.html#builder\(\))()`
 
-Deprecated.
-
  
 
 `abstract [ResumabilityConfig.Builder](../ResumabilityConfig.Builder.html "class in com.google.adk.apps")`

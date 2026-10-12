@@ -76,7 +76,7 @@ Description
 
 `abstract [Recording.Builder](../Recording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-Recording.Builder.`[toolRecording](../Recording.Builder.html#toolRecording\(com.google.adk.plugins.recordings.ToolRecording\))([ToolRecording](../ToolRecording.html "class in com.google.adk.plugins.recordings") toolRecording)`
+Recording.Builder.`[toolRecording](../Recording.Builder.html#toolRecording\(com.google.adk.plugins.recordings.ToolRecording\))(@Nullable [ToolRecording](../ToolRecording.html "class in com.google.adk.plugins.recordings") toolRecording)`
 
  
 

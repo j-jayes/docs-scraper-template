@@ -63,7 +63,7 @@ AutoCloseable telemetry tracking scope for tool executions.
 
 ### Fields inherited from class [Instrumentation.ClosableTelemetryScope](Instrumentation.ClosableTelemetryScope.html#field-summary "class in com.google.adk.telemetry")
 
-`[caughtError](Instrumentation.ClosableTelemetryScope.html#caughtError), [closed](Instrumentation.ClosableTelemetryScope.html#closed), [scope](Instrumentation.ClosableTelemetryScope.html#scope), [span](Instrumentation.ClosableTelemetryScope.html#span), [startTimeNanos](Instrumentation.ClosableTelemetryScope.html#startTimeNanos), [telemetryContext](Instrumentation.ClosableTelemetryScope.html#telemetryContext)`
+`[caughtError](Instrumentation.ClosableTelemetryScope.html#caughtError), [closed](Instrumentation.ClosableTelemetryScope.html#closed), [span](Instrumentation.ClosableTelemetryScope.html#span), [startTimeNanos](Instrumentation.ClosableTelemetryScope.html#startTimeNanos), [telemetryContext](Instrumentation.ClosableTelemetryScope.html#telemetryContext)`
 
 Modifier and Type
 
@@ -82,12 +82,6 @@ The error caught during execution, if any.
 `[closed](Instrumentation.ClosableTelemetryScope.html#closed)`
 
 Whether this scope has been closed.
-
-`protected final io.opentelemetry.context.Scope`
-
-`[scope](Instrumentation.ClosableTelemetryScope.html#scope)`
-
-The OpenTelemetry scope associated with this span.
 
 `protected final io.opentelemetry.api.trace.Span`
 
@@ -161,7 +155,7 @@ Description
 
 `[close](Instrumentation.ClosableTelemetryScope.html#close\(\))()`
 
-Closes the scope and ends the underlying span, recording any applicable metrics.
+Ends the underlying span and records any applicable metrics.
 
 `[Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 

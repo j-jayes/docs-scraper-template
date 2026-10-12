@@ -45,20 +45,27 @@ Contents
      11. branch()
      12. agent()
      13. session()
-     14. userContent()
-     15. runConfig()
-     16. callbackContextData()
-     17. endInvocation()
-     18. setEndInvocation(boolean)
-     19. appName()
-     20. userId()
-     21. newInvocationContextId()
-     22. incrementLlmCallsCount()
-     23. eventsCompactionConfig()
-     24. contextCacheConfig()
-     25. isResumable()
-     26. equals(Object)
-     27. hashCode()
+     14. eventsOnCurrentBranch()
+     15. userContent()
+     16. runConfig()
+     17. callbackContextData()
+     18. endInvocation()
+     19. setEndInvocation(boolean)
+     20. appName()
+     21. userId()
+     22. newInvocationContextId()
+     23. incrementLlmCallsCount()
+     24. eventsCompactionConfig()
+     25. contextCacheConfig()
+     26. isResumable()
+     27. isLegacyResumability()
+     28. agentStates()
+     29. endOfAgents()
+     30. populateInvocationAgentStates()
+     31. events(boolean, boolean)
+     32. shouldPauseInvocation(Event)
+     33. equals(Object)
+     34. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -108,7 +115,7 @@ Description
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -127,6 +134,12 @@ Returns a map of tool call IDs to active streaming tools for the current invocat
 `agent()`
 
 Returns the agent being invoked.
+
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>>`
+
+`agentStates()`
+
+Returns an unmodifiable view of the per-agent resumability checkpoint states for this invocation, keyed by agent name.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
@@ -176,17 +189,35 @@ Returns the context cache configuration for the current agent run.
 
 Returns whether this invocation should be ended, e.g., due to reaching a terminal state or error.
 
+`[Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")>`
+
+`endOfAgents()`
+
+Returns an unmodifiable view of the per-agent end-of-agent flags for this invocation, keyed by agent name.
+
 `boolean`
 
 `equals([Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") o)`
 
  
 
+`com.google.common.collect.ImmutableList<[Event](../events/Event.html "class in com.google.adk.events")>`
+
+`events(boolean currentInvocation, boolean currentBranch)`
+
+Returns the current session's events, optionally filtered to the current invocation and/or the current branch.
+
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[EventsCompactionConfig](../summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")>`
 
 `eventsCompactionConfig()`
 
 Returns the events compaction configuration for the current agent run.
+
+`com.google.common.collect.ImmutableList<[Event](../events/Event.html "class in com.google.adk.events")>`
+
+`eventsOnCurrentBranch()`
+
+Returns a snapshot of the session's events, keeping only those on the branch this invocation is running on.
 
 `int`
 
@@ -205,6 +236,14 @@ Increments the count of LLM calls made during this invocation and throws an exce
 `invocationId()`
 
 Returns the unique ID for this invocation.
+
+`boolean`
+
+`isLegacyResumability()`
+
+Deprecated.
+
+Reports the deprecated plain-text continuation shim and goes away with it; use `isResumable()`.
 
 `boolean`
 
@@ -236,6 +275,12 @@ Generates a new unique ID for an invocation context.
 
 Returns the plugin manager for accessing tools and plugins.
 
+`void`
+
+`populateInvocationAgentStates()`
+
+Rehydrates `agentStates()` and `endOfAgents()` from the current invocation's history when this invocation is resumable.
+
 `[RunConfig](RunConfig.html "class in com.google.adk.agents")`
 
 `runConfig()`
@@ -259,6 +304,12 @@ Returns the session service for managing session state.
 `setEndInvocation(boolean endInvocation)`
 
 Sets whether this invocation should be ended.
+
+`boolean`
+
+`shouldPauseInvocation([Event](../events/Event.html "class in com.google.adk.events") event)`
+
+Returns whether to pause the invocation right after this event: it is resumable and the event carries a long-running function call, including a synthetic `adk_request_confirmation` HITL request.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
@@ -371,6 +422,14 @@ public [Session](../sessions/Session.html "class in com.google.adk.sessions") se
 
 Returns the session associated with this invocation.
 
+    * ### eventsOnCurrentBranch
+
+public com.google.common.collect.ImmutableList<[Event](../events/Event.html "class in com.google.adk.events")> eventsOnCurrentBranch()
+
+Returns a snapshot of the session's events, keeping only those on the branch this invocation is running on. 
+
+The rule is author-asymmetric on purpose, so a confirmation the user answered on a sub-branch stays visible while a descendant agent's own events do not.
+
     * ### userContent
 
 public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Content> userContent()
@@ -442,9 +501,53 @@ Returns the context cache configuration for the current agent run.
 
     * ### isResumable
 
-public boolean isResumable()
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public boolean isResumable()
 
-Returns whether the current invocation is resumable. Mirrors Python ADK v1's ` InvocationContext.is_resumable`.
+Returns whether the current invocation is resumable.
+
+    * ### isLegacyResumability
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public boolean isLegacyResumability()
+
+Deprecated.
+
+Reports the deprecated plain-text continuation shim and goes away with it; use `isResumable()`.
+
+Returns whether the invocation runs the legacy resumption flow: the behavior `isResumable()` had before durable checkpoints existed. It is a separate flow, not a weaker `isResumable()`, so a caller wanting either has to ask for both.
+
+    * ### agentStates
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>> agentStates()
+
+Returns an unmodifiable view of the per-agent resumability checkpoint states for this invocation, keyed by agent name. The backing map is shared by reference across derived contexts within the invocation; mutate it only through `setAgentState(String, Map, boolean)`.
+
+    * ### endOfAgents
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang")> endOfAgents()
+
+Returns an unmodifiable view of the per-agent end-of-agent flags for this invocation, keyed by agent name.
+
+    * ### populateInvocationAgentStates
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public void populateInvocationAgentStates()
+
+Rehydrates `agentStates()` and `endOfAgents()` from the current invocation's history when this invocation is resumable. For each event carrying agent-state information, sets the authoring agent's checkpoint; for a non-workflow author that already produced content, seeds an empty state so it is treated as mid-run.
+
+    * ### events
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public com.google.common.collect.ImmutableList<[Event](../events/Event.html "class in com.google.adk.events")> events(boolean currentInvocation, boolean currentBranch)
+
+Returns the current session's events, optionally filtered to the current invocation and/or the current branch. Reads the in-memory [`Session.events()`](../sessions/Session.html#events\(\)) list, which [`BaseSessionService.appendEvent(Session, Event)`](../sessions/BaseSessionService.html#appendEvent\(com.google.adk.sessions.Session,com.google.adk.events.Event\)) keeps in sync. A `null`-branch event is visible on any branch.
+
+Parameters:
+    `currentInvocation` \- whether to filter to events from this invocation.
+    `currentBranch` \- whether to filter to events on this branch (or with no branch).
+
+    * ### shouldPauseInvocation
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public boolean shouldPauseInvocation([Event](../events/Event.html "class in com.google.adk.events") event)
+
+Returns whether to pause the invocation right after this event: it is resumable and the event carries a long-running function call, including a synthetic `adk_request_confirmation` HITL request. Pausing, unlike ending, leaves the invocation resumable.
 
     * ### equals
 

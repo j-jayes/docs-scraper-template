@@ -46,11 +46,11 @@ Method
 
 Description
 
-`abstract [GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions")`
+`[GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions")`
 
 GetSessionConfig.Builder.`[build](../GetSessionConfig.Builder.html#build\(\))()`
 
- 
+Builds the config.
 
 Methods in [com.google.adk.sessions](../package-summary.html) with parameters of type [GetSessionConfig](../GetSessionConfig.html "class in com.google.adk.sessions")
 

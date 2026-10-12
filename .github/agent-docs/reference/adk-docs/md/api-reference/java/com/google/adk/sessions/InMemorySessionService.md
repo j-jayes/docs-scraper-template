@@ -26,11 +26,13 @@ LightDarkSystem Setting
 Contents  
 
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Nested Class Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
      1. InMemorySessionService()
-  5. Method Details
+     2. InMemorySessionService(InMemorySessionService.DuplicateSessionIdBehavior)
+  6. Method Details
      1. createSession(String, String, ConcurrentMap, String)
      2. createSession(String, String, Map, String)
      3. getSession(String, String, String, Optional)
@@ -60,6 +62,22 @@ This implementation stores sessions, user state, and app state directly in memor
 
 Note: State merging (app/user state prefixed with `_app_` / `_user_`) occurs during retrieval operations (`getSession`, `createSession`).
 
+  * ## Nested Class Summary
+
+Nested Classes
+
+Modifier and Type
+
+Class
+
+Description
+
+`static enum `
+
+`[InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")`
+
+What `createSession` does when `sessionId` is already in use.
+
   * ## Constructor Summary
 
 Constructors
@@ -69,6 +87,10 @@ Constructor
 Description
 
 `InMemorySessionService()`
+
+Creates a new instance of the in-memory session service with empty storage.
+
+`InMemorySessionService([InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") duplicateSessionIdBehavior)`
 
 Creates a new instance of the in-memory session service with empty storage.
 
@@ -195,7 +217,16 @@ Lists sessions associated with a specific application and user.
 
 public InMemorySessionService()
 
+Creates a new instance of the in-memory session service with empty storage. A duplicate session ID overwrites the stored session, which stays the default until callers have migrated.
+
+    * ### InMemorySessionService
+
+public InMemorySessionService([InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") duplicateSessionIdBehavior)
+
 Creates a new instance of the in-memory session service with empty storage.
+
+Parameters:
+    `duplicateSessionIdBehavior` \- What `createSession` does when the session ID is already in use.
 
   * ## Method Details
 

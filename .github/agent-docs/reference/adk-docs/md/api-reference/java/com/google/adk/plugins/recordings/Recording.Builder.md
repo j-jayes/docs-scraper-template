@@ -91,13 +91,13 @@ Description
 
 `abstract [Recording.Builder](Recording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`llmRecording([LlmRecording](LlmRecording.html "class in com.google.adk.plugins.recordings") llmRecording)`
+`llmRecording(@Nullable [LlmRecording](LlmRecording.html "class in com.google.adk.plugins.recordings") llmRecording)`
 
  
 
 `abstract [Recording.Builder](Recording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`toolRecording([ToolRecording](ToolRecording.html "class in com.google.adk.plugins.recordings") toolRecording)`
+`toolRecording(@Nullable [ToolRecording](ToolRecording.html "class in com.google.adk.plugins.recordings") toolRecording)`
 
  
 

@@ -44,8 +44,10 @@ Contents
      10. endInvocation(boolean)
      11. agentState(Map)
      12. compaction(EventCompaction)
-     13. merge(EventActions)
-     14. build()
+     13. setModelResponse(Object)
+     14. rewindBeforeInvocationId(String)
+     15. merge(EventActions)
+     16. build()
 
 Hide sidebar  Show sidebar
 
@@ -156,6 +158,18 @@ Use `endOfAgent(boolean)` instead.
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
+`rewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)`
+
+ 
+
+`[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
+
+`setModelResponse(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)`
+
+ 
+
+`[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
+
 `skipSummarization(@Nullable [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html "class in java.lang") skipSummarization)`
 
  
@@ -238,6 +252,14 @@ Use `endOfAgent(boolean)` instead.
     * ### compaction
 
 @CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") compaction(@Nullable [EventCompaction](EventCompaction.html "class in com.google.adk.events") value)
+
+    * ### setModelResponse
+
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") setModelResponse(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)
+
+    * ### rewindBeforeInvocationId
+
+@CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") rewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)
 
     * ### merge
 

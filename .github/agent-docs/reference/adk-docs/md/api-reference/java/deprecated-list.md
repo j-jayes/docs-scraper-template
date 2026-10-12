@@ -23,21 +23,9 @@ LightDarkSystem Setting
 
 ## Contents
 
-  * Classes
   * Methods
   * Constructors
-
-
-  * Deprecated Classes
-
-Class
-
-Description
-
-[com.google.adk.apps.ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
-
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented. Full session resumability (persisted agent state, durable resume, other workflow agents) is not yet available. Forward-compatible: the same config will drive full resumability once it lands.
-
+  * Enum Constants
 
 
   * Deprecated Methods
@@ -45,6 +33,10 @@ Partial feature: only event-reconstruction-based pause/resume for ` SequentialAg
 Method
 
 Description
+
+[com.google.adk.agents.InvocationContext.isLegacyResumability()](com/google/adk/agents/InvocationContext.html#isLegacyResumability\(\))
+
+Reports the deprecated plain-text continuation shim and goes away with it; use [`InvocationContext.isResumable()`](com/google/adk/agents/InvocationContext.html#isResumable\(\)).
 
 [com.google.adk.agents.RunConfig.Builder.groupFunctionResponsesInHistory(boolean)](com/google/adk/agents/RunConfig.Builder.html#groupFunctionResponsesInHistory\(boolean\))
 
@@ -84,19 +76,17 @@ Expected only for specific model endpoints.
 
 Expected only for specific model endpoints.
 
-[com.google.adk.apps.App.Builder.resumabilityConfig(ResumabilityConfig)](com/google/adk/apps/App.Builder.html#resumabilityConfig\(com.google.adk.apps.ResumabilityConfig\))
-
-See [`ResumabilityConfig`](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
-
 [com.google.adk.apps.ResumabilityConfig.Builder.plainTextContinuationAutoResume(boolean)](com/google/adk/apps/ResumabilityConfig.Builder.html#plainTextContinuationAutoResume\(boolean\))
 
 Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (or send a function response to the paused call). See [`ResumabilityConfig.isPlainTextContinuationAutoResume()`](com/google/adk/apps/ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\)).
 
 [com.google.adk.apps.ResumabilityConfig.isPlainTextContinuationAutoResume()](com/google/adk/apps/ResumabilityConfig.html#isPlainTextContinuationAutoResume\(\))
 
-Back-compat shim for callers that deliver a resume as a plain-text turn. Migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` (or send a function response to the paused call) and stop setting this flag; it will be removed.
+Back-compat shim for callers that deliver a resume as a plain-text turn; migrate to `Runner.runAsync(userId, sessionId, invocationId, message, runConfig, stateDelta)` or answer the paused call with a function response, and set [`ResumabilityConfig.isResumable()`](com/google/adk/apps/ResumabilityConfig.html#isResumable\(\)) instead; this flag will be removed.
 
 [com.google.adk.events.Event.setFinishReason(Optional<FinishReason>)](com/google/adk/events/Event.html#setFinishReason\(java.util.Optional\))
+
+Use [`Event.setFinishReason(FinishReason)`](com/google/adk/events/Event.html#setFinishReason\(com.google.genai.types.FinishReason\)) with `finishReason.orElse(null)` instead.
 
 [com.google.adk.events.EventActions.Builder.endInvocation(boolean)](com/google/adk/events/EventActions.Builder.html#endInvocation\(boolean\))
 
@@ -111,6 +101,8 @@ Use [`EventActions.endOfAgent()`](com/google/adk/events/EventActions.html#endOfA
 Use [`EventActions.setEndOfAgent(boolean)`](com/google/adk/events/EventActions.html#setEndOfAgent\(boolean\)) instead.
 
 [com.google.adk.events.EventActions.setStateDelta(ConcurrentMap<String, Object>)](com/google/adk/events/EventActions.html#setStateDelta\(java.util.concurrent.ConcurrentMap\))
+
+Update the map returned by [`EventActions.stateDelta()`](com/google/adk/events/EventActions.html#stateDelta\(\)) instead, and use [`EventActions.removeStateByKey(String)`](com/google/adk/events/EventActions.html#removeStateByKey\(java.lang.String\)) to remove a key.
 
 [com.google.adk.memory.SearchMemoryResponse.Builder.setMemories(ImmutableList<MemoryEntry>)](com/google/adk/memory/SearchMemoryResponse.Builder.html#setMemories\(com.google.common.collect.ImmutableList\))
 
@@ -129,6 +121,10 @@ Use [`BaseSessionService.createSession(String, String, Map, String)`](com/google
 [com.google.adk.sessions.Session.Builder.eventsView(List<Event>)](com/google/adk/sessions/Session.Builder.html#eventsView\(java.util.List\))
 
 Not a real deprecation - a warn-off for application code from a seam meant for ADK's own framework and interop adapters; use [`Session.Builder.events(List)`](com/google/adk/sessions/Session.Builder.html#events\(java.util.List\)) instead.
+
+[com.google.adk.sessions.Session.events()](com/google/adk/sessions/Session.html#events\(\))
+
+Prefer [`Session.immutableEvents()`](com/google/adk/sessions/Session.html#immutableEvents\(\)) when reading or iterating over events (to avoid [`ConcurrentModificationException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ConcurrentModificationException.html "class in java.util")), and [`Session.addEvent(Event)`](com/google/adk/sessions/Session.html#addEvent\(com.google.adk.events.Event\)) or [`Session.addEvents(Collection)`](com/google/adk/sessions/Session.html#addEvents\(java.util.Collection\)) when appending events.
 
 [com.google.adk.telemetry.Instrumentation.recordAgentInvocation(InvocationContext, BaseAgent)](com/google/adk/telemetry/Instrumentation.html#recordAgentInvocation\(com.google.adk.agents.InvocationContext,com.google.adk.agents.BaseAgent\))
 
@@ -177,6 +173,18 @@ Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.g
 [com.google.adk.runner.Runner(BaseAgent, String, BaseArtifactService, BaseSessionService, BaseMemoryService, List<? extends Plugin>, EventsCompactionConfig, ContextCacheConfig, ResumabilityConfig)](com/google/adk/runner/Runner.html#%3Cinit%3E\(com.google.adk.agents.BaseAgent,java.lang.String,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List,com.google.adk.summarizer.EventsCompactionConfig,com.google.adk.agents.ContextCacheConfig,com.google.adk.apps.ResumabilityConfig\))
 
 Use [`Runner.Builder`](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner") instead.
+
+
+
+  * Deprecated Enum Constants
+
+Enum Constant
+
+Description
+
+[com.google.adk.sessions.InMemorySessionService.DuplicateSessionIdBehavior.OVERWRITE](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#OVERWRITE)
+
+Construct the service with [`InMemorySessionService.DuplicateSessionIdBehavior.REJECT`](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html#REJECT) instead, which becomes the default in a future release.
 
 
 

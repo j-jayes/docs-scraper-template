@@ -42,7 +42,7 @@ root_agent = Workflow(
 )
 ```
 
-Serve this with `adk web` and start a live session, or pass it to `Runner.run_live()`. The runner detects a `Workflow` root and drives it over the live connection; you consume one event stream across all nodes. See the runnable [`live_workflow` sample](https://github.com/google/adk-python/tree/main/contributing/samples/live/live_workflow) for a three-stage voice intake flow with typed handoffs and a live eval set.
+Serve this with `adk web` and start a live session, or pass it to `Runner.run_live()`. The runner detects a `Workflow` root and drives it over the live connection; you consume one event stream across all nodes. See the runnable [`workflow` sample](https://github.com/google/adk-python/tree/main/contributing/samples/live/workflow) for a three-stage voice intake flow with typed handoffs and a live eval set.
 
 **Every agent that speaks needs `mode='task'` or `mode='chat'`.** As a node in a workflow, an `LlmAgent` with no `mode` falls back to `single_turn`, which runs outside the live connection and ignores the audio queue entirely, so the caller hears nothing from it. Set the mode explicitly on every node that talks.
 

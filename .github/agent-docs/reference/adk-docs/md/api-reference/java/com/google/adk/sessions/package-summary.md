@@ -46,7 +46,7 @@ Description
 
  
 
-  * All Classes and InterfacesInterfacesClassesException Classes
+  * All Classes and InterfacesInterfacesClassesEnum ClassesException Classes
 
 Class
 
@@ -83,6 +83,10 @@ Wraps a real HTTP response to expose the methods needed by the GenAI SDK.
 [InMemorySessionService](InMemorySessionService.html "class in com.google.adk.sessions")
 
 An in-memory implementation of [`BaseSessionService`](BaseSessionService.html "interface in com.google.adk.sessions") assuming [`Session`](Session.html "class in com.google.adk.sessions") objects are mutable regarding their state map, events list, and last update time.
+
+[InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
+
+What `createSession` does when `sessionId` is already in use.
 
 [ListEventsResponse](ListEventsResponse.html "class in com.google.adk.sessions")
 

@@ -358,6 +358,8 @@ partial is true for incomplete chunks from the LLM streaming response.
 
 Deprecated.
 
+Use `setFinishReason(FinishReason)` with `finishReason.orElse(null)` instead.
+
 `void`
 
 `setGroundingMetadata(@Nullable com.google.genai.types.GroundingMetadata groundingMetadata)`
@@ -618,6 +620,10 @@ public void setErrorCode(@Nullable com.google.genai.types.FinishReason errorCode
 [@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public void setFinishReason([Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.FinishReason> finishReason)
 
 Deprecated.
+
+Use `setFinishReason(FinishReason)` with `finishReason.orElse(null)` instead.
+
+Sets the finish reason from an [`Optional`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util").
 
     * ### setFinishReason
 

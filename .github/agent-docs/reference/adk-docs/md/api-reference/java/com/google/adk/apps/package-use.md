@@ -65,9 +65,7 @@ Description
 
 [ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.agents)
 
-Deprecated.
-
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+Resumability config for every agent in an app: pause on a long-running call and resume from the last event.
 
   * Classes in [com.google.adk.apps](package-summary.html) used by [com.google.adk.apps](package-summary.html)
 
@@ -85,13 +83,9 @@ Builder for [`App`](App.html "class in com.google.adk.apps").
 
 [ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.apps)
 
-Deprecated.
-
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+Resumability config for every agent in an app: pause on a long-running call and resume from the last event.
 
 [ResumabilityConfig.Builder](class-use/ResumabilityConfig.Builder.html#com.google.adk.apps)
-
-Deprecated.
 
 Builder for [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps").
 
@@ -107,9 +101,7 @@ Represents an LLM-backed agentic application.
 
 [ResumabilityConfig](class-use/ResumabilityConfig.html#com.google.adk.runner)
 
-Deprecated.
-
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+Resumability config for every agent in an app: pause on a long-running call and resume from the last event.
 
 
 

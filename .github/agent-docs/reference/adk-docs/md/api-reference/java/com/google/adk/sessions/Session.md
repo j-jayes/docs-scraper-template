@@ -37,13 +37,16 @@ Contents
      4. id()
      5. state()
      6. events()
-     7. appName()
-     8. userId()
-     9. lastUpdateTime(Instant)
-     10. lastUpdateTime()
-     11. getLastUpdateTimeAsDouble()
-     12. toString()
-     13. fromJson(String)
+     7. immutableEvents()
+     8. addEvent(Event)
+     9. addEvents(Collection)
+     10. appName()
+     11. userId()
+     12. lastUpdateTime(Instant)
+     13. lastUpdateTime()
+     14. getLastUpdateTimeAsDouble()
+     15. toString()
+     16. fromJson(String)
 
 Hide sidebar  Show sidebar
 
@@ -79,13 +82,25 @@ Builder for [`Session`](Session.html "class in com.google.adk.sessions").
 
   * ## Method Summary
 
-All MethodsStatic MethodsInstance MethodsConcrete Methods
+All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
 Method
 
 Description
+
+`void`
+
+`addEvent([Event](../events/Event.html "class in com.google.adk.events") event)`
+
+Appends a single [`Event`](../events/Event.html "class in com.google.adk.events") to the session's event list while synchronizing on the backing `events()` list; prefer over `events().add(event)`.
+
+`void`
+
+`addEvents([Collection](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
+
+Appends all [`Event`](../events/Event.html "class in com.google.adk.events")s in the given collection to the session's event list while synchronizing on the backing `events()` list; prefer over ` events().addAll(events)`.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
@@ -109,7 +124,9 @@ Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.
 
 `events()`
 
- 
+Deprecated.
+
+Prefer `immutableEvents()` when reading or iterating over events (to avoid [`ConcurrentModificationException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ConcurrentModificationException.html "class in java.util")), and `addEvent(Event)` or `addEvents(Collection)` when appending events.
 
 `static [Session](Session.html "class in com.google.adk.sessions")`
 
@@ -128,6 +145,12 @@ Creates a new [`Session.Builder`](Session.Builder.html "class in com.google.adk.
 `id()`
 
  
+
+`com.google.common.collect.ImmutableList<[Event](../events/Event.html "class in com.google.adk.events")>`
+
+`immutableEvents()`
+
+Returns a thread-safe, immutable snapshot of the session's events, synchronizing on the backing `events()` list.
 
 `[Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class in java.time")`
 
@@ -248,7 +271,31 @@ public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/u
 
     * ### events
 
-public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events()
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events()
+
+Deprecated.
+
+Prefer `immutableEvents()` when reading or iterating over events (to avoid [`ConcurrentModificationException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ConcurrentModificationException.html "class in java.util")), and `addEvent(Event)` or `addEvents(Collection)` when appending events.
+
+Returns the mutable list of events backing this session, which also serves as the monitor for all event-helper synchronization.
+
+    * ### immutableEvents
+
+public com.google.common.collect.ImmutableList<[Event](../events/Event.html "class in com.google.adk.events")> immutableEvents()
+
+Returns a thread-safe, immutable snapshot of the session's events, synchronizing on the backing `events()` list. Use this method whenever reading, iterating, streaming, filtering, or slicing ([`List.subList(int, int)`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#subList\(int,int\))) session events to avoid [`ConcurrentModificationException`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ConcurrentModificationException.html "class in java.util") under concurrent modifications.
+
+    * ### addEvent
+
+public void addEvent([Event](../events/Event.html "class in com.google.adk.events") event)
+
+Appends a single [`Event`](../events/Event.html "class in com.google.adk.events") to the session's event list while synchronizing on the backing `events()` list; prefer over `events().add(event)`.
+
+    * ### addEvents
+
+public void addEvents([Collection](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
+
+Appends all [`Event`](../events/Event.html "class in com.google.adk.events")s in the given collection to the session's event list while synchronizing on the backing `events()` list; prefer over ` events().addAll(events)`.
 
     * ### appName
 

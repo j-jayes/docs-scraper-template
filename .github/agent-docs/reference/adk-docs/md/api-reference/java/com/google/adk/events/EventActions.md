@@ -60,10 +60,14 @@ Contents
      24. setAgentState(Map)
      25. compaction()
      26. setCompaction(EventCompaction)
-     27. builder()
-     28. toBuilder()
-     29. equals(Object)
-     30. hashCode()
+     27. setModelResponse()
+     28. setSetModelResponse(Object)
+     29. rewindBeforeInvocationId()
+     30. setRewindBeforeInvocationId(String)
+     31. builder()
+     32. toBuilder()
+     33. equals(Object)
+     34. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -199,6 +203,12 @@ Removes a key from the state delta.
 
  
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
+
+`rewindBeforeInvocationId()`
+
+On a rewind event, the ID of the invocation to rewind before: the history from that invocation up to the rewind event is dropped.
+
 `void`
 
 `setAgentState(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)`
@@ -243,6 +253,12 @@ Use `setEndOfAgent(boolean)` instead.
 
  
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
+
+`setModelResponse()`
+
+The successfully validated structured response set by the `set_model_response` tool.
+
 `void`
 
 `setRequestedAuthConfigs([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), ? extends [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>> requestedAuthConfigs)`
@@ -252,6 +268,18 @@ Use `setEndOfAgent(boolean)` instead.
 `void`
 
 `setRequestedToolConfirmations([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"), [ToolConfirmation](ToolConfirmation.html "class in com.google.adk.events")> requestedToolConfirmations)`
+
+ 
+
+`void`
+
+`setRewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") rewindBeforeInvocationId)`
+
+ 
+
+`void`
+
+`setSetModelResponse(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") setModelResponse)`
 
  
 
@@ -272,6 +300,8 @@ Use `setEndOfAgent(boolean)` instead.
 `setStateDelta([ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "interface in java.util.concurrent")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)`
 
 Deprecated.
+
+Update the map returned by `stateDelta()` instead, and use `removeStateByKey(String)` to remove a key.
 
 `void`
 
@@ -390,6 +420,10 @@ public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/u
 
 Deprecated.
 
+Update the map returned by `stateDelta()` instead, and use `removeStateByKey(String)` to remove a key.
+
+Replaces the state delta.
+
     * ### removeStateByKey
 
 public void removeStateByKey([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") key)
@@ -488,6 +522,26 @@ public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/j
     * ### setCompaction
 
 public void setCompaction(@Nullable [EventCompaction](EventCompaction.html "class in com.google.adk.events") compaction)
+
+    * ### setModelResponse
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> setModelResponse()
+
+The successfully validated structured response set by the `set_model_response` tool. Empty when the tool was not called or its arguments failed output-schema validation.
+
+    * ### setSetModelResponse
+
+public void setSetModelResponse(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") setModelResponse)
+
+    * ### rewindBeforeInvocationId
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> rewindBeforeInvocationId()
+
+On a rewind event, the ID of the invocation to rewind before: the history from that invocation up to the rewind event is dropped. ADK Java does not apply rewinds itself; the field exists for runtimes that do, such as ADK Kotlin.
+
+    * ### setRewindBeforeInvocationId
+
+public void setRewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") rewindBeforeInvocationId)
 
     * ### builder
 

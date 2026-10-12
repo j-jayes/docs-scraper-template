@@ -92,9 +92,17 @@ Controller handling agent execution endpoints.
 
 Controller handling graph generation endpoints.
 
+[RuntimeConfigController](RuntimeConfigController.html "class in com.google.adk.web.controller")
+
+Serves the dev UI's runtime configuration, shadowing the copy bundled in the static assets so `adk.web.backend-url` can point the UI at the address browsers reach this server on.
+
 [SessionController](SessionController.html "class in com.google.adk.web.controller")
 
 Controller handling session-related API endpoints.
+
+[VersionController](VersionController.html "class in com.google.adk.web.controller")
+
+Reports the ADK and language versions, which the dev UI requests on startup, plus a liveness endpoint.
 
 
 

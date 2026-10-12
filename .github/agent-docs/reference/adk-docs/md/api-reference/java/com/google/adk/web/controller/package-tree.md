@@ -39,7 +39,9 @@ Package Hierarchies:
     * com.google.adk.web.controller.[EvaluationController](EvaluationController.html "class in com.google.adk.web.controller")
     * com.google.adk.web.controller.[ExecutionController](ExecutionController.html "class in com.google.adk.web.controller")
     * com.google.adk.web.controller.[GraphController](GraphController.html "class in com.google.adk.web.controller")
+    * com.google.adk.web.controller.[RuntimeConfigController](RuntimeConfigController.html "class in com.google.adk.web.controller")
     * com.google.adk.web.controller.[SessionController](SessionController.html "class in com.google.adk.web.controller")
+    * com.google.adk.web.controller.[VersionController](VersionController.html "class in com.google.adk.web.controller")
 
 
 

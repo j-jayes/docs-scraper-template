@@ -85,6 +85,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../models/google-gemma/)
       * [ Claude  ](../models/anthropic/)
       * [ Agent Platform hosted  ](../models/agent-platform/)
@@ -769,12 +772,17 @@ For scenarios requiring structured data exchange with an `LLM Agent`, the ADK pr
 
   * **`output_schema` (Optional):** Define a schema representing the desired output structure. If set, the agent's final response _must_ be a JSON string conforming to this schema.
 
+  * In Python, supported schema types include:
+    * A Pydantic model class, for example `MySchema`
+    * Lists of primitives, such as `list[str]`, `list[int]`, `list[bool]`, `list[float]`
+    * `dict`
+    * `google.genai.types.Schema`
 
 
 
 Warning: Using `output_schema` with `tools`
 
-Using `output_schema` with `tools` in the same LLM request is only supported by specific models, including [Gemini 3.0](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting#structured-output). For other models, ADK falls back to a [`set_model_response` function tool](https://github.com/google/adk-python/blob/main/src/google/adk/flows/llm_flows/_output_schema_processor.py) to collect the structured output, which may not work reliably. In such cases, consider using sub-agents that handle output formatting separately.
+Using `output_schema` with `tools` in the same LLM request is only supported by specific models, including [Gemini 3.0](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting#structured-output). For other models, ADK falls back to a [`set_model_response` function tool](https://github.com/google/adk-python/blob/main/src/google/adk/tools/set_model_response_tool.py) to collect the structured output, which may not work reliably. In such cases, consider using sub-agents that handle output formatting separately.
 
   * **`output_key` (Optional):** Provide a string key. If set, the text content of the agent's _final_ response will be automatically saved to the session's state dictionary under this key. This is useful for passing results between agents or steps in a workflow.
 

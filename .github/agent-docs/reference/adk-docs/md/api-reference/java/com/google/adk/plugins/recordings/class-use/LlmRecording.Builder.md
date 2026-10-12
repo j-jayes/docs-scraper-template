@@ -55,13 +55,13 @@ LlmRecording.`[builder](../LlmRecording.html#builder\(\))()`
 
 `abstract [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-LlmRecording.Builder.`[llmRequest](../LlmRecording.Builder.html#llmRequest\(com.google.adk.models.LlmRequest\))([LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+LlmRecording.Builder.`[llmRequest](../LlmRecording.Builder.html#llmRequest\(com.google.adk.models.LlmRequest\))(@Nullable [LlmRequest](../../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
  
 
 `abstract [LlmRecording.Builder](../LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-LlmRecording.Builder.`[llmResponses](../LlmRecording.Builder.html#llmResponses\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)`
+LlmRecording.Builder.`[llmResponses](../LlmRecording.Builder.html#llmResponses\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)`
 
  
 

@@ -83,13 +83,13 @@ Description
 
 `abstract [ToolRecording.Builder](ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`toolCall(com.google.genai.types.FunctionCall toolCall)`
+`toolCall(@Nullable com.google.genai.types.FunctionCall toolCall)`
 
  
 
 `abstract [ToolRecording.Builder](ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`toolResponse(com.google.genai.types.FunctionResponse toolResponse)`
+`toolResponse(@Nullable com.google.genai.types.FunctionResponse toolResponse)`
 
  
 

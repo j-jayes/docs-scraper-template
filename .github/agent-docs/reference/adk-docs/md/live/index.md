@@ -73,6 +73,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
@@ -136,6 +139,12 @@ Custom Tools
         * [ Tool performance  ](../tools-custom/performance/)
         * [ Action confirmations  ](../tools-custom/confirmation/)
       * [ MCP tools  ](../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../tools-custom/openapi-tools/)
       * [ Authentication  ](../tools-custom/authentication/)
       * [ Tool limitations  ](../tools/limitations/)
@@ -168,9 +177,6 @@ Sessions
       * [ Memory  ](../sessions/memory/)
       * [ Context compression  ](../context/compaction/)
       * [ Model context caching  ](../context/caching/)
-    * [ MCP  ](../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../a2a/)
 
 A2A Protocol 
@@ -201,6 +207,7 @@ Get started
         * [ Audio and video  ](audio-video/)
         * [ Configuration  ](configuration/)
       * Production  Production 
+        * [ Guardrails  ](guardrails/)
         * [ Evaluation  ](evaluation/)
         * [ Build a custom server  ](custom-server/)
       * [ Supported models  ](models/)
@@ -288,8 +295,10 @@ The capability pages, roughly in the order you will need them.
 
 Take a live agent beyond `adk web`.
 
+    * [Guardrails](guardrails/) — screen what the user says and what the agent says back
     * [Evaluation](evaluation/) — score voice conversations before you ship
     * [Build a custom server](custom-server/)
+    * [LiveKit](../integrations/livekit/) — WebRTC and telephony without a custom server
     * [Supported models](models/)
 
 

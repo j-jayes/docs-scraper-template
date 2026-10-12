@@ -72,7 +72,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete MethodsDeprecated Methods
+All MethodsInstance MethodsConcrete Methods
 
 Modifier and Type
 
@@ -120,9 +120,7 @@ Description
 
 `resumabilityConfig([ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)`
 
-Deprecated.
-
-See [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
+ 
 
 `[App.Builder](App.Builder.html "class in com.google.adk.apps")`
 
@@ -171,13 +169,7 @@ public Builder()
 
     * ### resumabilityConfig
 
-@CanIgnoreReturnValue [@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") public [App.Builder](App.Builder.html "class in com.google.adk.apps") resumabilityConfig([ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)
-
-Deprecated.
-
-See [`ResumabilityConfig`](ResumabilityConfig.html "class in com.google.adk.apps"): partial feature, full resumability not yet available.
-
-Sets the app resumability config.
+@CanIgnoreReturnValue [@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public [App.Builder](App.Builder.html "class in com.google.adk.apps") resumabilityConfig([ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") resumabilityConfig)
 
     * ### build
 

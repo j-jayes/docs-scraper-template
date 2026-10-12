@@ -55,13 +55,13 @@ ToolRecording.`[builder](../ToolRecording.html#builder\(\))()`
 
 `abstract [ToolRecording.Builder](../ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-ToolRecording.Builder.`[toolCall](../ToolRecording.Builder.html#toolCall\(com.google.genai.types.FunctionCall\))(com.google.genai.types.FunctionCall toolCall)`
+ToolRecording.Builder.`[toolCall](../ToolRecording.Builder.html#toolCall\(com.google.genai.types.FunctionCall\))(@Nullable com.google.genai.types.FunctionCall toolCall)`
 
  
 
 `abstract [ToolRecording.Builder](../ToolRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-ToolRecording.Builder.`[toolResponse](../ToolRecording.Builder.html#toolResponse\(com.google.genai.types.FunctionResponse\))(com.google.genai.types.FunctionResponse toolResponse)`
+ToolRecording.Builder.`[toolResponse](../ToolRecording.Builder.html#toolResponse\(com.google.genai.types.FunctionResponse\))(@Nullable com.google.genai.types.FunctionResponse toolResponse)`
 
  
 

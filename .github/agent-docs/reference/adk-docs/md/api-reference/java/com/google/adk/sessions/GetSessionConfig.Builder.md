@@ -67,7 +67,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract Methods
+All MethodsInstance MethodsAbstract MethodsConcrete Methods
 
 Modifier and Type
 
@@ -81,11 +81,11 @@ Description
 
  
 
-`abstract [GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions")`
+`[GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions")`
 
 `build()`
 
- 
+Builds the config.
 
 `abstract [GetSessionConfig.Builder](GetSessionConfig.Builder.html "class in com.google.adk.sessions")`
 
@@ -118,7 +118,12 @@ public abstract [GetSessionConfig.Builder](GetSessionConfig.Builder.html "class 
 
     * ### build
 
-public abstract [GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions") build()
+public [GetSessionConfig](GetSessionConfig.html "class in com.google.adk.sessions") build()
+
+Builds the config.
+
+Throws:
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if `numRecentEvents` is negative
 
 
 

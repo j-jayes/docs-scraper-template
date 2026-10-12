@@ -67,7 +67,7 @@ Session.`[builder](../Session.html#builder\(java.lang.String\))([String](https:/
 
 `[Session.Builder](../Session.Builder.html "class in com.google.adk.sessions")`
 
-Session.Builder.`[events](../Session.Builder.html#events\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
+Session.Builder.`[events](../Session.Builder.html#events\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> events)`
 
  
 

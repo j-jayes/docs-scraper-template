@@ -50,11 +50,12 @@ Contents
      12. runAsync(SessionKey, Content, RunConfig)
      13. runAsync(SessionKey, Content)
      14. runAsync(String, String, Content)
-     15. runAsyncImpl(Session, Content, RunConfig, Map)
-     16. runLive(Session, LiveRequestQueue, RunConfig)
-     17. runLive(String, String, LiveRequestQueue, RunConfig)
-     18. runLive(SessionKey, LiveRequestQueue, RunConfig)
-     19. runLiveImpl(Session, LiveRequestQueue, RunConfig)
+     15. runAsync(String, String, String, Content, RunConfig, Map)
+     16. runAsyncImpl(Session, Content, RunConfig, Map)
+     17. runLive(Session, LiveRequestQueue, RunConfig)
+     18. runLive(String, String, LiveRequestQueue, RunConfig)
+     19. runLive(SessionKey, LiveRequestQueue, RunConfig)
+     20. runLiveImpl(Session, LiveRequestQueue, RunConfig)
 
 Hide sidebar  Show sidebar
 
@@ -226,6 +227,12 @@ See `runAsync(String, String, Content, RunConfig, Map)`.
 `runAsync([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId, com.google.genai.types.Content newMessage, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)`
 
 Runs the agent with an invocation-based mode.
+
+`io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")>`
+
+`runAsync([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") invocationId, @Nullable com.google.genai.types.Content newMessage, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)`
+
+Runs the agent, resuming an existing invocation instead of starting a new one.
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")>`
 
@@ -404,6 +411,25 @@ See `runAsync(String, String, Content, RunConfig, Map)`.
 public io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runAsync([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId, com.google.genai.types.Content newMessage)
 
 See `runAsync(String, String, Content, RunConfig, Map)`.
+
+    * ### runAsync
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runAsync([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") sessionId, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") invocationId, @Nullable com.google.genai.types.Content newMessage, [RunConfig](../agents/RunConfig.html "class in com.google.adk.agents") runConfig, @Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> stateDelta)
+
+Runs the agent, resuming an existing invocation instead of starting a new one. The invocation is resolved from `invocationId`, or from a function response carried by ` newMessage`. Agent checkpoints are rehydrated from history and an invocation whose active agent already finished resolves to a no-op.
+
+Parameters:
+    `userId` \- the user id of the session.
+    `sessionId` \- the session id.
+    `invocationId` \- the invocation to resume; may be `null` when it can be inferred from `newMessage`.
+    `newMessage` \- an optional message (typically a function response) to append before running.
+    `runConfig` \- the run configuration.
+    `stateDelta` \- optional state updates to merge into the session for this run.
+Returns:
+    the events generated while resuming, or an empty stream when there is nothing to resume.
+Throws:
+    `[IllegalStateException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html "class in java.lang")` \- if the app is not resumable.
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if the invocation cannot be resolved.
 
     * ### runAsyncImpl
 

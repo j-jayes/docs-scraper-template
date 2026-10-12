@@ -103,7 +103,7 @@ Create a final model response event from set_model_response JSON.
 
 `getStructuredModelResponse([Event](../../events/Event.html "class in com.google.adk.events") functionResponseEvent)`
 
-Check if function response contains set_model_response and extract JSON.
+Extracts a successfully validated `set_model_response` result as JSON.
 
 `io.reactivex.rxjava3.core.Single<[RequestProcessor.RequestProcessingResult](RequestProcessor.RequestProcessingResult.html "class in com.google.adk.flows.llmflows")>`
 
@@ -146,12 +146,14 @@ Returns:
 
 public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> getStructuredModelResponse([Event](../../events/Event.html "class in com.google.adk.events") functionResponseEvent)
 
-Check if function response contains set_model_response and extract JSON.
+Extracts a successfully validated `set_model_response` result as JSON. 
+
+Only a result that passed output-schema validation (recorded on the event actions by [`SetModelResponseTool`](../../tools/SetModelResponseTool.html "class in com.google.adk.tools")) is returned. Validation feedback sent back to the model is never promoted to the final structured response.
 
 Parameters:
     `functionResponseEvent` \- The function response event to check.
 Returns:
-    JSON response string if set_model_response was called, Optional.empty() otherwise.
+    JSON response string if set_model_response succeeded, Optional.empty() otherwise.
 
     * ### createFinalModelResponseEvent
 

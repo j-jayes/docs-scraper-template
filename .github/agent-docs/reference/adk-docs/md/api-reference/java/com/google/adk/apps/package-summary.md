@@ -62,9 +62,7 @@ Builder for [`App`](App.html "class in com.google.adk.apps").
 
 [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps")
 
-Deprecated. 
-
-Partial feature: only event-reconstruction-based pause/resume for ` SequentialAgent` is implemented.
+Resumability config for every agent in an app: pause on a long-running call and resume from the last event.
 
 [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")
 

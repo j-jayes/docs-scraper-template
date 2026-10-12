@@ -55,7 +55,9 @@ All Known Implementing Classes:
 
 public interface BaseSessionService
 
-Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s. Provides methods for creating, retrieving, listing, and deleting sessions, as well as listing and appending events to a session. Implementations of this interface handle the underlying storage and retrieval logic.
+Defines the contract for managing [`Session`](Session.html "class in com.google.adk.sessions")s and their associated [`Event`](../events/Event.html "class in com.google.adk.events")s. Provides methods for creating, retrieving, listing, and deleting sessions, as well as listing and appending events to a session. Implementations of this interface handle the underlying storage and retrieval logic. 
+
+Implementations differ on whether they reject a duplicate session id; those that do signal it with a [`SessionException`](SessionException.html "class in com.google.adk.sessions") whose message is [`SessionException.SESSION_ALREADY_EXISTS`](SessionException.html#SESSION_ALREADY_EXISTS). This applies to every `createSession` overload that accepts a session id.
 
   * ## Method Summary
 
@@ -198,6 +200,7 @@ Parameters:
 Returns:
     The newly created [`Session`](Session.html "class in com.google.adk.sessions") instance.
 Throws:
+    `[SessionException](SessionException.html "class in com.google.adk.sessions")` \- with [`SessionException.SESSION_ALREADY_EXISTS`](SessionException.html#SESSION_ALREADY_EXISTS) if ` sessionId` is already in use for this app and user; only implementations that reject duplicates throw it.
     `[SessionException](SessionException.html "class in com.google.adk.sessions")` \- if creation fails.
 
     * ### createSession

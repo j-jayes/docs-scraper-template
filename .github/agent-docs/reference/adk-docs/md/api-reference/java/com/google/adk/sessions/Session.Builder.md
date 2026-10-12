@@ -102,7 +102,7 @@ Description
 
 `[Session.Builder](Session.Builder.html "class in com.google.adk.sessions")`
 
-`events([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
+`events(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)`
 
  
 
@@ -205,7 +205,7 @@ Sets the session key.
 
     * ### events
 
-@CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") events([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
+@CanIgnoreReturnValue public [Session.Builder](Session.Builder.html "class in com.google.adk.sessions") events(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Event](../events/Event.html "class in com.google.adk.events")> events)
 
     * ### eventsView
 

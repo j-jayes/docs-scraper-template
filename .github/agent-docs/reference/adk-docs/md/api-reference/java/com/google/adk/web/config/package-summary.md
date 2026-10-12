@@ -80,6 +80,10 @@ Properties for configuring CORS in ADK Web.
 
 Properties for loading agents.
 
+[BackendUrl](BackendUrl.html "class in com.google.adk.web.config")
+
+Parsed representation of `adk.web.backend-url`, shared by the runtime-config endpoint and the dev UI entry redirects.
+
 [DevUiAssets](DevUiAssets.html "class in com.google.adk.web.config")
 
 Where the dev UI's static assets live.

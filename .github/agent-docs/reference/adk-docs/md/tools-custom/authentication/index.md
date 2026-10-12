@@ -73,6 +73,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -136,6 +139,12 @@ Custom Tools
         * [ Tool performance  ](../performance/)
         * [ Action confirmations  ](../confirmation/)
       * [ MCP tools  ](../mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../mcp-tools/advanced/)
+        * [ Deployment  ](../mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../openapi-tools/)
       * Authentication  [ Authentication  ](./) Table of contents 
         * Authentication and credential management 
@@ -157,6 +166,8 @@ Custom Tools
               * ServiceAccount configuration parameters 
             * Use external access tokens 
             * Authentication request flow 
+          * Authenticate at a toolset level 
+            * How to enable it 
           * Handle the interactive OAuth/OIDC flow (client-side) 
         * Build custom tools (FunctionTool) requiring authentication 
           * Prerequisites 
@@ -191,9 +202,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -224,6 +232,7 @@ Get started
         * [ Audio and video  ](../../live/audio-video/)
         * [ Configuration  ](../../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
         * [ Evaluation  ](../../live/evaluation/)
         * [ Build a custom server  ](../../live/custom-server/)
       * [ Supported models  ](../../live/models/)
@@ -281,6 +290,8 @@ Table of contents
         * ServiceAccount configuration parameters 
       * Use external access tokens 
       * Authentication request flow 
+    * Authenticate at a toolset level 
+      * How to enable it 
     * Handle the interactive OAuth/OIDC flow (client-side) 
   * Build custom tools (FunctionTool) requiring authentication 
     * Prerequisites 
@@ -606,6 +617,42 @@ Set the key on the credentials configuration of the toolset you are using. The f
 #### Authentication request flow¶
 
 This diagram visualizes the end-to-end authentication handshake, tracing the path from the initial user query to the point where the ADK captures a credential request, handles the redirection flow, and retries the tool call once authorized.
+
+### Authenticate at a toolset level¶
+
+Supported in ADKPython v1.24.0
+
+Instead of authenticating each tool individually, you can authenticate an entire suite of tools at once at the Toolset level. Under the hood, the `BaseLlmFlow` automatically checks your `BaseToolset` for authentication requirements _before_ it even lists or executes any tools; it does this by checking the toolset's `get_auth_config()` method. If your toolset returns an `AuthConfig` object and the session doesn't already have the required credentials, the ADK framework performs the following steps:
+
+  1. **Pause execution:** Safely halts the current flow.
+  2. **Request credentials:** Issues an `adk_request_credential` event to the client, similar to the interactive flow detailed in Handle the interactive OAuth/OIDC flow.
+
+
+
+This approach gives you a single, centralized place to define auth requirements for a group of related tools. The framework handles the authentication procedure, ensuring the necessary credentials are resolved before your agent accesses tools in the toolset.
+
+#### How to enable it¶
+
+To set this up, override the `get_auth_config()` method in your custom `BaseToolset` subclass:
+    
+    
+    from google.adk.auth import AuthConfig
+    from google.adk.tools.base_toolset import BaseToolset
+    
+    
+    class MyAuthenticatedToolset(BaseToolset):
+      async def get_tools(
+          self, readonly_context: Optional[ReadonlyContext] = None
+      ) -> list[BaseTool]:
+        # ADK resolves the credential from get_auth_config() before calling this,
+        # so the tools you return here can rely on it.
+        return []  # Replace with the tools in your toolset.
+    
+        return AuthConfig(
+            auth_scheme=auth_scheme,
+            raw_auth_credential=auth_credential,
+        )
+    
 
 ### Handle the interactive OAuth/OIDC flow (client-side)¶
 

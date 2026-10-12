@@ -16,6 +16,7 @@ from google.adk.apps.app import App
 from google.adk.agents.context_cache_config import ContextCacheConfig
 
 root_agent = Agent(
+  name='my_caching_agent',
   # configure an agent using Gemini 2.0 or higher
 )
 

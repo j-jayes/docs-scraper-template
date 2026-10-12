@@ -61,13 +61,13 @@ Recording.`[builder](../Recording.html#builder\(\))()`
 
 `abstract [Recording.Builder](../Recording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-Recording.Builder.`[llmRecording](../Recording.Builder.html#llmRecording\(com.google.adk.plugins.recordings.LlmRecording\))([LlmRecording](../LlmRecording.html "class in com.google.adk.plugins.recordings") llmRecording)`
+Recording.Builder.`[llmRecording](../Recording.Builder.html#llmRecording\(com.google.adk.plugins.recordings.LlmRecording\))(@Nullable [LlmRecording](../LlmRecording.html "class in com.google.adk.plugins.recordings") llmRecording)`
 
  
 
 `abstract [Recording.Builder](../Recording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-Recording.Builder.`[toolRecording](../Recording.Builder.html#toolRecording\(com.google.adk.plugins.recordings.ToolRecording\))([ToolRecording](../ToolRecording.html "class in com.google.adk.plugins.recordings") toolRecording)`
+Recording.Builder.`[toolRecording](../Recording.Builder.html#toolRecording\(com.google.adk.plugins.recordings.ToolRecording\))(@Nullable [ToolRecording](../ToolRecording.html "class in com.google.adk.plugins.recordings") toolRecording)`
 
  
 

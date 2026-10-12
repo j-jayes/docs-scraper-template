@@ -67,7 +67,7 @@ Description
 
   * ## Method Summary
 
-All MethodsInstance MethodsAbstract MethodsDeprecated Methods
+All MethodsInstance MethodsAbstract MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
@@ -75,11 +75,11 @@ Method
 
 Description
 
-`abstract [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps")`
+`[ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps")`
 
 `build()`
 
- 
+Builds the config, rejecting a combination of flags that has no defined behavior.
 
 `abstract [ResumabilityConfig.Builder](ResumabilityConfig.Builder.html "class in com.google.adk.apps")`
 
@@ -124,7 +124,12 @@ Back-compat shim only; migrate to `Runner.runAsync(...)` with an invocation id (
 
     * ### build
 
-public abstract [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") build()
+public [ResumabilityConfig](ResumabilityConfig.html "class in com.google.adk.apps") build()
+
+Builds the config, rejecting a combination of flags that has no defined behavior.
+
+Throws:
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if both resumability and the legacy shim are enabled; they select different resumption flows, so exactly one may be set.
 
 
 

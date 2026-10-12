@@ -26,9 +26,12 @@ LightDarkSystem Setting
 Contents  
 
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Field Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Field Details
+     1. SESSION_ALREADY_EXISTS
+  6. Constructor Details
      1. SessionException(String)
      2. SessionException(String, Throwable)
      3. SessionException(Throwable)
@@ -51,7 +54,7 @@ All Implemented Interfaces:
     `[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")`
 
 Direct Known Subclasses:
-    `[SessionNotFoundException](SessionNotFoundException.html "class in com.google.adk.sessions")`
+    `[SessionNotFoundException](SessionNotFoundException.html "class in com.google.adk.sessions"), [VertexAiApiException](VertexAiApiException.html "class in com.google.adk.sessions")`
 
 * * *
 
@@ -65,6 +68,22 @@ See Also:
   * [Serialized Form](../../../../serialized-form.html#com.google.adk.sessions.SessionException)
 
 
+
+  * ## Field Summary
+
+Fields
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`SESSION_ALREADY_EXISTS`
+
+Message used when `createSession` is given a session id that is already taken.
 
   * ## Constructor Summary
 
@@ -98,6 +117,18 @@ Description
 
 
 
+
+  * ## Field Details
+
+    * ### SESSION_ALREADY_EXISTS
+
+public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") SESSION_ALREADY_EXISTS
+
+Message used when `createSession` is given a session id that is already taken.
+
+See Also:
+    
+      * [Constant Field Values](../../../../constant-values.html#com.google.adk.sessions.SessionException.SESSION_ALREADY_EXISTS)
 
   * ## Constructor Details
 

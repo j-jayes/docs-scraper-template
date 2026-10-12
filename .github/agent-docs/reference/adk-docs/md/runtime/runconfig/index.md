@@ -73,6 +73,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -556,6 +559,7 @@ Use these parameters to control runtime guardrails and debugging:
   * `max_llm_calls`: Caps the total number of LLM calls per run (default: 500). Set to 0 or negative for unlimited calls, though this is not recommended for production. Passing your language's largest integer raises an error: `sys.maxsize` in Python, `Int.MAX_VALUE` in Kotlin.
   * `save_input_blobs_as_artifacts`: When `True`, saves input blobs (e.g., uploaded files) as run artifacts for debugging and auditing. Deprecated in Python in favor of `SaveFilesAsArtifactsPlugin`.
   * `custom_metadata`: A `dict[str, Any]` of arbitrary metadata attached to the invocation, useful for tracing or logging.
+  * `service_tier`: Selects the serving capacity for the run's model calls. ADK Python only, and applies only to Gemini models that use the Interactions API. `ServiceTier.DEFERRED` queues each model call to run on off-peak capacity and cannot be combined with `StreamingMode.SSE`. See [Deferred scheduling](/agents/models/google-gemini/deferred-schedule/).
 
 
 

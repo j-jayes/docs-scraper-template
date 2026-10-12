@@ -83,13 +83,13 @@ Description
 
 `abstract [LlmRecording.Builder](LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`llmRequest([LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
+`llmRequest(@Nullable [LlmRequest](../../models/LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
  
 
 `abstract [LlmRecording.Builder](LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-`llmResponses([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)`
+`llmResponses(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../../models/LlmResponse.html "class in com.google.adk.models")> llmResponses)`
 
  
 

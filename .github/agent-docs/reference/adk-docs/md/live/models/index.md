@@ -36,6 +36,7 @@ Get Started
       * [ Agents CLI  ](../../get-started/agents-cli/)
       * [ Installation  ](../../get-started/installation/)
       * [ Google Cloud  ](../../get-started/google-cloud/)
+      * [ Migrate to ADK  ](../../get-started/migrate/)
     * [ Build your Agent  ](../../tutorials/)
 
 Build your Agent 
@@ -72,6 +73,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -135,6 +139,12 @@ Custom Tools
         * [ Tool performance  ](../../tools-custom/performance/)
         * [ Action confirmations  ](../../tools-custom/confirmation/)
       * [ MCP tools  ](../../tools-custom/mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../../tools-custom/mcp-tools/advanced/)
+        * [ Deployment  ](../../tools-custom/mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../../tools-custom/mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../../tools-custom/mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../../tools-custom/openapi-tools/)
       * [ Authentication  ](../../tools-custom/authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -167,9 +177,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -200,6 +207,7 @@ Get started
         * [ Audio and video  ](../audio-video/)
         * [ Configuration  ](../configuration/)
       * Production  Production 
+        * [ Guardrails  ](../guardrails/)
         * [ Evaluation  ](../evaluation/)
         * [ Build a custom server  ](../custom-server/)
       * Supported models  [ Supported models  ](./) Table of contents 
@@ -269,13 +277,14 @@ Live agents require a model that can hold a bidirectional connection; a standard
 
 Live agents run on models that take audio in and produce audio out, end to end, with no intermediate text-to-speech stage. That is what gives them human-like speech with natural prosody, and it is what a standard Gemini model cannot do over a bidirectional connection.
 
-The same model has a different ID on each backend:
-
 Model | AI Studio | Agent Platform  
 ---|---|---  
-Gemini 2.5 Flash Live | `gemini-2.5-flash-native-audio-preview-12-2025` | `gemini-live-2.5-flash-native-audio`  
+Gemini 2.5 Flash Live | `gemini-2.5-flash-native-audio-preview-12-2025` (Preview) | `gemini-live-2.5-flash-native-audio` (GA)  
+Gemini 3.1 Flash Live | `gemini-3.1-flash-live-preview` (Preview) | Not available  
   
-`gemini-live-2.5-flash-native-audio` is ADK's `LlmAgent.DEFAULT_LIVE_MODEL` and the model used in this section's examples.
+Gemini 2.5 Flash Live is one model with a different ID on each backend; the features are the same either way. `gemini-live-2.5-flash-native-audio` is ADK's `LlmAgent.DEFAULT_LIVE_MODEL`, the only Live model that is publicly available, and the model used in this section's examples.
+
+Gemini 3.1 Flash Live is the newer model and is lower latency, but it is AI Studio only and it drops features that 2.5 has — see Per-model feature support before you switch.
 
 ## Choosing a backend¶
 
@@ -291,9 +300,9 @@ Live models are reached through one of two backends. ADK talks to both with the 
   
 Switch with the `GOOGLE_GENAI_USE_ENTERPRISE` environment variable (`FALSE` for AI Studio, `TRUE` for Agent Platform); no code changes. See the [quickstarts](../get-started/streaming-python/) for setup.
 
-Agent Platform: confirm location support
+Agent Platform: the `global` location is not supported
 
-Live model availability varies by location on Agent Platform. Check your `GOOGLE_CLOUD_LOCATION` against the endpoint-locations table in [Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) before deploying; a regional endpoint such as `us-central1`, `us-east1`, or `asia-northeast1` is the safe default.
+Live models are not available at `GOOGLE_CLOUD_LOCATION=global`. Use a regional endpoint such as `us-central1`, `us-east1`, or `asia-northeast1`, and check it against the endpoint-locations table in [Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) before deploying.
 
 These models produce audio directly, with natural prosody, and detect the conversation language on their own. What you configure on top — voices, transcription, turn detection — is described in [Configuration](../configuration/).
 
@@ -301,13 +310,18 @@ One property is fixed at the model level: Live models produce **audio only**. Th
 
 ### Per-model feature support¶
 
-A few `RunConfig` settings depend on which model you are running:
+A few `RunConfig` and tool settings depend on which model you are running:
 
-Feature | `gemini-live-2.5-flash-native-audio`  
----|---  
-[Proactivity and affective dialog](../configuration/#proactivity-and-affective-dialog) | Opt-in via `RunConfig`  
-[`response_scheduling`](../tools/#non-blocking-tools) on tools | Supported  
+Feature | Gemini 2.5 Flash Live | Gemini 3.1 Flash Live  
+---|---|---  
+[Proactivity and affective dialog](../configuration/#proactivity-and-affective-dialog) | Opt-in via `RunConfig` | Not supported  
+[`response_scheduling`](../tools/#non-blocking-tools) on tools | Supported | Not supported; function calling is synchronous, so the model stays silent until you return the tool response  
+Thinking control | `thinking_budget` | `thinking_level` (`minimal`, `low`, `medium`, `high`)  
   
+Moving from 2.5 to 3.1
+
+Leaving `RunConfig.proactivity` or `RunConfig.enable_affective_dialog` set is the most common upgrade failure — remove them. Two more differences bite client code: a single server event can now carry several content parts at once, so iterate over `event.content.parts` instead of reading `parts[0]`; and turn coverage now defaults to including all detected audio activity and video frames, which changes token costs if you stream video continuously. See the upstream [migration notes](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview#migrating-from-gemini-25-flash-live).
+
 ## Platform limits and quotas¶
 
 Both backends cap how long a connection and a session can run and how many sessions run at once. These numbers change, so treat the upstream documentation as authoritative and verify before you rely on a limit in production.
@@ -356,6 +370,9 @@ Read the model name from an environment variable rather than hard-coding it. The
     # AI Studio
     DEMO_AGENT_MODEL=gemini-2.5-flash-native-audio-preview-12-2025
     
+    # AI Studio, if you do not need proactivity, affective dialog, or non-blocking tools
+    # DEMO_AGENT_MODEL=gemini-3.1-flash-live-preview
+    
     # Agent Platform
     # DEMO_AGENT_MODEL=gemini-live-2.5-flash-native-audio
     
@@ -391,7 +408,7 @@ This is a Python import behavior: when you import a module, its top-level code e
 
 **Selecting the right model:**
 
-  1. **Choose a backend** : AI Studio for prototyping, Agent Platform for production. This picks the ID column in the table above
+  1. **Choose a backend** : AI Studio for prototyping, Agent Platform for production. This picks the ID column in the table above, and on Agent Platform it settles the model too — Gemini 2.5 Flash Live is the only Live model there
   2. **Check current availability** : Refer to the model table above and the official documentation
   3. **Configure environment variable** : Set the model name in your `.env` file and read it from there when constructing the agent
 

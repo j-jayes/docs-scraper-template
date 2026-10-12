@@ -127,7 +127,7 @@ Traces a call to the LLM.
 
 `traceFlowable(io.opentelemetry.context.Context spanContext, io.opentelemetry.api.trace.Span span, [Supplier](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html "interface in java.util.function")<io.reactivex.rxjava3.core.Flowable<T>> flowableSupplier)`
 
-Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle.
+Executes a `Flowable` supplier within `spanContext` and propagates that context across subscription and stream emissions via `withContext(Context)`.
 
 `static void`
 
@@ -243,13 +243,7 @@ Returns:
 
 public static <T> io.reactivex.rxjava3.core.Flowable<T> traceFlowable(io.opentelemetry.context.Context spanContext, io.opentelemetry.api.trace.Span span, [Supplier](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html "interface in java.util.function")<io.reactivex.rxjava3.core.Flowable<T>> flowableSupplier)
 
-Executes a Flowable with an OpenTelemetry Scope active for its entire lifecycle. 
-
-This helper manages the OpenTelemetry Scope lifecycle for RxJava Flowables to ensure proper context propagation across async boundaries. The scope remains active from when the Flowable is returned through all operators until stream completion (onComplete, onError, or cancel). 
-
-**Why not try-with-resources?** RxJava Flowables execute lazily - operators run at subscription time, not at chain construction time. Using try-with-resources would close the scope before the Flowable subscribes, causing Context.current() to return ROOT in nested operations and breaking parent-child span relationships (fragmenting traces). 
-
-The scope is properly closed via doFinally when the stream terminates, ensuring no resource leaks regardless of completion mode (success, error, or cancellation).
+Executes a `Flowable` supplier within `spanContext` and propagates that context across subscription and stream emissions via `withContext(Context)`. Ends `span` when the stream terminates or is cancelled.
 
 Type Parameters:
     `T` \- The type of items emitted by the Flowable
@@ -258,7 +252,7 @@ Parameters:
     `span` \- The span to end when the stream completes
     `flowableSupplier` \- Supplier that creates the Flowable to execute with active scope
 Returns:
-    Flowable with OpenTelemetry scope lifecycle management
+    Flowable with OpenTelemetry context propagation and span lifecycle management
 
     * ### trace
 

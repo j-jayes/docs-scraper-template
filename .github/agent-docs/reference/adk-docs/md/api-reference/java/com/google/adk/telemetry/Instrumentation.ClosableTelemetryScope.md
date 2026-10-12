@@ -32,10 +32,9 @@ Contents
   4. Field Details
      1. startTimeNanos
      2. span
-     3. scope
-     4. telemetryContext
-     5. caughtError
-     6. closed
+     3. telemetryContext
+     4. caughtError
+     5. closed
   5. Method Details
      1. context()
      2. setError(Throwable)
@@ -89,12 +88,6 @@ The error caught during execution, if any.
 
 Whether this scope has been closed.
 
-`protected final io.opentelemetry.context.Scope`
-
-`scope`
-
-The OpenTelemetry scope associated with this span.
-
 `protected final io.opentelemetry.api.trace.Span`
 
 `span`
@@ -133,7 +126,7 @@ Hook for subclasses to run code before span ends.
 
 `close()`
 
-Closes the scope and ends the underlying span, recording any applicable metrics.
+Ends the underlying span and records any applicable metrics.
 
 `[Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry")`
 
@@ -180,12 +173,6 @@ protected final io.opentelemetry.api.trace.Span span
 
 The OpenTelemetry span associated with this scope.
 
-    * ### scope
-
-protected final io.opentelemetry.context.Scope scope
-
-The OpenTelemetry scope associated with this span.
-
     * ### telemetryContext
 
 protected final [Instrumentation.TelemetryContext](Instrumentation.TelemetryContext.html "class in com.google.adk.telemetry") telemetryContext
@@ -228,7 +215,7 @@ Parameters:
 
 public final void close()
 
-Closes the scope and ends the underlying span, recording any applicable metrics.
+Ends the underlying span and records any applicable metrics.
 
 Specified by:
     `[close](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html#close\(\))` in interface `[AutoCloseable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html "interface in java.lang")`
