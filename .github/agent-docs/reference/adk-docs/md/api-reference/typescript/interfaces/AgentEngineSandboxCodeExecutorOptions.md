@@ -25,7 +25,7 @@ projectId?: string;
 sandboxResourceName?: string;  
 }
 
-  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L43)
+  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:43](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L43)
 
 
 
@@ -37,7 +37,7 @@ agentEngineResourceName?: string
 
 The resource name of the agent engine to use to create the code execution sandbox. Format: projects/123/locations/us-central1/reasoningEngines/456
 
-  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L54)
+  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:54](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L54)
 
 
 
@@ -47,7 +47,7 @@ client?: Client
 
 Optional client instance to use. If not provided, a new one will be created. Primarily for testing.
 
-  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:70](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L70)
+  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:70](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L70)
 
 
 
@@ -57,7 +57,7 @@ location?: string
 
 Location to use. If not provided, read from GOOGLE_CLOUD_LOCATION env var or default to 'us-central1'.
 
-  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L64)
+  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:64](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L64)
 
 
 
@@ -67,7 +67,7 @@ projectId?: string
 
 Project ID to use. If not provided, read from GOOGLE_CLOUD_PROJECT env var.
 
-  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:59](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L59)
+  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:59](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L59)
 
 
 
@@ -77,7 +77,7 @@ sandboxResourceName?: string
 
 If set, load the existing resource name of the code execution sandbox. Format: projects/123/locations/us-central1/reasoningEngines/456/sandboxEnvironments/789
 
-  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L48)
+  * Defined in [core/src/code_executors/agent_engine_sandbox_code_executor.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/agent_engine_sandbox_code_executor.ts#L48)
 
 
 
@@ -85,7 +85,7 @@ Properties
 
 agentEngineResourceNameclientlocationprojectIdsandboxResourceName
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

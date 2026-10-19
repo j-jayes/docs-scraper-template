@@ -64,10 +64,12 @@ Contents
      28. setSetModelResponse(Object)
      29. rewindBeforeInvocationId()
      30. setRewindBeforeInvocationId(String)
-     31. builder()
-     32. toBuilder()
-     33. equals(Object)
-     34. hashCode()
+     31. route()
+     32. setRoute(List)
+     33. builder()
+     34. toBuilder()
+     35. equals(Object)
+     36. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -209,6 +211,12 @@ Removes a key from the state delta.
 
 On a rewind event, the ID of the invocation to rewind before: the history from that invocation up to the rewind event is dropped.
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.common.collect.ImmutableList<[Route](../workflow/Route.html "interface in com.google.adk.workflow")>>`
+
+`route()`
+
+For a workflow node, returns the routes this event selects; an edge is followed when it has one of these routes.
+
 `void`
 
 `setAgentState(@Nullable [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> agentState)`
@@ -274,6 +282,12 @@ The successfully validated structured response set by the `set_model_response` t
 `void`
 
 `setRewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") rewindBeforeInvocationId)`
+
+ 
+
+`void`
+
+`setRoute(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Route](../workflow/Route.html "interface in com.google.adk.workflow")> route)`
 
  
 
@@ -542,6 +556,16 @@ On a rewind event, the ID of the invocation to rewind before: the history from t
     * ### setRewindBeforeInvocationId
 
 public void setRewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") rewindBeforeInvocationId)
+
+    * ### route
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.common.collect.ImmutableList<[Route](../workflow/Route.html "interface in com.google.adk.workflow")>> route()
+
+For a workflow node, returns the routes this event selects; an edge is followed when it has one of these routes. The value is optional because an empty list is still a routing decision that selects no route, whereas an absent value means the event makes no routing decision. When merging, an empty list replaces the existing routes, while an absent value keeps them.
+
+    * ### setRoute
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public void setRoute(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Route](../workflow/Route.html "interface in com.google.adk.workflow")> route)
 
     * ### builder
 

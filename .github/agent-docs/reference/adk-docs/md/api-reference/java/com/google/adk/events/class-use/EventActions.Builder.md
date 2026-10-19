@@ -123,6 +123,12 @@ EventActions.Builder.`[rewindBeforeInvocationId](../EventActions.Builder.html#re
 
 `[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
 
+EventActions.Builder.`[route](../EventActions.Builder.html#route\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Route](../../workflow/Route.html "interface in com.google.adk.workflow")> value)`
+
+ 
+
+`[EventActions.Builder](../EventActions.Builder.html "class in com.google.adk.events")`
+
 EventActions.Builder.`[setModelResponse](../EventActions.Builder.html#setModelResponse\(java.lang.Object\))(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)`
 
  

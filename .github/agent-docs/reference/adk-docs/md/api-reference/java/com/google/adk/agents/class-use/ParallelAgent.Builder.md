@@ -69,9 +69,9 @@ ParallelAgent.`[builder](../ParallelAgent.html#builder\(\))()`
 
 `[ParallelAgent.Builder](../ParallelAgent.Builder.html "class in com.google.adk.agents")`
 
-ParallelAgent.Builder.`[scheduler](../ParallelAgent.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\))(io.reactivex.rxjava3.core.Scheduler scheduler)`
+ParallelAgent.Builder.`[scheduler](../ParallelAgent.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\))(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)`
 
- 
+Sets the scheduler the sub-agents are subscribed on, or `null` (the default) to inherit the invocation's scheduler ([`InvocationContext.scheduler()`](../InvocationContext.html#scheduler\(\)): `Schedulers.io()` unless the `Runner` is configured with another one).
 
 
 

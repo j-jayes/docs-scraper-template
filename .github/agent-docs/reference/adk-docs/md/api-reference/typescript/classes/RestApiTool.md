@@ -24,7 +24,7 @@ The base class for all tools.
 
 
 
-  * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L24)
+  * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:85](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L85)
 
 
 
@@ -42,6 +42,7 @@ authCredential?: [AuthCredential](../interfaces/AuthCredential.html),
 options?: {  
 credentialKey?: string;  
 headerProvider?: (context: [ReadonlyContext](ReadonlyContext.html)) => Record<string, string>;  
+operationParser?: [OperationParser](OperationParser.html);  
 preservePropertyNames?: boolean;  
 },  
 ): [RestApiTool]()
@@ -57,6 +58,7 @@ preservePropertyNames?: boolean;
     * options: {  
 credentialKey?: string;  
 headerProvider?: (context: [ReadonlyContext](ReadonlyContext.html)) => Record<string, string>;  
+operationParser?: [OperationParser](OperationParser.html);  
 preservePropertyNames?: boolean;  
 } = {}
 
@@ -64,7 +66,7 @@ preservePropertyNames?: boolean;
 
 Overrides [BaseTool](BaseTool.html).[constructor](BaseTool.html#constructor)
 
-    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L30)
+    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:91](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L91)
 
 
 
@@ -79,7 +81,7 @@ A unique symbol to identify ADK base tool class.
 
 Inherited from [BaseTool](BaseTool.html).[[BASE_TOOL_SIGNATURE_SYMBOL]](BaseTool.html#base_tool_signature_symbol)
 
-  * Defined in [core/src/tools/base_tool.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L64)
+  * Defined in [core/src/tools/base_tool.ts:83](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L83)
 
 
 
@@ -89,7 +91,7 @@ description: string
 
 Inherited from [BaseTool](BaseTool.html).[description](BaseTool.html#description)
 
-  * Defined in [core/src/tools/base_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L67)
+  * Defined in [core/src/tools/base_tool.ts:86](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L86)
 
 
 
@@ -99,7 +101,7 @@ isLongRunning: boolean
 
 Inherited from [BaseTool](BaseTool.html).[isLongRunning](BaseTool.html#islongrunning)
 
-  * Defined in [core/src/tools/base_tool.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L68)
+  * Defined in [core/src/tools/base_tool.ts:87](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L87)
 
 
 
@@ -109,7 +111,7 @@ name: string
 
 Inherited from [BaseTool](BaseTool.html).[name](BaseTool.html#name)
 
-  * Defined in [core/src/tools/base_tool.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L66)
+  * Defined in [core/src/tools/base_tool.ts:85](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L85)
 
 
 
@@ -125,7 +127,7 @@ The Google API LLM variant to use.
 
 Inherited from BaseTool.apiVariant
 
-    * Defined in [core/src/tools/base_tool.ts:151](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L151)
+    * Defined in [core/src/tools/base_tool.ts:198](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L198)
 
 
 
@@ -149,7 +151,39 @@ The FunctionDeclaration of this tool, or undefined if it doesn't need to be adde
 
 Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclaration)
 
-    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L67)
+    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:130](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L130)
+
+
+
+
+### checkRequireConfirmation
+
+  * checkRequireConfirmation(  
+_args: Record<string, unknown>,  
+_toolContext?: [Context](Context.html),  
+): Promise<boolean>
+
+Whether this tool needs a human to approve `args` before it runs.
+
+The gate itself lives in the tool that owns it (see `FunctionTool`), but the resume path has to ask the same question a turn later, to check that an approval it is about to honour belongs to a tool that gates at all. A tool that never gates returns false here, which is the safe default: an approval naming it is meaningless and gets rejected rather than executed. Mirrors Python's `BaseTool.check_require_confirmation`.
+
+#### Parameters
+
+    * _args: Record<string, unknown>
+
+The arguments the tool would run with.
+
+    * `Optional`_toolContext: [Context](Context.html)
+
+The context of the call, when there is one.
+
+#### Returns Promise<boolean>
+
+Whether the call requires confirmation.
+
+Inherited from [BaseTool](BaseTool.html).[checkRequireConfirmation](BaseTool.html#checkrequireconfirmation)
+
+    * Defined in [core/src/tools/base_tool.ts:144](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L144)
 
 
 
@@ -164,7 +198,7 @@ Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclarat
 
 #### Returns void
 
-    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L57)
+    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:120](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L120)
 
 
 
@@ -179,7 +213,7 @@ Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclarat
 
 #### Returns void
 
-    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:52](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L52)
+    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:115](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L115)
 
 
 
@@ -194,7 +228,7 @@ Overrides [BaseTool](BaseTool.html).[_getDeclaration](BaseTool.html#_getdeclarat
 
 #### Returns void
 
-    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:62](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L62)
+    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:125](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L125)
 
 
 
@@ -220,7 +254,7 @@ The request to process the LLM request.
 
 Inherited from [BaseTool](BaseTool.html).[processLlmRequest](BaseTool.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_tool.ts:120](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L120)
+    * Defined in [core/src/tools/base_tool.ts:160](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L160)
 
 
 
@@ -248,7 +282,7 @@ A promise that resolves to the tool response.
 
 Overrides [BaseTool](BaseTool.html).[runAsync](BaseTool.html#runasync)
 
-    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:77](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/rest_api_tool.ts#L77)
+    * Defined in [core/src/tools/openapi_tool/rest_api_tool.ts:141](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/rest_api_tool.ts#L141)
 
 
 
@@ -267,9 +301,9 @@ apiVariant
 
 Methods
 
-_getDeclarationconfigureAuthCredentialconfigureAuthSchemeconfigureCredentialKeyprocessLlmRequestrunAsync
+_getDeclarationcheckRequireConfirmationconfigureAuthCredentialconfigureAuthSchemeconfigureCredentialKeyprocessLlmRequestrunAsync
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

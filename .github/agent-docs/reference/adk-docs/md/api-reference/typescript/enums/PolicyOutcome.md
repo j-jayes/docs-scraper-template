@@ -17,7 +17,7 @@ Preparing search index...
 
 The outcome of a policy check.
 
-  * Defined in [core/src/plugins/security_plugin.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L30)
+  * Defined in [core/src/plugins/security_plugin.ts:31](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L31)
 
 
 
@@ -27,7 +27,7 @@ The outcome of a policy check.
 
 ALLOW: "ALLOW"
 
-  * Defined in [core/src/plugins/security_plugin.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L36)
+  * Defined in [core/src/plugins/security_plugin.ts:37](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L37)
 
 
 
@@ -35,7 +35,7 @@ ALLOW: "ALLOW"
 
 CONFIRM: "CONFIRM"
 
-  * Defined in [core/src/plugins/security_plugin.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L34)
+  * Defined in [core/src/plugins/security_plugin.ts:35](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L35)
 
 
 
@@ -43,7 +43,7 @@ CONFIRM: "CONFIRM"
 
 DENY: "DENY"
 
-  * Defined in [core/src/plugins/security_plugin.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L32)
+  * Defined in [core/src/plugins/security_plugin.ts:33](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L33)
 
 
 
@@ -51,7 +51,7 @@ Enumeration Members
 
 ALLOWCONFIRMDENY
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

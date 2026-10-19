@@ -22,7 +22,7 @@ llmRequest: [LlmRequest](LlmRequest.html);
 toolContext: [Context](../classes/Context.html);  
 }
 
-  * Defined in [core/src/tools/base_tool.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L25)
+  * Defined in [core/src/tools/base_tool.ts:25](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L25)
 
 
 
@@ -32,7 +32,7 @@ toolContext: [Context](../classes/Context.html);
 
 llmRequest: [LlmRequest](LlmRequest.html)
 
-  * Defined in [core/src/tools/base_tool.ts:27](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L27)
+  * Defined in [core/src/tools/base_tool.ts:27](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L27)
 
 
 
@@ -40,7 +40,7 @@ llmRequest: [LlmRequest](LlmRequest.html)
 
 toolContext: [Context](../classes/Context.html)
 
-  * Defined in [core/src/tools/base_tool.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_tool.ts#L26)
+  * Defined in [core/src/tools/base_tool.ts:26](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_tool.ts#L26)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 llmRequesttoolContext
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

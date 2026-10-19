@@ -19,11 +19,11 @@ AuthScheme: OpenAPIV3.SecuritySchemeObject | [OpenIdConnectWithConfig](../interf
 
 AuthSchemes contains SecuritySchemes from OpenAPI 3.0 and an extra flattened OpenIdConnectWithConfig.
 
-  * Defined in [core/src/auth/auth_schemes.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_schemes.ts#L30)
+  * Defined in [core/src/auth/auth_schemes.ts:30](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_schemes.ts#L30)
 
 
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

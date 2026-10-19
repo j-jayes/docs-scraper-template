@@ -21,7 +21,7 @@ This class is responsible for establishing and managing connections to MCP serve
 
 The primary purpose of this manager is to abstract away the details of session creation and connection handling, providing a simple interface for creating new MCP client instances that can be used to interact with remote tools.
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L73)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:114](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L114)
 
 
 
@@ -37,7 +37,7 @@ The primary purpose of this manager is to abstract away the details of session c
 
 #### Returns [MCPSessionManager]()
 
-    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:77](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L77)
+    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:118](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L118)
 
 
 
@@ -54,7 +54,7 @@ The primary purpose of this manager is to abstract away the details of session c
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:121](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L121)
+    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:172](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L172)
 
 
 
@@ -65,7 +65,7 @@ The primary purpose of this manager is to abstract away the details of session c
 
 #### Returns Promise<Client<{}, {}, { [key: string]: unknown }>>
 
-    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:81](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L81)
+    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:122](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L122)
 
 
 
@@ -76,7 +76,7 @@ The primary purpose of this manager is to abstract away the details of session c
 
 #### Returns Client<{}, {}, { [key: string]: unknown }>[]
 
-    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:128](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L128)
+    * Defined in [core/src/tools/mcp/mcp_session_manager.ts:179](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L179)
 
 
 
@@ -89,7 +89,7 @@ Methods
 
 closeSessioncreateSessiongetActiveSessions
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

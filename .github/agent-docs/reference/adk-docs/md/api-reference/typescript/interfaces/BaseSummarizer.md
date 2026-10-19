@@ -27,7 +27,7 @@ summarize(events: [Event](Event.html)[]): Promise<[CompactedEvent](CompactedEven
 
 
 
-  * Defined in [core/src/context/summarizers/base_summarizer.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/summarizers/base_summarizer.ts#L14)
+  * Defined in [core/src/context/summarizers/base_summarizer.ts:14](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/summarizers/base_summarizer.ts#L14)
 
 
 
@@ -49,7 +49,7 @@ The events to summarize.
 
 A promise resolving to the CompactedEvent representation of the events.
 
-    * Defined in [core/src/context/summarizers/base_summarizer.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/summarizers/base_summarizer.ts#L21)
+    * Defined in [core/src/context/summarizers/base_summarizer.ts:21](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/summarizers/base_summarizer.ts#L21)
 
 
 
@@ -58,7 +58,7 @@ Methods
 
 summarize
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

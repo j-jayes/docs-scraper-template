@@ -23,7 +23,7 @@ A simple context compactor that truncates the oldest events to get under the giv
 
 
 
-  * Defined in [core/src/context/truncating_context_compactor.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L21)
+  * Defined in [core/src/context/truncating_context_compactor.ts:22](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L22)
 
 
 
@@ -41,7 +41,7 @@ options: [TruncatingContextCompactorOptions](../interfaces/TruncatingContextComp
 
 #### Returns [TruncatingContextCompactor]()
 
-    * Defined in [core/src/context/truncating_context_compactor.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L25)
+    * Defined in [core/src/context/truncating_context_compactor.ts:26](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L26)
 
 
 
@@ -64,7 +64,7 @@ The current invocation context.
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[compact](../interfaces/BaseContextCompactor.html#compact)
 
-    * Defined in [core/src/context/truncating_context_compactor.ts:37](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L37)
+    * Defined in [core/src/context/truncating_context_compactor.ts:42](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L42)
 
 
 
@@ -87,7 +87,7 @@ A boolean or a promise resolving to a boolean indicating if compaction should oc
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[shouldCompact](../interfaces/BaseContextCompactor.html#shouldcompact)
 
-    * Defined in [core/src/context/truncating_context_compactor.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L30)
+    * Defined in [core/src/context/truncating_context_compactor.ts:31](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L31)
 
 
 
@@ -100,7 +100,7 @@ Methods
 
 compactshouldCompact
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

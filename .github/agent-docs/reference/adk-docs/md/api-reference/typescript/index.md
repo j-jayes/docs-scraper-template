@@ -9,7 +9,7 @@ Search…
 
 Preparing search index...
 
-# ADK for TypeScript: API Reference - v1.5.0
+# ADK for TypeScript: API Reference - v2.2.1
 
 ## Enumerations
 
@@ -31,6 +31,8 @@ Preparing search index...
     
 [LogLevel](enums/LogLevel.html)
     
+[NodeStatus](enums/NodeStatus.html)
+    
 [OAuthGrantType](enums/OAuthGrantType.html)
     
 [PolicyOutcome](enums/PolicyOutcome.html)
@@ -41,12 +43,18 @@ Preparing search index...
     
 [StreamingMode](enums/StreamingMode.html)
     
+[ToolErrorType](enums/ToolErrorType.html)
+    
+[TrackingScope](enums/TrackingScope.html)
+    
 
 ## Classes
 
 [A2AAgentExecutor](classes/A2AAgentExecutor.html)
     
 [ActiveStreamingTool](classes/ActiveStreamingTool.html)
+    
+[AdkDefaultRequestHandler](classes/AdkDefaultRequestHandler.html)
     
 [Agent](classes/Agent.html)
     
@@ -62,11 +70,17 @@ Preparing search index...
     
 [AgentTransferLlmRequestProcessor](classes/AgentTransferLlmRequestProcessor.html)
     
+[AlreadyExistsError](classes/AlreadyExistsError.html)
+    
 [AnchoredContextCompactor](classes/AnchoredContextCompactor.html)
     
 [ApigeeLlm](classes/ApigeeLlm.html)
     
 [App](classes/App.html)
+    
+[AsyncQueue](classes/AsyncQueue.html)
+    
+[AuthCredentialMissingError](classes/AuthCredentialMissingError.html)
     
 [AuthHandler](classes/AuthHandler.html)
     
@@ -74,9 +88,15 @@ Preparing search index...
     
 [AuthProviderRegistry](classes/AuthProviderRegistry.html)
     
+[AutoAuthCredentialExchanger](classes/AutoAuthCredentialExchanger.html)
+    
 [BaseAgent](classes/BaseAgent.html)
     
+[BaseAuthCredentialExchanger](classes/BaseAuthCredentialExchanger.html)
+    
 [BaseCodeExecutor](classes/BaseCodeExecutor.html)
+    
+[BaseEnvironment](classes/BaseEnvironment.html)
     
 [BaseExampleProvider](classes/BaseExampleProvider.html)
     
@@ -86,7 +106,13 @@ Preparing search index...
     
 [BaseLlmResponseProcessor](classes/BaseLlmResponseProcessor.html)
     
+[BaseNode](classes/BaseNode.html)
+    
+[BasePlanner](classes/BasePlanner.html)
+    
 [BasePlugin](classes/BasePlugin.html)
+    
+[BaseRetrievalTool](classes/BaseRetrievalTool.html)
     
 [BaseSessionService](classes/BaseSessionService.html)
     
@@ -94,9 +120,21 @@ Preparing search index...
     
 [BaseToolset](classes/BaseToolset.html)
     
+[BranchPath](classes/BranchPath.html)
+    
 [BuiltInCodeExecutor](classes/BuiltInCodeExecutor.html)
     
+[BuiltInPlanner](classes/BuiltInPlanner.html)
+    
+[BuiltInTool](classes/BuiltInTool.html)
+    
+[ChromeBuiltInLlm](classes/ChromeBuiltInLlm.html)
+    
+[ChromeModelUnavailableError](classes/ChromeModelUnavailableError.html)
+    
 [ConsolidateContextTool](classes/ConsolidateContextTool.html)
+    
+[ContainerCodeExecutor](classes/ContainerCodeExecutor.html)
     
 [ContentRequestProcessor](classes/ContentRequestProcessor.html)
     
@@ -110,6 +148,8 @@ Preparing search index...
     
 [DatabaseSessionService](classes/DatabaseSessionService.html)
     
+[Edge](classes/Edge.html)
+    
 [EnterpriseWebSearchTool](classes/EnterpriseWebSearchTool.html)
     
 [ExampleTool](classes/ExampleTool.html)
@@ -117,6 +157,14 @@ Preparing search index...
 [ExitLoopTool](classes/ExitLoopTool.html)
     
 [FileArtifactService](classes/FileArtifactService.html)
+    
+[FilesRetrieval](classes/FilesRetrieval.html)
+    
+[FinishTaskTool](classes/FinishTaskTool.html)
+    
+[ForwardingArtifactService](classes/ForwardingArtifactService.html)
+    
+[FunctionNode](classes/FunctionNode.html)
     
 [FunctionTool](classes/FunctionTool.html)
     
@@ -132,6 +180,8 @@ Preparing search index...
     
 [GoogleSearchTool](classes/GoogleSearchTool.html)
     
+[Graph](classes/Graph.html)
+    
 [InMemoryArtifactService](classes/InMemoryArtifactService.html)
     
 [InMemoryCredentialService](classes/InMemoryCredentialService.html)
@@ -144,13 +194,21 @@ Preparing search index...
     
 [InMemorySessionService](classes/InMemorySessionService.html)
     
+[InputValidationError](classes/InputValidationError.html)
+    
+[IntentMismatchError](classes/IntentMismatchError.html)
+    
 [InteractionsRequestProcessor](classes/InteractionsRequestProcessor.html)
     
 [InvocationContext](classes/InvocationContext.html)
     
+[JoinNode](classes/JoinNode.html)
+    
 [ListSkillsTool](classes/ListSkillsTool.html)
     
 [LiveRequestQueue](classes/LiveRequestQueue.html)
+    
+[LlamaIndexRetrieval](classes/LlamaIndexRetrieval.html)
     
 [LLMRegistry](classes/LLMRegistry.html)
     
@@ -166,6 +224,8 @@ Preparing search index...
     
 [LoadSkillTool](classes/LoadSkillTool.html)
     
+[LocalEnvironment](classes/LocalEnvironment.html)
+    
 [LoggingPlugin](classes/LoggingPlugin.html)
     
 [LongRunningFunctionTool](classes/LongRunningFunctionTool.html)
@@ -177,6 +237,20 @@ Preparing search index...
 [MCPTool](classes/MCPTool.html)
     
 [MCPToolset](classes/MCPToolset.html)
+    
+[NodeContext](classes/NodeContext.html)
+    
+[NodeReportedError](classes/NodeReportedError.html)
+    
+[NodeSchemaValidationError](classes/NodeSchemaValidationError.html)
+    
+[NodeTimeoutError](classes/NodeTimeoutError.html)
+    
+[NodeTool](classes/NodeTool.html)
+    
+[NotFoundError](classes/NotFoundError.html)
+    
+[OAuth2BearerExchanger](classes/OAuth2BearerExchanger.html)
     
 [OAuth2CredentialExchanger](classes/OAuth2CredentialExchanger.html)
     
@@ -190,13 +264,23 @@ Preparing search index...
     
 [ParallelAgent](classes/ParallelAgent.html)
     
+[ParallelWorker](classes/ParallelWorker.html)
+    
+[PlanReActPlanner](classes/PlanReActPlanner.html)
+    
 [PluginManager](classes/PluginManager.html)
     
 [PreloadMemoryTool](classes/PreloadMemoryTool.html)
     
 [ReadonlyContext](classes/ReadonlyContext.html)
     
+[ReflectAndRetryModelPlugin](classes/ReflectAndRetryModelPlugin.html)
+    
+[ReflectAndRetryToolPlugin](classes/ReflectAndRetryToolPlugin.html)
+    
 [RemoteA2AAgent](classes/RemoteA2AAgent.html)
+    
+[RequestInput](classes/RequestInput.html)
     
 [RestApiTool](classes/RestApiTool.html)
     
@@ -210,11 +294,19 @@ Preparing search index...
     
 [RunSkillScriptTool](classes/RunSkillScriptTool.html)
     
+[ScopedArtifactService](classes/ScopedArtifactService.html)
+    
+[ScopedFailureTracker](classes/ScopedFailureTracker.html)
+    
 [SearchSkillsTool](classes/SearchSkillsTool.html)
     
 [SecurityPlugin](classes/SecurityPlugin.html)
     
 [SequentialAgent](classes/SequentialAgent.html)
+    
+[ServiceAccountCredentialExchanger](classes/ServiceAccountCredentialExchanger.html)
+    
+[SessionNotFoundError](classes/SessionNotFoundError.html)
     
 [SessionStateCredentialService](classes/SessionStateCredentialService.html)
     
@@ -222,13 +314,25 @@ Preparing search index...
     
 [State](classes/State.html)
     
+[StateSchemaError](classes/StateSchemaError.html)
+    
 [Task](classes/Task.html)
     
 [TokenBasedContextCompactor](classes/TokenBasedContextCompactor.html)
     
 [ToolAuthHandler](classes/ToolAuthHandler.html)
     
+[ToolCallIntegrityError](classes/ToolCallIntegrityError.html)
+    
+[ToolCallIntegrityPlugin](classes/ToolCallIntegrityPlugin.html)
+    
 [ToolConfirmation](classes/ToolConfirmation.html)
+    
+[ToolContextCredentialStore](classes/ToolContextCredentialStore.html)
+    
+[ToolExecutionError](classes/ToolExecutionError.html)
+    
+[ToolNode](classes/ToolNode.html)
     
 [TrajectoryThoughtPruningCompactor](classes/TrajectoryThoughtPruningCompactor.html)
     
@@ -238,13 +342,25 @@ Preparing search index...
     
 [UrlContextTool](classes/UrlContextTool.html)
     
+[VertexAiExampleStore](classes/VertexAiExampleStore.html)
+    
 [VertexAiMemoryBankService](classes/VertexAiMemoryBankService.html)
+    
+[VertexAiRagMemoryService](classes/VertexAiRagMemoryService.html)
     
 [VertexAiSearchTool](classes/VertexAiSearchTool.html)
     
 [VertexAiSessionService](classes/VertexAiSessionService.html)
     
 [VertexRagRetrievalTool](classes/VertexRagRetrievalTool.html)
+    
+[WebMCPTool](classes/WebMCPTool.html)
+    
+[WebMCPToolset](classes/WebMCPToolset.html)
+    
+[Workflow](classes/Workflow.html)
+    
+[WorkflowNode](classes/WorkflowNode.html)
     
 
 ## Interfaces
@@ -268,6 +384,8 @@ Preparing search index...
 [ApigeeLlmParams](interfaces/ApigeeLlmParams.html)
     
 [ApiParameter](interfaces/ApiParameter.html)
+    
+[ApiParameterInit](interfaces/ApiParameterInit.html)
     
 [AppendEventRequest](interfaces/AppendEventRequest.html)
     
@@ -299,6 +417,8 @@ Preparing search index...
     
 [BaseMemoryService](interfaces/BaseMemoryService.html)
     
+[BaseNodeConfig](interfaces/BaseNodeConfig.html)
+    
 [BasePolicyEngine](interfaces/BasePolicyEngine.html)
     
 [BaseSummarizer](interfaces/BaseSummarizer.html)
@@ -307,7 +427,31 @@ Preparing search index...
     
 [Binding](interfaces/Binding.html)
     
+[BuildNodeOptions](interfaces/BuildNodeOptions.html)
+    
 [CallCodeEvent](interfaces/CallCodeEvent.html)
+    
+[ChromeBuiltInDiagnostic](interfaces/ChromeBuiltInDiagnostic.html)
+    
+[ChromeBuiltInLlmParams](interfaces/ChromeBuiltInLlmParams.html)
+    
+[ChromeCreateCoreOptions](interfaces/ChromeCreateCoreOptions.html)
+    
+[ChromeCreateMonitor](interfaces/ChromeCreateMonitor.html)
+    
+[ChromeCreateOptions](interfaces/ChromeCreateOptions.html)
+    
+[ChromeExpectedModality](interfaces/ChromeExpectedModality.html)
+    
+[ChromeLanguageModelFactory](interfaces/ChromeLanguageModelFactory.html)
+    
+[ChromeLanguageModelSession](interfaces/ChromeLanguageModelSession.html)
+    
+[ChromeMessage](interfaces/ChromeMessage.html)
+    
+[ChromeMessageContent](interfaces/ChromeMessageContent.html)
+    
+[ChromePromptOptions](interfaces/ChromePromptOptions.html)
     
 [CodeExecutionInput](interfaces/CodeExecutionInput.html)
     
@@ -323,7 +467,13 @@ Preparing search index...
     
 [ConnectionUriResult](interfaces/ConnectionUriResult.html)
     
+[ContainerCodeExecutorOptions](interfaces/ContainerCodeExecutorOptions.html)
+    
 [ContentEvent](interfaces/ContentEvent.html)
+    
+[CreateEventParams](interfaces/CreateEventParams.html)
+    
+[CreateNodeErrorEventParams](interfaces/CreateNodeErrorEventParams.html)
     
 [CreateSessionRequest](interfaces/CreateSessionRequest.html)
     
@@ -341,9 +491,13 @@ Preparing search index...
     
 [Example](interfaces/Example.html)
     
+[ExampleStoreApiClient](interfaces/ExampleStoreApiClient.html)
+    
 [ExchangeResult](interfaces/ExchangeResult.html)
     
 [ExecuteCodeParams](interfaces/ExecuteCodeParams.html)
+    
+[ExecutionResult](interfaces/ExecutionResult.html)
     
 [ExecutorContext](interfaces/ExecutorContext.html)
     
@@ -351,9 +505,15 @@ Preparing search index...
     
 [File](interfaces/File.html)
     
+[FilesRetrievalConstructorParams](interfaces/FilesRetrievalConstructorParams.html)
+    
+[FilesRetrievalParams](interfaces/FilesRetrievalParams.html)
+    
 [FinishedEvent](interfaces/FinishedEvent.html)
     
 [Frontmatter](interfaces/Frontmatter.html)
+    
+[FunctionNodeConfig](interfaces/FunctionNodeConfig.html)
     
 [GcpAuthProviderScheme](interfaces/GcpAuthProviderScheme.html)
     
@@ -389,6 +549,14 @@ Preparing search index...
     
 [LiveRequest](interfaces/LiveRequest.html)
     
+[LlamaIndexNode](interfaces/LlamaIndexNode.html)
+    
+[LlamaIndexNodeWithScore](interfaces/LlamaIndexNodeWithScore.html)
+    
+[LlamaIndexRetrievalParams](interfaces/LlamaIndexRetrievalParams.html)
+    
+[LlamaIndexRetriever](interfaces/LlamaIndexRetriever.html)
+    
 [LlmAgentConfig](interfaces/LlmAgentConfig.html)
     
 [LlmRequest](interfaces/LlmRequest.html)
@@ -401,6 +569,8 @@ Preparing search index...
     
 [LoadWebPageOptions](interfaces/LoadWebPageOptions.html)
     
+[LocalEnvironmentOptions](interfaces/LocalEnvironmentOptions.html)
+    
 [Logger](interfaces/Logger.html)
     
 [LoopAgentConfig](interfaces/LoopAgentConfig.html)
@@ -408,6 +578,16 @@ Preparing search index...
 [McpServer](interfaces/McpServer.html)
     
 [MemoryEntry](interfaces/MemoryEntry.html)
+    
+[NodeContextOptions](interfaces/NodeContextOptions.html)
+    
+[NodeErrorEvent](interfaces/NodeErrorEvent.html)
+    
+[NodeInfo](interfaces/NodeInfo.html)
+    
+[NodeResult](interfaces/NodeResult.html)
+    
+[NodeState](interfaces/NodeState.html)
     
 [OAuth2Auth](interfaces/OAuth2Auth.html)
     
@@ -419,15 +599,29 @@ Preparing search index...
     
 [OTelHooks](interfaces/OTelHooks.html)
     
+[ParallelWorkerConfig](interfaces/ParallelWorkerConfig.html)
+    
 [ParsedOperation](interfaces/ParsedOperation.html)
+    
+[ParsedOperationInput](interfaces/ParsedOperationInput.html)
     
 [PolicyCheckResult](interfaces/PolicyCheckResult.html)
     
+[PreparedRetryConfig](interfaces/PreparedRetryConfig.html)
+    
+[ReflectAndRetryModelPluginOptions](interfaces/ReflectAndRetryModelPluginOptions.html)
+    
+[ReflectAndRetryToolPluginOptions](interfaces/ReflectAndRetryToolPluginOptions.html)
+    
 [RemoteA2AAgentConfig](interfaces/RemoteA2AAgentConfig.html)
+    
+[RequestInputParams](interfaces/RequestInputParams.html)
     
 [Resources](interfaces/Resources.html)
     
 [ResumabilityConfig](interfaces/ResumabilityConfig.html)
+    
+[RetryConfig](interfaces/RetryConfig.html)
     
 [RoutedAgentConfig](interfaces/RoutedAgentConfig.html)
     
@@ -437,11 +631,23 @@ Preparing search index...
     
 [RunnerConfig](interfaces/RunnerConfig.html)
     
+[RunNodeOptions](interfaces/RunNodeOptions.html)
+    
 [SaveArtifactRequest](interfaces/SaveArtifactRequest.html)
+    
+[ScheduleDynamicNode](interfaces/ScheduleDynamicNode.html)
+    
+[ScheduleDynamicNodeOptions](interfaces/ScheduleDynamicNodeOptions.html)
     
 [Script](interfaces/Script.html)
     
 [SearchEngineParams](interfaces/SearchEngineParams.html)
+    
+[SearchExamplesRequest](interfaces/SearchExamplesRequest.html)
+    
+[SearchExamplesResponse](interfaces/SearchExamplesResponse.html)
+    
+[SearchExamplesResult](interfaces/SearchExamplesResult.html)
     
 [SearchMemoryRequest](interfaces/SearchMemoryRequest.html)
     
@@ -465,6 +671,8 @@ Preparing search index...
     
 [StdioConnectionParams](interfaces/StdioConnectionParams.html)
     
+[StoredContentsExample](interfaces/StoredContentsExample.html)
+    
 [StreamableHTTPConnectionParams](interfaces/StreamableHTTPConnectionParams.html)
     
 [ThoughtEvent](interfaces/ThoughtEvent.html)
@@ -473,11 +681,19 @@ Preparing search index...
     
 [TokenBasedContextCompactorOptions](interfaces/TokenBasedContextCompactorOptions.html)
     
+[ToolAuthHandlerOptions](interfaces/ToolAuthHandlerOptions.html)
+    
 [ToolCallEvent](interfaces/ToolCallEvent.html)
+    
+[ToolCallIntegrityPluginOptions](interfaces/ToolCallIntegrityPluginOptions.html)
     
 [ToolCallPolicyContext](interfaces/ToolCallPolicyContext.html)
     
 [ToolConfirmationEvent](interfaces/ToolConfirmationEvent.html)
+    
+[ToolFailureResponse](interfaces/ToolFailureResponse.html)
+    
+[ToolNodeConfig](interfaces/ToolNodeConfig.html)
     
 [ToolProcessLlmRequest](interfaces/ToolProcessLlmRequest.html)
     
@@ -491,13 +707,37 @@ Preparing search index...
     
 [UnsafeLocalCodeExecutorOptions](interfaces/UnsafeLocalCodeExecutorOptions.html)
     
+[UserInputRequest](interfaces/UserInputRequest.html)
+    
+[VertexAiCreateSessionRequest](interfaces/VertexAiCreateSessionRequest.html)
+    
 [VertexAiMemoryBankServiceOptions](interfaces/VertexAiMemoryBankServiceOptions.html)
+    
+[VertexAiRagMemoryServiceOptions](interfaces/VertexAiRagMemoryServiceOptions.html)
     
 [VertexAISearchConfig](interfaces/VertexAISearchConfig.html)
     
 [VertexAISearchDataStoreSpec](interfaces/VertexAISearchDataStoreSpec.html)
     
 [VertexAiSessionServiceOptions](interfaces/VertexAiSessionServiceOptions.html)
+    
+[WebMCPDocument](interfaces/WebMCPDocument.html)
+    
+[WebMCPExecuteToolOptions](interfaces/WebMCPExecuteToolOptions.html)
+    
+[WebMCPGetToolsOptions](interfaces/WebMCPGetToolsOptions.html)
+    
+[WebMCPModelContext](interfaces/WebMCPModelContext.html)
+    
+[WebMCPRegisteredTool](interfaces/WebMCPRegisteredTool.html)
+    
+[WebMCPToolAnnotations](interfaces/WebMCPToolAnnotations.html)
+    
+[WebMCPToolParams](interfaces/WebMCPToolParams.html)
+    
+[WebMCPToolsetOptions](interfaces/WebMCPToolsetOptions.html)
+    
+[WorkflowInstructionScope](interfaces/WorkflowInstructionScope.html)
     
 
 ## Type Aliases
@@ -534,9 +774,27 @@ Preparing search index...
     
 [BeforeToolCallback](types/BeforeToolCallback.html)
     
+[ChainElement](types/ChainElement.html)
+    
+[ChromeModelAvailability](types/ChromeModelAvailability.html)
+    
+[CustomCredentialExchangers](types/CustomCredentialExchangers.html)
+    
 [DeleteSessionRequest](types/DeleteSessionRequest.html)
     
+[DynamicEntry](types/DynamicEntry.html)
+    
+[EdgeItem](types/EdgeItem.html)
+    
+[ErrorClass](types/ErrorClass.html)
+    
+[FunctionNodeHandler](types/FunctionNodeHandler.html)
+    
+[FunctionNodeResult](types/FunctionNodeResult.html)
+    
 [InstructionProvider](types/InstructionProvider.html)
+    
+[IntentMismatchReason](types/IntentMismatchReason.html)
     
 [ListArtifactKeysRequest](types/ListArtifactKeysRequest.html)
     
@@ -546,7 +804,31 @@ Preparing search index...
     
 [MCPConnectionParams](types/MCPConnectionParams.html)
     
+[NodeLike](types/NodeLike.html)
+    
+[NodeOptions](types/NodeOptions.html)
+    
+[PerItemFailuresCounter](types/PerItemFailuresCounter.html)
+    
+[RequireConfirmation](types/RequireConfirmation.html)
+    
+[ResumeInputs](types/ResumeInputs.html)
+    
+[Route](types/Route.html)
+    
+[RouteKey](types/RouteKey.html)
+    
+[RouteValue](types/RouteValue.html)
+    
+[RoutingMap](types/RoutingMap.html)
+    
+[RunnableNode](types/RunnableNode.html)
+    
+[RunnableRoot](types/RunnableRoot.html)
+    
 [RunnerOrRunnerConfig](types/RunnerOrRunnerConfig.html)
+    
+[SchemaLike](types/SchemaLike.html)
     
 [SingleAfterModelCallback](types/SingleAfterModelCallback.html)
     
@@ -574,30 +856,52 @@ Preparing search index...
     
 [ToolUnion](types/ToolUnion.html)
     
+[UserInputKind](types/UserInputKind.html)
+    
 [VertexAiSearchToolParams](types/VertexAiSearchToolParams.html)
+    
+[WorkflowConfig](types/WorkflowConfig.html)
     
 
 ## Variables
 
+[ADK_HANDLE_MODEL_ERROR_TOOL_NAME](variables/ADK_HANDLE_MODEL_ERROR_TOOL_NAME.html)
+    
 [AGENT_REGISTRY_BASE_URL](variables/AGENT_REGISTRY_BASE_URL.html)
     
 [AUTH_PREPROCESSOR](variables/AUTH_PREPROCESSOR.html)
     
 [CONTENT_REQUEST_PROCESSOR](variables/CONTENT_REQUEST_PROCESSOR.html)
     
+[DEFAULT_ROUTE](variables/DEFAULT_ROUTE.html)
+    
 [ENTERPRISE_WEB_SEARCH](variables/ENTERPRISE_WEB_SEARCH.html)
     
 [EXIT_LOOP](variables/EXIT_LOOP.html)
+    
+[FINISH_TASK_SUCCESS_RESULT](variables/FINISH_TASK_SUCCESS_RESULT.html)
+    
+[FINISH_TASK_TOOL_NAME](variables/FINISH_TASK_TOOL_NAME.html)
     
 [functionsExportedForTestingOnly](variables/functionsExportedForTestingOnly.html)
     
 [GCP_MCP_SERVER_DESTINATION_ID](variables/GCP_MCP_SERVER_DESTINATION_ID.html)
     
+[getUserChoiceTool](variables/getUserChoiceTool.html)
+    
+[GLOBAL_SCOPE_KEY](variables/GLOBAL_SCOPE_KEY.html)
+    
 [GOOGLE_MAPS_GROUNDING](variables/GOOGLE_MAPS_GROUNDING.html)
     
 [GOOGLE_SEARCH](variables/GOOGLE_SEARCH.html)
     
+[IN_MODEL_TOOL_SYMBOL](variables/IN_MODEL_TOOL_SYMBOL.html)
+    
 [INTERACTIONS_REQUEST_PROCESSOR](variables/INTERACTIONS_REQUEST_PROCESSOR.html)
+    
+[INTERNAL_AUTH_PREFIX](variables/INTERNAL_AUTH_PREFIX.html)
+    
+[INTERNAL_METADATA_PREFIX](variables/INTERNAL_METADATA_PREFIX.html)
     
 [LOAD_ARTIFACTS](variables/LOAD_ARTIFACTS.html)
     
@@ -605,9 +909,25 @@ Preparing search index...
     
 [LOAD_WEB_PAGE](variables/LOAD_WEB_PAGE.html)
     
+[logger](variables/logger.html)
+    
 [PRELOAD_MEMORY](variables/PRELOAD_MEMORY.html)
     
+[REFLECT_AND_RETRY_RESPONSE_TYPE](variables/REFLECT_AND_RETRY_RESPONSE_TYPE.html)
+    
 [REQUEST_CONFIRMATION_FUNCTION_CALL_NAME](variables/REQUEST_CONFIRMATION_FUNCTION_CALL_NAME.html)
+    
+[REQUEST_CREDENTIAL_FUNCTION_CALL_NAME](variables/REQUEST_CREDENTIAL_FUNCTION_CALL_NAME.html)
+    
+[REQUEST_INPUT_FUNCTION_CALL_NAME](variables/REQUEST_INPUT_FUNCTION_CALL_NAME.html)
+    
+[requestInputTool](variables/requestInputTool.html)
+    
+[RESERVED_TOOL_CALL_ERROR_TYPE](variables/RESERVED_TOOL_CALL_ERROR_TYPE.html)
+    
+[RESTORED_EVENT_KEY](variables/RESTORED_EVENT_KEY.html)
+    
+[START](variables/START.html)
     
 [URL_CONTEXT](variables/URL_CONTEXT.html)
     
@@ -616,19 +936,41 @@ Preparing search index...
 
 ## Functions
 
+[asRunnableRoot](functions/asRunnableRoot.html)
+    
+[bearerTokenUserBuilder](functions/bearerTokenUserBuilder.html)
+    
 [cleanName](functions/cleanName.html)
+    
+[commonPrefixOf](functions/commonPrefixOf.html)
+    
+[createApiParameter](functions/createApiParameter.html)
     
 [createEvent](functions/createEvent.html)
     
 [createEventActions](functions/createEventActions.html)
     
+[createNodeErrorEvent](functions/createNodeErrorEvent.html)
+    
+[createNodeState](functions/createNodeState.html)
+    
 [createRestApiTool](functions/createRestApiTool.html)
+    
+[createRestApiToolFromJson](functions/createRestApiToolFromJson.html)
     
 [createResumabilityConfig](functions/createResumabilityConfig.html)
     
 [createSession](functions/createSession.html)
     
+[createSubBranch](functions/createSubBranch.html)
+    
+[credentialToParam](functions/credentialToParam.html)
+    
 [determineAgentForResumption](functions/determineAgentForResumption.html)
+    
+[dictToAuthScheme](functions/dictToAuthScheme.html)
+    
+[exchangeCredential](functions/exchangeCredential.html)
     
 [findEventByFunctionCallId](functions/findEventByFunctionCallId.html)
     
@@ -640,7 +982,13 @@ Preparing search index...
     
 [generateClientFunctionCallId](functions/generateClientFunctionCallId.html)
     
+[generateParamDoc](functions/generateParamDoc.html)
+    
+[generateReturnDoc](functions/generateReturnDoc.html)
+    
 [getA2AAgentCard](functions/getA2AAgentCard.html)
+    
+[getA2aRequestMetadata](functions/getA2aRequestMetadata.html)
     
 [getArtifactServiceFromUri](functions/getArtifactServiceFromUri.html)
     
@@ -660,7 +1008,15 @@ Preparing search index...
     
 [getLogger](functions/getLogger.html)
     
+[getModelContext](functions/getModelContext.html)
+    
+[getPendingUserInputRequests](functions/getPendingUserInputRequests.html)
+    
 [getSessionServiceFromUri](functions/getSessionServiceFromUri.html)
+    
+[getTypeHint](functions/getTypeHint.html)
+    
+[getUserInputRequests](functions/getUserInputRequests.html)
     
 [hasThoughts](functions/hasThoughts.html)
     
@@ -670,15 +1026,21 @@ Preparing search index...
     
 [isApp](functions/isApp.html)
     
+[isAuthCredential](functions/isAuthCredential.html)
+    
 [isBaseAgent](functions/isBaseAgent.html)
     
 [isBaseExampleProvider](functions/isBaseExampleProvider.html)
     
 [isBaseLlm](functions/isBaseLlm.html)
     
+[isBasePlanner](functions/isBasePlanner.html)
+    
 [isBaseTool](functions/isBaseTool.html)
     
 [isBaseToolset](functions/isBaseToolset.html)
+    
+[isBuiltInPlanner](functions/isBuiltInPlanner.html)
     
 [isCompactedEvent](functions/isCompactedEvent.html)
     
@@ -690,25 +1052,57 @@ Preparing search index...
     
 [isGemini2OrAbove](functions/isGemini2OrAbove.html)
     
+[isGemini35LiveTranslate](functions/isGemini35LiveTranslate.html)
+    
 [isGemini3xFlashLive](functions/isGemini3xFlashLive.html)
     
+[isGemini3xLive](functions/isGemini3xLive.html)
+    
 [isGoogleApi](functions/isGoogleApi.html)
+    
+[isInModelTool](functions/isInModelTool.html)
+    
+[isIntentMismatchError](functions/isIntentMismatchError.html)
     
 [isLlmAgent](functions/isLlmAgent.html)
     
 [isLoopAgent](functions/isLoopAgent.html)
     
+[isNodeErrorEvent](functions/isNodeErrorEvent.html)
+    
+[isNodeReportedError](functions/isNodeReportedError.html)
+    
+[isNodeSchemaValidationError](functions/isNodeSchemaValidationError.html)
+    
+[isNodeState](functions/isNodeState.html)
+    
+[isNodeTimeoutError](functions/isNodeTimeoutError.html)
+    
 [isParallelAgent](functions/isParallelAgent.html)
+    
+[isRequestInput](functions/isRequestInput.html)
     
 [isRoutableLlmAgent](functions/isRoutableLlmAgent.html)
     
 [isRoutedAgent](functions/isRoutedAgent.html)
+    
+[isRunnableRoot](functions/isRunnableRoot.html)
     
 [isRunner](functions/isRunner.html)
     
 [isScratchpadEvent](functions/isScratchpadEvent.html)
     
 [isSequentialAgent](functions/isSequentialAgent.html)
+    
+[isSessionArtifactService](functions/isSessionArtifactService.html)
+    
+[isStateSchemaError](functions/isStateSchemaError.html)
+    
+[isToolNotFound](functions/isToolNotFound.html)
+    
+[isWebMCPSupported](functions/isWebMCPSupported.html)
+    
+[isWorkflow](functions/isWorkflow.html)
     
 [loadAllSkillsInDir](functions/loadAllSkillsInDir.html)
     
@@ -718,19 +1112,51 @@ Preparing search index...
     
 [loadWebPage](functions/loadWebPage.html)
     
+[markRestored](functions/markRestored.html)
+    
 [maybeSetOtelProviders](functions/maybeSetOtelProviders.html)
     
 [mergeStates](functions/mergeStates.html)
+    
+[node](functions/node.html)
+    
+[normalizeRetryExceptions](functions/normalizeRetryExceptions.html)
+    
+[openidDictToSchemeCredential](functions/openidDictToSchemeCredential.html)
+    
+[openidUrlToSchemeCredential](functions/openidUrlToSchemeCredential.html)
     
 [overrideFeatureEnabled](functions/overrideFeatureEnabled.html)
     
 [populateClientFunctionCallId](functions/populateClientFunctionCallId.html)
     
+[prepareRetryConfig](functions/prepareRetryConfig.html)
+    
 [pruneThoughts](functions/pruneThoughts.html)
+    
+[publicEvent](functions/publicEvent.html)
+    
+[publicMetadata](functions/publicMetadata.html)
+    
+[publicSession](functions/publicSession.html)
     
 [registerFeature](functions/registerFeature.html)
     
+[renameReservedKeywords](functions/renameReservedKeywords.html)
+    
+[requireAgent](functions/requireAgent.html)
+    
+[requiresUserInput](functions/requiresUserInput.html)
+    
+[resetLogger](functions/resetLogger.html)
+    
+[resolveScopeKey](functions/resolveScopeKey.html)
+    
 [runWithClientLabel](functions/runWithClientLabel.html)
+    
+[serviceAccountDictToSchemeCredential](functions/serviceAccountDictToSchemeCredential.html)
+    
+[serviceAccountSchemeCredential](functions/serviceAccountSchemeCredential.html)
     
 [setLogger](functions/setLogger.html)
     
@@ -738,7 +1164,13 @@ Preparing search index...
     
 [stringifyContent](functions/stringifyContent.html)
     
+[stripAdkIdentityPreamble](functions/stripAdkIdentityPreamble.html)
+    
 [toA2a](functions/toA2a.html)
+    
+[tokenToSchemeCredential](functions/tokenToSchemeCredential.html)
+    
+[toSnakeCaseName](functions/toSnakeCaseName.html)
     
 [toStructuredEvents](functions/toStructuredEvents.html)
     
@@ -757,38 +1189,42 @@ Preparing search index...
 
 ## References
 
+CallbackContext → [Context](classes/Context.html)
+    
 LlmAgent → [Agent](classes/Agent.html)
+    
+ToolContext → [Context](classes/Context.html)
     
 
 Enumerations
 
-AuthCredentialTypesCodeExecutionLanguageContextCompactionTriggerEventTypeFeatureNameFeatureStageFileContentEncodingGoogleLLMVariantLogLevelOAuthGrantTypePolicyOutcomeProtocolTypeRunSkillInlineScriptErrorCodeStreamingMode
+AuthCredentialTypesCodeExecutionLanguageContextCompactionTriggerEventTypeFeatureNameFeatureStageFileContentEncodingGoogleLLMVariantLogLevelNodeStatusOAuthGrantTypePolicyOutcomeProtocolTypeRunSkillInlineScriptErrorCodeStreamingModeToolErrorTypeTrackingScope
 
 Classes
 
-A2AAgentExecutorActiveStreamingToolAgentAgentControlledContextCompactorAgentEngineSandboxCodeExecutorAgentRegistryAgentRegistrySingleMCPToolsetAgentToolAgentTransferLlmRequestProcessorAnchoredContextCompactorApigeeLlmAppAuthHandlerAuthPreprocessorAuthProviderRegistryBaseAgentBaseCodeExecutorBaseExampleProviderBaseLlmBaseLlmRequestProcessorBaseLlmResponseProcessorBasePluginBaseSessionServiceBaseToolBaseToolsetBuiltInCodeExecutorConsolidateContextToolContentRequestProcessorContextContextCompactorRequestProcessorCredentialExchangeErrorCredentialRefresherRegistryDatabaseSessionServiceEnterpriseWebSearchToolExampleToolExitLoopToolFileArtifactServiceFunctionToolGCPSkillRegistryGcsArtifactServiceGeminiGlobalInstructionPluginGoogleMapsGroundingToolGoogleSearchToolInMemoryArtifactServiceInMemoryCredentialServiceInMemoryMemoryServiceInMemoryPolicyEngineInMemoryRunnerInMemorySessionServiceInteractionsRequestProcessorInvocationContextListSkillsToolLiveRequestQueueLLMRegistryLlmSummarizerLoadArtifactsToolLoadMcpResourceToolLoadMemoryToolLoadSkillResourceToolLoadSkillToolLoggingPluginLongRunningFunctionToolLoopAgentMCPSessionManagerMCPToolMCPToolsetOAuth2CredentialExchangerOAuth2DiscoveryManagerOpenApiSpecParserOpenAPIToolsetOperationParserParallelAgentPluginManagerPreloadMemoryToolReadonlyContextRemoteA2AAgentRestApiToolRoutedAgentRoutedLlmRunnerRunSkillInlineScriptToolRunSkillScriptToolSearchSkillsToolSecurityPluginSequentialAgentSessionStateCredentialServiceSkillToolsetStateTaskTokenBasedContextCompactorToolAuthHandlerToolConfirmationTrajectoryThoughtPruningCompactorTruncatingContextCompactorUnsafeLocalCodeExecutorUrlContextToolVertexAiMemoryBankServiceVertexAiSearchToolVertexAiSessionServiceVertexRagRetrievalTool
+A2AAgentExecutorActiveStreamingToolAdkDefaultRequestHandlerAgentAgentControlledContextCompactorAgentEngineSandboxCodeExecutorAgentRegistryAgentRegistrySingleMCPToolsetAgentToolAgentTransferLlmRequestProcessorAlreadyExistsErrorAnchoredContextCompactorApigeeLlmAppAsyncQueueAuthCredentialMissingErrorAuthHandlerAuthPreprocessorAuthProviderRegistryAutoAuthCredentialExchangerBaseAgentBaseAuthCredentialExchangerBaseCodeExecutorBaseEnvironmentBaseExampleProviderBaseLlmBaseLlmRequestProcessorBaseLlmResponseProcessorBaseNodeBasePlannerBasePluginBaseRetrievalToolBaseSessionServiceBaseToolBaseToolsetBranchPathBuiltInCodeExecutorBuiltInPlannerBuiltInToolChromeBuiltInLlmChromeModelUnavailableErrorConsolidateContextToolContainerCodeExecutorContentRequestProcessorContextContextCompactorRequestProcessorCredentialExchangeErrorCredentialRefresherRegistryDatabaseSessionServiceEdgeEnterpriseWebSearchToolExampleToolExitLoopToolFileArtifactServiceFilesRetrievalFinishTaskToolForwardingArtifactServiceFunctionNodeFunctionToolGCPSkillRegistryGcsArtifactServiceGeminiGlobalInstructionPluginGoogleMapsGroundingToolGoogleSearchToolGraphInMemoryArtifactServiceInMemoryCredentialServiceInMemoryMemoryServiceInMemoryPolicyEngineInMemoryRunnerInMemorySessionServiceInputValidationErrorIntentMismatchErrorInteractionsRequestProcessorInvocationContextJoinNodeListSkillsToolLiveRequestQueueLlamaIndexRetrievalLLMRegistryLlmSummarizerLoadArtifactsToolLoadMcpResourceToolLoadMemoryToolLoadSkillResourceToolLoadSkillToolLocalEnvironmentLoggingPluginLongRunningFunctionToolLoopAgentMCPSessionManagerMCPToolMCPToolsetNodeContextNodeReportedErrorNodeSchemaValidationErrorNodeTimeoutErrorNodeToolNotFoundErrorOAuth2BearerExchangerOAuth2CredentialExchangerOAuth2DiscoveryManagerOpenApiSpecParserOpenAPIToolsetOperationParserParallelAgentParallelWorkerPlanReActPlannerPluginManagerPreloadMemoryToolReadonlyContextReflectAndRetryModelPluginReflectAndRetryToolPluginRemoteA2AAgentRequestInputRestApiToolRoutedAgentRoutedLlmRunnerRunSkillInlineScriptToolRunSkillScriptToolScopedArtifactServiceScopedFailureTrackerSearchSkillsToolSecurityPluginSequentialAgentServiceAccountCredentialExchangerSessionNotFoundErrorSessionStateCredentialServiceSkillToolsetStateStateSchemaErrorTaskTokenBasedContextCompactorToolAuthHandlerToolCallIntegrityErrorToolCallIntegrityPluginToolConfirmationToolContextCredentialStoreToolExecutionErrorToolNodeTrajectoryThoughtPruningCompactorTruncatingContextCompactorUnsafeLocalCodeExecutorUrlContextToolVertexAiExampleStoreVertexAiMemoryBankServiceVertexAiRagMemoryServiceVertexAiSearchToolVertexAiSessionServiceVertexRagRetrievalToolWebMCPToolWebMCPToolsetWorkflowWorkflowNode
 
 Interfaces
 
-ActiveStreamingToolParamsActivityEventAgentEngineSandboxCodeExecutorOptionsAgentExecutorConfigAgentInfoAgentSkillMetadataAgentToolConfigAnchoredContextCompactorOptionsApigeeLlmParamsApiParameterAppendEventRequestAppOptionsArtifactVersionAuthConfigAuthCredentialAuthPreparationResultBaseAgentConfigBaseArtifactServiceBaseAuthProviderBaseContextCompactorBaseCredentialExchangerBaseCredentialRefresherBaseCredentialServiceBaseLlmConnectionBaseMemoryServiceBasePolicyEngineBaseSummarizerBaseToolParamsBindingCallCodeEventCodeExecutionInputCodeExecutionResultCodeResultEventCompactedEventCompositeSessionKeyConnectionUriFilterConnectionUriResultContentEventCreateSessionRequestDataStoreParamsDeleteArtifactRequestEndpointErrorEventEventEventActionsExampleExchangeResultExecuteCodeParamsExecutorContextFeatureConfigFileFinishedEventFrontmatterGcpAuthProviderSchemeGCPSkillRegistryOptionsGeminiParamsGetSessionConfigGetSessionRequestHttpAuthHttpCredentialsInterfaceInvocationContextParamsListAgentsResponseListBindingsResponseListEndpointsResponseListMcpServersResponseListSessionsRequestListSessionsResponseListVersionsRequestLiveRequestLlmAgentConfigLlmRequestLlmResponseLlmSummarizerOptionsLoadArtifactRequestLoadWebPageOptionsLoggerLoopAgentConfigMcpServerMemoryEntryOAuth2AuthOpenIdConnectWithConfigOperationEndpointOtelExportersConfigOTelHooksParsedOperationPolicyCheckResultRemoteA2AAgentConfigResourcesResumabilityConfigRoutedAgentConfigRunAsyncToolRequestRunConfigRunnerConfigSaveArtifactRequestScriptSearchEngineParamsSearchMemoryRequestSearchMemoryResponseServiceAccountServiceAccountCredentialSessionSessionArtifactServiceSessionLoadArtifactRequestSessionSaveArtifactRequestSkillSkillRegistryStdioConnectionParamsStreamableHTTPConnectionParamsThoughtEventToA2aOptionsTokenBasedContextCompactorOptionsToolCallEventToolCallPolicyContextToolConfirmationEventToolProcessLlmRequestToolResultEventTrajectoryThoughtPruningCompactorOptionsTranscriptionEntryTruncatingContextCompactorOptionsUnsafeLocalCodeExecutorOptionsVertexAiMemoryBankServiceOptionsVertexAISearchConfigVertexAISearchDataStoreSpecVertexAiSessionServiceOptions
+ActiveStreamingToolParamsActivityEventAgentEngineSandboxCodeExecutorOptionsAgentExecutorConfigAgentInfoAgentSkillMetadataAgentToolConfigAnchoredContextCompactorOptionsApigeeLlmParamsApiParameterApiParameterInitAppendEventRequestAppOptionsArtifactVersionAuthConfigAuthCredentialAuthPreparationResultBaseAgentConfigBaseArtifactServiceBaseAuthProviderBaseContextCompactorBaseCredentialExchangerBaseCredentialRefresherBaseCredentialServiceBaseLlmConnectionBaseMemoryServiceBaseNodeConfigBasePolicyEngineBaseSummarizerBaseToolParamsBindingBuildNodeOptionsCallCodeEventChromeBuiltInDiagnosticChromeBuiltInLlmParamsChromeCreateCoreOptionsChromeCreateMonitorChromeCreateOptionsChromeExpectedModalityChromeLanguageModelFactoryChromeLanguageModelSessionChromeMessageChromeMessageContentChromePromptOptionsCodeExecutionInputCodeExecutionResultCodeResultEventCompactedEventCompositeSessionKeyConnectionUriFilterConnectionUriResultContainerCodeExecutorOptionsContentEventCreateEventParamsCreateNodeErrorEventParamsCreateSessionRequestDataStoreParamsDeleteArtifactRequestEndpointErrorEventEventEventActionsExampleExampleStoreApiClientExchangeResultExecuteCodeParamsExecutionResultExecutorContextFeatureConfigFileFilesRetrievalConstructorParamsFilesRetrievalParamsFinishedEventFrontmatterFunctionNodeConfigGcpAuthProviderSchemeGCPSkillRegistryOptionsGeminiParamsGetSessionConfigGetSessionRequestHttpAuthHttpCredentialsInterfaceInvocationContextParamsListAgentsResponseListBindingsResponseListEndpointsResponseListMcpServersResponseListSessionsRequestListSessionsResponseListVersionsRequestLiveRequestLlamaIndexNodeLlamaIndexNodeWithScoreLlamaIndexRetrievalParamsLlamaIndexRetrieverLlmAgentConfigLlmRequestLlmResponseLlmSummarizerOptionsLoadArtifactRequestLoadWebPageOptionsLocalEnvironmentOptionsLoggerLoopAgentConfigMcpServerMemoryEntryNodeContextOptionsNodeErrorEventNodeInfoNodeResultNodeStateOAuth2AuthOpenIdConnectWithConfigOperationEndpointOtelExportersConfigOTelHooksParallelWorkerConfigParsedOperationParsedOperationInputPolicyCheckResultPreparedRetryConfigReflectAndRetryModelPluginOptionsReflectAndRetryToolPluginOptionsRemoteA2AAgentConfigRequestInputParamsResourcesResumabilityConfigRetryConfigRoutedAgentConfigRunAsyncToolRequestRunConfigRunnerConfigRunNodeOptionsSaveArtifactRequestScheduleDynamicNodeScheduleDynamicNodeOptionsScriptSearchEngineParamsSearchExamplesRequestSearchExamplesResponseSearchExamplesResultSearchMemoryRequestSearchMemoryResponseServiceAccountServiceAccountCredentialSessionSessionArtifactServiceSessionLoadArtifactRequestSessionSaveArtifactRequestSkillSkillRegistryStdioConnectionParamsStoredContentsExampleStreamableHTTPConnectionParamsThoughtEventToA2aOptionsTokenBasedContextCompactorOptionsToolAuthHandlerOptionsToolCallEventToolCallIntegrityPluginOptionsToolCallPolicyContextToolConfirmationEventToolFailureResponseToolNodeConfigToolProcessLlmRequestToolResultEventTrajectoryThoughtPruningCompactorOptionsTranscriptionEntryTruncatingContextCompactorOptionsUnsafeLocalCodeExecutorOptionsUserInputRequestVertexAiCreateSessionRequestVertexAiMemoryBankServiceOptionsVertexAiRagMemoryServiceOptionsVertexAISearchConfigVertexAISearchDataStoreSpecVertexAiSessionServiceOptionsWebMCPDocumentWebMCPExecuteToolOptionsWebMCPGetToolsOptionsWebMCPModelContextWebMCPRegisteredToolWebMCPToolAnnotationsWebMCPToolParamsWebMCPToolsetOptionsWorkflowInstructionScope
 
 Type Aliases
 
-A2AStreamEventDataA2aUserBuilderAfterA2ARequestCallbackAfterAgentCallbackAfterEventCallbackAfterExecuteCallbackAfterModelCallbackAfterToolCallbackAgentRouterAuthSchemeBaseLlmTypeBeforeA2ARequestCallbackBeforeAgentCallbackBeforeExecuteCallbackBeforeModelCallbackBeforeToolCallbackDeleteSessionRequestInstructionProviderListArtifactKeysRequestLlmAgentSchemaLlmRouterMCPConnectionParamsRunnerOrRunnerConfigSingleAfterModelCallbackSingleAfterToolCallbackSingleAgentCallbackSingleBeforeModelCallbackSingleBeforeToolCallbackStructuredEventTaskExecutableToolExecuteArgumentToolExecuteFunctionToolInputParametersToolOptionsToolPredicateToolUnionVertexAiSearchToolParams
+A2AStreamEventDataA2aUserBuilderAfterA2ARequestCallbackAfterAgentCallbackAfterEventCallbackAfterExecuteCallbackAfterModelCallbackAfterToolCallbackAgentRouterAuthSchemeBaseLlmTypeBeforeA2ARequestCallbackBeforeAgentCallbackBeforeExecuteCallbackBeforeModelCallbackBeforeToolCallbackChainElementChromeModelAvailabilityCustomCredentialExchangersDeleteSessionRequestDynamicEntryEdgeItemErrorClassFunctionNodeHandlerFunctionNodeResultInstructionProviderIntentMismatchReasonListArtifactKeysRequestLlmAgentSchemaLlmRouterMCPConnectionParamsNodeLikeNodeOptionsPerItemFailuresCounterRequireConfirmationResumeInputsRouteRouteKeyRouteValueRoutingMapRunnableNodeRunnableRootRunnerOrRunnerConfigSchemaLikeSingleAfterModelCallbackSingleAfterToolCallbackSingleAgentCallbackSingleBeforeModelCallbackSingleBeforeToolCallbackStructuredEventTaskExecutableToolExecuteArgumentToolExecuteFunctionToolInputParametersToolOptionsToolPredicateToolUnionUserInputKindVertexAiSearchToolParamsWorkflowConfig
 
 Variables
 
-AGENT_REGISTRY_BASE_URLAUTH_PREPROCESSORCONTENT_REQUEST_PROCESSORENTERPRISE_WEB_SEARCHEXIT_LOOPfunctionsExportedForTestingOnlyGCP_MCP_SERVER_DESTINATION_IDGOOGLE_MAPS_GROUNDINGGOOGLE_SEARCHINTERACTIONS_REQUEST_PROCESSORLOAD_ARTIFACTSLOAD_MEMORYLOAD_WEB_PAGEPRELOAD_MEMORYREQUEST_CONFIRMATION_FUNCTION_CALL_NAMEURL_CONTEXTversion
+ADK_HANDLE_MODEL_ERROR_TOOL_NAMEAGENT_REGISTRY_BASE_URLAUTH_PREPROCESSORCONTENT_REQUEST_PROCESSORDEFAULT_ROUTEENTERPRISE_WEB_SEARCHEXIT_LOOPFINISH_TASK_SUCCESS_RESULTFINISH_TASK_TOOL_NAMEfunctionsExportedForTestingOnlyGCP_MCP_SERVER_DESTINATION_IDgetUserChoiceToolGLOBAL_SCOPE_KEYGOOGLE_MAPS_GROUNDINGGOOGLE_SEARCHIN_MODEL_TOOL_SYMBOLINTERACTIONS_REQUEST_PROCESSORINTERNAL_AUTH_PREFIXINTERNAL_METADATA_PREFIXLOAD_ARTIFACTSLOAD_MEMORYLOAD_WEB_PAGEloggerPRELOAD_MEMORYREFLECT_AND_RETRY_RESPONSE_TYPEREQUEST_CONFIRMATION_FUNCTION_CALL_NAMEREQUEST_CREDENTIAL_FUNCTION_CALL_NAMEREQUEST_INPUT_FUNCTION_CALL_NAMErequestInputToolRESERVED_TOOL_CALL_ERROR_TYPERESTORED_EVENT_KEYSTARTURL_CONTEXTversion
 
 Functions
 
-cleanNamecreateEventcreateEventActionscreateRestApiToolcreateResumabilityConfigcreateSessiondetermineAgentForResumptionfindEventByFunctionCallIdfindEventByLastFunctionResponseIdfindMatchingFunctionCallgeminiInitParamsgenerateClientFunctionCallIdgetA2AAgentCardgetArtifactServiceFromUrigetAskUserConfirmationFunctionCallsgetClientLabelsgetFeatureConfiggetFunctionCallsgetFunctionResponsesgetGcpExportersgetGcpResourcegetLoggergetSessionServiceFromUrihasThoughtshasTrailingCodeExecutionResultisAgentToolisAppisBaseAgentisBaseExampleProviderisBaseLlmisBaseToolisBaseToolsetisCompactedEventisFeatureEnabledisFinalResponseisFunctionToolisGemini2OrAboveisGemini3xFlashLiveisGoogleApiisLlmAgentisLoopAgentisParallelAgentisRoutableLlmAgentisRoutedAgentisRunnerisScratchpadEventisSequentialAgentloadAllSkillsInDirloadSkillFromDirloadSkillFromZipBufferloadWebPagemaybeSetOtelProvidersmergeStatesoverrideFeatureEnabledpopulateClientFunctionCallIdpruneThoughtsregisterFeaturerunWithClientLabelsetLoggersetLogLevelstringifyContenttoA2atoStructuredEventstrimTempDeltaStatetrimTempStatevalidateAppNamevalidateSkillDirwithTemporaryFeatureOverridezodObjectToSchema
+asRunnableRootbearerTokenUserBuildercleanNamecommonPrefixOfcreateApiParametercreateEventcreateEventActionscreateNodeErrorEventcreateNodeStatecreateRestApiToolcreateRestApiToolFromJsoncreateResumabilityConfigcreateSessioncreateSubBranchcredentialToParamdetermineAgentForResumptiondictToAuthSchemeexchangeCredentialfindEventByFunctionCallIdfindEventByLastFunctionResponseIdfindMatchingFunctionCallgeminiInitParamsgenerateClientFunctionCallIdgenerateParamDocgenerateReturnDocgetA2AAgentCardgetA2aRequestMetadatagetArtifactServiceFromUrigetAskUserConfirmationFunctionCallsgetClientLabelsgetFeatureConfiggetFunctionCallsgetFunctionResponsesgetGcpExportersgetGcpResourcegetLoggergetModelContextgetPendingUserInputRequestsgetSessionServiceFromUrigetTypeHintgetUserInputRequestshasThoughtshasTrailingCodeExecutionResultisAgentToolisAppisAuthCredentialisBaseAgentisBaseExampleProviderisBaseLlmisBasePlannerisBaseToolisBaseToolsetisBuiltInPlannerisCompactedEventisFeatureEnabledisFinalResponseisFunctionToolisGemini2OrAboveisGemini35LiveTranslateisGemini3xFlashLiveisGemini3xLiveisGoogleApiisInModelToolisIntentMismatchErrorisLlmAgentisLoopAgentisNodeErrorEventisNodeReportedErrorisNodeSchemaValidationErrorisNodeStateisNodeTimeoutErrorisParallelAgentisRequestInputisRoutableLlmAgentisRoutedAgentisRunnableRootisRunnerisScratchpadEventisSequentialAgentisSessionArtifactServiceisStateSchemaErrorisToolNotFoundisWebMCPSupportedisWorkflowloadAllSkillsInDirloadSkillFromDirloadSkillFromZipBufferloadWebPagemarkRestoredmaybeSetOtelProvidersmergeStatesnodenormalizeRetryExceptionsopenidDictToSchemeCredentialopenidUrlToSchemeCredentialoverrideFeatureEnabledpopulateClientFunctionCallIdprepareRetryConfigpruneThoughtspublicEventpublicMetadatapublicSessionregisterFeaturerenameReservedKeywordsrequireAgentrequiresUserInputresetLoggerresolveScopeKeyrunWithClientLabelserviceAccountDictToSchemeCredentialserviceAccountSchemeCredentialsetLoggersetLogLevelstringifyContentstripAdkIdentityPreambletoA2atokenToSchemeCredentialtoSnakeCaseNametoStructuredEventstrimTempDeltaStatetrimTempStatevalidateAppNamevalidateSkillDirwithTemporaryFeatureOverridezodObjectToSchema
 
 References
 
-LlmAgent
+CallbackContextLlmAgentToolContext
 
-[ADK for TypeScript: API Reference - v1.5.0](index.html)
+[ADK for TypeScript: API Reference - v2.2.1](index.html)
 
   * Loading...
 

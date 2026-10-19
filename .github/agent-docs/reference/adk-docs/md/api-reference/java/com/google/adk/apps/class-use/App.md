@@ -32,6 +32,10 @@ Package
 
 Description
 
+com.example.contextcaching
+
+ 
+
 com.google.adk.a2a.executor
 
  
@@ -43,6 +47,22 @@ com.google.adk.apps
 com.google.adk.runner
 
  
+
+  * ## Uses of [App](../App.html "class in com.google.adk.apps") in [com.example.contextcaching](../../../../example/contextcaching/package-summary.html)
+
+Methods in [com.example.contextcaching](../../../../example/contextcaching/package-summary.html) that return [App](../App.html "class in com.google.adk.apps")
+
+Modifier and Type
+
+Method
+
+Description
+
+`static [App](../App.html "class in com.google.adk.apps")`
+
+ContextCachingAgent.`[createApp](../../../../example/contextcaching/ContextCachingAgent.html#createApp\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") model)`
+
+Returns an app that enables context caching for all its agents.
 
   * ## Uses of [App](../App.html "class in com.google.adk.apps") in [com.google.adk.a2a.executor](../../a2a/executor/package-summary.html)
 

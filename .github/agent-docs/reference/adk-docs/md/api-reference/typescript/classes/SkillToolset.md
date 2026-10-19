@@ -26,7 +26,7 @@ A toolset is a collection of tools that can be used by an agent.
 
 
 
-  * Defined in [core/src/tools/skill/skill_toolset.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L42)
+  * Defined in [core/src/tools/skill/skill_toolset.ts:45](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L45)
 
 
 
@@ -41,6 +41,7 @@ additionalTools?: ([BaseTool](BaseTool.html) | [BaseToolset](BaseToolset.html))[
 allowInlineScripts?: boolean;  
 codeExecutor?: [BaseCodeExecutor](BaseCodeExecutor.html);  
 registry?: [SkillRegistry](../interfaces/SkillRegistry.html);  
+scriptOutputDir?: string;  
 },  
 ): [SkillToolset]()
 
@@ -52,6 +53,7 @@ additionalTools?: ([BaseTool](BaseTool.html) | [BaseToolset](BaseToolset.html))[
 allowInlineScripts?: boolean;  
 codeExecutor?: [BaseCodeExecutor](BaseCodeExecutor.html);  
 registry?: [SkillRegistry](../interfaces/SkillRegistry.html);  
+scriptOutputDir?: string;  
 } = {}
       * ##### `Optional`additionalTools?: ([BaseTool](BaseTool.html) | [BaseToolset](BaseToolset.html))[]
 
@@ -63,11 +65,17 @@ Whether to expose the `run_skill_inline_script` tool, which executes model-provi
 
       * ##### `Optional`registry?: [SkillRegistry](../interfaces/SkillRegistry.html)
 
+      * ##### `Optional`scriptOutputDir?: string
+
+Directory that files produced by `run_skill_script` / `run_skill_inline_script` are written into. Output file names come from the executed script, so this must be a directory dedicated to throwaway script output — never the application's working directory or a source tree.
+
+Defaults to a private, randomly named directory created under the OS temp dir on first use. Nothing removes that directory: `close()` runs once per invocation on a toolset instance that concurrent invocations share (see `Runner`), so it cannot tell whose output is still in use. Set this to own the location and the lifetime of the output.
+
 #### Returns [SkillToolset]()
 
 Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constructor)
 
-    * Defined in [core/src/tools/skill/skill_toolset.ts:51](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L51)
+    * Defined in [core/src/tools/skill/skill_toolset.ts:56](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L56)
 
 
 
@@ -80,7 +88,7 @@ Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constru
 
 Inherited from [BaseToolset](BaseToolset.html).[[BASE_TOOLSET_SIGNATURE_SYMBOL]](BaseToolset.html#base_toolset_signature_symbol)
 
-  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L44)
+  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L44)
 
 
 
@@ -88,7 +96,7 @@ Inherited from [BaseToolset](BaseToolset.html).[[BASE_TOOLSET_SIGNATURE_SYMBOL]]
 
 additionalTools: ([BaseTool](BaseTool.html) | [BaseToolset](BaseToolset.html))[]
 
-  * Defined in [core/src/tools/skill/skill_toolset.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L45)
+  * Defined in [core/src/tools/skill/skill_toolset.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L48)
 
 
 
@@ -96,7 +104,7 @@ additionalTools: ([BaseTool](BaseTool.html) | [BaseToolset](BaseToolset.html))[]
 
 codeExecutor?: [BaseCodeExecutor](BaseCodeExecutor.html)
 
-  * Defined in [core/src/tools/skill/skill_toolset.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L46)
+  * Defined in [core/src/tools/skill/skill_toolset.ts:49](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L49)
 
 
 
@@ -106,7 +114,7 @@ prefix?: string
 
 Inherited from [BaseToolset](BaseToolset.html).[prefix](BaseToolset.html#prefix)
 
-  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L48)
+  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L48)
 
 
 
@@ -114,7 +122,7 @@ Inherited from [BaseToolset](BaseToolset.html).[prefix](BaseToolset.html#prefix)
 
 registry?: [SkillRegistry](../interfaces/SkillRegistry.html)
 
-  * Defined in [core/src/tools/skill/skill_toolset.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L47)
+  * Defined in [core/src/tools/skill/skill_toolset.ts:50](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L50)
 
 
 
@@ -122,7 +130,7 @@ registry?: [SkillRegistry](../interfaces/SkillRegistry.html)
 
 skills: Record<string, [Skill](../interfaces/Skill.html)>
 
-  * Defined in [core/src/tools/skill/skill_toolset.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L43)
+  * Defined in [core/src/tools/skill/skill_toolset.ts:46](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L46)
 
 
 
@@ -132,7 +140,7 @@ toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html)
 
 Inherited from [BaseToolset](BaseToolset.html).[toolFilter](BaseToolset.html#toolfilter)
 
-  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L47)
+  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L47)
 
 
 
@@ -152,7 +160,7 @@ A Promise that resolves when the toolset is closed.
 
 Overrides [BaseToolset](BaseToolset.html).[close](BaseToolset.html#close)
 
-    * Defined in [core/src/tools/skill/skill_toolset.ts:99](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L99)
+    * Defined in [core/src/tools/skill/skill_toolset.ts:119](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L119)
 
 
 
@@ -168,7 +176,22 @@ Overrides [BaseToolset](BaseToolset.html).[close](BaseToolset.html#close)
 
 #### Returns Promise<[Skill](../interfaces/Skill.html) | undefined>
 
-    * Defined in [core/src/tools/skill/skill_toolset.ts:107](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L107)
+    * Defined in [core/src/tools/skill/skill_toolset.ts:153](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L153)
+
+
+
+
+### getScriptOutputDir
+
+  * getScriptOutputDir(): Promise<string>
+
+Resolves the directory that script output files are materialized into.
+
+Script output file names are attacker-influenced (a prompt-injected skill controls what its script writes), so they must never be resolved against the host application's working directory. When no `scriptOutputDir` was configured this hands back a private temp directory instead, created once and reused for the lifetime of the toolset.
+
+#### Returns Promise<string>
+
+    * Defined in [core/src/tools/skill/skill_toolset.ts:137](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L137)
 
 
 
@@ -183,7 +206,7 @@ Overrides [BaseToolset](BaseToolset.html).[close](BaseToolset.html#close)
 
 #### Returns [Skill](../interfaces/Skill.html) | undefined
 
-    * Defined in [core/src/tools/skill/skill_toolset.ts:103](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L103)
+    * Defined in [core/src/tools/skill/skill_toolset.ts:124](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L124)
 
 
 
@@ -206,7 +229,7 @@ A Promise that resolves to the list of tools.
 
 Overrides [BaseToolset](BaseToolset.html).[getTools](BaseToolset.html#gettools)
 
-    * Defined in [core/src/tools/skill/skill_toolset.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L94)
+    * Defined in [core/src/tools/skill/skill_toolset.ts:114](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L114)
 
 
 
@@ -233,7 +256,7 @@ Whether the tool should be exposed to LLM.
 
 Inherited from [BaseToolset](BaseToolset.html).[isToolSelected](BaseToolset.html#istoolselected)
 
-    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L79)
+    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L79)
 
 
 
@@ -251,18 +274,13 @@ Use cases:
 #### Parameters
 
     * toolContext: [Context](Context.html)
-
-The context of the tool.
-
     * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
-
-The outgoing LLM request, mutable this method.
 
 #### Returns Promise<void>
 
 Overrides [BaseToolset](BaseToolset.html).[processLlmRequest](BaseToolset.html#processllmrequest)
 
-    * Defined in [core/src/tools/skill/skill_toolset.ts:138](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/skill/skill_toolset.ts#L138)
+    * Defined in [core/src/tools/skill/skill_toolset.ts:184](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/skill/skill_toolset.ts#L184)
 
 
 
@@ -277,9 +295,9 @@ Properties
 
 Methods
 
-closegetOrFetchSkillgetSkillgetToolsisToolSelectedprocessLlmRequest
+closegetOrFetchSkillgetScriptOutputDirgetSkillgetToolsisToolSelectedprocessLlmRequest
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

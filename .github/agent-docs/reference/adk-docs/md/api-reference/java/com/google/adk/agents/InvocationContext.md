@@ -53,19 +53,25 @@ Contents
      19. setEndInvocation(boolean)
      20. appName()
      21. userId()
-     22. newInvocationContextId()
-     23. incrementLlmCallsCount()
-     24. eventsCompactionConfig()
-     25. contextCacheConfig()
-     26. isResumable()
-     27. isLegacyResumability()
-     28. agentStates()
-     29. endOfAgents()
-     30. populateInvocationAgentStates()
-     31. events(boolean, boolean)
-     32. shouldPauseInvocation(Event)
-     33. equals(Object)
-     34. hashCode()
+     22. scheduler()
+     23. instantSource()
+     24. uuidProvider()
+     25. now()
+     26. newUuid()
+     27. newInvocationContextId()
+     28. newInvocationContextId(UuidProvider)
+     29. incrementLlmCallsCount()
+     30. eventsCompactionConfig()
+     31. contextCacheConfig()
+     32. isResumable()
+     33. isLegacyResumability()
+     34. agentStates()
+     35. endOfAgents()
+     36. populateInvocationAgentStates()
+     37. events(boolean, boolean)
+     38. shouldPauseInvocation(Event)
+     39. equals(Object)
+     40. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -231,6 +237,12 @@ Returns a snapshot of the session's events, keeping only those on the branch thi
 
 Increments the count of LLM calls made during this invocation and throws an exception if the limit defined in [`RunConfig`](RunConfig.html "class in com.google.adk.agents") is exceeded.
 
+`[InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time")`
+
+`instantSource()`
+
+Returns the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") for this invocation.
+
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
 `invocationId()`
@@ -269,6 +281,24 @@ Returns the memory service for accessing agent memory.
 
 Generates a new unique ID for an invocation context.
 
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`newInvocationContextId([UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Generates a new unique ID for an invocation context using the given [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
+
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`newUuid()`
+
+Returns a new unique identifier from this invocation's [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
+
+`[Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class in java.time")`
+
+`now()`
+
+Returns the current time from this invocation's [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time").
+
 `[Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")`
 
 `pluginManager()`
@@ -286,6 +316,12 @@ Rehydrates `agentStates()` and `endOfAgents()` from the current invocation's his
 `runConfig()`
 
 Returns the configuration for the current agent run.
+
+`io.reactivex.rxjava3.core.Scheduler`
+
+`scheduler()`
+
+Returns the `Scheduler` on which this invocation runs the work ADK hands to worker threads: the sub-agents of a `ParallelAgent`, tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode, and the hop that starts the live send loop.
 
 `[Session](../sessions/Session.html "class in com.google.adk.sessions")`
 
@@ -328,6 +364,12 @@ Returns the user content that triggered this invocation, if any.
 `userId()`
 
 Returns the user ID associated with the session.
+
+`[UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform")`
+
+`uuidProvider()`
+
+Returns the [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform") for this invocation.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -472,11 +514,47 @@ public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/jav
 
 Returns the user ID associated with the session.
 
+    * ### scheduler
+
+public io.reactivex.rxjava3.core.Scheduler scheduler()
+
+Returns the `Scheduler` on which this invocation runs the work ADK hands to worker threads: the sub-agents of a `ParallelAgent`, tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode, and the hop that starts the live send loop. An agent-level setting (`ParallelAgent.Builder#scheduler`, ` LlmAgent.Builder#executor`) takes precedence over it. Defaults to `Schedulers.io()`.
+
+    * ### instantSource
+
+public [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource()
+
+Returns the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") for this invocation.
+
+    * ### uuidProvider
+
+public [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider()
+
+Returns the [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform") for this invocation.
+
+    * ### now
+
+public [Instant](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class in java.time") now()
+
+Returns the current time from this invocation's [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time").
+
+    * ### newUuid
+
+public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") newUuid()
+
+Returns a new unique identifier from this invocation's [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
+
     * ### newInvocationContextId
 
 public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") newInvocationContextId()
 
 Generates a new unique ID for an invocation context.
+
+    * ### newInvocationContextId
+
+public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") newInvocationContextId([UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Generates a new unique ID for an invocation context using the given [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
 
     * ### incrementLlmCallsCount
 

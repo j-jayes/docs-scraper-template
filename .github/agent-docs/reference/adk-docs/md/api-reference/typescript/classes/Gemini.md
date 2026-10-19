@@ -25,7 +25,7 @@ Integration for Gemini models.
 
 
 
-  * Defined in [core/src/models/google_llm.ts:84](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L84)
+  * Defined in [core/src/models/google_llm.ts:85](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L85)
 
 
 
@@ -45,7 +45,7 @@ The parameters for creating a Gemini instance.
 
 Overrides [BaseLlm](BaseLlm.html).[constructor](BaseLlm.html#constructor)
 
-    * Defined in [core/src/models/google_llm.ts:96](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L96)
+    * Defined in [core/src/models/google_llm.ts:97](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L97)
 
 
 
@@ -60,7 +60,7 @@ A unique symbol to identify BaseLlm classes.
 
 Inherited from [BaseLlm](BaseLlm.html).[[BASE_MODEL_SYMBOL]](BaseLlm.html#base_model_symbol)
 
-  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L40)
+  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L40)
 
 
 
@@ -68,7 +68,7 @@ Inherited from [BaseLlm](BaseLlm.html).[[BASE_MODEL_SYMBOL]](BaseLlm.html#base_m
 
 "[GEMINI_MODEL_SYMBOL]": true
 
-  * Defined in [core/src/models/google_llm.ts:85](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L85)
+  * Defined in [core/src/models/google_llm.ts:86](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L86)
 
 
 
@@ -78,7 +78,7 @@ model: string
 
 Inherited from [BaseLlm](BaseLlm.html).[model](BaseLlm.html#model)
 
-  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L42)
+  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L42)
 
 
 
@@ -86,7 +86,7 @@ Inherited from [BaseLlm](BaseLlm.html).[model](BaseLlm.html#model)
 
 useInteractionsApi: boolean
 
-  * Defined in [core/src/models/google_llm.ts:91](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L91)
+  * Defined in [core/src/models/google_llm.ts:92](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L92)
 
 
 
@@ -94,7 +94,7 @@ useInteractionsApi: boolean
 
 vertexai: boolean
 
-  * Defined in [core/src/models/google_llm.ts:87](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L87)
+  * Defined in [core/src/models/google_llm.ts:88](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L88)
 
 
 
@@ -110,7 +110,7 @@ A list of supported models.
 
 Overrides [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels)
 
-  * Defined in [core/src/models/google_llm.ts:136](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L136)
+  * Defined in [core/src/models/google_llm.ts:137](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L137)
 
 
 
@@ -122,7 +122,7 @@ Overrides [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels
 
 #### Returns [GoogleLLMVariant](../enums/GoogleLLMVariant.html)
 
-    * Defined in [core/src/models/google_llm.ts:239](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L239)
+    * Defined in [core/src/models/google_llm.ts:245](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L245)
 
 
 
@@ -133,7 +133,7 @@ Overrides [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels
 
 #### Returns GoogleGenAI
 
-    * Defined in [core/src/models/google_llm.ts:218](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L218)
+    * Defined in [core/src/models/google_llm.ts:224](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L224)
 
 
 
@@ -144,7 +144,7 @@ Overrides [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels
 
 #### Returns GoogleGenAI
 
-    * Defined in [core/src/models/google_llm.ts:263](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L263)
+    * Defined in [core/src/models/google_llm.ts:270](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L270)
 
 
 
@@ -155,7 +155,7 @@ Overrides [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels
 
 #### Returns string
 
-    * Defined in [core/src/models/google_llm.ts:248](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L248)
+    * Defined in [core/src/models/google_llm.ts:254](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L254)
 
 
 
@@ -168,7 +168,7 @@ Overrides [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels
 
 Inherited from BaseLlm.trackingHeaders
 
-    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L81)
+    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L81)
 
 
 
@@ -193,7 +193,7 @@ BaseLlmConnection, the connection to the Gemini model.
 
 Overrides [BaseLlm](BaseLlm.html).[connect](BaseLlm.html#connect)
 
-    * Defined in [core/src/models/google_llm.ts:288](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L288)
+    * Defined in [core/src/models/google_llm.ts:295](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L295)
 
 
 
@@ -212,11 +212,11 @@ Sends a request to the Gemini model.
 
     * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
 
-LlmRequest, the request to send to the Gemini model.
+The request to send to the Gemini model.
 
     * stream: boolean = false
 
-bool = false, whether to do streaming call.
+Whether to make a streaming call. Defaults to `false`.
 
     * `Optional`abortSignal: AbortSignal
 
@@ -224,11 +224,11 @@ bool = false, whether to do streaming call.
 
 #### Yields
 
-LlmResponse: The model response.
+Each [LlmResponse](../interfaces/LlmResponse.html) produced by the model. A non-streaming call yields exactly one; a streaming call yields the partial responses as they arrive, then a final aggregated response whenever the stream carried either content or usage/grounding/citation metadata. A metadata-only stream therefore still ends with one, holding the metadata and no `content`; only a stream with neither ends silently.
 
 Overrides [BaseLlm](BaseLlm.html).[generateContentAsync](BaseLlm.html#generatecontentasync)
 
-    * Defined in [core/src/models/google_llm.ts:157](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L157)
+    * Defined in [core/src/models/google_llm.ts:163](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L163)
 
 
 
@@ -239,7 +239,7 @@ Overrides [BaseLlm](BaseLlm.html).[generateContentAsync](BaseLlm.html#generateco
 
 #### Returns HttpOptions
 
-    * Defined in [core/src/models/google_llm.ts:214](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L214)
+    * Defined in [core/src/models/google_llm.ts:220](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L220)
 
 
 
@@ -250,7 +250,7 @@ Overrides [BaseLlm](BaseLlm.html).[generateContentAsync](BaseLlm.html#generateco
 
 #### Returns HttpOptions
 
-    * Defined in [core/src/models/google_llm.ts:256](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L256)
+    * Defined in [core/src/models/google_llm.ts:263](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L263)
 
 
 
@@ -271,7 +271,7 @@ LlmRequest, the request to send to the LLM.
 
 Inherited from [BaseLlm](BaseLlm.html).[maybeAppendUserContent](BaseLlm.html#maybeappendusercontent)
 
-    * Defined in [core/src/models/base_llm.ts:95](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L95)
+    * Defined in [core/src/models/base_llm.ts:90](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L90)
 
 
 
@@ -292,7 +292,7 @@ Methods
 
 connectgenerateContentAsyncgetHttpOptionsgetLiveHttpOptionsmaybeAppendUserContent
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

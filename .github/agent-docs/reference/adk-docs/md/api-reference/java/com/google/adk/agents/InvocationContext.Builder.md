@@ -44,8 +44,11 @@ Contents
      13. eventsCompactionConfig(EventsCompactionConfig)
      14. contextCacheConfig(ContextCacheConfig)
      15. resumabilityConfig(ResumabilityConfig)
-     16. callbackContextData(Map)
-     17. build()
+     16. scheduler(Scheduler)
+     17. callbackContextData(Map)
+     18. instantSource(InstantSource)
+     19. uuidProvider(UuidProvider)
+     20. build()
 
 Hide sidebar  Show sidebar
 
@@ -124,6 +127,12 @@ Sets the events compaction configuration for the current agent run.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
+`instantSource(@Nullable [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource)`
+
+Sets the instant source for the invocation; `null` (the default) selects [`InstantSource.system()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html#system\(\)).
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
 `invocationId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") invocationId)`
 
 Sets the unique ID for the invocation.
@@ -160,6 +169,12 @@ Sets the configuration for the current agent run.
 
 `[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
 
+`scheduler(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)`
+
+Sets the scheduler for the invocation's internal fan-out; see [`InvocationContext.scheduler()`](InvocationContext.html#scheduler\(\)).
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
 `session([Session](../sessions/Session.html "class in com.google.adk.sessions") session)`
 
 Sets the session associated with this invocation.
@@ -175,6 +190,12 @@ Sets the session service for managing session state.
 `userContent(@Nullable com.google.genai.types.Content userContent)`
 
 Sets the user content that triggered this invocation.
+
+`[InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+`uuidProvider(@Nullable [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Sets the UUID provider for the invocation; `null` (the default) selects [`UuidProvider.SYSTEM`](../platform/UuidProvider.html#SYSTEM).
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -350,6 +371,17 @@ Parameters:
 Returns:
     this builder instance for chaining.
 
+    * ### scheduler
+
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") scheduler(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)
+
+Sets the scheduler for the invocation's internal fan-out; see [`InvocationContext.scheduler()`](InvocationContext.html#scheduler\(\)). `null` (the default) selects `Schedulers.io()`.
+
+Parameters:
+    `scheduler` \- the scheduler, or `null` for the default.
+Returns:
+    this builder instance for chaining.
+
     * ### callbackContextData
 
 @CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") callbackContextData([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> callbackContextData)
@@ -358,6 +390,28 @@ Sets the callback context data for the invocation.
 
 Parameters:
     `callbackContextData` \- the callback context data.
+Returns:
+    this builder instance for chaining.
+
+    * ### instantSource
+
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") instantSource(@Nullable [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource)
+
+Sets the instant source for the invocation; `null` (the default) selects [`InstantSource.system()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html#system\(\)).
+
+Parameters:
+    `instantSource` \- the source of the current time, or `null` for the default.
+Returns:
+    this builder instance for chaining.
+
+    * ### uuidProvider
+
+@CanIgnoreReturnValue public [InvocationContext.Builder](InvocationContext.Builder.html "class in com.google.adk.agents") uuidProvider(@Nullable [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Sets the UUID provider for the invocation; `null` (the default) selects [`UuidProvider.SYSTEM`](../platform/UuidProvider.html#SYSTEM).
+
+Parameters:
+    `uuidProvider` \- the provider for new unique identifiers, or `null` for the default.
 Returns:
     this builder instance for chaining.
 

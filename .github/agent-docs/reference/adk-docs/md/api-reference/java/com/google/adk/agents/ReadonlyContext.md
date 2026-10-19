@@ -53,7 +53,7 @@ Hide sidebar  Show sidebar
 com.google.adk.agents.ReadonlyContext
 
 Direct Known Subclasses:
-    `[CallbackContext](CallbackContext.html "class in com.google.adk.agents")`
+    `[Context](Context.html "class in com.google.adk.agents")`
 
 * * *
 

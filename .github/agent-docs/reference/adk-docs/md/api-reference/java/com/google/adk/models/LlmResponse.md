@@ -45,10 +45,11 @@ Contents
      12. modelVersion()
      13. inputTranscription()
      14. outputTranscription()
-     15. toBuilder()
-     16. builder()
-     17. create(List)
-     18. create(GenerateContentResponse)
+     15. cacheMetadata()
+     16. toBuilder()
+     17. builder()
+     18. create(List)
+     19. create(GenerateContentResponse)
 
 Hide sidebar  Show sidebar
 
@@ -103,6 +104,12 @@ Error code if the response is an error.
 `builder()`
 
  
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[CacheMetadata](CacheMetadata.html "class in com.google.adk.models")>`
+
+`cacheMetadata()`
+
+Context cache state for this response; set only when context caching is enabled.
 
 `abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Content>`
 
@@ -353,6 +360,12 @@ Input transcription. The transcription is independent to the model turn which me
 public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Transcription> outputTranscription()
 
 Output transcription. The transcription is independent to the model turn which means it doesn't imply any ordering between transcription and model turn.
+
+    * ### cacheMetadata
+
+public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[CacheMetadata](CacheMetadata.html "class in com.google.adk.models")> cacheMetadata()
+
+Context cache state for this response; set only when context caching is enabled.
 
     * ### toBuilder
 

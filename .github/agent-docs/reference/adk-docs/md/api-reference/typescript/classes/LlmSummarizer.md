@@ -23,7 +23,7 @@ A summarizer that uses an LLM to generate a compacted representation of existing
 
 
 
-  * Defined in [core/src/context/summarizers/llm_summarizer.ts:37](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/summarizers/llm_summarizer.ts#L37)
+  * Defined in [core/src/context/summarizers/llm_summarizer.ts:37](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/summarizers/llm_summarizer.ts#L37)
 
 
 
@@ -41,7 +41,7 @@ Configuration specifying the LLM and optional prompt.
 
 #### Returns [LlmSummarizer]()
 
-    * Defined in [core/src/context/summarizers/llm_summarizer.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/summarizers/llm_summarizer.ts#L44)
+    * Defined in [core/src/context/summarizers/llm_summarizer.ts:44](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/summarizers/llm_summarizer.ts#L44)
 
 
 
@@ -70,7 +70,7 @@ If `events` is empty or the LLM returns no content.
 
 Implementation of [BaseSummarizer](../interfaces/BaseSummarizer.html).[summarize](../interfaces/BaseSummarizer.html#summarize)
 
-    * Defined in [core/src/context/summarizers/llm_summarizer.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/summarizers/llm_summarizer.ts#L57)
+    * Defined in [core/src/context/summarizers/llm_summarizer.ts:57](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/summarizers/llm_summarizer.ts#L57)
 
 
 
@@ -83,7 +83,7 @@ Methods
 
 summarize
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

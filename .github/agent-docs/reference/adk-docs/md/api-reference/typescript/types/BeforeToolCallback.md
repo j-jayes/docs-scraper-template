@@ -19,13 +19,13 @@ BeforeToolCallback: [SingleBeforeToolCallback](SingleBeforeToolCallback.html) | 
 
 A single callback or a list of callbacks.
 
-When a list of callbacks is provided, the callbacks will be called in the order they are listed until a callback does not return None.
+When a list of callbacks is provided, the callbacks will be called in the order they are listed until a callback does not return `undefined`.
 
-  * Defined in [core/src/agents/llm_agent.ts:158](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L158)
+  * Defined in [core/src/agents/llm_agent.ts:253](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L253)
 
 
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

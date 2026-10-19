@@ -24,7 +24,7 @@ Base class for LLM request processors. Implementations mutate or augment the [Ll
 
 
 
-  * Defined in [core/src/auth/auth_preprocessor.ts:97](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_preprocessor.ts#L97)
+  * Defined in [core/src/auth/auth_preprocessor.ts:122](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_preprocessor.ts#L122)
 
 
 
@@ -61,7 +61,7 @@ The current invocation context.
 
 Overrides [BaseLlmRequestProcessor](BaseLlmRequestProcessor.html).[runAsync](BaseLlmRequestProcessor.html#runasync)
 
-    * Defined in [core/src/auth/auth_preprocessor.ts:98](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_preprocessor.ts#L98)
+    * Defined in [core/src/auth/auth_preprocessor.ts:123](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_preprocessor.ts#L123)
 
 
 
@@ -74,7 +74,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

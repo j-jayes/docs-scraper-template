@@ -31,7 +31,7 @@ Unlike a standard MCPToolset, this class:
 
 
 
-  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L31)
+  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:31](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L31)
 
 
 
@@ -103,7 +103,7 @@ Optional predicate or list of tool names to include. When omitted, all tools fro
 
 Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constructor)
 
-    * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:53](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L53)
+    * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:53](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L53)
 
 
 
@@ -116,7 +116,7 @@ Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constru
 
 Inherited from [BaseToolset](BaseToolset.html).[[BASE_TOOLSET_SIGNATURE_SYMBOL]](BaseToolset.html#base_toolset_signature_symbol)
 
-  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L44)
+  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L44)
 
 
 
@@ -124,7 +124,7 @@ Inherited from [BaseToolset](BaseToolset.html).[[BASE_TOOLSET_SIGNATURE_SYMBOL]]
 
 authCredential?: [AuthCredential](../interfaces/AuthCredential.html)
 
-  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L38)
+  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:38](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L38)
 
 
 
@@ -132,7 +132,7 @@ authCredential?: [AuthCredential](../interfaces/AuthCredential.html)
 
 authScheme?: [AuthScheme](../types/AuthScheme.html)
 
-  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:37](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L37)
+  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:37](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L37)
 
 
 
@@ -140,7 +140,7 @@ authScheme?: [AuthScheme](../types/AuthScheme.html)
 
 connectionParams: [StreamableHTTPConnectionParams](../interfaces/StreamableHTTPConnectionParams.html)
 
-  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L33)
+  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:33](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L33)
 
 
 
@@ -148,7 +148,7 @@ connectionParams: [StreamableHTTPConnectionParams](../interfaces/StreamableHTTPC
 
 destinationResourceId?: string
 
-  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L32)
+  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:32](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L32)
 
 
 
@@ -158,7 +158,7 @@ headerProvider?: (
 context?: [ReadonlyContext](ReadonlyContext.html),  
 ) => Record<string, string> | Promise<Record<string, string>>
 
-  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L34)
+  * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:34](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L34)
 
 
 
@@ -168,7 +168,7 @@ prefix?: string
 
 Inherited from [BaseToolset](BaseToolset.html).[prefix](BaseToolset.html#prefix)
 
-  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L48)
+  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L48)
 
 
 
@@ -178,7 +178,7 @@ toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html)
 
 Inherited from [BaseToolset](BaseToolset.html).[toolFilter](BaseToolset.html#toolfilter)
 
-  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L47)
+  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L47)
 
 
 
@@ -198,7 +198,7 @@ A Promise that resolves when the toolset is closed.
 
 Overrides [BaseToolset](BaseToolset.html).[close](BaseToolset.html#close)
 
-    * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:154](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L154)
+    * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:154](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L154)
 
 
 
@@ -223,7 +223,7 @@ The resolved and optionally filtered list of [MCPTool](MCPTool.html) instances.
 
 Overrides [BaseToolset](BaseToolset.html).[getTools](BaseToolset.html#gettools)
 
-    * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L82)
+    * Defined in [core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts:82](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/integrations/agent_registry/agent_registry_mcp_toolset.ts#L82)
 
 
 
@@ -250,14 +250,14 @@ Whether the tool should be exposed to LLM.
 
 Inherited from [BaseToolset](BaseToolset.html).[isToolSelected](BaseToolset.html#istoolselected)
 
-    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L79)
+    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L79)
 
 
 
 
 ### processLlmRequest
 
-  * processLlmRequest(toolContext: [Context](Context.html), llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
+  * processLlmRequest(_toolContext: [Context](Context.html), _llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
 
 Processes the outgoing LLM request for this toolset. This method will be called before each tool processes the llm request.
 
@@ -267,11 +267,11 @@ Use cases:
 
 #### Parameters
 
-    * toolContext: [Context](Context.html)
+    * _toolContext: [Context](Context.html)
 
 The context of the tool.
 
-    * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
+    * _llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
 
 The outgoing LLM request, mutable this method.
 
@@ -279,7 +279,7 @@ The outgoing LLM request, mutable this method.
 
 Inherited from [BaseToolset](BaseToolset.html).[processLlmRequest](BaseToolset.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L111)
+    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L111)
 
 
 
@@ -296,7 +296,7 @@ Methods
 
 closegetToolsisToolSelectedprocessLlmRequest
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

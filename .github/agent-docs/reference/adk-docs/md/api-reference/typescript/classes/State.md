@@ -17,7 +17,7 @@ Preparing search index...
 
 A state mapping that maintains the current value and the pending-commit delta.
 
-  * Defined in [core/src/sessions/state.ts:11](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L11)
+  * Defined in [core/src/sessions/state.ts:28](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L28)
 
 
 
@@ -28,6 +28,7 @@ A state mapping that maintains the current value and the pending-commit delta.
   * new State(  
 value?: Record<string, unknown>,  
 delta?: Record<string, unknown>,  
+schema?: [SchemaLike](../types/SchemaLike.html),  
 ): [State]()
 
 #### Parameters
@@ -40,20 +41,34 @@ The current value of the state.
 
 The delta change to the current value that hasn't been committed.
 
+    * `Optional`schema: [SchemaLike](../types/SchemaLike.html)
+
+Declares the keys this state may hold and their types. When set, every mutation is checked against it; prefixed keys are exempt.
+
 #### Returns [State]()
 
-    * Defined in [core/src/sessions/state.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L16)
+    * Defined in [core/src/sessions/state.ts:33](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L33)
 
 
 
 
 ## Properties
 
+### `Optional` `Readonly`schema
+
+schema?: [SchemaLike](../types/SchemaLike.html)
+
+Declares the keys this state may hold and their types. When set, every mutation is checked against it; prefixed keys are exempt.
+
+  * Defined in [core/src/sessions/state.ts:42](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L42)
+
+
+
 ### `Static` `Readonly`APP_PREFIX
 
 APP_PREFIX: "app:" = 'app:'
 
-  * Defined in [core/src/sessions/state.ts:12](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L12)
+  * Defined in [core/src/sessions/state.ts:29](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L29)
 
 
 
@@ -61,7 +76,7 @@ APP_PREFIX: "app:" = 'app:'
 
 TEMP_PREFIX: "temp:" = 'temp:'
 
-  * Defined in [core/src/sessions/state.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L14)
+  * Defined in [core/src/sessions/state.ts:31](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L31)
 
 
 
@@ -69,7 +84,7 @@ TEMP_PREFIX: "temp:" = 'temp:'
 
 USER_PREFIX: "user:" = 'user:'
 
-  * Defined in [core/src/sessions/state.ts:13](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L13)
+  * Defined in [core/src/sessions/state.ts:30](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L30)
 
 
 
@@ -99,7 +114,7 @@ The default value to return if the key is not found.
 
 The value of the state for the given key, or the default value if not found.
 
-    * Defined in [core/src/sessions/state.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L31)
+    * Defined in [core/src/sessions/state.ts:100](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L100)
 
 
 
@@ -116,7 +131,7 @@ Whether the state has pending delta.
 
 #### Returns boolean
 
-    * Defined in [core/src/sessions/state.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L57)
+    * Defined in [core/src/sessions/state.ts:130](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L130)
 
 
 
@@ -129,7 +144,7 @@ Whether the state has pending delta.
 
 #### Returns boolean
 
-    * Defined in [core/src/sessions/state.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L64)
+    * Defined in [core/src/sessions/state.ts:137](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L137)
 
 
 
@@ -152,7 +167,7 @@ The value to set.
 
 #### Returns void
 
-    * Defined in [core/src/sessions/state.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L49)
+    * Defined in [core/src/sessions/state.ts:118](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L118)
 
 
 
@@ -165,7 +180,7 @@ Returns the state as a plain JSON object.
 
 #### Returns Record<string, unknown>
 
-    * Defined in [core/src/sessions/state.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L82)
+    * Defined in [core/src/sessions/state.ts:159](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L159)
 
 
 
@@ -184,7 +199,24 @@ The delta to update the state with.
 
 #### Returns void
 
-    * Defined in [core/src/sessions/state.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/sessions/state.ts#L73)
+    * Defined in [core/src/sessions/state.ts:146](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L146)
+
+
+
+
+### validateDelta
+
+  * validateDelta(delta: Record<string, unknown>): void
+
+Checks a whole delta against schema, for writes that reach the session without passing through this object — a node emitting an event that carries its own `stateDelta`.
+
+#### Parameters
+
+    * delta: Record<string, unknown>
+
+#### Returns void
+
+    * Defined in [core/src/sessions/state.ts:50](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/sessions/state.ts#L50)
 
 
 
@@ -195,13 +227,13 @@ constructor
 
 Properties
 
-APP_PREFIXTEMP_PREFIXUSER_PREFIX
+schemaAPP_PREFIXTEMP_PREFIXUSER_PREFIX
 
 Methods
 
-gethashasDeltasettoRecordupdate
+gethashasDeltasettoRecordupdatevalidateDelta
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

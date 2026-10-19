@@ -21,7 +21,7 @@ A code executor that unsafely executes code in the local context. Supports JavaS
 
   * **JavaScript** : Executed via `node` (defaults to `process.execPath`).
   * **Python** : Executed via `python3` on Unix, and `python` on Windows.
-  * **Shell** : Executed via `bash` on Unix, and defaults to `powershell` (injecting ExecutionPolicy Bypass) or `cmd.exe` on Windows.
+  * **Shell** : Executed via `bash` on Unix, and defaults to `powershell` (injecting `-NoProfile` and `-ExecutionPolicy Bypass`) or `cmd.exe` (injecting `/D`) on Windows.
 
 
 
@@ -34,7 +34,7 @@ WARNING: This executor runs code in the local environment without sandboxing or 
 
 
 
-  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:109](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L109)
+  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:140](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L140)
 
 
 
@@ -54,7 +54,7 @@ options?: [UnsafeLocalCodeExecutorOptions](../interfaces/UnsafeLocalCodeExecutor
 
 Overrides [BaseCodeExecutor](BaseCodeExecutor.html).[constructor](BaseCodeExecutor.html#constructor)
 
-    * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:115](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L115)
+    * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:146](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L146)
 
 
 
@@ -69,7 +69,7 @@ A unique symbol to identify BaseCodeExecutor class.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[[BASE_CODE_EXECUTOR_SIGNATURE_SYMBOL]](BaseCodeExecutor.html#base_code_executor_signature_symbol)
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:52](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L52)
+  * Defined in [core/src/code_executors/base_code_executor.ts:52](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L52)
 
 
 
@@ -85,7 +85,7 @@ The list of the enclosing delimiters to identify the code blocks. For example, t
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[codeBlockDelimiters](BaseCodeExecutor.html#codeblockdelimiters)
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L82)
+  * Defined in [core/src/code_executors/base_code_executor.ts:82](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L82)
 
 
 
@@ -97,7 +97,7 @@ The number of attempts to retry on consecutive code execution errors. Default to
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[errorRetryAttempts](BaseCodeExecutor.html#errorretryattempts)
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:71](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L71)
+  * Defined in [core/src/code_executors/base_code_executor.ts:71](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L71)
 
 
 
@@ -109,7 +109,7 @@ The delimiters to format the code execution result.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[executionResultDelimiters](BaseCodeExecutor.html#executionresultdelimiters)
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L94)
+  * Defined in [core/src/code_executors/base_code_executor.ts:94](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L94)
 
 
 
@@ -123,7 +123,7 @@ Supported data file MimeTypes are [text/csv]. Default to false.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[optimizeDataFile](BaseCodeExecutor.html#optimizedatafile)
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:60](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L60)
+  * Defined in [core/src/code_executors/base_code_executor.ts:60](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L60)
 
 
 
@@ -135,7 +135,7 @@ Whether the code executor is stateful. Default to false.
 
 Inherited from [BaseCodeExecutor](BaseCodeExecutor.html).[stateful](BaseCodeExecutor.html#stateful)
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L65)
+  * Defined in [core/src/code_executors/base_code_executor.ts:65](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L65)
 
 
 
@@ -159,7 +159,7 @@ The result of the code execution.
 
 Overrides [BaseCodeExecutor](BaseCodeExecutor.html).[executeCode](BaseCodeExecutor.html#executecode)
 
-    * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:127](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L127)
+    * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:158](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L158)
 
 
 
@@ -176,7 +176,7 @@ Methods
 
 executeCode
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

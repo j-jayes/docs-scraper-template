@@ -34,15 +34,16 @@ Contents
   5. Method Details
      1. generateClientFunctionCallId()
      2. populateClientFunctionCallId(Event)
-     3. handleFunctionCalls(InvocationContext, Event, Map)
-     4. handleFunctionCalls(InvocationContext, Event, Map, Map)
-     5. handleFunctionCallsLive(InvocationContext, Event, Map)
-     6. handleFunctionCallsLive(InvocationContext, Event, Map, Map)
-     7. getLongRunningFunctionCalls(List, Map)
-     8. findMatchingFunctionCallEvent(List)
-     9. hasPendingLongRunningCall(Event)
-     10. generateRequestConfirmationEvent(InvocationContext, Event, Event)
-     11. getAskUserConfirmationFunctionCalls(Event)
+     3. populateClientFunctionCallId(Event, UuidProvider)
+     4. handleFunctionCalls(InvocationContext, Event, Map)
+     5. handleFunctionCalls(InvocationContext, Event, Map, Map)
+     6. handleFunctionCallsLive(InvocationContext, Event, Map)
+     7. handleFunctionCallsLive(InvocationContext, Event, Map, Map)
+     8. getLongRunningFunctionCalls(List, Map)
+     9. findMatchingFunctionCallEvent(List)
+     10. hasPendingLongRunningCall(Event)
+     11. generateRequestConfirmationEvent(InvocationContext, Event, Event)
+     12. getAskUserConfirmationFunctionCalls(Event)
 
 Hide sidebar  Show sidebar
 
@@ -156,6 +157,12 @@ Returns whether the event emits a long-running function call still awaiting a re
 
 Populates missing function call IDs in the provided event's content.
 
+`static void`
+
+`populateClientFunctionCallId([Event](../../events/Event.html "class in com.google.adk.events") modelResponseEvent, [UuidProvider](../../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Populates missing function call IDs in the provided event's content using the given [`UuidProvider`](../../platform/UuidProvider.html "interface in com.google.adk.platform").
+
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
@@ -203,6 +210,16 @@ If the event contains function calls without an ID, this method generates a uniq
 
 Parameters:
     `modelResponseEvent` \- The event potentially containing function calls.
+
+    * ### populateClientFunctionCallId
+
+public static void populateClientFunctionCallId([Event](../../events/Event.html "class in com.google.adk.events") modelResponseEvent, [UuidProvider](../../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Populates missing function call IDs in the provided event's content using the given [`UuidProvider`](../../platform/UuidProvider.html "interface in com.google.adk.platform").
+
+Parameters:
+    `modelResponseEvent` \- The event potentially containing function calls.
+    `uuidProvider` \- The provider used to mint new function call IDs.
 
     * ### handleFunctionCalls
 

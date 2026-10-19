@@ -31,6 +31,7 @@ Contents
   4. Constructor Details
      1. LlmEventSummarizer(BaseLlm)
      2. LlmEventSummarizer(BaseLlm, String)
+     3. LlmEventSummarizer(BaseLlm, String, InstantSource, UuidProvider)
   5. Method Details
      1. summarizeEvents(List)
 
@@ -63,9 +64,13 @@ Description
 
  
 
-`LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.adk.models") baseLlm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate)`
+`LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.adk.models") baseLlm, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate)`
 
- 
+Creates a summarizer with the given prompt template; `null` selects the default template.
+
+`LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.adk.models") baseLlm, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate, [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource, [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Creates a summarizer whose compaction events draw their id, invocation id, and timestamp from the given sources.
 
   * ## Method Summary
 
@@ -98,7 +103,15 @@ public LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.
 
     * ### LlmEventSummarizer
 
-public LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.adk.models") baseLlm, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate)
+public LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.adk.models") baseLlm, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate)
+
+Creates a summarizer with the given prompt template; `null` selects the default template.
+
+    * ### LlmEventSummarizer
+
+public LlmEventSummarizer([BaseLlm](../models/BaseLlm.html "class in com.google.adk.models") baseLlm, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") promptTemplate, [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource, [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Creates a summarizer whose compaction events draw their id, invocation id, and timestamp from the given sources. Passing `null` as `promptTemplate` selects the default template.
 
   * ## Method Details
 

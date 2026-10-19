@@ -24,7 +24,7 @@ An agent that uses a large language model to generate responses.
 
 
 
-  * Defined in [core/src/agents/llm_agent.ts:351](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L351)
+  * Defined in [core/src/agents/llm_agent.ts:473](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L473)
 
 
 
@@ -42,7 +42,7 @@ An agent that uses a large language model to generate responses.
 
 Overrides [BaseAgent](BaseAgent.html).[constructor](BaseAgent.html#constructor)
 
-    * Defined in [core/src/agents/llm_agent.ts:375](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L375)
+    * Defined in [core/src/agents/llm_agent.ts:524](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L524)
 
 
 
@@ -57,7 +57,19 @@ A unique symbol to identify ADK agent classes.
 
 Inherited from [BaseAgent](BaseAgent.html).[[BASE_AGENT_SIGNATURE_SYMBOL]](BaseAgent.html#base_agent_signature_symbol)
 
-  * Defined in [core/src/agents/base_agent.ts:84](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L84)
+  * Defined in [core/src/agents/base_agent.ts:96](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L96)
+
+
+
+### `Readonly`[BASE_NODE_SIGNATURE_SYMBOL]
+
+"[BASE_NODE_SIGNATURE_SYMBOL]": true
+
+Brand identifying this object as a [BaseNode](BaseNode.html) (see `isBaseNode`).
+
+Inherited from [BaseAgent](BaseAgent.html).[[BASE_NODE_SIGNATURE_SYMBOL]](BaseAgent.html#base_node_signature_symbol)
+
+  * Defined in [core/src/workflow/base_node.ts:88](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L88)
 
 
 
@@ -67,7 +79,7 @@ Inherited from [BaseAgent](BaseAgent.html).[[BASE_AGENT_SIGNATURE_SYMBOL]](BaseA
 
 A unique symbol to identify ADK LLM agent class.
 
-  * Defined in [core/src/agents/llm_agent.ts:353](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L353)
+  * Defined in [core/src/agents/llm_agent.ts:475](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L475)
 
 
 
@@ -79,17 +91,11 @@ Callback or list of callbacks to be invoked after the agent run.
 
 When a list of callbacks is provided, the callbacks will be called in the order they are listed until a callback does not return undefined.
 
-#### Param: callbackContext:
-
-MUST be named 'callbackContext' (enforced).
-
-#### Returns
-
-Content: The content to return to the user. When the content is present, the provided content will be used as agent response and appended to event history as agent response.
+Each callback takes a single [Context](Context.html) argument. Returning `Content` emits it as the agent's response, appended to the event history; return `undefined` to leave the response as the agent produced it.
 
 Inherited from [BaseAgent](BaseAgent.html).[afterAgentCallback](BaseAgent.html#afteragentcallback)
 
-  * Defined in [core/src/agents/base_agent.ts:163](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L163)
+  * Defined in [core/src/agents/base_agent.ts:174](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L174)
 
 
 
@@ -97,7 +103,7 @@ Inherited from [BaseAgent](BaseAgent.html).[afterAgentCallback](BaseAgent.html#a
 
 afterModelCallback?: [AfterModelCallback](../types/AfterModelCallback.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:368](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L368)
+  * Defined in [core/src/agents/llm_agent.ts:516](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L516)
 
 
 
@@ -105,7 +111,7 @@ afterModelCallback?: [AfterModelCallback](../types/AfterModelCallback.html)
 
 afterToolCallback?: [AfterToolCallback](../types/AfterToolCallback.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:370](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L370)
+  * Defined in [core/src/agents/llm_agent.ts:518](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L518)
 
 
 
@@ -117,17 +123,13 @@ Callback or list of callbacks to be invoked before the agent run.
 
 When a list of callbacks is provided, the callbacks will be called in the order they are listed until a callback does not return undefined.
 
-#### Param: callbackContext:
+Each callback takes a single [Context](Context.html) argument. Returning `Content` skips this agent's own run — its `runAsyncImpl` body and its `afterAgentCallback` — and emits the returned content as this agent's response; return `undefined` to let the run proceed.
 
-MUST be named 'callbackContext' (enforced).
-
-#### Returns
-
-Content: The content to return to the user. When the content is present, the agent run will be skipped and the provided content will be returned to user.
+That skip is scoped to this agent. It sets `endInvocation` on the invocation context the agent created for itself, which is a copy of its parent's, so callers above are unaffected: a `SequentialAgent` still runs the remaining sub-agents.
 
 Inherited from [BaseAgent](BaseAgent.html).[beforeAgentCallback](BaseAgent.html#beforeagentcallback)
 
-  * Defined in [core/src/agents/base_agent.ts:149](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L149)
+  * Defined in [core/src/agents/base_agent.ts:162](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L162)
 
 
 
@@ -135,7 +137,7 @@ Inherited from [BaseAgent](BaseAgent.html).[beforeAgentCallback](BaseAgent.html#
 
 beforeModelCallback?: [BeforeModelCallback](../types/BeforeModelCallback.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:367](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L367)
+  * Defined in [core/src/agents/llm_agent.ts:515](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L515)
 
 
 
@@ -143,7 +145,7 @@ beforeModelCallback?: [BeforeModelCallback](../types/BeforeModelCallback.html)
 
 beforeToolCallback?: [BeforeToolCallback](../types/BeforeToolCallback.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:369](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L369)
+  * Defined in [core/src/agents/llm_agent.ts:517](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L517)
 
 
 
@@ -151,7 +153,7 @@ beforeToolCallback?: [BeforeToolCallback](../types/BeforeToolCallback.html)
 
 codeExecutor?: [BaseCodeExecutor](BaseCodeExecutor.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:373](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L373)
+  * Defined in [core/src/agents/llm_agent.ts:521](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L521)
 
 
 
@@ -165,21 +167,17 @@ Stored so clone can rebuild the agent by re-running the concrete constructor wit
 
 Inherited from [BaseAgent](BaseAgent.html).[config](BaseAgent.html#config)
 
-  * Defined in [core/src/agents/base_agent.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L94)
+  * Defined in [core/src/agents/base_agent.ts:106](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L106)
 
 
 
-### `Optional` `Readonly`description
+### `Readonly`description
 
-description?: string
-
-Description about the agent's capability.
-
-The model uses this to determine whether to delegate control to the agent. One-line description is enough and preferred.
+description: string
 
 Inherited from [BaseAgent](BaseAgent.html).[description](BaseAgent.html#description)
 
-  * Defined in [core/src/agents/base_agent.ts:109](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L109)
+  * Defined in [core/src/workflow/base_node.ts:91](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L91)
 
 
 
@@ -187,7 +185,7 @@ Inherited from [BaseAgent](BaseAgent.html).[description](BaseAgent.html#descript
 
 disallowTransferToParent: boolean
 
-  * Defined in [core/src/agents/llm_agent.ts:361](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L361)
+  * Defined in [core/src/agents/llm_agent.ts:483](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L483)
 
 
 
@@ -195,7 +193,7 @@ disallowTransferToParent: boolean
 
 disallowTransferToPeers: boolean
 
-  * Defined in [core/src/agents/llm_agent.ts:362](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L362)
+  * Defined in [core/src/agents/llm_agent.ts:484](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L484)
 
 
 
@@ -203,7 +201,7 @@ disallowTransferToPeers: boolean
 
 generateContentConfig?: GenerateContentConfig
 
-  * Defined in [core/src/agents/llm_agent.ts:360](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L360)
+  * Defined in [core/src/agents/llm_agent.ts:482](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L482)
 
 
 
@@ -215,7 +213,7 @@ globalInstruction: string | [InstructionProvider](../types/InstructionProvider.h
 
 Use GlobalInstructionPlugin instead.
 
-  * Defined in [core/src/agents/llm_agent.ts:358](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L358)
+  * Defined in [core/src/agents/llm_agent.ts:480](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L480)
 
 
 
@@ -223,7 +221,19 @@ Use GlobalInstructionPlugin instead.
 
 includeContents: "default" | "none"
 
-  * Defined in [core/src/agents/llm_agent.ts:363](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L363)
+  * Defined in [core/src/agents/llm_agent.ts:485](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L485)
+
+
+
+### `Readonly`includeContentsExplicit
+
+includeContentsExplicit: boolean
+
+Whether includeContents was set by the caller rather than defaulted.
+
+A workflow node runs its agent for a single turn on the input the graph handed it, so the agent must not also read the surrounding conversation — unless the author asked for it. Mirrors Python checking `'include_contents' in agent.model_fields_set`.
+
+  * Defined in [core/src/agents/llm_agent.ts:495](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L495)
 
 
 
@@ -231,7 +241,21 @@ includeContents: "default" | "none"
 
 inputSchema?: Schema
 
-  * Defined in [core/src/agents/llm_agent.ts:364](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L364)
+Overrides [BaseAgent](BaseAgent.html).[inputSchema](BaseAgent.html#inputschema)
+
+  * Defined in [core/src/agents/llm_agent.ts:497](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L497)
+
+
+
+### `Optional` `Readonly`inputSchemaSource
+
+inputSchemaSource?: [SchemaLike](../types/SchemaLike.html)
+
+The input schema exactly as it was supplied, before conversion into the genai dialect.
+
+`inputSchema` is normalized to a genai `Schema` because that is what the model API and function declarations require, but that conversion is lossy: a Zod refinement, transform, or custom error message has no genai equivalent. Validation therefore uses the original, falling back to the converted form when the schema was given in the genai dialect to begin with.
+
+  * Defined in [core/src/agents/llm_agent.ts:510](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L510)
 
 
 
@@ -239,7 +263,25 @@ inputSchema?: Schema
 
 instruction: string | [InstructionProvider](../types/InstructionProvider.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:356](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L356)
+  * Defined in [core/src/agents/llm_agent.ts:478](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L478)
+
+
+
+### `Optional` `Readonly`isolationScope
+
+isolationScope?: string | true
+
+Inherited from [BaseAgent](BaseAgent.html).[isolationScope](BaseAgent.html#isolationscope)
+
+  * Defined in [core/src/workflow/base_node.ts:105](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L105)
+
+
+
+### `Optional`mode
+
+mode?: "single_turn" | "task"
+
+  * Defined in [core/src/agents/llm_agent.ts:496](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L496)
 
 
 
@@ -247,7 +289,7 @@ instruction: string | [InstructionProvider](../types/InstructionProvider.html)
 
 model?: string | [BaseLlm](BaseLlm.html)
 
-  * Defined in [core/src/agents/llm_agent.ts:355](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L355)
+  * Defined in [core/src/agents/llm_agent.ts:477](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L477)
 
 
 
@@ -259,7 +301,7 @@ The agent's name. Agent name must be a JS identifier and unique within the agent
 
 Inherited from [BaseAgent](BaseAgent.html).[name](BaseAgent.html#name)
 
-  * Defined in [core/src/agents/base_agent.ts:101](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L101)
+  * Defined in [core/src/agents/base_agent.ts:113](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L113)
 
 
 
@@ -267,7 +309,7 @@ Inherited from [BaseAgent](BaseAgent.html).[name](BaseAgent.html#name)
 
 outputKey?: string
 
-  * Defined in [core/src/agents/llm_agent.ts:366](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L366)
+  * Defined in [core/src/agents/llm_agent.ts:513](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L513)
 
 
 
@@ -275,7 +317,19 @@ outputKey?: string
 
 outputSchema?: Schema
 
-  * Defined in [core/src/agents/llm_agent.ts:365](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L365)
+Overrides [BaseAgent](BaseAgent.html).[outputSchema](BaseAgent.html#outputschema)
+
+  * Defined in [core/src/agents/llm_agent.ts:498](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L498)
+
+
+
+### `Optional` `Readonly`outputSchemaSource
+
+outputSchemaSource?: [SchemaLike](../types/SchemaLike.html)
+
+The output schema as supplied — see inputSchemaSource.
+
+  * Defined in [core/src/agents/llm_agent.ts:512](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L512)
 
 
 
@@ -293,7 +347,27 @@ The parent agent is the agent that created this agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[parentAgent](BaseAgent.html#parentagent)
 
-  * Defined in [core/src/agents/base_agent.ts:130](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L130)
+  * Defined in [core/src/agents/base_agent.ts:139](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L139)
+
+
+
+### `Optional`planner
+
+planner?: [BasePlanner](BasePlanner.html)
+
+  * Defined in [core/src/agents/llm_agent.ts:522](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L522)
+
+
+
+### `Optional` `Readonly`preparedRetryConfig
+
+preparedRetryConfig?: [PreparedRetryConfig](../interfaces/PreparedRetryConfig.html)
+
+The retry config with its exception filter normalized once, up front (see [prepareRetryConfig](../functions/prepareRetryConfig.html)). Used by the node runner so the retry hot path never re-normalizes or throws on a malformed config mid-retry.
+
+Inherited from [BaseAgent](BaseAgent.html).[preparedRetryConfig](BaseAgent.html#preparedretryconfig)
+
+  * Defined in [core/src/workflow/base_node.ts:100](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L100)
 
 
 
@@ -301,7 +375,17 @@ Inherited from [BaseAgent](BaseAgent.html).[parentAgent](BaseAgent.html#parentag
 
 requestProcessors: [BaseLlmRequestProcessor](BaseLlmRequestProcessor.html)[]
 
-  * Defined in [core/src/agents/llm_agent.ts:371](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L371)
+  * Defined in [core/src/agents/llm_agent.ts:519](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L519)
+
+
+
+### `Readonly`rerunOnResume
+
+rerunOnResume: boolean
+
+Inherited from [BaseAgent](BaseAgent.html).[rerunOnResume](BaseAgent.html#rerunonresume)
+
+  * Defined in [core/src/workflow/base_node.ts:92](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L92)
 
 
 
@@ -309,7 +393,27 @@ requestProcessors: [BaseLlmRequestProcessor](BaseLlmRequestProcessor.html)[]
 
 responseProcessors: [BaseLlmResponseProcessor](BaseLlmResponseProcessor.html)[]
 
-  * Defined in [core/src/agents/llm_agent.ts:372](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L372)
+  * Defined in [core/src/agents/llm_agent.ts:520](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L520)
+
+
+
+### `Optional` `Readonly`retryConfig
+
+retryConfig?: [RetryConfig](../interfaces/RetryConfig.html)
+
+Inherited from [BaseAgent](BaseAgent.html).[retryConfig](BaseAgent.html#retryconfig)
+
+  * Defined in [core/src/workflow/base_node.ts:94](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L94)
+
+
+
+### `Optional` `Readonly`stateSchema
+
+stateSchema?: [SchemaLike](../types/SchemaLike.html)
+
+Inherited from [BaseAgent](BaseAgent.html).[stateSchema](BaseAgent.html#stateschema)
+
+  * Defined in [core/src/workflow/base_node.ts:104](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L104)
 
 
 
@@ -321,7 +425,17 @@ The sub-agents of this agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[subAgents](BaseAgent.html#subagents)
 
-  * Defined in [core/src/agents/base_agent.ts:135](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L135)
+  * Defined in [core/src/agents/base_agent.ts:144](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L144)
+
+
+
+### `Optional` `Readonly`timeout
+
+timeout?: number
+
+Inherited from [BaseAgent](BaseAgent.html).[timeout](BaseAgent.html#timeout)
+
+  * Defined in [core/src/workflow/base_node.ts:101](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L101)
 
 
 
@@ -329,7 +443,17 @@ Inherited from [BaseAgent](BaseAgent.html).[subAgents](BaseAgent.html#subagents)
 
 tools: [ToolUnion](../types/ToolUnion.html)[]
 
-  * Defined in [core/src/agents/llm_agent.ts:359](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L359)
+  * Defined in [core/src/agents/llm_agent.ts:481](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L481)
+
+
+
+### `Readonly`waitForOutput
+
+waitForOutput: boolean
+
+Inherited from [BaseAgent](BaseAgent.html).[waitForOutput](BaseAgent.html#waitforoutput)
+
+  * Defined in [core/src/workflow/base_node.ts:93](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L93)
 
 
 
@@ -345,7 +469,7 @@ This method is only for use by Agent Development Kit.
 
 #### Returns [SingleAfterModelCallback](../types/SingleAfterModelCallback.html)[]
 
-    * Defined in [core/src/agents/llm_agent.ts:591](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L591)
+    * Defined in [core/src/agents/llm_agent.ts:785](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L785)
 
 
 
@@ -360,7 +484,7 @@ This method is only for use by Agent Development Kit.
 
 #### Returns [SingleAfterToolCallback](../types/SingleAfterToolCallback.html)[]
 
-    * Defined in [core/src/agents/llm_agent.ts:610](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L610)
+    * Defined in [core/src/agents/llm_agent.ts:804](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L804)
 
 
 
@@ -375,7 +499,7 @@ This method is only for use by Agent Development Kit.
 
 #### Returns [SingleBeforeModelCallback](../types/SingleBeforeModelCallback.html)[]
 
-    * Defined in [core/src/agents/llm_agent.ts:581](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L581)
+    * Defined in [core/src/agents/llm_agent.ts:775](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L775)
 
 
 
@@ -390,7 +514,7 @@ This method is only for use by Agent Development Kit.
 
 #### Returns [SingleBeforeToolCallback](../types/SingleBeforeToolCallback.html)[]
 
-    * Defined in [core/src/agents/llm_agent.ts:601](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L601)
+    * Defined in [core/src/agents/llm_agent.ts:795](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L795)
 
 
 
@@ -405,7 +529,35 @@ When not set, the agent will inherit the model from its ancestor.
 
 #### Returns [BaseLlm](BaseLlm.html)
 
-    * Defined in [core/src/agents/llm_agent.ts:483](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L483)
+    * Defined in [core/src/agents/llm_agent.ts:666](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L666)
+
+
+
+
+### finishTaskTool
+
+  * get finishTaskTool(): [FinishTaskTool](FinishTaskTool.html)
+
+The `finish_task` tool for this agent (task mode). Lazily created and cached so its declaration (derived from `outputSchema`) is stable across turns.
+
+#### Returns [FinishTaskTool](FinishTaskTool.html)
+
+    * Defined in [core/src/agents/llm_agent.ts:689](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L689)
+
+
+
+
+### requiresAllPredecessors
+
+  * get requiresAllPredecessors(): boolean
+
+Whether this node must wait for ALL of its predecessors to trigger before it runs (fan-in barrier). Overridden by `JoinNode`.
+
+#### Returns boolean
+
+Inherited from BaseAgent.requiresAllPredecessors
+
+    * Defined in [core/src/workflow/base_node.ts:134](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L134)
 
 
 
@@ -420,7 +572,7 @@ Root agent of this agent. Computed dynamically by traversing up the parent chain
 
 Inherited from BaseAgent.rootAgent
 
-    * Defined in [core/src/agents/base_agent.ts:115](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L115)
+    * Defined in [core/src/agents/base_agent.ts:124](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L124)
 
 
 
@@ -443,7 +595,7 @@ modelResponseEvent: [Event](../interfaces/Event.html),
 
 #### Returns AsyncGenerator<[LlmResponse](../interfaces/LlmResponse.html), void, void>
 
-    * Defined in [core/src/agents/llm_agent.ts:1051](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L1051)
+    * Defined in [core/src/agents/llm_agent.ts:1832](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L1832)
 
 
 
@@ -472,7 +624,7 @@ The resolved globalInstruction field.
 
 Use GlobalInstructionPlugin instead.
 
-    * Defined in [core/src/agents/llm_agent.ts:530](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L530)
+    * Defined in [core/src/agents/llm_agent.ts:724](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L724)
 
 
 
@@ -497,7 +649,7 @@ The context to retrieve the session state.
 
 The resolved instruction field.
 
-    * Defined in [core/src/agents/llm_agent.ts:510](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L510)
+    * Defined in [core/src/agents/llm_agent.ts:704](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L704)
 
 
 
@@ -516,7 +668,7 @@ This method is only for use by Agent Development Kit.
 
 #### Returns Promise<[BaseTool](BaseTool.html)[]>
 
-    * Defined in [core/src/agents/llm_agent.ts:550](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L550)
+    * Defined in [core/src/agents/llm_agent.ts:744](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L744)
 
 
 
@@ -527,13 +679,13 @@ This method is only for use by Agent Development Kit.
 
 Creates a copy of this agent with the given config fields overridden.
 
-Mirrors adk-python's `BaseAgent.clone(update=...)`. The clone is a detached root: its `parentAgent` is always `undefined`. Sub-agents are recursively cloned (and re-parented to the clone) unless `subAgents` is overridden. Rebuilding via the concrete constructor re-derives all state, so a cloned `LlmAgent` gets a fresh `requestProcessors` array rather than sharing the original's. See google/adk-js#534.
+The clone is a detached root: its `parentAgent` is always `undefined`. Sub-agents are recursively cloned (and re-parented to the clone) unless `subAgents` is overridden. Rebuilding via the concrete constructor re-derives all state, so a cloned `LlmAgent` gets a fresh `requestProcessors` array rather than sharing the original's. See google/adk-js#534.
 
 #### Parameters
 
     * `Optional`overrides: Partial<[LlmAgentConfig](../interfaces/LlmAgentConfig.html)>
 
-Config fields to override on the clone. Overriding `parentAgent` is rejected, matching adk-python.
+Config fields to override on the clone. Overriding `parentAgent` is rejected: parentage is assigned only when a parent agent is constructed with its sub-agents.
 
 #### Returns this
 
@@ -541,7 +693,7 @@ A new detached agent instance of the same concrete class.
 
 Inherited from [BaseAgent](BaseAgent.html).[clone](BaseAgent.html#clone)
 
-    * Defined in [core/src/agents/base_agent.ts:195](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L195)
+    * Defined in [core/src/agents/base_agent.ts:209](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L209)
 
 
 
@@ -564,7 +716,7 @@ The invocation context for this agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[createInvocationContext](BaseAgent.html#createinvocationcontext)
 
-    * Defined in [core/src/agents/base_agent.ts:392](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L392)
+    * Defined in [core/src/agents/base_agent.ts:434](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L434)
 
 
 
@@ -587,7 +739,7 @@ The agent with the given name, or undefined if not found.
 
 Inherited from [BaseAgent](BaseAgent.html).[findAgent](BaseAgent.html#findagent)
 
-    * Defined in [core/src/agents/base_agent.ts:361](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L361)
+    * Defined in [core/src/agents/base_agent.ts:403](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L403)
 
 
 
@@ -610,7 +762,7 @@ The agent with the given name, or undefined if not found.
 
 Inherited from [BaseAgent](BaseAgent.html).[findSubAgent](BaseAgent.html#findsubagent)
 
-    * Defined in [core/src/agents/base_agent.ts:375](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L375)
+    * Defined in [core/src/agents/base_agent.ts:417](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L417)
 
 
 
@@ -635,7 +787,7 @@ The event to return to the user, or undefined if no event is generated.
 
 Inherited from [BaseAgent](BaseAgent.html).[handleAfterAgentCallback](BaseAgent.html#handleafteragentcallback)
 
-    * Defined in [core/src/agents/base_agent.ts:455](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L455)
+    * Defined in [core/src/agents/base_agent.ts:497](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L497)
 
 
 
@@ -660,7 +812,27 @@ The event to return to the user, or undefined if no event is generated.
 
 Inherited from [BaseAgent](BaseAgent.html).[handleBeforeAgentCallback](BaseAgent.html#handlebeforeagentcallback)
 
-    * Defined in [core/src/agents/base_agent.ts:408](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L408)
+    * Defined in [core/src/agents/base_agent.ts:450](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L450)
+
+
+
+
+### run
+
+  * run(ctx: [NodeContext](NodeContext.html), input: unknown): AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Runs the node, normalizing every yielded item into an [Event](../interfaces/Event.html). This is what the engine (and `ctx.runNode()`) consumes. Validates the input against `inputSchema` once, up front (skipping genai `Content`, which nodes coerce themselves).
+
+#### Parameters
+
+    * ctx: [NodeContext](NodeContext.html)
+    * input: unknown
+
+#### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Inherited from [BaseAgent](BaseAgent.html).[run](BaseAgent.html#run)
+
+    * Defined in [core/src/workflow/base_node.ts:155](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L155)
 
 
 
@@ -687,7 +859,7 @@ modelResponseEvent: [Event](../interfaces/Event.html),
 
 #### Returns AsyncGenerator<T, void, void>
 
-    * Defined in [core/src/agents/llm_agent.ts:1207](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L1207)
+    * Defined in [core/src/agents/llm_agent.ts:1987](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L1987)
 
 
 
@@ -714,7 +886,7 @@ The events generated by the agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[runAsync](BaseAgent.html#runasync)
 
-    * Defined in [core/src/agents/base_agent.ts:241](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L241)
+    * Defined in [core/src/agents/base_agent.ts:254](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L254)
 
 
 
@@ -741,7 +913,29 @@ The events generated by the agent.
 
 Overrides [BaseAgent](BaseAgent.html).[runAsyncImpl](BaseAgent.html#runasyncimpl)
 
-    * Defined in [core/src/agents/llm_agent.ts:675](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L675)
+    * Defined in [core/src/agents/llm_agent.ts:918](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L918)
+
+
+
+
+### `Protected`runImpl
+
+  * runImpl(ctx: [NodeContext](NodeContext.html), nodeInput: unknown): AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Runs this agent as a workflow node.
+
+Where [BaseAgent.runImpl](BaseAgent.html#runimpl) delegates straight to `runAsync`, an `LlmAgent` has a node input to inject into the conversation, instruction placeholders to resolve against it, a reply to promote to node output, and — in `task` mode — a `finish_task` round-trip to drive. All of that lives in `runLlmAgentAsNode`, mirroring adk-python's `LlmAgent._run_impl` delegating to `run_llm_agent_as_node`.
+
+#### Parameters
+
+    * ctx: [NodeContext](NodeContext.html)
+    * nodeInput: unknown
+
+#### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Overrides [BaseAgent](BaseAgent.html).[runImpl](BaseAgent.html#runimpl)
+
+    * Defined in [core/src/agents/llm_agent.ts:911](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L911)
 
 
 
@@ -768,7 +962,7 @@ The events generated by the agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[runLive](BaseAgent.html#runlive)
 
-    * Defined in [core/src/agents/base_agent.ts:291](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L291)
+    * Defined in [core/src/agents/base_agent.ts:333](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L333)
 
 
 
@@ -795,7 +989,71 @@ The events generated by the agent.
 
 Overrides [BaseAgent](BaseAgent.html).[runLiveImpl](BaseAgent.html#runliveimpl)
 
-    * Defined in [core/src/agents/llm_agent.ts:720](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/llm_agent.ts#L720)
+    * Defined in [core/src/agents/llm_agent.ts:964](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L964)
+
+
+
+
+### `Protected`toEvent
+
+  * toEvent(ctx: [NodeContext](NodeContext.html), data: unknown): [Event](../interfaces/Event.html) | null
+
+Normalizes a single yielded item into an [Event](../interfaces/Event.html) (or `null` to skip). Subclasses may override for richer coercion (e.g. `FunctionNode`).
+
+#### Parameters
+
+    * ctx: [NodeContext](NodeContext.html)
+    * data: unknown
+
+#### Returns [Event](../interfaces/Event.html) | null
+
+Inherited from [BaseAgent](BaseAgent.html).[toEvent](BaseAgent.html#toevent)
+
+    * Defined in [core/src/workflow/base_node.ts:217](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L217)
+
+
+
+
+### `Protected`validateInput
+
+  * validateInput(input: unknown): unknown
+
+Validates node input against `inputSchema` (Content passes through). Only enforced for Zod schemas; a genai `Schema` is left unvalidated (see `parseWithSchema`).
+
+#### Parameters
+
+    * input: unknown
+
+#### Returns unknown
+
+Inherited from [BaseAgent](BaseAgent.html).[validateInput](BaseAgent.html#validateinput)
+
+    * Defined in [core/src/workflow/base_node.ts:178](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L178)
+
+
+
+
+### validateOutput
+
+  * validateOutput(value: unknown): unknown
+
+Validates a value against this agent's output schema, in whichever dialect it was declared, and returns the parsed value.
+
+Prefers the schema as supplied (outputSchemaSource) over the genai form derived from it, since the conversion drops constraints Zod can express and genai cannot.
+
+#### Parameters
+
+    * value: unknown
+
+#### Returns unknown
+
+#### Throws
+
+if the value does not satisfy the schema.
+
+Overrides [BaseAgent](BaseAgent.html).[validateOutput](BaseAgent.html#validateoutput)
+
+    * Defined in [core/src/agents/llm_agent.ts:897](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/llm_agent.ts#L897)
 
 
 
@@ -806,17 +1064,17 @@ constructor
 
 Properties
 
-[BASE_AGENT_SIGNATURE_SYMBOL][LLM_AGENT_SIGNATURE_SYMBOL]afterAgentCallbackafterModelCallbackafterToolCallbackbeforeAgentCallbackbeforeModelCallbackbeforeToolCallbackcodeExecutorconfigdescriptiondisallowTransferToParentdisallowTransferToPeersgenerateContentConfigglobalInstructionincludeContentsinputSchemainstructionmodelnameoutputKeyoutputSchemaparentAgentrequestProcessorsresponseProcessorssubAgentstools
+[BASE_AGENT_SIGNATURE_SYMBOL][BASE_NODE_SIGNATURE_SYMBOL][LLM_AGENT_SIGNATURE_SYMBOL]afterAgentCallbackafterModelCallbackafterToolCallbackbeforeAgentCallbackbeforeModelCallbackbeforeToolCallbackcodeExecutorconfigdescriptiondisallowTransferToParentdisallowTransferToPeersgenerateContentConfigglobalInstructionincludeContentsincludeContentsExplicitinputSchemainputSchemaSourceinstructionisolationScopemodemodelnameoutputKeyoutputSchemaoutputSchemaSourceparentAgentplannerpreparedRetryConfigrequestProcessorsrerunOnResumeresponseProcessorsretryConfigstateSchemasubAgentstimeouttoolswaitForOutput
 
 Accessors
 
-canonicalAfterModelCallbackscanonicalAfterToolCallbackscanonicalBeforeModelCallbackscanonicalBeforeToolCallbackscanonicalModelrootAgent
+canonicalAfterModelCallbackscanonicalAfterToolCallbackscanonicalBeforeModelCallbackscanonicalBeforeToolCallbackscanonicalModelfinishTaskToolrequiresAllPredecessorsrootAgent
 
 Methods
 
-callLlmAsynccanonicalGlobalInstructioncanonicalInstructioncanonicalToolsclonecreateInvocationContextfindAgentfindSubAgenthandleAfterAgentCallbackhandleBeforeAgentCallbackrunAndHandleErrorrunAsyncrunAsyncImplrunLiverunLiveImpl
+callLlmAsynccanonicalGlobalInstructioncanonicalInstructioncanonicalToolsclonecreateInvocationContextfindAgentfindSubAgenthandleAfterAgentCallbackhandleBeforeAgentCallbackrunrunAndHandleErrorrunAsyncrunAsyncImplrunImplrunLiverunLiveImpltoEventvalidateInputvalidateOutput
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

@@ -17,7 +17,7 @@ Preparing search index...
 
 Trigger for context compaction.
 
-  * Defined in [core/src/plugins/base_plugin.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L21)
+  * Defined in [core/src/plugins/base_plugin.ts:23](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L23)
 
 
 
@@ -27,7 +27,7 @@ Trigger for context compaction.
 
 AgentControlled: "AgentControlled"
 
-  * Defined in [core/src/plugins/base_plugin.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L24)
+  * Defined in [core/src/plugins/base_plugin.ts:26](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L26)
 
 
 
@@ -35,7 +35,7 @@ AgentControlled: "AgentControlled"
 
 Auto: "Auto"
 
-  * Defined in [core/src/plugins/base_plugin.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L23)
+  * Defined in [core/src/plugins/base_plugin.ts:25](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L25)
 
 
 
@@ -43,7 +43,7 @@ Auto: "Auto"
 
 Manual: "Manual"
 
-  * Defined in [core/src/plugins/base_plugin.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L22)
+  * Defined in [core/src/plugins/base_plugin.ts:24](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L24)
 
 
 
@@ -51,7 +51,7 @@ Enumeration Members
 
 AgentControlledAutoManual
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

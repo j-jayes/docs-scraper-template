@@ -21,7 +21,7 @@ summarizer: [BaseSummarizer](BaseSummarizer.html);
 tokenThreshold: number;  
 }
 
-  * Defined in [core/src/context/anchored_context_compactor.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/anchored_context_compactor.ts#L14)
+  * Defined in [core/src/context/anchored_context_compactor.ts:17](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/anchored_context_compactor.ts#L17)
 
 
 
@@ -33,7 +33,7 @@ eventRetentionSize: number
 
 The minimum number of raw events to keep at the end of the session. Compaction will not affect these tail events (unless needed for tool splits).
 
-  * Defined in [core/src/context/anchored_context_compactor.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/anchored_context_compactor.ts#L21)
+  * Defined in [core/src/context/anchored_context_compactor.ts:24](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/anchored_context_compactor.ts#L24)
 
 
 
@@ -43,7 +43,7 @@ summarizer: [BaseSummarizer](BaseSummarizer.html)
 
 The summarizer used to create the compacted event content.
 
-  * Defined in [core/src/context/anchored_context_compactor.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/anchored_context_compactor.ts#L23)
+  * Defined in [core/src/context/anchored_context_compactor.ts:26](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/anchored_context_compactor.ts#L26)
 
 
 
@@ -53,7 +53,7 @@ tokenThreshold: number
 
 The maximum number of tokens to retain in the session history before compaction.
 
-  * Defined in [core/src/context/anchored_context_compactor.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/anchored_context_compactor.ts#L16)
+  * Defined in [core/src/context/anchored_context_compactor.ts:19](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/anchored_context_compactor.ts#L19)
 
 
 
@@ -61,7 +61,7 @@ Properties
 
 eventRetentionSizesummarizertokenThreshold
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

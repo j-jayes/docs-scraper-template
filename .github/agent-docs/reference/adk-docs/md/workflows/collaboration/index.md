@@ -273,7 +273,7 @@ Supported in ADKPython v2.0.0Go v2.0.0
 
 Some complex tasks may require multiple agents with specific responsibilities and benefit from less structured procedures, particularly for iterative processes with several, substantial sub-tasks. In a collaborative agent team in ADK, a coordinator agent handles delegation of tasks to one or more subagents. This approach makes it easier to build complex, self-managing agent systems, with subagents defined to handle specific tasks, and automatic return to the parent after completing a task.
 
-When using this self-managed agent team approach, the subagents are assigned an operating **_mode_** to manage their behavior and limit their scope of work. These **_modes_** set general behavior guidelines for subagents and create more predictable and reliable mulit-agent workflows. The following settings are available for collaboration modes:
+When using this self-managed agent team approach, the subagents are assigned an operating **_mode_** to manage their behavior and limit their scope of work. These **_modes_** set general behavior guidelines for subagents and create more predictable and reliable multi-agent workflows. The following settings are available for collaboration modes:
 
   * **_Chat_** : Full user interaction, manual return to parent agent (default, current behavior)
   * **_Task_** : User interaction for clarifications with automatic return to parent agent
@@ -429,6 +429,10 @@ The **_mode_** setting is intended specifically for use with subagents invoked b
 **Return to parent** | Manual (via transfer) | Automatic (via `finish_task`) | Automatic (with result)  
   
 **Table 1.** Comparison of ADK Collaboration agent **_mode_** behavior and limitations.
+
+Global instructions for all agents
+
+Apply consistent rules across your workflow using the `GlobalInstructionPlugin` on your `App` ([Python](https://github.com/google/adk-python/blob/main/src/google/adk/plugins/global_instruction_plugin.py), [TypeScript](https://github.com/google/adk-js/blob/main/core/src/plugins/global_instruction_plugin.ts), [Java](https://github.com/google/adk-java/blob/main/core/src/main/java/com/google/adk/plugins/GlobalInstructionPlugin.java)) or the `GlobalInstruction` parameter on your agent ([Go](https://github.com/google/adk-go/blob/main/agent/llmagent/llmagent.go)).
 
 ## Operating considerations¶
 

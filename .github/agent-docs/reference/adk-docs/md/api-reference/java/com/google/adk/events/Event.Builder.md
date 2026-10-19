@@ -53,7 +53,10 @@ Contents
      19. modelVersion(String)
      20. inputTranscription(Transcription)
      21. outputTranscription(Transcription)
-     22. build()
+     22. output(Object)
+     23. nodeInfo(NodeInfo)
+     24. cacheMetadata(CacheMetadata)
+     25. build()
 
 Hide sidebar  Show sidebar
 
@@ -121,6 +124,12 @@ Description
 `[Event](Event.html "class in com.google.adk.events")`
 
 `build()`
+
+ 
+
+`[Event.Builder](Event.Builder.html "class in com.google.adk.events")`
+
+`cacheMetadata(@Nullable [CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models") value)`
 
  
 
@@ -198,6 +207,18 @@ Description
 
 `[Event.Builder](Event.Builder.html "class in com.google.adk.events")`
 
+`nodeInfo(@Nullable [NodeInfo](../workflow/NodeInfo.html "class in com.google.adk.workflow") value)`
+
+ 
+
+`[Event.Builder](Event.Builder.html "class in com.google.adk.events")`
+
+`output(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)`
+
+ 
+
+`[Event.Builder](Event.Builder.html "class in com.google.adk.events")`
+
 `outputTranscription(@Nullable com.google.genai.types.Transcription value)`
 
  
@@ -212,7 +233,7 @@ Description
 
 `timestamp(long value)`
 
- 
+Sets the timestamp in epoch milliseconds.
 
 `[Event.Builder](Event.Builder.html "class in com.google.adk.events")`
 
@@ -301,6 +322,8 @@ public Builder()
 
 @CanIgnoreReturnValue public [Event.Builder](Event.Builder.html "class in com.google.adk.events") timestamp(long value)
 
+Sets the timestamp in epoch milliseconds. When unset, `build()` reads the wall clock; events built inside an invocation should pass `InvocationContext.now().toEpochMilli()` so the timestamp follows its [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time").
+
     * ### branch
 
 @CanIgnoreReturnValue public [Event.Builder](Event.Builder.html "class in com.google.adk.events") branch(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)
@@ -324,6 +347,18 @@ public Builder()
     * ### outputTranscription
 
 @CanIgnoreReturnValue public [Event.Builder](Event.Builder.html "class in com.google.adk.events") outputTranscription(@Nullable com.google.genai.types.Transcription value)
+
+    * ### output
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") @CanIgnoreReturnValue public [Event.Builder](Event.Builder.html "class in com.google.adk.events") output(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)
+
+    * ### nodeInfo
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") @CanIgnoreReturnValue public [Event.Builder](Event.Builder.html "class in com.google.adk.events") nodeInfo(@Nullable [NodeInfo](../workflow/NodeInfo.html "class in com.google.adk.workflow") value)
+
+    * ### cacheMetadata
+
+@CanIgnoreReturnValue public [Event.Builder](Event.Builder.html "class in com.google.adk.events") cacheMetadata(@Nullable [CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models") value)
 
     * ### build
 

@@ -127,9 +127,9 @@ Description
 
 `[ParallelAgent.Builder](ParallelAgent.Builder.html "class in com.google.adk.agents")`
 
-`scheduler(io.reactivex.rxjava3.core.Scheduler scheduler)`
+`scheduler(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)`
 
- 
+Sets the scheduler the sub-agents are subscribed on, or `null` (the default) to inherit the invocation's scheduler ([`InvocationContext.scheduler()`](InvocationContext.html#scheduler\(\)): `Schedulers.io()` unless the `Runner` is configured with another one).
 
 ### Methods inherited from class [BaseAgent.Builder](BaseAgent.Builder.html#method-summary "class in com.google.adk.agents")
 
@@ -212,7 +212,9 @@ public Builder()
 
     * ### scheduler
 
-@CanIgnoreReturnValue public [ParallelAgent.Builder](ParallelAgent.Builder.html "class in com.google.adk.agents") scheduler(io.reactivex.rxjava3.core.Scheduler scheduler)
+@CanIgnoreReturnValue public [ParallelAgent.Builder](ParallelAgent.Builder.html "class in com.google.adk.agents") scheduler(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)
+
+Sets the scheduler the sub-agents are subscribed on, or `null` (the default) to inherit the invocation's scheduler ([`InvocationContext.scheduler()`](InvocationContext.html#scheduler\(\)): `Schedulers.io()` unless the `Runner` is configured with another one).
 
     * ### build
 

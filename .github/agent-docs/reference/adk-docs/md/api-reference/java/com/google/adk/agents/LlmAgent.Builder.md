@@ -279,7 +279,7 @@ Removes any before-model callbacks set on this builder.
 
 `executor([Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "interface in java.util.concurrent") executor)`
 
- 
+Sets the executor for this agent's offloaded work: tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode and the live request loop.
 
 `[LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents")`
 
@@ -645,6 +645,8 @@ Removes any before-model callbacks set on this builder.
     * ### executor
 
 @CanIgnoreReturnValue public [LlmAgent.Builder](LlmAgent.Builder.html "class in com.google.adk.agents") executor([Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "interface in java.util.concurrent") executor)
+
+Sets the executor for this agent's offloaded work: tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode and the live request loop. When unset, that work runs on the invocation's scheduler ([`InvocationContext.scheduler()`](InvocationContext.html#scheduler\(\))).
 
     * ### outputKey
 

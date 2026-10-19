@@ -35,6 +35,7 @@ beforeToolCallbacks: [SingleBeforeToolCallback](../types/SingleBeforeToolCallbac
 filters?: Set<string>;  
 functionCalls: FunctionCall[];  
 invocationContext: [InvocationContext](../classes/InvocationContext.html);  
+resumeInputsDict?: Record<string, [ResumeInputs](../types/ResumeInputs.html)>;  
 toolConfirmationDict?: Record<string, [ToolConfirmation](../classes/ToolConfirmation.html)>;  
 toolsDict: Record<string, [BaseTool](../classes/BaseTool.html)>;  
 },  
@@ -64,6 +65,7 @@ beforeToolCallbacks: [SingleBeforeToolCallback](../types/SingleBeforeToolCallbac
 filters?: Set<string>;  
 functionCalls: FunctionCall[];  
 invocationContext: [InvocationContext](../classes/InvocationContext.html);  
+resumeInputsDict?: Record<string, [ResumeInputs](../types/ResumeInputs.html)>;  
 toolConfirmationDict?: Record<string, [ToolConfirmation](../classes/ToolConfirmation.html)>;  
 toolsDict: Record<string, [BaseTool](../classes/BaseTool.html)>;  
 },  
@@ -72,11 +74,11 @@ toolsDict: Record<string, [BaseTool](../classes/BaseTool.html)>;
 
 
 
-  * Defined in [core/src/agents/functions.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/functions.ts#L44)
+  * Defined in [core/src/agents/functions.ts:69](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/functions.ts#L69)
 
 
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

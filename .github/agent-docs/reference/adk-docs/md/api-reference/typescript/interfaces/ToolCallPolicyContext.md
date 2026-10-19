@@ -22,7 +22,7 @@ tool: [BaseTool](../classes/BaseTool.html);
 toolArgs: Record<string, unknown>;  
 }
 
-  * Defined in [core/src/plugins/security_plugin.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L48)
+  * Defined in [core/src/plugins/security_plugin.ts:49](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L49)
 
 
 
@@ -34,7 +34,7 @@ tool: [BaseTool](../classes/BaseTool.html)
 
 The tool being invoked.
 
-  * Defined in [core/src/plugins/security_plugin.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L50)
+  * Defined in [core/src/plugins/security_plugin.ts:51](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L51)
 
 
 
@@ -44,7 +44,7 @@ toolArgs: Record<string, unknown>
 
 The arguments supplied to the tool call.
 
-  * Defined in [core/src/plugins/security_plugin.ts:52](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L52)
+  * Defined in [core/src/plugins/security_plugin.ts:53](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L53)
 
 
 
@@ -52,7 +52,7 @@ Properties
 
 tooltoolArgs
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

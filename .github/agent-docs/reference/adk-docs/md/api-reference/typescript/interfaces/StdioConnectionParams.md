@@ -23,7 +23,7 @@ timeout?: number;
 type: "StdioConnectionParams";  
 }
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L22)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:38](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L38)
 
 
 
@@ -33,7 +33,7 @@ type: "StdioConnectionParams";
 
 serverParams: StdioServerParameters
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L24)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:40](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L40)
 
 
 
@@ -41,7 +41,7 @@ serverParams: StdioServerParameters
 
 timeout?: number
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L25)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:41](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L41)
 
 
 
@@ -49,7 +49,7 @@ timeout?: number
 
 type: "StdioConnectionParams"
 
-  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/mcp/mcp_session_manager.ts#L23)
+  * Defined in [core/src/tools/mcp/mcp_session_manager.ts:39](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/mcp/mcp_session_manager.ts#L39)
 
 
 
@@ -57,7 +57,7 @@ Properties
 
 serverParamstimeouttype
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

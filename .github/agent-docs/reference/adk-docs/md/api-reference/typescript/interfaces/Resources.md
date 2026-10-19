@@ -23,7 +23,7 @@ references?: Record<string, string | Buffer<ArrayBufferLike>>;
 scripts?: Record<string, [Script](Script.html)>;  
 }
 
-  * Defined in [core/src/skills/skill.ts:83](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L83)
+  * Defined in [core/src/skills/skill.ts:83](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L83)
 
 
 
@@ -33,7 +33,7 @@ scripts?: Record<string, [Script](Script.html)>;
 
 assets?: Record<string, string | Buffer<ArrayBufferLike>>
 
-  * Defined in [core/src/skills/skill.ts:85](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L85)
+  * Defined in [core/src/skills/skill.ts:85](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L85)
 
 
 
@@ -41,7 +41,7 @@ assets?: Record<string, string | Buffer<ArrayBufferLike>>
 
 references?: Record<string, string | Buffer<ArrayBufferLike>>
 
-  * Defined in [core/src/skills/skill.ts:84](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L84)
+  * Defined in [core/src/skills/skill.ts:84](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L84)
 
 
 
@@ -49,7 +49,7 @@ references?: Record<string, string | Buffer<ArrayBufferLike>>
 
 scripts?: Record<string, [Script](Script.html)>
 
-  * Defined in [core/src/skills/skill.ts:86](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L86)
+  * Defined in [core/src/skills/skill.ts:86](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L86)
 
 
 
@@ -57,7 +57,7 @@ Properties
 
 assetsreferencesscripts
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

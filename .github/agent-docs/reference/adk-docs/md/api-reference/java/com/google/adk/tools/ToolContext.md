@@ -29,23 +29,11 @@ Contents
   2. Nested Class Summary
   3. Field Summary
   4. Method Summary
-     1. Methods inherited from class CallbackContext
-     2. Methods inherited from class ReadonlyContext
-     3. Methods inherited from class Object
   5. Method Details
-     1. actions()
-     2. setActions(EventActions)
-     3. functionCallId()
-     4. functionCallId(String)
-     5. toolConfirmation()
-     6. toolConfirmation(ToolConfirmation)
-     7. requestConfirmation(String, Object)
-     8. requestConfirmation(String)
-     9. requestConfirmation()
-     10. searchMemory(String)
-     11. builder(InvocationContext)
-     12. toBuilder()
-     13. toString()
+     1. setActions(EventActions)
+     2. builder(InvocationContext)
+     3. toBuilder()
+     4. toString()
 
 Hide sidebar  Show sidebar
 
@@ -55,6 +43,8 @@ Hide sidebar  Show sidebar
 
 [com.google.adk.agents.ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")
 
+[com.google.adk.agents.Context](../agents/Context.html "class in com.google.adk.agents")
+
 [com.google.adk.agents.CallbackContext](../agents/CallbackContext.html "class in com.google.adk.agents")
 
 com.google.adk.tools.ToolContext
@@ -63,7 +53,9 @@ com.google.adk.tools.ToolContext
 
 public class ToolContext extends [CallbackContext](../agents/CallbackContext.html "class in com.google.adk.agents")
 
-ToolContext object provides a structured context for executing tools or functions.
+ToolContext object provides a structured context for executing tools or functions. 
+
+Extends [`CallbackContext`](../agents/CallbackContext.html "class in com.google.adk.agents") (and through it [`Context`](../agents/Context.html "class in com.google.adk.agents")); [`BaseTool.runAsync(Map, ToolContext)`](BaseTool.html#runAsync\(java.util.Map,com.google.adk.tools.ToolContext\)) and tool callbacks take this type.
 
   * ## Nested Class Summary
 
@@ -83,9 +75,9 @@ Builder for [`ToolContext`](ToolContext.html "class in com.google.adk.tools").
 
   * ## Field Summary
 
-### Fields inherited from class [CallbackContext](../agents/CallbackContext.html#field-summary "class in com.google.adk.agents")
+### Fields inherited from class [Context](../agents/Context.html#field-summary "class in com.google.adk.agents")
 
-`[eventActions](../agents/CallbackContext.html#eventActions)`
+`[eventActions](../agents/Context.html#eventActions)`
 
 Modifier and Type
 
@@ -95,9 +87,9 @@ Description
 
 `protected [EventActions](../events/EventActions.html "class in com.google.adk.events")`
 
-`[eventActions](../agents/CallbackContext.html#eventActions)`
+`[eventActions](../agents/Context.html#eventActions)`
 
- 
+The event actions that record this context's changes.
 
 ### Fields inherited from class [ReadonlyContext](../agents/ReadonlyContext.html#field-summary "class in com.google.adk.agents")
 
@@ -125,53 +117,11 @@ Method
 
 Description
 
-`[EventActions](../events/EventActions.html "class in com.google.adk.events")`
-
-`actions()`
-
- 
-
 `static [ToolContext.Builder](ToolContext.Builder.html "class in com.google.adk.tools")`
 
 `builder([InvocationContext](../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)`
 
  
-
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
-
-`functionCallId()`
-
- 
-
-`void`
-
-`functionCallId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") functionCallId)`
-
- 
-
-`void`
-
-`requestConfirmation()`
-
-Requests confirmation for the given function call.
-
-`void`
-
-`requestConfirmation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint)`
-
-Requests confirmation for the given function call.
-
-`void`
-
-`requestConfirmation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") payload)`
-
-Requests confirmation for the given function call.
-
-`io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../memory/SearchMemoryResponse.html "class in com.google.adk.memory")>`
-
-`searchMemory([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
-
-Searches the memory of the current user.
 
 `void`
 
@@ -185,27 +135,15 @@ Searches the memory of the current user.
 
  
 
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events")>`
-
-`toolConfirmation()`
-
- 
-
-`void`
-
-`toolConfirmation([ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)`
-
- 
-
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
 `toString()`
 
  
 
-### Methods inherited from class [CallbackContext](../agents/CallbackContext.html#method-summary "class in com.google.adk.agents")
+### Methods inherited from class [Context](../agents/Context.html#method-summary "class in com.google.adk.agents")
 
-`[eventActions](../agents/CallbackContext.html#eventActions\(\) "eventActions\(\)"), [eventId](../agents/CallbackContext.html#eventId\(\) "eventId\(\)"), [listArtifacts](../agents/CallbackContext.html#listArtifacts\(\) "listArtifacts\(\)"), [loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String\) "loadArtifact\(String\)"), [loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String,int\) "loadArtifact\(String, int\)"), [saveArtifact](../agents/CallbackContext.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\) "saveArtifact\(String, Part\)"), [state](../agents/CallbackContext.html#state\(\) "state\(\)")`
+`[actions](../agents/Context.html#actions\(\) "actions\(\)"), [eventActions](../agents/Context.html#eventActions\(\) "eventActions\(\)"), [eventId](../agents/Context.html#eventId\(\) "eventId\(\)"), [functionCallId](../agents/Context.html#functionCallId\(\) "functionCallId\(\)"), [functionCallId](../agents/Context.html#functionCallId\(java.lang.String\) "functionCallId\(String\)"), [listArtifacts](../agents/Context.html#listArtifacts\(\) "listArtifacts\(\)"), [loadArtifact](../agents/Context.html#loadArtifact\(java.lang.String\) "loadArtifact\(String\)"), [loadArtifact](../agents/Context.html#loadArtifact\(java.lang.String,int\) "loadArtifact\(String, int\)"), [requestConfirmation](../agents/Context.html#requestConfirmation\(\) "requestConfirmation\(\)"), [requestConfirmation](../agents/Context.html#requestConfirmation\(java.lang.String\) "requestConfirmation\(String\)"), [requestConfirmation](../agents/Context.html#requestConfirmation\(java.lang.String,java.lang.Object\) "requestConfirmation\(String, Object\)"), [saveArtifact](../agents/Context.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\) "saveArtifact\(String, Part\)"), [searchMemory](../agents/Context.html#searchMemory\(java.lang.String\) "searchMemory\(String\)"), [state](../agents/Context.html#state\(\) "state\(\)"), [toolConfirmation](../agents/Context.html#toolConfirmation\(\) "toolConfirmation\(\)"), [toolConfirmation](../agents/Context.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\) "toolConfirmation\(ToolConfirmation\)")`
 
 Modifier and Type
 
@@ -215,45 +153,99 @@ Description
 
 `[EventActions](../events/EventActions.html "class in com.google.adk.events")`
 
-`[eventActions](../agents/CallbackContext.html#eventActions\(\))()`
+`[actions](../agents/Context.html#actions\(\))()`
 
-Returns the EventActions associated with this context.
+Returns the same [`EventActions`](../events/EventActions.html "class in com.google.adk.events") as [`Context.eventActions()`](../agents/Context.html#eventActions\(\)).
+
+`[EventActions](../events/EventActions.html "class in com.google.adk.events")`
+
+`[eventActions](../agents/Context.html#eventActions\(\))()`
+
+Returns the [`EventActions`](../events/EventActions.html "class in com.google.adk.events") associated with this context.
 
 `[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
 
-`[eventId](../agents/CallbackContext.html#eventId\(\))()`
+`[eventId](../agents/Context.html#eventId\(\))()`
 
-Returns the ID of the event associated with this context.
+Returns the ID of the event associated with this context, or null if there is none.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>`
+
+`[functionCallId](../agents/Context.html#functionCallId\(\))()`
+
+Returns the ID of the function call that invoked the current tool, if any.
+
+`void`
+
+`[functionCallId](../agents/Context.html#functionCallId\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") functionCallId)`
+
+Sets the ID of the function call that invoked the current tool, or clears it if null.
 
 `io.reactivex.rxjava3.core.Single<[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")>>`
 
-`[listArtifacts](../agents/CallbackContext.html#listArtifacts\(\))()`
+`[listArtifacts](../agents/Context.html#listArtifacts\(\))()`
 
 Lists the filenames of the artifacts attached to the current session.
 
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
-`[loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename)`
+`[loadArtifact](../agents/Context.html#loadArtifact\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename)`
 
 Loads the latest version of an artifact from the service.
 
 `io.reactivex.rxjava3.core.Maybe<com.google.genai.types.Part>`
 
-`[loadArtifact](../agents/CallbackContext.html#loadArtifact\(java.lang.String,int\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, int version)`
+`[loadArtifact](../agents/Context.html#loadArtifact\(java.lang.String,int\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, int version)`
 
 Loads a specific version of an artifact from the service.
 
+`void`
+
+`[requestConfirmation](../agents/Context.html#requestConfirmation\(\))()`
+
+Requests confirmation for the current function call.
+
+`void`
+
+`[requestConfirmation](../agents/Context.html#requestConfirmation\(java.lang.String\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint)`
+
+Requests confirmation for the current function call.
+
+`void`
+
+`[requestConfirmation](../agents/Context.html#requestConfirmation\(java.lang.String,java.lang.Object\))(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") payload)`
+
+Requests confirmation for the current function call.
+
 `io.reactivex.rxjava3.core.Completable`
 
-`[saveArtifact](../agents/CallbackContext.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, com.google.genai.types.Part artifact)`
+`[saveArtifact](../agents/Context.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") filename, com.google.genai.types.Part artifact)`
 
 Saves an artifact and records it as a delta for the current session.
 
+`io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../memory/SearchMemoryResponse.html "class in com.google.adk.memory")>`
+
+`[searchMemory](../agents/Context.html#searchMemory\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
+
+Searches the memory of the current user.
+
 `[State](../sessions/State.html "class in com.google.adk.sessions")`
 
-`[state](../agents/CallbackContext.html#state\(\))()`
+`[state](../agents/Context.html#state\(\))()`
 
-Returns the delta-aware state of the current callback.
+Returns the delta-aware state of the current context.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events")>`
+
+`[toolConfirmation](../agents/Context.html#toolConfirmation\(\))()`
+
+Returns the confirmation of the current tool call, if any.
+
+`void`
+
+`[toolConfirmation](../agents/Context.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\))(@Nullable [ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)`
+
+Sets the confirmation of the current tool call, or clears it if null.
 
 ### Methods inherited from class [ReadonlyContext](../agents/ReadonlyContext.html#method-summary "class in com.google.adk.agents")
 
@@ -322,60 +314,9 @@ Returns the user ID.
 
   * ## Method Details
 
-    * ### actions
-
-public [EventActions](../events/EventActions.html "class in com.google.adk.events") actions()
-
     * ### setActions
 
 public void setActions([EventActions](../events/EventActions.html "class in com.google.adk.events") actions)
-
-    * ### functionCallId
-
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")> functionCallId()
-
-    * ### functionCallId
-
-public void functionCallId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") functionCallId)
-
-    * ### toolConfirmation
-
-public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events")> toolConfirmation()
-
-    * ### toolConfirmation
-
-public void toolConfirmation([ToolConfirmation](../events/ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)
-
-    * ### requestConfirmation
-
-public void requestConfirmation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") payload)
-
-Requests confirmation for the given function call.
-
-Parameters:
-    `hint` \- A hint to the user on how to confirm the tool call.
-    `payload` \- The payload used to confirm the tool call.
-
-    * ### requestConfirmation
-
-public void requestConfirmation(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") hint)
-
-Requests confirmation for the given function call.
-
-Parameters:
-    `hint` \- A hint to the user on how to confirm the tool call.
-
-    * ### requestConfirmation
-
-public void requestConfirmation()
-
-Requests confirmation for the given function call.
-
-    * ### searchMemory
-
-public io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../memory/SearchMemoryResponse.html "class in com.google.adk.memory")> searchMemory([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)
-
-Searches the memory of the current user.
 
     * ### builder
 

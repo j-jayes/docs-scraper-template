@@ -32,6 +32,10 @@ Package
 
 Description
 
+com.google.adk.agents
+
+ 
+
 com.google.adk.events
 
  
@@ -39,6 +43,36 @@ com.google.adk.events
 com.google.adk.tools
 
  
+
+  * ## Uses of [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events") in [com.google.adk.agents](../../agents/package-summary.html)
+
+Methods in [com.google.adk.agents](../../agents/package-summary.html) that return types with arguments of type [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
+
+Context.`[toolConfirmation](../../agents/Context.html#toolConfirmation\(\))()`
+
+Returns the confirmation of the current tool call, if any.
+
+Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")
+
+Modifier and Type
+
+Method
+
+Description
+
+`void`
+
+Context.`[toolConfirmation](../../agents/Context.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\))(@Nullable [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)`
+
+Sets the confirmation of the current tool call, or clears it if null.
 
   * ## Uses of [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events") in [com.google.adk.events](../package-summary.html)
 
@@ -92,20 +126,6 @@ EventActions.`[setRequestedToolConfirmations](../EventActions.html#setRequestedT
 
   * ## Uses of [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events") in [com.google.adk.tools](../../tools/package-summary.html)
 
-Methods in [com.google.adk.tools](../../tools/package-summary.html) that return types with arguments of type [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")
-
-Modifier and Type
-
-Method
-
-Description
-
-`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")>`
-
-ToolContext.`[toolConfirmation](../../tools/ToolContext.html#toolConfirmation\(\))()`
-
- 
-
 Methods in [com.google.adk.tools](../../tools/package-summary.html) with parameters of type [ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events")
 
 Modifier and Type
@@ -117,12 +137,6 @@ Description
 `[ToolContext.Builder](../../tools/ToolContext.Builder.html "class in com.google.adk.tools")`
 
 ToolContext.Builder.`[toolConfirmation](../../tools/ToolContext.Builder.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\))([ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)`
-
- 
-
-`void`
-
-ToolContext.`[toolConfirmation](../../tools/ToolContext.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\))([ToolConfirmation](../ToolConfirmation.html "class in com.google.adk.events") toolConfirmation)`
 
  
 

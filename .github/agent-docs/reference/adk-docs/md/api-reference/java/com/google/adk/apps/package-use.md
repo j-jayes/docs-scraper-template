@@ -31,6 +31,10 @@ Package
 
 Description
 
+com.example.contextcaching
+
+ 
+
 com.google.adk.a2a.executor
 
  
@@ -46,6 +50,16 @@ com.google.adk.apps
 com.google.adk.runner
 
  
+
+  * Classes in [com.google.adk.apps](package-summary.html) used by [com.example.contextcaching](../../../example/contextcaching/package-summary.html)
+
+Class
+
+Description
+
+[App](class-use/App.html#com.example.contextcaching)
+
+Represents an LLM-backed agentic application.
 
   * Classes in [com.google.adk.apps](package-summary.html) used by [com.google.adk.a2a.executor](../a2a/executor/package-summary.html)
 

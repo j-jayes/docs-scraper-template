@@ -41,9 +41,14 @@ Hide sidebar  Show sidebar
 
 [java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
+[com.google.adk.workflow.BaseNode](../../workflow/BaseNode.html "class in com.google.adk.workflow")
+
 [com.google.adk.agents.BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")
 
 com.google.adk.a2a.agent.RemoteA2AAgent
+
+All Implemented Interfaces:
+    `[Node](../../workflow/Node.html "interface in com.google.adk.workflow")`
 
 * * *
 
@@ -132,7 +137,7 @@ Returns the origin of the tool when this agent is used as a tool.
 
 ### Methods inherited from class [BaseAgent](../../agents/BaseAgent.html#method-summary "class in com.google.adk.agents")
 
-`[afterAgentCallback](../../agents/BaseAgent.html#afterAgentCallback\(\) "afterAgentCallback\(\)"), [beforeAgentCallback](../../agents/BaseAgent.html#beforeAgentCallback\(\) "beforeAgentCallback\(\)"), [canonicalAfterAgentCallbacks](../../agents/BaseAgent.html#canonicalAfterAgentCallbacks\(\) "canonicalAfterAgentCallbacks\(\)"), [canonicalBeforeAgentCallbacks](../../agents/BaseAgent.html#canonicalBeforeAgentCallbacks\(\) "canonicalBeforeAgentCallbacks\(\)"), [close](../../agents/BaseAgent.html#close\(\) "close\(\)"), [description](../../agents/BaseAgent.html#description\(\) "description\(\)"), [findAgent](../../agents/BaseAgent.html#findAgent\(java.lang.String\) "findAgent\(String\)"), [findSubAgent](../../agents/BaseAgent.html#findSubAgent\(java.lang.String\) "findSubAgent\(String\)"), [fromConfig](../../agents/BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\) "fromConfig\(BaseAgentConfig, String\)"), [name](../../agents/BaseAgent.html#name\(\) "name\(\)"), [parentAgent](../../agents/BaseAgent.html#parentAgent\(\) "parentAgent\(\)"), [parentAgent](../../agents/BaseAgent.html#parentAgent\(com.google.adk.agents.BaseAgent\) "parentAgent\(BaseAgent\)"), [rootAgent](../../agents/BaseAgent.html#rootAgent\(\) "rootAgent\(\)"), [runAsync](../../agents/BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\) "runAsync\(InvocationContext\)"), [runLive](../../agents/BaseAgent.html#runLive\(com.google.adk.agents.InvocationContext\) "runLive\(InvocationContext\)"), [subAgents](../../agents/BaseAgent.html#subAgents\(\) "subAgents\(\)")`
+`[afterAgentCallback](../../agents/BaseAgent.html#afterAgentCallback\(\) "afterAgentCallback\(\)"), [beforeAgentCallback](../../agents/BaseAgent.html#beforeAgentCallback\(\) "beforeAgentCallback\(\)"), [canonicalAfterAgentCallbacks](../../agents/BaseAgent.html#canonicalAfterAgentCallbacks\(\) "canonicalAfterAgentCallbacks\(\)"), [canonicalBeforeAgentCallbacks](../../agents/BaseAgent.html#canonicalBeforeAgentCallbacks\(\) "canonicalBeforeAgentCallbacks\(\)"), [close](../../agents/BaseAgent.html#close\(\) "close\(\)"), [findAgent](../../agents/BaseAgent.html#findAgent\(java.lang.String\) "findAgent\(String\)"), [findSubAgent](../../agents/BaseAgent.html#findSubAgent\(java.lang.String\) "findSubAgent\(String\)"), [fromConfig](../../agents/BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\) "fromConfig\(BaseAgentConfig, String\)"), [parentAgent](../../agents/BaseAgent.html#parentAgent\(\) "parentAgent\(\)"), [parentAgent](../../agents/BaseAgent.html#parentAgent\(com.google.adk.agents.BaseAgent\) "parentAgent\(BaseAgent\)"), [rootAgent](../../agents/BaseAgent.html#rootAgent\(\) "rootAgent\(\)"), [runAsync](../../agents/BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\) "runAsync\(InvocationContext\)"), [runLive](../../agents/BaseAgent.html#runLive\(com.google.adk.agents.InvocationContext\) "runLive\(InvocationContext\)"), [runNode](../../agents/BaseAgent.html#runNode\(com.google.adk.agents.Context,java.lang.Object\) "runNode\(Context, Object\)"), [subAgents](../../agents/BaseAgent.html#subAgents\(\) "subAgents\(\)")`
 
 Modifier and Type
 
@@ -170,12 +175,6 @@ The resolved beforeAgentCallback field as a list.
 
 Closes all sub-agents.
 
-`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
-
-`[description](../../agents/BaseAgent.html#description\(\))()`
-
-Gets the one-line description of the agent's capability.
-
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")>`
 
 `[findAgent](../../agents/BaseAgent.html#findAgent\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
@@ -193,12 +192,6 @@ Recursively search sub agent by name.
 `[fromConfig](../../agents/BaseAgent.html#fromConfig\(com.google.adk.agents.BaseAgentConfig,java.lang.String\))([BaseAgentConfig](../../agents/BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a new agent instance from a configuration object.
-
-`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
-
-`[name](../../agents/BaseAgent.html#name\(\))()`
-
-Gets the agent's unique name.
 
 `[BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")`
 
@@ -230,15 +223,95 @@ Runs the agent asynchronously.
 
 Runs the agent synchronously.
 
+`io.reactivex.rxjava3.core.Flowable<[Event](../../events/Event.html "class in com.google.adk.events")>`
+
+`[runNode](../../agents/BaseAgent.html#runNode\(com.google.adk.agents.Context,java.lang.Object\))([Context](../../agents/Context.html "class in com.google.adk.agents") context, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") nodeInput)`
+
+Runs this agent as a workflow node through its [`BaseAgent.runAsync(InvocationContext)`](../../agents/BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\)) lifecycle, including its callbacks.
+
 `[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")>`
 
 `[subAgents](../../agents/BaseAgent.html#subAgents\(\))()`
 
  
 
+### Methods inherited from class [BaseNode](../../workflow/BaseNode.html#method-summary "class in com.google.adk.workflow")
+
+`[config](../../workflow/BaseNode.html#config\(\) "config\(\)"), [description](../../workflow/BaseNode.html#description\(\) "description\(\)"), [inputSchema](../../workflow/BaseNode.html#inputSchema\(\) "inputSchema\(\)"), [name](../../workflow/BaseNode.html#name\(\) "name\(\)"), [outputSchema](../../workflow/BaseNode.html#outputSchema\(\) "outputSchema\(\)"), [rerunOnResume](../../workflow/BaseNode.html#rerunOnResume\(\) "rerunOnResume\(\)"), [stateSchema](../../workflow/BaseNode.html#stateSchema\(\) "stateSchema\(\)"), [waitForOutput](../../workflow/BaseNode.html#waitForOutput\(\) "waitForOutput\(\)")`
+
+Modifier and Type
+
+Method
+
+Description
+
+`[NodeConfig](../../workflow/NodeConfig.html "class in com.google.adk.workflow")`
+
+`[config](../../workflow/BaseNode.html#config\(\))()`
+
+Returns the node's retry policy and execution timeout.
+
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[description](../../workflow/BaseNode.html#description\(\))()`
+
+Returns what the node does, for humans and for a model that may call it.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Schema>`
+
+`[inputSchema](../../workflow/BaseNode.html#inputSchema\(\))()`
+
+Returns the schema the node's input must match.
+
+`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[name](../../workflow/BaseNode.html#name\(\))()`
+
+Returns the name that identifies the node within its graph.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Schema>`
+
+`[outputSchema](../../workflow/BaseNode.html#outputSchema\(\))()`
+
+Returns the schema that the node's output value must match.
+
+`boolean`
+
+`[rerunOnResume](../../workflow/BaseNode.html#rerunOnResume\(\))()`
+
+Returns `true` if a resumed node runs again from scratch, rather than completing with the resuming answer as its output.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Schema>`
+
+`[stateSchema](../../workflow/BaseNode.html#stateSchema\(\))()`
+
+Returns the schema declaring the state keys the node uses.
+
+`boolean`
+
+`[waitForOutput](../../workflow/BaseNode.html#waitForOutput\(\))()`
+
+Returns `true` if the node stays re-triggerable until it produces an output or a route, instead of completing when its run completes.
+
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
+
+### Methods inherited from interface [Node](../../workflow/Node.html#method-summary "interface in com.google.adk.workflow")
+
+`[requiresAllPredecessors](../../workflow/Node.html#requiresAllPredecessors\(\) "requiresAllPredecessors\(\)")`
+
+Modifier and Type
+
+Method
+
+Description
+
+`default boolean`
+
+`[requiresAllPredecessors](../../workflow/Node.html#requiresAllPredecessors\(\))()`
+
+Returns `true` if the node runs only once every predecessor has completed, receiving all their outputs keyed by node name, as a fan-in node does.
 
 
 

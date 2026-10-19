@@ -47,7 +47,9 @@ com.google.adk.a2a.converters.ResponseConverter
 
 public final class ResponseConverter extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
-Utility for converting ADK events to A2A spec messages (and back).
+Utility for converting ADK events to A2A spec messages (and back). 
+
+Unparseable ADK metadata and unconvertible parts from a remote agent are logged and dropped; the rest of the event is still converted.
 
   * ## Method Summary
 
@@ -108,9 +110,7 @@ Converts an A2A `Task` to an ADK [`Event`](../../events/Event.html "class in com
 
 public static [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Event](../../events/Event.html "class in com.google.adk.events")> clientEventToEvent(io.a2a.client.ClientEvent event, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Converts a A2A `ClientEvent` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"), based on the event type. Returns an empty optional if the event should be ignored (e.g. if the event is not a final update for TaskArtifactUpdateEvent or if the message is empty for TaskStatusUpdateEvent). 
-
-Unparseable ADK metadata is logged and dropped; the rest of the event is still converted.
+Converts a A2A `ClientEvent` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"), based on the event type. Returns an empty optional if the event should be ignored (e.g. if the event is not a final update for TaskArtifactUpdateEvent, if the message is empty for TaskStatusUpdateEvent, or if no part could be converted from a message or from the message of a status update that does not end the turn).
 
 Throws:
     `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if the event type is not supported.
@@ -131,9 +131,7 @@ Converts an A2A message for a failed task to ADK event filling in the error mess
 
 public static [Event](../../events/Event.html "class in com.google.adk.events") messageToEvent(io.a2a.spec.Message message, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Converts an A2A message back to ADK events. 
-
-Unparseable ADK metadata is logged and dropped; the rest of the event is still converted.
+Converts an A2A message back to ADK events.
 
     * ### messageToEvent
 
@@ -145,9 +143,7 @@ Converts an A2A message back to ADK events. For streaming task in pending state 
 
 public static [Event](../../events/Event.html "class in com.google.adk.events") taskToEvent(io.a2a.spec.Task task, [InvocationContext](../../agents/InvocationContext.html "class in com.google.adk.agents") invocationContext)
 
-Converts an A2A `Task` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"). If the artifacts are present, the last artifact is used. If not, the status message is used. If not, the last history message is used. If none of these are present, an empty event is returned. 
-
-Unparseable ADK metadata is logged and dropped; the rest of the event is still converted.
+Converts an A2A `Task` to an ADK [`Event`](../../events/Event.html "class in com.google.adk.events"). If the artifacts are present, the last artifact is used. If not, the status message is used. If not, the last history message is used. If none of these are present, an empty event is returned.
 
 
 

@@ -29,7 +29,8 @@ Contents
   2. Method Summary
   3. Method Details
      1. generateClientFunctionCallId()
-     2. isClientGeneratedFunctionCallId(String)
+     2. generateClientFunctionCallId(UuidProvider)
+     3. isClientGeneratedFunctionCallId(String)
 
 Hide sidebar  Show sidebar
 
@@ -61,6 +62,12 @@ Description
 
 Returns a new client-side function call ID with the ADK prefix.
 
+`static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`generateClientFunctionCallId([UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Returns a new client-side function call ID with the ADK prefix, minted from the given [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
+
 `static boolean`
 
 `isClientGeneratedFunctionCallId([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") id)`
@@ -81,6 +88,12 @@ Returns whether `id` was generated client-side by the ADK.
 public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") generateClientFunctionCallId()
 
 Returns a new client-side function call ID with the ADK prefix.
+
+    * ### generateClientFunctionCallId
+
+public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") generateClientFunctionCallId([UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Returns a new client-side function call ID with the ADK prefix, minted from the given [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
 
     * ### isClientGeneratedFunctionCallId
 

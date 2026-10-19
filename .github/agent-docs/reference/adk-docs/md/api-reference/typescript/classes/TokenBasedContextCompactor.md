@@ -23,7 +23,7 @@ A context compactor that uses token count to determine when to compact events. O
 
 
 
-  * Defined in [core/src/context/token_based_context_compactor.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L40)
+  * Defined in [core/src/context/token_based_context_compactor.ts:43](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L43)
 
 
 
@@ -41,7 +41,7 @@ options: [TokenBasedContextCompactorOptions](../interfaces/TokenBasedContextComp
 
 #### Returns [TokenBasedContextCompactor]()
 
-    * Defined in [core/src/context/token_based_context_compactor.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L45)
+    * Defined in [core/src/context/token_based_context_compactor.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L48)
 
 
 
@@ -64,7 +64,7 @@ The current invocation context.
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[compact](../interfaces/BaseContextCompactor.html#compact)
 
-    * Defined in [core/src/context/token_based_context_compactor.ts:105](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L105)
+    * Defined in [core/src/context/token_based_context_compactor.ts:87](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L87)
 
 
 
@@ -87,7 +87,7 @@ A boolean or a promise resolving to a boolean indicating if compaction should oc
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[shouldCompact](../interfaces/BaseContextCompactor.html#shouldcompact)
 
-    * Defined in [core/src/context/token_based_context_compactor.ts:75](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L75)
+    * Defined in [core/src/context/token_based_context_compactor.ts:54](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L54)
 
 
 
@@ -100,7 +100,7 @@ Methods
 
 compactshouldCompact
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

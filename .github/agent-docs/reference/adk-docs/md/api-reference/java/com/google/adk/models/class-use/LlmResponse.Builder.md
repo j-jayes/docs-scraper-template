@@ -61,6 +61,12 @@ LlmResponse.`[builder](../LlmResponse.html#builder\(\))()`
 
 `abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
 
+LlmResponse.Builder.`[cacheMetadata](../LlmResponse.Builder.html#cacheMetadata\(com.google.adk.models.CacheMetadata\))(@Nullable [CacheMetadata](../CacheMetadata.html "class in com.google.adk.models") cacheMetadata)`
+
+ 
+
+`abstract [LlmResponse.Builder](../LlmResponse.Builder.html "class in com.google.adk.models")`
+
 LlmResponse.Builder.`[content](../LlmResponse.Builder.html#content\(com.google.genai.types.Content\))(@Nullable com.google.genai.types.Content content)`
 
  

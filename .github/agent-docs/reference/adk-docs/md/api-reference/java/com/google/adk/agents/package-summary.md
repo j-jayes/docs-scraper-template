@@ -160,9 +160,13 @@ Utility class for loading agent configurations from YAML files.
 
 Exception thrown when configuration is invalid.
 
+[Context](Context.html "class in com.google.adk.agents")
+
+The context passed to callbacks and tools during an invocation.
+
 [ContextCacheConfig](ContextCacheConfig.html "class in com.google.adk.agents")
 
-Configuration for context caching across all agents in an app.
+Configures context caching for all agents in an app.
 
 [Instruction](Instruction.html "interface in com.google.adk.agents")
 

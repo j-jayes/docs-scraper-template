@@ -29,28 +29,30 @@ Contents
   2. Nested Class Summary
   3. Constructor Summary
   4. Method Summary
+     1. Methods inherited from class BaseNode
+     2. Methods inherited from class Object
+     3. Methods inherited from interface Node
   5. Constructor Details
      1. BaseAgent(String, String, List, List, List)
   6. Method Details
      1. close()
-     2. name()
-     3. description()
-     4. parentAgent()
-     5. parentAgent(BaseAgent)
-     6. rootAgent()
-     7. findAgent(String)
-     8. findSubAgent(String)
-     9. subAgents()
-     10. beforeAgentCallback()
-     11. afterAgentCallback()
-     12. toolOrigin()
-     13. canonicalBeforeAgentCallbacks()
-     14. canonicalAfterAgentCallbacks()
-     15. runAsync(InvocationContext)
-     16. runLive(InvocationContext)
-     17. runAsyncImpl(InvocationContext)
-     18. runLiveImpl(InvocationContext)
-     19. fromConfig(BaseAgentConfig, String)
+     2. parentAgent()
+     3. parentAgent(BaseAgent)
+     4. rootAgent()
+     5. findAgent(String)
+     6. findSubAgent(String)
+     7. subAgents()
+     8. beforeAgentCallback()
+     9. afterAgentCallback()
+     10. toolOrigin()
+     11. canonicalBeforeAgentCallbacks()
+     12. canonicalAfterAgentCallbacks()
+     13. runAsync(InvocationContext)
+     14. runLive(InvocationContext)
+     15. runNode(Context, Object)
+     16. runAsyncImpl(InvocationContext)
+     17. runLiveImpl(InvocationContext)
+     18. fromConfig(BaseAgentConfig, String)
 
 Hide sidebar  Show sidebar
 
@@ -58,14 +60,19 @@ Hide sidebar  Show sidebar
 
 [java.lang.Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
 
+[com.google.adk.workflow.BaseNode](../workflow/BaseNode.html "class in com.google.adk.workflow")
+
 com.google.adk.agents.BaseAgent
+
+All Implemented Interfaces:
+    `[Node](../workflow/Node.html "interface in com.google.adk.workflow")`
 
 Direct Known Subclasses:
     `[LlmAgent](LlmAgent.html "class in com.google.adk.agents"), [LoopAgent](LoopAgent.html "class in com.google.adk.agents"), [ParallelAgent](ParallelAgent.html "class in com.google.adk.agents"), [PlannerAgent](PlannerAgent.html "class in com.google.adk.agents"), [RemoteA2AAgent](../a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent"), [SequentialAgent](SequentialAgent.html "class in com.google.adk.agents")`
 
 * * *
 
-public abstract class BaseAgent extends [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
+public abstract class BaseAgent extends [BaseNode](../workflow/BaseNode.html "class in com.google.adk.workflow")
 
 Base class for all agents.
 
@@ -93,7 +100,7 @@ Constructor
 
 Description
 
-`BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
+`BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)`
 
 Creates a new BaseAgent.
 
@@ -137,12 +144,6 @@ The resolved beforeAgentCallback field as a list.
 
 Closes all sub-agents.
 
-`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
-
-`description()`
-
-Gets the one-line description of the agent's capability.
-
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[BaseAgent](BaseAgent.html "class in com.google.adk.agents")>`
 
 `findAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name)`
@@ -160,12 +161,6 @@ Recursively search sub agent by name.
 `fromConfig([BaseAgentConfig](BaseAgentConfig.html "class in com.google.adk.agents") config, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") configAbsPath)`
 
 Creates a new agent instance from a configuration object.
-
-`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
-
-`name()`
-
-Gets the agent's unique name.
 
 `[BaseAgent](BaseAgent.html "class in com.google.adk.agents")`
 
@@ -209,6 +204,12 @@ Runs the agent synchronously.
 
 Agent-specific synchronous logic.
 
+`io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")>`
+
+`runNode([Context](Context.html "class in com.google.adk.agents") context, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") nodeInput)`
+
+Runs this agent as a workflow node through its `runAsync(InvocationContext)` lifecycle, including its callbacks.
+
 `[List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")>`
 
 `subAgents()`
@@ -221,9 +222,83 @@ Agent-specific synchronous logic.
 
 Returns the origin of the tool when this agent is used as a tool.
 
+### Methods inherited from class [BaseNode](../workflow/BaseNode.html#method-summary "class in com.google.adk.workflow")
+
+`[config](../workflow/BaseNode.html#config\(\) "config\(\)"), [description](../workflow/BaseNode.html#description\(\) "description\(\)"), [inputSchema](../workflow/BaseNode.html#inputSchema\(\) "inputSchema\(\)"), [name](../workflow/BaseNode.html#name\(\) "name\(\)"), [outputSchema](../workflow/BaseNode.html#outputSchema\(\) "outputSchema\(\)"), [rerunOnResume](../workflow/BaseNode.html#rerunOnResume\(\) "rerunOnResume\(\)"), [stateSchema](../workflow/BaseNode.html#stateSchema\(\) "stateSchema\(\)"), [waitForOutput](../workflow/BaseNode.html#waitForOutput\(\) "waitForOutput\(\)")`
+
+Modifier and Type
+
+Method
+
+Description
+
+`[NodeConfig](../workflow/NodeConfig.html "class in com.google.adk.workflow")`
+
+`[config](../workflow/BaseNode.html#config\(\))()`
+
+Returns the node's retry policy and execution timeout.
+
+`[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[description](../workflow/BaseNode.html#description\(\))()`
+
+Returns what the node does, for humans and for a model that may call it.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Schema>`
+
+`[inputSchema](../workflow/BaseNode.html#inputSchema\(\))()`
+
+Returns the schema the node's input must match.
+
+`final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[name](../workflow/BaseNode.html#name\(\))()`
+
+Returns the name that identifies the node within its graph.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Schema>`
+
+`[outputSchema](../workflow/BaseNode.html#outputSchema\(\))()`
+
+Returns the schema that the node's output value must match.
+
+`boolean`
+
+`[rerunOnResume](../workflow/BaseNode.html#rerunOnResume\(\))()`
+
+Returns `true` if a resumed node runs again from scratch, rather than completing with the resuming answer as its output.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Schema>`
+
+`[stateSchema](../workflow/BaseNode.html#stateSchema\(\))()`
+
+Returns the schema declaring the state keys the node uses.
+
+`boolean`
+
+`[waitForOutput](../workflow/BaseNode.html#waitForOutput\(\))()`
+
+Returns `true` if the node stays re-triggerable until it produces an output or a route, instead of completing when its run completes.
+
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
 `[clone](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone\(\) "clone\(\)"), [equals](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals\(java.lang.Object\) "equals\(Object\)"), [finalize](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize\(\) "finalize\(\)"), [getClass](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass\(\) "getClass\(\)"), [hashCode](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode\(\) "hashCode\(\)"), [notify](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify\(\) "notify\(\)"), [notifyAll](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll\(\) "notifyAll\(\)"), [toString](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString\(\) "toString\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(\) "wait\(\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long\) "wait\(long\)"), [wait](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait\(long,int\) "wait\(long, int\)")`
+
+### Methods inherited from interface [Node](../workflow/Node.html#method-summary "interface in com.google.adk.workflow")
+
+`[requiresAllPredecessors](../workflow/Node.html#requiresAllPredecessors\(\) "requiresAllPredecessors\(\)")`
+
+Modifier and Type
+
+Method
+
+Description
+
+`default boolean`
+
+`[requiresAllPredecessors](../workflow/Node.html#requiresAllPredecessors\(\))()`
+
+Returns `true` if the node runs only once every predecessor has completed, receiving all their outputs keyed by node name, as a fan-in node does.
 
 
 
@@ -232,13 +307,13 @@ Returns the origin of the tool when this agent is used as a tool.
 
     * ### BaseAgent
 
-public BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)
+public BaseAgent([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name, @Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [BaseAgent](BaseAgent.html "class in com.google.adk.agents")> subAgents, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.BeforeAgentCallback](Callbacks.BeforeAgentCallback.html "interface in com.google.adk.agents")> beforeAgentCallback, @Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<? extends [Callbacks.AfterAgentCallback](Callbacks.AfterAgentCallback.html "interface in com.google.adk.agents")> afterAgentCallback)
 
 Creates a new BaseAgent.
 
 Parameters:
     `name` \- Unique agent name. Cannot be "user" (reserved).
-    `description` \- Agent purpose.
+    `description` \- Agent purpose; null is treated as an empty string.
     `subAgents` \- Agents managed by this agent.
     `beforeAgentCallback` \- Callbacks before agent execution. Invoked in order until one doesn't return null.
     `afterAgentCallback` \- Callbacks after agent execution. Invoked in order until one doesn't return null.
@@ -253,24 +328,6 @@ Closes all sub-agents.
 
 Returns:
     a `Completable` that completes when all sub-agents are closed.
-
-    * ### name
-
-public final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") name()
-
-Gets the agent's unique name.
-
-Returns:
-    the unique name of the agent.
-
-    * ### description
-
-public final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") description()
-
-Gets the one-line description of the agent's capability.
-
-Returns:
-    the description of the agent.
 
     * ### parentAgent
 
@@ -375,6 +432,12 @@ Parameters:
     `parentContext` \- Parent context to inherit.
 Returns:
     stream of agent-generated events.
+
+    * ### runNode
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public io.reactivex.rxjava3.core.Flowable<[Event](../events/Event.html "class in com.google.adk.events")> runNode([Context](Context.html "class in com.google.adk.agents") context, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") nodeInput)
+
+Runs this agent as a workflow node through its `runAsync(InvocationContext)` lifecycle, including its callbacks. The node input is not used.
 
     * ### runAsyncImpl
 

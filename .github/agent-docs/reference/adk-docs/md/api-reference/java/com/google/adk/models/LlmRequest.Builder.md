@@ -38,10 +38,13 @@ Contents
      4. config()
      5. liveConnectConfig(LiveConnectConfig)
      6. tools(Map)
-     7. appendInstructions(List)
-     8. appendTools(List)
-     9. outputSchema(Schema)
-     10. build()
+     7. cacheConfig(ContextCacheConfig)
+     8. cacheMetadata(CacheMetadata)
+     9. cacheableContentsTokenCount(Integer)
+     10. appendInstructions(List)
+     11. appendTools(List)
+     12. outputSchema(Schema)
+     13. build()
 
 Hide sidebar  Show sidebar
 
@@ -97,6 +100,24 @@ Description
 `abstract [LlmRequest](LlmRequest.html "class in com.google.adk.models")`
 
 `build()`
+
+ 
+
+`abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models")`
+
+`cacheableContentsTokenCount(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") cacheableContentsTokenCount)`
+
+ 
+
+`abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models")`
+
+`cacheConfig(@Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") cacheConfig)`
+
+ 
+
+`abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models")`
+
+`cacheMetadata(@Nullable [CacheMetadata](CacheMetadata.html "class in com.google.adk.models") cacheMetadata)`
 
  
 
@@ -180,6 +201,18 @@ public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/ja
     * ### tools
 
 @CanIgnoreReturnValue public abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models") tools([Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html "interface in java.util")<[String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang"),[BaseTool](../tools/BaseTool.html "class in com.google.adk.tools")> tools)
+
+    * ### cacheConfig
+
+@CanIgnoreReturnValue public abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models") cacheConfig(@Nullable [ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents") cacheConfig)
+
+    * ### cacheMetadata
+
+@CanIgnoreReturnValue public abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models") cacheMetadata(@Nullable [CacheMetadata](CacheMetadata.html "class in com.google.adk.models") cacheMetadata)
+
+    * ### cacheableContentsTokenCount
+
+@CanIgnoreReturnValue public abstract [LlmRequest.Builder](LlmRequest.Builder.html "class in com.google.adk.models") cacheableContentsTokenCount(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") cacheableContentsTokenCount)
 
     * ### appendInstructions
 

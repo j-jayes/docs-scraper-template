@@ -49,7 +49,7 @@ Hide sidebar  Show sidebar
 com.google.adk.planner.goap.AgentMetadata
 
 Record Components:
-    `agentName` \- the name of the agent (must match [`BaseAgent.name()`](../../agents/BaseAgent.html#name\(\)))
+    `agentName` \- the name of the agent (must match [`BaseNode.name()`](../../workflow/BaseNode.html#name\(\)))
     `inputKeys` \- the state keys this agent reads as inputs
     `outputKey` \- the state key this agent produces as output
 

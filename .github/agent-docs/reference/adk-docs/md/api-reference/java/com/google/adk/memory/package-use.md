@@ -79,6 +79,10 @@ Description
 
 Base contract for memory services.
 
+[SearchMemoryResponse](class-use/SearchMemoryResponse.html#com.google.adk.agents)
+
+Represents the response from a memory search.
+
   * Classes in [com.google.adk.memory](package-summary.html) used by [com.google.adk.memory](package-summary.html)
 
 Class
@@ -124,10 +128,6 @@ Description
 [MemoryEntry](class-use/MemoryEntry.html#com.google.adk.tools)
 
 Represents one memory entry.
-
-[SearchMemoryResponse](class-use/SearchMemoryResponse.html#com.google.adk.tools)
-
-Represents the response from a memory search.
 
   * Classes in [com.google.adk.memory](package-summary.html) used by [com.google.adk.web](../web/package-summary.html)
 

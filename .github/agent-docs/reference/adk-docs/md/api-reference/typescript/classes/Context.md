@@ -26,7 +26,7 @@ This class provides the context for callbacks and tool invocations, including ac
 
 
 
-  * Defined in [core/src/agents/context.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L29)
+  * Defined in [core/src/agents/context.ts:30](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L30)
 
 
 
@@ -39,6 +39,7 @@ options: {
 eventActions?: [EventActions](../interfaces/EventActions.html);  
 functionCallId?: string;  
 invocationContext: [InvocationContext](InvocationContext.html);  
+resumeInputs?: [ResumeInputs](../types/ResumeInputs.html);  
 toolConfirmation?: [ToolConfirmation](ToolConfirmation.html);  
 },  
 ): [Context]()
@@ -49,6 +50,7 @@ toolConfirmation?: [ToolConfirmation](ToolConfirmation.html);
 eventActions?: [EventActions](../interfaces/EventActions.html);  
 functionCallId?: string;  
 invocationContext: [InvocationContext](InvocationContext.html);  
+resumeInputs?: [ResumeInputs](../types/ResumeInputs.html);  
 toolConfirmation?: [ToolConfirmation](ToolConfirmation.html);  
 }
 
@@ -66,6 +68,10 @@ The function call id of the current tool call. This id was returned in the funct
 
 The invocation context.
 
+      * ##### `Optional`resumeInputs?: [ResumeInputs](../types/ResumeInputs.html)
+
+The inputs the current tool call is being resumed with, if it paused to ask for them, keyed by interrupt id. Defaults to empty rather than absent, matching adk-python's `Context.resume_inputs`. Carries no approval; see [ResumeInputs](../types/ResumeInputs.html).
+
       * ##### `Optional`toolConfirmation?: [ToolConfirmation](ToolConfirmation.html)
 
 The tool confirmation of the current tool call.
@@ -74,7 +80,7 @@ The tool confirmation of the current tool call.
 
 Overrides [ReadonlyContext](ReadonlyContext.html).[constructor](ReadonlyContext.html#constructor)
 
-    * Defined in [core/src/agents/context.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L49)
+    * Defined in [core/src/agents/context.ts:56](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L56)
 
 
 
@@ -85,7 +91,7 @@ Overrides [ReadonlyContext](ReadonlyContext.html).[constructor](ReadonlyContext.
 
 abortSignal?: AbortSignal
 
-  * Defined in [core/src/agents/context.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L35)
+  * Defined in [core/src/agents/context.ts:37](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L37)
 
 
 
@@ -93,7 +99,7 @@ abortSignal?: AbortSignal
 
 eventActions: [EventActions](../interfaces/EventActions.html)
 
-  * Defined in [core/src/agents/context.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L32)
+  * Defined in [core/src/agents/context.ts:33](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L33)
 
 
 
@@ -101,7 +107,7 @@ eventActions: [EventActions](../interfaces/EventActions.html)
 
 functionCallId?: string
 
-  * Defined in [core/src/agents/context.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L33)
+  * Defined in [core/src/agents/context.ts:34](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L34)
 
 
 
@@ -111,7 +117,15 @@ invocationContext: [InvocationContext](InvocationContext.html)
 
 Inherited from [ReadonlyContext](ReadonlyContext.html).[invocationContext](ReadonlyContext.html#invocationcontext)
 
-  * Defined in [core/src/agents/readonly_context.ts:17](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L17)
+  * Defined in [core/src/agents/readonly_context.ts:17](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L17)
+
+
+
+### `Readonly`resumeInputs
+
+resumeInputs: [ResumeInputs](../types/ResumeInputs.html)
+
+  * Defined in [core/src/agents/context.ts:36](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L36)
 
 
 
@@ -119,11 +133,26 @@ Inherited from [ReadonlyContext](ReadonlyContext.html).[invocationContext](Reado
 
 toolConfirmation?: [ToolConfirmation](ToolConfirmation.html)
 
-  * Defined in [core/src/agents/context.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L34)
+  * Defined in [core/src/agents/context.ts:35](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L35)
 
 
 
 ## Accessors
+
+### a2aMetadata
+
+  * get a2aMetadata(): Record<string, unknown> | undefined
+
+Request-level metadata passed from an incoming A2A request or caller.
+
+#### Returns Record<string, unknown> | undefined
+
+Inherited from ReadonlyContext.a2aMetadata
+
+    * Defined in [core/src/agents/readonly_context.ts:67](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L67)
+
+
+
 
 ### actions
 
@@ -131,7 +160,7 @@ toolConfirmation?: [ToolConfirmation](ToolConfirmation.html)
 
 #### Returns [EventActions](../interfaces/EventActions.html)
 
-    * Defined in [core/src/agents/context.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L73)
+    * Defined in [core/src/agents/context.ts:82](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L82)
 
 
 
@@ -146,7 +175,7 @@ The current agent name.
 
 Inherited from ReadonlyContext.agentName
 
-    * Defined in [core/src/agents/readonly_context.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L50)
+    * Defined in [core/src/agents/readonly_context.ts:50](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L50)
 
 
 
@@ -161,7 +190,7 @@ The current invocation id.
 
 Inherited from ReadonlyContext.invocationId
 
-    * Defined in [core/src/agents/readonly_context.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L29)
+    * Defined in [core/src/agents/readonly_context.ts:29](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L29)
 
 
 
@@ -176,7 +205,7 @@ The ID of the current session.
 
 Inherited from ReadonlyContext.sessionId
 
-    * Defined in [core/src/agents/readonly_context.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L43)
+    * Defined in [core/src/agents/readonly_context.ts:43](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L43)
 
 
 
@@ -191,7 +220,7 @@ The delta-aware state of the current session.
 
 Overrides ReadonlyContext.state
 
-    * Defined in [core/src/agents/context.ts:69](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L69)
+    * Defined in [core/src/agents/context.ts:78](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L78)
 
 
 
@@ -206,7 +235,7 @@ The user content that started this invocation.
 
 Inherited from ReadonlyContext.userContent
 
-    * Defined in [core/src/agents/readonly_context.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L22)
+    * Defined in [core/src/agents/readonly_context.ts:22](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L22)
 
 
 
@@ -221,7 +250,7 @@ The user ID of the current session.
 
 Inherited from ReadonlyContext.userId
 
-    * Defined in [core/src/agents/readonly_context.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/readonly_context.ts#L36)
+    * Defined in [core/src/agents/readonly_context.ts:36](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/readonly_context.ts#L36)
 
 
 
@@ -244,7 +273,7 @@ The auth config to get the auth credential for.
 
 The auth credential for the given auth config.
 
-    * Defined in [core/src/agents/context.ts:133](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L133)
+    * Defined in [core/src/agents/context.ts:142](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L142)
 
 
 
@@ -259,7 +288,7 @@ Lists the filenames of the artifacts attached to the current session.
 
 A promise that resolves to a list of artifact filenames.
 
-    * Defined in [core/src/agents/context.ts:144](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L144)
+    * Defined in [core/src/agents/context.ts:153](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L153)
 
 
 
@@ -284,7 +313,7 @@ The version of the artifact. If not provided, the latest version will be used.
 
 A promise that resolves to the loaded artifact.
 
-    * Defined in [core/src/agents/context.ts:85](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L85)
+    * Defined in [core/src/agents/context.ts:94](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L94)
 
 
 
@@ -303,7 +332,7 @@ Requests confirmation for the current tool call.
 
 #### Returns void
 
-    * Defined in [core/src/agents/context.ts:174](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L174)
+    * Defined in [core/src/agents/context.ts:183](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L183)
 
 
 
@@ -318,7 +347,7 @@ Requests confirmation for the current tool call.
 
 #### Returns void
 
-    * Defined in [core/src/agents/context.ts:117](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L117)
+    * Defined in [core/src/agents/context.ts:126](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L126)
 
 
 
@@ -343,7 +372,7 @@ The artifact to save.
 
 A promise that resolves to the version of the saved artifact.
 
-    * Defined in [core/src/agents/context.ts:103](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L103)
+    * Defined in [core/src/agents/context.ts:112](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L112)
 
 
 
@@ -364,7 +393,7 @@ The query to search memory for.
 
 A promise that resolves to SearchMemoryResponse containing the matching memories.
 
-    * Defined in [core/src/agents/context.ts:159](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/context.ts#L159)
+    * Defined in [core/src/agents/context.ts:168](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/context.ts#L168)
 
 
 
@@ -375,17 +404,17 @@ constructor
 
 Properties
 
-abortSignaleventActionsfunctionCallIdinvocationContexttoolConfirmation
+abortSignaleventActionsfunctionCallIdinvocationContextresumeInputstoolConfirmation
 
 Accessors
 
-actionsagentNameinvocationIdsessionIdstateuserContentuserId
+a2aMetadataactionsagentNameinvocationIdsessionIdstateuserContentuserId
 
 Methods
 
 getAuthResponselistArtifactsloadArtifactrequestConfirmationrequestCredentialsaveArtifactsearchMemory
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

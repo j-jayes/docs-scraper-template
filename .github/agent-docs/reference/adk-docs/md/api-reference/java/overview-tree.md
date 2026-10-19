@@ -25,6 +25,7 @@ Package Hierarchies:
 
   * [com.example](com/example/package-tree.html), 
   * [com.example.a2a_basic](com/example/a2a_basic/package-tree.html), 
+  * [com.example.contextcaching](com/example/contextcaching/package-tree.html), 
   * [com.example.helloworld](com/example/helloworld/package-tree.html), 
   * [com.example.mcpfilesystem](com/example/mcpfilesystem/package-tree.html), 
   * [com.google.adk](com/google/adk/package-tree.html), 
@@ -58,6 +59,7 @@ Package Hierarchies:
   * [com.google.adk.planner](com/google/adk/planner/package-tree.html), 
   * [com.google.adk.planner.goap](com/google/adk/planner/goap/package-tree.html), 
   * [com.google.adk.planner.p2p](com/google/adk/planner/p2p/package-tree.html), 
+  * [com.google.adk.platform](com/google/adk/platform/package-tree.html), 
   * [com.google.adk.plugins](com/google/adk/plugins/package-tree.html), 
   * [com.google.adk.plugins.agentanalytics](com/google/adk/plugins/agentanalytics/package-tree.html), 
   * [com.google.adk.plugins.recordings](com/google/adk/plugins/recordings/package-tree.html), 
@@ -81,7 +83,8 @@ Package Hierarchies:
   * [com.google.adk.web.controller](com/google/adk/web/controller/package-tree.html), 
   * [com.google.adk.web.dto](com/google/adk/web/dto/package-tree.html), 
   * [com.google.adk.web.service](com/google/adk/web/service/package-tree.html), 
-  * [com.google.adk.web.websocket](com/google/adk/web/websocket/package-tree.html)
+  * [com.google.adk.web.websocket](com/google/adk/web/websocket/package-tree.html), 
+  * [com.google.adk.workflow](com/google/adk/workflow/package-tree.html)
 
 
 
@@ -134,13 +137,6 @@ Package Hierarchies:
     * com.google.adk.web.controller.[ArtifactController](com/google/adk/web/controller/ArtifactController.html "class in com.google.adk.web.controller")
     * com.google.adk.planner.goap.[AStarSearchStrategy](com/google/adk/planner/goap/AStarSearchStrategy.html "class in com.google.adk.planner.goap") (implements com.google.adk.planner.goap.[SearchStrategy](com/google/adk/planner/goap/SearchStrategy.html "interface in com.google.adk.planner.goap"))
     * com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
-    * com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
-      * com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
-      * com.google.adk.agents.[LoopAgent](com/google/adk/agents/LoopAgent.html "class in com.google.adk.agents")
-      * com.google.adk.agents.[ParallelAgent](com/google/adk/agents/ParallelAgent.html "class in com.google.adk.agents")
-      * com.google.adk.agents.[PlannerAgent](com/google/adk/agents/PlannerAgent.html "class in com.google.adk.agents")
-      * com.google.adk.a2a.agent.[RemoteA2AAgent](com/google/adk/a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent")
-      * com.google.adk.agents.[SequentialAgent](com/google/adk/agents/SequentialAgent.html "class in com.google.adk.agents")
     * com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")<B>
       * com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
       * com.google.adk.agents.[LoopAgent.Builder](com/google/adk/agents/LoopAgent.Builder.html "class in com.google.adk.agents")
@@ -163,6 +159,16 @@ Package Hierarchies:
     * com.google.adk.flows.llmflows.[BaseLlmFlow](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.[BaseFlow](com/google/adk/flows/BaseFlow.html "interface in com.google.adk.flows")) 
       * com.google.adk.flows.llmflows.[SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
         * com.google.adk.flows.llmflows.[AutoFlow](com/google/adk/flows/llmflows/AutoFlow.html "class in com.google.adk.flows.llmflows")
+    * com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow") (implements com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")) 
+      * com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
+        * com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
+        * com.google.adk.agents.[LoopAgent](com/google/adk/agents/LoopAgent.html "class in com.google.adk.agents")
+        * com.google.adk.agents.[ParallelAgent](com/google/adk/agents/ParallelAgent.html "class in com.google.adk.agents")
+        * com.google.adk.agents.[PlannerAgent](com/google/adk/agents/PlannerAgent.html "class in com.google.adk.agents")
+        * com.google.adk.a2a.agent.[RemoteA2AAgent](com/google/adk/a2a/agent/RemoteA2AAgent.html "class in com.google.adk.a2a.agent")
+        * com.google.adk.agents.[SequentialAgent](com/google/adk/agents/SequentialAgent.html "class in com.google.adk.agents")
+      * com.google.adk.workflow.[JoinNode](com/google/adk/workflow/JoinNode.html "class in com.google.adk.workflow")
+      * com.google.adk.workflow.[Workflow](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow")
     * com.google.adk.plugins.[BasePlugin](com/google/adk/plugins/BasePlugin.html "class in com.google.adk.plugins") (implements com.google.adk.plugins.[Plugin](com/google/adk/plugins/Plugin.html "interface in com.google.adk.plugins")) 
       * com.google.adk.plugins.agentanalytics.[BigQueryAgentAnalyticsPlugin](com/google/adk/plugins/agentanalytics/BigQueryAgentAnalyticsPlugin.html "class in com.google.adk.plugins.agentanalytics")
       * com.google.adk.plugins.[ContextFilterPlugin](com/google/adk/plugins/ContextFilterPlugin.html "class in com.google.adk.plugins")
@@ -198,6 +204,7 @@ Package Hierarchies:
     * com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
     * com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
     * com.google.adk.plugins.agentanalytics.[BigQuerySchema](com/google/adk/plugins/agentanalytics/BigQuerySchema.html "class in com.google.adk.plugins.agentanalytics")
+    * com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
     * com.google.adk.a2a.executor.[Callbacks](com/google/adk/a2a/executor/Callbacks.html "class in com.google.adk.a2a.executor")
     * com.google.adk.agents.[Callbacks](com/google/adk/agents/Callbacks.html "class in com.google.adk.agents")
     * com.google.adk.agents.[CallbackUtil](com/google/adk/agents/CallbackUtil.html "class in com.google.adk.agents")
@@ -228,6 +235,8 @@ Package Hierarchies:
     * com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.EntitySchemaAndOperations](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.EntitySchemaAndOperations.html "class in com.google.adk.tools.applicationintegrationtoolset")
     * com.google.adk.utils.[Constants](com/google/adk/utils/Constants.html "class in com.google.adk.utils")
     * com.google.adk.flows.llmflows.[Contents](com/google/adk/flows/llmflows/Contents.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
+    * com.example.contextcaching.[ContextCachingAgent](com/example/contextcaching/ContextCachingAgent.html "class in com.example.contextcaching")
+    * com.example.contextcaching.[ContextCachingRun](com/example/contextcaching/ContextCachingRun.html "class in com.example.contextcaching")
     * com.google.adk.plugins.[ContextFilterPlugin.Builder](com/google/adk/plugins/ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
     * com.google.adk.tools.mcp.[ConversionUtils](com/google/adk/tools/mcp/ConversionUtils.html "class in com.google.adk.tools.mcp")
     * com.google.adk.utils.[CoreAdkComponentProvider](com/google/adk/utils/CoreAdkComponentProvider.html "class in com.google.adk.utils") (implements com.google.adk.utils.[AdkComponentProvider](com/google/adk/utils/AdkComponentProvider.html "interface in com.google.adk.utils"))
@@ -291,6 +300,7 @@ Package Hierarchies:
     * com.google.adk.tools.applicationintegrationtoolset.[IntegrationClient](com/google/adk/tools/applicationintegrationtoolset/IntegrationClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
     * com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
     * com.google.adk.agents.[InvocationContext.Builder](com/google/adk/agents/InvocationContext.Builder.html "class in com.google.adk.agents")
+    * com.google.adk.workflow.[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow")
     * com.google.adk.[JsonBaseModel](com/google/adk/JsonBaseModel.html "class in com.google.adk")
       * com.google.adk.codeexecutors.[BaseCodeExecutor](com/google/adk/codeexecutors/BaseCodeExecutor.html "class in com.google.adk.codeexecutors")
         * com.google.adk.codeexecutors.[BuiltInCodeExecutor](com/google/adk/codeexecutors/BuiltInCodeExecutor.html "class in com.google.adk.codeexecutors")
@@ -298,6 +308,7 @@ Package Hierarchies:
         * com.google.adk.codeexecutors.[VertexAiCodeExecutor](com/google/adk/codeexecutors/VertexAiCodeExecutor.html "class in com.google.adk.codeexecutors")
       * com.google.adk.tools.[BaseTool.ToolArgsConfig](com/google/adk/tools/BaseTool.ToolArgsConfig.html "class in com.google.adk.tools")
       * com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
+      * com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
       * com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionInput](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionInput.html "class in com.google.adk.codeexecutors")
       * com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.html "class in com.google.adk.codeexecutors")
       * com.google.adk.codeexecutors.[CodeExecutionUtils.File](com/google/adk/codeexecutors/CodeExecutionUtils.File.html "class in com.google.adk.codeexecutors")
@@ -347,6 +358,10 @@ Package Hierarchies:
     * com.google.adk.models.[Model.Builder](com/google/adk/models/Model.Builder.html "class in com.google.adk.models")
     * com.google.adk.utils.[ModelNameUtils](com/google/adk/utils/ModelNameUtils.html "class in com.google.adk.utils")
     * com.google.adk.tools.[NamedToolPredicate](com/google/adk/tools/NamedToolPredicate.html "class in com.google.adk.tools") (implements com.google.adk.tools.[ToolPredicate](com/google/adk/tools/ToolPredicate.html "interface in com.google.adk.tools"))
+    * com.google.adk.workflow.[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow")
+    * com.google.adk.workflow.[NodeConfig.Builder](com/google/adk/workflow/NodeConfig.Builder.html "class in com.google.adk.workflow")
+    * com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+    * com.google.adk.workflow.[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow")
     * com.google.adk.web.config.[OpenTelemetryConfig](com/google/adk/web/config/OpenTelemetryConfig.html "class in com.google.adk.web.config")
     * com.google.adk.flows.llmflows.[OutputSchema](com/google/adk/flows/llmflows/OutputSchema.html "class in com.google.adk.flows.llmflows") (implements com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows"))
     * com.google.adk.planner.p2p.[P2PPlanner](com/google/adk/planner/p2p/P2PPlanner.html "class in com.google.adk.planner.p2p") (implements com.google.adk.agents.[Planner](com/google/adk/agents/Planner.html "interface in com.google.adk.agents"))
@@ -356,8 +371,9 @@ Package Hierarchies:
     * com.google.adk.flows.llmflows.[PersistBarrier](com/google/adk/flows/llmflows/PersistBarrier.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.agents.[PlanningContext](com/google/adk/agents/PlanningContext.html "class in com.google.adk.agents")
     * com.google.adk.agents.[ReadonlyContext](com/google/adk/agents/ReadonlyContext.html "class in com.google.adk.agents")
-      * com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
-        * com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
+      * com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+        * com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+          * com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
     * com.google.adk.plugins.recordings.[Recording](com/google/adk/plugins/recordings/Recording.html "class in com.google.adk.plugins.recordings")
     * com.google.adk.plugins.recordings.[Recording.Builder](com/google/adk/plugins/recordings/Recording.Builder.html "class in com.google.adk.plugins.recordings")
     * com.google.adk.plugins.recordings.[Recordings](com/google/adk/plugins/recordings/Recordings.html "class in com.google.adk.plugins.recordings")
@@ -370,6 +386,8 @@ Package Hierarchies:
     * com.google.adk.flows.llmflows.[ResponseProcessor.ResponseProcessingResult](com/google/adk/flows/llmflows/ResponseProcessor.ResponseProcessingResult.html "class in com.google.adk.flows.llmflows")
     * com.google.adk.apps.[ResumabilityConfig](com/google/adk/apps/ResumabilityConfig.html "class in com.google.adk.apps")
     * com.google.adk.apps.[ResumabilityConfig.Builder](com/google/adk/apps/ResumabilityConfig.Builder.html "class in com.google.adk.apps")
+    * com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    * com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
     * com.google.adk.agents.[Role](com/google/adk/agents/Role.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
     * com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
@@ -401,6 +419,7 @@ Package Hierarchies:
     * com.google.adk.models.springai.properties.[SpringAIProperties.Validation](com/google/adk/models/springai/properties/SpringAIProperties.Validation.html "class in com.google.adk.models.springai.properties")
     * com.google.adk.tools.mcp.[SseServerParameters](com/google/adk/tools/mcp/SseServerParameters.html "class in com.google.adk.tools.mcp")
     * com.google.adk.tools.mcp.[SseServerParameters.Builder](com/google/adk/tools/mcp/SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")
+    * com.google.adk.workflow.[Start](com/google/adk/workflow/Start.html "class in com.google.adk.workflow") (implements com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow"))
     * com.google.adk.samples.a2aagent.[StartupConfig](com/google/adk/samples/a2aagent/StartupConfig.html "class in com.google.adk.samples.a2aagent")
     * com.google.adk.sessions.[State](com/google/adk/sessions/State.html "class in com.google.adk.sessions") (implements java.util.concurrent.[ConcurrentMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html "interface in java.util.concurrent")<K,V>)
     * com.google.adk.tools.mcp.[StdioConnectionParameters](com/google/adk/tools/mcp/StdioConnectionParameters.html "class in com.google.adk.tools.mcp")
@@ -453,6 +472,7 @@ Package Hierarchies:
     * com.google.adk.models.[VertexCredentials.Builder](com/google/adk/models/VertexCredentials.Builder.html "class in com.google.adk.models")
     * com.google.adk.flows.llmflows.audio.[VertexSpeechClient](com/google/adk/flows/llmflows/audio/VertexSpeechClient.html "class in com.google.adk.flows.llmflows.audio") (implements com.google.adk.flows.llmflows.audio.[SpeechClientInterface](com/google/adk/flows/llmflows/audio/SpeechClientInterface.html "interface in com.google.adk.flows.llmflows.audio"))
     * com.google.adk.web.websocket.[WebSocketConfig](com/google/adk/web/websocket/WebSocketConfig.html "class in com.google.adk.web.websocket") (implements org.springframework.web.socket.config.annotation.WebSocketConfigurer)
+    * com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
 
 
 
@@ -509,15 +529,18 @@ Package Hierarchies:
   * com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents")
   * com.google.adk.models.[LlmRegistry.LlmFactory](com/google/adk/models/LlmRegistry.LlmFactory.html "interface in com.google.adk.models")
   * com.google.adk.tools.mcp.[McpTransportBuilder](com/google/adk/tools/mcp/McpTransportBuilder.html "interface in com.google.adk.tools.mcp")
+  * com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
   * com.google.adk.agents.[Planner](com/google/adk/agents/Planner.html "interface in com.google.adk.agents")
   * com.google.adk.agents.[PlannerAction](com/google/adk/agents/PlannerAction.html "interface in com.google.adk.agents")
   * com.google.adk.plugins.[Plugin](com/google/adk/plugins/Plugin.html "interface in com.google.adk.plugins")
   * com.google.adk.planner.goap.[ReplanPolicy](com/google/adk/planner/goap/ReplanPolicy.html "interface in com.google.adk.planner.goap")
   * com.google.adk.flows.llmflows.[RequestProcessor](com/google/adk/flows/llmflows/RequestProcessor.html "interface in com.google.adk.flows.llmflows")
   * com.google.adk.flows.llmflows.[ResponseProcessor](com/google/adk/flows/llmflows/ResponseProcessor.html "interface in com.google.adk.flows.llmflows")
+  * com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow")
   * com.google.adk.planner.goap.[SearchStrategy](com/google/adk/planner/goap/SearchStrategy.html "interface in com.google.adk.planner.goap")
   * com.google.adk.skills.[SkillSource](com/google/adk/skills/SkillSource.html "interface in com.google.adk.skills")
   * com.google.adk.tools.[ToolPredicate](com/google/adk/tools/ToolPredicate.html "interface in com.google.adk.tools")
+  * com.google.adk.platform.[UuidProvider](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform")
 
 
 
@@ -542,6 +565,7 @@ Package Hierarchies:
       * com.google.adk.tools.computeruse.[ComputerEnvironment](com/google/adk/tools/computeruse/ComputerEnvironment.html "enum class in com.google.adk.tools.computeruse")
       * com.google.adk.sessions.[InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions")
       * com.google.adk.agents.[LlmAgent.IncludeContents](com/google/adk/agents/LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")
+      * com.google.adk.workflow.[Route.Default](com/google/adk/workflow/Route.Default.html "enum class in com.google.adk.workflow") (implements com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow"))
       * com.google.adk.agents.[RunConfig.StreamingMode](com/google/adk/agents/RunConfig.StreamingMode.html "enum class in com.google.adk.agents")
       * com.google.adk.agents.[RunConfig.ToolExecutionMode](com/google/adk/agents/RunConfig.ToolExecutionMode.html "enum class in com.google.adk.agents")
       * com.google.adk.models.springai.error.[SpringAIErrorMapper.ErrorCategory](com/google/adk/models/springai/error/SpringAIErrorMapper.ErrorCategory.html "enum class in com.google.adk.models.springai.error")
@@ -556,6 +580,7 @@ Package Hierarchies:
       * com.google.adk.web.config.[AdkWebCorsProperties](com/google/adk/web/config/AdkWebCorsProperties.html "class in com.google.adk.web.config")
       * com.google.adk.planner.goap.[AgentMetadata](com/google/adk/planner/goap/AgentMetadata.html "class in com.google.adk.planner.goap")
       * com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
+      * com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
       * com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
       * com.google.adk.agents.[Instruction.Provider](com/google/adk/agents/Instruction.Provider.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents"))
       * com.google.adk.agents.[Instruction.Static](com/google/adk/agents/Instruction.Static.html "class in com.google.adk.agents") (implements com.google.adk.agents.[Instruction](com/google/adk/agents/Instruction.html "interface in com.google.adk.agents"))
@@ -567,6 +592,9 @@ Package Hierarchies:
       * com.google.adk.planner.goap.[ReplanPolicy.FailStop](com/google/adk/planner/goap/ReplanPolicy.FailStop.html "class in com.google.adk.planner.goap") (implements com.google.adk.planner.goap.[ReplanPolicy](com/google/adk/planner/goap/ReplanPolicy.html "interface in com.google.adk.planner.goap"))
       * com.google.adk.planner.goap.[ReplanPolicy.Ignore](com/google/adk/planner/goap/ReplanPolicy.Ignore.html "class in com.google.adk.planner.goap") (implements com.google.adk.planner.goap.[ReplanPolicy](com/google/adk/planner/goap/ReplanPolicy.html "interface in com.google.adk.planner.goap"))
       * com.google.adk.planner.goap.[ReplanPolicy.Replan](com/google/adk/planner/goap/ReplanPolicy.Replan.html "class in com.google.adk.planner.goap") (implements com.google.adk.planner.goap.[ReplanPolicy](com/google/adk/planner/goap/ReplanPolicy.html "interface in com.google.adk.planner.goap"))
+      * com.google.adk.workflow.[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow") (implements com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow"))
+      * com.google.adk.workflow.[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow") (implements com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow"))
+      * com.google.adk.workflow.[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow") (implements com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow"))
 
 
 

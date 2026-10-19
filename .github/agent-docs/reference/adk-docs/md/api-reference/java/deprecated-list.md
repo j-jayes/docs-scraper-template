@@ -34,6 +34,10 @@ Method
 
 Description
 
+[com.google.adk.agents.ContextCacheConfig.maxInvocations()](com/google/adk/agents/ContextCacheConfig.html#maxInvocations\(\))
+
+Use [`ContextCacheConfig.cacheIntervals()`](com/google/adk/agents/ContextCacheConfig.html#cacheIntervals\(\)), the name ADK Python and ADK Kotlin use.
+
 [com.google.adk.agents.InvocationContext.isLegacyResumability()](com/google/adk/agents/InvocationContext.html#isLegacyResumability\(\))
 
 Reports the deprecated plain-text continuation shim and goes away with it; use [`InvocationContext.isResumable()`](com/google/adk/agents/InvocationContext.html#isResumable\(\)).

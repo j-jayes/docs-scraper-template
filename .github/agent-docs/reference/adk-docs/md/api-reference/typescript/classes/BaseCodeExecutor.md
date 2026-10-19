@@ -21,12 +21,13 @@ The code executor allows the agent to execute code blocks from model responses a
 
   * BaseCodeExecutor
     * [AgentEngineSandboxCodeExecutor](AgentEngineSandboxCodeExecutor.html)
+    * [ContainerCodeExecutor](ContainerCodeExecutor.html)
     * [UnsafeLocalCodeExecutor](UnsafeLocalCodeExecutor.html)
     * [BuiltInCodeExecutor](BuiltInCodeExecutor.html)
 
 
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L50)
+  * Defined in [core/src/code_executors/base_code_executor.ts:50](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L50)
 
 
 
@@ -49,7 +50,7 @@ The code executor allows the agent to execute code blocks from model responses a
 
 A unique symbol to identify BaseCodeExecutor class.
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:52](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L52)
+  * Defined in [core/src/code_executors/base_code_executor.ts:52](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L52)
 
 
 
@@ -63,7 +64,7 @@ The list of the enclosing delimiters to identify the code blocks. For example, t
      console.log("hello")
     Copy
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L82)
+  * Defined in [core/src/code_executors/base_code_executor.ts:82](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L82)
 
 
 
@@ -73,7 +74,7 @@ errorRetryAttempts: number = 2
 
 The number of attempts to retry on consecutive code execution errors. Default to 2.
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:71](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L71)
+  * Defined in [core/src/code_executors/base_code_executor.ts:71](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L71)
 
 
 
@@ -83,7 +84,7 @@ executionResultDelimiters: [string, string] = ...
 
 The delimiters to format the code execution result.
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L94)
+  * Defined in [core/src/code_executors/base_code_executor.ts:94](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L94)
 
 
 
@@ -95,7 +96,7 @@ If true, extract and process data files from the model request and attach them t
 
 Supported data file MimeTypes are [text/csv]. Default to false.
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:60](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L60)
+  * Defined in [core/src/code_executors/base_code_executor.ts:60](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L60)
 
 
 
@@ -105,7 +106,7 @@ stateful: boolean = false
 
 Whether the code executor is stateful. Default to false.
 
-  * Defined in [core/src/code_executors/base_code_executor.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L65)
+  * Defined in [core/src/code_executors/base_code_executor.ts:65](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L65)
 
 
 
@@ -127,7 +128,7 @@ The parameters for executing code.
 
 The result of the code execution.
 
-    * Defined in [core/src/code_executors/base_code_executor.ts:102](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/base_code_executor.ts#L102)
+    * Defined in [core/src/code_executors/base_code_executor.ts:102](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/base_code_executor.ts#L102)
 
 
 
@@ -144,7 +145,7 @@ Methods
 
 executeCode
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

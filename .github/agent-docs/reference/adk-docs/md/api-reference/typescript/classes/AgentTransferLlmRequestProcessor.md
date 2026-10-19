@@ -24,7 +24,7 @@ Augments the [LlmRequest](../interfaces/LlmRequest.html) to support agent transf
 
 
 
-  * Defined in [core/src/agents/processors/agent_transfer_llm_request_processor.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/agent_transfer_llm_request_processor.ts#L24)
+  * Defined in [core/src/agents/processors/agent_transfer_llm_request_processor.ts:24](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/agent_transfer_llm_request_processor.ts#L24)
 
 
 
@@ -66,7 +66,7 @@ The request to augment with transfer instructions and the transfer tool.
 
 Overrides [BaseLlmRequestProcessor](BaseLlmRequestProcessor.html).[runAsync](BaseLlmRequestProcessor.html#runasync)
 
-    * Defined in [core/src/agents/processors/agent_transfer_llm_request_processor.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/agent_transfer_llm_request_processor.ts#L50)
+    * Defined in [core/src/agents/processors/agent_transfer_llm_request_processor.ts:70](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/agent_transfer_llm_request_processor.ts#L70)
 
 
 
@@ -79,7 +79,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

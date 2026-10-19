@@ -17,6 +17,10 @@ Preparing search index...
 
 A shell agent that runs its sub-agents in a sequential order.
 
+#### Deprecated
+
+Use `Workflow` instead, which expresses the same ordering as a graph and adds routing, retries, HITL and resumability. This class will be removed in a future version. Note that a `Workflow` cannot yet be an `LlmAgent` sub-agent.
+
 #### Hierarchy ([View Summary](../hierarchy.html#SequentialAgent))
 
   * [BaseAgent](BaseAgent.html)
@@ -24,7 +28,7 @@ A shell agent that runs its sub-agents in a sequential order.
 
 
 
-  * Defined in [core/src/agents/sequential_agent.ts:41](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/sequential_agent.ts#L41)
+  * Defined in [core/src/agents/sequential_agent.ts:51](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/sequential_agent.ts#L51)
 
 
 
@@ -42,7 +46,7 @@ A shell agent that runs its sub-agents in a sequential order.
 
 Inherited from [BaseAgent](BaseAgent.html).[constructor](BaseAgent.html#constructor)
 
-    * Defined in [core/src/agents/base_agent.ts:165](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L165)
+    * Defined in [core/src/agents/base_agent.ts:176](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L176)
 
 
 
@@ -57,7 +61,19 @@ A unique symbol to identify ADK agent classes.
 
 Inherited from [BaseAgent](BaseAgent.html).[[BASE_AGENT_SIGNATURE_SYMBOL]](BaseAgent.html#base_agent_signature_symbol)
 
-  * Defined in [core/src/agents/base_agent.ts:84](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L84)
+  * Defined in [core/src/agents/base_agent.ts:96](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L96)
+
+
+
+### `Readonly`[BASE_NODE_SIGNATURE_SYMBOL]
+
+"[BASE_NODE_SIGNATURE_SYMBOL]": true
+
+Brand identifying this object as a [BaseNode](BaseNode.html) (see `isBaseNode`).
+
+Inherited from [BaseAgent](BaseAgent.html).[[BASE_NODE_SIGNATURE_SYMBOL]](BaseAgent.html#base_node_signature_symbol)
+
+  * Defined in [core/src/workflow/base_node.ts:88](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L88)
 
 
 
@@ -67,7 +83,7 @@ Inherited from [BaseAgent](BaseAgent.html).[[BASE_AGENT_SIGNATURE_SYMBOL]](BaseA
 
 A unique symbol to identify ADK sequential agent class.
 
-  * Defined in [core/src/agents/sequential_agent.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/sequential_agent.ts#L45)
+  * Defined in [core/src/agents/sequential_agent.ts:55](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/sequential_agent.ts#L55)
 
 
 
@@ -79,17 +95,11 @@ Callback or list of callbacks to be invoked after the agent run.
 
 When a list of callbacks is provided, the callbacks will be called in the order they are listed until a callback does not return undefined.
 
-#### Param: callbackContext:
-
-MUST be named 'callbackContext' (enforced).
-
-#### Returns
-
-Content: The content to return to the user. When the content is present, the provided content will be used as agent response and appended to event history as agent response.
+Each callback takes a single [Context](Context.html) argument. Returning `Content` emits it as the agent's response, appended to the event history; return `undefined` to leave the response as the agent produced it.
 
 Inherited from [BaseAgent](BaseAgent.html).[afterAgentCallback](BaseAgent.html#afteragentcallback)
 
-  * Defined in [core/src/agents/base_agent.ts:163](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L163)
+  * Defined in [core/src/agents/base_agent.ts:174](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L174)
 
 
 
@@ -101,17 +111,13 @@ Callback or list of callbacks to be invoked before the agent run.
 
 When a list of callbacks is provided, the callbacks will be called in the order they are listed until a callback does not return undefined.
 
-#### Param: callbackContext:
+Each callback takes a single [Context](Context.html) argument. Returning `Content` skips this agent's own run — its `runAsyncImpl` body and its `afterAgentCallback` — and emits the returned content as this agent's response; return `undefined` to let the run proceed.
 
-MUST be named 'callbackContext' (enforced).
-
-#### Returns
-
-Content: The content to return to the user. When the content is present, the agent run will be skipped and the provided content will be returned to user.
+That skip is scoped to this agent. It sets `endInvocation` on the invocation context the agent created for itself, which is a copy of its parent's, so callers above are unaffected: a `SequentialAgent` still runs the remaining sub-agents.
 
 Inherited from [BaseAgent](BaseAgent.html).[beforeAgentCallback](BaseAgent.html#beforeagentcallback)
 
-  * Defined in [core/src/agents/base_agent.ts:149](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L149)
+  * Defined in [core/src/agents/base_agent.ts:162](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L162)
 
 
 
@@ -125,21 +131,37 @@ Stored so clone can rebuild the agent by re-running the concrete constructor wit
 
 Inherited from [BaseAgent](BaseAgent.html).[config](BaseAgent.html#config)
 
-  * Defined in [core/src/agents/base_agent.ts:94](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L94)
+  * Defined in [core/src/agents/base_agent.ts:106](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L106)
 
 
 
-### `Optional` `Readonly`description
+### `Readonly`description
 
-description?: string
-
-Description about the agent's capability.
-
-The model uses this to determine whether to delegate control to the agent. One-line description is enough and preferred.
+description: string
 
 Inherited from [BaseAgent](BaseAgent.html).[description](BaseAgent.html#description)
 
-  * Defined in [core/src/agents/base_agent.ts:109](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L109)
+  * Defined in [core/src/workflow/base_node.ts:91](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L91)
+
+
+
+### `Optional` `Readonly`inputSchema
+
+inputSchema?: [SchemaLike](../types/SchemaLike.html)
+
+Inherited from [BaseAgent](BaseAgent.html).[inputSchema](BaseAgent.html#inputschema)
+
+  * Defined in [core/src/workflow/base_node.ts:102](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L102)
+
+
+
+### `Optional` `Readonly`isolationScope
+
+isolationScope?: string | true
+
+Inherited from [BaseAgent](BaseAgent.html).[isolationScope](BaseAgent.html#isolationscope)
+
+  * Defined in [core/src/workflow/base_node.ts:105](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L105)
 
 
 
@@ -151,7 +173,17 @@ The agent's name. Agent name must be a JS identifier and unique within the agent
 
 Inherited from [BaseAgent](BaseAgent.html).[name](BaseAgent.html#name)
 
-  * Defined in [core/src/agents/base_agent.ts:101](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L101)
+  * Defined in [core/src/agents/base_agent.ts:113](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L113)
+
+
+
+### `Optional` `Readonly`outputSchema
+
+outputSchema?: [SchemaLike](../types/SchemaLike.html)
+
+Inherited from [BaseAgent](BaseAgent.html).[outputSchema](BaseAgent.html#outputschema)
+
+  * Defined in [core/src/workflow/base_node.ts:103](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L103)
 
 
 
@@ -169,7 +201,49 @@ The parent agent is the agent that created this agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[parentAgent](BaseAgent.html#parentagent)
 
-  * Defined in [core/src/agents/base_agent.ts:130](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L130)
+  * Defined in [core/src/agents/base_agent.ts:139](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L139)
+
+
+
+### `Optional` `Readonly`preparedRetryConfig
+
+preparedRetryConfig?: [PreparedRetryConfig](../interfaces/PreparedRetryConfig.html)
+
+The retry config with its exception filter normalized once, up front (see [prepareRetryConfig](../functions/prepareRetryConfig.html)). Used by the node runner so the retry hot path never re-normalizes or throws on a malformed config mid-retry.
+
+Inherited from [BaseAgent](BaseAgent.html).[preparedRetryConfig](BaseAgent.html#preparedretryconfig)
+
+  * Defined in [core/src/workflow/base_node.ts:100](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L100)
+
+
+
+### `Readonly`rerunOnResume
+
+rerunOnResume: boolean
+
+Inherited from [BaseAgent](BaseAgent.html).[rerunOnResume](BaseAgent.html#rerunonresume)
+
+  * Defined in [core/src/workflow/base_node.ts:92](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L92)
+
+
+
+### `Optional` `Readonly`retryConfig
+
+retryConfig?: [RetryConfig](../interfaces/RetryConfig.html)
+
+Inherited from [BaseAgent](BaseAgent.html).[retryConfig](BaseAgent.html#retryconfig)
+
+  * Defined in [core/src/workflow/base_node.ts:94](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L94)
+
+
+
+### `Optional` `Readonly`stateSchema
+
+stateSchema?: [SchemaLike](../types/SchemaLike.html)
+
+Inherited from [BaseAgent](BaseAgent.html).[stateSchema](BaseAgent.html#stateschema)
+
+  * Defined in [core/src/workflow/base_node.ts:104](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L104)
 
 
 
@@ -181,11 +255,46 @@ The sub-agents of this agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[subAgents](BaseAgent.html#subagents)
 
-  * Defined in [core/src/agents/base_agent.ts:135](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L135)
+  * Defined in [core/src/agents/base_agent.ts:144](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L144)
+
+
+
+### `Optional` `Readonly`timeout
+
+timeout?: number
+
+Inherited from [BaseAgent](BaseAgent.html).[timeout](BaseAgent.html#timeout)
+
+  * Defined in [core/src/workflow/base_node.ts:101](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L101)
+
+
+
+### `Readonly`waitForOutput
+
+waitForOutput: boolean
+
+Inherited from [BaseAgent](BaseAgent.html).[waitForOutput](BaseAgent.html#waitforoutput)
+
+  * Defined in [core/src/workflow/base_node.ts:93](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L93)
 
 
 
 ## Accessors
+
+### requiresAllPredecessors
+
+  * get requiresAllPredecessors(): boolean
+
+Whether this node must wait for ALL of its predecessors to trigger before it runs (fan-in barrier). Overridden by `JoinNode`.
+
+#### Returns boolean
+
+Inherited from BaseAgent.requiresAllPredecessors
+
+    * Defined in [core/src/workflow/base_node.ts:134](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L134)
+
+
+
 
 ### rootAgent
 
@@ -197,7 +306,7 @@ Root agent of this agent. Computed dynamically by traversing up the parent chain
 
 Inherited from BaseAgent.rootAgent
 
-    * Defined in [core/src/agents/base_agent.ts:115](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L115)
+    * Defined in [core/src/agents/base_agent.ts:124](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L124)
 
 
 
@@ -210,13 +319,13 @@ Inherited from BaseAgent.rootAgent
 
 Creates a copy of this agent with the given config fields overridden.
 
-Mirrors adk-python's `BaseAgent.clone(update=...)`. The clone is a detached root: its `parentAgent` is always `undefined`. Sub-agents are recursively cloned (and re-parented to the clone) unless `subAgents` is overridden. Rebuilding via the concrete constructor re-derives all state, so a cloned `LlmAgent` gets a fresh `requestProcessors` array rather than sharing the original's. See google/adk-js#534.
+The clone is a detached root: its `parentAgent` is always `undefined`. Sub-agents are recursively cloned (and re-parented to the clone) unless `subAgents` is overridden. Rebuilding via the concrete constructor re-derives all state, so a cloned `LlmAgent` gets a fresh `requestProcessors` array rather than sharing the original's. See google/adk-js#534.
 
 #### Parameters
 
     * `Optional`overrides: Partial<[BaseAgentConfig](../interfaces/BaseAgentConfig.html)>
 
-Config fields to override on the clone. Overriding `parentAgent` is rejected, matching adk-python.
+Config fields to override on the clone. Overriding `parentAgent` is rejected: parentage is assigned only when a parent agent is constructed with its sub-agents.
 
 #### Returns this
 
@@ -224,7 +333,7 @@ A new detached agent instance of the same concrete class.
 
 Inherited from [BaseAgent](BaseAgent.html).[clone](BaseAgent.html#clone)
 
-    * Defined in [core/src/agents/base_agent.ts:195](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L195)
+    * Defined in [core/src/agents/base_agent.ts:209](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L209)
 
 
 
@@ -247,7 +356,7 @@ The invocation context for this agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[createInvocationContext](BaseAgent.html#createinvocationcontext)
 
-    * Defined in [core/src/agents/base_agent.ts:392](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L392)
+    * Defined in [core/src/agents/base_agent.ts:434](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L434)
 
 
 
@@ -270,7 +379,7 @@ The agent with the given name, or undefined if not found.
 
 Inherited from [BaseAgent](BaseAgent.html).[findAgent](BaseAgent.html#findagent)
 
-    * Defined in [core/src/agents/base_agent.ts:361](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L361)
+    * Defined in [core/src/agents/base_agent.ts:403](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L403)
 
 
 
@@ -293,7 +402,7 @@ The agent with the given name, or undefined if not found.
 
 Inherited from [BaseAgent](BaseAgent.html).[findSubAgent](BaseAgent.html#findsubagent)
 
-    * Defined in [core/src/agents/base_agent.ts:375](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L375)
+    * Defined in [core/src/agents/base_agent.ts:417](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L417)
 
 
 
@@ -318,7 +427,7 @@ The event to return to the user, or undefined if no event is generated.
 
 Inherited from [BaseAgent](BaseAgent.html).[handleAfterAgentCallback](BaseAgent.html#handleafteragentcallback)
 
-    * Defined in [core/src/agents/base_agent.ts:455](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L455)
+    * Defined in [core/src/agents/base_agent.ts:497](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L497)
 
 
 
@@ -343,7 +452,27 @@ The event to return to the user, or undefined if no event is generated.
 
 Inherited from [BaseAgent](BaseAgent.html).[handleBeforeAgentCallback](BaseAgent.html#handlebeforeagentcallback)
 
-    * Defined in [core/src/agents/base_agent.ts:408](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L408)
+    * Defined in [core/src/agents/base_agent.ts:450](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L450)
+
+
+
+
+### run
+
+  * run(ctx: [NodeContext](NodeContext.html), input: unknown): AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Runs the node, normalizing every yielded item into an [Event](../interfaces/Event.html). This is what the engine (and `ctx.runNode()`) consumes. Validates the input against `inputSchema` once, up front (skipping genai `Content`, which nodes coerce themselves).
+
+#### Parameters
+
+    * ctx: [NodeContext](NodeContext.html)
+    * input: unknown
+
+#### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Inherited from [BaseAgent](BaseAgent.html).[run](BaseAgent.html#run)
+
+    * Defined in [core/src/workflow/base_node.ts:155](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L155)
 
 
 
@@ -370,7 +499,7 @@ The events generated by the agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[runAsync](BaseAgent.html#runasync)
 
-    * Defined in [core/src/agents/base_agent.ts:241](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L241)
+    * Defined in [core/src/agents/base_agent.ts:254](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L254)
 
 
 
@@ -397,7 +526,38 @@ The events generated by the agent.
 
 Overrides [BaseAgent](BaseAgent.html).[runAsyncImpl](BaseAgent.html#runasyncimpl)
 
-    * Defined in [core/src/agents/sequential_agent.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/sequential_agent.ts#L47)
+    * Defined in [core/src/agents/sequential_agent.ts:57](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/sequential_agent.ts#L57)
+
+
+
+
+### `Protected`runImpl
+
+  * runImpl(  
+ctx: [NodeContext](NodeContext.html),  
+_nodeInput: unknown,  
+): AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Runs this agent as a workflow node.
+
+The node runner calls this; it delegates to runAsync, so an agent behaves identically whether it is run directly or as a node. Mirrors adk-python `BaseAgent._run_impl`.
+
+The invocation context comes from [NodeContext.getInvocationContext](NodeContext.html#getinvocationcontext) rather than the raw field, so the agent runs against whatever view of the session the workflow wants it to see.
+
+Unlike adk-python's `_run_impl`, nothing is stamped onto the events here. Python has to fix up the author and the node path because it authors in-workflow events as the workflow itself; the TypeScript node runner already owns both (`enrichEvent` keeps an author the node set, and always stamps the true node path), so repeating it would be dead code.
+
+`nodeInput` is intentionally unused: an agent's input is its conversation, which the workflow supplies through the session. A node that needs to read its input — an `LlmAgent` injecting it into the prompt, say — does so in its own wrapper.
+
+#### Parameters
+
+    * ctx: [NodeContext](NodeContext.html)
+    * _nodeInput: unknown
+
+#### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
+
+Inherited from [BaseAgent](BaseAgent.html).[runImpl](BaseAgent.html#runimpl)
+
+    * Defined in [core/src/agents/base_agent.ts:319](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L319)
 
 
 
@@ -424,7 +584,7 @@ The events generated by the agent.
 
 Inherited from [BaseAgent](BaseAgent.html).[runLive](BaseAgent.html#runlive)
 
-    * Defined in [core/src/agents/base_agent.ts:291](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/base_agent.ts#L291)
+    * Defined in [core/src/agents/base_agent.ts:333](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/base_agent.ts#L333)
 
 
 
@@ -447,7 +607,65 @@ The invocation context of the agent.
 
 Overrides [BaseAgent](BaseAgent.html).[runLiveImpl](BaseAgent.html#runliveimpl)
 
-    * Defined in [core/src/agents/sequential_agent.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/sequential_agent.ts#L68)
+    * Defined in [core/src/agents/sequential_agent.ts:78](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/sequential_agent.ts#L78)
+
+
+
+
+### `Protected`toEvent
+
+  * toEvent(ctx: [NodeContext](NodeContext.html), data: unknown): [Event](../interfaces/Event.html) | null
+
+Normalizes a single yielded item into an [Event](../interfaces/Event.html) (or `null` to skip). Subclasses may override for richer coercion (e.g. `FunctionNode`).
+
+#### Parameters
+
+    * ctx: [NodeContext](NodeContext.html)
+    * data: unknown
+
+#### Returns [Event](../interfaces/Event.html) | null
+
+Inherited from [BaseAgent](BaseAgent.html).[toEvent](BaseAgent.html#toevent)
+
+    * Defined in [core/src/workflow/base_node.ts:217](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L217)
+
+
+
+
+### `Protected`validateInput
+
+  * validateInput(input: unknown): unknown
+
+Validates node input against `inputSchema` (Content passes through). Only enforced for Zod schemas; a genai `Schema` is left unvalidated (see `parseWithSchema`).
+
+#### Parameters
+
+    * input: unknown
+
+#### Returns unknown
+
+Inherited from [BaseAgent](BaseAgent.html).[validateInput](BaseAgent.html#validateinput)
+
+    * Defined in [core/src/workflow/base_node.ts:178](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L178)
+
+
+
+
+### `Protected`validateOutput
+
+  * validateOutput(output: unknown): unknown
+
+Validates node output against `outputSchema` (Content passes through). Only enforced for Zod schemas; a genai `Schema` is left unvalidated (see `parseWithSchema`).
+
+#### Parameters
+
+    * output: unknown
+
+#### Returns unknown
+
+Inherited from [BaseAgent](BaseAgent.html).[validateOutput](BaseAgent.html#validateoutput)
+
+    * Defined in [core/src/workflow/base_node.ts:198](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/workflow/base_node.ts#L198)
 
 
 
@@ -458,17 +676,17 @@ constructor
 
 Properties
 
-[BASE_AGENT_SIGNATURE_SYMBOL][SEQUENTIAL_AGENT_SIGNATURE_SYMBOL]afterAgentCallbackbeforeAgentCallbackconfigdescriptionnameparentAgentsubAgents
+[BASE_AGENT_SIGNATURE_SYMBOL][BASE_NODE_SIGNATURE_SYMBOL][SEQUENTIAL_AGENT_SIGNATURE_SYMBOL]afterAgentCallbackbeforeAgentCallbackconfigdescriptioninputSchemaisolationScopenameoutputSchemaparentAgentpreparedRetryConfigrerunOnResumeretryConfigstateSchemasubAgentstimeoutwaitForOutput
 
 Accessors
 
-rootAgent
+requiresAllPredecessorsrootAgent
 
 Methods
 
-clonecreateInvocationContextfindAgentfindSubAgenthandleAfterAgentCallbackhandleBeforeAgentCallbackrunAsyncrunAsyncImplrunLiverunLiveImpl
+clonecreateInvocationContextfindAgentfindSubAgenthandleAfterAgentCallbackhandleBeforeAgentCallbackrunrunAsyncrunAsyncImplrunImplrunLiverunLiveImpltoEventvalidateInputvalidateOutput
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

@@ -42,7 +42,7 @@ Value
 
 `[JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION)`
 
-`"1.11.0"`
+`"1.12.0"`
 
 
 
@@ -435,6 +435,48 @@ Value
 `[RUNTIME_CONFIG_PATH](com/google/adk/web/config/DevUiAssets.html#RUNTIME_CONFIG_PATH)`
 
 `"assets/config/runtime-config.json"`
+
+
+
+  * com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final double`
+
+`[DEFAULT_BACKOFF_FACTOR](com/google/adk/workflow/RetryConfig.html#DEFAULT_BACKOFF_FACTOR)`
+
+`2.0`
+
+`public static final double`
+
+`[DEFAULT_JITTER](com/google/adk/workflow/RetryConfig.html#DEFAULT_JITTER)`
+
+`1.0`
+
+`public static final int`
+
+`[DEFAULT_MAX_ATTEMPTS](com/google/adk/workflow/RetryConfig.html#DEFAULT_MAX_ATTEMPTS)`
+
+`5`
+
+  * com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow")
+
+Modifier and Type
+
+Constant Field
+
+Value
+
+`public static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[DEFAULT_ROUTE_SENTINEL](com/google/adk/workflow/Route.html#DEFAULT_ROUTE_SENTINEL)`
+
+`"__DEFAULT__"`
 
 
 

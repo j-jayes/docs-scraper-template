@@ -32,38 +32,40 @@ To use a plugin, implement the desired callback methods and pass an instance of 
 Example: A simple plugin that logs every tool call.
     
     
+    import {BasePlugin, BaseTool, Context, getLogger} from '@google/adk';  
+      
+    const logger = getLogger();  
+      
     class ToolLoggerPlugin extends BasePlugin {  
       constructor() {  
         super('tool_logger');  
       }  
       
       override async beforeToolCallback(  
-        {tool, toolArgs, toolContext}: {  
+        {tool, toolArgs}: {  
           tool: BaseTool,  
           toolArgs: Record<string, unknown>,  
           toolContext: Context,  
         },  
       ): Promise<Record<string, unknown> | undefined> {  
-        this.logger.info(  
-          `[${this.name}] Calling tool '${tool.name}' with args:  
-    ${JSON.stringify( toolArgs,  
-          )}`,  
+        logger.info(  
+          `[${this.name}] calling tool '${tool.name}' with args: ` +  
+            JSON.stringify(toolArgs),  
         );  
         return;  
       }  
       
       override async afterToolCallback(  
-        {tool, toolArgs, toolContext, result}: {  
+        {tool, result}: {  
           tool: BaseTool,  
           toolArgs: Record<string, unknown>,  
           toolContext: Context,  
           result: Record<string, unknown>,  
         },  
       ): Promise<Record<string, unknown> | undefined> {  
-        this.logger.info(  
-          `[${this.name}] Tool '${tool.name}' finished with result:  
-    ${JSON.stringify( result,  
-          )}`,  
+        logger.info(  
+          `[${this.name}] tool '${tool.name}' finished with result: ` +  
+            JSON.stringify(result),  
         );  
         return;  
       }  
@@ -81,11 +83,14 @@ Example: A simple plugin that logs every tool call.
   * BasePlugin
     * [GlobalInstructionPlugin](GlobalInstructionPlugin.html)
     * [LoggingPlugin](LoggingPlugin.html)
+    * [ReflectAndRetryModelPlugin](ReflectAndRetryModelPlugin.html)
+    * [ReflectAndRetryToolPlugin](ReflectAndRetryToolPlugin.html)
     * [SecurityPlugin](SecurityPlugin.html)
+    * [ToolCallIntegrityPlugin](ToolCallIntegrityPlugin.html)
 
 
 
-  * Defined in [core/src/plugins/base_plugin.ts:110](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L110)
+  * Defined in [core/src/plugins/base_plugin.ts:114](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L114)
 
 
 
@@ -105,7 +110,7 @@ A unique identifier for this plugin instance.
 
 #### Returns [BasePlugin]()
 
-    * Defined in [core/src/plugins/base_plugin.ts:118](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L118)
+    * Defined in [core/src/plugins/base_plugin.ts:122](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L122)
 
 
 
@@ -116,7 +121,7 @@ A unique identifier for this plugin instance.
 
 name: string
 
-  * Defined in [core/src/plugins/base_plugin.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L111)
+  * Defined in [core/src/plugins/base_plugin.ts:115](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L115)
 
 
 
@@ -125,7 +130,7 @@ name: string
 ### afterAgentCallback
 
   * afterAgentCallback(  
-params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) },  
+_params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) },  
 ): Promise<Content | undefined>
 
 Callback executed after an agent's primary logic has completed.
@@ -134,7 +139,7 @@ This callback can be used to inspect, log, or modify the agent's final result be
 
 #### Parameters
 
-    * params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) }
+    * _params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) }
       * ##### agent: [BaseAgent](BaseAgent.html)
 
 The agent that has just run.
@@ -147,7 +152,7 @@ The context for the agent invocation.
 
 An optional `Content` object. If a value is returned, it will replace the agent's original result. Returning `undefined` uses the original, unmodified result.
 
-    * Defined in [core/src/plugins/base_plugin.ts:231](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L231)
+    * Defined in [core/src/plugins/base_plugin.ts:231](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L231)
 
 
 
@@ -155,7 +160,7 @@ An optional `Content` object. If a value is returned, it will replace the agent'
 ### afterContextCompaction
 
   * afterContextCompaction(  
-params: {  
+_params: {  
 invocationContext: [InvocationContext](InvocationContext.html);  
 trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html);  
 },  
@@ -167,7 +172,7 @@ This callback provides an opportunity to inspect the context after it has been c
 
 #### Parameters
 
-    * params: { invocationContext: [InvocationContext](InvocationContext.html); trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html) }
+    * _params: { invocationContext: [InvocationContext](InvocationContext.html); trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html) }
       * ##### invocationContext: [InvocationContext](InvocationContext.html)
 
 The context for the entire invocation.
@@ -178,7 +183,7 @@ The trigger for the context compaction.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/plugins/base_plugin.ts:352](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L352)
+    * Defined in [core/src/plugins/base_plugin.ts:387](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L387)
 
 
 
@@ -186,7 +191,7 @@ The trigger for the context compaction.
 ### afterModelCallback
 
   * afterModelCallback(  
-params: { callbackContext: [Context](Context.html); llmResponse: [LlmResponse](../interfaces/LlmResponse.html) },  
+_params: { callbackContext: [Context](Context.html); llmResponse: [LlmResponse](../interfaces/LlmResponse.html) },  
 ): Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
 Callback executed after a response is received from the model.
@@ -195,7 +200,7 @@ This is the ideal place to log model responses, collect metrics on token usage, 
 
 #### Parameters
 
-    * params: { callbackContext: [Context](Context.html); llmResponse: [LlmResponse](../interfaces/LlmResponse.html) }
+    * _params: { callbackContext: [Context](Context.html); llmResponse: [LlmResponse](../interfaces/LlmResponse.html) }
       * ##### callbackContext: [Context](Context.html)
 
 The context for the current agent call.
@@ -208,7 +213,41 @@ The response object received from the model.
 
 An optional value. A non-`undefined` return may be used by the framework to modify or replace the response. Returning `undefined` allows the original response to be used.
 
-    * Defined in [core/src/plugins/base_plugin.ts:272](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L272)
+    * Defined in [core/src/plugins/base_plugin.ts:311](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L311)
+
+
+
+
+### afterNodeCallback
+
+  * afterNodeCallback(  
+params: { node: [BaseNode](BaseNode.html); nodeContext: [NodeContext](NodeContext.html); output: unknown },  
+): Promise<unknown>
+
+Callback executed after a workflow node has run.
+
+Not called for a node whose body was skipped by `beforeNodeCallback`, and not called when the node throws.
+
+#### Parameters
+
+    * params: { node: [BaseNode](BaseNode.html); nodeContext: [NodeContext](NodeContext.html); output: unknown }
+      * ##### node: [BaseNode](BaseNode.html)
+
+The node that has just run.
+
+      * ##### nodeContext: [NodeContext](NodeContext.html)
+
+The node's execution context.
+
+      * ##### output: unknown
+
+The output the node produced.
+
+#### Returns Promise<unknown>
+
+An optional value replacing the node's output. Returning `undefined` keeps the original.
+
+    * Defined in [core/src/plugins/base_plugin.ts:271](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L271)
 
 
 
@@ -216,7 +255,7 @@ An optional value. A non-`undefined` return may be used by the framework to modi
 ### afterRunCallback
 
   * afterRunCallback(  
-params: { invocationContext: [InvocationContext](InvocationContext.html) },  
+_params: { invocationContext: [InvocationContext](InvocationContext.html) },  
 ): Promise<void>
 
 Callback executed after an ADK runner run has completed.
@@ -225,7 +264,7 @@ This is the final callback in the ADK lifecycle, suitable for cleanup, final log
 
 #### Parameters
 
-    * params: { invocationContext: [InvocationContext](InvocationContext.html) }
+    * _params: { invocationContext: [InvocationContext](InvocationContext.html) }
       * ##### invocationContext: [InvocationContext](InvocationContext.html)
 
 The context for the entire invocation.
@@ -234,7 +273,7 @@ The context for the entire invocation.
 
 undefined
 
-    * Defined in [core/src/plugins/base_plugin.ts:192](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L192)
+    * Defined in [core/src/plugins/base_plugin.ts:194](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L194)
 
 
 
@@ -242,7 +281,7 @@ undefined
 ### afterToolCallback
 
   * afterToolCallback(  
-params: {  
+_params: {  
 result: Record<string, unknown>;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
@@ -256,7 +295,7 @@ This callback allows for inspecting, logging, or modifying the result returned b
 
 #### Parameters
 
-    * params: {  
+    * _params: {  
 result: Record<string, unknown>;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
@@ -282,7 +321,7 @@ The context specific to the tool execution.
 
 An optional dictionary. If a dictionary is returned, it will **replace** the original result from the tool. This allows for post-processing or altering tool outputs. Returning `undefined` uses the original, unmodified result.
 
-    * Defined in [core/src/plugins/base_plugin.ts:398](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L398)
+    * Defined in [core/src/plugins/base_plugin.ts:431](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L431)
 
 
 
@@ -290,7 +329,7 @@ An optional dictionary. If a dictionary is returned, it will **replace** the ori
 ### beforeAgentCallback
 
   * beforeAgentCallback(  
-params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) },  
+_params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) },  
 ): Promise<Content | undefined>
 
 Callback executed before an agent's primary logic is invoked.
@@ -299,7 +338,7 @@ This callback can be used for logging, setup, or to short-circuit the agent's ex
 
 #### Parameters
 
-    * params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) }
+    * _params: { agent: [BaseAgent](BaseAgent.html); callbackContext: [Context](Context.html) }
       * ##### agent: [BaseAgent](BaseAgent.html)
 
 The agent that is about to run.
@@ -312,7 +351,7 @@ The context for the agent invocation.
 
 An optional `Content` object. If a value is returned, it will bypass the agent's callbacks and its execution, and return this value directly. Returning `undefined` allows the agent to proceed normally.
 
-    * Defined in [core/src/plugins/base_plugin.ts:211](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L211)
+    * Defined in [core/src/plugins/base_plugin.ts:212](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L212)
 
 
 
@@ -320,7 +359,7 @@ An optional `Content` object. If a value is returned, it will bypass the agent's
 ### beforeContextCompaction
 
   * beforeContextCompaction(  
-params: {  
+_params: {  
 invocationContext: [InvocationContext](InvocationContext.html);  
 trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html);  
 },  
@@ -332,7 +371,7 @@ This callback provides an opportunity to inspect or modify the context before it
 
 #### Parameters
 
-    * params: { invocationContext: [InvocationContext](InvocationContext.html); trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html) }
+    * _params: { invocationContext: [InvocationContext](InvocationContext.html); trigger: [ContextCompactionTrigger](../enums/ContextCompactionTrigger.html) }
       * ##### invocationContext: [InvocationContext](InvocationContext.html)
 
 The context for the entire invocation.
@@ -343,7 +382,7 @@ The trigger for the context compaction.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/plugins/base_plugin.ts:334](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L334)
+    * Defined in [core/src/plugins/base_plugin.ts:370](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L370)
 
 
 
@@ -351,7 +390,7 @@ The trigger for the context compaction.
 ### beforeModelCallback
 
   * beforeModelCallback(  
-params: { callbackContext: [Context](Context.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) },  
+_params: { callbackContext: [Context](Context.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) },  
 ): Promise<[LlmResponse](../interfaces/LlmResponse.html) | undefined>
 
 Callback executed before a request is sent to the model.
@@ -360,7 +399,7 @@ This provides an opportunity to inspect, log, or modify the `LlmRequest` object.
 
 #### Parameters
 
-    * params: { callbackContext: [Context](Context.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
+    * _params: { callbackContext: [Context](Context.html); llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
       * ##### callbackContext: [Context](Context.html)
 
 The context for the current agent call.
@@ -373,7 +412,39 @@ The prepared request object to be sent to the model.
 
 An optional value. The interpretation of a non-`undefined` trigger an early exit and returns the response immediately. Returning `undefined` allows the LLM request to proceed normally.
 
-    * Defined in [core/src/plugins/base_plugin.ts:252](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L252)
+    * Defined in [core/src/plugins/base_plugin.ts:292](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L292)
+
+
+
+
+### beforeNodeCallback
+
+  * beforeNodeCallback(  
+params: { input: unknown; node: [BaseNode](BaseNode.html); nodeContext: [NodeContext](NodeContext.html) },  
+): Promise<unknown>
+
+Callback executed before a workflow node runs.
+
+#### Parameters
+
+    * params: { input: unknown; node: [BaseNode](BaseNode.html); nodeContext: [NodeContext](NodeContext.html) }
+      * ##### input: unknown
+
+The input the node is about to receive.
+
+      * ##### node: [BaseNode](BaseNode.html)
+
+The node that is about to run.
+
+      * ##### nodeContext: [NodeContext](NodeContext.html)
+
+The node's execution context.
+
+#### Returns Promise<unknown>
+
+An optional value. If anything other than `undefined` is returned, the node's body is skipped and the returned value becomes its output, which is how a plugin implements a node-level cache or a stub. Returning `undefined` lets the node run normally.
+
+    * Defined in [core/src/plugins/base_plugin.ts:250](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L250)
 
 
 
@@ -381,7 +452,7 @@ An optional value. The interpretation of a non-`undefined` trigger an early exit
 ### beforeRunCallback
 
   * beforeRunCallback(  
-params: { invocationContext: [InvocationContext](InvocationContext.html) },  
+_params: { invocationContext: [InvocationContext](InvocationContext.html) },  
 ): Promise<Content | undefined>
 
 Callback executed before the ADK runner runs.
@@ -390,7 +461,7 @@ This is the first callback to be called in the lifecycle, ideal for global setup
 
 #### Parameters
 
-    * params: { invocationContext: [InvocationContext](InvocationContext.html) }
+    * _params: { invocationContext: [InvocationContext](InvocationContext.html) }
       * ##### invocationContext: [InvocationContext](InvocationContext.html)
 
 The context for the entire invocation, containing session information, the root agent, etc.
@@ -399,7 +470,7 @@ The context for the entire invocation, containing session information, the root 
 
 An optional `Event` to be returned to the ADK. Returning a value to halt execution of the runner and ends the runner with that event. Return `undefined` to proceed normally.
 
-    * Defined in [core/src/plugins/base_plugin.ts:156](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L156)
+    * Defined in [core/src/plugins/base_plugin.ts:158](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L158)
 
 
 
@@ -407,7 +478,7 @@ An optional `Event` to be returned to the ADK. Returning a value to halt executi
 ### beforeToolCallback
 
   * beforeToolCallback(  
-params: {  
+_params: {  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
 toolContext: [Context](Context.html);  
@@ -420,7 +491,7 @@ This callback is useful for logging tool usage, input validation, or modifying t
 
 #### Parameters
 
-    * params: { tool: [BaseTool](BaseTool.html); toolArgs: Record<string, unknown>; toolContext: [Context](Context.html) }
+    * _params: { tool: [BaseTool](BaseTool.html); toolArgs: Record<string, unknown>; toolContext: [Context](Context.html) }
       * ##### tool: [BaseTool](BaseTool.html)
 
 The tool instance that is about to be executed.
@@ -437,7 +508,7 @@ The context specific to the tool execution.
 
 An optional dictionary. If a dictionary is returned, it will stop the tool execution and return this response immediately. Returning `undefined` uses the original, unmodified arguments.
 
-    * Defined in [core/src/plugins/base_plugin.ts:374](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L374)
+    * Defined in [core/src/plugins/base_plugin.ts:408](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L408)
 
 
 
@@ -445,7 +516,7 @@ An optional dictionary. If a dictionary is returned, it will stop the tool execu
 ### beforeToolSelection
 
   * beforeToolSelection(  
-params: {  
+_params: {  
 callbackContext: [Context](Context.html);  
 tools: Readonly<Record<string, [BaseTool](BaseTool.html)>>;  
 },  
@@ -457,7 +528,7 @@ This callback provides an opportunity to inspect, log, or modify the available t
 
 #### Parameters
 
-    * params: { callbackContext: [Context](Context.html); tools: Readonly<Record<string, [BaseTool](BaseTool.html)>> }
+    * _params: { callbackContext: [Context](Context.html); tools: Readonly<Record<string, [BaseTool](BaseTool.html)>> }
       * ##### callbackContext: [Context](Context.html)
 
 The context for the current agent call.
@@ -470,7 +541,7 @@ The available tools.
 
 An optional value. A non-`undefined` return may be used by the framework to modify or replace the available tools. Returning `undefined` allows the original tools to be used.
 
-    * Defined in [core/src/plugins/base_plugin.ts:316](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L316)
+    * Defined in [core/src/plugins/base_plugin.ts:353](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L353)
 
 
 
@@ -478,7 +549,7 @@ An optional value. A non-`undefined` return may be used by the framework to modi
 ### onEventCallback
 
   * onEventCallback(  
-params: { event: [Event](../interfaces/Event.html); invocationContext: [InvocationContext](InvocationContext.html) },  
+_params: { event: [Event](../interfaces/Event.html); invocationContext: [InvocationContext](InvocationContext.html) },  
 ): Promise<[Event](../interfaces/Event.html) | undefined>
 
 Callback executed after an event is yielded from runner.
@@ -487,7 +558,7 @@ This is the ideal place to make modification to the event before the event is ha
 
 #### Parameters
 
-    * params: { event: [Event](../interfaces/Event.html); invocationContext: [InvocationContext](InvocationContext.html) }
+    * _params: { event: [Event](../interfaces/Event.html); invocationContext: [InvocationContext](InvocationContext.html) }
       * ##### event: [Event](../interfaces/Event.html)
 
 The event raised by the runner.
@@ -498,9 +569,9 @@ The context for the entire invocation.
 
 #### Returns Promise<[Event](../interfaces/Event.html) | undefined>
 
-An optional value. A non-`undefined` return may be used by the framework to modify or replace the response. Returning `undefined` allows the original response to be used.
+An optional value. A non-`undefined` return may be used by the framework to modify or replace the response. Copy the incoming `event` when constructing a replacement to preserve fields that are not being modified, such as event actions. Returning `undefined` allows the original response to be used.
 
-    * Defined in [core/src/plugins/base_plugin.ts:175](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L175)
+    * Defined in [core/src/plugins/base_plugin.ts:178](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L178)
 
 
 
@@ -508,7 +579,7 @@ An optional value. A non-`undefined` return may be used by the framework to modi
 ### onModelErrorCallback
 
   * onModelErrorCallback(  
-params: {  
+_params: {  
 callbackContext: [Context](Context.html);  
 error: Error;  
 llmRequest: [LlmRequest](../interfaces/LlmRequest.html);  
@@ -521,7 +592,7 @@ This callback provides an opportunity to handle model errors gracefully, potenti
 
 #### Parameters
 
-    * params: { callbackContext: [Context](Context.html); error: Error; llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
+    * _params: { callbackContext: [Context](Context.html); error: Error; llmRequest: [LlmRequest](../interfaces/LlmRequest.html) }
       * ##### callbackContext: [Context](Context.html)
 
 The context for the current agent call.
@@ -538,7 +609,7 @@ The request that was sent to the model when the error occurred.
 
 An optional LlmResponse. If an LlmResponse is returned, it will be used instead of propagating the error. Returning `undefined` allows the original error to be raised.
 
-    * Defined in [core/src/plugins/base_plugin.ts:294](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L294)
+    * Defined in [core/src/plugins/base_plugin.ts:332](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L332)
 
 
 
@@ -546,7 +617,7 @@ An optional LlmResponse. If an LlmResponse is returned, it will be used instead 
 ### onToolErrorCallback
 
   * onToolErrorCallback(  
-params: {  
+_params: {  
 error: Error;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
@@ -562,7 +633,7 @@ This callback provides an opportunity to handle tool errors gracefully, potentia
 
 #### Parameters
 
-    * params: {  
+    * _params: {  
 error: Error;  
 tool: [BaseTool](BaseTool.html);  
 toolArgs: Record<string, unknown>;  
@@ -588,7 +659,7 @@ The context specific to the tool execution.
 
 An optional dictionary. If a dictionary is returned, it will be used as the tool response instead of propagating the error. Returning `undefined` allows the original error to be raised.
 
-    * Defined in [core/src/plugins/base_plugin.ts:432](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L432)
+    * Defined in [core/src/plugins/base_plugin.ts:464](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L464)
 
 
 
@@ -596,7 +667,7 @@ An optional dictionary. If a dictionary is returned, it will be used as the tool
 ### onUserMessageCallback
 
   * onUserMessageCallback(  
-params: { invocationContext: [InvocationContext](InvocationContext.html); userMessage: Content },  
+_params: { invocationContext: [InvocationContext](InvocationContext.html); userMessage: Content },  
 ): Promise<Content | undefined>
 
 Callback executed when a user message is received before an invocation starts.
@@ -605,7 +676,7 @@ This callback helps logging and modifying the user message before the runner sta
 
 #### Parameters
 
-    * params: { invocationContext: [InvocationContext](InvocationContext.html); userMessage: Content }
+    * _params: { invocationContext: [InvocationContext](InvocationContext.html); userMessage: Content }
       * ##### invocationContext: [InvocationContext](InvocationContext.html)
 
 The context for the entire invocation.
@@ -618,7 +689,7 @@ The message content input by user.
 
 An optional `Content` to be returned to the ADK. Returning a value to replace the user message. Returning `undefined` to proceed normally.
 
-    * Defined in [core/src/plugins/base_plugin.ts:136](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/base_plugin.ts#L136)
+    * Defined in [core/src/plugins/base_plugin.ts:139](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/base_plugin.ts#L139)
 
 
 
@@ -633,9 +704,9 @@ name
 
 Methods
 
-afterAgentCallbackafterContextCompactionafterModelCallbackafterRunCallbackafterToolCallbackbeforeAgentCallbackbeforeContextCompactionbeforeModelCallbackbeforeRunCallbackbeforeToolCallbackbeforeToolSelectiononEventCallbackonModelErrorCallbackonToolErrorCallbackonUserMessageCallback
+afterAgentCallbackafterContextCompactionafterModelCallbackafterNodeCallbackafterRunCallbackafterToolCallbackbeforeAgentCallbackbeforeContextCompactionbeforeModelCallbackbeforeNodeCallbackbeforeRunCallbackbeforeToolCallbackbeforeToolSelectiononEventCallbackonModelErrorCallbackonToolErrorCallbackonUserMessageCallback
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

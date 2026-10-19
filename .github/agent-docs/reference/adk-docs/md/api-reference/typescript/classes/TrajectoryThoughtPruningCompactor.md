@@ -23,7 +23,7 @@ A context compactor that prunes thought parts from older events in the session h
 
 
 
-  * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/trajectory_thought_pruning_compactor.ts#L26)
+  * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:27](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/trajectory_thought_pruning_compactor.ts#L27)
 
 
 
@@ -41,7 +41,7 @@ options: [TrajectoryThoughtPruningCompactorOptions](../interfaces/TrajectoryThou
 
 #### Returns [TrajectoryThoughtPruningCompactor]()
 
-    * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/trajectory_thought_pruning_compactor.ts#L29)
+    * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:30](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/trajectory_thought_pruning_compactor.ts#L30)
 
 
 
@@ -64,7 +64,7 @@ The current invocation context.
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[compact](../interfaces/BaseContextCompactor.html#compact)
 
-    * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:51](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/trajectory_thought_pruning_compactor.ts#L51)
+    * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:56](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/trajectory_thought_pruning_compactor.ts#L56)
 
 
 
@@ -87,7 +87,7 @@ A boolean or a promise resolving to a boolean indicating if compaction should oc
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[shouldCompact](../interfaces/BaseContextCompactor.html#shouldcompact)
 
-    * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/trajectory_thought_pruning_compactor.ts#L36)
+    * Defined in [core/src/context/trajectory_thought_pruning_compactor.ts:37](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/trajectory_thought_pruning_compactor.ts#L37)
 
 
 
@@ -100,7 +100,7 @@ Methods
 
 compactshouldCompact
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

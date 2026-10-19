@@ -32,6 +32,7 @@ Contents
   5. Constructor Details
      1. InMemorySessionService()
      2. InMemorySessionService(InMemorySessionService.DuplicateSessionIdBehavior)
+     3. InMemorySessionService(InMemorySessionService.DuplicateSessionIdBehavior, InstantSource, UuidProvider)
   6. Method Details
      1. createSession(String, String, ConcurrentMap, String)
      2. createSession(String, String, Map, String)
@@ -91,6 +92,10 @@ Description
 Creates a new instance of the in-memory session service with empty storage.
 
 `InMemorySessionService([InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") duplicateSessionIdBehavior)`
+
+Creates a new instance of the in-memory session service with empty storage.
+
+`InMemorySessionService([InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") duplicateSessionIdBehavior, [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource, [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
 
 Creates a new instance of the in-memory session service with empty storage.
 
@@ -227,6 +232,17 @@ Creates a new instance of the in-memory session service with empty storage.
 
 Parameters:
     `duplicateSessionIdBehavior` \- What `createSession` does when the session ID is already in use.
+
+    * ### InMemorySessionService
+
+public InMemorySessionService([InMemorySessionService.DuplicateSessionIdBehavior](InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") duplicateSessionIdBehavior, [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource, [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Creates a new instance of the in-memory session service with empty storage.
+
+Parameters:
+    `duplicateSessionIdBehavior` \- What `createSession` does when the session ID is already in use.
+    `instantSource` \- Supplies the `lastUpdateTime` of a newly created session.
+    `uuidProvider` \- Supplies the session ID when `createSession` is not given one.
 
   * ## Method Details
 

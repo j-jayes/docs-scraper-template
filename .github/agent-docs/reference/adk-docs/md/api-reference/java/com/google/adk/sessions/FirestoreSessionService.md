@@ -30,6 +30,7 @@ Contents
   3. Method Summary
   4. Constructor Details
      1. FirestoreSessionService(Firestore)
+     2. FirestoreSessionService(Firestore, InstantSource, UuidProvider)
   5. Method Details
      1. createSession(String, String, ConcurrentMap, String)
      2. createSession(String, String, Map, String)
@@ -67,6 +68,10 @@ Description
 `FirestoreSessionService(com.google.cloud.firestore.Firestore firestore)`
 
 Constructor for FirestoreSessionService.
+
+`FirestoreSessionService(com.google.cloud.firestore.Firestore firestore, [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource, [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Creates a session service whose generated session IDs and `lastUpdateTime` values come from the given providers instead of [`UUID.randomUUID()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html#randomUUID\(\)) and the wall clock.
 
   * ## Method Summary
 
@@ -192,6 +197,17 @@ Lists sessions associated with a specific application and user.
 public FirestoreSessionService(com.google.cloud.firestore.Firestore firestore)
 
 Constructor for FirestoreSessionService.
+
+    * ### FirestoreSessionService
+
+public FirestoreSessionService(com.google.cloud.firestore.Firestore firestore, [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource, [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Creates a session service whose generated session IDs and `lastUpdateTime` values come from the given providers instead of [`UUID.randomUUID()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html#randomUUID\(\)) and the wall clock.
+
+Parameters:
+    `firestore` \- The Firestore client.
+    `instantSource` \- Supplies the `lastUpdateTime` of a newly created session.
+    `uuidProvider` \- Supplies the session ID when `createSession` is not given one.
 
   * ## Method Details
 

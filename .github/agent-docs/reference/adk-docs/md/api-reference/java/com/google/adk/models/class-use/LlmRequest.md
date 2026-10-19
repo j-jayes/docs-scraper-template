@@ -412,7 +412,7 @@ Description
 
 `abstract [LlmRecording.Builder](../../plugins/recordings/LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-LlmRecording.Builder.`[llmRequest](../../plugins/recordings/LlmRecording.Builder.html#llmRequest\(com.google.adk.models.LlmRequest\))([LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
+LlmRecording.Builder.`[llmRequest](../../plugins/recordings/LlmRecording.Builder.html#llmRequest\(com.google.adk.models.LlmRequest\))(@Nullable [LlmRequest](../LlmRequest.html "class in com.google.adk.models") llmRequest)`
 
  
 

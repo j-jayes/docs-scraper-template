@@ -46,8 +46,9 @@ Contents
      12. compaction(EventCompaction)
      13. setModelResponse(Object)
      14. rewindBeforeInvocationId(String)
-     15. merge(EventActions)
-     16. build()
+     15. route(List)
+     16. merge(EventActions)
+     17. build()
 
 Hide sidebar  Show sidebar
 
@@ -164,6 +165,12 @@ Use `endOfAgent(boolean)` instead.
 
 `[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
 
+`route(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Route](../workflow/Route.html "interface in com.google.adk.workflow")> value)`
+
+ 
+
+`[EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events")`
+
 `setModelResponse(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)`
 
  
@@ -260,6 +267,10 @@ Use `endOfAgent(boolean)` instead.
     * ### rewindBeforeInvocationId
 
 @CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") rewindBeforeInvocationId(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") value)
+
+    * ### route
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") @CanIgnoreReturnValue public [EventActions.Builder](EventActions.Builder.html "class in com.google.adk.events") route(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[Route](../workflow/Route.html "interface in com.google.adk.workflow")> value)
 
     * ### merge
 

@@ -46,8 +46,9 @@ Contents
      12. modelVersion(String)
      13. inputTranscription(Transcription)
      14. outputTranscription(Transcription)
-     15. response(GenerateContentResponse)
-     16. build()
+     15. cacheMetadata(CacheMetadata)
+     16. response(GenerateContentResponse)
+     17. build()
 
 Hide sidebar  Show sidebar
 
@@ -97,6 +98,12 @@ Description
 `[LlmResponse](LlmResponse.html "class in com.google.adk.models")`
 
 `build()`
+
+ 
+
+`abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models")`
+
+`cacheMetadata(@Nullable [CacheMetadata](CacheMetadata.html "class in com.google.adk.models") cacheMetadata)`
 
  
 
@@ -254,6 +261,10 @@ public abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.goo
     * ### outputTranscription
 
 public abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models") outputTranscription(@Nullable com.google.genai.types.Transcription outputTranscription)
+
+    * ### cacheMetadata
+
+public abstract [LlmResponse.Builder](LlmResponse.Builder.html "class in com.google.adk.models") cacheMetadata(@Nullable [CacheMetadata](CacheMetadata.html "class in com.google.adk.models") cacheMetadata)
 
     * ### response
 

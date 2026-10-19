@@ -33,8 +33,9 @@ Package Hierarchies:
 ## Class Hierarchy
 
   * java.lang.[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")
-    * com.google.adk.agents.[BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")
-      * com.google.adk.a2a.agent.[RemoteA2AAgent](RemoteA2AAgent.html "class in com.google.adk.a2a.agent")
+    * com.google.adk.workflow.[BaseNode](../../workflow/BaseNode.html "class in com.google.adk.workflow") (implements com.google.adk.workflow.[Node](../../workflow/Node.html "interface in com.google.adk.workflow")) 
+      * com.google.adk.agents.[BaseAgent](../../agents/BaseAgent.html "class in com.google.adk.agents")
+        * com.google.adk.a2a.agent.[RemoteA2AAgent](RemoteA2AAgent.html "class in com.google.adk.a2a.agent")
     * com.google.adk.a2a.agent.[RemoteA2AAgent.Builder](RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
     * java.lang.[Throwable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html "class in java.lang") (implements java.io.[Serializable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html "interface in java.io")) 
       * java.lang.[Exception](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html "class in java.lang")

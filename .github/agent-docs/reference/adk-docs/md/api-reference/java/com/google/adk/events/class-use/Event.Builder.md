@@ -79,6 +79,12 @@ Event.`[builder](../Event.html#builder\(\))()`
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
+Event.Builder.`[cacheMetadata](../Event.Builder.html#cacheMetadata\(com.google.adk.models.CacheMetadata\))(@Nullable [CacheMetadata](../../models/CacheMetadata.html "class in com.google.adk.models") value)`
+
+ 
+
+`[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
+
 Event.Builder.`[content](../Event.Builder.html#content\(com.google.genai.types.Content\))(@Nullable com.google.genai.types.Content value)`
 
  
@@ -151,6 +157,18 @@ Event.Builder.`[modelVersion](../Event.Builder.html#modelVersion\(java.lang.Stri
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 
+Event.Builder.`[nodeInfo](../Event.Builder.html#nodeInfo\(com.google.adk.workflow.NodeInfo\))(@Nullable [NodeInfo](../../workflow/NodeInfo.html "class in com.google.adk.workflow") value)`
+
+ 
+
+`[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
+
+Event.Builder.`[output](../Event.Builder.html#output\(java.lang.Object\))(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") value)`
+
+ 
+
+`[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
+
 Event.Builder.`[outputTranscription](../Event.Builder.html#outputTranscription\(com.google.genai.types.Transcription\))(@Nullable com.google.genai.types.Transcription value)`
 
  
@@ -165,7 +183,7 @@ Event.Builder.`[partial](../Event.Builder.html#partial\(java.lang.Boolean\))(@Nu
 
 Event.Builder.`[timestamp](../Event.Builder.html#timestamp\(long\))(long value)`
 
- 
+Sets the timestamp in epoch milliseconds.
 
 `[Event.Builder](../Event.Builder.html "class in com.google.adk.events")`
 

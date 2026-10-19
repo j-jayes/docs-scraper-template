@@ -25,7 +25,7 @@ It evaluates each compactor in priority order. The first one that indicates it s
 
 
 
-  * Defined in [core/src/agents/processors/context_compactor_request_processor.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/context_compactor_request_processor.ts#L21)
+  * Defined in [core/src/agents/processors/context_compactor_request_processor.ts:21](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/context_compactor_request_processor.ts#L21)
 
 
 
@@ -45,7 +45,7 @@ Ordered list of compactors to evaluate; the first one that reports it should com
 
 #### Returns [ContextCompactorRequestProcessor]()
 
-    * Defined in [core/src/agents/processors/context_compactor_request_processor.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/context_compactor_request_processor.ts#L28)
+    * Defined in [core/src/agents/processors/context_compactor_request_processor.ts:28](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/context_compactor_request_processor.ts#L28)
 
 
 
@@ -75,7 +75,7 @@ Unused; present to satisfy the [BaseLlmRequestProcessor](BaseLlmRequestProcessor
 
 Implementation of [BaseLlmRequestProcessor](BaseLlmRequestProcessor.html).[runAsync](BaseLlmRequestProcessor.html#runasync)
 
-    * Defined in [core/src/agents/processors/context_compactor_request_processor.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/context_compactor_request_processor.ts#L40)
+    * Defined in [core/src/agents/processors/context_compactor_request_processor.ts:40](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/context_compactor_request_processor.ts#L40)
 
 
 
@@ -88,7 +88,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

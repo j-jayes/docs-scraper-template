@@ -23,7 +23,7 @@ A context compactor that triggers compaction when the agent explicitly requests 
 
 
 
-  * Defined in [core/src/context/agent_controlled_context_compactor.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/agent_controlled_context_compactor.ts#L18)
+  * Defined in [core/src/context/agent_controlled_context_compactor.ts:18](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/agent_controlled_context_compactor.ts#L18)
 
 
 
@@ -41,7 +41,7 @@ options: { summarizer: [BaseSummarizer](../interfaces/BaseSummarizer.html) },
 
 #### Returns [AgentControlledContextCompactor]()
 
-    * Defined in [core/src/context/agent_controlled_context_compactor.ts:22](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/agent_controlled_context_compactor.ts#L22)
+    * Defined in [core/src/context/agent_controlled_context_compactor.ts:22](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/agent_controlled_context_compactor.ts#L22)
 
 
 
@@ -56,7 +56,7 @@ The trigger associated with this compactor.
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[trigger](../interfaces/BaseContextCompactor.html#trigger)
 
-  * Defined in [core/src/context/agent_controlled_context_compactor.ts:19](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/agent_controlled_context_compactor.ts#L19)
+  * Defined in [core/src/context/agent_controlled_context_compactor.ts:19](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/agent_controlled_context_compactor.ts#L19)
 
 
 
@@ -78,7 +78,7 @@ The current invocation context.
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[compact](../interfaces/BaseContextCompactor.html#compact)
 
-    * Defined in [core/src/context/agent_controlled_context_compactor.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/agent_controlled_context_compactor.ts#L30)
+    * Defined in [core/src/context/agent_controlled_context_compactor.ts:30](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/agent_controlled_context_compactor.ts#L30)
 
 
 
@@ -101,7 +101,7 @@ A boolean or a promise resolving to a boolean indicating if compaction should oc
 
 Implementation of [BaseContextCompactor](../interfaces/BaseContextCompactor.html).[shouldCompact](../interfaces/BaseContextCompactor.html#shouldcompact)
 
-    * Defined in [core/src/context/agent_controlled_context_compactor.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/agent_controlled_context_compactor.ts#L26)
+    * Defined in [core/src/context/agent_controlled_context_compactor.ts:26](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/agent_controlled_context_compactor.ts#L26)
 
 
 
@@ -118,7 +118,7 @@ Methods
 
 compactshouldCompact
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

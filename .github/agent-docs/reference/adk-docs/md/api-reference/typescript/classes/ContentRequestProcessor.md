@@ -25,7 +25,7 @@ When a [CompactedEvent](../interfaces/CompactedEvent.html) exists in the session
 
 
 
-  * Defined in [core/src/agents/processors/content_request_processor.ts:27](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/content_request_processor.ts#L27)
+  * Defined in [core/src/agents/processors/content_request_processor.ts:27](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/content_request_processor.ts#L27)
 
 
 
@@ -65,7 +65,7 @@ The request whose contents field will be populated.
 
 Implementation of [BaseLlmRequestProcessor](BaseLlmRequestProcessor.html).[runAsync](BaseLlmRequestProcessor.html#runasync)
 
-    * Defined in [core/src/agents/processors/content_request_processor.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/content_request_processor.ts#L36)
+    * Defined in [core/src/agents/processors/content_request_processor.ts:36](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/content_request_processor.ts#L36)
 
 
 
@@ -78,7 +78,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

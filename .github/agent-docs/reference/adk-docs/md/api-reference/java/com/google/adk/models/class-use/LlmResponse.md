@@ -560,7 +560,7 @@ Description
 
 `abstract [LlmRecording.Builder](../../plugins/recordings/LlmRecording.Builder.html "class in com.google.adk.plugins.recordings")`
 
-LlmRecording.Builder.`[llmResponses](../../plugins/recordings/LlmRecording.Builder.html#llmResponses\(java.util.List\))([List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")> llmResponses)`
+LlmRecording.Builder.`[llmResponses](../../plugins/recordings/LlmRecording.Builder.html#llmResponses\(java.util.List\))(@Nullable [List](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html "interface in java.util")<[LlmResponse](../LlmResponse.html "class in com.google.adk.models")> llmResponses)`
 
  
 

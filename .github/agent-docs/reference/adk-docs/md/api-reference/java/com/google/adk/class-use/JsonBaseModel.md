@@ -224,6 +224,12 @@ Description
 
 `class `
 
+`[CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models")`
+
+Context cache state carried on an LLM response, and on its event, from one request to the next.
+
+`class `
+
 `[LlmRequest](../models/LlmRequest.html "class in com.google.adk.models")`
 
 Represents a request to be sent to the LLM.

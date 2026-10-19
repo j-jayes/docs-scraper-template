@@ -338,6 +338,12 @@ SequentialAgent.`[runLiveImpl](../../agents/SequentialAgent.html#runLiveImpl\(co
 
 Runs sub-agents sequentially in live mode.
 
+`io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
+
+BaseAgent.`[runNode](../../agents/BaseAgent.html#runNode\(com.google.adk.agents.Context,java.lang.Object\))([Context](../../agents/Context.html "class in com.google.adk.agents") context, @Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") nodeInput)`
+
+Runs this agent as a workflow node through its [`BaseAgent.runAsync(InvocationContext)`](../../agents/BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\)) lifecycle, including its callbacks.
+
 Methods in [com.google.adk.agents](../../agents/package-summary.html) with parameters of type [Event](../Event.html "class in com.google.adk.events")
 
 Modifier and Type
@@ -589,6 +595,12 @@ Returns whether the event emits a long-running function call still awaiting a re
 Functions.`[populateClientFunctionCallId](../../flows/llmflows/Functions.html#populateClientFunctionCallId\(com.google.adk.events.Event\))([Event](../Event.html "class in com.google.adk.events") modelResponseEvent)`
 
 Populates missing function call IDs in the provided event's content.
+
+`static void`
+
+Functions.`[populateClientFunctionCallId](../../flows/llmflows/Functions.html#populateClientFunctionCallId\(com.google.adk.events.Event,com.google.adk.platform.UuidProvider\))([Event](../Event.html "class in com.google.adk.events") modelResponseEvent, [UuidProvider](../../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Populates missing function call IDs in the provided event's content using the given [`UuidProvider`](../../platform/UuidProvider.html "interface in com.google.adk.platform").
 
 `protected io.reactivex.rxjava3.core.Flowable<[Event](../Event.html "class in com.google.adk.events")>`
 

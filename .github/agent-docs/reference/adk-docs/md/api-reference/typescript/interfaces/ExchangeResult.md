@@ -22,7 +22,7 @@ credential: [AuthCredential](AuthCredential.html);
 wasExchanged: boolean;  
 }
 
-  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/exchanger/base_credential_exchanger.ts#L18)
+  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:18](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/exchanger/base_credential_exchanger.ts#L18)
 
 
 
@@ -32,7 +32,7 @@ wasExchanged: boolean;
 
 credential: [AuthCredential](AuthCredential.html)
 
-  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:19](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/exchanger/base_credential_exchanger.ts#L19)
+  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:19](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/exchanger/base_credential_exchanger.ts#L19)
 
 
 
@@ -40,7 +40,7 @@ credential: [AuthCredential](AuthCredential.html)
 
 wasExchanged: boolean
 
-  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:20](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/exchanger/base_credential_exchanger.ts#L20)
+  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:20](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/exchanger/base_credential_exchanger.ts#L20)
 
 
 
@@ -48,7 +48,7 @@ Properties
 
 credentialwasExchanged
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

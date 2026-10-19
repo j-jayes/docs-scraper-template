@@ -24,7 +24,7 @@ shellCommandPath?: string;
 timeoutSeconds?: number;  
 }
 
-  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:26](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L26)
+  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:52](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L52)
 
 
 
@@ -36,7 +36,7 @@ commandPath?: string
 
 The command to run JavaScript code. Default is `process.execPath` (Node.js).
 
-  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:34](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L34)
+  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:60](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L60)
 
 
 
@@ -46,7 +46,7 @@ pythonCommandPath?: string
 
 The command to run Python code. Default is `python3`.
 
-  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:38](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L38)
+  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:64](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L64)
 
 
 
@@ -56,7 +56,9 @@ shellCommandPath?: string
 
 The command to run Shell code. Default is `bash`.
 
-  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L42)
+When it names `powershell` or `pwsh` (with or without `.exe`) the script is written as `.ps1` and run through PowerShell rather than as a bare shell script.
+
+  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:72](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L72)
 
 
 
@@ -66,7 +68,7 @@ timeoutSeconds?: number
 
 Timeout for code execution in seconds. Default is 30.
 
-  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/code_executors/unsafe_local_code_executor.ts#L30)
+  * Defined in [core/src/code_executors/unsafe_local_code_executor.ts:56](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/code_executors/unsafe_local_code_executor.ts#L56)
 
 
 
@@ -74,7 +76,7 @@ Properties
 
 commandPathpythonCommandPathshellCommandPathtimeoutSeconds
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

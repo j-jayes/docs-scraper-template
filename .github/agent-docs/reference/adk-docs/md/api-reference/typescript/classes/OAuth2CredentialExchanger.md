@@ -23,7 +23,7 @@ Exchanges OAuth2 credentials from authorization responses using standard fetch.
 
 
 
-  * Defined in [core/src/auth/oauth2/oauth2_credential_exchanger.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/oauth2/oauth2_credential_exchanger.ts#L30)
+  * Defined in [core/src/auth/oauth2/oauth2_credential_exchanger.ts:30](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/oauth2/oauth2_credential_exchanger.ts#L30)
 
 
 
@@ -65,7 +65,7 @@ CredentialExchangeError: If credential exchange fails.
 
 Implementation of [BaseCredentialExchanger](../interfaces/BaseCredentialExchanger.html).[exchange](../interfaces/BaseCredentialExchanger.html#exchange)
 
-    * Defined in [core/src/auth/oauth2/oauth2_credential_exchanger.ts:31](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/oauth2/oauth2_credential_exchanger.ts#L31)
+    * Defined in [core/src/auth/oauth2/oauth2_credential_exchanger.ts:31](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/oauth2/oauth2_credential_exchanger.ts#L31)
 
 
 
@@ -78,7 +78,7 @@ Methods
 
 exchange
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

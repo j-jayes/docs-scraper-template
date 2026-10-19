@@ -23,7 +23,7 @@ GCP implementation of SkillRegistry using GCP Skill Registry API.
 
 
 
-  * Defined in [core/src/skills/gcp_skill_registry.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L23)
+  * Defined in [core/src/skills/gcp_skill_registry.ts:23](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L23)
 
 
 
@@ -39,7 +39,7 @@ GCP implementation of SkillRegistry using GCP Skill Registry API.
 
 #### Returns [GCPSkillRegistry]()
 
-    * Defined in [core/src/skills/gcp_skill_registry.ts:28](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L28)
+    * Defined in [core/src/skills/gcp_skill_registry.ts:28](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L28)
 
 
 
@@ -64,7 +64,7 @@ A Promise resolving to a Skill object.
 
 Implementation of [SkillRegistry](../interfaces/SkillRegistry.html).[getSkill](../interfaces/SkillRegistry.html#getskill)
 
-    * Defined in [core/src/skills/gcp_skill_registry.ts:39](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L39)
+    * Defined in [core/src/skills/gcp_skill_registry.ts:39](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L39)
 
 
 
@@ -87,7 +87,7 @@ A Promise resolving to a list of Frontmatter objects for discovery.
 
 Implementation of [SkillRegistry](../interfaces/SkillRegistry.html).[searchSkills](../interfaces/SkillRegistry.html#searchskills)
 
-    * Defined in [core/src/skills/gcp_skill_registry.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L68)
+    * Defined in [core/src/skills/gcp_skill_registry.ts:68](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L68)
 
 
 
@@ -100,7 +100,7 @@ Methods
 
 getSkillsearchSkills
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

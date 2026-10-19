@@ -20,7 +20,7 @@ preserveLeadingEvents?: number;
 threshold: number;  
 }
 
-  * Defined in [core/src/context/truncating_context_compactor.ts:10](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L10)
+  * Defined in [core/src/context/truncating_context_compactor.ts:11](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L11)
 
 
 
@@ -32,7 +32,7 @@ preserveLeadingEvents?: number
 
 Keep the first X events in the history, which often act as the initial grounding prompt.
 
-  * Defined in [core/src/context/truncating_context_compactor.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L14)
+  * Defined in [core/src/context/truncating_context_compactor.ts:15](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L15)
 
 
 
@@ -42,7 +42,7 @@ threshold: number
 
 The maximum number of events to retain in the session history.
 
-  * Defined in [core/src/context/truncating_context_compactor.ts:12](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/truncating_context_compactor.ts#L12)
+  * Defined in [core/src/context/truncating_context_compactor.ts:13](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/truncating_context_compactor.ts#L13)
 
 
 
@@ -50,7 +50,7 @@ Properties
 
 preserveLeadingEventsthreshold
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

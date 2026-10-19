@@ -135,6 +135,10 @@ Represents an event in a session.
 
 Represents the actions attached to an event.
 
+[ToolConfirmation](class-use/ToolConfirmation.html#com.google.adk.agents)
+
+Represents a tool confirmation configuration.
+
   * Classes in [com.google.adk.events](package-summary.html) used by [com.google.adk.events](package-summary.html)
 
 Class

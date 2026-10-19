@@ -22,7 +22,7 @@ outcome: string;
 reason?: string;  
 }
 
-  * Defined in [core/src/plugins/security_plugin.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L40)
+  * Defined in [core/src/plugins/security_plugin.ts:41](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L41)
 
 
 
@@ -34,7 +34,7 @@ outcome: string
 
 The policy decision: `ALLOW`, `DENY`, or `CONFIRM`.
 
-  * Defined in [core/src/plugins/security_plugin.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L42)
+  * Defined in [core/src/plugins/security_plugin.ts:43](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L43)
 
 
 
@@ -44,7 +44,7 @@ reason?: string
 
 Optional human-readable explanation of the decision.
 
-  * Defined in [core/src/plugins/security_plugin.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L44)
+  * Defined in [core/src/plugins/security_plugin.ts:45](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L45)
 
 
 
@@ -52,7 +52,7 @@ Properties
 
 outcomereason
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

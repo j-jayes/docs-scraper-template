@@ -24,7 +24,7 @@ A BaseLlm implementation that delegates to one of multiple models based on a rou
 
 
 
-  * Defined in [core/src/models/routed_llm.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/routed_llm.ts#L29)
+  * Defined in [core/src/models/routed_llm.ts:27](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/routed_llm.ts#L27)
 
 
 
@@ -52,7 +52,7 @@ router: [LlmRouter](../types/LlmRouter.html);
 
 Overrides [BaseLlm](BaseLlm.html).[constructor](BaseLlm.html#constructor)
 
-    * Defined in [core/src/models/routed_llm.ts:33](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/routed_llm.ts#L33)
+    * Defined in [core/src/models/routed_llm.ts:31](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/routed_llm.ts#L31)
 
 
 
@@ -67,7 +67,7 @@ A unique symbol to identify BaseLlm classes.
 
 Inherited from [BaseLlm](BaseLlm.html).[[BASE_MODEL_SYMBOL]](BaseLlm.html#base_model_symbol)
 
-  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L40)
+  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L40)
 
 
 
@@ -77,7 +77,7 @@ model: string
 
 Inherited from [BaseLlm](BaseLlm.html).[model](BaseLlm.html#model)
 
-  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L42)
+  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L42)
 
 
 
@@ -89,7 +89,7 @@ List of supported models in regex for LlmRegistry.
 
 Inherited from [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedmodels)
 
-  * Defined in [core/src/models/base_llm.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L57)
+  * Defined in [core/src/models/base_llm.ts:57](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L57)
 
 
 
@@ -103,7 +103,7 @@ Inherited from [BaseLlm](BaseLlm.html).[supportedModels](BaseLlm.html#supportedm
 
 Inherited from BaseLlm.trackingHeaders
 
-    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L81)
+    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L81)
 
 
 
@@ -124,7 +124,7 @@ Creates a live connection to the LLM by delegating to the selected model. This l
 
 Overrides [BaseLlm](BaseLlm.html).[connect](BaseLlm.html#connect)
 
-    * Defined in [core/src/models/routed_llm.ts:74](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/routed_llm.ts#L74)
+    * Defined in [core/src/models/routed_llm.ts:72](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/routed_llm.ts#L72)
 
 
 
@@ -147,7 +147,7 @@ Generates content by delegating to the selected model.
 
 Overrides [BaseLlm](BaseLlm.html).[generateContentAsync](BaseLlm.html#generatecontentasync)
 
-    * Defined in [core/src/models/routed_llm.ts:59](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/routed_llm.ts#L59)
+    * Defined in [core/src/models/routed_llm.ts:57](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/routed_llm.ts#L57)
 
 
 
@@ -168,7 +168,7 @@ LlmRequest, the request to send to the LLM.
 
 Inherited from [BaseLlm](BaseLlm.html).[maybeAppendUserContent](BaseLlm.html#maybeappendusercontent)
 
-    * Defined in [core/src/models/base_llm.ts:95](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L95)
+    * Defined in [core/src/models/base_llm.ts:90](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L90)
 
 
 
@@ -189,7 +189,7 @@ Methods
 
 connectgenerateContentAsyncmaybeAppendUserContent
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

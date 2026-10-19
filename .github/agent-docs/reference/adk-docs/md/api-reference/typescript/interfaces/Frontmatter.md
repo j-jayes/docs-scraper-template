@@ -24,7 +24,7 @@ metadata?: Record<string, unknown>;
 name: string;  
 }
 
-  * Defined in [core/src/skills/skill.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L64)
+  * Defined in [core/src/skills/skill.ts:64](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L64)
 
 
 
@@ -34,7 +34,7 @@ name: string;
 
 allowedTools?: string
 
-  * Defined in [core/src/skills/skill.ts:69](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L69)
+  * Defined in [core/src/skills/skill.ts:69](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L69)
 
 
 
@@ -42,7 +42,7 @@ allowedTools?: string
 
 compatibility?: string
 
-  * Defined in [core/src/skills/skill.ts:68](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L68)
+  * Defined in [core/src/skills/skill.ts:68](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L68)
 
 
 
@@ -50,7 +50,7 @@ compatibility?: string
 
 description: string
 
-  * Defined in [core/src/skills/skill.ts:66](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L66)
+  * Defined in [core/src/skills/skill.ts:66](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L66)
 
 
 
@@ -58,7 +58,7 @@ description: string
 
 license?: string
 
-  * Defined in [core/src/skills/skill.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L67)
+  * Defined in [core/src/skills/skill.ts:67](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L67)
 
 
 
@@ -66,7 +66,7 @@ license?: string
 
 metadata?: Record<string, unknown>
 
-  * Defined in [core/src/skills/skill.ts:70](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L70)
+  * Defined in [core/src/skills/skill.ts:70](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L70)
 
 
 
@@ -74,7 +74,7 @@ metadata?: Record<string, unknown>
 
 name: string
 
-  * Defined in [core/src/skills/skill.ts:65](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill.ts#L65)
+  * Defined in [core/src/skills/skill.ts:65](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill.ts#L65)
 
 
 
@@ -82,7 +82,7 @@ Properties
 
 allowedToolscompatibilitydescriptionlicensemetadataname
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

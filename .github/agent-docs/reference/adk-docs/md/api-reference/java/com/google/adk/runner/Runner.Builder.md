@@ -40,7 +40,10 @@ Contents
      6. memoryService(BaseMemoryService)
      7. plugins(List)
      8. plugins(Plugin...)
-     9. build()
+     9. scheduler(Scheduler)
+     10. instantSource(InstantSource)
+     11. uuidProvider(UuidProvider)
+     12. build()
 
 Hide sidebar  Show sidebar
 
@@ -113,6 +116,12 @@ Description
 
 `[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
 
+`instantSource(@Nullable [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource)`
+
+Sets the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") that supplies every timestamp this runner generates: event timestamps, and the `lastUpdateTime` of sessions created by the default in-memory session service, which is created on the first `build()`.
+
+`[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
+
 `memoryService([BaseMemoryService](../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService)`
 
  
@@ -131,9 +140,21 @@ Description
 
 `[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
 
+`scheduler(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)`
+
+Sets the `Scheduler` for the work ADK hands off to worker threads in this runner's invocations: the sub-agents of a `ParallelAgent`, tool calls in [`RunConfig.ToolExecutionMode.PARALLEL_SUBSCRIBE`](../agents/RunConfig.ToolExecutionMode.html#PARALLEL_SUBSCRIBE) mode, and the hop that starts the live send loop.
+
+`[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
+
 `sessionService([BaseSessionService](../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService)`
 
  
+
+`[Runner.Builder](Runner.Builder.html "class in com.google.adk.runner")`
+
+`uuidProvider(@Nullable [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Sets the [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform") that supplies every identifier this runner generates: event, invocation, and client function-call ids, and the ids of sessions created by the default in-memory session service, which is created on the first `build()`.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -181,6 +202,26 @@ public Builder()
     * ### plugins
 
 @CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") plugins([Plugin](../plugins/Plugin.html "interface in com.google.adk.plugins")... plugins)
+
+    * ### scheduler
+
+@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") scheduler(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)
+
+Sets the `Scheduler` for the work ADK hands off to worker threads in this runner's invocations: the sub-agents of a `ParallelAgent`, tool calls in [`RunConfig.ToolExecutionMode.PARALLEL_SUBSCRIBE`](../agents/RunConfig.ToolExecutionMode.html#PARALLEL_SUBSCRIBE) mode, and the hop that starts the live send loop. The runs that an `AgentTool` nests inherit it. An agent-level ` ParallelAgent.Builder#scheduler` or `LlmAgent.Builder#executor` takes precedence. `null` (the default) selects `Schedulers.io()`. 
+
+Only these hand-offs are affected; work that completes asynchronously elsewhere (model clients, session services, MCP, plugins) stays on its own threads. ` Schedulers.trampoline()` runs the hand-offs inline, so sub-agents and tools are subscribed sequentially, but anything they start asynchronously can still overlap.
+
+    * ### instantSource
+
+@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") instantSource(@Nullable [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource)
+
+Sets the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") that supplies every timestamp this runner generates: event timestamps, and the `lastUpdateTime` of sessions created by the default in-memory session service, which is created on the first `build()`. `null` (the default) selects [`InstantSource.system()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html#system\(\)).
+
+    * ### uuidProvider
+
+@CanIgnoreReturnValue public [Runner.Builder](Runner.Builder.html "class in com.google.adk.runner") uuidProvider(@Nullable [UuidProvider](../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)
+
+Sets the [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform") that supplies every identifier this runner generates: event, invocation, and client function-call ids, and the ids of sessions created by the default in-memory session service, which is created on the first `build()`. `null` (the default) selects [`UuidProvider.SYSTEM`](../platform/UuidProvider.html#SYSTEM).
 
     * ### build
 

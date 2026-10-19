@@ -21,7 +21,7 @@ location?: string;
 projectId?: string;  
 }
 
-  * Defined in [core/src/skills/gcp_skill_registry.ts:13](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L13)
+  * Defined in [core/src/skills/gcp_skill_registry.ts:13](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L13)
 
 
 
@@ -31,7 +31,7 @@ projectId?: string;
 
 client?: Client
 
-  * Defined in [core/src/skills/gcp_skill_registry.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L16)
+  * Defined in [core/src/skills/gcp_skill_registry.ts:16](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L16)
 
 
 
@@ -39,7 +39,7 @@ client?: Client
 
 location?: string
 
-  * Defined in [core/src/skills/gcp_skill_registry.ts:15](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L15)
+  * Defined in [core/src/skills/gcp_skill_registry.ts:15](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L15)
 
 
 
@@ -47,7 +47,7 @@ location?: string
 
 projectId?: string
 
-  * Defined in [core/src/skills/gcp_skill_registry.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/gcp_skill_registry.ts#L14)
+  * Defined in [core/src/skills/gcp_skill_registry.ts:14](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/gcp_skill_registry.ts#L14)
 
 
 
@@ -55,7 +55,7 @@ Properties
 
 clientlocationprojectId
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

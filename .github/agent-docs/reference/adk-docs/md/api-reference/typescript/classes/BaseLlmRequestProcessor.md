@@ -33,7 +33,7 @@ Base class for LLM request processors. Implementations mutate or augment the [Ll
 
 
 
-  * Defined in [core/src/agents/processors/base_llm_processor.ts:16](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/base_llm_processor.ts#L16)
+  * Defined in [core/src/agents/processors/base_llm_processor.ts:16](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/base_llm_processor.ts#L16)
 
 
 
@@ -71,7 +71,7 @@ The request object to populate or mutate in place.
 
 #### Returns AsyncGenerator<[Event](../interfaces/Event.html), void, void>
 
-    * Defined in [core/src/agents/processors/base_llm_processor.ts:23](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/agents/processors/base_llm_processor.ts#L23)
+    * Defined in [core/src/agents/processors/base_llm_processor.ts:23](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/agents/processors/base_llm_processor.ts#L23)
 
 
 
@@ -84,7 +84,7 @@ Methods
 
 runAsync
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

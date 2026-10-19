@@ -24,12 +24,13 @@ A toolset is a collection of tools that can be used by an agent.
   * BaseToolset
     * [AgentRegistrySingleMCPToolset](AgentRegistrySingleMCPToolset.html)
     * [MCPToolset](MCPToolset.html)
-    * [SkillToolset](SkillToolset.html)
     * [OpenAPIToolset](OpenAPIToolset.html)
+    * [SkillToolset](SkillToolset.html)
+    * [WebMCPToolset](WebMCPToolset.html)
 
 
 
-  * Defined in [core/src/tools/base_toolset.ts:43](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L43)
+  * Defined in [core/src/tools/base_toolset.ts:43](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L43)
 
 
 
@@ -49,7 +50,7 @@ prefix?: string,
 
 #### Returns [BaseToolset]()
 
-    * Defined in [core/src/tools/base_toolset.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L46)
+    * Defined in [core/src/tools/base_toolset.ts:46](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L46)
 
 
 
@@ -60,7 +61,7 @@ prefix?: string,
 
 "[BASE_TOOLSET_SIGNATURE_SYMBOL]": true
 
-  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L44)
+  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L44)
 
 
 
@@ -68,7 +69,7 @@ prefix?: string,
 
 prefix?: string
 
-  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L48)
+  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L48)
 
 
 
@@ -76,7 +77,7 @@ prefix?: string
 
 toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html)
 
-  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L47)
+  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L47)
 
 
 
@@ -94,7 +95,7 @@ NOTE: This method is invoked, for example, at the end of an agent server's lifec
 
 A Promise that resolves when the toolset is closed.
 
-    * Defined in [core/src/tools/base_toolset.ts:70](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L70)
+    * Defined in [core/src/tools/base_toolset.ts:70](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L70)
 
 
 
@@ -115,7 +116,7 @@ Context used to filter tools available to the agent. If not defined, all tools i
 
 A Promise that resolves to the list of tools.
 
-    * Defined in [core/src/tools/base_toolset.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L58)
+    * Defined in [core/src/tools/base_toolset.ts:58](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L58)
 
 
 
@@ -140,14 +141,14 @@ Context used to filter tools available to the agent.
 
 Whether the tool should be exposed to LLM.
 
-    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L79)
+    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L79)
 
 
 
 
 ### processLlmRequest
 
-  * processLlmRequest(toolContext: [Context](Context.html), llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
+  * processLlmRequest(_toolContext: [Context](Context.html), _llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
 
 Processes the outgoing LLM request for this toolset. This method will be called before each tool processes the llm request.
 
@@ -157,17 +158,17 @@ Use cases:
 
 #### Parameters
 
-    * toolContext: [Context](Context.html)
+    * _toolContext: [Context](Context.html)
 
 The context of the tool.
 
-    * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
+    * _llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
 
 The outgoing LLM request, mutable this method.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L111)
+    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L111)
 
 
 
@@ -184,7 +185,7 @@ Methods
 
 closegetToolsisToolSelectedprocessLlmRequest
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

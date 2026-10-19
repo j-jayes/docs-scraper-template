@@ -27,7 +27,7 @@ evaluate(context: [ToolCallPolicyContext](ToolCallPolicyContext.html)): Promise<
 
 
 
-  * Defined in [core/src/plugins/security_plugin.ts:56](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L56)
+  * Defined in [core/src/plugins/security_plugin.ts:57](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L57)
 
 
 
@@ -49,7 +49,7 @@ The tool and its arguments to evaluate.
 
 A promise resolving to the policy decision.
 
-    * Defined in [core/src/plugins/security_plugin.ts:63](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L63)
+    * Defined in [core/src/plugins/security_plugin.ts:64](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L64)
 
 
 
@@ -58,7 +58,7 @@ Methods
 
 evaluate
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

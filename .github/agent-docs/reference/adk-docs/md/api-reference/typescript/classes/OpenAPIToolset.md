@@ -26,7 +26,7 @@ A toolset is a collection of tools that can be used by an agent.
 
 
 
-  * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/openapi_toolset.ts#L18)
+  * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:19](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/openapi_toolset.ts#L19)
 
 
 
@@ -68,7 +68,7 @@ toolFilter?: string[] | [ToolPredicate](../types/ToolPredicate.html);
 
 Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constructor)
 
-    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:21](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/openapi_toolset.ts#L21)
+    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:22](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/openapi_toolset.ts#L22)
 
 
 
@@ -81,7 +81,7 @@ Overrides [BaseToolset](BaseToolset.html).[constructor](BaseToolset.html#constru
 
 Inherited from [BaseToolset](BaseToolset.html).[[BASE_TOOLSET_SIGNATURE_SYMBOL]](BaseToolset.html#base_toolset_signature_symbol)
 
-  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L44)
+  * Defined in [core/src/tools/base_toolset.ts:44](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L44)
 
 
 
@@ -91,7 +91,7 @@ prefix?: string
 
 Inherited from [BaseToolset](BaseToolset.html).[prefix](BaseToolset.html#prefix)
 
-  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L48)
+  * Defined in [core/src/tools/base_toolset.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L48)
 
 
 
@@ -101,7 +101,7 @@ toolFilter: string[] | [ToolPredicate](../types/ToolPredicate.html)
 
 Inherited from [BaseToolset](BaseToolset.html).[toolFilter](BaseToolset.html#toolfilter)
 
-  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L47)
+  * Defined in [core/src/tools/base_toolset.ts:47](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L47)
 
 
 
@@ -121,7 +121,26 @@ A Promise that resolves when the toolset is closed.
 
 Overrides [BaseToolset](BaseToolset.html).[close](BaseToolset.html#close)
 
-    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:106](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/openapi_toolset.ts#L106)
+    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:126](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/openapi_toolset.ts#L126)
+
+
+
+
+### getTool
+
+  * getTool(toolName: string): [RestApiTool](RestApiTool.html) | undefined
+
+Returns the parsed tool with the given name, or `undefined` when the spec produced no such tool.
+
+The lookup is over every tool parsed from the spec and does not apply `toolFilter`, which selects what an agent exposes to the model rather than what the toolset holds. When the toolset was constructed with `prefix`, pass the prefixed name.
+
+#### Parameters
+
+    * toolName: string
+
+#### Returns [RestApiTool](RestApiTool.html) | undefined
+
+    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:121](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/openapi_toolset.ts#L121)
 
 
 
@@ -144,7 +163,7 @@ A Promise that resolves to the list of tools.
 
 Overrides [BaseToolset](BaseToolset.html).[getTools](BaseToolset.html#gettools)
 
-    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:93](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/openapi_tool/openapi_toolset.ts#L93)
+    * Defined in [core/src/tools/openapi_tool/openapi_toolset.ts:99](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/openapi_tool/openapi_toolset.ts#L99)
 
 
 
@@ -171,14 +190,14 @@ Whether the tool should be exposed to LLM.
 
 Inherited from [BaseToolset](BaseToolset.html).[isToolSelected](BaseToolset.html#istoolselected)
 
-    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L79)
+    * Defined in [core/src/tools/base_toolset.ts:79](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L79)
 
 
 
 
 ### processLlmRequest
 
-  * processLlmRequest(toolContext: [Context](Context.html), llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
+  * processLlmRequest(_toolContext: [Context](Context.html), _llmRequest: [LlmRequest](../interfaces/LlmRequest.html)): Promise<void>
 
 Processes the outgoing LLM request for this toolset. This method will be called before each tool processes the llm request.
 
@@ -188,11 +207,11 @@ Use cases:
 
 #### Parameters
 
-    * toolContext: [Context](Context.html)
+    * _toolContext: [Context](Context.html)
 
 The context of the tool.
 
-    * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
+    * _llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
 
 The outgoing LLM request, mutable this method.
 
@@ -200,7 +219,7 @@ The outgoing LLM request, mutable this method.
 
 Inherited from [BaseToolset](BaseToolset.html).[processLlmRequest](BaseToolset.html#processllmrequest)
 
-    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/tools/base_toolset.ts#L111)
+    * Defined in [core/src/tools/base_toolset.ts:111](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/tools/base_toolset.ts#L111)
 
 
 
@@ -215,9 +234,9 @@ Properties
 
 Methods
 
-closegetToolsisToolSelectedprocessLlmRequest
+closegetToolgetToolsisToolSelectedprocessLlmRequest
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

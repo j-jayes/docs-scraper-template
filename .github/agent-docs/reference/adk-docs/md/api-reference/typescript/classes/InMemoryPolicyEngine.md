@@ -23,7 +23,7 @@ In-memory policy engine that permits all tool calls. Intended for prototyping.
 
 
 
-  * Defined in [core/src/plugins/security_plugin.ts:67](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L67)
+  * Defined in [core/src/plugins/security_plugin.ts:68](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L68)
 
 
 
@@ -42,9 +42,15 @@ In-memory policy engine that permits all tool calls. Intended for prototyping.
 
 ### evaluate
 
-  * evaluate(): Promise<[PolicyCheckResult](../interfaces/PolicyCheckResult.html)>
+  * evaluate(_context: [ToolCallPolicyContext](../interfaces/ToolCallPolicyContext.html)): Promise<[PolicyCheckResult](../interfaces/PolicyCheckResult.html)>
 
 Always returns [PolicyOutcome.ALLOW](../enums/PolicyOutcome.html#allow) for every tool call.
+
+#### Parameters
+
+    * _context: [ToolCallPolicyContext](../interfaces/ToolCallPolicyContext.html)
+
+The tool and its arguments; ignored.
 
 #### Returns Promise<[PolicyCheckResult](../interfaces/PolicyCheckResult.html)>
 
@@ -52,7 +58,7 @@ A promise resolving to an ALLOW result.
 
 Implementation of [BasePolicyEngine](../interfaces/BasePolicyEngine.html).[evaluate](../interfaces/BasePolicyEngine.html#evaluate)
 
-    * Defined in [core/src/plugins/security_plugin.ts:73](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/plugins/security_plugin.ts#L73)
+    * Defined in [core/src/plugins/security_plugin.ts:75](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/plugins/security_plugin.ts#L75)
 
 
 
@@ -65,7 +71,7 @@ Methods
 
 evaluate
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

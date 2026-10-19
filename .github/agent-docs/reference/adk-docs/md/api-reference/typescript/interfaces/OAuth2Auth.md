@@ -25,6 +25,7 @@ authResponseUri?: string;
 authUri?: string;  
 clientId?: string;  
 clientSecret?: string;  
+codeChallengeMethod?: string;  
 codeVerifier?: string;  
 expiresAt?: number;  
 expiresIn?: number;  
@@ -36,7 +37,7 @@ state?: string;
 tokenEndpointAuthMethod?: string;  
 }
 
-  * Defined in [core/src/auth/auth_credential.ts:39](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L39)
+  * Defined in [core/src/auth/auth_credential.ts:39](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L39)
 
 
 
@@ -46,7 +47,7 @@ tokenEndpointAuthMethod?: string;
 
 accessToken?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:56](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L56)
+  * Defined in [core/src/auth/auth_credential.ts:61](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L61)
 
 
 
@@ -54,7 +55,7 @@ accessToken?: string
 
 audience?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:61](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L61)
+  * Defined in [core/src/auth/auth_credential.ts:66](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L66)
 
 
 
@@ -62,7 +63,7 @@ audience?: string
 
 authCode?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:55](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L55)
+  * Defined in [core/src/auth/auth_credential.ts:60](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L60)
 
 
 
@@ -70,7 +71,7 @@ authCode?: string
 
 authResponseUri?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L54)
+  * Defined in [core/src/auth/auth_credential.ts:59](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L59)
 
 
 
@@ -80,7 +81,7 @@ authUri?: string
 
 tool or adk can generate the authUri with the state info thus client can verify the state
 
-  * Defined in [core/src/auth/auth_credential.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L46)
+  * Defined in [core/src/auth/auth_credential.ts:46](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L46)
 
 
 
@@ -88,7 +89,7 @@ tool or adk can generate the authUri with the state info thus client can verify 
 
 clientId?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L40)
+  * Defined in [core/src/auth/auth_credential.ts:40](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L40)
 
 
 
@@ -96,7 +97,17 @@ clientId?: string
 
 clientSecret?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:41](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L41)
+  * Defined in [core/src/auth/auth_credential.ts:41](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L41)
+
+
+
+### `Optional`codeChallengeMethod
+
+codeChallengeMethod?: string
+
+The PKCE code challenge method. Only 'S256' is supported; any other value is rejected when the authorization URI is generated.
+
+  * Defined in [core/src/auth/auth_credential.ts:54](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L54)
 
 
 
@@ -104,7 +115,7 @@ clientSecret?: string
 
 codeVerifier?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:49](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L49)
+  * Defined in [core/src/auth/auth_credential.ts:49](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L49)
 
 
 
@@ -112,7 +123,7 @@ codeVerifier?: string
 
 expiresAt?: number
 
-  * Defined in [core/src/auth/auth_credential.ts:59](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L59)
+  * Defined in [core/src/auth/auth_credential.ts:64](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L64)
 
 
 
@@ -120,7 +131,7 @@ expiresAt?: number
 
 expiresIn?: number
 
-  * Defined in [core/src/auth/auth_credential.ts:60](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L60)
+  * Defined in [core/src/auth/auth_credential.ts:65](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L65)
 
 
 
@@ -128,7 +139,7 @@ expiresIn?: number
 
 idToken?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L58)
+  * Defined in [core/src/auth/auth_credential.ts:63](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L63)
 
 
 
@@ -136,7 +147,7 @@ idToken?: string
 
 nonce?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:47](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L47)
+  * Defined in [core/src/auth/auth_credential.ts:47](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L47)
 
 
 
@@ -146,7 +157,7 @@ redirectUri?: string
 
 tool or adk can decide the redirect_uri if they don't want client to decide
 
-  * Defined in [core/src/auth/auth_credential.ts:53](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L53)
+  * Defined in [core/src/auth/auth_credential.ts:58](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L58)
 
 
 
@@ -154,7 +165,7 @@ tool or adk can decide the redirect_uri if they don't want client to decide
 
 refreshToken?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L57)
+  * Defined in [core/src/auth/auth_credential.ts:62](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L62)
 
 
 
@@ -162,7 +173,7 @@ refreshToken?: string
 
 state?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L48)
+  * Defined in [core/src/auth/auth_credential.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L48)
 
 
 
@@ -170,15 +181,15 @@ state?: string
 
 tokenEndpointAuthMethod?: string
 
-  * Defined in [core/src/auth/auth_credential.ts:62](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L62)
+  * Defined in [core/src/auth/auth_credential.ts:67](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L67)
 
 
 
 Properties
 
-accessTokenaudienceauthCodeauthResponseUriauthUriclientIdclientSecretcodeVerifierexpiresAtexpiresInidTokennonceredirectUrirefreshTokenstatetokenEndpointAuthMethod
+accessTokenaudienceauthCodeauthResponseUriauthUriclientIdclientSecretcodeChallengeMethodcodeVerifierexpiresAtexpiresInidTokennonceredirectUrirefreshTokenstatetokenEndpointAuthMethod
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

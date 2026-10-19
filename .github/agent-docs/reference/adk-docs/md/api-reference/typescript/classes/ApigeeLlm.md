@@ -24,7 +24,7 @@ Integration for Gemini models.
 
 
 
-  * Defined in [core/src/models/apigee_llm.ts:51](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L51)
+  * Defined in [core/src/models/apigee_llm.ts:51](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L51)
 
 
 
@@ -42,7 +42,7 @@ Integration for Gemini models.
 
 Overrides [Gemini](Gemini.html).[constructor](Gemini.html#constructor)
 
-    * Defined in [core/src/models/apigee_llm.ts:63](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L63)
+    * Defined in [core/src/models/apigee_llm.ts:63](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L63)
 
 
 
@@ -57,7 +57,7 @@ A unique symbol to identify BaseLlm classes.
 
 Inherited from [Gemini](Gemini.html).[[BASE_MODEL_SYMBOL]](Gemini.html#base_model_symbol)
 
-  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L40)
+  * Defined in [core/src/models/base_llm.ts:40](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L40)
 
 
 
@@ -67,7 +67,7 @@ Inherited from [Gemini](Gemini.html).[[BASE_MODEL_SYMBOL]](Gemini.html#base_mode
 
 Inherited from [Gemini](Gemini.html).[[GEMINI_MODEL_SYMBOL]](Gemini.html#gemini_model_symbol)
 
-  * Defined in [core/src/models/google_llm.ts:85](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L85)
+  * Defined in [core/src/models/google_llm.ts:86](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L86)
 
 
 
@@ -77,7 +77,7 @@ model: string
 
 Inherited from [Gemini](Gemini.html).[model](Gemini.html#model)
 
-  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L42)
+  * Defined in [core/src/models/base_llm.ts:42](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L42)
 
 
 
@@ -87,7 +87,7 @@ useInteractionsApi: boolean
 
 Inherited from [Gemini](Gemini.html).[useInteractionsApi](Gemini.html#useinteractionsapi)
 
-  * Defined in [core/src/models/google_llm.ts:91](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L91)
+  * Defined in [core/src/models/google_llm.ts:92](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L92)
 
 
 
@@ -97,7 +97,7 @@ vertexai: boolean
 
 Inherited from [Gemini](Gemini.html).[vertexai](Gemini.html#vertexai)
 
-  * Defined in [core/src/models/google_llm.ts:87](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L87)
+  * Defined in [core/src/models/google_llm.ts:88](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L88)
 
 
 
@@ -113,7 +113,7 @@ A list of supported models.
 
 Overrides [Gemini](Gemini.html).[supportedModels](Gemini.html#supportedmodels)
 
-  * Defined in [core/src/models/apigee_llm.ts:59](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L59)
+  * Defined in [core/src/models/apigee_llm.ts:59](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L59)
 
 
 
@@ -127,7 +127,7 @@ Overrides [Gemini](Gemini.html).[supportedModels](Gemini.html#supportedmodels)
 
 Inherited from Gemini.apiBackend
 
-    * Defined in [core/src/models/google_llm.ts:239](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L239)
+    * Defined in [core/src/models/google_llm.ts:245](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L245)
 
 
 
@@ -140,7 +140,7 @@ Inherited from Gemini.apiBackend
 
 Inherited from Gemini.apiClient
 
-    * Defined in [core/src/models/google_llm.ts:218](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L218)
+    * Defined in [core/src/models/google_llm.ts:224](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L224)
 
 
 
@@ -153,7 +153,7 @@ Inherited from Gemini.apiClient
 
 Inherited from Gemini.liveApiClient
 
-    * Defined in [core/src/models/google_llm.ts:263](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L263)
+    * Defined in [core/src/models/google_llm.ts:270](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L270)
 
 
 
@@ -166,7 +166,7 @@ Inherited from Gemini.liveApiClient
 
 Overrides Gemini.liveApiVersion
 
-    * Defined in [core/src/models/apigee_llm.ts:135](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L135)
+    * Defined in [core/src/models/apigee_llm.ts:135](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L135)
 
 
 
@@ -179,7 +179,7 @@ Overrides Gemini.liveApiVersion
 
 Inherited from Gemini.trackingHeaders
 
-    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L81)
+    * Defined in [core/src/models/base_llm.ts:81](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L81)
 
 
 
@@ -204,7 +204,7 @@ BaseLlmConnection, the connection to the Gemini model.
 
 Overrides [Gemini](Gemini.html).[connect](Gemini.html#connect)
 
-    * Defined in [core/src/models/apigee_llm.ts:152](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L152)
+    * Defined in [core/src/models/apigee_llm.ts:152](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L152)
 
 
 
@@ -223,11 +223,11 @@ Sends a request to the Gemini model.
 
     * llmRequest: [LlmRequest](../interfaces/LlmRequest.html)
 
-LlmRequest, the request to send to the Gemini model.
+The request to send to the Gemini model.
 
     * stream: boolean = false
 
-bool = false, whether to do streaming call.
+Whether to make a streaming call. Defaults to `false`.
 
     * `Optional`abortSignal: AbortSignal
 
@@ -235,11 +235,11 @@ bool = false, whether to do streaming call.
 
 #### Yields
 
-LlmResponse: The model response.
+Each [LlmResponse](../interfaces/LlmResponse.html) produced by the model. A non-streaming call yields exactly one; a streaming call yields the partial responses as they arrive, then a final aggregated response whenever the stream carried either content or usage/grounding/citation metadata. A metadata-only stream therefore still ends with one, holding the metadata and no `content`; only a stream with neither ends silently.
 
 Overrides [Gemini](Gemini.html).[generateContentAsync](Gemini.html#generatecontentasync)
 
-    * Defined in [core/src/models/apigee_llm.ts:142](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L142)
+    * Defined in [core/src/models/apigee_llm.ts:142](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L142)
 
 
 
@@ -252,7 +252,7 @@ Overrides [Gemini](Gemini.html).[generateContentAsync](Gemini.html#generateconte
 
 Overrides [Gemini](Gemini.html).[getHttpOptions](Gemini.html#gethttpoptions)
 
-    * Defined in [core/src/models/apigee_llm.ts:98](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L98)
+    * Defined in [core/src/models/apigee_llm.ts:98](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L98)
 
 
 
@@ -265,7 +265,7 @@ Overrides [Gemini](Gemini.html).[getHttpOptions](Gemini.html#gethttpoptions)
 
 Overrides [Gemini](Gemini.html).[getLiveHttpOptions](Gemini.html#getlivehttpoptions)
 
-    * Defined in [core/src/models/apigee_llm.ts:104](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L104)
+    * Defined in [core/src/models/apigee_llm.ts:104](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L104)
 
 
 
@@ -286,7 +286,7 @@ LlmRequest, the request to send to the LLM.
 
 Inherited from [Gemini](Gemini.html).[maybeAppendUserContent](Gemini.html#maybeappendusercontent)
 
-    * Defined in [core/src/models/base_llm.ts:95](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm.ts#L95)
+    * Defined in [core/src/models/base_llm.ts:90](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm.ts#L90)
 
 
 
@@ -307,7 +307,7 @@ Methods
 
 connectgenerateContentAsyncgetHttpOptionsgetLiveHttpOptionsmaybeAppendUserContent
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

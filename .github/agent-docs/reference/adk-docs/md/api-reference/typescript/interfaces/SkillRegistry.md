@@ -18,6 +18,7 @@ Preparing search index...
 Interface for a skill registry.
 
 interface SkillRegistry {  
+close?(): Promise<void>;  
 getSkill(name: string): Promise<[Skill](Skill.html)>;  
 searchSkills(query: string): Promise<[Frontmatter](Frontmatter.html)[]>;  
 searchToolDescription?(): string | undefined;  
@@ -29,11 +30,26 @@ searchToolDescription?(): string | undefined;
 
 
 
-  * Defined in [core/src/skills/skill_registry.ts:12](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill_registry.ts#L12)
+  * Defined in [core/src/skills/skill_registry.ts:12](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill_registry.ts#L12)
 
 
 
 ## Methods
+
+### `Optional`close
+
+  * close?(): Promise<void>
+
+Releases resources held by the registry, such as network clients or temporary credentials.
+
+Optional: registries that hold no resources may omit it. `SkillToolset` invokes it, when present, from its own `close()`.
+
+#### Returns Promise<void>
+
+    * Defined in [core/src/skills/skill_registry.ts:41](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill_registry.ts#L41)
+
+
+
 
 ### getSkill
 
@@ -51,7 +67,7 @@ The name of the skill.
 
 A Promise resolving to a Skill object.
 
-    * Defined in [core/src/skills/skill_registry.ts:19](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill_registry.ts#L19)
+    * Defined in [core/src/skills/skill_registry.ts:19](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill_registry.ts#L19)
 
 
 
@@ -72,7 +88,7 @@ The search query.
 
 A Promise resolving to a list of Frontmatter objects for discovery.
 
-    * Defined in [core/src/skills/skill_registry.ts:27](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill_registry.ts#L27)
+    * Defined in [core/src/skills/skill_registry.ts:27](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill_registry.ts#L27)
 
 
 
@@ -85,16 +101,16 @@ Returns the description for the search_skills tool.
 
 #### Returns string | undefined
 
-    * Defined in [core/src/skills/skill_registry.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/skills/skill_registry.ts#L32)
+    * Defined in [core/src/skills/skill_registry.ts:32](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/skills/skill_registry.ts#L32)
 
 
 
 
 Methods
 
-getSkillsearchSkillssearchToolDescription
+closegetSkillsearchSkillssearchToolDescription
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

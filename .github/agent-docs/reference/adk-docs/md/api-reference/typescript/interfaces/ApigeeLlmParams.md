@@ -35,7 +35,7 @@ vertexai?: boolean;
 
 
 
-  * Defined in [core/src/models/apigee_llm.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L18)
+  * Defined in [core/src/models/apigee_llm.ts:18](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L18)
 
 
 
@@ -45,11 +45,11 @@ vertexai?: boolean;
 
 apiKey?: string
 
-API key to use. If not provided, it will look for the GOOGLE_GENAI_API_KEY or GEMINI_API_KEY environment variable. If gemini provider is selected and no key is provided, the fake key "-" will be used for the "x-goog-api-key" header.
+API key to use. If not provided, it will look for the GOOGLE_GENAI_API_KEY, GOOGLE_API_KEY or GEMINI_API_KEY environment variable, in that order. If gemini provider is selected and no key is provided, the fake key "-" will be used for the "x-goog-api-key" header.
 
 Overrides [GeminiParams](GeminiParams.html).[apiKey](GeminiParams.html#apikey)
 
-  * Defined in [core/src/models/apigee_llm.ts:48](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L48)
+  * Defined in [core/src/models/apigee_llm.ts:48](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L48)
 
 
 
@@ -61,7 +61,7 @@ Headers to merge with internally crafted headers.
 
 Inherited from [GeminiParams](GeminiParams.html).[headers](GeminiParams.html#headers)
 
-  * Defined in [core/src/models/google_llm.ts:58](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L58)
+  * Defined in [core/src/models/google_llm.ts:59](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L59)
 
 
 
@@ -73,7 +73,7 @@ The Vertex AI location. Required if `vertexai` is true.
 
 Inherited from [GeminiParams](GeminiParams.html).[location](GeminiParams.html#location)
 
-  * Defined in [core/src/models/google_llm.ts:54](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L54)
+  * Defined in [core/src/models/google_llm.ts:55](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L55)
 
 
 
@@ -85,7 +85,7 @@ The name of the model to use. The model string specifies the LLM provider (e.g.,
 
 Overrides [GeminiParams](GeminiParams.html).[model](GeminiParams.html#model)
 
-  * Defined in [core/src/models/apigee_llm.ts:36](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L36)
+  * Defined in [core/src/models/apigee_llm.ts:36](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L36)
 
 
 
@@ -97,7 +97,7 @@ The Vertex AI project ID. Required if `vertexai` is true.
 
 Inherited from [GeminiParams](GeminiParams.html).[project](GeminiParams.html#project)
 
-  * Defined in [core/src/models/google_llm.ts:50](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L50)
+  * Defined in [core/src/models/google_llm.ts:51](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L51)
 
 
 
@@ -107,7 +107,7 @@ proxyUrl?: string
 
 The proxy URL for the provider API. If not provided, it will look for the APIGEE_PROXY_URL environment variable.
 
-  * Defined in [core/src/models/apigee_llm.ts:41](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/apigee_llm.ts#L41)
+  * Defined in [core/src/models/apigee_llm.ts:41](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/apigee_llm.ts#L41)
 
 
 
@@ -119,7 +119,7 @@ Whether to use the Interactions API for stateful conversations.
 
 Inherited from [GeminiParams](GeminiParams.html).[useInteractionsApi](GeminiParams.html#useinteractionsapi)
 
-  * Defined in [core/src/models/google_llm.ts:62](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L62)
+  * Defined in [core/src/models/google_llm.ts:63](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L63)
 
 
 
@@ -131,7 +131,7 @@ Whether to use Vertex AI. If true, `project`, `location` should be provided.
 
 Inherited from [GeminiParams](GeminiParams.html).[vertexai](GeminiParams.html#vertexai)
 
-  * Defined in [core/src/models/google_llm.ts:46](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/google_llm.ts#L46)
+  * Defined in [core/src/models/google_llm.ts:47](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/google_llm.ts#L47)
 
 
 
@@ -139,7 +139,7 @@ Properties
 
 apiKeyheaderslocationmodelprojectproxyUrluseInteractionsApivertexai
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

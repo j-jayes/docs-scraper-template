@@ -52,6 +52,7 @@ Contents
      1. getTools(ReadonlyContext)
      2. close()
      3. fromConfig(BaseTool.ToolConfig, String)
+     4. setAllowConfigStdioServers(boolean)
 
 Hide sidebar  Show sidebar
 
@@ -203,6 +204,12 @@ Creates a McpToolset instance from a config.
 `getTools([ReadonlyContext](../../agents/ReadonlyContext.html "class in com.google.adk.agents") readonlyContext)`
 
 Return all tools in the toolset based on the provided context.
+
+`static void`
+
+`setAllowConfigStdioServers(boolean allow)`
+
+Allows or forbids agent configs to declare local (stdio) MCP servers.
 
 ### Methods inherited from class [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#method-summary "class in java.lang")
 
@@ -441,6 +448,12 @@ Returns:
     The McpToolset instance.
 Throws:
     `[ConfigAgentUtils.ConfigurationException](../../agents/ConfigAgentUtils.ConfigurationException.html "class in com.google.adk.agents")` \- if the McpToolset cannot be created from the config.
+
+    * ### setAllowConfigStdioServers
+
+public static void setAllowConfigStdioServers(boolean allow)
+
+Allows or forbids agent configs to declare local (stdio) MCP servers. The default is ` true`, matching the behaviour of previous releases. Applications that load agent configs they did not author call this with `false` at startup, so a config cannot launch a local process during tool resolution.
 
 
 

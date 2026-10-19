@@ -21,7 +21,7 @@ summarizer: [BaseSummarizer](BaseSummarizer.html);
 tokenThreshold: number;  
 }
 
-  * Defined in [core/src/context/token_based_context_compactor.ts:18](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L18)
+  * Defined in [core/src/context/token_based_context_compactor.ts:21](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L21)
 
 
 
@@ -33,7 +33,7 @@ eventRetentionSize: number
 
 The minimum number of raw events to keep at the end of the session. Compaction will not affect these tail events (unless needed for tool splits).
 
-  * Defined in [core/src/context/token_based_context_compactor.ts:30](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L30)
+  * Defined in [core/src/context/token_based_context_compactor.ts:33](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L33)
 
 
 
@@ -43,7 +43,7 @@ summarizer: [BaseSummarizer](BaseSummarizer.html)
 
 The summarizer used to create the compacted event content.
 
-  * Defined in [core/src/context/token_based_context_compactor.ts:32](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L32)
+  * Defined in [core/src/context/token_based_context_compactor.ts:35](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L35)
 
 
 
@@ -53,7 +53,7 @@ tokenThreshold: number
 
 Prompt-size threshold (in tokens) that triggers compaction. Compared against the most recently observed LLM request size (`usageMetadata.promptTokenCount`), falling back to a character-based estimate of the effective contents when no usage metadata is available.
 
-  * Defined in [core/src/context/token_based_context_compactor.ts:25](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/context/token_based_context_compactor.ts#L25)
+  * Defined in [core/src/context/token_based_context_compactor.ts:28](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/context/token_based_context_compactor.ts#L28)
 
 
 
@@ -61,7 +61,7 @@ Properties
 
 eventRetentionSizesummarizertokenThreshold
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

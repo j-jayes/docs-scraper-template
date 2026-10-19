@@ -39,10 +39,13 @@ Contents
      3. config()
      4. liveConnectConfig()
      5. tools()
-     6. getFirstSystemInstruction()
-     7. getSystemInstructions()
-     8. builder()
-     9. toBuilder()
+     6. cacheConfig()
+     7. cacheMetadata()
+     8. cacheableContentsTokenCount()
+     9. getFirstSystemInstruction()
+     10. getSystemInstructions()
+     11. builder()
+     12. toBuilder()
 
 Hide sidebar  Show sidebar
 
@@ -103,6 +106,24 @@ Description
 `builder()`
 
  
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")>`
+
+`cacheableContentsTokenCount()`
+
+Prompt token count of the agent's previous request, used to decide whether to cache.
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents")>`
+
+`cacheConfig()`
+
+Context cache configuration for this request; empty when context caching is disabled.
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[CacheMetadata](CacheMetadata.html "class in com.google.adk.models")>`
+
+`cacheMetadata()`
+
+Cache state from the agent's latest response, used to reuse or refresh the cache.
 
 `abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.GenerateContentConfig>`
 
@@ -259,6 +280,24 @@ Returns a map of tools available to the LLM.
 
 Returns:
     A map where keys are tool names and values are [`BaseTool`](../tools/BaseTool.html "class in com.google.adk.tools") instances.
+
+    * ### cacheConfig
+
+public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ContextCacheConfig](../agents/ContextCacheConfig.html "class in com.google.adk.agents")> cacheConfig()
+
+Context cache configuration for this request; empty when context caching is disabled.
+
+    * ### cacheMetadata
+
+public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[CacheMetadata](CacheMetadata.html "class in com.google.adk.models")> cacheMetadata()
+
+Cache state from the agent's latest response, used to reuse or refresh the cache.
+
+    * ### cacheableContentsTokenCount
+
+public abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang")> cacheableContentsTokenCount()
+
+Prompt token count of the agent's previous request, used to decide whether to cache.
 
     * ### getFirstSystemInstruction
 

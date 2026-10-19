@@ -57,8 +57,9 @@ Package Hierarchies:
       * com.google.adk.tools.[BaseTool.ToolConfig](BaseTool.ToolConfig.html "class in com.google.adk.tools")
     * com.google.adk.tools.[NamedToolPredicate](NamedToolPredicate.html "class in com.google.adk.tools") (implements com.google.adk.tools.[ToolPredicate](ToolPredicate.html "interface in com.google.adk.tools"))
     * com.google.adk.agents.[ReadonlyContext](../agents/ReadonlyContext.html "class in com.google.adk.agents")
-      * com.google.adk.agents.[CallbackContext](../agents/CallbackContext.html "class in com.google.adk.agents")
-        * com.google.adk.tools.[ToolContext](ToolContext.html "class in com.google.adk.tools")
+      * com.google.adk.agents.[Context](../agents/Context.html "class in com.google.adk.agents")
+        * com.google.adk.agents.[CallbackContext](../agents/CallbackContext.html "class in com.google.adk.agents")
+          * com.google.adk.tools.[ToolContext](ToolContext.html "class in com.google.adk.tools")
     * com.google.adk.tools.[ToolContext.Builder](ToolContext.Builder.html "class in com.google.adk.tools")
     * com.google.adk.tools.[VertexAiSearchTool.Builder](VertexAiSearchTool.Builder.html "class in com.google.adk.tools")
 

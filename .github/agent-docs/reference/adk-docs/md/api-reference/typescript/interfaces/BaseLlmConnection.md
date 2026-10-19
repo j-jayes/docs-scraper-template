@@ -27,7 +27,7 @@ sendHistory(history: Content[]): Promise<void>;
 sendRealtime(blob: Blob_2): Promise<void>;  
 }
 
-  * Defined in [core/src/models/base_llm_connection.ts:14](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L14)
+  * Defined in [core/src/models/base_llm_connection.ts:14](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L14)
 
 
 
@@ -41,7 +41,7 @@ Closes the llm server connection.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:69](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L69)
+    * Defined in [core/src/models/base_llm_connection.ts:69](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L69)
 
 
 
@@ -56,7 +56,7 @@ Receives the model response using the llm server connection.
 
 A generator of LlmResponse.
 
-    * Defined in [core/src/models/base_llm_connection.ts:64](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L64)
+    * Defined in [core/src/models/base_llm_connection.ts:64](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L64)
 
 
 
@@ -69,7 +69,7 @@ Optionally signals the end of user activity (e.g. user finishes speaking) for mo
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:57](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L57)
+    * Defined in [core/src/models/base_llm_connection.ts:57](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L57)
 
 
 
@@ -82,7 +82,7 @@ Optionally signals the start of user activity (e.g. user begins speaking) for mo
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:51](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L51)
+    * Defined in [core/src/models/base_llm_connection.ts:51](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L51)
 
 
 
@@ -103,7 +103,7 @@ The content to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:35](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L35)
+    * Defined in [core/src/models/base_llm_connection.ts:35](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L35)
 
 
 
@@ -124,7 +124,7 @@ The conversation history to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:24](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L24)
+    * Defined in [core/src/models/base_llm_connection.ts:24](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L24)
 
 
 
@@ -145,7 +145,7 @@ The blob to send to the model.
 
 #### Returns Promise<void>
 
-    * Defined in [core/src/models/base_llm_connection.ts:45](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/models/base_llm_connection.ts#L45)
+    * Defined in [core/src/models/base_llm_connection.ts:45](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/models/base_llm_connection.ts#L45)
 
 
 
@@ -154,7 +154,7 @@ Methods
 
 closereceivesendActivityEndsendActivityStartsendContentsendHistorysendRealtime
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

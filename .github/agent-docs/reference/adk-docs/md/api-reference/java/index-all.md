@@ -100,9 +100,12 @@ A container class that holds a skill's name and the path to its SKILL.md file.
      
 [actionResponse(String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#actionResponse\(java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
+[actions()](com/google/adk/agents/Context.html#actions\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+    
+
+Returns the same [`EventActions`](com/google/adk/events/EventActions.html "class in com.google.adk.events") as [`Context.eventActions()`](com/google/adk/agents/Context.html#eventActions\(\)).
+
 [actions()](com/google/adk/events/Event.html#actions\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
-     
-[actions()](com/google/adk/tools/ToolContext.html#actions\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
 [actions(EventActions)](com/google/adk/events/Event.Builder.html#actions\(com.google.adk.events.EventActions\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
      
@@ -945,6 +948,13 @@ One bean, so this and the runtime-config endpoint cannot read the property diffe
 
 Parsed representation of `adk.web.backend-url`, shared by the runtime-config endpoint and the dev UI entry redirects.
 
+[backoffFactor()](com/google/adk/workflow/RetryConfig.html#backoffFactor\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+Returns the multiplier applied to the delay after each attempt.
+
+[backoffFactor(double)](com/google/adk/workflow/RetryConfig.Builder.html#backoffFactor\(double\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
+     
 [BASE_AGENT](com/google/adk/utils/AgentEnums.AgentOrigin.html#BASE_AGENT) \- Enum constant in enum class com.google.adk.utils.[AgentEnums.AgentOrigin](com/google/adk/utils/AgentEnums.AgentOrigin.html "enum class in com.google.adk.utils")
      
 [BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents") \- Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
@@ -1043,6 +1053,21 @@ A basic flow that calls the LLM in a loop until a final response is generated.
     
 
 Base contract for memory services.
+
+[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+Base class for nodes in a workflow graph.
+
+[BaseNode(String, String)](com/google/adk/workflow/BaseNode.html#%3Cinit%3E\(java.lang.String,java.lang.String\)) \- Constructor for class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+    
+
+Creates a node with every property other than its name and description at its default.
+
+[BaseNode(String, String, boolean, boolean, NodeConfig, Schema, Schema, Schema)](com/google/adk/workflow/BaseNode.html#%3Cinit%3E\(java.lang.String,java.lang.String,boolean,boolean,com.google.adk.workflow.NodeConfig,com.google.genai.types.Schema,com.google.genai.types.Schema,com.google.genai.types.Schema\)) \- Constructor for class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+    
+
+Creates a node; each parameter sets the [`Node`](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow") property of the same name.
 
 [BasePlugin](com/google/adk/plugins/BasePlugin.html "class in com.google.adk.plugins") \- Class in [com.google.adk.plugins](com/google/adk/plugins/package-summary.html)
     
@@ -1379,6 +1404,11 @@ Builds the immutable [`SearchMemoryResponse`](com/google/adk/memory/SearchMemory
 
 Builds the [`ApigeeLlm`](com/google/adk/models/ApigeeLlm.html "class in com.google.adk.models") instance.
 
+[build()](com/google/adk/models/CacheMetadata.Builder.html#build\(\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+    
+
+Builds the metadata.
+
 [build()](com/google/adk/models/Gemini.Builder.html#build\(\)) \- Method in class com.google.adk.models.[Gemini.Builder](com/google/adk/models/Gemini.Builder.html "class in com.google.adk.models")
     
 
@@ -1458,6 +1488,16 @@ Builds a new [`StdioServerParameters`](com/google/adk/tools/mcp/StdioServerParam
      
 [build()](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html#build\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporterConfig.Builder](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
      
+[build()](com/google/adk/workflow/JoinNode.Builder.html#build\(\)) \- Method in class com.google.adk.workflow.[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow")
+     
+[build()](com/google/adk/workflow/NodeConfig.Builder.html#build\(\)) \- Method in class com.google.adk.workflow.[NodeConfig.Builder](com/google/adk/workflow/NodeConfig.Builder.html "class in com.google.adk.workflow")
+     
+[build()](com/google/adk/workflow/NodeInfo.Builder.html#build\(\)) \- Method in class com.google.adk.workflow.[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow")
+     
+[build()](com/google/adk/workflow/RetryConfig.Builder.html#build\(\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
+     
+[build()](com/google/adk/workflow/Workflow.Builder.html#build\(\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+     
 [build(Object)](com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html#build\(java.lang.Object\)) \- Method in class com.google.adk.tools.mcp.[DefaultMcpTransportBuilder](com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html "class in com.google.adk.tools.mcp")
      
 [build(Object)](com/google/adk/tools/mcp/McpTransportBuilder.html#build\(java.lang.Object\)) \- Method in interface com.google.adk.tools.mcp.[McpTransportBuilder](com/google/adk/tools/mcp/McpTransportBuilder.html "interface in com.google.adk.tools.mcp")
@@ -1535,6 +1575,8 @@ Creates a new builder for [`SearchMemoryResponse`](com/google/adk/memory/SearchM
 
 Returns a new Builder for constructing [`ApigeeLlm`](com/google/adk/models/ApigeeLlm.html "class in com.google.adk.models") instances.
 
+[builder()](com/google/adk/models/CacheMetadata.html#builder\(\)) \- Static method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+     
 [builder()](com/google/adk/models/Gemini.html#builder\(\)) \- Static method in class com.google.adk.models.[Gemini](com/google/adk/models/Gemini.html "class in com.google.adk.models")
     
 
@@ -1602,6 +1644,16 @@ Creates a new builder for [`StdioServerParameters`](com/google/adk/tools/mcp/Std
      
 [builder()](com/google/adk/web/service/ApiServerSpanExporterConfig.html#builder\(\)) \- Static method in class com.google.adk.web.service.[ApiServerSpanExporterConfig](com/google/adk/web/service/ApiServerSpanExporterConfig.html "class in com.google.adk.web.service")
      
+[builder()](com/google/adk/workflow/JoinNode.html#builder\(\)) \- Static method in class com.google.adk.workflow.[JoinNode](com/google/adk/workflow/JoinNode.html "class in com.google.adk.workflow")
+     
+[builder()](com/google/adk/workflow/NodeConfig.html#builder\(\)) \- Static method in class com.google.adk.workflow.[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow")
+     
+[builder()](com/google/adk/workflow/NodeInfo.html#builder\(\)) \- Static method in class com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+     
+[builder()](com/google/adk/workflow/RetryConfig.html#builder\(\)) \- Static method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+     
+[builder()](com/google/adk/workflow/Workflow.html#builder\(\)) \- Static method in class com.google.adk.workflow.[Workflow](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow")
+     
 [builder(InvocationContext)](com/google/adk/tools/ToolContext.html#builder\(com.google.adk.agents.InvocationContext\)) \- Static method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
 [builder(RunConfig)](com/google/adk/agents/RunConfig.html#builder\(com.google.adk.agents.RunConfig\)) \- Static method in class com.google.adk.agents.[RunConfig](com/google/adk/agents/RunConfig.html "class in com.google.adk.agents")
@@ -1665,6 +1717,8 @@ Creates a new [`Session.Builder`](com/google/adk/sessions/Session.Builder.html "
      
 [Builder()](com/google/adk/models/ApigeeLlm.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.[ApigeeLlm.Builder](com/google/adk/models/ApigeeLlm.Builder.html "class in com.google.adk.models")
      
+[Builder()](com/google/adk/models/CacheMetadata.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+     
 [Builder()](com/google/adk/models/langchain4j/LangChain4j.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.langchain4j.[LangChain4j.Builder](com/google/adk/models/langchain4j/LangChain4j.Builder.html "class in com.google.adk.models.langchain4j")
      
 [Builder()](com/google/adk/models/LlmRequest.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
@@ -1721,6 +1775,12 @@ Creates a new [`Session.Builder`](com/google/adk/sessions/Session.Builder.html "
      
 [Builder()](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.web.service.[ApiServerSpanExporterConfig.Builder](com/google/adk/web/service/ApiServerSpanExporterConfig.Builder.html "class in com.google.adk.web.service")
      
+[Builder()](com/google/adk/workflow/NodeConfig.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.workflow.[NodeConfig.Builder](com/google/adk/workflow/NodeConfig.Builder.html "class in com.google.adk.workflow")
+     
+[Builder()](com/google/adk/workflow/NodeInfo.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.workflow.[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow")
+     
+[Builder()](com/google/adk/workflow/RetryConfig.Builder.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
+     
 [Builder(SessionKey)](com/google/adk/sessions/Session.Builder.html#%3Cinit%3E\(com.google.adk.sessions.SessionKey\)) \- Constructor for class com.google.adk.sessions.[Session.Builder](com/google/adk/sessions/Session.Builder.html "class in com.google.adk.sessions")
     
 
@@ -1767,6 +1827,63 @@ A code executor that uses the Model's built-in code executor.
 
 ## C
 
+[cacheableContentsTokenCount()](com/google/adk/models/LlmRequest.html#cacheableContentsTokenCount\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
+    
+
+Prompt token count of the agent's previous request, used to decide whether to cache.
+
+[cacheableContentsTokenCount(Integer)](com/google/adk/models/LlmRequest.Builder.html#cacheableContentsTokenCount\(java.lang.Integer\)) \- Method in class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
+     
+[cacheConfig()](com/google/adk/models/LlmRequest.html#cacheConfig\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
+    
+
+Context cache configuration for this request; empty when context caching is disabled.
+
+[cacheConfig(ContextCacheConfig)](com/google/adk/models/LlmRequest.Builder.html#cacheConfig\(com.google.adk.agents.ContextCacheConfig\)) \- Method in class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
+     
+[cacheIntervals()](com/google/adk/agents/ContextCacheConfig.html#cacheIntervals\(\)) \- Method in record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
+    
+
+Returns the value of the [`cacheIntervals`](./com/google/adk/agents/ContextCacheConfig.html#param-cacheIntervals) record component.
+
+[cacheMetadata()](com/google/adk/events/Event.html#cacheMetadata\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
+    
+
+Context cache state of the LLM response this event carries.
+
+[cacheMetadata()](com/google/adk/models/LlmRequest.html#cacheMetadata\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
+    
+
+Cache state from the agent's latest response, used to reuse or refresh the cache.
+
+[cacheMetadata()](com/google/adk/models/LlmResponse.html#cacheMetadata\(\)) \- Method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
+    
+
+Context cache state for this response; set only when context caching is enabled.
+
+[cacheMetadata(CacheMetadata)](com/google/adk/events/Event.Builder.html#cacheMetadata\(com.google.adk.models.CacheMetadata\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
+     
+[cacheMetadata(CacheMetadata)](com/google/adk/models/LlmRequest.Builder.html#cacheMetadata\(com.google.adk.models.CacheMetadata\)) \- Method in class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
+     
+[cacheMetadata(CacheMetadata)](com/google/adk/models/LlmResponse.Builder.html#cacheMetadata\(com.google.adk.models.CacheMetadata\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
+     
+[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models") \- Class in [com.google.adk.models](com/google/adk/models/package-summary.html)
+    
+
+Context cache state carried on an LLM response, and on its event, from one request to the next.
+
+[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models") \- Class in [com.google.adk.models](com/google/adk/models/package-summary.html)
+    
+
+Builder for [`CacheMetadata`](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models").
+
+[cacheName()](com/google/adk/models/CacheMetadata.html#cacheName\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+Full resource name of the cached content; empty when no cache is active.
+
+[cacheName(String)](com/google/adk/models/CacheMetadata.Builder.html#cacheName\(java.lang.String\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+     
 [calculateSimilarities(float[], List)](com/google/adk/models/springai/EmbeddingConverter.html#calculateSimilarities\(float%5B%5D,java.util.List\)) \- Static method in class com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     
 
@@ -2418,6 +2535,11 @@ Frequently used code snippets for collections.
      
 [com.google.adk.planner.p2p](com/google/adk/planner/p2p/package-summary.html) \- package com.google.adk.planner.p2p
      
+[com.google.adk.platform](com/google/adk/platform/package-summary.html) \- package com.google.adk.platform
+    
+
+Seams for the system operations behind ADK-generated timestamps and ids.
+
 [com.google.adk.plugins](com/google/adk/plugins/package-summary.html) \- package com.google.adk.plugins
      
 [com.google.adk.plugins.agentanalytics](com/google/adk/plugins/agentanalytics/package-summary.html) \- package com.google.adk.plugins.agentanalytics
@@ -2465,6 +2587,8 @@ Frequently used code snippets for collections.
 [com.google.adk.web.service](com/google/adk/web/service/package-summary.html) \- package com.google.adk.web.service
      
 [com.google.adk.web.websocket](com/google/adk/web/websocket/package-summary.html) \- package com.google.adk.web.websocket
+     
+[com.google.adk.workflow](com/google/adk/workflow/package-summary.html) \- package com.google.adk.workflow
      
 [command()](com/google/adk/tools/mcp/StdioServerParameters.html#command\(\)) \- Method in class com.google.adk.tools.mcp.[StdioServerParameters](com/google/adk/tools/mcp/StdioServerParameters.html "class in com.google.adk.tools.mcp")
     
@@ -2576,6 +2700,15 @@ A toolset that provides computer use capabilities.
 
 Returns the configuration for content generation.
 
+[config()](com/google/adk/workflow/BaseNode.html#config\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[config()](com/google/adk/workflow/Node.html#config\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns the node's retry policy and execution timeout.
+
+[config(NodeConfig)](com/google/adk/workflow/Workflow.Builder.html#config\(com.google.adk.workflow.NodeConfig\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+     
 [config(GenerateContentConfig)](com/google/adk/models/LlmRequest.Builder.html#config\(com.google.genai.types.GenerateContentConfig\)) \- Method in class com.google.adk.models.[LlmRequest.Builder](com/google/adk/models/LlmRequest.Builder.html "class in com.google.adk.models")
      
 [CONFIG_TYPE](com/google/adk/tools/mcp/McpToolset.html#CONFIG_TYPE) \- Static variable in class com.google.adk.tools.mcp.[McpToolset](com/google/adk/tools/mcp/McpToolset.html "class in com.google.adk.tools.mcp")
@@ -2772,6 +2905,13 @@ Returns the list of content sent to the LLM.
 
 [Contents()](com/google/adk/flows/llmflows/Contents.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.flows.llmflows.[Contents](com/google/adk/flows/llmflows/Contents.html "class in com.google.adk.flows.llmflows")
      
+[contentsCount()](com/google/adk/models/CacheMetadata.html#contentsCount\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+Number of leading contents in the cache, or in the fingerprint when no cache is active.
+
+[contentsCount(int)](com/google/adk/models/CacheMetadata.Builder.html#contentsCount\(int\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+     
 [contentToParts(Optional, boolean)](com/google/adk/a2a/converters/EventConverter.html#contentToParts\(java.util.Optional,boolean\)) \- Static method in class com.google.adk.a2a.converters.[EventConverter](com/google/adk/a2a/converters/EventConverter.html "class in com.google.adk.a2a.converters")
     
 
@@ -2781,6 +2921,11 @@ Converts a GenAI Content object to a list of A2A Parts.
     
 
 Retrieves the telemetry context associated with this scope.
+
+[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents") \- Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
+    
+
+The context passed to callbacks and tools during an invocation.
 
 [CONTEXT_ID](com/google/adk/a2a/converters/AdkMetadataKey.html#CONTEXT_ID) \- Enum constant in enum class com.google.adk.a2a.converters.[AdkMetadataKey](com/google/adk/a2a/converters/AdkMetadataKey.html "enum class in com.google.adk.a2a.converters")
      
@@ -2801,14 +2946,32 @@ Sets the context cache configuration for the current agent run.
 [ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents") \- Record Class in [com.google.adk.agents](com/google/adk/agents/package-summary.html)
     
 
-Configuration for context caching across all agents in an app.
+Configures context caching for all agents in an app.
 
 [ContextCacheConfig()](com/google/adk/agents/ContextCacheConfig.html#%3Cinit%3E\(\)) \- Constructor for record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
-     
+    
+
+Creates a config with the defaults: `cacheIntervals` of 10, `ttl` of 30 minutes, `minTokens` of 0, and the client's default HTTP options (`createHttpOptions` is `null`).
+
 [ContextCacheConfig(int, Duration, int)](com/google/adk/agents/ContextCacheConfig.html#%3Cinit%3E\(int,java.time.Duration,int\)) \- Constructor for record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
     
 
-Creates an instance of a `ContextCacheConfig` record class.
+Creates a config that creates caches with the client's default HTTP options.
+
+[ContextCacheConfig(int, Duration, int, HttpOptions)](com/google/adk/agents/ContextCacheConfig.html#%3Cinit%3E\(int,java.time.Duration,int,com.google.genai.types.HttpOptions\)) \- Constructor for record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
+    
+
+Creates a config.
+
+[ContextCachingAgent](com/example/contextcaching/ContextCachingAgent.html "class in com.example.contextcaching") \- Class in [com.example.contextcaching](com/example/contextcaching/package-summary.html)
+    
+
+A weather assistant whose large, shared instruction makes it a good fit for context caching.
+
+[ContextCachingRun](com/example/contextcaching/ContextCachingRun.html "class in com.example.contextcaching") \- Class in [com.example.contextcaching](com/example/contextcaching/package-summary.html)
+    
+
+Runs several turns of one session against [`ContextCachingAgent`](com/example/contextcaching/ContextCachingAgent.html "class in com.example.contextcaching") and prints what the cache does on each turn.
 
 [ContextFilterPlugin](com/google/adk/plugins/ContextFilterPlugin.html "class in com.google.adk.plugins") \- Class in [com.google.adk.plugins](com/google/adk/plugins/package-summary.html)
     
@@ -2946,7 +3109,19 @@ Creates a LongRunningFunctionTool from a FunctionTool.
      
 [create(List)](com/google/adk/models/LlmResponse.html#create\(java.util.List\)) \- Static method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
      
+[createApp(String)](com/example/contextcaching/ContextCachingAgent.html#createApp\(java.lang.String\)) \- Static method in class com.example.contextcaching.[ContextCachingAgent](com/example/contextcaching/ContextCachingAgent.html "class in com.example.contextcaching")
+    
+
+Returns an app that enables context caching for all its agents.
+
 [createAsyncSession()](com/google/adk/tools/mcp/McpSessionManager.html#createAsyncSession\(\)) \- Method in class com.google.adk.tools.mcp.[McpSessionManager](com/google/adk/tools/mcp/McpSessionManager.html "class in com.google.adk.tools.mcp")
+     
+[createdAt()](com/google/adk/models/CacheMetadata.html#createdAt\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+When the cache was created; empty when no cache is active.
+
+[createdAt(Instant)](com/google/adk/models/CacheMetadata.Builder.html#createdAt\(java.time.Instant\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
      
 [createDefaultChatOptions()](com/google/adk/models/springai/ConfigMapper.html#createDefaultChatOptions\(\)) \- Method in class com.google.adk.models.springai.[ConfigMapper](com/google/adk/models/springai/ConfigMapper.html "class in com.google.adk.models.springai")
     
@@ -2967,6 +3142,11 @@ Create a final model response event from set_model_response JSON.
     
 
 Returns a new `OkHttpClient` whose dispatcher runs on `executorService`.
+
+[createHttpOptions()](com/google/adk/agents/ContextCacheConfig.html#createHttpOptions\(\)) \- Method in record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
+    
+
+Returns the value of the [`createHttpOptions`](./com/google/adk/agents/ContextCacheConfig.html#param-createHttpOptions) record component.
 
 [createOperation(String, String, String)](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html#createOperation\(java.lang.String,java.lang.String,java.lang.String\)) \- Static method in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
@@ -3181,6 +3361,36 @@ Decodes Base64-encoded inline blobs in content.
 
 [DEFAULT](com/google/adk/agents/LlmAgent.IncludeContents.html#DEFAULT) \- Enum constant in enum class com.google.adk.agents.[LlmAgent.IncludeContents](com/google/adk/agents/LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")
      
+[DEFAULT_BACKOFF_FACTOR](com/google/adk/workflow/RetryConfig.html#DEFAULT_BACKOFF_FACTOR) \- Static variable in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+The default for [`RetryConfig.backoffFactor()`](com/google/adk/workflow/RetryConfig.html#backoffFactor\(\)).
+
+[DEFAULT_INITIAL_DELAY](com/google/adk/workflow/RetryConfig.html#DEFAULT_INITIAL_DELAY) \- Static variable in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+The default for [`RetryConfig.initialDelay()`](com/google/adk/workflow/RetryConfig.html#initialDelay\(\)).
+
+[DEFAULT_JITTER](com/google/adk/workflow/RetryConfig.html#DEFAULT_JITTER) \- Static variable in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+The default for [`RetryConfig.jitter()`](com/google/adk/workflow/RetryConfig.html#jitter\(\)).
+
+[DEFAULT_MAX_ATTEMPTS](com/google/adk/workflow/RetryConfig.html#DEFAULT_MAX_ATTEMPTS) \- Static variable in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+The default for [`RetryConfig.maxAttempts()`](com/google/adk/workflow/RetryConfig.html#maxAttempts\(\)).
+
+[DEFAULT_MAX_DELAY](com/google/adk/workflow/RetryConfig.html#DEFAULT_MAX_DELAY) \- Static variable in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+The default for [`RetryConfig.maxDelay()`](com/google/adk/workflow/RetryConfig.html#maxDelay\(\)).
+
+[DEFAULT_ROUTE_SENTINEL](com/google/adk/workflow/Route.html#DEFAULT_ROUTE_SENTINEL) \- Static variable in interface com.google.adk.workflow.[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow")
+    
+
+The string that stands for [`Route.Default`](com/google/adk/workflow/Route.Default.html "enum class in com.google.adk.workflow") on the wire.
+
 [DefaultMcpTransportBuilder](com/google/adk/tools/mcp/DefaultMcpTransportBuilder.html "class in com.google.adk.tools.mcp") \- Class in [com.google.adk.tools.mcp](com/google/adk/tools/mcp/package-summary.html)
     
 
@@ -3251,11 +3461,6 @@ Performs a topological search on the dependency graph to find the ordered list o
      
 [description](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ActionSchema.html#description) \- Variable in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.ActionSchema](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ActionSchema.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
-[description()](com/google/adk/agents/BaseAgent.html#description\(\)) \- Method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
-    
-
-Gets the one-line description of the agent's capability.
-
 [description()](com/google/adk/agents/BaseAgentConfig.html#description\(\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
      
 [description()](com/google/adk/skills/Frontmatter.html#description\(\)) \- Method in class com.google.adk.skills.[Frontmatter](com/google/adk/skills/Frontmatter.html "class in com.google.adk.skills")
@@ -3267,6 +3472,13 @@ What the skill does and when the model should use it.
      
 [description()](com/google/adk/tools/BaseTool.html#description\(\)) \- Method in class com.google.adk.tools.[BaseTool](com/google/adk/tools/BaseTool.html "class in com.google.adk.tools")
      
+[description()](com/google/adk/workflow/BaseNode.html#description\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[description()](com/google/adk/workflow/Node.html#description\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns what the node does, for humans and for a model that may call it.
+
 [description(String)](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.a2a.agent.[RemoteA2AAgent.Builder](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
      
 [description(String)](com/google/adk/agents/BaseAgent.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")
@@ -3274,6 +3486,10 @@ What the skill does and when the model should use it.
 [description(String)](com/google/adk/skills/Frontmatter.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
      
 [description(String)](com/google/adk/tools/ExampleTool.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
+     
+[description(String)](com/google/adk/workflow/JoinNode.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.workflow.[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow")
+     
+[description(String)](com/google/adk/workflow/Workflow.Builder.html#description\(java.lang.String\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
      
 [determineLlmFlow()](com/google/adk/agents/LlmAgent.html#determineLlmFlow\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
@@ -3327,6 +3543,35 @@ Drag and drop.
 
 ## E
 
+[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow") \- Record Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A connection between two nodes in a workflow graph.
+
+[Edge(Node, Node)](com/google/adk/workflow/Edge.html#%3Cinit%3E\(com.google.adk.workflow.Node,com.google.adk.workflow.Node\)) \- Constructor for record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Creates an unconditional edge.
+
+[Edge(Node, Node, Route)](com/google/adk/workflow/Edge.html#%3Cinit%3E\(com.google.adk.workflow.Node,com.google.adk.workflow.Node,com.google.adk.workflow.Route\)) \- Constructor for record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Creates an edge selected by a single route.
+
+[Edge(Node, Node, ImmutableList)](com/google/adk/workflow/Edge.html#%3Cinit%3E\(com.google.adk.workflow.Node,com.google.adk.workflow.Node,com.google.common.collect.ImmutableList\)) \- Constructor for record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Creates an instance of a `Edge` record class.
+
+[edges()](com/google/adk/workflow/Workflow.html#edges\(\)) \- Method in class com.google.adk.workflow.[Workflow](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow")
+    
+
+Returns the edges of the workflow's graph.
+
+[edges(Edge...)](com/google/adk/workflow/Workflow.Builder.html#edges\(com.google.adk.workflow.Edge...\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+     
+[edges(List)](com/google/adk/workflow/Workflow.Builder.html#edges\(java.util.List\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+     
 [embed(String)](com/google/adk/models/springai/SpringAIEmbedding.html#embed\(java.lang.String\)) \- Method in class com.google.adk.models.springai.[SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai")
     
 
@@ -3505,6 +3750,26 @@ Indicates whether some other object is "equal to" this one.
 
 Indicates whether some other object is "equal to" this one.
 
+[equals(Object)](com/google/adk/workflow/Edge.html#equals\(java.lang.Object\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Indicates whether some other object is "equal to" this one.
+
+[equals(Object)](com/google/adk/workflow/Route.Flag.html#equals\(java.lang.Object\)) \- Method in record class com.google.adk.workflow.[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow")
+    
+
+Indicates whether some other object is "equal to" this one.
+
+[equals(Object)](com/google/adk/workflow/Route.Num.html#equals\(java.lang.Object\)) \- Method in record class com.google.adk.workflow.[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow")
+    
+
+Indicates whether some other object is "equal to" this one.
+
+[equals(Object)](com/google/adk/workflow/Route.Tag.html#equals\(java.lang.Object\)) \- Method in record class com.google.adk.workflow.[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow")
+    
+
+Indicates whether some other object is "equal to" this one.
+
 [ERROR_CODE](com/google/adk/a2a/converters/A2AMetadataKey.html#ERROR_CODE) \- Enum constant in enum class com.google.adk.a2a.converters.[A2AMetadataKey](com/google/adk/a2a/converters/A2AMetadataKey.html "enum class in com.google.adk.a2a.converters")
      
 [errorCode()](com/google/adk/events/Event.html#errorCode\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
@@ -3572,12 +3837,15 @@ Represents an event in a session.
 
 Builder for [`Event`](com/google/adk/events/Event.html "class in com.google.adk.events").
 
-[eventActions](com/google/adk/agents/CallbackContext.html#eventActions) \- Variable in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
-     
-[eventActions()](com/google/adk/agents/CallbackContext.html#eventActions\(\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[eventActions](com/google/adk/agents/Context.html#eventActions) \- Variable in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
-Returns the EventActions associated with this context.
+The event actions that record this context's changes.
+
+[eventActions()](com/google/adk/agents/Context.html#eventActions\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+    
+
+Returns the [`EventActions`](com/google/adk/events/EventActions.html "class in com.google.adk.events") associated with this context.
 
 [EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events") \- Class in [com.google.adk.events](com/google/adk/events/package-summary.html)
     
@@ -3624,10 +3892,10 @@ Converter for ADK Events to A2A Messages.
      
 [eventDenylist(List)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#eventDenylist\(java.util.List\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
-[eventId()](com/google/adk/agents/CallbackContext.html#eventId\(\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[eventId()](com/google/adk/agents/Context.html#eventId\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
-Returns the ID of the event associated with this context.
+Returns the ID of the event associated with this context, or null if there is none.
 
 [eventId(String)](com/google/adk/tools/ToolContext.Builder.html#eventId\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext.Builder](com/google/adk/tools/ToolContext.Builder.html "class in com.google.adk.tools")
      
@@ -3767,6 +4035,13 @@ Builder for [`ExampleTool`](com/google/adk/tools/ExampleTool.html "class in com.
 
 Utility class for examples.
 
+[exceptions()](com/google/adk/workflow/RetryConfig.html#exceptions\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+Returns the simple type names of the failures to retry on, matched exactly with no subclass match.
+
+[exceptions(List)](com/google/adk/workflow/RetryConfig.Builder.html#exceptions\(java.util.List\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
+     
 [EXECUTABLE_CODE](com/google/adk/a2a/converters/A2ADataPartMetadataType.html#EXECUTABLE_CODE) \- Enum constant in enum class com.google.adk.a2a.converters.[A2ADataPartMetadataType](com/google/adk/a2a/converters/A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
      
 [execute()](com/google/adk/google_adk_maven_plugin/HelpMojo.html#execute\(\)) \- Method in class com.google.adk.google_adk_maven_plugin.[HelpMojo](com/google/adk/google_adk_maven_plugin/HelpMojo.html "class in com.google.adk.google_adk_maven_plugin")
@@ -3809,7 +4084,10 @@ The delimiters to format the code execution result.
 [executor()](com/google/adk/agents/LlmAgent.html#executor\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
 [executor(Executor)](com/google/adk/agents/LlmAgent.Builder.html#executor\(java.util.concurrent.Executor\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Sets the executor for this agent's offloaded work: tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode and the live request loop.
+
 [exitLoop(ToolContext)](com/google/adk/tools/ExitLoopTool.html#exitLoop\(com.google.adk.tools.ToolContext\)) \- Static method in class com.google.adk.tools.[ExitLoopTool](com/google/adk/tools/ExitLoopTool.html "class in com.google.adk.tools")
     
 
@@ -3825,6 +4103,13 @@ Tool for exiting execution of [`LoopAgent`](com/google/adk/agents/LoopAgent.html
 
 Marks the annotated element as experimental, exempt from standard stability guarantees.
 
+[expireTime()](com/google/adk/models/CacheMetadata.html#expireTime\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+When the cache expires; empty when no cache is active.
+
+[expireTime(Instant)](com/google/adk/models/CacheMetadata.Builder.html#expireTime\(java.time.Instant\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+     
 [EXPONENTIAL_BACKOFF](com/google/adk/models/springai/error/SpringAIErrorMapper.RetryStrategy.html#EXPONENTIAL_BACKOFF) \- Enum constant in enum class com.google.adk.models.springai.error.[SpringAIErrorMapper.RetryStrategy](com/google/adk/models/springai/error/SpringAIErrorMapper.RetryStrategy.html "enum class in com.google.adk.models.springai.error")
     
 
@@ -3924,6 +4209,13 @@ Recursively search sub agent by name.
 
 Returns the last user function call event from the list of events.
 
+[fingerprint()](com/google/adk/models/CacheMetadata.html#fingerprint\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+Hash of the cacheable state: system instruction, tools and the cached leading contents.
+
+[fingerprint(String)](com/google/adk/models/CacheMetadata.Builder.html#fingerprint\(java.lang.String\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+     
 [finishReason()](com/google/adk/events/Event.html#finishReason\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [finishReason()](com/google/adk/models/LlmResponse.html#finishReason\(\)) \- Method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
@@ -3980,6 +4272,11 @@ FirestoreSessionService implements session management using Google Firestore as 
 
 Constructor for FirestoreSessionService.
 
+[FirestoreSessionService(Firestore, InstantSource, UuidProvider)](com/google/adk/sessions/FirestoreSessionService.html#%3Cinit%3E\(com.google.cloud.firestore.Firestore,java.time.InstantSource,com.google.adk.platform.UuidProvider\)) \- Constructor for class com.google.adk.sessions.[FirestoreSessionService](com/google/adk/sessions/FirestoreSessionService.html "class in com.google.adk.sessions")
+    
+
+Creates a session service whose generated session IDs and `lastUpdateTime` values come from the given providers instead of [`UUID.randomUUID()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html#randomUUID\(\)) and the wall clock.
+
 [firstAction(PlanningContext)](com/google/adk/agents/Planner.html#firstAction\(com.google.adk.agents.PlanningContext\)) \- Method in interface com.google.adk.agents.[Planner](com/google/adk/agents/Planner.html "interface in com.google.adk.agents")
     
 
@@ -4002,12 +4299,22 @@ Select the first action to execute.
 
 Retry with fixed delay
 
+[Flag(boolean)](com/google/adk/workflow/Route.Flag.html#%3Cinit%3E\(boolean\)) \- Constructor for record class com.google.adk.workflow.[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow")
+    
+
+Creates an instance of a `Flag` record class.
+
 [flush()](com/google/adk/web/service/ApiServerSpanExporter.html#flush\(\)) \- Method in class com.google.adk.web.service.[ApiServerSpanExporter](com/google/adk/web/service/ApiServerSpanExporter.html "class in com.google.adk.web.service")
      
 [frequencyPenalty](com/google/adk/models/chat/ChatCompletionsRequest.html#frequencyPenalty) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
     
 
 See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20frequency_penalty%20%3E%20(schema)
+
+[from()](com/google/adk/workflow/Edge.html#from\(\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Returns the value of the [`from`](./com/google/adk/workflow/Edge.html#param-from) record component.
 
 [from(String)](com/google/adk/web/config/BackendUrl.html#from\(java.lang.String\)) \- Static method in class com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
     
@@ -4142,11 +4449,17 @@ Returns the underlying function [`Method`](https://docs.oracle.com/en/java/javas
      
 [FUNCTION_RESPONSE](com/google/adk/a2a/converters/A2ADataPartMetadataType.html#FUNCTION_RESPONSE) \- Enum constant in enum class com.google.adk.a2a.converters.[A2ADataPartMetadataType](com/google/adk/a2a/converters/A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
      
-[functionCallId()](com/google/adk/tools/ToolContext.html#functionCallId\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
-     
+[functionCallId()](com/google/adk/agents/Context.html#functionCallId\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+    
+
+Returns the ID of the function call that invoked the current tool, if any.
+
+[functionCallId(String)](com/google/adk/agents/Context.html#functionCallId\(java.lang.String\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+    
+
+Sets the ID of the function call that invoked the current tool, or clears it if null.
+
 [functionCallId(String)](com/google/adk/tools/ToolContext.Builder.html#functionCallId\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext.Builder](com/google/adk/tools/ToolContext.Builder.html "class in com.google.adk.tools")
-     
-[functionCallId(String)](com/google/adk/tools/ToolContext.html#functionCallId\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
 [FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models") \- Class in [com.google.adk.models](com/google/adk/models/package-summary.html)
     
@@ -4269,6 +4582,11 @@ Generates a unique ID for a function call.
 
 Returns a new client-side function call ID with the ADK prefix.
 
+[generateClientFunctionCallId(UuidProvider)](com/google/adk/models/FunctionCallIds.html#generateClientFunctionCallId\(com.google.adk.platform.UuidProvider\)) \- Static method in class com.google.adk.models.[FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models")
+    
+
+Returns a new client-side function call ID with the ADK prefix, minted from the given [`UuidProvider`](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform").
+
 [generateContent(LlmRequest, boolean)](com/google/adk/models/ApigeeLlm.html#generateContent\(com.google.adk.models.LlmRequest,boolean\)) \- Method in class com.google.adk.models.[ApigeeLlm](com/google/adk/models/ApigeeLlm.html "class in com.google.adk.models")
      
 [generateContent(LlmRequest, boolean)](com/google/adk/models/BaseLlm.html#generateContent\(com.google.adk.models.LlmRequest,boolean\)) \- Method in class com.google.adk.models.[BaseLlm](com/google/adk/models/BaseLlm.html "class in com.google.adk.models")
@@ -4291,7 +4609,10 @@ Generates one content from the given LLM request and tools.
 [generateContentConfig(GenerateContentConfig)](com/google/adk/agents/LlmAgent.Builder.html#generateContentConfig\(com.google.genai.types.GenerateContentConfig\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
      
 [generateEventId()](com/google/adk/events/Event.html#generateEventId\(\)) \- Static method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
-     
+    
+
+Returns a random event id.
+
 [generateRequestConfirmationEvent(InvocationContext, Event, Event)](com/google/adk/flows/llmflows/Functions.html#generateRequestConfirmationEvent\(com.google.adk.agents.InvocationContext,com.google.adk.events.Event,com.google.adk.events.Event\)) \- Static method in class com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
     
 
@@ -4799,7 +5120,7 @@ Gets the tracer.
 [getTtlString()](com/google/adk/agents/ContextCacheConfig.html#getTtlString\(\)) \- Method in record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
     
 
-Returns TTL as string format for cache creation.
+Returns the TTL in the `"<seconds>s"` form that the Gemini API uses.
 
 [getType()](com/google/adk/a2a/converters/A2ADataPartMetadataType.html#getType\(\)) \- Method in enum class com.google.adk.a2a.converters.[A2ADataPartMetadataType](com/google/adk/a2a/converters/A2ADataPartMetadataType.html "enum class in com.google.adk.a2a.converters")
      
@@ -5086,6 +5407,26 @@ Returns a hash code value for this object.
 
 Returns a hash code value for this object.
 
+[hashCode()](com/google/adk/workflow/Edge.html#hashCode\(\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Returns a hash code value for this object.
+
+[hashCode()](com/google/adk/workflow/Route.Flag.html#hashCode\(\)) \- Method in record class com.google.adk.workflow.[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow")
+    
+
+Returns a hash code value for this object.
+
+[hashCode()](com/google/adk/workflow/Route.Num.html#hashCode\(\)) \- Method in record class com.google.adk.workflow.[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow")
+    
+
+Returns a hash code value for this object.
+
+[hashCode()](com/google/adk/workflow/Route.Tag.html#hashCode\(\)) \- Method in record class com.google.adk.workflow.[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow")
+    
+
+Returns a hash code value for this object.
+
 [hasPendingLongRunningCall(Event)](com/google/adk/flows/llmflows/Functions.html#hasPendingLongRunningCall\(com.google.adk.events.Event\)) \- Static method in class com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
     
 
@@ -5248,7 +5589,14 @@ Initialize the planner with context and available agents.
      
 [initialDelay()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#initialDelay\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[initialDelay()](com/google/adk/workflow/RetryConfig.html#initialDelay\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+Returns the delay before the first retry.
+
 [initialDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#initialDelay\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
+[initialDelay(Duration)](com/google/adk/workflow/RetryConfig.Builder.html#initialDelay\(java.time.Duration\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
      
 [initialize()](com/google/adk/tools/computeruse/BaseComputer.html#initialize\(\)) \- Method in interface com.google.adk.tools.computeruse.[BaseComputer](com/google/adk/tools/computeruse/BaseComputer.html "interface in com.google.adk.tools.computeruse")
     
@@ -5315,6 +5663,11 @@ Creates a new instance of the in-memory session service with empty storage.
 
 Creates a new instance of the in-memory session service with empty storage.
 
+[InMemorySessionService(InMemorySessionService.DuplicateSessionIdBehavior, InstantSource, UuidProvider)](com/google/adk/sessions/InMemorySessionService.html#%3Cinit%3E\(com.google.adk.sessions.InMemorySessionService.DuplicateSessionIdBehavior,java.time.InstantSource,com.google.adk.platform.UuidProvider\)) \- Constructor for class com.google.adk.sessions.[InMemorySessionService](com/google/adk/sessions/InMemorySessionService.html "class in com.google.adk.sessions")
+    
+
+Creates a new instance of the in-memory session service with empty storage.
+
 [InMemorySessionService.DuplicateSessionIdBehavior](com/google/adk/sessions/InMemorySessionService.DuplicateSessionIdBehavior.html "enum class in com.google.adk.sessions") \- Enum Class in [com.google.adk.sessions](com/google/adk/sessions/package-summary.html)
     
 
@@ -5359,6 +5712,20 @@ Returns the value of the [`inputKeys`](./com/google/adk/planner/goap/AgentMetada
      
 [inputSchema()](com/google/adk/agents/LlmAgent.html#inputSchema\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
+[inputSchema()](com/google/adk/workflow/BaseNode.html#inputSchema\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[inputSchema()](com/google/adk/workflow/Node.html#inputSchema\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns the schema the node's input must match.
+
+[inputSchema(Schema)](com/google/adk/workflow/JoinNode.Builder.html#inputSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.workflow.[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow")
+    
+
+Sets the schema that each predecessor's output must match on its own, not the joined map.
+
+[inputSchema(Schema)](com/google/adk/workflow/Workflow.Builder.html#inputSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+     
 [inputSchema(Schema)](com/google/adk/agents/LlmAgent.Builder.html#inputSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
      
 [inputTranscription()](com/google/adk/events/Event.html#inputTranscription\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
@@ -5374,6 +5741,8 @@ Input transcription.
 [inputTranscription(Transcription)](com/google/adk/events/Event.Builder.html#inputTranscription\(com.google.genai.types.Transcription\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
      
 [inputTranscription(Transcription)](com/google/adk/models/LlmResponse.Builder.html#inputTranscription\(com.google.genai.types.Transcription\)) \- Method in class com.google.adk.models.[LlmResponse.Builder](com/google/adk/models/LlmResponse.Builder.html "class in com.google.adk.models")
+     
+[INSTANCE](com/google/adk/workflow/Route.Default.html#INSTANCE) \- Enum constant in enum class com.google.adk.workflow.[Route.Default](com/google/adk/workflow/Route.Default.html "enum class in com.google.adk.workflow")
      
 [INSTANCE](com/example/CustomDemoRegistry.html#INSTANCE) \- Static variable in class com.example.[CustomDemoRegistry](com/example/CustomDemoRegistry.html "class in com.example")
     
@@ -5394,6 +5763,26 @@ Singleton instance for easy access
      
 [INSTANCE](com/google/adk/tools/UrlContextTool.html#INSTANCE) \- Static variable in class com.google.adk.tools.[UrlContextTool](com/google/adk/tools/UrlContextTool.html "class in com.google.adk.tools")
      
+[INSTANCE](com/google/adk/workflow/Start.html#INSTANCE) \- Static variable in class com.google.adk.workflow.[Start](com/google/adk/workflow/Start.html "class in com.google.adk.workflow")
+    
+
+The start node that every graph uses.
+
+[instantSource()](com/google/adk/agents/InvocationContext.html#instantSource\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") for this invocation.
+
+[instantSource(InstantSource)](com/google/adk/agents/InvocationContext.Builder.html#instantSource\(java.time.InstantSource\)) \- Method in class com.google.adk.agents.[InvocationContext.Builder](com/google/adk/agents/InvocationContext.Builder.html "class in com.google.adk.agents")
+    
+
+Sets the instant source for the invocation; `null` (the default) selects [`InstantSource.system()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html#system\(\)).
+
+[instantSource(InstantSource)](com/google/adk/runner/Runner.Builder.html#instantSource\(java.time.InstantSource\)) \- Method in class com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
+    
+
+Sets the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") that supplies every timestamp this runner generates: event timestamps, and the `lastUpdateTime` of sessions created by the default in-memory session service, which is created on the first `build()`.
+
 [instruction()](com/google/adk/agents/Instruction.Static.html#instruction\(\)) \- Method in record class com.google.adk.agents.[Instruction.Static](com/google/adk/agents/Instruction.Static.html "class in com.google.adk.agents")
     
 
@@ -5533,6 +5922,13 @@ Sets the unique ID for the invocation.
 
 [invocationId(String)](com/google/adk/events/Event.Builder.html#invocationId\(java.lang.String\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
      
+[invocationsUsed()](com/google/adk/models/CacheMetadata.html#invocationsUsed\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+Number of invocations that have used the cache; empty when no cache is active.
+
+[invocationsUsed(Integer)](com/google/adk/models/CacheMetadata.Builder.html#invocationsUsed\(java.lang.Integer\)) \- Method in class com.google.adk.models.[CacheMetadata.Builder](com/google/adk/models/CacheMetadata.Builder.html "class in com.google.adk.models")
+     
 [IS_LONG_RUNNING](com/google/adk/a2a/converters/A2AMetadataKey.html#IS_LONG_RUNNING) \- Enum constant in enum class com.google.adk.a2a.converters.[A2AMetadataKey](com/google/adk/a2a/converters/A2AMetadataKey.html "enum class in com.google.adk.a2a.converters")
      
 [isClientGeneratedFunctionCallId(String)](com/google/adk/models/FunctionCallIds.html#isClientGeneratedFunctionCallId\(java.lang.String\)) \- Static method in class com.google.adk.models.[FunctionCallIds](com/google/adk/models/FunctionCallIds.html "class in com.google.adk.models")
@@ -5627,6 +6023,11 @@ Returns true if the wrapped function returns a Flowable and can be used for stre
 
 Checks if a tool should be selected based on a filter.
 
+[isUnconditional()](com/google/adk/workflow/Edge.html#isUnconditional\(\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Returns `true` if this edge fires regardless of the routes its source emits.
+
 [iterator()](com/google/adk/events/EventStream.html#iterator\(\)) \- Method in class com.google.adk.events.[EventStream](com/google/adk/events/EventStream.html "class in com.google.adk.events")
     
 
@@ -5638,6 +6039,23 @@ Returns an iterator that fetches events lazily.
      
 [JAVA_ADK_VERSION](com/google/adk/Version.html#JAVA_ADK_VERSION) \- Static variable in class com.google.adk.[Version](com/google/adk/Version.html "class in com.google.adk")
      
+[jitter()](com/google/adk/workflow/RetryConfig.html#jitter\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+Returns the randomness factor, not a duration: the delay is spread over `delay * (1 +/- jitter)`.
+
+[jitter(double)](com/google/adk/workflow/RetryConfig.Builder.html#jitter\(double\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
+     
+[JoinNode](com/google/adk/workflow/JoinNode.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A node that waits for every predecessor to complete, then outputs their outputs keyed by predecessor name.
+
+[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+Builder for [`JoinNode`](com/google/adk/workflow/JoinNode.html "class in com.google.adk.workflow").
+
 [JsonBaseModel](com/google/adk/JsonBaseModel.html "class in com.google.adk") \- Class in [com.google.adk](com/google/adk/package-summary.html)
     
 
@@ -5786,7 +6204,7 @@ Lists filenames of stored artifacts for the session.
 
 Lists the names of all artifacts associated with a session.
 
-[listArtifacts()](com/google/adk/agents/CallbackContext.html#listArtifacts\(\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[listArtifacts()](com/google/adk/agents/Context.html#listArtifacts\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
 Lists the filenames of the artifacts attached to the current session.
@@ -6036,7 +6454,15 @@ An LLM-based event summarizer for sliding window compaction.
 [LlmEventSummarizer(BaseLlm)](com/google/adk/summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm\)) \- Constructor for class com.google.adk.summarizer.[LlmEventSummarizer](com/google/adk/summarizer/LlmEventSummarizer.html "class in com.google.adk.summarizer")
      
 [LlmEventSummarizer(BaseLlm, String)](com/google/adk/summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String\)) \- Constructor for class com.google.adk.summarizer.[LlmEventSummarizer](com/google/adk/summarizer/LlmEventSummarizer.html "class in com.google.adk.summarizer")
-     
+    
+
+Creates a summarizer with the given prompt template; `null` selects the default template.
+
+[LlmEventSummarizer(BaseLlm, String, InstantSource, UuidProvider)](com/google/adk/summarizer/LlmEventSummarizer.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String,java.time.InstantSource,com.google.adk.platform.UuidProvider\)) \- Constructor for class com.google.adk.summarizer.[LlmEventSummarizer](com/google/adk/summarizer/LlmEventSummarizer.html "class in com.google.adk.summarizer")
+    
+
+Creates a summarizer whose compaction events draw their id, invocation id, and timestamp from the given sources.
+
 [llmRecording()](com/google/adk/plugins/recordings/Recording.html#llmRecording\(\)) \- Method in class com.google.adk.plugins.recordings.[Recording](com/google/adk/plugins/recordings/Recording.html "class in com.google.adk.plugins.recordings")
     
 
@@ -6140,12 +6566,12 @@ Loads the latest version of an artifact from the service.
 
 [loadArtifact(SessionKey, String, int)](com/google/adk/artifacts/BaseArtifactService.html#loadArtifact\(com.google.adk.sessions.SessionKey,java.lang.String,int\)) \- Method in interface com.google.adk.artifacts.[BaseArtifactService](com/google/adk/artifacts/BaseArtifactService.html "interface in com.google.adk.artifacts")
      
-[loadArtifact(String)](com/google/adk/agents/CallbackContext.html#loadArtifact\(java.lang.String\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[loadArtifact(String)](com/google/adk/agents/Context.html#loadArtifact\(java.lang.String\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
 Loads the latest version of an artifact from the service.
 
-[loadArtifact(String, int)](com/google/adk/agents/CallbackContext.html#loadArtifact\(java.lang.String,int\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[loadArtifact(String, int)](com/google/adk/agents/Context.html#loadArtifact\(java.lang.String,int\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
 Loads a specific version of an artifact from the service.
@@ -6342,6 +6768,8 @@ A planner that cycles through sub-agents repeatedly, stopping when an escalate e
 
 [main(String[])](com/example/a2a_basic/A2AAgentRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.a2a_basic.[A2AAgentRun](com/example/a2a_basic/A2AAgentRun.html "class in com.example.a2a_basic")
      
+[main(String[])](com/example/contextcaching/ContextCachingRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.contextcaching.[ContextCachingRun](com/example/contextcaching/ContextCachingRun.html "class in com.example.contextcaching")
+     
 [main(String[])](com/example/helloworld/HelloWorldRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.helloworld.[HelloWorldRun](com/example/helloworld/HelloWorldRun.html "class in com.example.helloworld")
      
 [main(String[])](com/example/mcpfilesystem/McpFilesystemRun.html#main\(java.lang.String%5B%5D\)) \- Static method in class com.example.mcpfilesystem.[McpFilesystemRun](com/example/mcpfilesystem/McpFilesystemRun.html "class in com.example.mcpfilesystem")
@@ -6395,10 +6823,27 @@ Returns the value of the `maxAge` record component.
 
 Returns the value of the [`maxAttempts`](./com/google/adk/planner/goap/ReplanPolicy.Replan.html#param-maxAttempts) record component.
 
+[maxAttempts()](com/google/adk/workflow/RetryConfig.html#maxAttempts\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+Returns the maximum number of attempts, including the first, so 0 or 1 means no retry.
+
+[maxAttempts(int)](com/google/adk/workflow/RetryConfig.Builder.html#maxAttempts\(int\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
+     
 [maxCompletionTokens](com/google/adk/models/chat/ChatCompletionsRequest.html#maxCompletionTokens) \- Variable in class com.google.adk.models.chat.[ChatCompletionsRequest](com/google/adk/models/chat/ChatCompletionsRequest.html "class in com.google.adk.models.chat")
     
 
 See https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create#(resource)%20chat.completions%20%3E%20(method)%20create%20%3E%20(params)%200.non_streaming%20%3E%20(param)%20max_completion_tokens%20%3E%20(schema)
+
+[maxConcurrency()](com/google/adk/workflow/Workflow.html#maxConcurrency\(\)) \- Method in class com.google.adk.workflow.[Workflow](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow")
+    
+
+Returns the maximum number of nodes the workflow runs at once, or empty if there is no limit.
+
+[maxConcurrency(int)](com/google/adk/workflow/Workflow.Builder.html#maxConcurrency\(int\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+    
+
+Sets the maximum number of nodes to run at once, which must be at least 1.
 
 [maxContentLength()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#maxContentLength\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
@@ -6406,12 +6851,21 @@ See https://developers.openai.com/api/reference/resources/chat/subresources/comp
      
 [maxDelay()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#maxDelay\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[maxDelay()](com/google/adk/workflow/RetryConfig.html#maxDelay\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+    
+
+Returns the ceiling on any single delay.
+
 [maxDelay(Duration)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html#maxDelay\(java.time.Duration\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
+     
+[maxDelay(Duration)](com/google/adk/workflow/RetryConfig.Builder.html#maxDelay\(java.time.Duration\)) \- Method in class com.google.adk.workflow.[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow")
      
 [maxInvocations()](com/google/adk/agents/ContextCacheConfig.html#maxInvocations\(\)) \- Method in record class com.google.adk.agents.[ContextCacheConfig](com/google/adk/agents/ContextCacheConfig.html "class in com.google.adk.agents")
     
 
-Returns the value of the [`maxInvocations`](./com/google/adk/agents/ContextCacheConfig.html#param-maxInvocations) record component.
+Deprecated.
+
+Use [`ContextCacheConfig.cacheIntervals()`](com/google/adk/agents/ContextCacheConfig.html#cacheIntervals\(\)), the name ADK Python and ADK Kotlin use.
 
 [maxIterations()](com/google/adk/agents/LoopAgent.html#maxIterations\(\)) \- Method in class com.google.adk.agents.[LoopAgent](com/google/adk/agents/LoopAgent.html "class in com.google.adk.agents")
      
@@ -6696,6 +7150,13 @@ Sets the memory service for accessing agent memory.
      
 [merge(EventActions)](com/google/adk/events/EventActions.Builder.html#merge\(com.google.adk.events.EventActions\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
      
+[messageAsOutput()](com/google/adk/workflow/NodeInfo.html#messageAsOutput\(\)) \- Method in class com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+    
+
+Returns `true` if this event's content is the node's output, so no separate output event follows.
+
+[messageAsOutput(boolean)](com/google/adk/workflow/NodeInfo.Builder.html#messageAsOutput\(boolean\)) \- Method in class com.google.adk.workflow.[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow")
+     
 [MessageConversionException](com/google/adk/models/springai/MessageConversionException.html "class in com.google.adk.models.springai") \- Exception Class in [com.google.adk.models.springai](com/google/adk/models/springai/package-summary.html)
     
 
@@ -6902,11 +7363,6 @@ See https://developers.openai.com/api/reference/resources/chat/subresources/comp
      
 [name](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ConnectionDetails.html#name) \- Variable in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.ConnectionDetails](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ConnectionDetails.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
-[name()](com/google/adk/agents/BaseAgent.html#name\(\)) \- Method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
-    
-
-Gets the agent's unique name.
-
 [name()](com/google/adk/agents/BaseAgentConfig.CallbackRef.html#name\(\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.CallbackRef](com/google/adk/agents/BaseAgentConfig.CallbackRef.html "class in com.google.adk.agents")
      
 [name()](com/google/adk/agents/BaseAgentConfig.html#name\(\)) \- Method in class com.google.adk.agents.[BaseAgentConfig](com/google/adk/agents/BaseAgentConfig.html "class in com.google.adk.agents")
@@ -6929,6 +7385,15 @@ Skill name in kebab-case.
      
 [name()](com/google/adk/tools/BaseTool.ToolConfig.html#name\(\)) \- Method in class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
      
+[name()](com/google/adk/workflow/BaseNode.html#name\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[name()](com/google/adk/workflow/Node.html#name\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns the name that identifies the node within its graph.
+
+[name()](com/google/adk/workflow/Start.html#name\(\)) \- Method in class com.google.adk.workflow.[Start](com/google/adk/workflow/Start.html "class in com.google.adk.workflow")
+     
 [name(String)](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.a2a.agent.[RemoteA2AAgent.Builder](com/google/adk/a2a/agent/RemoteA2AAgent.Builder.html "class in com.google.adk.a2a.agent")
      
 [name(String)](com/google/adk/agents/BaseAgent.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgent.Builder](com/google/adk/agents/BaseAgent.Builder.html "class in com.google.adk.agents")
@@ -6942,6 +7407,10 @@ Skill name in kebab-case.
 [name(String)](com/google/adk/skills/Frontmatter.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.skills.[Frontmatter.Builder](com/google/adk/skills/Frontmatter.Builder.html "class in com.google.adk.skills")
      
 [name(String)](com/google/adk/tools/ExampleTool.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.tools.[ExampleTool.Builder](com/google/adk/tools/ExampleTool.Builder.html "class in com.google.adk.tools")
+     
+[name(String)](com/google/adk/workflow/JoinNode.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.workflow.[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow")
+     
+[name(String)](com/google/adk/workflow/Workflow.Builder.html#name\(java.lang.String\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
      
 [NAME](com/google/adk/tools/SetModelResponseTool.html#NAME) \- Static variable in class com.google.adk.tools.[SetModelResponseTool](com/google/adk/tools/SetModelResponseTool.html "class in com.google.adk.tools")
      
@@ -6968,8 +7437,23 @@ Network connectivity issues
 
 Generates a new unique ID for an invocation context.
 
+[newInvocationContextId(UuidProvider)](com/google/adk/agents/InvocationContext.html#newInvocationContextId\(com.google.adk.platform.UuidProvider\)) \- Static method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Generates a new unique ID for an invocation context using the given [`UuidProvider`](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform").
+
 [newMessage](com/google/adk/web/dto/AgentRunRequest.html#newMessage) \- Variable in class com.google.adk.web.dto.[AgentRunRequest](com/google/adk/web/dto/AgentRunRequest.html "class in com.google.adk.web.dto")
      
+[newUuid()](com/google/adk/agents/InvocationContext.html#newUuid\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns a new unique identifier from this invocation's [`UuidProvider`](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform").
+
+[newUuid()](com/google/adk/platform/UuidProvider.html#newUuid\(\)) \- Method in interface com.google.adk.platform.[UuidProvider](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform")
+    
+
+Returns a new unique identifier.
+
 [nextAction(PlanningContext)](com/google/adk/agents/Planner.html#nextAction\(com.google.adk.agents.PlanningContext\)) \- Method in interface com.google.adk.agents.[Planner](com/google/adk/agents/Planner.html "interface in com.google.adk.agents")
     
 
@@ -6996,6 +7480,42 @@ Select the next action based on updated state and events.
 
 Do not retry - permanent failure
 
+[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow") \- Interface in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A unit of work in a workflow graph.
+
+[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A node's retry policy and execution timeout.
+
+[NodeConfig()](com/google/adk/workflow/NodeConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.workflow.[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow")
+     
+[NodeConfig.Builder](com/google/adk/workflow/NodeConfig.Builder.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+Builder for [`NodeConfig`](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow").
+
+[nodeInfo()](com/google/adk/events/Event.html#nodeInfo\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
+    
+
+Identifies the workflow-node activation that emitted this event; outside a workflow, this value is empty or has an empty path.
+
+[nodeInfo(NodeInfo)](com/google/adk/events/Event.Builder.html#nodeInfo\(com.google.adk.workflow.NodeInfo\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
+     
+[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+The identity of the workflow-node activation that emitted an [`Event`](com/google/adk/events/Event.html "class in com.google.adk.events").
+
+[NodeInfo()](com/google/adk/workflow/NodeInfo.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+     
+[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+Builder for [`NodeInfo`](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow").
+
 [NONE](com/google/adk/agents/LlmAgent.IncludeContents.html#NONE) \- Enum constant in enum class com.google.adk.agents.[LlmAgent.IncludeContents](com/google/adk/agents/LlmAgent.IncludeContents.html "enum class in com.google.adk.agents")
      
 [NONE](com/google/adk/agents/RunConfig.StreamingMode.html#NONE) \- Enum constant in enum class com.google.adk.agents.[RunConfig.StreamingMode](com/google/adk/agents/RunConfig.StreamingMode.html "enum class in com.google.adk.agents")
@@ -7011,6 +7531,16 @@ Creates an instance of a `NoOp` record class.
     
 
 Normalize an embedding vector to unit length.
+
+[now()](com/google/adk/agents/InvocationContext.html#now\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns the current time from this invocation's [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time").
+
+[Num(long)](com/google/adk/workflow/Route.Num.html#%3Cinit%3E\(long\)) \- Constructor for record class com.google.adk.workflow.[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow")
+    
+
+Creates an instance of a `Num` record class.
 
 [numInvocationsToKeep(int)](com/google/adk/plugins/ContextFilterPlugin.Builder.html#numInvocationsToKeep\(int\)) \- Method in class com.google.adk.plugins.[ContextFilterPlugin.Builder](com/google/adk/plugins/ContextFilterPlugin.Builder.html "class in com.google.adk.plugins")
      
@@ -7220,7 +7750,14 @@ Retrieves the stored OpenTelemetry context.
 
 [OUTCOME_KEY](com/google/adk/a2a/converters/PartConverter.html#OUTCOME_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
+[output()](com/google/adk/events/Event.html#output\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
+    
+
+For a workflow node, returns the value handed to successors, distinct from [`Event.content()`](com/google/adk/events/Event.html#content\(\)), or empty when the event carries no node output.
+
 [output()](com/google/adk/examples/Example.html#output\(\)) \- Method in class com.google.adk.examples.[Example](com/google/adk/examples/Example.html "class in com.google.adk.examples")
+     
+[output(Object)](com/google/adk/events/Event.Builder.html#output\(java.lang.Object\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
      
 [output(List)](com/google/adk/examples/Example.Builder.html#output\(java.util.List\)) \- Method in class com.google.adk.examples.[Example.Builder](com/google/adk/examples/Example.Builder.html "class in com.google.adk.examples")
      
@@ -7236,6 +7773,13 @@ Retrieves the stored OpenTelemetry context.
 The output files from the code execution.
 
 [outputFiles(List)](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.Builder.html#outputFiles\(java.util.List\)) \- Method in class com.google.adk.codeexecutors.[CodeExecutionUtils.CodeExecutionResult.Builder](com/google/adk/codeexecutors/CodeExecutionUtils.CodeExecutionResult.Builder.html "class in com.google.adk.codeexecutors")
+     
+[outputFor()](com/google/adk/workflow/NodeInfo.html#outputFor\(\)) \- Method in class com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+    
+
+Returns the node paths this event's output counts for: the emitting node's path, followed by the paths of the ancestor workflows that use this event as their output.
+
+[outputFor(List)](com/google/adk/workflow/NodeInfo.Builder.html#outputFor\(java.util.List\)) \- Method in class com.google.adk.workflow.[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow")
      
 [outputKey()](com/google/adk/agents/LlmAgent.html#outputKey\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
      
@@ -7255,6 +7799,17 @@ Returns the value of the [`outputKey`](./com/google/adk/planner/goap/AgentMetada
 [outputSchema](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ActionSchema.html#outputSchema) \- Variable in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.ActionSchema](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.ActionSchema.html "class in com.google.adk.tools.applicationintegrationtoolset")
      
 [outputSchema()](com/google/adk/agents/LlmAgent.html#outputSchema\(\)) \- Method in class com.google.adk.agents.[LlmAgent](com/google/adk/agents/LlmAgent.html "class in com.google.adk.agents")
+     
+[outputSchema()](com/google/adk/workflow/BaseNode.html#outputSchema\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[outputSchema()](com/google/adk/workflow/Node.html#outputSchema\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns the schema that the node's output value must match.
+
+[outputSchema(Schema)](com/google/adk/workflow/JoinNode.Builder.html#outputSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.workflow.[JoinNode.Builder](com/google/adk/workflow/JoinNode.Builder.html "class in com.google.adk.workflow")
+     
+[outputSchema(Schema)](com/google/adk/workflow/Workflow.Builder.html#outputSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
      
 [outputSchema(Schema)](com/google/adk/agents/LlmAgent.Builder.html#outputSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.agents.[LlmAgent.Builder](com/google/adk/agents/LlmAgent.Builder.html "class in com.google.adk.agents")
      
@@ -7388,6 +7943,13 @@ Indicates whether the text content is part of a unfinished text stream.
      
 [PARTS_KEY](com/google/adk/a2a/converters/PartConverter.html#PARTS_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
+[path()](com/google/adk/workflow/NodeInfo.html#path\(\)) \- Method in class com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+    
+
+Returns the emitting node's path.
+
+[path(String)](com/google/adk/workflow/NodeInfo.Builder.html#path\(java.lang.String\)) \- Method in class com.google.adk.workflow.[NodeInfo.Builder](com/google/adk/workflow/NodeInfo.Builder.html "class in com.google.adk.workflow")
+     
 [pathPrefix()](com/google/adk/web/config/BackendUrl.html#pathPrefix\(\)) \- Method in class com.google.adk.web.config.[BackendUrl](com/google/adk/web/config/BackendUrl.html "class in com.google.adk.web.config")
     
 
@@ -7519,6 +8081,11 @@ Pops the calling branch's matching span record.
     
 
 Populates missing function call IDs in the provided event's content.
+
+[populateClientFunctionCallId(Event, UuidProvider)](com/google/adk/flows/llmflows/Functions.html#populateClientFunctionCallId\(com.google.adk.events.Event,com.google.adk.platform.UuidProvider\)) \- Static method in class com.google.adk.flows.llmflows.[Functions](com/google/adk/flows/llmflows/Functions.html "class in com.google.adk.flows.llmflows")
+    
+
+Populates missing function call IDs in the provided event's content using the given [`UuidProvider`](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform").
 
 [populateHeaders(HttpRequest.Builder, Credentials)](com/google/adk/tools/applicationintegrationtoolset/CredentialsHelper.html#populateHeaders\(java.net.http.HttpRequest.Builder,com.google.auth.Credentials\)) \- Static method in interface com.google.adk.tools.applicationintegrationtoolset.[CredentialsHelper](com/google/adk/tools/applicationintegrationtoolset/CredentialsHelper.html "interface in com.google.adk.tools.applicationintegrationtoolset")
     
@@ -7987,20 +8554,20 @@ The function call name for the request confirmation function.
 
 [REQUEST_PROCESSORS](com/google/adk/flows/llmflows/SingleFlow.html#REQUEST_PROCESSORS) \- Static variable in class com.google.adk.flows.llmflows.[SingleFlow](com/google/adk/flows/llmflows/SingleFlow.html "class in com.google.adk.flows.llmflows")
      
-[requestConfirmation()](com/google/adk/tools/ToolContext.html#requestConfirmation\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
+[requestConfirmation()](com/google/adk/agents/Context.html#requestConfirmation\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
-Requests confirmation for the given function call.
+Requests confirmation for the current function call.
 
-[requestConfirmation(String)](com/google/adk/tools/ToolContext.html#requestConfirmation\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
+[requestConfirmation(String)](com/google/adk/agents/Context.html#requestConfirmation\(java.lang.String\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
-Requests confirmation for the given function call.
+Requests confirmation for the current function call.
 
-[requestConfirmation(String, Object)](com/google/adk/tools/ToolContext.html#requestConfirmation\(java.lang.String,java.lang.Object\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
+[requestConfirmation(String, Object)](com/google/adk/agents/Context.html#requestConfirmation\(java.lang.String,java.lang.Object\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
-Requests confirmation for the given function call.
+Requests confirmation for the current function call.
 
 [RequestConfirmationLlmRequestProcessor](com/google/adk/flows/llmflows/RequestConfirmationLlmRequestProcessor.html "class in com.google.adk.flows.llmflows") \- Class in [com.google.adk.flows.llmflows](com/google/adk/flows/llmflows/package-summary.html)
     
@@ -8034,6 +8601,22 @@ Interface for processing LLM requests.
 Result of request processing.
 
 [requestProcessors](com/google/adk/flows/llmflows/BaseLlmFlow.html#requestProcessors) \- Variable in class com.google.adk.flows.llmflows.[BaseLlmFlow](com/google/adk/flows/llmflows/BaseLlmFlow.html "class in com.google.adk.flows.llmflows")
+     
+[requiresAllPredecessors()](com/google/adk/workflow/JoinNode.html#requiresAllPredecessors\(\)) \- Method in class com.google.adk.workflow.[JoinNode](com/google/adk/workflow/JoinNode.html "class in com.google.adk.workflow")
+     
+[requiresAllPredecessors()](com/google/adk/workflow/Node.html#requiresAllPredecessors\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns `true` if the node runs only once every predecessor has completed, receiving all their outputs keyed by node name, as a fan-in node does.
+
+[rerunOnResume()](com/google/adk/workflow/BaseNode.html#rerunOnResume\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[rerunOnResume()](com/google/adk/workflow/Node.html#rerunOnResume\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns `true` if a resumed node runs again from scratch, rather than completing with the resuming answer as its output.
+
+[rerunOnResume(boolean)](com/google/adk/workflow/Workflow.Builder.html#rerunOnResume\(boolean\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
      
 [reset()](com/google/adk/models/springai/StreamingResponseAggregator.html#reset\(\)) \- Method in class com.google.adk.models.springai.[StreamingResponseAggregator](com/google/adk/models/springai/StreamingResponseAggregator.html "class in com.google.adk.models.springai")
     
@@ -8180,10 +8763,29 @@ Builder for [`ResumabilityConfig`](com/google/adk/apps/ResumabilityConfig.html "
      
 [retryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html#retryConfig\(\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[retryConfig()](com/google/adk/workflow/NodeConfig.html#retryConfig\(\)) \- Method in class com.google.adk.workflow.[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow")
+    
+
+Returns how the node is retried when it fails; empty does not retry.
+
 [retryConfig(BigQueryLoggerConfig.RetryConfig)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#retryConfig\(com.google.adk.plugins.agentanalytics.BigQueryLoggerConfig.RetryConfig\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
+[retryConfig(RetryConfig)](com/google/adk/workflow/NodeConfig.Builder.html#retryConfig\(com.google.adk.workflow.RetryConfig\)) \- Method in class com.google.adk.workflow.[NodeConfig.Builder](com/google/adk/workflow/NodeConfig.Builder.html "class in com.google.adk.workflow")
+     
+[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+How a node is retried when it fails.
+
 [RetryConfig()](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.RetryConfig](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.RetryConfig.html "class in com.google.adk.plugins.agentanalytics")
      
+[RetryConfig()](com/google/adk/workflow/RetryConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
+     
+[RetryConfig.Builder](com/google/adk/workflow/RetryConfig.Builder.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+Builder for [`RetryConfig`](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow").
+
 [rewindBeforeInvocationId()](com/google/adk/events/EventActions.html#rewindBeforeInvocationId\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
     
 
@@ -8231,6 +8833,43 @@ Returns the root agent for this agent by traversing up the parent chain.
      
 [rootAgent(BaseAgent)](com/google/adk/apps/App.Builder.html#rootAgent\(com.google.adk.agents.BaseAgent\)) \- Method in class com.google.adk.apps.[App.Builder](com/google/adk/apps/App.Builder.html "class in com.google.adk.apps")
      
+[route()](com/google/adk/events/EventActions.html#route\(\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+    
+
+For a workflow node, returns the routes this event selects; an edge is followed when it has one of these routes.
+
+[route(List)](com/google/adk/events/EventActions.Builder.html#route\(java.util.List\)) \- Method in class com.google.adk.events.[EventActions.Builder](com/google/adk/events/EventActions.Builder.html "class in com.google.adk.events")
+     
+[Route](com/google/adk/workflow/Route.html "interface in com.google.adk.workflow") \- Interface in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A value on a workflow edge, and the value a node emits to select which of its outgoing edges are followed.
+
+[Route.Default](com/google/adk/workflow/Route.Default.html "enum class in com.google.adk.workflow") \- Enum Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+The fallback edge, followed when no other routed edge of the node matches what it emitted, including when it emitted no route.
+
+[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow") \- Record Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A route identified by a boolean, for a two-way branch.
+
+[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow") \- Record Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A route identified by an integer.
+
+[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow") \- Record Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A route identified by a string, which is the common case.
+
+[routes()](com/google/adk/workflow/Edge.html#routes\(\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Returns the value of the [`routes`](./com/google/adk/workflow/Edge.html#param-routes) record component.
+
 [run(InvocationContext)](com/google/adk/flows/BaseFlow.html#run\(com.google.adk.agents.InvocationContext\)) \- Method in interface com.google.adk.flows.[BaseFlow](com/google/adk/flows/BaseFlow.html "interface in com.google.adk.flows")
     
 
@@ -8535,6 +9174,25 @@ Service for creating and caching Runner instances.
 
 [RunnerService(AgentLoader, BaseArtifactService, BaseSessionService, BaseMemoryService, List)](com/google/adk/web/service/RunnerService.html#%3Cinit%3E\(com.google.adk.web.AgentLoader,com.google.adk.artifacts.BaseArtifactService,com.google.adk.sessions.BaseSessionService,com.google.adk.memory.BaseMemoryService,java.util.List\)) \- Constructor for class com.google.adk.web.service.[RunnerService](com/google/adk/web/service/RunnerService.html "class in com.google.adk.web.service")
      
+[runNode(Context, Object)](com/google/adk/agents/BaseAgent.html#runNode\(com.google.adk.agents.Context,java.lang.Object\)) \- Method in class com.google.adk.agents.[BaseAgent](com/google/adk/agents/BaseAgent.html "class in com.google.adk.agents")
+    
+
+Runs this agent as a workflow node through its [`BaseAgent.runAsync(InvocationContext)`](com/google/adk/agents/BaseAgent.html#runAsync\(com.google.adk.agents.InvocationContext\)) lifecycle, including its callbacks.
+
+[runNode(Context, Object)](com/google/adk/workflow/JoinNode.html#runNode\(com.google.adk.agents.Context,java.lang.Object\)) \- Method in class com.google.adk.workflow.[JoinNode](com/google/adk/workflow/JoinNode.html "class in com.google.adk.workflow")
+    
+
+Outputs its input unchanged, or nothing when the input is null.
+
+[runNode(Context, Object)](com/google/adk/workflow/Node.html#runNode\(com.google.adk.agents.Context,java.lang.Object\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Runs the node on `nodeInput`, the output it receives from its predecessors.
+
+[runNode(Context, Object)](com/google/adk/workflow/Start.html#runNode\(com.google.adk.agents.Context,java.lang.Object\)) \- Method in class com.google.adk.workflow.[Start](com/google/adk/workflow/Start.html "class in com.google.adk.workflow")
+     
+[runNode(Context, Object)](com/google/adk/workflow/Workflow.html#runNode\(com.google.adk.agents.Context,java.lang.Object\)) \- Method in class com.google.adk.workflow.[Workflow](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow")
+     
 [runOnRunErrorCallback(InvocationContext, Throwable)](com/google/adk/plugins/PluginManager.html#runOnRunErrorCallback\(com.google.adk.agents.InvocationContext,java.lang.Throwable\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
      
 [runOnUserMessageCallback(InvocationContext, Content)](com/google/adk/plugins/PluginManager.html#runOnUserMessageCallback\(com.google.adk.agents.InvocationContext,com.google.genai.types.Content\)) \- Method in class com.google.adk.plugins.[PluginManager](com/google/adk/plugins/PluginManager.html "class in com.google.adk.plugins")
@@ -8590,7 +9248,7 @@ Saves an artifact and returns it with fileData if available.
 
 Saves an artifact.
 
-[saveArtifact(String, Part)](com/google/adk/agents/CallbackContext.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[saveArtifact(String, Part)](com/google/adk/agents/Context.html#saveArtifact\(java.lang.String,com.google.genai.types.Part\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
 Saves an artifact and records it as a delta for the current session.
@@ -8614,8 +9272,26 @@ Saves an artifact in memory and assigns a new version.
      
 [saveInputBlobsAsArtifacts(boolean)](com/google/adk/agents/RunConfig.Builder.html#saveInputBlobsAsArtifacts\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
      
+[scheduler()](com/google/adk/agents/InvocationContext.html#scheduler\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns the `Scheduler` on which this invocation runs the work ADK hands to worker threads: the sub-agents of a `ParallelAgent`, tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode, and the hop that starts the live send loop.
+
+[scheduler(Scheduler)](com/google/adk/agents/InvocationContext.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\)) \- Method in class com.google.adk.agents.[InvocationContext.Builder](com/google/adk/agents/InvocationContext.Builder.html "class in com.google.adk.agents")
+    
+
+Sets the scheduler for the invocation's internal fan-out; see [`InvocationContext.scheduler()`](com/google/adk/agents/InvocationContext.html#scheduler\(\)).
+
 [scheduler(Scheduler)](com/google/adk/agents/ParallelAgent.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\)) \- Method in class com.google.adk.agents.[ParallelAgent.Builder](com/google/adk/agents/ParallelAgent.Builder.html "class in com.google.adk.agents")
-     
+    
+
+Sets the scheduler the sub-agents are subscribed on, or `null` (the default) to inherit the invocation's scheduler ([`InvocationContext.scheduler()`](com/google/adk/agents/InvocationContext.html#scheduler\(\)): `Schedulers.io()` unless the `Runner` is configured with another one).
+
+[scheduler(Scheduler)](com/google/adk/runner/Runner.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\)) \- Method in class com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
+    
+
+Sets the `Scheduler` for the work ADK hands off to worker threads in this runner's invocations: the sub-agents of a `ParallelAgent`, tool calls in [`RunConfig.ToolExecutionMode.PARALLEL_SUBSCRIBE`](com/google/adk/agents/RunConfig.ToolExecutionMode.html#PARALLEL_SUBSCRIBE) mode, and the hop that starts the live send loop.
+
 [SCHEDULING_KEY](com/google/adk/a2a/converters/PartConverter.html#SCHEDULING_KEY) \- Static variable in class com.google.adk.a2a.converters.[PartConverter](com/google/adk/a2a/converters/PartConverter.html "class in com.google.adk.a2a.converters")
      
 [schema](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.EntitySchemaAndOperations.html#schema) \- Variable in class com.google.adk.tools.applicationintegrationtoolset.[ConnectionsClient.EntitySchemaAndOperations](com/google/adk/tools/applicationintegrationtoolset/ConnectionsClient.EntitySchemaAndOperations.html "class in com.google.adk.tools.applicationintegrationtoolset")
@@ -8674,7 +9350,7 @@ Groups agents into parallelizable execution levels.
 
 Searches for agent execution groups that produce the goal.
 
-[searchMemory(String)](com/google/adk/tools/ToolContext.html#searchMemory\(java.lang.String\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
+[searchMemory(String)](com/google/adk/agents/Context.html#searchMemory\(java.lang.String\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
 Searches the memory of the current user.
@@ -8937,6 +9613,11 @@ Utility functions for session service.
      
 [setAgentState(Map)](com/google/adk/events/EventActions.html#setAgentState\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
+[setAllowConfigStdioServers(boolean)](com/google/adk/tools/mcp/McpToolset.html#setAllowConfigStdioServers\(boolean\)) \- Static method in class com.google.adk.tools.mcp.[McpToolset](com/google/adk/tools/mcp/McpToolset.html "class in com.google.adk.tools.mcp")
+    
+
+Allows or forbids agent configs to declare local (stdio) MCP servers.
+
 [setArgs(BaseTool.ToolArgsConfig)](com/google/adk/tools/BaseTool.ToolConfig.html#setArgs\(com.google.adk.tools.BaseTool.ToolArgsConfig\)) \- Method in class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
      
 [setArtifactDelta(Map)](com/google/adk/events/EventActions.html#setArtifactDelta\(java.util.Map\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
@@ -8962,6 +9643,8 @@ Sets the common agent callbacks (before/after agent) from the config to the buil
 [setBeforeToolCallbacks(List)](com/google/adk/agents/LlmAgentConfig.html#setBeforeToolCallbacks\(java.util.List\)) \- Method in class com.google.adk.agents.[LlmAgentConfig](com/google/adk/agents/LlmAgentConfig.html "class in com.google.adk.agents")
      
 [setBuildOutputDirs(String[])](com/google/adk/web/config/AgentLoadingProperties.html#setBuildOutputDirs\(java.lang.String%5B%5D\)) \- Method in class com.google.adk.web.config.[AgentLoadingProperties](com/google/adk/web/config/AgentLoadingProperties.html "class in com.google.adk.web.config")
+     
+[setCacheMetadata(CacheMetadata)](com/google/adk/events/Event.html#setCacheMetadata\(com.google.adk.models.CacheMetadata\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setCode(String)](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html#setCode\(java.lang.String\)) \- Method in class com.google.adk.agents.[BaseAgentConfig.AgentRefConfig](com/google/adk/agents/BaseAgentConfig.AgentRefConfig.html "class in com.google.adk.agents")
      
@@ -9160,7 +9843,11 @@ Deprecated.
 
 Enables or disables container networking when the strict sandbox is on.
 
+[setNodeInfo(NodeInfo)](com/google/adk/events/Event.html#setNodeInfo\(com.google.adk.workflow.NodeInfo\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
+     
 [setObservability(SpringAIProperties.Observability)](com/google/adk/models/springai/properties/SpringAIProperties.html#setObservability\(com.google.adk.models.springai.properties.SpringAIProperties.Observability\)) \- Method in class com.google.adk.models.springai.properties.[SpringAIProperties](com/google/adk/models/springai/properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties")
+     
+[setOutput(Object)](com/google/adk/events/Event.html#setOutput\(java.lang.Object\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
 [setOutputAudioTranscription(AudioTranscriptionConfig)](com/google/adk/agents/RunConfig.Builder.html#setOutputAudioTranscription\(com.google.genai.types.AudioTranscriptionConfig\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
     
@@ -9193,6 +9880,8 @@ Deprecated.
 Deprecated.
 
 [setRewindBeforeInvocationId(String)](com/google/adk/events/EventActions.html#setRewindBeforeInvocationId\(java.lang.String\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
+     
+[setRoute(List)](com/google/adk/events/EventActions.html#setRoute\(java.util.List\)) \- Method in class com.google.adk.events.[EventActions](com/google/adk/events/EventActions.html "class in com.google.adk.events")
      
 [setSaveInputBlobsAsArtifacts(boolean)](com/google/adk/agents/RunConfig.Builder.html#setSaveInputBlobsAsArtifacts\(boolean\)) \- Method in class com.google.adk.agents.[RunConfig.Builder](com/google/adk/agents/RunConfig.Builder.html "class in com.google.adk.agents")
     
@@ -9415,7 +10104,7 @@ Auto-configuration for Spring AI integration with ADK.
 [springAIEmbedding(EmbeddingModel, SpringAIProperties)](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html#springAIEmbedding\(org.springframework.ai.embedding.EmbeddingModel,com.google.adk.models.springai.properties.SpringAIProperties\)) \- Method in class com.google.adk.models.springai.autoconfigure.[SpringAIAutoConfiguration](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html "class in com.google.adk.models.springai.autoconfigure")
     
 
-Creates a SpringAIEmbedding bean when EmbeddingModel is available.
+Creates a SpringAIEmbedding bean when a single-candidate EmbeddingModel is available.
 
 [SpringAIEmbedding](com/google/adk/models/springai/SpringAIEmbedding.html "class in com.google.adk.models.springai") \- Class in [com.google.adk.models.springai](com/google/adk/models/springai/package-summary.html)
     
@@ -9490,17 +10179,17 @@ Configuration validation settings.
 [springAIWithBothModels(ChatModel, StreamingChatModel, SpringAIProperties)](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html#springAIWithBothModels\(org.springframework.ai.chat.model.ChatModel,org.springframework.ai.chat.model.StreamingChatModel,com.google.adk.models.springai.properties.SpringAIProperties\)) \- Method in class com.google.adk.models.springai.autoconfigure.[SpringAIAutoConfiguration](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html "class in com.google.adk.models.springai.autoconfigure")
     
 
-Creates a SpringAI bean when both ChatModel and StreamingChatModel are available.
+Creates a SpringAI bean when a single-candidate ChatModel is available.
 
 [springAIWithChatModel(ChatModel, SpringAIProperties)](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html#springAIWithChatModel\(org.springframework.ai.chat.model.ChatModel,com.google.adk.models.springai.properties.SpringAIProperties\)) \- Method in class com.google.adk.models.springai.autoconfigure.[SpringAIAutoConfiguration](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html "class in com.google.adk.models.springai.autoconfigure")
     
 
-Creates a SpringAI bean when only ChatModel is available.
+Creates a SpringAI bean when only a single-candidate ChatModel is available.
 
 [springAIWithStreamingModel(StreamingChatModel, SpringAIProperties)](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html#springAIWithStreamingModel\(org.springframework.ai.chat.model.StreamingChatModel,com.google.adk.models.springai.properties.SpringAIProperties\)) \- Method in class com.google.adk.models.springai.autoconfigure.[SpringAIAutoConfiguration](com/google/adk/models/springai/autoconfigure/SpringAIAutoConfiguration.html "class in com.google.adk.models.springai.autoconfigure")
     
 
-Creates a SpringAI bean when only StreamingChatModel is available.
+Creates a SpringAI bean when only a single-candidate StreamingChatModel is available.
 
 [SSE](com/google/adk/agents/RunConfig.StreamingMode.html#SSE) \- Enum constant in enum class com.google.adk.agents.[RunConfig.StreamingMode](com/google/adk/agents/RunConfig.StreamingMode.html "enum class in com.google.adk.agents")
      
@@ -9540,6 +10229,11 @@ Builder for [`SseServerParameters`](com/google/adk/tools/mcp/SseServerParameters
      
 [start(BaseAgent...)](com/google/adk/web/AdkWebServer.html#start\(com.google.adk.agents.BaseAgent...\)) \- Static method in class com.google.adk.web.[AdkWebServer](com/google/adk/web/AdkWebServer.html "class in com.google.adk.web")
      
+[Start](com/google/adk/workflow/Start.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+The node that marks where a workflow graph starts.
+
 [startRequest(String, String)](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html#startRequest\(java.lang.String,java.lang.String\)) \- Method in class com.google.adk.models.springai.observability.[SpringAIObservabilityHandler](com/google/adk/models/springai/observability/SpringAIObservabilityHandler.html "class in com.google.adk.models.springai.observability")
     
 
@@ -9561,10 +10255,10 @@ Configuration applied on startup, such as Jackson module registrations.
 
 [StartupConfig()](com/google/adk/samples/a2aagent/StartupConfig.html#%3Cinit%3E\(\)) \- Constructor for class com.google.adk.samples.a2aagent.[StartupConfig](com/google/adk/samples/a2aagent/StartupConfig.html "class in com.google.adk.samples.a2aagent")
      
-[state()](com/google/adk/agents/CallbackContext.html#state\(\)) \- Method in class com.google.adk.agents.[CallbackContext](com/google/adk/agents/CallbackContext.html "class in com.google.adk.agents")
+[state()](com/google/adk/agents/Context.html#state\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
     
 
-Returns the delta-aware state of the current callback.
+Returns the delta-aware state of the current context.
 
 [state()](com/google/adk/agents/PlanningContext.html#state\(\)) \- Method in class com.google.adk.agents.[PlanningContext](com/google/adk/agents/PlanningContext.html "class in com.google.adk.agents")
     
@@ -9606,6 +10300,15 @@ Optional state delta to merge into the session state before running the agent.
 Whether the code executor is stateful.
 
 [stateful()](com/google/adk/codeexecutors/ContainerCodeExecutor.html#stateful\(\)) \- Method in class com.google.adk.codeexecutors.[ContainerCodeExecutor](com/google/adk/codeexecutors/ContainerCodeExecutor.html "class in com.google.adk.codeexecutors")
+     
+[stateSchema()](com/google/adk/workflow/BaseNode.html#stateSchema\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[stateSchema()](com/google/adk/workflow/Node.html#stateSchema\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns the schema declaring the state keys the node uses.
+
+[stateSchema(Schema)](com/google/adk/workflow/Workflow.Builder.html#stateSchema\(com.google.genai.types.Schema\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
      
 [Static(String)](com/google/adk/agents/Instruction.Static.html#%3Cinit%3E\(java.lang.String\)) \- Constructor for record class com.google.adk.agents.[Instruction.Static](com/google/adk/agents/Instruction.Static.html "class in com.google.adk.agents")
     
@@ -9776,6 +10479,10 @@ A planner that uses an LLM to dynamically decide which sub-agent(s) to run next.
      
 [SupervisorPlanner(BaseLlm, String, int)](com/google/adk/planner/SupervisorPlanner.html#%3Cinit%3E\(com.google.adk.models.BaseLlm,java.lang.String,int\)) \- Constructor for class com.google.adk.planner.[SupervisorPlanner](com/google/adk/planner/SupervisorPlanner.html "class in com.google.adk.planner")
      
+[SYSTEM](com/google/adk/platform/UuidProvider.html#SYSTEM) \- Static variable in interface com.google.adk.platform.[UuidProvider](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform")
+    
+
+A provider backed by [`UUID.randomUUID()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html#randomUUID\(\)).
 
 ## T
 
@@ -9783,6 +10490,11 @@ A planner that uses an LLM to dynamically decide which sub-agent(s) to run next.
      
 [tableName(String)](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html#tableName\(java.lang.String\)) \- Method in class com.google.adk.plugins.agentanalytics.[BigQueryLoggerConfig.Builder](com/google/adk/plugins/agentanalytics/BigQueryLoggerConfig.Builder.html "class in com.google.adk.plugins.agentanalytics")
      
+[Tag(String)](com/google/adk/workflow/Route.Tag.html#%3Cinit%3E\(java.lang.String\)) \- Constructor for record class com.google.adk.workflow.[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow")
+    
+
+Creates an instance of a `Tag` record class.
+
 [TailRetentionEventCompactor](com/google/adk/summarizer/TailRetentionEventCompactor.html "class in com.google.adk.summarizer") \- Class in [com.google.adk.summarizer](com/google/adk/summarizer/package-summary.html)
     
 
@@ -9856,12 +10568,22 @@ The timeout for the initial connection attempt.
      
 [timeout()](com/google/adk/tools/mcp/StreamableHttpServerParameters.html#timeout\(\)) \- Method in class com.google.adk.tools.mcp.[StreamableHttpServerParameters](com/google/adk/tools/mcp/StreamableHttpServerParameters.html "class in com.google.adk.tools.mcp")
      
+[timeout()](com/google/adk/workflow/NodeConfig.html#timeout\(\)) \- Method in class com.google.adk.workflow.[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow")
+    
+
+Returns how long an attempt may run before it is cancelled and treated as a failure; empty imposes no limit.
+
 [timeout(float)](com/google/adk/tools/mcp/StdioConnectionParameters.Builder.html#timeout\(float\)) \- Method in class com.google.adk.tools.mcp.[StdioConnectionParameters.Builder](com/google/adk/tools/mcp/StdioConnectionParameters.Builder.html "class in com.google.adk.tools.mcp")
      
 [timeout(Duration)](com/google/adk/tools/mcp/SseServerParameters.Builder.html#timeout\(java.time.Duration\)) \- Method in class com.google.adk.tools.mcp.[SseServerParameters.Builder](com/google/adk/tools/mcp/SseServerParameters.Builder.html "class in com.google.adk.tools.mcp")
     
 
 Sets the timeout for the initial connection attempt.
+
+[timeout(Duration)](com/google/adk/workflow/NodeConfig.Builder.html#timeout\(java.time.Duration\)) \- Method in class com.google.adk.workflow.[NodeConfig.Builder](com/google/adk/workflow/NodeConfig.Builder.html "class in com.google.adk.workflow")
+    
+
+Sets the timeout, which must be positive; null imposes no limit.
 
 [timeout(Duration)](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html#timeout\(java.time.Duration\)) \- Method in class com.google.adk.tools.mcp.[StreamableHttpServerParameters.Builder](com/google/adk/tools/mcp/StreamableHttpServerParameters.Builder.html "class in com.google.adk.tools.mcp")
      
@@ -9883,7 +10605,10 @@ The timestamp of the event.
 Returns the timestamp when the original content of this memory happened, or null if not set.
 
 [timestamp(long)](com/google/adk/events/Event.Builder.html#timestamp\(long\)) \- Method in class com.google.adk.events.[Event.Builder](com/google/adk/events/Event.Builder.html "class in com.google.adk.events")
-     
+    
+
+Sets the timestamp in epoch milliseconds.
+
 [timestamp(String)](com/google/adk/memory/MemoryEntry.Builder.html#timestamp\(java.lang.String\)) \- Method in class com.google.adk.memory.[MemoryEntry.Builder](com/google/adk/memory/MemoryEntry.Builder.html "class in com.google.adk.memory")
     
 
@@ -9893,6 +10618,11 @@ Sets the timestamp when the original content of this memory happened.
     
 
 A convenience method to set the timestamp from an [`Instant`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html "class in java.time") object, formatted as an ISO 8601 string.
+
+[to()](com/google/adk/workflow/Edge.html#to\(\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Returns the value of the [`to`](./com/google/adk/workflow/Edge.html#param-to) record component.
 
 [toBuilder()](com/google/adk/a2a/executor/AgentExecutorConfig.html#toBuilder\(\)) \- Method in class com.google.adk.a2a.executor.[AgentExecutorConfig](com/google/adk/a2a/executor/AgentExecutorConfig.html "class in com.google.adk.a2a.executor")
      
@@ -9921,6 +10651,8 @@ Creates a builder pre-filled with this event's values.
 
 Creates a new builder with a copy of this entry's values.
 
+[toBuilder()](com/google/adk/models/CacheMetadata.html#toBuilder\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+     
 [toBuilder()](com/google/adk/models/LlmRequest.html#toBuilder\(\)) \- Method in class com.google.adk.models.[LlmRequest](com/google/adk/models/LlmRequest.html "class in com.google.adk.models")
      
 [toBuilder()](com/google/adk/models/LlmResponse.html#toBuilder\(\)) \- Method in class com.google.adk.models.[LlmResponse](com/google/adk/models/LlmResponse.html "class in com.google.adk.models")
@@ -9932,6 +10664,12 @@ Creates a new builder with a copy of this entry's values.
 [toBuilder()](com/google/adk/summarizer/EventsCompactionConfig.html#toBuilder\(\)) \- Method in record class com.google.adk.summarizer.[EventsCompactionConfig](com/google/adk/summarizer/EventsCompactionConfig.html "class in com.google.adk.summarizer")
      
 [toBuilder()](com/google/adk/tools/ToolContext.html#toBuilder\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
+     
+[toBuilder()](com/google/adk/workflow/NodeConfig.html#toBuilder\(\)) \- Method in class com.google.adk.workflow.[NodeConfig](com/google/adk/workflow/NodeConfig.html "class in com.google.adk.workflow")
+     
+[toBuilder()](com/google/adk/workflow/NodeInfo.html#toBuilder\(\)) \- Method in class com.google.adk.workflow.[NodeInfo](com/google/adk/workflow/NodeInfo.html "class in com.google.adk.workflow")
+     
+[toBuilder()](com/google/adk/workflow/RetryConfig.html#toBuilder\(\)) \- Method in class com.google.adk.workflow.[RetryConfig](com/google/adk/workflow/RetryConfig.html "class in com.google.adk.workflow")
      
 [toDoubleArray(float[])](com/google/adk/models/springai/EmbeddingConverter.html#toDoubleArray\(float%5B%5D\)) \- Static method in class com.google.adk.models.springai.[EmbeddingConverter](com/google/adk/models/springai/EmbeddingConverter.html "class in com.google.adk.models.springai")
     
@@ -10026,11 +10764,17 @@ See https://developers.openai.com/api/reference/resources/chat/subresources/comp
      
 [ToolConfig(String, BaseTool.ToolArgsConfig)](com/google/adk/tools/BaseTool.ToolConfig.html#%3Cinit%3E\(java.lang.String,com.google.adk.tools.BaseTool.ToolArgsConfig\)) \- Constructor for class com.google.adk.tools.[BaseTool.ToolConfig](com/google/adk/tools/BaseTool.ToolConfig.html "class in com.google.adk.tools")
      
-[toolConfirmation()](com/google/adk/tools/ToolContext.html#toolConfirmation\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
-     
+[toolConfirmation()](com/google/adk/agents/Context.html#toolConfirmation\(\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+    
+
+Returns the confirmation of the current tool call, if any.
+
+[toolConfirmation(ToolConfirmation)](com/google/adk/agents/Context.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\)) \- Method in class com.google.adk.agents.[Context](com/google/adk/agents/Context.html "class in com.google.adk.agents")
+    
+
+Sets the confirmation of the current tool call, or clears it if null.
+
 [toolConfirmation(ToolConfirmation)](com/google/adk/tools/ToolContext.Builder.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\)) \- Method in class com.google.adk.tools.[ToolContext.Builder](com/google/adk/tools/ToolContext.Builder.html "class in com.google.adk.tools")
-     
-[toolConfirmation(ToolConfirmation)](com/google/adk/tools/ToolContext.html#toolConfirmation\(com.google.adk.events.ToolConfirmation\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
 [ToolConfirmation](com/google/adk/events/ToolConfirmation.html "class in com.google.adk.events") \- Class in [com.google.adk.events](com/google/adk/events/package-summary.html)
     
@@ -10207,6 +10951,11 @@ Returns a string representation of this record class.
 
 [toString()](com/google/adk/events/Event.html#toString\(\)) \- Method in class com.google.adk.events.[Event](com/google/adk/events/Event.html "class in com.google.adk.events")
      
+[toString()](com/google/adk/models/CacheMetadata.html#toString\(\)) \- Method in class com.google.adk.models.[CacheMetadata](com/google/adk/models/CacheMetadata.html "class in com.google.adk.models")
+    
+
+Returns a short description for logs, in the same shape as ADK Python's.
+
 [toString()](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html#toString\(\)) \- Method in class com.google.adk.models.springai.error.[SpringAIErrorMapper.MappedError](com/google/adk/models/springai/error/SpringAIErrorMapper.MappedError.html "class in com.google.adk.models.springai.error")
      
 [toString()](com/google/adk/planner/goap/AgentMetadata.html#toString\(\)) \- Method in record class com.google.adk.planner.goap.[AgentMetadata](com/google/adk/planner/goap/AgentMetadata.html "class in com.google.adk.planner.goap")
@@ -10246,6 +10995,26 @@ Returns a string representation of this record class.
 [toString()](com/google/adk/tools/ToolContext.html#toString\(\)) \- Method in class com.google.adk.tools.[ToolContext](com/google/adk/tools/ToolContext.html "class in com.google.adk.tools")
      
 [toString()](com/google/adk/web/config/AdkWebCorsProperties.html#toString\(\)) \- Method in record class com.google.adk.web.config.[AdkWebCorsProperties](com/google/adk/web/config/AdkWebCorsProperties.html "class in com.google.adk.web.config")
+    
+
+Returns a string representation of this record class.
+
+[toString()](com/google/adk/workflow/Edge.html#toString\(\)) \- Method in record class com.google.adk.workflow.[Edge](com/google/adk/workflow/Edge.html "class in com.google.adk.workflow")
+    
+
+Returns a string representation of this record class.
+
+[toString()](com/google/adk/workflow/Route.Flag.html#toString\(\)) \- Method in record class com.google.adk.workflow.[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow")
+    
+
+Returns a string representation of this record class.
+
+[toString()](com/google/adk/workflow/Route.Num.html#toString\(\)) \- Method in record class com.google.adk.workflow.[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow")
+    
+
+Returns a string representation of this record class.
+
+[toString()](com/google/adk/workflow/Route.Tag.html#toString\(\)) \- Method in record class com.google.adk.workflow.[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow")
     
 
 Returns a string representation of this record class.
@@ -10485,6 +11254,25 @@ Index of the user message this recording belongs to (0-based).
 
 [userMessageIndex(int)](com/google/adk/plugins/recordings/Recording.Builder.html#userMessageIndex\(int\)) \- Method in class com.google.adk.plugins.recordings.[Recording.Builder](com/google/adk/plugins/recordings/Recording.Builder.html "class in com.google.adk.plugins.recordings")
      
+[uuidProvider()](com/google/adk/agents/InvocationContext.html#uuidProvider\(\)) \- Method in class com.google.adk.agents.[InvocationContext](com/google/adk/agents/InvocationContext.html "class in com.google.adk.agents")
+    
+
+Returns the [`UuidProvider`](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform") for this invocation.
+
+[uuidProvider(UuidProvider)](com/google/adk/agents/InvocationContext.Builder.html#uuidProvider\(com.google.adk.platform.UuidProvider\)) \- Method in class com.google.adk.agents.[InvocationContext.Builder](com/google/adk/agents/InvocationContext.Builder.html "class in com.google.adk.agents")
+    
+
+Sets the UUID provider for the invocation; `null` (the default) selects [`UuidProvider.SYSTEM`](com/google/adk/platform/UuidProvider.html#SYSTEM).
+
+[uuidProvider(UuidProvider)](com/google/adk/runner/Runner.Builder.html#uuidProvider\(com.google.adk.platform.UuidProvider\)) \- Method in class com.google.adk.runner.[Runner.Builder](com/google/adk/runner/Runner.Builder.html "class in com.google.adk.runner")
+    
+
+Sets the [`UuidProvider`](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform") that supplies every identifier this runner generates: event, invocation, and client function-call ids, and the ids of sessions created by the default in-memory session service, which is created on the first `build()`.
+
+[UuidProvider](com/google/adk/platform/UuidProvider.html "interface in com.google.adk.platform") \- Interface in [com.google.adk.platform](com/google/adk/platform/package-summary.html)
+    
+
+Supplies new unique identifiers for ADK-generated ids.
 
 ## V
 
@@ -10506,6 +11294,21 @@ Validates an output string against a schema.
     
 
 Returns the URL to report in `runtime-config.json`, or empty when unset or ignored.
+
+[value()](com/google/adk/workflow/Route.Flag.html#value\(\)) \- Method in record class com.google.adk.workflow.[Route.Flag](com/google/adk/workflow/Route.Flag.html "class in com.google.adk.workflow")
+    
+
+Returns the value of the `value` record component.
+
+[value()](com/google/adk/workflow/Route.Num.html#value\(\)) \- Method in record class com.google.adk.workflow.[Route.Num](com/google/adk/workflow/Route.Num.html "class in com.google.adk.workflow")
+    
+
+Returns the value of the `value` record component.
+
+[value()](com/google/adk/workflow/Route.Tag.html#value\(\)) \- Method in record class com.google.adk.workflow.[Route.Tag](com/google/adk/workflow/Route.Tag.html "class in com.google.adk.workflow")
+    
+
+Returns the value of the `value` record component.
 
 [valueOf(String)](com/google/adk/a2a/common/A2AMetadata.Key.html#valueOf\(java.lang.String\)) \- Static method in enum class com.google.adk.a2a.common.[A2AMetadata.Key](com/google/adk/a2a/common/A2AMetadata.Key.html "enum class in com.google.adk.a2a.common")
     
@@ -10573,6 +11376,11 @@ Returns the enum constant of this class with the specified name.
 Returns the enum constant of this class with the specified name.
 
 [valueOf(String)](com/google/adk/utils/AgentEnums.AgentOrigin.html#valueOf\(java.lang.String\)) \- Static method in enum class com.google.adk.utils.[AgentEnums.AgentOrigin](com/google/adk/utils/AgentEnums.AgentOrigin.html "enum class in com.google.adk.utils")
+    
+
+Returns the enum constant of this class with the specified name.
+
+[valueOf(String)](com/google/adk/workflow/Route.Default.html#valueOf\(java.lang.String\)) \- Static method in enum class com.google.adk.workflow.[Route.Default](com/google/adk/workflow/Route.Default.html "enum class in com.google.adk.workflow")
     
 
 Returns the enum constant of this class with the specified name.
@@ -10645,6 +11453,11 @@ Returns an array containing the constants of this enum class, in the order they 
 Returns an array containing the constants of this enum class, in the order they are declared.
 
 [values()](com/google/adk/utils/AgentEnums.AgentOrigin.html#values\(\)) \- Static method in enum class com.google.adk.utils.[AgentEnums.AgentOrigin](com/google/adk/utils/AgentEnums.AgentOrigin.html "enum class in com.google.adk.utils")
+    
+
+Returns an array containing the constants of this enum class, in the order they are declared.
+
+[values()](com/google/adk/workflow/Route.Default.html#values\(\)) \- Static method in enum class com.google.adk.workflow.[Route.Default](com/google/adk/workflow/Route.Default.html "enum class in com.google.adk.workflow")
     
 
 Returns an array containing the constants of this enum class, in the order they are declared.
@@ -10778,6 +11591,15 @@ Constructs a VertexSpeechClient, initializing the underlying Google Cloud Speech
 
 Waits for specified duration.
 
+[waitForOutput()](com/google/adk/workflow/BaseNode.html#waitForOutput\(\)) \- Method in class com.google.adk.workflow.[BaseNode](com/google/adk/workflow/BaseNode.html "class in com.google.adk.workflow")
+     
+[waitForOutput()](com/google/adk/workflow/Node.html#waitForOutput\(\)) \- Method in interface com.google.adk.workflow.[Node](com/google/adk/workflow/Node.html "interface in com.google.adk.workflow")
+    
+
+Returns `true` if the node stays re-triggerable until it produces an output or a route, instead of completing when its run completes.
+
+[waitForOutput(boolean)](com/google/adk/workflow/Workflow.Builder.html#waitForOutput\(boolean\)) \- Method in class com.google.adk.workflow.[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow")
+     
 [WEATHER_AGENT](com/google/adk/tutorials/LiveAudioSingleAgent.html#WEATHER_AGENT) \- Static variable in class com.google.adk.tutorials.[LiveAudioSingleAgent](com/google/adk/tutorials/LiveAudioSingleAgent.html "class in com.google.adk.tutorials")
      
 [Web Interface](com/google/adk/maven/WebMojo.html#web-interface-heading) \- Section in class com.google.adk.maven.WebMojo
@@ -10812,6 +11634,16 @@ Returns a transformer that re-activates a given context for the duration of the 
     
 
 Pattern to match words for keyword extraction.
+
+[Workflow](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+A graph of nodes that is itself a node, so a workflow can go wherever a node can, including in another workflow.
+
+[Workflow.Builder](com/google/adk/workflow/Workflow.Builder.html "class in com.google.adk.workflow") \- Class in [com.google.adk.workflow](com/google/adk/workflow/package-summary.html)
+    
+
+Builder for [`Workflow`](com/google/adk/workflow/Workflow.html "class in com.google.adk.workflow").
 
 [wrapCallResult(ObjectMapper, String, McpSchema.CallToolResult)](com/google/adk/tools/mcp/AbstractMcpTool.html#wrapCallResult\(com.fasterxml.jackson.databind.ObjectMapper,java.lang.String,io.modelcontextprotocol.spec.McpSchema.CallToolResult\)) \- Static method in class com.google.adk.tools.mcp.[AbstractMcpTool](com/google/adk/tools/mcp/AbstractMcpTool.html "class in com.google.adk.tools.mcp")
      

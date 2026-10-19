@@ -20,7 +20,7 @@ Represents Google Service Account configuration.
 #### Example
     
     
-    config = {  
+    const config: ServiceAccountCredential = {  
       type: "service_account",  
       projectId: "your_project_id",  
       privateKeyId: "your_private_key_id",  
@@ -32,7 +32,7 @@ Represents Google Service Account configuration.
       authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",  
       clientX509CertUrl: "https://www.googleapis.com/robot/v1/metadata/x509/...",  
       universeDomain: "googleapis.com",  
-    }
+    };
     Copy
 
 interface ServiceAccountCredential {  
@@ -49,7 +49,7 @@ type: "service_account";
 universeDomain: string;  
 }
 
-  * Defined in [core/src/auth/auth_credential.ts:82](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L82)
+  * Defined in [core/src/auth/auth_credential.ts:87](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L87)
 
 
 
@@ -61,7 +61,7 @@ authProviderX509CertUrl: string
 
 URL for auth provider's X.509 cert.
 
-  * Defined in [core/src/auth/auth_credential.ts:126](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L126)
+  * Defined in [core/src/auth/auth_credential.ts:131](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L131)
 
 
 
@@ -71,7 +71,7 @@ authUri: string
 
 The authorization URI.
 
-  * Defined in [core/src/auth/auth_credential.ts:116](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L116)
+  * Defined in [core/src/auth/auth_credential.ts:121](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L121)
 
 
 
@@ -81,7 +81,7 @@ clientEmail: string
 
 The client email.
 
-  * Defined in [core/src/auth/auth_credential.ts:106](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L106)
+  * Defined in [core/src/auth/auth_credential.ts:111](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L111)
 
 
 
@@ -91,7 +91,7 @@ clientId: string
 
 The client ID.
 
-  * Defined in [core/src/auth/auth_credential.ts:111](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L111)
+  * Defined in [core/src/auth/auth_credential.ts:116](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L116)
 
 
 
@@ -101,7 +101,7 @@ clientX509CertUrl: string
 
 URL for the client's X.509 cert.
 
-  * Defined in [core/src/auth/auth_credential.ts:131](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L131)
+  * Defined in [core/src/auth/auth_credential.ts:136](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L136)
 
 
 
@@ -111,7 +111,7 @@ privateKey: string
 
 The private key value.
 
-  * Defined in [core/src/auth/auth_credential.ts:101](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L101)
+  * Defined in [core/src/auth/auth_credential.ts:106](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L106)
 
 
 
@@ -121,7 +121,7 @@ privateKeyId: string
 
 The ID of the private key.
 
-  * Defined in [core/src/auth/auth_credential.ts:96](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L96)
+  * Defined in [core/src/auth/auth_credential.ts:101](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L101)
 
 
 
@@ -131,7 +131,7 @@ projectId: string
 
 The project ID of the Google Cloud project.
 
-  * Defined in [core/src/auth/auth_credential.ts:91](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L91)
+  * Defined in [core/src/auth/auth_credential.ts:96](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L96)
 
 
 
@@ -141,7 +141,7 @@ tokenUri: string
 
 The token URI.
 
-  * Defined in [core/src/auth/auth_credential.ts:121](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L121)
+  * Defined in [core/src/auth/auth_credential.ts:126](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L126)
 
 
 
@@ -151,7 +151,7 @@ type: "service_account"
 
 The type should be 'service_account'.
 
-  * Defined in [core/src/auth/auth_credential.ts:86](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L86)
+  * Defined in [core/src/auth/auth_credential.ts:91](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L91)
 
 
 
@@ -161,7 +161,7 @@ universeDomain: string
 
 The universe domain.
 
-  * Defined in [core/src/auth/auth_credential.ts:136](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/auth_credential.ts#L136)
+  * Defined in [core/src/auth/auth_credential.ts:141](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/auth_credential.ts#L141)
 
 
 
@@ -169,7 +169,7 @@ Properties
 
 authProviderX509CertUrlauthUriclientEmailclientIdclientX509CertUrlprivateKeyprivateKeyIdprojectIdtokenUritypeuniverseDomain
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

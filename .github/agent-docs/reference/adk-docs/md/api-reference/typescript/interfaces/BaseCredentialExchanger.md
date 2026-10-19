@@ -27,11 +27,14 @@ params: { authCredential: [AuthCredential](AuthCredential.html); authScheme?: [A
 
 #### Implemented by
 
+  * [AutoAuthCredentialExchanger](../classes/AutoAuthCredentialExchanger.html)
+  * [OAuth2BearerExchanger](../classes/OAuth2BearerExchanger.html)
   * [OAuth2CredentialExchanger](../classes/OAuth2CredentialExchanger.html)
+  * [ServiceAccountCredentialExchanger](../classes/ServiceAccountCredentialExchanger.html)
 
 
 
-  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:29](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/exchanger/base_credential_exchanger.ts#L29)
+  * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:29](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/exchanger/base_credential_exchanger.ts#L29)
 
 
 
@@ -64,7 +67,7 @@ The exchanged credential.
 
 CredentialExchangeError: If credential exchange fails.
 
-    * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:39](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/auth/exchanger/base_credential_exchanger.ts#L39)
+    * Defined in [core/src/auth/exchanger/base_credential_exchanger.ts:39](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/auth/exchanger/base_credential_exchanger.ts#L39)
 
 
 
@@ -73,7 +76,7 @@ Methods
 
 exchange
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

@@ -15,13 +15,13 @@ Preparing search index...
 
 # Function createEvent
 
-  * createEvent(params?: Partial<[Event](../interfaces/Event.html)>): [Event](../interfaces/Event.html)
+  * createEvent(params?: [CreateEventParams](../interfaces/CreateEventParams.html)): [Event](../interfaces/Event.html)
 
 Creates an event from a partial event.
 
 #### Parameters
 
-    * params: Partial<[Event](../interfaces/Event.html)> = {}
+    * params: [CreateEventParams](../interfaces/CreateEventParams.html) = {}
 
 The partial event to create the event from.
 
@@ -29,12 +29,12 @@ The partial event to create the event from.
 
 The event.
 
-    * Defined in [core/src/events/event.ts:74](https://github.com/google/adk-js/blob/be3edbe2d6d74bfc3753db87b7a31e992d5ad9ca/core/src/events/event.ts#L74)
+    * Defined in [core/src/events/event.ts:171](https://github.com/google/adk-js/blob/1c220dbbf5088598bdafe78777e9787baf6388e4/core/src/events/event.ts#L171)
 
 
 
 
-[ADK for TypeScript: API Reference - v1.5.0](../index.html)
+[ADK for TypeScript: API Reference - v2.2.1](../index.html)
 
   * Loading...
 

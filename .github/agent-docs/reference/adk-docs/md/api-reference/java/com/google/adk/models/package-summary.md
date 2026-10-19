@@ -84,6 +84,14 @@ Abstract base class for Large Language Models (LLMs).
 
 The base class for a live model connection.
 
+[CacheMetadata](CacheMetadata.html "class in com.google.adk.models")
+
+Context cache state carried on an LLM response, and on its event, from one request to the next.
+
+[CacheMetadata.Builder](CacheMetadata.Builder.html "class in com.google.adk.models")
+
+Builder for [`CacheMetadata`](CacheMetadata.html "class in com.google.adk.models").
+
 [Claude](Claude.html "class in com.google.adk.models")
 
 Represents the Claude Generative AI model by Anthropic.

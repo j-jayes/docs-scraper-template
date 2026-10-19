@@ -73,20 +73,26 @@ Contents
      40. setInputTranscription(Transcription)
      41. outputTranscription()
      42. setOutputTranscription(Transcription)
-     43. timestamp()
-     44. setTimestamp(long)
-     45. functionCalls()
-     46. functionResponses()
-     47. hasTrailingCodeExecutionResult()
-     48. hasPendingLongRunningToolCall()
-     49. finalResponse()
-     50. stringifyContent()
-     51. builder()
-     52. fromJson(String)
-     53. toBuilder()
-     54. equals(Object)
-     55. toString()
-     56. hashCode()
+     43. output()
+     44. setOutput(Object)
+     45. nodeInfo()
+     46. setNodeInfo(NodeInfo)
+     47. cacheMetadata()
+     48. setCacheMetadata(CacheMetadata)
+     49. timestamp()
+     50. setTimestamp(long)
+     51. functionCalls()
+     52. functionResponses()
+     53. hasTrailingCodeExecutionResult()
+     54. hasPendingLongRunningToolCall()
+     55. finalResponse()
+     56. stringifyContent()
+     57. builder()
+     58. fromJson(String)
+     59. toBuilder()
+     60. equals(Object)
+     61. toString()
+     62. hashCode()
 
 Hide sidebar  Show sidebar
 
@@ -166,6 +172,12 @@ Sets the branch for this event.
 
  
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models")>`
+
+`cacheMetadata()`
+
+Context cache state of the LLM response this event carries.
+
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Content>`
 
 `content()`
@@ -230,7 +242,7 @@ Returns all function responses from this event.
 
 `generateEventId()`
 
- 
+Returns a random event id.
 
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.GroundingMetadata>`
 
@@ -292,6 +304,18 @@ Set of ids of the long running function calls.
 
 The model version used to generate the response.
 
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[NodeInfo](../workflow/NodeInfo.html "class in com.google.adk.workflow")>`
+
+`nodeInfo()`
+
+Identifies the workflow-node activation that emitted this event; outside a workflow, this value is empty or has an empty path.
+
+`[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")>`
+
+`output()`
+
+For a workflow node, returns the value handed to successors, distinct from `content()`, or empty when the event carries no node output.
+
 `[Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<com.google.genai.types.Transcription>`
 
 `outputTranscription()`
@@ -319,6 +343,12 @@ partial is true for incomplete chunks from the LLM streaming response.
 `void`
 
 `setAvgLogprobs(@Nullable [Double](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html "class in java.lang") avgLogprobs)`
+
+ 
+
+`void`
+
+`setCacheMetadata(@Nullable [CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models") cacheMetadata)`
 
  
 
@@ -399,6 +429,18 @@ Use `setFinishReason(FinishReason)` with `finishReason.orElse(null)` instead.
 `void`
 
 `setModelVersion(@Nullable [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") modelVersion)`
+
+ 
+
+`void`
+
+`setNodeInfo(@Nullable [NodeInfo](../workflow/NodeInfo.html "class in com.google.adk.workflow") nodeInfo)`
+
+ 
+
+`void`
+
+`setOutput(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") output)`
 
  
 
@@ -528,6 +570,8 @@ Serializes an object to a Json string.
     * ### generateEventId
 
 public static [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") generateEventId()
+
+Returns a random event id. Agents, tools, and plugins that build events inside an invocation should use `InvocationContext.newUuid()` instead so the id follows its [`UuidProvider`](../platform/UuidProvider.html "interface in com.google.adk.platform").
 
     * ### id
 
@@ -727,6 +771,36 @@ Output transcription. The transcription is independent to the model turn which m
     * ### setOutputTranscription
 
 public void setOutputTranscription(@Nullable com.google.genai.types.Transcription outputTranscription)
+
+    * ### output
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang")> output()
+
+For a workflow node, returns the value handed to successors, distinct from `content()`, or empty when the event carries no node output. Holds any value Jackson can serialize, such as a JSON-native value or a `Content`. An event read from JSON holds the JSON-native form (a map with string keys, a list, a string, a number, or a boolean).
+
+    * ### setOutput
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public void setOutput(@Nullable [Object](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html "class in java.lang") output)
+
+    * ### nodeInfo
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[NodeInfo](../workflow/NodeInfo.html "class in com.google.adk.workflow")> nodeInfo()
+
+Identifies the workflow-node activation that emitted this event; outside a workflow, this value is empty or has an empty path.
+
+    * ### setNodeInfo
+
+[@Experimental](../annotations/Experimental.html "annotation interface in com.google.adk.annotations") public void setNodeInfo(@Nullable [NodeInfo](../workflow/NodeInfo.html "class in com.google.adk.workflow") nodeInfo)
+
+    * ### cacheMetadata
+
+public [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models")> cacheMetadata()
+
+Context cache state of the LLM response this event carries. The next request of the same agent reads it to reuse or refresh the cache.
+
+    * ### setCacheMetadata
+
+public void setCacheMetadata(@Nullable [CacheMetadata](../models/CacheMetadata.html "class in com.google.adk.models") cacheMetadata)
 
     * ### timestamp
 
