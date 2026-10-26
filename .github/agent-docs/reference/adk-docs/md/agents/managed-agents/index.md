@@ -59,6 +59,7 @@ Agents
           * Local session vs. remote state 
         * Limitations 
         * Next steps 
+      * [ Service registration  ](../service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 

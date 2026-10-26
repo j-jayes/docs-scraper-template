@@ -1,22 +1,34 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/FunctionCall
 
 # FunctionCall
 
-@Serializable
+common
 
-data class [FunctionCall](index.html)(val name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "", val args: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?> = emptyMap(), val id: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val partialArgs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[PartialArg](../-partial-arg/index.html)>? = null, val willContinue: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [FunctionCall](index.html)(val name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", val args: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)?> = emptyMap(), val id: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val partialArgs: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[PartialArg](../-partial-arg/index.html)>? = null, val willContinue: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
 
 Represents a function call in a generation response.
 
@@ -28,13 +40,27 @@ Members
 
 Link copied to clipboard
 
-constructor(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html) = "", args: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?> = emptyMap(), id: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, partialArgs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[PartialArg](../-partial-arg/index.html)>? = null, willContinue: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
+common
+
+constructor(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", args: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)?> = emptyMap(), id: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, partialArgs: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[PartialArg](../-partial-arg/index.html)>? = null, willContinue: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
 
 ## Types
+
+[Builder](-builder/index.html)
+
+Link copied to clipboard
+
+common
+
+class [Builder](-builder/index.html)
+
+Fluent builder for [FunctionCall](index.html), provided primarily for Java callers. Any property left unset falls back to the same default as the constructor.
 
 [Companion](-companion/index.html)
 
 Link copied to clipboard
+
+common
 
 object [Companion](-companion/index.html)
 
@@ -44,7 +70,11 @@ object [Companion](-companion/index.html)
 
 Link copied to clipboard
 
-val [args](args.html): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)?>
+common
+
+@[EncodeDefault](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-encode-default/index.html)(mode = [EncodeDefault.Mode.ALWAYS](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-encode-default/-mode/-a-l-w-a-y-s/index.html))
+
+val [args](args.html): [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)?>
 
 The arguments to pass to the function.
 
@@ -52,7 +82,9 @@ The arguments to pass to the function.
 
 Link copied to clipboard
 
-val [id](id.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
+common
+
+val [id](id.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)?
 
 The unique identifier for this function call.
 
@@ -60,7 +92,9 @@ The unique identifier for this function call.
 
 Link copied to clipboard
 
-val [name](name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+common
+
+val [name](name.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)
 
 The name of the function to call.
 
@@ -68,7 +102,9 @@ The name of the function to call.
 
 Link copied to clipboard
 
-val [partialArgs](partial-args.html): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[PartialArg](../-partial-arg/index.html)>? = null
+common
+
+val [partialArgs](partial-args.html): [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[PartialArg](../-partial-arg/index.html)>?
 
 Partial argument fragments being streamed from the model.
 
@@ -76,8 +112,24 @@ Partial argument fragments being streamed from the model.
 
 Link copied to clipboard
 
-val [willContinue](will-continue.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null
+common
+
+val [willContinue](will-continue.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)?
 
 Whether more partial fragments for this function call are expected.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+## Functions
+
+[toBuilder](to-builder.html)
+
+Link copied to clipboard
+
+common
+
+fun [toBuilder](to-builder.html)(): [FunctionCall.Builder](-builder/index.html)
+
+Returns a [Builder](-builder/index.html) initialized with this instance's properties, primarily for Java callers. Prefer it over `copy` from Java: `copy` takes every property positionally, so its signature changes whenever a property is added.
+
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

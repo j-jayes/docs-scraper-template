@@ -95,8 +95,8 @@ my_agent/build.gradle.kts (partial)
 
 ```kotlin
 dependencies {
-    implementation("com.google.adk:google-adk-kotlin-core:1.0.0")
-    ksp("com.google.adk:google-adk-kotlin-processor:1.0.0")
+    implementation("com.google.adk:google-adk-kotlin-core:1.4.0")
+    ksp("com.google.adk:google-adk-kotlin-processor:1.4.0")
 }
 ```
 
@@ -118,9 +118,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.adk:google-adk-kotlin-core:1.0.0")
-    implementation("com.google.adk:google-adk-kotlin-webserver:1.0.0")
-    ksp("com.google.adk:google-adk-kotlin-processor:1.0.0")
+    implementation("com.google.adk:google-adk-kotlin-core:1.4.0")
+    implementation("com.google.adk:google-adk-kotlin-webserver:1.4.0")
+    ksp("com.google.adk:google-adk-kotlin-processor:1.4.0")
 }
 
 kotlin {
@@ -217,9 +217,9 @@ my_agent/build.gradle.kts (add to dependencies)
 
 ```kotlin
 dependencies {
-    implementation("com.google.adk:google-adk-kotlin-core:1.0.0")
-    implementation("com.google.adk:google-adk-kotlin-webserver:1.0.0")
-    ksp("com.google.adk:google-adk-kotlin-processor:1.0.0")
+    implementation("com.google.adk:google-adk-kotlin-core:1.4.0")
+    implementation("com.google.adk:google-adk-kotlin-webserver:1.4.0")
+    ksp("com.google.adk:google-adk-kotlin-processor:1.4.0")
 }
 ```
 

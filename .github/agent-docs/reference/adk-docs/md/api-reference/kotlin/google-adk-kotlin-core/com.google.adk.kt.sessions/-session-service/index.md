@@ -1,18 +1,30 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.sessions](../index.html)/SessionService
 
 # SessionService
+
+common
 
 interface [SessionService](index.html)
 
@@ -22,7 +34,11 @@ Defines the contract for managing [Session](../-session/index.html)s and their a
 
 [RoomSessionService](../../../google-adk-kotlin-core/com.google.adk.kt.sessions.room/-room-session-service/index.html)
 
+[BaseFutureSessionService](../../../google-adk-kotlin-core/com.google.adk.kt.interop/-base-future-session-service/index.html)
+
 [InMemorySessionService](../-in-memory-session-service/index.html)
+
+[VertexAiSessionService](../../../google-adk-kotlin-core/com.google.adk.kt.sessions/-vertex-ai-session-service/index.html)
 
 Members
 
@@ -32,13 +48,17 @@ Members
 
 Link copied to clipboard
 
+common
+
 open suspend fun [appendEvent](append-event.html)(session: [Session](../-session/index.html), event: [Event](../../com.google.adk.kt.events/-event/index.html)): [Event](../../com.google.adk.kt.events/-event/index.html)
 
-Appends an event to an in-memory session object and updates the session's state based on the event's state delta, if applicable.
+Appends [event](append-event.html) to [session](append-event.html), applying its state delta to the in-memory session and recording the event; `temp:` keys are applied to the in-memory state (so later agents in the invocation can read them) but removed from [event](append-event.html) before persistence.
 
 [closeSession](close-session.html)
 
 Link copied to clipboard
+
+common
 
 open suspend fun [closeSession](close-session.html)(session: [Session](../-session/index.html))
 
@@ -48,7 +68,9 @@ Closes a session.
 
 Link copied to clipboard
 
-abstract suspend fun [createSession](create-session.html)(key: [SessionKey](../-session-key/index.html), state: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>? = null): [Session](../-session/index.html)
+common
+
+abstract suspend fun [createSession](create-session.html)(key: [SessionKey](../-session-key/index.html), state: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)>? = null): [Session](../-session/index.html)
 
 Creates a new session with the specified parameters.
 
@@ -56,13 +78,27 @@ Creates a new session with the specified parameters.
 
 Link copied to clipboard
 
+common
+
 abstract suspend fun [deleteSession](delete-session.html)(key: [SessionKey](../-session-key/index.html))
 
 Deletes a specific session.
 
+[flush](flush.html)
+
+Link copied to clipboard
+
+common
+
+open suspend fun [flush](flush.html)(key: [SessionKey](../-session-key/index.html)? = null)
+
+Waits until the writes appended before this call are persisted: those to [key](flush.html), or to every session when [key](flush.html) is `null`. Canceling the caller stops the wait, not the writes.
+
 [getSession](get-session.html)
 
 Link copied to clipboard
+
+common
 
 abstract suspend fun [getSession](get-session.html)(key: [SessionKey](../-session-key/index.html), config: [GetSessionConfig](../-get-session-config/index.html)? = null): [Session](../-session/index.html)?
 
@@ -72,6 +108,8 @@ Retrieves a specific session, optionally filtering the events included.
 
 Link copied to clipboard
 
+common
+
 abstract suspend fun [listEvents](list-events.html)(key: [SessionKey](../-session-key/index.html)): [ListEventsResponse](../-list-events-response/index.html)
 
 Lists the events within a specific session.
@@ -80,8 +118,12 @@ Lists the events within a specific session.
 
 Link copied to clipboard
 
-abstract suspend fun [listSessions](list-sessions.html)(appName: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), userId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [ListSessionsResponse](../-list-sessions-response/index.html)
+common
+
+abstract suspend fun [listSessions](list-sessions.html)(appName: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), userId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)): [ListSessionsResponse](../-list-sessions-response/index.html)
 
 Lists sessions associated with a specific application and user.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

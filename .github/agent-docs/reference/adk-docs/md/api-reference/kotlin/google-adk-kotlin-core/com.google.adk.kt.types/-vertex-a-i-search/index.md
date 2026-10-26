@@ -1,20 +1,34 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/VertexAISearch
 
 # VertexAISearch
 
-data class [VertexAISearch](index.html)(val dataStoreSpecs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../-vertex-a-i-search-data-store-spec/index.html)>? = null, val datastore: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val engine: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val filter: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val maxResults: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null)
+common
+
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [VertexAISearch](index.html)(val dataStoreSpecs: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../-vertex-a-i-search-data-store-spec/index.html)>? = null, val datastore: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val engine: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val filter: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val maxResults: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null)
 
 Retrieve from Vertex AI Search datastore or engine for grounding. datastore and engine are mutually exclusive.
 
@@ -26,7 +40,9 @@ Members
 
 Link copied to clipboard
 
-constructor(dataStoreSpecs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../-vertex-a-i-search-data-store-spec/index.html)>? = null, datastore: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, engine: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, filter: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, maxResults: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null)
+common
+
+constructor(dataStoreSpecs: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../-vertex-a-i-search-data-store-spec/index.html)>? = null, datastore: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, engine: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, filter: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, maxResults: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null)
 
 ## Properties
 
@@ -34,13 +50,17 @@ constructor(dataStoreSpecs: [List](https://kotlinlang.org/api/latest/jvm/stdlib/
 
 Link copied to clipboard
 
-val [datastore](datastore.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
+common
+
+val [datastore](datastore.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)?
 
 [dataStoreSpecs](data-store-specs.html)
 
 Link copied to clipboard
 
-val [dataStoreSpecs](data-store-specs.html): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../-vertex-a-i-search-data-store-spec/index.html)>? = null
+common
+
+val [dataStoreSpecs](data-store-specs.html): [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[VertexAISearchDataStoreSpec](../-vertex-a-i-search-data-store-spec/index.html)>?
 
 Specifications that define the specific DataStores to be searched, along with configurations for those data stores. This is only considered for Engines with multiple data stores. It should only be set if engine is used.
 
@@ -48,7 +68,9 @@ Specifications that define the specific DataStores to be searched, along with co
 
 Link copied to clipboard
 
-val [engine](engine.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
+common
+
+val [engine](engine.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)?
 
 Optional. Fully-qualified Vertex AI Search engine resource ID. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
 
@@ -56,7 +78,9 @@ Optional. Fully-qualified Vertex AI Search engine resource ID. Format: `projects
 
 Link copied to clipboard
 
-val [filter](filter.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
+common
+
+val [filter](filter.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)?
 
 Optional. Filter strings to be passed to the search API.
 
@@ -64,8 +88,12 @@ Optional. Filter strings to be passed to the search API.
 
 Link copied to clipboard
 
-val [maxResults](max-results.html): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)? = null
+common
+
+val [maxResults](max-results.html): [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)?
 
 Optional. Number of search results to return per query. The default value is 10. The maximum allowed value is 10.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

@@ -6,7 +6,7 @@ Skip to content
 
 [ Agent Development Kit (ADK) ](../../.. "Agent Development Kit \(ADK\)")
 
-Gemini 
+Google Gemini models for ADK agents 
 
 [ Python ](https://github.com/google/adk-python "adk-python on GitHub") [ JS ](https://github.com/google/adk-js "adk-js on GitHub") [ Go ](https://github.com/google/adk-go "adk-go on GitHub") [ Java ](https://github.com/google/adk-java "adk-java on GitHub") [ Kotlin ](https://github.com/google/adk-kotlin "adk-kotlin on GitHub")
 
@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../llm-agents/)
       * [ Managed agents  ](../../managed-agents/)
+      * [ Service registration  ](../../service-registration/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -72,14 +73,10 @@ Template workflows
     * [ Models for Agents  ](../)
 
 Models for Agents 
-      * Gemini  [ Gemini  ](./) Table of contents 
-        * Get started 
-        * Gemini model authentication 
-        * Voice and video streaming support 
-        * Gemini Interactions API 
-          * Known limitations 
-        * Troubleshooting 
-          * Error Code 429 - RESOURCE_EXHAUSTED 
+      * [ Gemini  ](./)
+
+Gemini 
+        * [ Deferred scheduling  ](deferred-schedule/)
       * [ Gemma  ](../google-gemma/)
       * [ Claude  ](../anthropic/)
       * [ Agent Platform hosted  ](../agent-platform/)
@@ -263,8 +260,9 @@ Table of contents
   1. [ Home  ](../../..)
   2. [ Build Agents  ](../../../get-started/)
   3. [ Models for Agents  ](../)
+  4. [ Gemini  ](./)
 
-[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/google-gemini.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
+[ ](https://github.com/google/adk-docs/edit/main/docs/agents/models/google-gemini/index.md "Edit this page on GitHub") [ ](./index.md "View this page as Markdown")
 
 # Google Gemini models for ADK agents¶
 
@@ -416,6 +414,8 @@ Python
     
 
 For a complete code sample, see the [Interactions API sample](https://github.com/google/adk-python/tree/main/contributing/samples/models/interactions_api).
+
+Enabling the Interactions API also lets you choose a serving tier for each run. For details on queuing model calls to run on off-peak capacity, see [Deferred scheduling](deferred-schedule/).
 
 ### Known limitations¶
 

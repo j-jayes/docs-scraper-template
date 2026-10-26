@@ -1,20 +1,34 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/HarmBlockThreshold
 
 # HarmBlockThreshold
 
-enum [HarmBlockThreshold](index.html) : [Enum](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-enum/index.html)<[HarmBlockThreshold](index.html)>
+common
+
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+enum [HarmBlockThreshold](index.html) : [Enum](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html)<[HarmBlockThreshold](index.html)>
 
 The probability threshold at or above which content is blocked for a [HarmCategory](../-harm-category/index.html).
 
@@ -26,6 +40,8 @@ MembersEntries
 
 Link copied to clipboard
 
+common
+
 [HARM_BLOCK_THRESHOLD_UNSPECIFIED](-h-a-r-m_-b-l-o-c-k_-t-h-r-e-s-h-o-l-d_-u-n-s-p-e-c-i-f-i-e-d/index.html)
 
 The threshold is unspecified.
@@ -33,6 +49,8 @@ The threshold is unspecified.
 [BLOCK_LOW_AND_ABOVE](-b-l-o-c-k_-l-o-w_-a-n-d_-a-b-o-v-e/index.html)
 
 Link copied to clipboard
+
+common
 
 [BLOCK_LOW_AND_ABOVE](-b-l-o-c-k_-l-o-w_-a-n-d_-a-b-o-v-e/index.html)
 
@@ -42,6 +60,8 @@ Block content with a low probability of harm and above.
 
 Link copied to clipboard
 
+common
+
 [BLOCK_MEDIUM_AND_ABOVE](-b-l-o-c-k_-m-e-d-i-u-m_-a-n-d_-a-b-o-v-e/index.html)
 
 Block content with a medium probability of harm and above.
@@ -49,6 +69,8 @@ Block content with a medium probability of harm and above.
 [BLOCK_ONLY_HIGH](-b-l-o-c-k_-o-n-l-y_-h-i-g-h/index.html)
 
 Link copied to clipboard
+
+common
 
 [BLOCK_ONLY_HIGH](-b-l-o-c-k_-o-n-l-y_-h-i-g-h/index.html)
 
@@ -58,6 +80,8 @@ Block only content with a high probability of harm.
 
 Link copied to clipboard
 
+common
+
 [BLOCK_NONE](-b-l-o-c-k_-n-o-n-e/index.html)
 
 Do not block any content based on probability.
@@ -66,23 +90,39 @@ Do not block any content based on probability.
 
 Link copied to clipboard
 
+common
+
 [OFF](-o-f-f/index.html)
 
 Turn off the safety filter for this category.
 
 ## Properties
 
-[name](../-type/-n-u-l-l/index.html#-372974862%2FProperties%2F-1644122207)
+[entries](entries.html)
 
 Link copied to clipboard
 
-val [name](../-type/-n-u-l-l/index.html#-372974862%2FProperties%2F-1644122207): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+common
 
-[ordinal](../-type/-n-u-l-l/index.html#-739389684%2FProperties%2F-1644122207)
+val [entries](entries.html): [EnumEntries](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html)<[HarmBlockThreshold](index.html)>
+
+Returns a representation of an immutable list of all enum entries, in the order they're declared.
+
+[name](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-372974862%2FProperties%2F-1855338903)
 
 Link copied to clipboard
 
-val [ordinal](../-type/-n-u-l-l/index.html#-739389684%2FProperties%2F-1644122207): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)
+common
+
+val [name](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-372974862%2FProperties%2F-1855338903): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)
+
+[ordinal](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-739389684%2FProperties%2F-1855338903)
+
+Link copied to clipboard
+
+common
+
+val [ordinal](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-739389684%2FProperties%2F-1855338903): [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)
 
 ## Functions
 
@@ -90,7 +130,9 @@ val [ordinal](../-type/-n-u-l-l/index.html#-739389684%2FProperties%2F-1644122207
 
 Link copied to clipboard
 
-fun [valueOf](value-of.html)(value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [HarmBlockThreshold](index.html)
+common
+
+fun [valueOf](value-of.html)(value: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)): [HarmBlockThreshold](index.html)
 
 Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
 
@@ -98,8 +140,12 @@ Returns the enum constant of this type with the specified name. The string must 
 
 Link copied to clipboard
 
-fun [values](values.html)(): [Array](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html)<[HarmBlockThreshold](index.html)>
+common
+
+fun [values](values.html)(): [Array](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html)<[HarmBlockThreshold](index.html)>
 
 Returns an array containing the constants of this enum type, in the order they're declared.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

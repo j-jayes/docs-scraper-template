@@ -1,0 +1,129 @@
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
+
+1.4.0 
+
+commonJvmAndroid
+
+Target filter __
+
+    * commonJvmAndroid 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
+
+[google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.interop](../index.html)/BaseFutureSessionService
+
+# BaseFutureSessionService
+
+commonJvmAndroid
+
+abstract class [BaseFutureSessionService](index.html) : [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html)
+
+Java-friendly base for implementing a [SessionService](../../com.google.adk.kt.sessions/-session-service/index.html). Every method of the engine interface is `suspend`; this base final-overrides each and asks the Java subclass for a [CompletableFuture](https://developer.android.com/reference/kotlin/java/util/concurrent/CompletableFuture.html) instead. Return each future promptly and do any blocking work inside it, not before returning it. The methods with default bodies ([closeSession](close-session.html), [appendEvent](append-event.html), [flush](flush.html)) keep those defaults reachable: leave the hook unoverridden and the engine's own behaviour runs.
+
+Members
+
+## Constructors
+
+[BaseFutureSessionService](-base-future-session-service.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+constructor()
+
+## Functions
+
+[appendEvent](append-event.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [appendEvent](append-event.html)(session: [Session](../../com.google.adk.kt.sessions/-session/index.html), event: [Event](../../com.google.adk.kt.events/-event/index.html)): [Event](../../com.google.adk.kt.events/-event/index.html)
+
+Appends [event](../../com.google.adk.kt.sessions/-session-service/append-event.html) to [session](../../com.google.adk.kt.sessions/-session-service/append-event.html), applying its state delta to the in-memory session and recording the event; `temp:` keys are applied to the in-memory state (so later agents in the invocation can read them) but removed from [event](../../com.google.adk.kt.sessions/-session-service/append-event.html) before persistence.
+
+[closeSession](close-session.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [closeSession](close-session.html)(session: [Session](../../com.google.adk.kt.sessions/-session/index.html))
+
+Closes a session.
+
+[createSession](create-session.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [createSession](create-session.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html), state: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)>? = null): [Session](../../com.google.adk.kt.sessions/-session/index.html)
+
+Creates a new session with the specified parameters.
+
+[deleteSession](delete-session.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [deleteSession](delete-session.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html))
+
+Deletes a specific session.
+
+[flush](flush.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [flush](flush.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html)? = null)
+
+Waits until the writes appended before this call are persisted: those to [key](../../com.google.adk.kt.sessions/-session-service/flush.html), or to every session when [key](../../com.google.adk.kt.sessions/-session-service/flush.html) is `null`. Canceling the caller stops the wait, not the writes.
+
+[getSession](get-session.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [getSession](get-session.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html), config: [GetSessionConfig](../../com.google.adk.kt.sessions/-get-session-config/index.html)? = null): [Session](../../com.google.adk.kt.sessions/-session/index.html)?
+
+Retrieves a specific session, optionally filtering the events included.
+
+[listEvents](list-events.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [listEvents](list-events.html)(key: [SessionKey](../../com.google.adk.kt.sessions/-session-key/index.html)): [ListEventsResponse](../../com.google.adk.kt.sessions/-list-events-response/index.html)
+
+Lists the events within a specific session.
+
+[listSessions](list-sessions.html)
+
+Link copied to clipboard
+
+commonJvmAndroid
+
+suspend override fun [listSessions](list-sessions.html)(appName: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), userId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)): [ListSessionsResponse](../../com.google.adk.kt.sessions/-list-sessions-response/index.html)
+
+Lists sessions associated with a specific application and user.
+
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

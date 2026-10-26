@@ -1390,6 +1390,8 @@
       
         
       
+        
+      
     
     
     
@@ -1487,6 +1489,34 @@
     
   
     Managed agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/service-registration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service registration
   
 
     
@@ -7668,8 +7698,8 @@ the connection self-contained and isolated.</p>
 <h2 id="test-your-custom-mcp-server-with-an-adk-agent">Test your custom MCP server with an ADK Agent<a class="headerlink" href="#test-your-custom-mcp-server-with-an-adk-agent" title="Permanent link">&para;</a></h2>
 <p>To test your custom server, you need to build an ADK agent that acts as a client. This agent uses the <code>McpToolset</code> to establish a connection to the server script you just created.</p>
 <ol>
-<li>Set up your agent in a new directory such as <code>./adk_agent_samples/mcp_client_agent/</code>. Create an <code>agent.py</code> file and include an <code>__init__.py</code> alongside it to make it discoverable.</li>
-</ol>
+<li>
+<p>Set up your agent in a new directory such as <code>./adk_agent_samples/mcp_client_agent/</code>. Create an <code>agent.py</code> file and include an <code>__init__.py</code> alongside it to make it discoverable.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.agents</span><span class="w"> </span><span class="kn">import</span> <span class="n">LlmAgent</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.tools.mcp_tool</span><span class="w"> </span><span class="kn">import</span> <span class="n">McpToolset</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">google.adk.tools.mcp_tool.mcp_session_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">StdioConnectionParams</span>
@@ -7694,14 +7724,16 @@ the connection self-contained and isolated.</p>
 </span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="p">],</span>
 </span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">)</span>
 </span></code></pre></div>
-<ol>
-<li>Navigate to your agent's parent directory in the terminal:</li>
-</ol>
+</li>
+<li>
+<p>Navigate to your agent's parent directory in the terminal:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>./adk_agent_samples
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>adk<span class="w"> </span>web
 </span></code></pre></div>
-<ol>
-<li>Open the ADK Web UI and select the web_reader_mcp_client_agent.</li>
+</li>
+<li>
+<p>Open the ADK Web UI and select the web_reader_mcp_client_agent.</p>
+</li>
 <li>Test the connection with a prompt such as: <em>Load the content from "https://example.com"</em>.</li>
 </ol>
 <h2 id="mcp-servers-for-google-cloud-genmedia">MCP Servers for Google Cloud Genmedia<a class="headerlink" href="#mcp-servers-for-google-cloud-genmedia" title="Permanent link">&para;</a></h2>

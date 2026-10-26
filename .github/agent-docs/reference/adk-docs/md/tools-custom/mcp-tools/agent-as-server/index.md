@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../../agents/llm-agents/)
       * [ Managed agents  ](../../../agents/managed-agents/)
+      * [ Service registration  ](../../../agents/service-registration/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -409,46 +410,41 @@ When exposing your ADK capabilities via these MCP servers, you typically run the
 To test your custom server, you need to build an ADK agent that acts as a client. This agent uses the `McpToolset` to establish a connection to the server script you just created.
 
   1. Set up your agent in a new directory such as `./adk_agent_samples/mcp_client_agent/`. Create an `agent.py` file and include an `__init__.py` alongside it to make it discoverable.
+         
+         from google.adk.agents import LlmAgent
+         from google.adk.tools.mcp_tool import McpToolset
+         from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
+         from mcp import StdioServerParameters
+         
+         # IMPORTANT: Provide the absolute path to the server script you built previously
+         MCP_SERVER_SCRIPT = "/path/to/your/my_adk_mcp_server.py"
+         
+         root_agent = LlmAgent(
+             model='gemini-flash-latest',
+             name='web_reader_mcp_client_agent',
+             instruction="Use the 'load_web_page' tool to fetch content from a URL provided by the user.",
+             tools=[
+                 McpToolset(
+                     connection_params=StdioConnectionParams(
+                         server_params=StdioServerParameters(
+                             command='python3', 
+                             args=[MCP_SERVER_SCRIPT], 
+                         )
+                     )
+                 )
+             ],
+         )
+         
 
+  2. Navigate to your agent's parent directory in the terminal:
+         
+         cd ./adk_agent_samples
+         adk web
+         
 
-    
-    
-    from google.adk.agents import LlmAgent
-    from google.adk.tools.mcp_tool import McpToolset
-    from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
-    from mcp import StdioServerParameters
-    
-    # IMPORTANT: Provide the absolute path to the server script you built previously
-    MCP_SERVER_SCRIPT = "/path/to/your/my_adk_mcp_server.py"
-    
-    root_agent = LlmAgent(
-        model='gemini-flash-latest',
-        name='web_reader_mcp_client_agent',
-        instruction="Use the 'load_web_page' tool to fetch content from a URL provided by the user.",
-        tools=[
-            McpToolset(
-                connection_params=StdioConnectionParams(
-                    server_params=StdioServerParameters(
-                        command='python3', 
-                        args=[MCP_SERVER_SCRIPT], 
-                    )
-                )
-            )
-        ],
-    )
-    
+  3. Open the ADK Web UI and select the web_reader_mcp_client_agent.
 
-  1. Navigate to your agent's parent directory in the terminal:
-
-
-    
-    
-    cd ./adk_agent_samples
-    adk web
-    
-
-  1. Open the ADK Web UI and select the web_reader_mcp_client_agent.
-  2. Test the connection with a prompt such as: _Load the content from "https://example.com"_.
+  4. Test the connection with a prompt such as: _Load the content from "https://example.com"_.
 
 
 

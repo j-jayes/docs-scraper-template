@@ -1,0 +1,137 @@
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
+
+1.4.0 
+
+common
+
+Target filter __
+
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
+
+[google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/AudioTranscriptionConfig
+
+# AudioTranscriptionConfig
+
+common
+
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [AudioTranscriptionConfig](index.html) @[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html) constructor(val languageCodes: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)>? = null, val customVocabulary: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)>? = null, val diarization: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val wordTimestamp: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val mode: [AudioTranscriptionConfigMode](../-audio-transcription-config-mode/index.html)? = null)
+
+Configures transcription of audio on a live connection.
+
+An instance with all fields unset still enables transcription with automatic language detection.
+
+Members
+
+## Constructors
+
+[AudioTranscriptionConfig](-audio-transcription-config.html)
+
+Link copied to clipboard
+
+common
+
+@[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html)
+
+constructor(languageCodes: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)>? = null, customVocabulary: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)>? = null, diarization: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, wordTimestamp: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, mode: [AudioTranscriptionConfigMode](../-audio-transcription-config-mode/index.html)? = null)
+
+## Types
+
+[Builder](-builder/index.html)
+
+Link copied to clipboard
+
+common
+
+class [Builder](-builder/index.html)
+
+Fluent builder for [AudioTranscriptionConfig](index.html), provided primarily for Java callers. Any property left unset falls back to the same default as the constructor.
+
+[Companion](-companion/index.html)
+
+Link copied to clipboard
+
+common
+
+object [Companion](-companion/index.html)
+
+## Properties
+
+[customVocabulary](custom-vocabulary.html)
+
+Link copied to clipboard
+
+common
+
+val [customVocabulary](custom-vocabulary.html): [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)>?
+
+Phrases that bias the speech model towards recognising these terms.
+
+[diarization](diarization.html)
+
+Link copied to clipboard
+
+common
+
+val [diarization](diarization.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)?
+
+Whether to label distinct speakers.
+
+[languageCodes](language-codes.html)
+
+Link copied to clipboard
+
+common
+
+val [languageCodes](language-codes.html): [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)>?
+
+BCP-47 language codes hinting at the languages present in the audio. If omitted or empty, the language is detected automatically.
+
+[mode](mode.html)
+
+Link copied to clipboard
+
+common
+
+val [mode](mode.html): [AudioTranscriptionConfigMode](../-audio-transcription-config-mode/index.html)?
+
+Configures transcription mode; if unspecified, defaults to `VERBATIM`. Timestamps and diarization are incompatible with `SMART`.
+
+[wordTimestamp](word-timestamp.html)
+
+Link copied to clipboard
+
+common
+
+val [wordTimestamp](word-timestamp.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)?
+
+Whether to generate word-level timestamps.
+
+## Functions
+
+[toBuilder](to-builder.html)
+
+Link copied to clipboard
+
+common
+
+fun [toBuilder](to-builder.html)(): [AudioTranscriptionConfig.Builder](-builder/index.html)
+
+Returns a [Builder](-builder/index.html) initialized with this instance's properties, primarily for Java callers. Prefer it over `copy` from Java: `copy` takes every property positionally, so its signature changes whenever a property is added.
+
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
       * [ Managed agents  ](../agents/managed-agents/)
+      * [ Service registration  ](../agents/service-registration/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -73,6 +74,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)

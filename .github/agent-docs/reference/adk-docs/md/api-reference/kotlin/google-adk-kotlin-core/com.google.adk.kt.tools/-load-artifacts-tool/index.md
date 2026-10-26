@@ -1,18 +1,30 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.tools](../index.html)/LoadArtifactsTool
 
 # LoadArtifactsTool
+
+common
 
 class [LoadArtifactsTool](index.html) : [BaseTool](../-base-tool/index.html)
 
@@ -20,13 +32,15 @@ A tool that loads artifacts and adds them to the session.
 
 This tool informs the model about available artifacts and provides their content when requested by the model through a function call.
 
-Members
+MembersMembers & Extensions
 
 ## Constructors
 
 [LoadArtifactsTool](-load-artifacts-tool.html)
 
 Link copied to clipboard
+
+common
 
 constructor()
 
@@ -36,6 +50,8 @@ constructor()
 
 Link copied to clipboard
 
+common
+
 object [Companion](-companion/index.html)
 
 ## Properties
@@ -44,7 +60,9 @@ object [Companion](-companion/index.html)
 
 Link copied to clipboard
 
-val [customMetadata](../-base-tool/custom-metadata.html): [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>
+common
+
+val [customMetadata](../-base-tool/custom-metadata.html): [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)>
 
 The custom metadata of the tool.
 
@@ -52,7 +70,9 @@ The custom metadata of the tool.
 
 Link copied to clipboard
 
-val [description](../-base-tool/description.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+common
+
+val [description](../-base-tool/description.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)
 
 The description of the tool.
 
@@ -60,7 +80,9 @@ The description of the tool.
 
 Link copied to clipboard
 
-val [isLongRunning](../-base-tool/is-long-running.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html) = false
+common
+
+val [isLongRunning](../-base-tool/is-long-running.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)
 
 Whether the tool's final result will be delivered out-of-band. When `true`, the framework marks the call as long-running and uses the tool's return value as the function-response payload. Returning `Unit` means "no response yet": the FR event is suppressed so the function-call event (which carries the call id in `longRunningToolIds` and is thus the turn's final response) ends the turn without re-invoking the model. A non-`Unit` return -- including an explicit empty `Map` \-- is treated as a real response and emitted. (`Unit` suppression aligns with Python; Java instead always emits `{}`.) The `longRunningToolIds` id also drives the resumable-mode pause gate so the invocation can be resumed later via a user-injected function-response.
 
@@ -68,21 +90,41 @@ Whether the tool's final result will be delivered out-of-band. When `true`, the 
 
 Link copied to clipboard
 
-val [name](../-base-tool/name.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+common
+
+val [name](../-base-tool/name.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)
 
 The name of the tool.
 
 ## Functions
 
+[asNode](../../com.google.adk.kt.workflow/as-node.html)
+
+Link copied to clipboard
+
+common
+
+@[ExperimentalWorkflowApi](../../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+@[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html)
+
+fun [BaseTool](../-base-tool/index.html).[asNode](../../com.google.adk.kt.workflow/as-node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = this.name, config: [NodeConfig](../../com.google.adk.kt.workflow/-node-config/index.html) = NodeConfig()): [Node](../../com.google.adk.kt.workflow/-node/index.html)
+
+Returns a workflow node that runs this tool as a fixed step: the predecessor's output becomes the tool's arguments, and the tool's result becomes the node's output.
+
 [close](../-base-tool/close.html)
 
 Link copied to clipboard
 
-open fun [close](../-base-tool/close.html)()
+common
+
+open override fun [close](../-base-tool/close.html)()
 
 [declaration](declaration.html)
 
 Link copied to clipboard
+
+common
 
 open override fun [declaration](declaration.html)(): [FunctionDeclaration](../../com.google.adk.kt.types/-function-declaration/index.html)
 
@@ -92,6 +134,8 @@ Returns the underlying function declaration.
 
 Link copied to clipboard
 
+common
+
 open suspend override fun [processLlmRequest](process-llm-request.html)(toolContext: [ToolContext](../-tool-context/index.html), llmRequest: [LlmRequest](../../com.google.adk.kt.models/-llm-request/index.html)): [LlmRequest](../../com.google.adk.kt.models/-llm-request/index.html)
 
 Processes the LLM request before it is sent.
@@ -100,8 +144,12 @@ Processes the LLM request before it is sent.
 
 Link copied to clipboard
 
-open suspend override fun [run](run.html)(context: [ToolContext](../-tool-context/index.html), args: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)>): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html)
+common
+
+open suspend override fun [run](run.html)(context: [ToolContext](../-tool-context/index.html), args: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)?>): [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)
 
 Executes the tool and returns its result.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

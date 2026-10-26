@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../llm-agents/)
       * [ Managed agents  ](../../managed-agents/)
+      * [ Service registration  ](../../service-registration/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 

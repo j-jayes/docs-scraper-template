@@ -1,20 +1,32 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/BlockedReason
 
 # BlockedReason
 
-enum [BlockedReason](index.html) : [Enum](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-enum/index.html)<[BlockedReason](index.html)>
+common
+
+enum [BlockedReason](index.html) : [Enum](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html)<[BlockedReason](index.html)>
 
 The reason why the prompt was blocked.
 
@@ -26,6 +38,8 @@ MembersEntries
 
 Link copied to clipboard
 
+common
+
 [BLOCKED_REASON_UNSPECIFIED](-b-l-o-c-k-e-d_-r-e-a-s-o-n_-u-n-s-p-e-c-i-f-i-e-d/index.html)
 
 The blocked reason is unspecified.
@@ -33,6 +47,8 @@ The blocked reason is unspecified.
 [SAFETY](-s-a-f-e-t-y/index.html)
 
 Link copied to clipboard
+
+common
 
 [SAFETY](-s-a-f-e-t-y/index.html)
 
@@ -42,6 +58,8 @@ The prompt was blocked for safety reasons.
 
 Link copied to clipboard
 
+common
+
 [OTHER](-o-t-h-e-r/index.html)
 
 The prompt was blocked for other reasons. For example, it may be due to the prompt's language, or because it contains other harmful content.
@@ -49,6 +67,8 @@ The prompt was blocked for other reasons. For example, it may be due to the prom
 [BLOCKLIST](-b-l-o-c-k-l-i-s-t/index.html)
 
 Link copied to clipboard
+
+common
 
 [BLOCKLIST](-b-l-o-c-k-l-i-s-t/index.html)
 
@@ -58,6 +78,8 @@ The prompt was blocked because it contains a term from the terminology blocklist
 
 Link copied to clipboard
 
+common
+
 [PROHIBITED_CONTENT](-p-r-o-h-i-b-i-t-e-d_-c-o-n-t-e-n-t/index.html)
 
 The prompt was blocked because it contains prohibited content.
@@ -65,6 +87,8 @@ The prompt was blocked because it contains prohibited content.
 [IMAGE_SAFETY](-i-m-a-g-e_-s-a-f-e-t-y/index.html)
 
 Link copied to clipboard
+
+common
 
 [IMAGE_SAFETY](-i-m-a-g-e_-s-a-f-e-t-y/index.html)
 
@@ -74,6 +98,8 @@ The prompt was blocked because it contains content that is unsafe for image gene
 
 Link copied to clipboard
 
+common
+
 [MODEL_ARMOR](-m-o-d-e-l_-a-r-m-o-r/index.html)
 
 The prompt was blocked by Model Armor. This enum value is not supported in Gemini API.
@@ -82,23 +108,39 @@ The prompt was blocked by Model Armor. This enum value is not supported in Gemin
 
 Link copied to clipboard
 
+common
+
 [JAILBREAK](-j-a-i-l-b-r-e-a-k/index.html)
 
 The prompt was blocked as a jailbreak attempt. This enum value is not supported in Gemini API.
 
 ## Properties
 
-[name](../-type/-n-u-l-l/index.html#-372974862%2FProperties%2F-1644122207)
+[entries](entries.html)
 
 Link copied to clipboard
 
-val [name](../-type/-n-u-l-l/index.html#-372974862%2FProperties%2F-1644122207): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)
+common
 
-[ordinal](../-type/-n-u-l-l/index.html#-739389684%2FProperties%2F-1644122207)
+val [entries](entries.html): [EnumEntries](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html)<[BlockedReason](index.html)>
+
+Returns a representation of an immutable list of all enum entries, in the order they're declared.
+
+[name](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-372974862%2FProperties%2F-1855338903)
 
 Link copied to clipboard
 
-val [ordinal](../-type/-n-u-l-l/index.html#-739389684%2FProperties%2F-1644122207): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)
+common
+
+val [name](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-372974862%2FProperties%2F-1855338903): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)
+
+[ordinal](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-739389684%2FProperties%2F-1855338903)
+
+Link copied to clipboard
+
+common
+
+val [ordinal](../-voice-activity-type/-a-c-t-i-v-i-t-y_-e-n-d/index.html#-739389684%2FProperties%2F-1855338903): [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)
 
 ## Functions
 
@@ -106,7 +148,9 @@ val [ordinal](../-type/-n-u-l-l/index.html#-739389684%2FProperties%2F-1644122207
 
 Link copied to clipboard
 
-fun [valueOf](value-of.html)(value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)): [BlockedReason](index.html)
+common
+
+fun [valueOf](value-of.html)(value: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)): [BlockedReason](index.html)
 
 Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
 
@@ -114,8 +158,12 @@ Returns the enum constant of this type with the specified name. The string must 
 
 Link copied to clipboard
 
-fun [values](values.html)(): [Array](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html)<[BlockedReason](index.html)>
+common
+
+fun [values](values.html)(): [Array](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html)<[BlockedReason](index.html)>
 
 Returns an array containing the constants of this enum type, in the order they're declared.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

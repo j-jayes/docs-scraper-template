@@ -1,26 +1,38 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.events](../index.html)/EventCompaction
 
 # EventCompaction
 
-@Serializable
+common
 
-data class [EventCompaction](index.html)(val startTimestamp: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html), val endTimestamp: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html), val compactedContent: [Content](../../com.google.adk.kt.types/-content/index.html))
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
 
-A record that a continuous range of session [Event](../-event/index.html)s has been replaced by a single piece of [compactedContent](compacted-content.html) (typically a model-generated summary).
+data class [EventCompaction](index.html)(val startTimestamp: [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html), val endTimestamp: [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html), val compactedContent: [Content](../../com.google.adk.kt.types/-content/index.html))
 
-An [EventCompaction](index.html) is attached to a new [Event](../-event/index.html) via [EventActions.compaction](../-event-actions/compaction.html); the original events are left untouched. When the next LLM prompt is built, the contents processor uses the range to skip the covered events and inserts [compactedContent](compacted-content.html) in their place.
+A record that a continuous range of session [Event](../-event/index.html)s has been replaced by a single piece of [compactedContent](../../../google-adk-kotlin-core/com.google.adk.kt.events/-event-compaction/--root--.html) (typically a model-generated summary).
+
+An [EventCompaction](index.html) is attached to a new [Event](../-event/index.html) via [EventActions.compaction](../-event-actions/compaction.html); the original events are left untouched. When the next LLM prompt is built, the contents processor uses the range to skip the covered events and inserts [compactedContent](../../../google-adk-kotlin-core/com.google.adk.kt.events/-event-compaction/--root--.html) in their place.
 
 Members
 
@@ -30,13 +42,17 @@ Members
 
 Link copied to clipboard
 
-constructor(startTimestamp: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html), endTimestamp: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html), compactedContent: [Content](../../com.google.adk.kt.types/-content/index.html))
+common
+
+constructor(startTimestamp: [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html), endTimestamp: [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html), compactedContent: [Content](../../com.google.adk.kt.types/-content/index.html))
 
 ## Properties
 
 [compactedContent](compacted-content.html)
 
 Link copied to clipboard
+
+common
 
 val [compactedContent](compacted-content.html): [Content](../../com.google.adk.kt.types/-content/index.html)
 
@@ -46,16 +62,26 @@ The content that replaces the covered events in the prompt.
 
 Link copied to clipboard
 
-val [endTimestamp](end-timestamp.html): [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html)
+common
 
-Epoch milliseconds of the latest covered event (inclusive). Must be greater than or equal to [startTimestamp](start-timestamp.html).
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)(with = [LenientEpochMillisSerializer::class](../../../google-adk-kotlin-core/com.google.adk.kt.serialization/-lenient-epoch-millis-serializer/index.html))
+
+val [endTimestamp](end-timestamp.html): [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html)
+
+Epoch milliseconds of the latest covered event (inclusive). Must be greater than or equal to [startTimestamp](../../../google-adk-kotlin-core/com.google.adk.kt.events/-event-compaction/--root--.html). Also reads ADK Python's fractional epoch seconds.
 
 [startTimestamp](start-timestamp.html)
 
 Link copied to clipboard
 
-val [startTimestamp](start-timestamp.html): [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html)
+common
 
-Epoch milliseconds of the earliest covered event (inclusive).
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)(with = [LenientEpochMillisSerializer::class](../../../google-adk-kotlin-core/com.google.adk.kt.serialization/-lenient-epoch-millis-serializer/index.html))
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+val [startTimestamp](start-timestamp.html): [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html)
+
+Epoch milliseconds of the earliest covered event (inclusive). Also reads ADK Python's fractional epoch seconds.
+
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

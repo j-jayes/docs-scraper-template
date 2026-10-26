@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
       * [ Managed agents  ](../agents/managed-agents/)
+      * [ Service registration  ](../agents/service-registration/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
@@ -73,6 +74,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../agents/models/google-gemma/)
       * [ Claude  ](../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../agents/models/agent-platform/)
@@ -286,8 +290,15 @@ PythonTypeScriptGoKotlin
     from google.adk.tools import skill_toolset
     
     weather_skill = load_skill_from_dir(
-        pathlib.Path(__file__).parent / "skills" / "weather_skill"
+        pathlib.Path(__file__).parent / "skills" / "weather-skill"
     )
+    
+    def get_weather_tool(city: str) -> dict:
+        """Retrieves the current weather report for a specified city."""
+        return {
+            "status": "success",
+            "report": f"The weather in {city} is sunny with a temperature of 25°C.",
+        }
     
     my_skill_toolset = skill_toolset.SkillToolset(
         skills=[weather_skill],
@@ -401,11 +412,9 @@ For a complete example, see the code sample in [skills](https://github.com/googl
 
 For a complete example, see the code sample in [skills](https://github.com/google/adk-kotlin/tree/main/examples/src/main/kotlin/com/google/adk/kt/examples/skills).
 
-Check your working directory
-    
-    
-    Ensure that 'skills/' directory exist in your current working directory and contains the sub-directories for the Skills you want to use in your agent.
-    
+Check where `skills/` is resolved from
+
+The Python and TypeScript examples above resolve `skills/` relative to the directory holding the agent source file, so place `skills/` next to that file. The Go and Kotlin examples pass a relative `skills` path, which resolves relative to the current working directory instead.
 
 ## Skill structure¶
 
@@ -444,6 +453,10 @@ The frontmatter of a skill's `SKILL.md` file is validated to ensure that it meet
     * Must be 1024 characters or less.
 
 
+
+Directory must match the name
+
+When loading a skill from the filesystem, the directory name must match the **name** in the front matter, or loading fails.
 
 ### Skills directory structure¶
 

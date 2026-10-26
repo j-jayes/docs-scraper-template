@@ -1,20 +1,32 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.agents](../index.html)/TypedData
 
 # TypedData
 
-@Serializable
+common
+
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
 
 sealed class [TypedData](index.html)
 
@@ -46,9 +58,11 @@ Members
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [BooleanValue](-boolean-value/index.html)(val value: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [BooleanValue](-boolean-value/index.html)(val value: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)) : [TypedData](index.html)
 
 Represents a boolean value in the agent state.
 
@@ -56,9 +70,11 @@ Represents a boolean value in the agent state.
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [DoubleValue](-double-value/index.html)(val value: [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [DoubleValue](-double-value/index.html)(val value: [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html)) : [TypedData](index.html)
 
 Represents a double value in the agent state.
 
@@ -66,9 +82,11 @@ Represents a double value in the agent state.
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [IntValue](-int-value/index.html)(val value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html)) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [IntValue](-int-value/index.html)(val value: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)) : [TypedData](index.html)
 
 Represents an integer value in the agent state.
 
@@ -76,9 +94,11 @@ Represents an integer value in the agent state.
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [ListValue](-list-value/index.html)(val elements: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html)<[TypedData](index.html)>) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [ListValue](-list-value/index.html)(val elements: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[TypedData](index.html)>) : [TypedData](index.html)
 
 Represents a list of state values.
 
@@ -86,9 +106,11 @@ Represents a list of state values.
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [LongValue](-long-value/index.html)(val value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html)) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [LongValue](-long-value/index.html)(val value: [Long](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html)) : [TypedData](index.html)
 
 Represents a long value in the agent state.
 
@@ -96,9 +118,11 @@ Represents a long value in the agent state.
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [MapValue](-map-value/index.html)(val fields: [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html), [TypedData](index.html)>) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [MapValue](-map-value/index.html)(val fields: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [TypedData](index.html)>) : [TypedData](index.html)
 
 Represents a map of state values.
 
@@ -106,7 +130,9 @@ Represents a map of state values.
 
 Link copied to clipboard
 
-@Serializable
+common
+
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
 
 data object [NullValue](-null-value/index.html) : [TypedData](index.html)
 
@@ -116,10 +142,14 @@ Represents a null value in the agent state.
 
 Link copied to clipboard
 
-@Serializable
+common
 
-data class [StringValue](-string-value/index.html)(val value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)) : [TypedData](index.html)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [StringValue](-string-value/index.html)(val value: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)) : [TypedData](index.html)
 
 Represents a string value in the agent state.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright

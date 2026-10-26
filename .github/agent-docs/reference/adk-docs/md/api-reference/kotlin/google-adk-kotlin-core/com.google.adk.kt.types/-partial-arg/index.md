@@ -1,26 +1,38 @@
-toggle menu
+[ google-adk-kotlin ](../../../index.html) Toggle table of contents 
 
-[ google-adk-kotlin ](../../../index.html)
-
-0.5.0 
+1.4.0 
 
 common
 
-switch theme
+Target filter __
 
-search in API
+    * common 
+
+
+Switch theme 
+
+Search in API 
+
+Skip to content
+
+google-adk-kotlin  __
+
+
+
 
 [google-adk-kotlin-core](../../index.html)/[com.google.adk.kt.types](../index.html)/PartialArg
 
 # PartialArg
 
-@Serializable
+common
 
-data class [PartialArg](index.html)(val value: [PartialArgValue](../-partial-arg-value/index.html)? = null, val jsonPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, val willContinue: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
+@[Serializable](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html)
+
+data class [PartialArg](index.html)(val value: [PartialArgValue](../-partial-arg-value/index.html)? = null, val jsonPath: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val willContinue: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
 
 Partial argument value of the function call.
 
-The value of the partial argument is represented by [value](value.html), which uses [PartialArgValue](../-partial-arg-value/index.html) to ensure that only one of boolean, number, string, or null is represented at a time.
+The value of the partial argument is represented by [value](../../../google-adk-kotlin-core/com.google.adk.kt.types/-partial-arg/--root--.html), which uses [PartialArgValue](../-partial-arg-value/index.html) to ensure that only one of boolean, number, string, or null is represented at a time.
 
 Members
 
@@ -30,7 +42,9 @@ Members
 
 Link copied to clipboard
 
-constructor(value: [PartialArgValue](../-partial-arg-value/index.html)? = null, jsonPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null, willContinue: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
+common
+
+constructor(value: [PartialArgValue](../-partial-arg-value/index.html)? = null, jsonPath: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, willContinue: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null)
 
 ## Properties
 
@@ -38,7 +52,9 @@ constructor(value: [PartialArgValue](../-partial-arg-value/index.html)? = null, 
 
 Link copied to clipboard
 
-val [boolValue](bool-value.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)?
+common
+
+val [boolValue](bool-value.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)?
 
 Represents a boolean value, if this partial argument is of boolean type, null otherwise.
 
@@ -46,7 +62,9 @@ Represents a boolean value, if this partial argument is of boolean type, null ot
 
 Link copied to clipboard
 
-val [jsonPath](json-path.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)? = null
+common
+
+val [jsonPath](json-path.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)?
 
 A JSON Path (RFC 9535) to the argument being streamed.
 
@@ -54,7 +72,9 @@ A JSON Path (RFC 9535) to the argument being streamed.
 
 Link copied to clipboard
 
-val [nullValue](null-value.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)?
+common
+
+val [nullValue](null-value.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)?
 
 Is true if this partial argument represents a null value, null otherwise.
 
@@ -62,7 +82,9 @@ Is true if this partial argument represents a null value, null otherwise.
 
 Link copied to clipboard
 
-val [numberValue](number-value.html): [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-double/index.html)?
+common
+
+val [numberValue](number-value.html): [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html)?
 
 Represents a double value, if this partial argument is of number type, null otherwise.
 
@@ -70,7 +92,9 @@ Represents a double value, if this partial argument is of number type, null othe
 
 Link copied to clipboard
 
-val [stringValue](string-value.html): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html)?
+common
+
+val [stringValue](string-value.html): [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)?
 
 Represents a string value, if this partial argument is of string type, null otherwise.
 
@@ -78,7 +102,9 @@ Represents a string value, if this partial argument is of string type, null othe
 
 Link copied to clipboard
 
-val [value](value.html): [PartialArgValue](../-partial-arg-value/index.html)? = null
+common
+
+val [value](value.html): [PartialArgValue](../-partial-arg-value/index.html)?
 
 Holds the primitive value of this partial argument, if any.
 
@@ -86,8 +112,12 @@ Holds the primitive value of this partial argument, if any.
 
 Link copied to clipboard
 
-val [willContinue](will-continue.html): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html)? = null
+common
+
+val [willContinue](will-continue.html): [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)?
 
 Whether this is not the last part of the same json_path.
 
-© 2026 CopyrightGenerated by [dokka](https://github.com/Kotlin/dokka)
+Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
+
+© 2026 Copyright
