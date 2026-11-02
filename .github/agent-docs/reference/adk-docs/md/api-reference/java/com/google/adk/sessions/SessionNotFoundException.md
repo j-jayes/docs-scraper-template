@@ -26,9 +26,10 @@ LightDarkSystem Setting
 Contents  
 
   1. Description
-  2. Constructor Summary
-  3. Method Summary
-  4. Constructor Details
+  2. Field Summary
+  3. Constructor Summary
+  4. Method Summary
+  5. Constructor Details
      1. SessionNotFoundException(String)
      2. SessionNotFoundException(String, Throwable)
 
@@ -63,6 +64,24 @@ See Also:
   * [Serialized Form](../../../../serialized-form.html#com.google.adk.sessions.SessionNotFoundException)
 
 
+
+  * ## Field Summary
+
+### Fields inherited from class [SessionException](SessionException.html#field-summary "class in com.google.adk.sessions")
+
+`[SESSION_ALREADY_EXISTS](SessionException.html#SESSION_ALREADY_EXISTS)`
+
+Modifier and Type
+
+Field
+
+Description
+
+`static final [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang")`
+
+`[SESSION_ALREADY_EXISTS](SessionException.html#SESSION_ALREADY_EXISTS)`
+
+Message used when `createSession` is given a session id that is already taken.
 
   * ## Constructor Summary
 

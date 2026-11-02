@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -199,6 +200,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -445,7 +451,7 @@ PythonTypeScriptGoJavaKotlin
     sessionService.deleteSession(exampleSession.key)
     
 
-_(__Note:__The state shown above is only the initial state. State updates happen via events, as discussed in the State section.)_
+_(**Note:** The state shown above is only the initial state. State updates happen via events, as discussed in the State section.)_
 
 ## Session lifecycle¶
 

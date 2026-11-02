@@ -50,19 +50,19 @@ Description
 
 SpringAIAutoConfiguration.`[springAIWithBothModels](../autoconfigure/SpringAIAutoConfiguration.html#springAIWithBothModels\(org.springframework.ai.chat.model.ChatModel,org.springframework.ai.chat.model.StreamingChatModel,com.google.adk.models.springai.properties.SpringAIProperties\))(org.springframework.ai.chat.model.ChatModel chatModel, org.springframework.ai.chat.model.StreamingChatModel streamingChatModel, [SpringAIProperties](../properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties") properties)`
 
-Creates a SpringAI bean when both ChatModel and StreamingChatModel are available.
+Creates a SpringAI bean when a single-candidate ChatModel is available.
 
 `[SpringAI](../SpringAI.html "class in com.google.adk.models.springai")`
 
 SpringAIAutoConfiguration.`[springAIWithChatModel](../autoconfigure/SpringAIAutoConfiguration.html#springAIWithChatModel\(org.springframework.ai.chat.model.ChatModel,com.google.adk.models.springai.properties.SpringAIProperties\))(org.springframework.ai.chat.model.ChatModel chatModel, [SpringAIProperties](../properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties") properties)`
 
-Creates a SpringAI bean when only ChatModel is available.
+Creates a SpringAI bean when only a single-candidate ChatModel is available.
 
 `[SpringAI](../SpringAI.html "class in com.google.adk.models.springai")`
 
 SpringAIAutoConfiguration.`[springAIWithStreamingModel](../autoconfigure/SpringAIAutoConfiguration.html#springAIWithStreamingModel\(org.springframework.ai.chat.model.StreamingChatModel,com.google.adk.models.springai.properties.SpringAIProperties\))(org.springframework.ai.chat.model.StreamingChatModel streamingChatModel, [SpringAIProperties](../properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties") properties)`
 
-Creates a SpringAI bean when only StreamingChatModel is available.
+Creates a SpringAI bean when only a single-candidate StreamingChatModel is available.
 
 
 

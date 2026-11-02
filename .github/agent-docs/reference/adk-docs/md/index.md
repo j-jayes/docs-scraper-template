@@ -198,6 +198,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](live/get-started/streaming-python/)
         * [ Java  ](live/get-started/streaming-java/)
+      * [ Architectures  ](live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](live/architectures/speech-to-speech/)
+        * [ Cascade  ](live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](live/workflows/)
         * [ Tools  ](live/tools/)

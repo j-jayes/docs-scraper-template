@@ -173,7 +173,7 @@ public [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/u
 
 Converts ADK Schema to Spring AI compatible parameter schema. 
 
-This provides basic schema conversion for tool parameters.
+Maps the `type`, `description`, `properties`, `required`, ` enum` and `items` keywords (`properties` values and `items` recursively). Other JSON-Schema keywords (e.g. `nullable`, `anyOf`, `format`) are not carried over yet.
 
 Parameters:
     `schema` \- The ADK schema to convert

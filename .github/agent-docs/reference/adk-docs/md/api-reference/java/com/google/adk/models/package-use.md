@@ -39,6 +39,10 @@ com.google.adk.codeexecutors
 
  
 
+com.google.adk.events
+
+ 
+
 com.google.adk.flows.llmflows
 
  
@@ -139,6 +143,16 @@ Description
 
 Builder for constructing [`LlmRequest`](LlmRequest.html "class in com.google.adk.models") instances.
 
+  * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.events](../events/package-summary.html)
+
+Class
+
+Description
+
+[CacheMetadata](class-use/CacheMetadata.html#com.google.adk.events)
+
+Context cache state carried on an LLM response, and on its event, from one request to the next.
+
   * Classes in [com.google.adk.models](package-summary.html) used by [com.google.adk.flows.llmflows](../flows/llmflows/package-summary.html)
 
 Class
@@ -178,6 +192,14 @@ Abstract base class for Large Language Models (LLMs).
 [BaseLlmConnection](class-use/BaseLlmConnection.html#com.google.adk.models)
 
 The base class for a live model connection.
+
+[CacheMetadata](class-use/CacheMetadata.html#com.google.adk.models)
+
+Context cache state carried on an LLM response, and on its event, from one request to the next.
+
+[CacheMetadata.Builder](class-use/CacheMetadata.Builder.html#com.google.adk.models)
+
+Builder for [`CacheMetadata`](CacheMetadata.html "class in com.google.adk.models").
 
 [Gemini](class-use/Gemini.html#com.google.adk.models)
 

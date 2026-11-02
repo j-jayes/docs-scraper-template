@@ -167,6 +167,10 @@ Builder for [`GetSessionConfig`](GetSessionConfig.html "class in com.google.adk.
 
 Base client for the HTTP APIs.
 
+[InMemorySessionService.DuplicateSessionIdBehavior](class-use/InMemorySessionService.DuplicateSessionIdBehavior.html#com.google.adk.sessions)
+
+What `createSession` does when `sessionId` is already in use.
+
 [ListEventsResponse](class-use/ListEventsResponse.html#com.google.adk.sessions)
 
 Response for listing events.

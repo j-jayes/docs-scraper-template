@@ -40,6 +40,10 @@ com.google.adk.apps
 
  
 
+com.google.adk.models
+
+ 
+
 com.google.adk.runner
 
  
@@ -101,6 +105,36 @@ Description
 `[App.Builder](../../apps/App.Builder.html "class in com.google.adk.apps")`
 
 App.Builder.`[contextCacheConfig](../../apps/App.Builder.html#contextCacheConfig\(com.google.adk.agents.ContextCacheConfig\))([ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") contextCacheConfig)`
+
+ 
+
+  * ## Uses of [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") in [com.google.adk.models](../../models/package-summary.html)
+
+Methods in [com.google.adk.models](../../models/package-summary.html) that return types with arguments of type [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`abstract [Optional](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html "class in java.util")<[ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents")>`
+
+LlmRequest.`[cacheConfig](../../models/LlmRequest.html#cacheConfig\(\))()`
+
+Context cache configuration for this request; empty when context caching is disabled.
+
+Methods in [com.google.adk.models](../../models/package-summary.html) with parameters of type [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents")
+
+Modifier and Type
+
+Method
+
+Description
+
+`abstract [LlmRequest.Builder](../../models/LlmRequest.Builder.html "class in com.google.adk.models")`
+
+LlmRequest.Builder.`[cacheConfig](../../models/LlmRequest.Builder.html#cacheConfig\(com.google.adk.agents.ContextCacheConfig\))(@Nullable [ContextCacheConfig](../ContextCacheConfig.html "class in com.google.adk.agents") cacheConfig)`
 
  
 

@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Get Started ](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)[Develop ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Connect and Run ](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)[Protocol and Versions ](https://modelcontextprotocol.info/specification/)[Reference ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -10,217 +10,65 @@
 
 
 
-  * [MCP Docs ](https://modelcontextprotocol.info/docs/)
+  * [Get Started](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
 
-    * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
-    * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
-      * 🗺️ Your Learning Journey Overview
-      * 🎓 Level 1: Understanding MCP (1-2 hours)
-      * 🔧 Level 2: Using MCP (2-3 hours)
-      * 👨‍💻 Level 3: Building Your Own (4-6 hours)
-      * 🚀 Level 4: Mastering MCP (Ongoing)
-      * 🎯 Learning Path Completion
-      * 📞 Need Help?
-    * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
+    * [What is MCP?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
+    * [Architecture and roles](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
+    * [Servers and primitives](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
+    * [Hosts and clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
 
-      * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
-      * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
-      * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
-      * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
-      * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
+  * [Develop](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
 
-    * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
+    * [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
+    * [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
+    * [Choose an SDK](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
+    * [Build with agent skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
+    * [Node.js client: calls and failures without a model](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+    * [Design and check effective tools](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
 
-      * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
-      * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
-      * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
-      * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
-      * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
-      * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
-      * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
+  * [Connect and Run](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
 
-    * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
+    * [Connect a local server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
+    * [Connect a remote server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
+    * [Authorization with OAuth 2.1](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
+    * [Local server security defaults](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
+    * [Security checklist before launch](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
+    * [Host applications at scale](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
+    * [Troubleshoot connections and calls](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
+    * [Inspector: test a server interactively](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
+    * [Inspector CLI: scripted checks and CI](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
+    * [Inspector recipes: transports, Docker, config import](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
+    * [Inspector lab: reproducible calls and failure diagnosis](https://modelcontextprotocol.info/tools/inspector/)
 
-      * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
-      * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
-      * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
-      * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
+  * [Protocol and Versions](https://modelcontextprotocol.info/specification/)
 
-    * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
-    * [Clients](https://modelcontextprotocol.info/docs/clients/)
-    * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
-    * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
-    * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
+    * [Version negotiation rules](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
+    * [Revision and method matrix](https://modelcontextprotocol.info/specification/)
+    * [Key changes in 2026-07-28](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
+    * [Deprecated features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
+    * [Legacy and modern protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
+    * [Client extension support matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
 
-      * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
+  * [Reference](https://modelcontextprotocol.info/tools/)
 
-        * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
-        * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
-        * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
+    * [Tools and Registry overview](https://modelcontextprotocol.info/tools/)
+    * [Production checklist](https://modelcontextprotocol.info/docs/best-practices/)
+    * [Client capability matrix](https://modelcontextprotocol.info/docs/clients/)
+    * [Tools: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/tools/)
+    * [Resources: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/resources/)
+    * [Prompts: definitions and trade-offs](https://modelcontextprotocol.info/docs/concepts/prompts/)
+    * [Sampling: deprecated server requests for client model calls](https://modelcontextprotocol.info/docs/concepts/sampling/)
+    * [Current transports: stdio and Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
+    * [Publish a server to the Registry](https://modelcontextprotocol.info/tools/registry/publishing/)
+    * [Official SEP status index](https://modelcontextprotocol.info/seps/)
+    * [SEP impact and method lifecycle guide](https://modelcontextprotocol.info/docs/reference/sep-impact-guide/)
+    * [FAQ: revisions, authorization and failure handling](https://modelcontextprotocol.info/docs/faqs/)
 
-    * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
-    * [Extensions](https://modelcontextprotocol.info/docs/extensions/)
+  * In this section
 
-  * [Tools ](https://modelcontextprotocol.info/tools/)
+    * [MCP Docs](https://modelcontextprotocol.info/docs/)
+    * [MCP Learning Path: Choose by Role and by Spec Revision](https://modelcontextprotocol.info/docs/learning-path/)
 
-    * [MCP Registry ](https://modelcontextprotocol.info/tools/registry/)
-
-      * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
-      * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
-      * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
-
-    * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
-    * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-
-  * [Specification ](https://modelcontextprotocol.info/specification/)
-
-    * [Specification (Draft) ](https://modelcontextprotocol.info/specification/draft/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/draft/architecture/)
-      * [Base Protocol ](https://modelcontextprotocol.info/specification/draft/basic/)
-
-        * [Transports](https://modelcontextprotocol.info/specification/draft/basic/transports/)
-        * [Authorization](https://modelcontextprotocol.info/specification/draft/basic/authorization/)
-        * [Messages](https://modelcontextprotocol.info/specification/draft/basic/messages/)
-        * [Lifecycle](https://modelcontextprotocol.info/specification/draft/basic/lifecycle/)
-        * [Versioning](https://modelcontextprotocol.info/specification/draft/basic/versioning/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/draft/basic/utilities/)
-
-          * [Ping](https://modelcontextprotocol.info/specification/draft/basic/utilities/ping/)
-          * [Cancellation](https://modelcontextprotocol.info/specification/draft/basic/utilities/cancellation/)
-          * [Progress](https://modelcontextprotocol.info/specification/draft/basic/utilities/progress/)
-
-      * [Server Features ](https://modelcontextprotocol.info/specification/draft/server/)
-
-        * [Prompts](https://modelcontextprotocol.info/specification/draft/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/draft/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/draft/server/tools/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/draft/server/utilities/)
-
-          * [Completion](https://modelcontextprotocol.info/specification/draft/server/utilities/completion/)
-          * [Logging](https://modelcontextprotocol.info/specification/draft/server/utilities/logging/)
-          * [Pagination](https://modelcontextprotocol.info/specification/draft/server/utilities/pagination/)
-
-      * [Client Features ](https://modelcontextprotocol.info/specification/draft/client/)
-
-        * [Roots](https://modelcontextprotocol.info/specification/draft/client/roots/)
-        * [Sampling](https://modelcontextprotocol.info/specification/draft/client/sampling/)
-
-      * [Contributions](https://modelcontextprotocol.info/specification/draft/contributing/)
-      * [Revisions ](https://modelcontextprotocol.info/specification/draft/revisions/)
-
-        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/draft/revisions/2024-11-05/)
-
-    * [Specification (Latest) ](https://modelcontextprotocol.info/specification/2024-11-05/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/2024-11-05/architecture/)
-      * [Base Protocol ](https://modelcontextprotocol.info/specification/2024-11-05/basic/)
-
-        * [Messages](https://modelcontextprotocol.info/specification/2024-11-05/basic/messages/)
-        * [Lifecycle](https://modelcontextprotocol.info/specification/2024-11-05/basic/lifecycle/)
-        * [Transports](https://modelcontextprotocol.info/specification/2024-11-05/basic/transports/)
-        * [Versioning](https://modelcontextprotocol.info/specification/2024-11-05/basic/versioning/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/)
-
-          * [Ping](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/ping/)
-          * [Cancellation](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/cancellation/)
-          * [Progress](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/progress/)
-
-      * [Server Features ](https://modelcontextprotocol.info/specification/2024-11-05/server/)
-
-        * [Prompts](https://modelcontextprotocol.info/specification/2024-11-05/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/2024-11-05/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/2024-11-05/server/tools/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/)
-
-          * [Completion](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/completion/)
-          * [Logging](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/logging/)
-          * [Pagination](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/pagination/)
-
-      * [Client Features ](https://modelcontextprotocol.info/specification/2024-11-05/client/)
-
-        * [Roots](https://modelcontextprotocol.info/specification/2024-11-05/client/roots/)
-        * [Sampling](https://modelcontextprotocol.info/specification/2024-11-05/client/sampling/)
-
-      * [Contributions](https://modelcontextprotocol.info/specification/2024-11-05/contributing/)
-      * [Revisions ](https://modelcontextprotocol.info/specification/2024-11-05/revisions/)
-
-        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/2024-11-05/revisions/2024-11-05/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2025-06-18/)
-
-      * [Key Changes](https://modelcontextprotocol.info/specification/2025-06-18/changelog/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2025-11-25/)
-
-      * [Key Changes](https://modelcontextprotocol.info/specification/2025-11-25/changelog/)
-
-  * [MCP Protocol Blog ](https://modelcontextprotocol.info/blog/)
-
-    * [Mastering MCP Tool Development: Unlocking AI Agent Potential](https://modelcontextprotocol.info/blog/writing-effective-mcp-tools/)
-    * [Update on the Next MCP Protocol Release](https://modelcontextprotocol.info/blog/mcp-next-version-update/)
-    * [MCP Apps Now Official - Bringing UI Capabilities to MCP Clients](https://modelcontextprotocol.info/blog/mcp-apps-ui-capabilities/)
-    * [January MCP Core Maintainer Update](https://modelcontextprotocol.info/blog/core-maintainer-update/)
-    * [Exploring the Future of MCP Transports](https://modelcontextprotocol.info/blog/transport-future/)
-    * [MCP joins the Agentic AI Foundation](https://modelcontextprotocol.info/blog/joins-agentic-ai-foundation/)
-    * [One Year of MCP: November 2025 Spec Release](https://modelcontextprotocol.info/blog/first-mcp-anniversary/)
-    * [Adopting the MCP Bundle Format (.mcpb) for Portable Local Servers](https://modelcontextprotocol.info/blog/adopting-mcpb/)
-    * [Server Instructions: Giving LLMs a User Manual for Your Server](https://modelcontextprotocol.info/blog/server-instructions/)
-    * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
-    * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
-    * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
-
-  * [About](https://modelcontextprotocol.info/about/)
-  * More
-  * [Docs ↗](https://modelcontextprotocol.info/docs/)
-  * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about/)
-
-
-  * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
-  * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
-  * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
-
-    * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
-    * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
-    * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
-    * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
-    * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
-
-  * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
-
-    * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
-    * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
-    * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
-    * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
-    * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
-    * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
-    * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
-
-  * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
-
-    * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
-    * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
-    * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
-    * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
-
-  * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
-  * [Clients](https://modelcontextprotocol.info/docs/clients/)
-  * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
-  * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
-  * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
-
-    * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
-
-      * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
-      * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
-      * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
-
-  * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
-  * [Extensions](https://modelcontextprotocol.info/docs/extensions/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
@@ -231,9 +79,7 @@
 English
 
   * [English](https://modelcontextprotocol.info/docs/learning-path/)
-  * [简体中文](https://modelcontextprotocol.info/zh-cn/docs/learning-path/)
-  * [繁體中文](https://modelcontextprotocol.info/zh-tw/docs/learning-path/)
-  * [한국어](https://modelcontextprotocol.info/ko/docs/learning-path/)
+  * [简体中文](https://mcpcn.com/docs/learning-path/)
 
 
 
@@ -248,26 +94,13 @@ English
 
 On this page
 
-  * 🗺️ Your Learning Journey Overview
-  * 🎓 Level 1: Understanding MCP (1-2 hours)
-  * Step 1.1: What is MCP? (15 minutes)
-  * Step 1.2: Why MCP Matters (20 minutes)
-  * Step 1.3: Key Concepts (25 minutes)
-  * 🔧 Level 2: Using MCP (2-3 hours)
-  * Step 2.1: Set Up Your First MCP Experience (30 minutes)
-  * Step 2.2: Explore Different Server Types (45 minutes)
-  * Step 2.3: Server Gallery Deep Dive (45 minutes)
-  * 👨‍💻 Level 3: Building Your Own (4-6 hours)
-  * Step 3.1: Your First Custom Server (90 minutes)
-  * Step 3.2: Add More Features (90 minutes)
-  * Step 3.3: Real-World Integration (120 minutes)
-  * 🚀 Level 4: Mastering MCP (Ongoing)
-  * Advanced Topics to Explore
-  * Continuous Learning Resources
-  * 🎯 Learning Path Completion
-  * Self-Assessment Checklist
-  * What’s Next?
-  * 📞 Need Help?
+  * 1\. Pick your role
+  * 2\. Pick the protocol era
+  * 3\. Moving from 2025-11-25 to 2026-07-28
+  * 4\. The path in stages
+  * 5\. When something does not work
+  * Versions and Verification
+  * Sources
 
 
 
@@ -275,643 +108,117 @@ Scroll to top
 
 [MCP Docs](https://modelcontextprotocol.info/docs/)
 
-MCP Learning Path: From Zero to Hero
+MCP Learning Path: Choose by Role and by Spec Revision
+
+# MCP Learning Path: Choose by Role and by Spec Revision
+
+The shortest route through MCP is not a fixed list of chapters. It depends on two things you can decide in a minute: which role you play, and which protocol era your peers speak. The two decisions below become tables, and every stage ends with a check that you can run and that either passes or does not.
+
+Read in this order: pick your role (section 1), pick the protocol era you build for (section 2), migrate if you already have something on an older revision (section 3), follow the stages (section 4), and come back to section 5 when something does not work.
+
+## 1\. Pick your role
+
+Role| You want to| Read, in this order| Run first| You are done when  
+---|---|---|---|---  
+Evaluating MCP| Decide whether MCP fits and what it covers| [Introduction](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/), [Architecture](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/), [Server concepts](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)| Nothing yet| You can say which of tools, resources and prompts each of your use cases needs ([prompts, section 1](https://modelcontextprotocol.info/docs/concepts/prompts/))  
+Server developer| Build a server other people's clients can call| [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/), [Tools](https://modelcontextprotocol.info/docs/concepts/tools/), [Resources](https://modelcontextprotocol.info/docs/concepts/resources/), [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/), [Best practices](https://modelcontextprotocol.info/docs/best-practices/)| The SDK example from "Build a server", then `lint_tools.py` against it| `lint_tools.py` (and the resources and prompts linters if you offer them) exits with code 0  
+Client or host developer| Connect your application to servers you did not write| [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/), [Client best practices](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/), [Versioning](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/)| A request with the protocol version in `_meta`, or `server/discover` first| An `UnsupportedProtocolVersionError` makes your client retry with a version from `supported`, and a legacy server is reported, not hung on  
+Integrator| Wire existing servers into a host such as an IDE or chat application| [Connect to local servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/), [Connect to remote servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/), [Inspector guide](https://modelcontextprotocol.info/tools/inspector/)| `inspector_smoke.py` against the server, before the host sees it| The Inspector lists the tools you expect, and the smoke test exits with code 0  
+Security or platform owner| Put servers behind authentication, a gateway or a firewall| [Authorization](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/), [Security best practices](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/), [Best practices](https://modelcontextprotocol.info/docs/best-practices/)| `probe_http.py` against a staging endpoint| `probe_http.py` exits with code 0, and you know why each WARN is acceptable  
+Publisher| List a server so that others can find and install it| [Publishing](https://modelcontextprotocol.info/registry/quickstart/), [Consuming](https://modelcontextprotocol.info/registry/registry-aggregators/)| `preflight.py` on your `server.json`| `preflight.py` exits with code 0 before you run `mcp-publisher publish`  
+  
+## 2\. Pick the protocol era
+
+MCP has had five revisions. The table lists what each one added that shows up in your code; the last row is where you should start today.
+
+Revision| What it added that you will notice| Official changelog  
+---|---|---  
+2024-11-05| The first revision documented here; the next changelog is written relative to it| [2025-03-26 changelog](https://modelcontextprotocol.info/specification/2025-03-26/changelog/)  
+2025-03-26| An OAuth 2.1 authorization framework, Streamable HTTP replacing HTTP+SSE, JSON-RPC batching, tool annotations, audio content, the `completions` capability| [Key changes](https://modelcontextprotocol.info/specification/2025-03-26/changelog/)  
+2025-06-18| Batching removed again, structured tool output, servers as OAuth resource servers with protected resource metadata, Resource Indicators (RFC 8707), elicitation, resource links in tool results, the `MCP-Protocol-Version` header, `title` fields| [Key changes](https://modelcontextprotocol.info/specification/2025-06-18/changelog/)  
+2025-11-25| OpenID Connect Discovery, icons, incremental scope consent, URL mode elicitation, tool calling in sampling, client ID metadata documents, experimental tasks, JSON Schema 2020-12 as the default dialect| [Key changes](https://modelcontextprotocol.info/specification/2025-11-25/changelog/)  
+2026-07-28| No sessions and no `initialize` handshake: every request carries its version and capabilities. `server/discover`, `subscriptions/listen`, multi round-trip requests, a required `resultType`, caching hints, the `Mcp-Method` and `Mcp-Name` headers| [Key changes](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)  
+  
+The 2026-07-28 revision calls versions up to 2025-11-25 **legacy** (they open a session with an `initialize` handshake) and 2026-07-28 and later **modern** (version, identity and capabilities travel in each request). An implementation that speaks both is **dual-era**. What happens when two of them meet is defined by the specification's compatibility matrix:
+
+Client| Server| Outcome| What to do  
+---|---|---|---  
+Modern| Modern| Works| `server/discover` is optional. On `UnsupportedProtocolVersionError`, retry with a version from `supported`  
+Modern| Legacy| Fails| On stdio send `server/discover` first, so that the failure is deterministic, and show the user an actionable error  
+Dual-era| Modern| Works| The client stays modern  
+Dual-era| Legacy| Works| The probe fails with a non-modern error (or times out) and the client falls back to `initialize`  
+Legacy| Modern| Fails| A modern-only server **SHOULD** name the versions it supports in its error to `initialize`: that message may be all a legacy client can show  
+Legacy| Dual-era| Works| The server answers `initialize` and serves the client by the negotiated legacy revision  
+  
+Legacy against legacy works by the legacy revision and is out of scope of the 2026-07-28 text. Which era to build follows from the table:
+
+  * **A new server whose clients you control** : modern only. It is the smaller implementation, and the clients are yours to upgrade.
+  * **A server with clients you do not control** , such as hosts that still send `initialize`: dual-era. A server **MAY** implement both behaviors and serve both eras on one endpoint.
+  * **A client for servers you do not control** : dual-era, because a modern client against a legacy server fails. On stdio, probe with `server/discover` and fall back on any error that is not a recognized modern error; on Streamable HTTP, attempt a modern request and read the body of a `400` before falling back. Cache the answer per server process or origin.
+  * **A client for servers you control** : modern only.
+
+
+
+## 3\. Moving from 2025-11-25 to 2026-07-28
+
+Each row is one change from the official 2026-07-28 changelog, with what you do about it and where the site covers it.
+
+What changed| What to do| Read  
+---|---|---  
+Protocol-level sessions and the `Mcp-Session-Id` header are removed; list endpoints no longer vary per connection| Stop keying state or lists on a session; keep state in your own storage or carry it in `requestState`| [Best practices, section 2](https://modelcontextprotocol.info/docs/best-practices/)  
+The `initialize` handshake is removed; every request carries its protocol version and client capabilities in `_meta`| Send the `_meta` fields on every request; stop waiting for an initialization result| [Versioning](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/)  
+`server/discover` is added, and servers **MUST** implement it| Implement it; call it first only when you want the supported versions up front| [Discover](https://modelcontextprotocol.info/specification/2026-07-28/server/discover/)  
+`subscriptions/listen` replaces the GET endpoint and `resources/subscribe`| Open one stream with the notification types you want; list again after a change| [Resources, section 4](https://modelcontextprotocol.info/docs/concepts/resources/)  
+Multi round-trip requests replace server-initiated requests such as `roots/list`, `sampling/createMessage` and `elicitation/create`| Answer an `input_required` result and retry with `inputResponses` and `requestState`| [Multi round-trip requests](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/mrtr/)  
+Every result carries a required `resultType`| Send `"complete"` for ordinary results; read it before anything else on the client| [Prompts, section 5](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+`ttlMs` and `cacheScope` are required on the list results and on `resources/read`| Send `ttlMs: 0` and `"private"` if you do not know better; use `"public"` only for lists identical for all users| [Tools](https://modelcontextprotocol.info/docs/concepts/tools/), [Prompts, section 4](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+`Mcp-Method` and `Mcp-Name` are required on Streamable HTTP POST requests| Send both; Base64-encode a non-ASCII `Mcp-Name`; make your gateway forward them| [Prompts, section 6](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+The error code for a missing resource changes from `-32002` to `-32602`| Return `-32602`; clients should still accept `-32002` from older servers| [Resources, section 7](https://modelcontextprotocol.info/docs/concepts/resources/)  
+`ping`, `logging/setLevel` and `notifications/roots/list_changed` are removed| Set the log level per request in `_meta`; stop sending the removed messages| [Changelog](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)  
+Experimental tasks move out of the core protocol into an official extension| Treat tasks as an extension you negotiate through `extensions`| [Extensions](https://modelcontextprotocol.info/extensions/overview/)  
+SSE stream resumability and the `Last-Event-ID` header are removed| A broken response stream loses the request: the client re-issues it| [Changelog](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)  
+  
+## 4\. The path in stages
+
+Each stage ends with something you can show. The scripts named below are the ones embedded in the pages they come from. Each exits with code 0 when no check FAILs and with code 1 when at least one does.
+
+Stage| Do| Checkpoint| Page  
+---|---|---|---  
+1\. Understand| Read the architecture and the server and client concepts. Learn who controls each primitive: the user (prompts), the application (resources), the model (tools)| You can name the controller of each primitive in your design| [Architecture](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/), [Prompts, section 1](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+2\. Build and run| Build a server with an official SDK, following the guide for your language| The Inspector connects, negotiates a version and lists your tools: `inspector_smoke.py` exits with code 0| [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/), [Inspector guide](https://modelcontextprotocol.info/tools/inspector/)  
+3\. Primitives| Define tools, resources and prompts the way their pages describe, including the failure cases| `lint_tools.py`, `lint_resources.py` and `lint_prompts.py` each exit with code 0 on your endpoint| [Tools](https://modelcontextprotocol.info/docs/concepts/tools/), [Resources](https://modelcontextprotocol.info/docs/concepts/resources/), [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+4\. Remote and secure| Serve over Streamable HTTP, add authorization, check Origin, token audience and the headers| `probe_http.py` exits with code 0 against staging| [Best practices](https://modelcontextprotocol.info/docs/best-practices/), [Authorization](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/)  
+5\. Ship| Describe the server in `server.json`, prove ownership, publish| `preflight.py` exits with code 0| [Publishing](https://modelcontextprotocol.info/registry/quickstart/)  
+6\. Stay compatible| Decide the era (section 2), test the rows of the compatibility table that apply to you| Each applicable row ends as the table says, not as a hang| [Versioning](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/)  
+  
+## 5\. When something does not work
+
+Symptom| Most likely cause| Go to  
+---|---|---  
+A 2026-07-28 client rejects your list result| The result lacks `resultType`, `ttlMs` or `cacheScope` (the 2025-11-25 shape)| The `list-envelope` check of the three linters; [Prompts, section 9](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+HTTP `400` with `-32020` on every request| `Mcp-Method` or `Mcp-Name` is missing, differs from the body, or a non-ASCII value was not Base64-encoded| [Prompts, section 6](https://modelcontextprotocol.info/docs/concepts/prompts/)  
+`-32022` `Unsupported protocol version`| The server does not implement the version you sent| Retry with a version from `data.supported`; [Versioning](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/)  
+A legacy client cannot connect to your new server| A modern-only server rejects `initialize`| The Legacy and Modern row of section 2; build dual-era or upgrade the client  
+`resources/subscribe` answers `404` with `-32601`| The method no longer exists in 2026-07-28| Use `subscriptions/listen`; [Resources, section 4](https://modelcontextprotocol.info/docs/concepts/resources/)  
+A missing resource answers `-32002`| The server is on 2025-11-25 or earlier| Accept both codes in the client; [Resources, section 7](https://modelcontextprotocol.info/docs/concepts/resources/)  
+The model keeps calling the wrong tool, or sends invalid arguments| The definition does not let the model recover| [Tools](https://modelcontextprotocol.info/docs/concepts/tools/), [Best practices, section 4](https://modelcontextprotocol.info/docs/best-practices/)  
+The server works locally and fails behind a gateway| A gateway drops or rewrites `Mcp-Method`, `Mcp-Name` or `MCP-Protocol-Version`| `probe_http.py`; [Best practices, section 5](https://modelcontextprotocol.info/docs/best-practices/)  
+  
+## Versions and Verification
+
+Everything above is about the 2026-07-28 revision and the four before it; the facts come from the official changelogs and the versioning page of the specification, pinned to one commit.
+
+### Sources
 
-# MCP Learning Path: From Zero to Hero
+  * The official changelogs: [2025-03-26](https://modelcontextprotocol.info/specification/2025-03-26/changelog/), [2025-06-18](https://modelcontextprotocol.info/specification/2025-06-18/changelog/), [2025-11-25](https://modelcontextprotocol.info/specification/2025-11-25/changelog/), [2026-07-28](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
+  * The official [versioning and compatibility](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/) page, including the compatibility matrix
+  * This site's [MCP tools explained](https://modelcontextprotocol.info/docs/concepts/tools/), [MCP resources explained](https://modelcontextprotocol.info/docs/concepts/resources/), [MCP prompts explained](https://modelcontextprotocol.info/docs/concepts/prompts/), [MCP server best practices](https://modelcontextprotocol.info/docs/best-practices/), [MCP Inspector](https://modelcontextprotocol.info/tools/inspector/) and [Publishing to the registry](https://modelcontextprotocol.info/registry/quickstart/)
 
-# MCP Learning Path: From Zero to Hero
 
-This comprehensive learning path is designed for **absolute beginners** who want to master MCP step by step. No prior AI or protocol experience required!
 
-🎯
+[About](https://modelcontextprotocol.info/about/)[Privacy](https://modelcontextprotocol.info/privacy/)[Contact](https://modelcontextprotocol.info/contact/)[Official Sources](https://modelcontextprotocol.info/docs/#official-sources)
 
-**Learning Goal** : By the end of this path, you'll understand MCP concepts, use existing servers, and build your own custom integrations.
-
-## 🗺️ Your Learning Journey Overview
-    
-    
-      flowchart TD
-        A["🎓 Level 1: Understanding<br/>(1-2 hours)"] --> B["🔧 Level 2: Using<br/>(2-3 hours)"]
-        B --> C["👨‍💻 Level 3: Building<br/>(4-6 hours)"]
-        C --> D["🚀 Level 4: Mastering<br/>(Ongoing)"]
-        
-        A --> A1["What is MCP?"]
-        A --> A2["Why does it matter?"]
-        A --> A3["Key concepts"]
-        
-        B --> B1["Install Claude Desktop"]
-        B --> B2["Connect your first server"]
-        B --> B3["Explore server gallery"]
-        
-        C --> C1["Build simple server"]
-        C --> C2["Add custom tools"]
-        C --> C3["Handle real data"]
-        
-        D --> D1["Production deployment"]
-        D --> D2["Advanced patterns"]
-        D --> D3["Community contribution"]
-    
-
-* * *
-
-## 🎓 Level 1: Understanding MCP (1-2 hours)
-
-### Step 1.1: What is MCP? (15 minutes)
-
-**Goal** : Understand the basic concept without technical jargon.
-
-**Think of MCP like this** :
-
-  * **Traditional AI** : Like a smart person locked in a room with no internet or tools
-  * **MCP-enabled AI** : Like giving that person a universal remote control for your entire digital life
-
-
-
-**Real-world analogy** :
-    
-    
-    🏠 Your House (Data & Tools)
-    ├── 📁 Files and documents
-    ├── 💾 Databases  
-    ├── 🌐 Web services
-    ├── 📧 Email systems
-    └── 🔧 Various tools
-    
-    🎮 MCP = Universal Remote
-    ├── 🔌 Connects to everything
-    ├── 🔒 Secure access control
-    ├── 📋 Standardized interface
-    └── 🔄 Works with any AI
-
-**✅ Check Your Understanding** :
-
-  * Can you explain MCP to a friend in one sentence?
-  * Do you understand why AI needs external connections?
-
-
-
-### Step 1.2: Why MCP Matters (20 minutes)
-
-**Goal** : See the bigger picture and real benefits.
-
-**Before MCP** (The Problem):
-    
-    
-      flowchart LR
-        AI1["AI App 1"] -.-> |custom code| DB[("Database")]
-        AI2["AI App 2"] -.-> |different code| DB
-        AI3["AI App 3"] -.-> |another way| DB
-        
-        AI1 -.-> |custom API| WEB[("Web Service")]
-        AI2 -.-> |different API| WEB
-        AI3 -.-> |yet another way| WEB
-    
-
-**Problems** : Messy, insecure, hard to maintain, vendor lock-in
-
-**With MCP** (The Solution):
-    
-    
-      flowchart LR
-        AI1["AI App 1"] --> MCP["🎮 MCP Server"]
-        AI2["AI App 2"] --> MCP
-        AI3["AI App 3"] --> MCP
-        
-        MCP --> DB[("Database")]
-        MCP --> WEB[("Web Service")]
-        MCP --> FILES[("Files")]
-    
-
-**Benefits** : Clean, secure, reusable, future-proof
-
-**✅ Check Your Understanding** :
-
-  * Can you list 3 problems MCP solves?
-  * Can you think of a use case in your own work?
-
-
-
-### Step 1.3: Key Concepts (25 minutes)
-
-**Goal** : Learn the essential vocabulary.
-
-**The MCP Family** :
-    
-    
-    🏠 MCP Host (Claude Desktop)
-    ├── The "brain" that makes requests
-    ├── Examples: Claude, IDEs, custom apps
-    └── Talks to servers through MCP protocol
-    
-    🔧 MCP Server (The Helper)
-    ├── Provides specific capabilities
-    ├── Examples: file access, database queries, web search
-    └── Responds to host requests
-    
-    📡 MCP Protocol (The Language)
-    ├── How hosts and servers communicate
-    ├── Standardized message format
-    └── Like HTTP for AI integrations
-
-**Core Capabilities** :
-
-  * **🛠️ Tools** : Actions the AI can perform (read file, send email, etc.)
-  * **📚 Resources** : Data the AI can access (documents, database records, etc.)
-  * **💭 Prompts** : Pre-written instructions for specific tasks
-  * **🤖 Sampling** : Let servers request AI completions
-
-
-
-**✅ Check Your Understanding** :
-
-  * Can you explain the difference between a host and server?
-  * Do you know what tools and resources are?
-
-
-
-* * *
-
-## 🔧 Level 2: Using MCP (2-3 hours)
-
-### Step 2.1: Set Up Your First MCP Experience (30 minutes)
-
-**Goal** : Get Claude Desktop working with an MCP server.
-
-**What You 'll Need**:
-
-  * Computer (Windows/Mac)
-  * Internet connection
-  * 15 minutes of patience
-
-
-
-**Step-by-Step Setup** :
-
-  1. **Download Claude Desktop**
-         
-         🌐 Visit: https://claude.ai/download
-         📥 Download for your OS
-         ⚙️ Install following prompts
-
-  2. **Verify Installation**
-
-     * Open Claude Desktop
-     * Look for the settings menu (⚙️)
-     * Find "Developer" section
-  3. **Add Your First Server**
-         
-         {
-           "mcpServers": {
-             "filesystem": {
-               "command": "npx",
-               "args": [
-                 "-y",
-                 "@modelcontextprotocol/server-filesystem",
-                 "/Users/yourname/Desktop"
-               ]
-             }
-           }
-         }
-
-  4. **Test It Works**
-
-     * Restart Claude Desktop
-     * Look for hammer icon (🔨) in chat
-     * Ask: "What files are on my desktop?"
-
-
-
-**✅ Success Indicators** :
-
-  * Hammer icon appears in Claude
-  * Claude can list your desktop files
-  * You feel excited about the possibilities!
-
-
-
-### Step 2.2: Explore Different Server Types (45 minutes)
-
-**Goal** : Try various servers to understand MCP's versatility.
-
-**Server Buffet** (Try 2-3 of these):
-
-**🗂️ File Management** :
-    
-    
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/safe/folder"]
-    }
-
-_Try_ : "Create a shopping list file", "Organize my downloads folder"
-
-**🔍 Web Search** :
-    
-    
-    "brave-search": {
-      "command": "npx", 
-      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
-      "env": {"BRAVE_API_KEY": "your-api-key"}
-    }
-
-_Try_ : "Search for MCP tutorials", "Find recent AI news"
-
-**🧠 Memory** :
-    
-    
-    "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"]
-    }
-
-_Try_ : "Remember that I prefer Python over JavaScript", "What do you remember about me?"
-
-**✅ Exploration Goals** :
-
-  * Try at least 2 different server types
-  * Notice how each adds different capabilities
-  * Start thinking about what you'd want to build
-
-
-
-### Step 2.3: Server Gallery Deep Dive (45 minutes)
-
-**Goal** : Understand the ecosystem and find servers for your needs.
-
-**Official Server Categories** :
-
-**📊 Data & Analytics**:
-
-  * PostgreSQL, SQLite: Database access
-  * Memory: Persistent AI memory
-  *  _Use case_ : "Analyze my sales data", "Remember customer preferences"
-
-
-
-**🔧 Developer Tools** :
-
-  * GitHub, Git: Code repository access
-  * Sentry: Error monitoring
-  *  _Use case_ : "Review my recent commits", "Check for production errors"
-
-
-
-**🌐 Web & Communication**:
-
-  * Slack: Team messaging
-  * Fetch: Web scraping
-  *  _Use case_ : "Send team updates", "Monitor competitor websites"
-
-
-
-**🎨 Creative & Specialized**:
-
-  * EverArt: AI image generation
-  * Sequential Thinking: Complex reasoning
-  *  _Use case_ : "Create marketing images", "Solve multi-step problems"
-
-
-
-**✅ Discovery Exercise** :
-
-  * Browse the [full server list](https://github.com/modelcontextprotocol/servers)
-  * Pick 3 servers that interest you
-  * Imagine how you'd use them in your work
-
-
-
-* * *
-
-## 👨‍💻 Level 3: Building Your Own (4-6 hours)
-
-### Step 3.1: Your First Custom Server (90 minutes)
-
-**Goal** : Build a simple but functional MCP server from scratch.
-
-**Project** : Personal Task Manager Server
-
-**What It Will Do** :
-
-  * Add tasks to a list
-  * Mark tasks as complete
-  * List all tasks
-  * Clear completed tasks
-
-
-
-**Setup Your Environment** :
-    
-    
-    # Create project folder
-    mkdir my-first-mcp-server
-    cd my-first-mcp-server
-    
-    # Initialize Node.js project
-    npm init -y
-    
-    # Install MCP SDK
-    npm install @modelcontextprotocol/sdk-typescript
-
-**Build the Server** (Step by step):
-
-  1. **Create the basic structure** :
-
-
-    
-    
-    // server.ts
-    import { Server } from '@modelcontextprotocol/sdk-typescript';
-    
-    const server = new Server({
-      name: 'personal-tasks',
-      version: '1.0.0'
-    });
-    
-    // We'll add functionality here
-    
-    server.start();
-
-  2. **Add task storage** :
-
-
-    
-    
-    // Simple in-memory storage
-    let tasks: Array<{id: number, text: string, done: boolean}> = [];
-    let nextId = 1;
-
-  3. **Add your first tool** :
-
-
-    
-    
-    server.tool('add-task', 'Add a new task', {
-      text: { type: 'string', description: 'Task description' }
-    }, async (args) => {
-      const task = {
-        id: nextId++,
-        text: args.text,
-        done: false
-      };
-      tasks.push(task);
-      return `Added task: ${task.text}`;
-    });
-
-  4. **Test your server** :
-
-
-    
-    
-    npx tsx server.ts
-
-**✅ Milestone Check** :
-
-  * Server starts without errors
-  * You can add tasks through Claude
-  * You feel proud of your creation!
-
-
-
-### Step 3.2: Add More Features (90 minutes)
-
-**Goal** : Enhance your server with additional capabilities.
-
-**Add More Tools** :
-    
-    
-    // List all tasks
-    server.tool('list-tasks', 'Show all tasks', {}, async () => {
-      if (tasks.length === 0) return 'No tasks yet!';
-      
-      return tasks.map(t => 
-        `${t.id}. [${t.done ? '✅' : '⭐'}] ${t.text}`
-      ).join('\n');
-    });
-    
-    // Complete a task
-    server.tool('complete-task', 'Mark task as done', {
-      id: { type: 'number', description: 'Task ID' }
-    }, async (args) => {
-      const task = tasks.find(t => t.id === args.id);
-      if (!task) return 'Task not found!';
-      
-      task.done = true;
-      return `Completed: ${task.text}`;
-    });
-    
-    // Clear completed tasks
-    server.tool('clear-completed', 'Remove all completed tasks', {}, async () => {
-      const completedCount = tasks.filter(t => t.done).length;
-      tasks = tasks.filter(t => !t.done);
-      return `Cleared ${completedCount} completed tasks`;
-    });
-
-**Add Persistent Storage** :
-    
-    
-    import fs from 'fs';
-    
-    const TASKS_FILE = 'tasks.json';
-    
-    // Load tasks on startup
-    function loadTasks() {
-      try {
-        const data = fs.readFileSync(TASKS_FILE, 'utf8');
-        tasks = JSON.parse(data);
-        nextId = Math.max(...tasks.map(t => t.id), 0) + 1;
-      } catch {
-        tasks = [];
-        nextId = 1;
-      }
-    }
-    
-    // Save tasks after changes
-    function saveTasks() {
-      fs.writeFileSync(TASKS_FILE, JSON.stringify(tasks, null, 2));
-    }
-
-**✅ Enhancement Goals** :
-
-  * All CRUD operations work
-  * Tasks persist between restarts
-  * Error handling is graceful
-
-
-
-### Step 3.3: Real-World Integration (120 minutes)
-
-**Goal** : Connect your server to real data or services.
-
-**Choose Your Adventure** :
-
-**Option A: File-Based Notes**
-    
-    
-     // Add note-taking capability
-    server.tool('save-note', 'Save a note to file', {
-      title: { type: 'string' },
-      content: { type: 'string' }
-    }, async (args) => {
-      const filename = `notes/${args.title.replace(/\s+/g, '-')}.md`;
-      fs.writeFileSync(filename, args.content);
-      return `Note saved: ${filename}`;
-    });
-
-**Option B: API Integration**
-    
-    
-     // Weather integration example
-    server.tool('get-weather', 'Get current weather', {
-      city: { type: 'string' }
-    }, async (args) => {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${args.city}&appid=${API_KEY}`
-      );
-      const data = await response.json();
-      return `Weather in ${args.city}: ${data.weather[0].description}`;
-    });
-
-**Option C: Database Connection**
-    
-    
-     import sqlite3 from 'sqlite3';
-    
-    // Simple database integration
-    server.tool('query-db', 'Query database', {
-      query: { type: 'string' }
-    }, async (args) => {
-      return new Promise((resolve, reject) => {
-        db.all(args.query, (err, rows) => {
-          if (err) reject(err);
-          else resolve(JSON.stringify(rows, null, 2));
-        });
-      });
-    });
-
-**✅ Integration Success** :
-
-  * Server connects to external data/service
-  * Error handling for network issues
-  * You see the real power of MCP!
-
-
-
-* * *
-
-## 🚀 Level 4: Mastering MCP (Ongoing)
-
-### Advanced Topics to Explore
-
-**🏗️ Production Deployment** :
-
-  * Docker containerization
-  * Environment configuration
-  * Monitoring and logging
-  * Security best practices
-
-
-
-**🔧 Advanced Patterns** :
-
-  * Resource streaming
-  * Batch operations
-  * Custom transport layers
-  * Protocol extensions
-
-
-
-**🌟 Community Contribution** :
-
-  * Open source your servers
-  * Contribute to MCP ecosystem
-  * Help other learners
-  * Share your use cases
-
-
-
-### Continuous Learning Resources
-
-**📚 Deep Dive Documentation** :
-
-[Production Best PracticesEnterprise-grade patterns and deployment strategies](../best-practices)[Protocol SpecificationComplete technical reference for MCP protocol](../specification)
-
-**🤝 Community Engagement** :
-
-[GitHub DiscussionsAsk questions, share projects, get help](https://github.com/orgs/modelcontextprotocol/discussions)[Server GalleryExplore advanced server implementations](../examples)
-
-* * *
-
-## 🎯 Learning Path Completion
-
-### Self-Assessment Checklist
-
-**Level 1 - Understanding** ✅
-
-  * Can explain MCP in simple terms
-  * Understands the value proposition
-  * Knows key terminology
-
-
-
-**Level 2 - Using** ✅
-
-  * Successfully set up Claude Desktop with MCP
-  * Tried multiple server types
-  * Can find and evaluate new servers
-
-
-
-**Level 3 - Building** ✅
-
-  * Built a custom MCP server
-  * Added multiple tools and features
-  * Integrated with real data/services
-
-
-
-**Level 4 - Mastering** 🚀
-
-  * Understands production considerations
-  * Actively contributes to community
-  * Helps others learn MCP
-
-
-
-### What's Next?
-
-**For Continued Growth** :
-
-  1. **Build More Servers** : Each project teaches new patterns
-  2. **Join the Community** : Share your learnings and get feedback
-  3. **Stay Updated** : MCP is evolving rapidly
-  4. **Teach Others** : The best way to solidify your knowledge
-
-
-
-**Career Opportunities** :
-
-  * AI Integration Specialist
-  * MCP Server Developer
-  * Enterprise AI Architect
-  * Developer Relations (MCP ecosystem)
-
-
-
-🎉
-
-**Congratulations!** You've completed the MCP learning path. You're now equipped to build powerful AI integrations and contribute to the future of AI-human collaboration.
-
-* * *
-
-## 📞 Need Help?
-
-**Stuck on a step?** Don't worry, we've all been there!
-
-[Common QuestionsAnswers to frequent beginner questions](../faqs)[Get HelpAsk the community for assistance](https://github.com/orgs/modelcontextprotocol/discussions)[More TutorialsAdditional hands-on guides](../tutorials)
-
-[Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/ "Understanding Model Context Protocol \(MCP\)")[MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/ "MCP Server Ecosystem: From Proof-of-Concept to Production")
-
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab ](https://OpenClawLab.com/ "OpenClaw 技术站")[DSHx Community ](https://dshx.dev "DeepSeek Harness Developer Community")[DSH Plugins](https://plugin.dshx.dev "DeepSeek Harness Plugin Directory")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

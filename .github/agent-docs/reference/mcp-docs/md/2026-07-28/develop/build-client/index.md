@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Build ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Upgrade ](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)[Diagnose ](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)[Secure ](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)[Compatibility ](https://modelcontextprotocol.info/specification/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Get Started ](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)[Develop ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Connect and Run ](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)[Protocol and Versions ](https://modelcontextprotocol.info/specification/)[Reference ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -10,303 +10,65 @@
 
 
 
-  * [MCP Docs ](https://modelcontextprotocol.info/docs/)
+  * [Get Started](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
 
-    * [Versioning](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
-    * [Architecture overview](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
+    * [What is MCP?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
+    * [Architecture and roles](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
+    * [Servers and primitives](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
+    * [Hosts and clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
+
+  * [Develop](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
+
+    * [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
+    * [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
+    * [Choose an SDK](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
+    * [Build with agent skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
+    * [Node.js client: calls and failures without a model](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+    * [Design and check effective tools](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
+
+  * [Connect and Run](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
+
+    * [Connect a local server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
+    * [Connect a remote server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
+    * [Authorization with OAuth 2.1](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
+    * [Local server security defaults](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
+    * [Security checklist before launch](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
+    * [Host applications at scale](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
+    * [Troubleshoot connections and calls](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
+    * [Inspector: test a server interactively](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
+    * [Inspector CLI: scripted checks and CI](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
+    * [Inspector recipes: transports, Docker, config import](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
+    * [Inspector lab: reproducible calls and failure diagnosis](https://modelcontextprotocol.info/tools/inspector/)
+
+  * [Protocol and Versions](https://modelcontextprotocol.info/specification/)
+
+    * [Version negotiation rules](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
+    * [Revision and method matrix](https://modelcontextprotocol.info/specification/)
+    * [Key changes in 2026-07-28](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
+    * [Deprecated features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
+    * [Legacy and modern protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
+    * [Client extension support matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
+
+  * [Reference](https://modelcontextprotocol.info/tools/)
+
+    * [Tools and Registry overview](https://modelcontextprotocol.info/tools/)
+    * [Production checklist](https://modelcontextprotocol.info/docs/best-practices/)
+    * [Client capability matrix](https://modelcontextprotocol.info/docs/clients/)
+    * [Tools: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/tools/)
+    * [Resources: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/resources/)
+    * [Prompts: definitions and trade-offs](https://modelcontextprotocol.info/docs/concepts/prompts/)
+    * [Sampling: deprecated server requests for client model calls](https://modelcontextprotocol.info/docs/concepts/sampling/)
+    * [Current transports: stdio and Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
+    * [Publish a server to the Registry](https://modelcontextprotocol.info/tools/registry/publishing/)
+    * [Official SEP status index](https://modelcontextprotocol.info/seps/)
+    * [SEP impact and method lifecycle guide](https://modelcontextprotocol.info/docs/reference/sep-impact-guide/)
+    * [FAQ: revisions, authorization and failure handling](https://modelcontextprotocol.info/docs/faqs/)
+
+  * In this section
+
+    * [MCP Docs](https://modelcontextprotocol.info/docs/)
     * [Build an MCP client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
-      *       * System Requirements
-      * Setting Up Your Environment
-      * Setting Up Your API Key
-      * Creating the Client
-      * Key Components Explained
-      * Common Customization Points
-      * Running the Client
-      * How It Works
-      * Best practices
-      * Troubleshooting
-      * System Requirements
-      * Setting Up Your Environment
-      * Setting Up Your API Key
-      * Creating the Client
-      * Running the Client
-      * How It Works
-      * Best practices
-      * Troubleshooting
-      * System Requirements
-      * Setting Up Your Environment
-      * How it Works
-      * System Requirements
-      * Setting up your environment
-      * Setting up your API key
-      * Creating the Client
-      * Running the client
-      * How it works
-      * Best practices
-      * Troubleshooting
-      * System Requirements
-      * Setting up your environment
-      * Setting up your API key
-      * Creating the Client
-      * Key Components Explained
-      * Running the Client
-      * System Requirements
-      * Setting Up Your Environment
-      * Setting Up Your API Key
-      * Creating the Client
-      * Key Components Explained
-      * Running the Client
-      * How It Works
-      * Best practices
-      * Troubleshooting
-      * System Requirements
-      * Setting Up Your Environment
-      * Setting Up Your API Key
-      * Creating the Client
-      * Running the Client
-      * How It Works
-      * Best Practices
-      * Troubleshooting
-      * Next steps
-    * [Build an MCP server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
-    * [Build with Agent Skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
-    * [Client Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
-    * [Connect to local MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
-    * [Connect to remote MCP Servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
-    * [Debugging](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
-    * [Local Server Security](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
-    * [MCP Inspector ](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
 
-      * [Authorization](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/authorization/)
-      * [CLI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
-      * [Configuration and flags](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/configuration/)
-      * [mcpdo connection client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/mcpdo/)
-      * [Protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
-      * [Recipes](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
-      * [Security](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/security/)
-      * [TUI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/tui/)
-      * [Web client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/web/)
-
-    * [SDKs](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
-    * [Security Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
-    * [Understanding Authorization in MCP](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
-    * [Understanding MCP clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
-    * [Understanding MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
-    * [What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
-
-  * [Tools ](https://modelcontextprotocol.info/tools/)
-
-  * [Specification ](https://modelcontextprotocol.info/specification/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2026-07-28/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/2026-07-28/architecture/)
-      * [Deprecated Features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
-      * [Elicitation](https://modelcontextprotocol.info/specification/2026-07-28/client/elicitation/)
-      * [Key Changes](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
-      * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/basic/)
-
-        * [Authorization ](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/)
-
-          * [Authorization Security Considerations](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/security-considerations/)
-          * [Authorization Server Discovery](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/authorization-server-discovery/)
-          * [Client Registration](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/client-registration/)
-
-        * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/)
-
-          * [Cancellation](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/cancellation/)
-          * [Multi Round-Trip Requests](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/mrtr/)
-          * [Progress](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/progress/)
-          * [Subscriptions](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/subscriptions/)
-
-        * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
-
-          * [stdio](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/stdio/)
-          * [Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/streamable-http/)
-
-        * [Versioning and Compatibility](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/)
-
-      * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/server/)
-
-        * [Caching](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/caching/)
-        * [Completion](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/completion/)
-        * [Discovery](https://modelcontextprotocol.info/specification/2026-07-28/server/discover/)
-        * [Logging](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/logging/)
-        * [Pagination](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/pagination/)
-        * [Prompts](https://modelcontextprotocol.info/specification/2026-07-28/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/2026-07-28/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/2026-07-28/server/tools/)
-
-      * [Roots](https://modelcontextprotocol.info/specification/2026-07-28/client/roots/)
-      * [Sampling](https://modelcontextprotocol.info/specification/2026-07-28/client/sampling/)
-      * [Schema Reference](https://modelcontextprotocol.info/specification/2026-07-28/schema/)
-
-  * [MCP Protocol Blog ](https://modelcontextprotocol.info/blog/)
-
-    * [Mastering MCP Tool Development: Unlocking AI Agent Potential](https://modelcontextprotocol.info/blog/writing-effective-mcp-tools/)
-    * [Update on the Next MCP Protocol Release](https://modelcontextprotocol.info/blog/mcp-next-version-update/)
-    * [MCP Apps in Practice: Wiring, Negotiation and Testing](https://modelcontextprotocol.info/blog/mcp-apps-ui-capabilities/)
-    * [Server Instructions in Practice: Spec Versions and Testing](https://modelcontextprotocol.info/blog/server-instructions/)
-    * [January MCP Core Maintainer Update](https://modelcontextprotocol.info/blog/core-maintainer-update/)
-    * [Exploring the Future of MCP Transports](https://modelcontextprotocol.info/blog/transport-future/)
-    * [MCP joins the Agentic AI Foundation](https://modelcontextprotocol.info/blog/joins-agentic-ai-foundation/)
-    * [One Year of MCP: November 2025 Spec Release](https://modelcontextprotocol.info/blog/first-mcp-anniversary/)
-    * [Adopting the MCP Bundle Format (.mcpb) for Portable Local Servers](https://modelcontextprotocol.info/blog/adopting-mcpb/)
-    * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
-    * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
-    * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
-
-  * [About](https://modelcontextprotocol.info/about/)
-  * [Communities ](https://modelcontextprotocol.info/community/)
-
-    * [Agents Charter](https://modelcontextprotocol.info/community/interest-groups/agents/)
-    * [Antitrust Policy](https://modelcontextprotocol.info/community/antitrust/)
-    * [Authorization Charter](https://modelcontextprotocol.info/community/interest-groups/auth/)
-    * [Contributing to MCP](https://modelcontextprotocol.info/community/contributing/)
-    * [Contributor Communication](https://modelcontextprotocol.info/community/communication/)
-    * [Contributor Ladder](https://modelcontextprotocol.info/community/contributor-ladder/)
-    * [Design Principles](https://modelcontextprotocol.info/community/design-principles/)
-    * [Enterprise Interest Group Charter](https://modelcontextprotocol.info/community/interest-groups/enterprise/)
-    * [Feature Lifecycle and Deprecation Policy](https://modelcontextprotocol.info/community/feature-lifecycle/)
-    * [File Uploads Charter](https://modelcontextprotocol.info/community/working-groups/file-uploads/)
-    * [Filesystems Charter](https://modelcontextprotocol.info/community/working-groups/filesystems/)
-    * [Financial Services Charter](https://modelcontextprotocol.info/community/interest-groups/financial-services/)
-    * [Governance and Stewardship](https://modelcontextprotocol.info/community/governance/)
-    * [Governance Working Group Charter](https://modelcontextprotocol.info/community/working-groups/governance/)
-    * [Infrastructure Charter](https://modelcontextprotocol.info/community/working-groups/infrastructure/)
-    * [Inspector V2 Working Group Charter](https://modelcontextprotocol.info/community/working-groups/inspector-v2/)
-    * [Interceptors Charter](https://modelcontextprotocol.info/community/working-groups/interceptors/)
-    * [MCP Apps Working Group Charter](https://modelcontextprotocol.info/community/working-groups/apps/)
-    * [Progressive Disclosure Charter](https://modelcontextprotocol.info/community/working-groups/progressive-disclosure/)
-    * [Registry Charter](https://modelcontextprotocol.info/community/working-groups/registry/)
-    * [Scientific Computing Charter](https://modelcontextprotocol.info/community/interest-groups/scientific-computing/)
-    * [SDK Tiering System](https://modelcontextprotocol.info/community/sdk-tiers/)
-    * [SDK Working Group Charter](https://modelcontextprotocol.info/community/working-groups/sdk/)
-    * [Security Charter](https://modelcontextprotocol.info/community/interest-groups/security/)
-    * [Security Policy](https://modelcontextprotocol.info/community/security/)
-    * [SEP Guidelines](https://modelcontextprotocol.info/community/sep-guidelines/)
-    * [Server Card Charter](https://modelcontextprotocol.info/community/working-groups/server-card/)
-    * [Skills Over MCP Charter](https://modelcontextprotocol.info/community/working-groups/skills-over-mcp/)
-    * [Tasks and Events Charter](https://modelcontextprotocol.info/community/working-groups/tasks-events/)
-    * [Tool Annotations Charter](https://modelcontextprotocol.info/community/interest-groups/tool-annotations/)
-    * [Transports Charter](https://modelcontextprotocol.info/community/working-groups/transports/)
-    * [Working and Interest Groups](https://modelcontextprotocol.info/community/working-interest-groups/)
-
-  * [Contact](https://modelcontextprotocol.info/contact/)
-  * [Developments ](https://modelcontextprotocol.info/development/)
-
-    * [Roadmap](https://modelcontextprotocol.info/development/roadmap/)
-
-  * [Language-Archives ](https://modelcontextprotocol.info/language-archives/)
-
-  * [MCP Extensions ](https://modelcontextprotocol.info/extensions/)
-
-    * [Authorization Extensions](https://modelcontextprotocol.info/extensions/auth/overview/)
-    * [Build an MCP App](https://modelcontextprotocol.info/extensions/apps/build/)
-    * [Enterprise-Managed Authorization](https://modelcontextprotocol.info/extensions/auth/enterprise-managed-authorization/)
-    * [Extension Support Matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
-    * [Extensions Overview](https://modelcontextprotocol.info/extensions/overview/)
-    * [MCP Apps](https://modelcontextprotocol.info/extensions/apps/overview/)
-    * [OAuth Client Credentials](https://modelcontextprotocol.info/extensions/auth/oauth-client-credentials/)
-    * [Skills](https://modelcontextprotocol.info/extensions/skills/overview/)
-    * [Tasks](https://modelcontextprotocol.info/extensions/tasks/overview/)
-
-  * [Privacy Policy](https://modelcontextprotocol.info/privacy/)
-  * [Registries ](https://modelcontextprotocol.info/registry/)
-
-    * [Frequently Asked Questions](https://modelcontextprotocol.info/registry/faq/)
-    * [How to Authenticate When Publishing to the Official MCP Registry](https://modelcontextprotocol.info/registry/authentication/)
-    * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/registry/github-actions/)
-    * [MCP Registry Aggregators](https://modelcontextprotocol.info/registry/registry-aggregators/)
-    * [MCP Registry Supported Package Types](https://modelcontextprotocol.info/registry/package-types/)
-    * [Official MCP Registry Terms of Service](https://modelcontextprotocol.info/registry/terms-of-service/)
-    * [Publishing Remote Servers](https://modelcontextprotocol.info/registry/remote-servers/)
-    * [Quickstart: Publish an MCP Server to the MCP Registry](https://modelcontextprotocol.info/registry/quickstart/)
-    * [The MCP Registry](https://modelcontextprotocol.info/registry/about/)
-    * [The MCP Registry Moderation Policy](https://modelcontextprotocol.info/registry/moderation-policy/)
-    * [Versioning Published MCP Servers](https://modelcontextprotocol.info/registry/versioning/)
-
-  * [Specification Enhancement Proposals (SEPs) ](https://modelcontextprotocol.info/seps/)
-
-    * [SEP-1024: MCP Client Security Requirements for Local Server Installation](https://modelcontextprotocol.info/seps/1024-mcp-client-security-requirements-for-local-server-/)
-    * [SEP-1034: Support default values for all primitive types in elicitation schemas](https://modelcontextprotocol.info/seps/1034--support-default-values-for-all-primitive-types-in/)
-    * [SEP-1036: URL Mode Elicitation for secure out-of-band interactions](https://modelcontextprotocol.info/seps/1036-url-mode-elicitation-for-secure-out-of-band-intera/)
-    * [SEP-1046: Support OAuth client credentials flow in authorization](https://modelcontextprotocol.info/seps/1046-support-oauth-client-credentials-flow-in-authoriza/)
-    * [SEP-1302: Formalize Working Groups and Interest Groups in MCP Governance](https://modelcontextprotocol.info/seps/1302-formalize-working-groups-and-interest-groups-in-mc/)
-    * [SEP-1303: Input Validation Errors as Tool Execution Errors](https://modelcontextprotocol.info/seps/1303-input-validation-errors-as-tool-execution-errors/)
-    * [SEP-1319: Decouple Request Payload from RPC Methods Definition](https://modelcontextprotocol.info/seps/1319-decouple-request-payload-from-rpc-methods-definiti/)
-    * [SEP-1330: Elicitation Enum Schema Improvements and Standards Compliance](https://modelcontextprotocol.info/seps/1330-elicitation-enum-schema-improvements-and-standards/)
-    * [SEP-1577: Sampling With Tools](https://modelcontextprotocol.info/seps/1577--sampling-with-tools/)
-    * [SEP-1613: Establish JSON Schema 2020-12 as Default Dialect for MCP](https://modelcontextprotocol.info/seps/1613-establish-json-schema-2020-12-as-default-dialect-f/)
-    * [SEP-1686: Tasks](https://modelcontextprotocol.info/seps/1686-tasks/)
-    * [SEP-1699: Support SSE polling via server-side disconnect](https://modelcontextprotocol.info/seps/1699-support-sse-polling-via-server-side-disconnect/)
-    * [SEP-1730: SDKs Tiering System](https://modelcontextprotocol.info/seps/1730-sdks-tiering-system/)
-    * [SEP-1850: PR-Based SEP Workflow](https://modelcontextprotocol.info/seps/1850-pr-based-sep-workflow/)
-    * [SEP-1865: MCP Apps - Interactive User Interfaces for MCP](https://modelcontextprotocol.info/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp/)
-    * [SEP-2085: Governance Succession and Amendment Procedures](https://modelcontextprotocol.info/seps/2085-governance-succession-and-amendment/)
-    * [SEP-2106: Tools `inputSchema` & `outputSchema` Conform to JSON Schema 2020-12](https://modelcontextprotocol.info/seps/2106-json-schema-2020-12/)
-    * [SEP-2127: MCP Server Cards - HTTP Server Discovery](https://modelcontextprotocol.info/seps/2127-mcp-server-cards/)
-    * [SEP-2133: Extensions](https://modelcontextprotocol.info/seps/2133-extensions/)
-    * [SEP-2148: MCP Contributor Ladder](https://modelcontextprotocol.info/seps/2148-contributor-ladder/)
-    * [SEP-2149: MCP Group Governance and Charter Template](https://modelcontextprotocol.info/seps/2149-working-group-charter-template/)
-    * [SEP-2164: Standardize Resource Not Found Error Code](https://modelcontextprotocol.info/seps/2164-resource-not-found-error/)
-    * [SEP-2207: OIDC-Flavored Refresh Token Guidance](https://modelcontextprotocol.info/seps/2207-oidc-refresh-token-guidance/)
-    * [SEP-2243: HTTP Header Standardization for Streamable HTTP Transport](https://modelcontextprotocol.info/seps/2243-http-standardization/)
-    * [SEP-2260: Require Server requests to be associated with a Client request.](https://modelcontextprotocol.info/seps/2260-require-server-requests-to-be-associated-with-client-requests/)
-    * [SEP-2322: Multi Round-Trip Requests](https://modelcontextprotocol.info/seps/2322-mrtr/)
-    * [SEP-2468: Recommend Issuer (iss) Parameter in MCP Auth Responses](https://modelcontextprotocol.info/seps/2468-recommend-issuer-claim-for-auth/)
-    * [SEP-2484: Require Conformance Tests for Standards Track SEPs to Reach Final Status](https://modelcontextprotocol.info/seps/2484-conformance-tests-required-for-final-seps/)
-    * [SEP-2549: TTL for List Results](https://modelcontextprotocol.info/seps/2549-ttl-for-list-results/)
-    * [SEP-2567: Sessionless MCP via Explicit State Handles](https://modelcontextprotocol.info/seps/2567-sessionless-mcp/)
-    * [SEP-2575: Make MCP Stateless](https://modelcontextprotocol.info/seps/2575-stateless-mcp/)
-    * [SEP-2577: Deprecate Roots, Sampling, and Logging](https://modelcontextprotocol.info/seps/2577-deprecate-roots-sampling-and-logging/)
-    * [SEP-2596: Specification Feature Lifecycle and Deprecation Policy](https://modelcontextprotocol.info/seps/2596-spec-feature-lifecycle-and-deprecation/)
-    * [SEP-2640: Skills Extension](https://modelcontextprotocol.info/seps/2640-skills-extension/)
-    * [SEP-2663: Tasks Extension](https://modelcontextprotocol.info/seps/2663-tasks-extension/)
-    * [SEP-414: Document OpenTelemetry Trace Context Propagation Conventions](https://modelcontextprotocol.info/seps/414-request-meta/)
-    * [SEP-932: Model Context Protocol Governance](https://modelcontextprotocol.info/seps/932-model-context-protocol-governance/)
-    * [SEP-973: Expose additional metadata for Implementations, Resources, Tools and Prompts](https://modelcontextprotocol.info/seps/973-expose-additional-metadata-for-implementations-res/)
-    * [SEP-985: Align OAuth 2.0 Protected Resource Metadata with RFC 9728](https://modelcontextprotocol.info/seps/985-align-oauth-20-protected-resource-metadata-with-rf/)
-    * [SEP-986: Specify Format for Tool Names](https://modelcontextprotocol.info/seps/986-specify-format-for-tool-names/)
-    * [SEP-990: Enable enterprise IdP policy controls during MCP OAuth flows](https://modelcontextprotocol.info/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o/)
-    * [SEP-991: Enable URL-based Client Registration using OAuth Client ID Metadata Documents](https://modelcontextprotocol.info/seps/991-enable-url-based-client-registration-using-oauth-c/)
-    * [SEP-994: Shared Communication Practices/Guidelines](https://modelcontextprotocol.info/seps/994-shared-communication-practicesguidelines/)
-
-  * More
-  * [Docs ↗](https://modelcontextprotocol.info/docs/)
-  * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about/)
-
-
-  * [Versioning](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
-  * [Architecture overview](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
-  * [Build an MCP client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
-  * [Build an MCP server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
-  * [Build with Agent Skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
-  * [Client Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
-  * [Connect to local MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
-  * [Connect to remote MCP Servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
-  * [Debugging](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
-  * [Local Server Security](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
-  * [MCP Inspector ](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
-
-    * [Authorization](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/authorization/)
-    * [CLI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
-    * [Configuration and flags](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/configuration/)
-    * [mcpdo connection client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/mcpdo/)
-    * [Protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
-    * [Recipes](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
-    * [Security](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/security/)
-    * [TUI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/tui/)
-    * [Web client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/web/)
-
-  * [SDKs](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
-  * [Security Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
-  * [Understanding Authorization in MCP](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
-  * [Understanding MCP clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
-  * [Understanding MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
-  * [What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
@@ -441,13 +203,14 @@ On this page
   * Creating the Client
   * Imports and Client Structure
   * Client Initialization
+  * Validating Structured Tool Output
   * Server Connection Management
-  * Converting MCP Tools
-  * Sending Model Requests
   * Query Processing Logic
+  * Sending Model Requests
   * Interactive Chat Interface
   * Cleanup
   * Main Entry Point
+  * Describing Tools to the Model
   * Verify the Complete File
   * Running the Client
   * How It Works
@@ -469,9 +232,35 @@ Build an MCP client
 
 # Build an MCP client
 
-Source: [MCP 29affa6b](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/29affa6b11e2dbd5a8b5678e9b90aa4a336769a4/docs/docs/2026-07-28/develop/build-client.mdx)
+Source: [MCP 6a6c3d42](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/6a6c3d42a162d1927c0d36d03838d1f626db5ade/docs/docs/2026-07-28/develop/build-client.mdx)
 
 Erratum: `@modelcontextprotocol/server-brave-search` in the source example is archived. Use the build-server tutorial to test the client and select a maintained implementation from the Registry. [Archive source](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search)
+
+## Site lab: separate the MCP client from the model loop
+
+The chat clients below add a model API, tool selection and conversation history. First isolate the MCP connection with [our complete Node.js client lab](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/): copy its `package.json`, `tsconfig.json` and three `src/` files into one empty directory, then run:
+    
+    
+    npm install
+    npm run build
+    node build/scenarios.js
+
+The lab pins `@modelcontextprotocol/client` and `@modelcontextprotocol/server` to `2.4.0`, Zod to `4.6.7`, TypeScript to `7.0.2` and `@types/node` to `26.6.5`. On 2026-10-30, Node.js `24.18.0` / npm `11.16.0` compiled and ran it without a model key. It connects to a local stdio fixture, not to the weather server below.
+
+Stage| Observed result| Client-side decision  
+---|---|---  
+Default connection| Revision `2025-11-25`, four tools discovered| Use the returned schemas instead of guessing arguments  
+Automatic negotiation| Revision `2026-07-28`, the same tools| Record protocol revision separately from npm package versions  
+`add({a:2,b:3})`| Text `5`, structured result `{"sum":5}`| Check the whole result rather than just successful connection  
+Wrong argument type| Tool result with `isError`| Report an input failure rather than a closed connection  
+Unknown tool `nosuch`| Protocol error `-32602`| Distinguish protocol failures from tool failures  
+Timeout followed by another call| `REQUEST_TIMEOUT`, then `done` for the shorter request| Check subsequent requests before concluding the server exited  
+Server exit| `CONNECTION_CLOSED`| End this session and report connection failure  
+Missing server executable| Connection rejected with `ENOENT`| Fix the executable or path before retrying tool calls  
+  
+For a missing argument, add `["add", { a: 2 }]` to the lab's scenarios array, rebuild and run again. This variation was also executed: it produced a tool validation error for missing `b`, and the following valid request succeeded.
+
+After these checks, add your chosen model's tool loop as described below. Successful discovery does not prove correct model selection, and one successful tool call does not establish correct multi-turn history or authorization. This run verified only the linked, pinned Node.js fixture. It did not call a model or weather API, exercise a desktop host, or validate every language implementation below. See the on-page erratum before using the archived Brave Search example. The attributed upstream body retains its own revision; any `main` references below are not a reproduction of this fixed lab.
 
 In this tutorial, you'll learn how to build an LLM-powered chatbot client that connects to MCP servers.
 
@@ -1129,9 +918,11 @@ Now let's add the core functionality for processing queries and handling tool ca
             messages,
           });
     
-          finalText.push(
-            response.content[0].type === "text" ? response.content[0].text : ""
-          );
+          for (const block of response.content) {
+            if (block.type === "text") {
+              finalText.push(block.text);
+            }
+          }
         }
       }
     
@@ -1302,6 +1093,8 @@ If you see:
 
 #### Java
 
+This client uses MCP protocol version 2025-11-25, as supported by the latest stable release of the Java SDK. It connects to servers that accept that version, but not to servers that accept only 2026-07-28. See [backward compatibility](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/#backward-compatibility-with-initialization-based-versions).
+
 This is a quickstart demo based on Spring AI MCP auto-configuration and boot starters. To learn how to create sync and async MCP Clients manually, consult the [Java SDK Client](https://java.sdk.modelcontextprotocol.io/) documentation.
 
 This example demonstrates how to build an interactive chatbot that combines Spring AI's Model Context Protocol (MCP) with the [Brave Search MCP Server](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search). The application creates a conversational interface powered by Anthropic's Claude AI model that can perform internet searches through Brave Search, enabling natural language interactions with real-time web data. [You can find the complete code for this tutorial here.](https://github.com/spring-projects/spring-ai-examples/tree/main/model-context-protocol/web-search/brave-chatbot)
@@ -1327,7 +1120,7 @@ Before starting, ensure your system meets these requirements:
   2. Clone the repository:
          
          git clone https://github.com/spring-projects/spring-ai-examples.git
-         cd model-context-protocol/web-search/brave-chatbot
+         cd spring-ai-examples/model-context-protocol/web-search/brave-chatbot
 
   3. Set up your API keys:
          
@@ -1382,14 +1175,13 @@ The application integrates Spring AI with the Brave Search MCP server through se
             type: SYNC
             request-timeout: 20s
             stdio:
-              root-change-notification: true
               servers-configuration: classpath:/mcp-servers-config.json
             toolcallback:
               enabled: true
         anthropic:
           api-key: ${ANTHROPIC_API_KEY}
 
-This activates the `spring-ai-starter-mcp-client` to create one or more `McpClient`s based on the provided server configuration. The `spring.ai.mcp.client.toolcallback.enabled=true` property enables the tool callback mechanism, that automatically registers all MCP tool as spring ai tools. It is disabled by default.
+This activates the `spring-ai-starter-mcp-client` to create one or more `McpClient`s based on the provided server configuration. The `spring.ai.mcp.client.toolcallback.enabled=true` property enables the tool callback mechanism, that automatically registers all MCP tool as spring ai tools. It is enabled by default.
 
   3. MCP Server Configuration (`mcp-servers-config.json`):
 
@@ -1415,15 +1207,15 @@ The chatbot is implemented using Spring AI's ChatClient with MCP tool integratio
     
     var chatClient = chatClientBuilder
         .defaultSystem("You are useful assistant, expert in AI and Java.")
-        .defaultToolCallbacks((Object[]) mcpToolAdapter.toolCallbacks())
-        .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
+        .defaultTools(SyncMcpToolCallbackProvider.builder().mcpClients(mcpSyncClients).build())
+        .defaultAdvisors(MessageChatMemoryAdvisor.builder(MessageWindowChatMemory.builder().build()).build())
         .build();
 
 Key features:
 
   * Uses Claude AI model for natural language understanding
   * Integrates Brave Search through MCP for real-time web search capabilities
-  * Maintains conversation memory using InMemoryChatMemory
+  * Maintains conversation memory using MessageWindowChatMemory
   * Runs as an interactive command-line application
 
 
@@ -1701,7 +1493,9 @@ Now let's add the core functionality for processing queries and handling tool ca
                             .build(),
                     )
     
-                    finalText.add(aiResponse.content().first().text().get().text())
+                    aiResponse.content().forEach { block ->
+                        if (block.isText()) finalText.add(block.text().get().text())
+                    }
                 }
             }
         }
@@ -1945,7 +1739,6 @@ First, let's setup the basic client class in the file `Program.cs`:
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Hosting;
     using ModelContextProtocol.Client;
-    using ModelContextProtocol.Protocol.Transport;
     
     var builder = Host.CreateApplicationBuilder(args);
     
@@ -2118,7 +1911,7 @@ First, create a new Ruby project:
     bundle init
     
     # Add required dependencies
-    bundle add anthropic base64 dotenv mcp
+    bundle add anthropic dotenv mcp
     
     # Create our main file
     touch client.rb
@@ -2132,7 +1925,7 @@ First, create a new Ruby project:
     bundle init
     
     # Add required dependencies
-    bundle add anthropic base64 dotenv mcp
+    bundle add anthropic dotenv mcp
     
     # Create our main file
     new-item client.rb
@@ -2232,7 +2025,10 @@ Now let's add the core functionality for processing queries and handling tool ca
         messages << { role: "assistant", content: assistant_content }
       end
     
-      response.content.each_with_object([]) do |content, response_parts|
+      response_parts = []
+      tool_results = []
+    
+      response.content.each do |content|
         case content
         when Anthropic::Models::TextBlock
           response_parts << content.text
@@ -2248,23 +2044,23 @@ Now let's add the core functionality for processing queries and handling tool ca
             tool_result_content.to_s
           end
     
-          messages << {
-            role: "user",
-            content: [{
-              type: "tool_result",
-              tool_use_id: content.id,
-              content: result_text
-            }]
-          }
-    
-          # Get next response from Claude.
-          response = chat(messages)
-    
-          response.content.each do |content_block|
-            response_parts << content_block.text if content_block.is_a?(Anthropic::Models::TextBlock)
-          end
+          tool_results << { type: "tool_result", tool_use_id: content.id, content: result_text }
         end
-      end.join("\n")
+      end
+    
+      unless tool_results.empty?
+        # Every tool_use block needs a matching tool_result in a single user message.
+        messages << { role: "user", content: tool_results }
+    
+        # Get next response from Claude.
+        response = chat(messages)
+    
+        response.content.each do |content_block|
+          response_parts << content_block.text if content_block.is_a?(Anthropic::Models::TextBlock)
+        end
+      end
+    
+      response_parts.join("\n")
     end
     
     def chat(messages, tools: nil)
@@ -2506,9 +2302,9 @@ If you see:
 
 ## System Requirements
 
-Before starting, ensure your Linux system meets these requirements:
+Before starting, ensure your system meets these requirements:
 
-  * Latest stable version of [Rust and Cargo](https://www.rust-lang.org/tools/install)
+  * [Rust and Cargo](https://www.rust-lang.org/tools/install) 1.88 or newer
   * Anthropic API key (Claude)
   * A Python, Node.js, or executable MCP server to connect to
 
@@ -2531,17 +2327,23 @@ Replace the contents of `Cargo.toml` with the following:
     edition = "2024"
     
     [dependencies]
-    anyhow = "1.0.100"
-    genai = "0.4.2"
-    rmcp = { version = "0.8.0", features = ["server", "client", "transport-io", "transport-child-process"] }
-    tokio = { version = "1.47.1", features = ["full"] }
-    tracing = "0.1.41"
-    tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-    serde_json = "1.0.128"
+    anyhow = "1.0.104"
+    jsonschema = "0.59"
+    # Only the client half of rmcp is needed, over a child-process stdio transport.
+    rmcp = { version = "3.4", features = [
+        "client",
+        "transport-io",
+        "transport-child-process",
+    ], default-features = false }
+    # The Messages API is called directly, which keeps the provider's content
+    # blocks verbatim. That matters for signed thinking blocks; see request_model.
+    reqwest = { version = "0.13", features = ["json"] }
+    serde = { version = "1.0", features = ["derive"] }
+    serde_json = "1.0.151"
+    tokio = { version = "1.53", features = ["full"] }
     dotenvy = "0.15.7"
-    reqwest = "0.12.23"
 
-The [`rmcp`](https://github.com/modelcontextprotocol/rust-sdk) crate provides the Rust MCP SDK and child-process transport. This example uses the [`genai`](https://github.com/jeremychone/rust-genai) crate to send requests to Claude and represent tools in the model request.
+The [`rmcp`](https://github.com/modelcontextprotocol/rust-sdk) crate provides the Rust MCP SDK and the child-process stdio transport. Only its client half is enabled. The client calls the [Messages API](https://docs.anthropic.com/en/api/messages) directly with [`reqwest`](https://docs.rs/reqwest). Calling the API directly keeps the content blocks of each reply verbatim, which matters when a reply contains a signed thinking block. The [`jsonschema`](https://docs.rs/jsonschema) crate validates structured tool results against the schema a tool declares.
 
 ## Setting Up Your API Key
 
@@ -2557,6 +2359,8 @@ Add `.env` to your `.gitignore`:
     
     echo ".env" >> .gitignore
 
+The client loads `.env` when the file exists. Exporting `ANTHROPIC_API_KEY` in the shell works as well.
+
 Make sure you keep your `ANTHROPIC_API_KEY` secure!
 
 ## Creating the Client
@@ -2565,266 +2369,485 @@ Open `src/main.rs` and replace its contents as you work through the following se
 
 ### Imports and Client Structure
 
-First, add the imports, model constant, and basic client structure:
+First, add the imports and constants:
     
     
     use anyhow::{Context, Result, bail};
-    use genai::Client;
-    use genai::chat::{
-        ChatMessage, ChatRequest, ChatResponse, ContentPart, Tool as GenaiTool, ToolResponse,
+    use jsonschema::Validator;
+    use rmcp::model::{
+        CallToolRequestParams, CallToolResult, ClientCapabilities, ClientConfig, Implementation,
+        ProtocolVersion, Tool as McpTool,
     };
-    use rmcp::model::{CallToolRequestParam, Tool as McpTool};
-    use rmcp::service::{RoleClient, RunningService, ServiceExt};
+    use rmcp::service::{ClientLifecycleMode, ClientServiceExt, RoleClient, RunningService};
     use rmcp::transport::TokioChildProcess;
-    use serde_json::Value;
+    use serde::{Deserialize, Serialize};
+    use serde_json::{Value, json};
+    use std::collections::HashMap;
+    use std::time::Duration;
     use tokio::io::{self, AsyncBufReadExt, BufReader};
     use tokio::process::Command;
     
     const MODEL_ANTHROPIC: &str = "claude-opus-5";
+    /// The model may think before answering, and max_tokens caps thinking
+    /// plus the reply, so leave room for both.
+    const MAX_TOKENS: u32 = 10000;
+    const MAX_TOOL_TURNS: usize = 10;
+    
+    const ANTHROPIC_API_BASE: &str = "https://api.anthropic.com";
+    const ANTHROPIC_VERSION: &str = "2023-06-01";
+    const REQUEST_TIMEOUT: Duration = Duration::from_secs(120);
+
+`MAX_TOKENS` caps the thinking and the reply together. `MAX_TOOL_TURNS` bounds how many rounds of tool calls one query may take. `REQUEST_TIMEOUT` applies to each request sent to the Messages API.
+
+Next, add the types for the Messages API and the client structure:
+    
+    
+    /// One turn of the conversation, as the Messages API takes it.
+    ///
+    /// `content` is a list of raw blocks rather than typed ones on purpose. An
+    /// assistant turn is fed straight back on the next request, and Claude requires
+    /// the blocks it sent to return unchanged -- a thinking block's `signature`
+    /// included. Reserialising through a narrower type would drop whatever it does
+    /// not model.
+    #[derive(Serialize, Clone)]
+    struct Message {
+        role: &'static str,
+        content: Vec<Value>,
+    }
+    
+    impl Message {
+        fn user(content: Vec<Value>) -> Self {
+            Message {
+                role: "user",
+                content,
+            }
+        }
+    
+        fn assistant(content: Vec<Value>) -> Self {
+            Message {
+                role: "assistant",
+                content,
+            }
+        }
+    }
+    
+    /// A tool as the Messages API declares it, converted from an MCP tool.
+    #[derive(Serialize, Clone)]
+    struct ToolDefinition {
+        name: String,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        description: Option<String>,
+        input_schema: Value,
+    }
+    
+    #[derive(Serialize)]
+    struct MessagesRequest<'a> {
+        model: &'a str,
+        max_tokens: u32,
+        messages: &'a [Message],
+        tools: &'a [ToolDefinition],
+    }
+    
+    #[derive(Deserialize)]
+    struct MessagesResponse {
+        content: Vec<Value>,
+    }
+    
+    /// The `type` of a content block, when it has one.
+    fn block_type(block: &Value) -> &str {
+        block
+            .get("type")
+            .and_then(Value::as_str)
+            .unwrap_or_default()
+    }
     
     struct MCPClient {
-        anthropic: Client,
-        session: Option<RunningService<RoleClient, ()>>,
-        tools: Vec<GenaiTool>,
+        http: reqwest::Client,
+        session: Option<RunningService<RoleClient, ClientConfig>>,
+        tools: Vec<ToolDefinition>,
+        /// Compiled `outputSchema` per tool name. rmcp does not validate results,
+        /// so this client does it with the `jsonschema` crate.
+        output_schemas: HashMap<String, Validator>,
     }
 
-The client keeps the model API client, the active MCP session, and the tools advertised by the connected server.
+`Message` holds the content blocks of one turn as raw `serde_json::Value`s. An assistant turn goes back to the API unchanged on the next request, with any thinking block and its `signature` intact. `ToolDefinition` is a tool as the Messages API declares it. `MCPClient` keeps the HTTP client, the active MCP session, the tools in Messages API form, and one compiled validator per tool that declares an `outputSchema`.
 
 ### Client Initialization
 
-Next, initialize the model client and start without an MCP session or tools:
+Next, open the `impl MCPClient` block with the constructor. The methods in the following sections go inside this block, which closes after `cleanup`:
     
     
     impl MCPClient {
         fn new() -> Result<Self> {
             Ok(MCPClient {
-                anthropic: Client::default(),
+                http: reqwest::Client::builder()
+                    .timeout(REQUEST_TIMEOUT)
+                    .build()
+                    .context("Failed to build HTTP client")?,
                 session: None,
                 tools: Vec::new(),
+                output_schemas: HashMap::new(),
             })
         }
-    
-        // Additional methods will go here.
-    }
 
-`genai::Client::default()` reads the `ANTHROPIC_API_KEY` environment variable when it sends a request.
+`new` builds a `reqwest::Client` with the request timeout. The API key is read later, when a request is sent, so connecting to a server and listing its tools works without one.
+
+### Validating Structured Tool Output
+
+Add this method inside the `impl MCPClient` block:
+    
+    
+        /// Check a result against its tool's declared `outputSchema`. Error results
+        /// are exempt: they carry a message, not data.
+        fn validate_tool_output(&self, name: &str, result: &CallToolResult) -> Result<()> {
+            let Some(validator) = self.output_schemas.get(name) else {
+                return Ok(());
+            };
+            if result.is_error.unwrap_or(false) {
+                return Ok(());
+            }
+            let Some(structured) = &result.structured_content else {
+                bail!("Tool {name} declares an output schema but returned no structured content");
+            };
+            if let Err(error) = validator.validate(structured) {
+                bail!("Structured content from tool {name} does not match its output schema: {error}");
+            }
+            Ok(())
+        }
+
+A tool may declare an `outputSchema`, and the specification asks clients to validate `structuredContent` against it. rmcp does not do this, so the client keeps a compiled `jsonschema::Validator` per tool and checks each successful result. A result with `is_error` set carries a message, so it is exempt. A tool that declares a schema and returns no structured content is reported as an error.
 
 ### Server Connection Management
 
 Add this method inside the `impl MCPClient` block:
     
     
-    async fn connect_to_server(&mut self, server_args: &[String]) -> Result<()> {
-        if self.session.is_some() {
-            bail!("Client is already connected to a server");
+        async fn connect_to_server(&mut self, server_args: &[String]) -> Result<()> {
+            if self.session.is_some() {
+                bail!("Client is already connected to a server");
+            }
+    
+            let mut command = Command::new(&server_args[0]);
+            command.args(&server_args[1..]);
+    
+            let process = TokioChildProcess::new(command)
+                .with_context(|| format!("Failed to spawn server process for {:?}", server_args))?;
+    
+            // Without a ClientConfig the client would report rmcp's own crate name
+            // and version rather than its own.
+            let config = ClientConfig::new(
+                ClientCapabilities::default(),
+                Implementation::new("mcp-client-rust", "1.0.0"),
+            );
+    
+            // `Auto` probes server/discover and falls back to the 2025-11-25
+            // initialize handshake, matching the Python and TypeScript clients.
+            // `serve` alone would only ever do the legacy handshake, under which a
+            // server cannot offer this era's features -- an array-rooted
+            // `outputSchema`, for one, which get_alerts uses.
+            let session = config
+                .serve_with_lifecycle(
+                    process,
+                    ClientLifecycleMode::Auto {
+                        preferred_versions: vec![ProtocolVersion::V_2026_07_28],
+                        legacy_version: Some(ProtocolVersion::V_2025_11_25),
+                    },
+                )
+                .await?;
+    
+            let rmcp_tools = session
+                .list_all_tools()
+                .await
+                .context("Unable to list tools from server")?;
+    
+            let tool_names: Vec<String> = rmcp_tools
+                .iter()
+                .map(|tool| tool.name.to_string())
+                .collect();
+    
+            let protocol_version = session
+                .peer_info()
+                .map(|info| info.protocol_version.to_string())
+                .unwrap_or_else(|| "unknown".to_string());
+            println!("Connected over protocol {protocol_version} with tools: {tool_names:?}");
+    
+            // An outputSchema root may be any JSON Schema, not just an object.
+            for tool in &rmcp_tools {
+                let Some(schema) = &tool.output_schema else {
+                    continue;
+                };
+                let schema = Value::Object(schema.as_ref().clone());
+                let validator = Validator::new(&schema).with_context(|| {
+                    format!("Failed to compile output schema of tool {}", tool.name)
+                })?;
+                self.output_schemas.insert(tool.name.to_string(), validator);
+            }
+    
+            self.tools = convert_tools(&rmcp_tools);
+            self.session = Some(session);
+            Ok(())
         }
-    
-        let mut command = Command::new(&server_args[0]);
-        command.args(&server_args[1..]);
-    
-        let process = TokioChildProcess::new(command)
-            .with_context(|| format!("Failed to spawn server process for {:?}", server_args))?;
-    
-        let session = ().serve(process).await?;
-    
-        let rmcp_tools = session
-            .list_all_tools()
-            .await
-            .context("Unable to list tools from server")?;
-    
-        let tool_names: Vec<String> = rmcp_tools
-            .iter()
-            .map(|tool| tool.name.to_string())
-            .collect();
-    
-        println!("Connected to server with tools: {tool_names:?}");
-    
-        self.tools = convert_tools(&rmcp_tools);
-        self.session = Some(session);
-        Ok(())
-    }
 
 This method:
 
   1. Starts the server as a child process using the command and arguments supplied on the command line
-  2. Establishes an MCP session over stdio
-  3. Lists all tools advertised by the server
-  4. Converts those tools into the format used in model requests
+  2. Names the client `mcp-client-rust` through a `ClientConfig`
+  3. Negotiates the protocol with `serve_with_lifecycle` and `ClientLifecycleMode::Auto`, which probes `server/discover` for `2026-07-28` and falls back to the `2025-11-25` `initialize` handshake
+  4. Lists all tools advertised by the server and prints the negotiated protocol version with the tool names
+  5. Compiles a validator from each tool's `outputSchema`
+  6. Converts the tools into the form used in model requests
 
 
 
-### Converting MCP Tools
-
-Add this function outside the `impl MCPClient` block:
-    
-    
-    fn convert_tools(tools: &[McpTool]) -> Vec<GenaiTool> {
-        tools
-            .iter()
-            .map(|tool| GenaiTool {
-                name: tool.name.to_string(),
-                description: tool.description.as_deref().map(str::to_string),
-                schema: Some(Value::Object(tool.input_schema.as_ref().clone())),
-                config: None,
-            })
-            .collect()
-    }
-
-MCP and model APIs describe tools with similar information but different Rust types. `convert_tools` maps each MCP tool's name, description, and input schema into a `genai` tool definition.
-
-### Sending Model Requests
-
-Add this helper method inside `impl MCPClient`:
-    
-    
-    async fn request_model(&self, chat_req: &ChatRequest) -> Result<ChatResponse> {
-        let response = self
-            .anthropic
-            .exec_chat(MODEL_ANTHROPIC, chat_req.clone(), None)
-            .await
-            .context("Anthropic chat request failed")?;
-    
-        Ok(response)
-    }
-
-This keeps model request handling in one place and adds useful context if the API request fails.
+rmcp's `serve` method alone performs only the legacy handshake. The `Auto` mode makes the features of the current revision reachable, including an `outputSchema` whose root is an array.
 
 ### Query Processing Logic
 
 Now add the core query-processing method inside `impl MCPClient`:
     
     
-    async fn process_query(&mut self, query: &str) -> Result<String> {
-        let session = self
-            .session
-            .as_ref()
-            .context("Client is not connected to any server")?;
+        async fn process_query(&mut self, query: &str) -> Result<String> {
+            let session = self
+                .session
+                .as_ref()
+                .context("Client is not connected to any server")?;
     
-        let mut messages = vec![ChatMessage::user(query)];
-        let mut final_text = Vec::new();
+            let mut messages = vec![Message::user(vec![json!({"type": "text", "text": query})])];
+            let mut final_text = Vec::new();
     
-        // Initial Claude API call with tools
-        let mut chat_req = ChatRequest::new(messages.clone()).with_tools(self.tools.clone());
-        let mut chat_rsp = self.request_model(&chat_req).await?;
+            // Initial Claude API call with tools
+            let mut content = self.request_model(&messages).await?;
     
-        // Process response content - collect text and handle tool calls
-        for text in chat_rsp.texts() {
-            final_text.push(text.to_string());
-        }
+            // Keep calling tools until Claude answers without one, up to a cap.
+            for _ in 0..MAX_TOOL_TURNS {
+                let mut tool_uses = Vec::new();
+                for block in &content {
+                    match block_type(block) {
+                        "text" => {
+                            if let Some(text) = block.get("text").and_then(Value::as_str) {
+                                final_text.push(text.to_string());
+                            }
+                        }
+                        "tool_use" => tool_uses.push(block.clone()),
+                        _ => {}
+                    }
+                }
     
-        let tool_calls = chat_rsp.tool_calls();
-        if !tool_calls.is_empty() {
-            // Append assistant's response to message history
-            messages.push(ChatMessage::assistant(chat_rsp.content.clone()));
+                if tool_uses.is_empty() {
+                    return Ok(final_text.join("\n"));
+                }
     
-            // Execute each tool call and collect responses
-            let mut tool_results = Vec::new();
-            for tool_call in tool_calls {
-                // Add information about the tool call to final text
-                let tool_args_str = serde_json::to_string(&tool_call.fn_arguments)
-                    .unwrap_or_else(|_| "{}".to_string());
+                // Execute every tool call in this response and collect the results
+                let mut tool_results = Vec::new();
+                for tool_use in &tool_uses {
+                    let name = tool_use
+                        .get("name")
+                        .and_then(Value::as_str)
+                        .context("tool_use block has no name")?;
+                    let id = tool_use
+                        .get("id")
+                        .and_then(Value::as_str)
+                        .context("tool_use block has no id")?;
+                    let input = tool_use.get("input").cloned().unwrap_or(json!({}));
     
-                final_text.push(format!(
-                    "[Calling tool {} with args {}]",
-                    tool_call.fn_name, tool_args_str
-                ));
+                    // Add information about the tool call to final text
+                    final_text.push(format!("[Calling tool {name} with args {input}]"));
     
-                // Query the MCP server
-                let tool_result = session
-                    .call_tool(CallToolRequestParam {
-                        name: tool_call.fn_name.clone().into(),
-                        arguments: tool_call.fn_arguments.as_object().cloned(),
-                    })
-                    .await
-                    .with_context(|| format!("Tool call {} failed", tool_call.fn_name))?;
+                    // Query the MCP server
+                    let mut params = CallToolRequestParams::new(name.to_string());
+                    if let Some(arguments) = input.as_object().cloned() {
+                        params = params.with_arguments(arguments);
+                    }
+                    let tool_result = match session.call_tool(params).await {
+                        Ok(result) => result,
+                        // A rejected call is the model's mistake to correct, so it
+                        // goes back as a failed tool_result rather than ending the
+                        // query. Every tool_use still needs a matching result.
+                        Err(error) => {
+                            final_text.push(format!("[{name} failed: {error}]"));
+                            tool_results.push(json!({
+                                "type": "tool_result",
+                                "tool_use_id": id,
+                                "content": format!("Tool call {name} failed: {error}"),
+                                "is_error": true,
+                            }));
+                            continue;
+                        }
+                    };
     
-                let payload = serde_json::to_string(&tool_result)
-                    .context("Failed to serialize tool result")?;
+                    self.validate_tool_output(name, &tool_result)?;
     
-                tool_results.push(ContentPart::ToolResponse(ToolResponse::new(
-                    tool_call.call_id.clone(),
-                    payload,
-                )));
+                    // structured_content is data the application can use directly.
+                    if let Some(Value::Array(items)) = &tool_result.structured_content {
+                        final_text.push(format!("[{name} returned {} items]", items.len()));
+                    }
+    
+                    // content is a list of block types; forward only the text ones.
+                    let mut payload = tool_result
+                        .content
+                        .iter()
+                        .filter_map(|block| block.as_text().map(|text| text.text.as_str()))
+                        .collect::<Vec<_>>()
+                        .join("\n");
+    
+                    // A structured result SHOULD also carry serialized JSON in a text
+                    // block, but only SHOULD, so fall back to serializing it rather
+                    // than sending the model an empty result.
+                    if payload.is_empty() {
+                        if let Some(structured) = &tool_result.structured_content {
+                            payload = structured.to_string();
+                        }
+                    }
+    
+                    tool_results.push(json!({
+                        "type": "tool_result",
+                        "tool_use_id": id,
+                        "content": payload,
+                        "is_error": tool_result.is_error.unwrap_or(false),
+                    }));
+                }
+    
+                // Append the assistant's response and all tool results, in one user
+                // message, to the history. Every tool_use needs a matching
+                // tool_result, and the assistant's blocks go back as they arrived.
+                messages.push(Message::assistant(content));
+                messages.push(Message::user(tool_results));
+    
+                content = self.request_model(&messages).await?;
             }
     
-            // Append tool responses to message history
-            messages.push(ChatMessage::user(tool_results));
-    
-            // Build the next request and query model
-            chat_req = ChatRequest::new(messages.clone());
-            chat_rsp = self.request_model(&chat_req).await?;
-    
-            // Collect text from response
-            for text in chat_rsp.texts() {
-                final_text.push(text.to_string());
+            // The turn cap was hit. Keep the last response's text. If it asked for
+            // more tools, say they were not run.
+            let mut wants_tools = false;
+            for block in &content {
+                match block_type(block) {
+                    "text" => {
+                        if let Some(text) = block.get("text").and_then(Value::as_str) {
+                            final_text.push(text.to_string());
+                        }
+                    }
+                    "tool_use" => wants_tools = true,
+                    _ => {}
+                }
             }
-        }
+            if wants_tools {
+                final_text.push(format!("[Stopped after {MAX_TOOL_TURNS} tool-use turns]"));
+            }
     
-        Ok(final_text.join("\n"))
-    }
+            Ok(final_text.join("\n"))
+        }
 
-The method first sends the user's query and available tools to Claude. When Claude requests tools, the client executes each request through the MCP session, sends the results back to Claude, and collects the final text response.
+The method sends the user's query to Claude with the server's tools and then loops. Each pass collects the text blocks of the reply and gathers its `tool_use` blocks. When a reply contains no tool use, the collected text is returned. Otherwise the client calls each requested tool through the MCP session and builds one `tool_result` block per `tool_use`. A call the server rejects goes back with `is_error` set, so Claude can read the message and try something else. A successful result is checked against its output schema. Its text blocks are joined and forwarded to Claude, and when it has no text blocks the serialized `structured_content` is sent in their place. When `structured_content` is an array, the client prints the item count as an example of using structured data directly. The assistant's blocks are appended to the history exactly as they arrived, followed by one user message holding all tool results, and the next request is sent. The loop stops after `MAX_TOOL_TURNS` rounds. At that point the last reply's text is kept, and a note is added when Claude asked for more tools.
+
+### Sending Model Requests
+
+Add this helper method inside `impl MCPClient`:
+    
+    
+        /// Call Claude with the current history and return the content blocks of
+        /// its reply, untouched. Tools are passed on every call so Claude can keep
+        /// calling them across turns.
+        async fn request_model(&self, messages: &[Message]) -> Result<Vec<Value>> {
+            let api_key = std::env::var("ANTHROPIC_API_KEY").context("ANTHROPIC_API_KEY is not set")?;
+            // The base URL is configurable so the client can point at a local stand-in.
+            let base_url =
+                std::env::var("ANTHROPIC_BASE_URL").unwrap_or_else(|_| ANTHROPIC_API_BASE.to_string());
+    
+            let request = MessagesRequest {
+                model: MODEL_ANTHROPIC,
+                max_tokens: MAX_TOKENS,
+                messages,
+                tools: &self.tools,
+            };
+    
+            let response = self
+                .http
+                .post(format!("{}/v1/messages", base_url.trim_end_matches('/')))
+                .header("x-api-key", api_key)
+                .header("anthropic-version", ANTHROPIC_VERSION)
+                .json(&request)
+                .send()
+                .await
+                .context("Anthropic request failed")?;
+    
+            let status = response.status();
+            let body = response
+                .text()
+                .await
+                .context("Unable to read the Anthropic response")?;
+            if !status.is_success() {
+                bail!("Anthropic request failed with {status}: {body}");
+            }
+    
+            let parsed: MessagesResponse =
+                serde_json::from_str(&body).context("Unable to parse the Anthropic response")?;
+            Ok(parsed.content)
+        }
+
+`request_model` reads `ANTHROPIC_API_KEY` on each call and posts the history to `/v1/messages` with the `x-api-key` and `anthropic-version` headers. `ANTHROPIC_BASE_URL` overrides the endpoint, which allows pointing the client at a local stand-in. Tools are sent on every request so Claude can keep calling them across turns. A non-success status becomes an error that includes the response body. The reply's content blocks are returned untouched.
 
 ### Interactive Chat Interface
 
 Add the interactive terminal loop inside `impl MCPClient`:
     
     
-    async fn chat_loop(&mut self) -> Result<()> {
-        println!("\nMCP Client Started!");
-        println!("Type your queries or 'quit' to exit.");
+        async fn chat_loop(&mut self) -> Result<()> {
+            println!("\nMCP Client Started!");
+            println!("Type your queries or 'quit' to exit.");
     
-        let mut stdin = BufReader::new(io::stdin());
-        let mut input = String::new();
+            let mut stdin = BufReader::new(io::stdin());
+            let mut input = String::new();
     
-        loop {
-            print!("\nQuery: ");
-            std::io::Write::flush(&mut std::io::stdout())?;
+            loop {
+                print!("\nQuery: ");
+                std::io::Write::flush(&mut std::io::stdout())?;
     
-            input.clear();
-            if stdin.read_line(&mut input).await? == 0 {
-                break; // EOF
+                input.clear();
+                if stdin.read_line(&mut input).await? == 0 {
+                    break; // EOF
+                }
+    
+                let query = input.trim();
+                if query.eq_ignore_ascii_case("quit") {
+                    break;
+                }
+                if query.is_empty() {
+                    continue;
+                }
+    
+                match self.process_query(query).await {
+                    Ok(response) => println!("\n{}", response),
+                    Err(err) => println!("\nError: {:#}", err),
+                }
             }
     
-            let query = input.trim();
-            if query.eq_ignore_ascii_case("quit") {
-                break;
-            }
-            if query.is_empty() {
-                continue;
-            }
-    
-            match self.process_query(query).await {
-                Ok(response) => println!("\n{}", response),
-                Err(err) => println!("\nError: {}", err),
-            }
+            Ok(())
         }
-    
-        Ok(())
-    }
 
-The loop accepts queries until the user types `quit` or closes standard input. Query errors are printed without terminating the client.
+The loop accepts queries until the user types `quit` or closes standard input. Query errors are printed without terminating the client. The `{:#}` format prints the whole `anyhow` context chain on one line.
 
 ### Cleanup
 
-Add this method inside `impl MCPClient` to stop the MCP session and child process:
+Add this method inside `impl MCPClient` to stop the MCP session and child process. The closing brace ends the `impl MCPClient` block:
     
     
-    async fn cleanup(&mut self) -> Result<()> {
-        if let Some(session) = self.session.take() {
-            let _ = session.cancel().await;
+        async fn cleanup(&mut self) -> Result<()> {
+            if let Some(session) = self.session.take() {
+                let _ = session.cancel().await;
+            }
+            Ok(())
         }
-        Ok(())
     }
 
 ### Main Entry Point
 
-Finally, add the asynchronous entry point outside the `impl MCPClient` block:
+Next, add the asynchronous entry point outside the `impl MCPClient` block:
     
     
     #[tokio::main]
     async fn main() -> Result<()> {
-        dotenvy::dotenv().context("Failed to load env file")?;
+        // .env is optional; the key may come from the environment instead.
+        let _ = dotenvy::dotenv();
     
         let mut args = std::env::args();
         let _ = args.next();
@@ -2839,6 +2862,21 @@ Finally, add the asynchronous entry point outside the `impl MCPClient` block:
     
         let result = async {
             client.connect_to_server(&server_args).await?;
+    
+            // Connecting and listing tools needs no credentials; querying them
+            // does. Matching the Python and TypeScript clients, report and exit
+            // rather than failing, so the connection itself can be exercised
+            // without a key.
+            // Empty counts as unset, as it does in the other clients: `KEY= cmd`
+            // is how the smoke test forces this path.
+            if std::env::var("ANTHROPIC_API_KEY").map_or(true, |key| key.is_empty()) {
+                println!(
+                    "\nNo ANTHROPIC_API_KEY found. To query these tools with Claude, set your API key:"
+                );
+                println!("  export ANTHROPIC_API_KEY=your-api-key-here");
+                return Ok(());
+            }
+    
             client.chat_loop().await
         }
         .await;
@@ -2851,14 +2889,33 @@ Finally, add the asynchronous entry point outside the `impl MCPClient` block:
         Ok(())
     }
 
-The entry point loads `.env`, treats all remaining command-line arguments as the server command, connects the client, starts the chat loop, and ensures cleanup runs before exiting.
+The entry point loads `.env` when the file exists, treats all remaining command-line arguments as the server command, connects the client, and ensures cleanup runs before exiting. When `ANTHROPIC_API_KEY` is unset or empty, the client prints how to set the key and exits after listing the server's tools. This exercises the MCP connection without credentials.
+
+### Describing Tools to the Model
+
+Finally, add this function outside the `impl MCPClient` block:
+    
+    
+    fn convert_tools(tools: &[McpTool]) -> Vec<ToolDefinition> {
+        tools
+            .iter()
+            .map(|tool| ToolDefinition {
+                name: tool.name.to_string(),
+                description: tool.description.as_deref().map(str::to_string),
+                input_schema: Value::Object(tool.input_schema.as_ref().clone()),
+            })
+            .collect()
+    }
+
+MCP and the Messages API describe tools with the same information in different Rust types. `convert_tools` copies each MCP tool's name, description, and input schema into a `ToolDefinition`, which serializes to the shape the `tools` parameter expects. The description is omitted when a tool has none.
 
 ### Verify the Complete File
 
 Before running the client, confirm the items in `src/main.rs` are placed at the correct scope:
 
-  * `new`, `connect_to_server`, `process_query`, `request_model`, `chat_loop`, and `cleanup` are methods inside the single `impl MCPClient` block.
-  * `main` and `convert_tools` are functions outside the `impl MCPClient` block.
+  * `new`, `validate_tool_output`, `connect_to_server`, `process_query`, `request_model`, `chat_loop`, and `cleanup` are methods inside the single `impl MCPClient` block, which opens in Client Initialization and closes after `cleanup`.
+  * `user` and `assistant` are methods inside the `impl Message` block.
+  * `block_type`, `main`, and `convert_tools` are functions outside both `impl` blocks.
 
 
 
@@ -2889,7 +2946,7 @@ If you're continuing [the weather tutorial from the server quickstart](https://g
 The client will:
 
   1. Start and connect to the specified MCP server
-  2. List the tools available from that server
+  2. Print the negotiated protocol version and the tools available from that server
   3. Start an interactive chat session where you can:
      * Enter queries
      * See tool executions
@@ -2897,16 +2954,23 @@ The client will:
 
 
 
+Connecting to the weather server prints a line like:
+    
+    
+    Connected over protocol 2026-07-28 with tools: ["get_alerts", "get_forecast"]
+
+Without an `ANTHROPIC_API_KEY`, the client stops after this line and prints how to set the key.
+
 ## How It Works
 
-When you submit a query:
+When the user submits a query:
 
-  1. The client sends your query and the server's available tools to Claude
+  1. The client sends the query and the server's tool definitions to Claude
   2. Claude decides which tools, if any, to use
-  3. The client executes requested tools through the MCP session
-  4. Tool results are sent back to Claude
-  5. Claude provides a natural language response
-  6. The response is displayed in the terminal
+  3. The client executes every requested tool through the MCP session and validates structured results against their output schemas
+  4. Tool results, including failures marked with `is_error`, are sent back to Claude together with Claude's own blocks, unchanged
+  5. Steps 2 through 4 repeat until Claude answers without a tool call or `MAX_TOOL_TURNS` is reached
+  6. The collected text is displayed in the terminal
 
 
 
@@ -2914,19 +2978,24 @@ When you submit a query:
 
   1. **Error Handling**
 
-     * Add context to errors at process, MCP, model API, and serialization boundaries
+     * Add context to errors at process, MCP, and model API boundaries
+     * Send a rejected tool call back to Claude as a `tool_result` with `is_error` set, so every `tool_use` gets an answer
      * Report individual query errors without terminating the interactive session
-     * Validate server commands before running them
-  2. **Resource Management**
+  2. **Conversation History**
+
+     * Feed assistant blocks back exactly as they arrived, thinking blocks and their signatures included
+     * Pass the tool list on every request so Claude can keep calling tools across turns
+     * Cap the number of tool turns per query
+  3. **Resource Management**
 
      * Always cancel the MCP session during cleanup
      * Ensure cleanup runs even when connection or chat-loop operations fail
      * Avoid starting a second server while a session is active
-  3. **Security**
+  4. **Security**
 
-     * Store API keys securely in `.env`
-     * Review the tools exposed by a server before allowing model-driven calls
-     * Connect only to servers and executable commands you trust
+     * Store API keys securely in `.env` or the environment
+     * Validate structured tool results against their declared output schemas
+     * Connect only to trusted servers and executable commands
 
 
 
@@ -2948,9 +3017,7 @@ If a command cannot be found, use its absolute path or verify it is available in
 
 ### Environment File Issues
 
-If you see `Failed to load env file`, ensure `.env` exists in the directory where you run the client.
-
-If the model request reports a missing API key, confirm that `.env` contains:
+The `.env` file is optional. When it is missing, the client reads `ANTHROPIC_API_KEY` from the environment. When the key is unset or empty, the client connects, prints the server's tools, and exits with instructions for setting the key. Export the key, or create a `.env` in the directory where the client runs that contains:
     
     
     ANTHROPIC_API_KEY=your-api-key-goes-here
@@ -2958,8 +3025,10 @@ If the model request reports a missing API key, confirm that `.env` contains:
 ### Tool and Response Errors
 
   * `Unable to list tools from server`: Verify the server starts successfully and communicates over stdio
-  * `Tool call ... failed`: Verify the server tool's required arguments and environment variables
-  * `Failed to serialize tool result`: Inspect the server's response for unsupported or malformed content
+  * `[... failed: ...]` in the output: The server rejected the tool call. The message also goes to Claude as a failed `tool_result`, so Claude may retry with different arguments
+  * `Tool ... declares an output schema but returned no structured content` or `Structured content from tool ... does not match its output schema`: The server's result does not satisfy its own `outputSchema`
+  * `Anthropic request failed with ...`: The response body follows the status and names the cause, such as an invalid key or insufficient credits
+  * `[Stopped after 10 tool-use turns]`: The query reached `MAX_TOOL_TURNS`. Raise the constant for workflows that need more rounds
 
 
 

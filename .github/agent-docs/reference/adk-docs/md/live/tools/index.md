@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -73,6 +74,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -196,12 +200,18 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../get-started/streaming-python/)
         * [ Java  ](../get-started/streaming-java/)
+      * [ Architectures  ](../architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../architectures/speech-to-speech/)
+        * [ Cascade  ](../architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../workflows/)
         * Tools  [ Tools  ](./) Table of contents 
           * Automatic tool execution 
           * Keeping the agent responsive 
           * Non-blocking tools 
+            * Setting behavior explicitly 
           * Streaming tools 
             * Video streaming tools 
           * Tool execution context 
@@ -252,6 +262,7 @@ Table of contents
   * Automatic tool execution 
   * Keeping the agent responsive 
   * Non-blocking tools 
+    * Setting behavior explicitly 
   * Streaming tools 
     * Video streaming tools 
   * Tool execution context 
@@ -307,7 +318,7 @@ A slow tool is survivable in a chat window, where the user watches a spinner. In
 Your situation | Use | How  
 ---|---|---  
 Tool returns in under a second | **Blocking** (the default) | A normal `return` tool  
-Long wait with nothing to narrate | **Non-blocking tool** | Set `response_scheduling` on the tool  
+Long wait with nothing to narrate | **Non-blocking tool** | Set `response_scheduling` or `behavior` on the tool  
 Long wait worth narrating | **Streaming tool** | `yield` progress from an async generator  
   
 ## Non-blocking tools¶
@@ -327,11 +338,11 @@ Some waits have nothing worth narrating: a long analytics query, a batch export,
     report_tool.response_scheduling = types.FunctionResponseScheduling.WHEN_IDLE
     
 
-The agent stays free while the tool runs, answers whatever else the user brings up, and folds the result in when it is ready. A runnable example ships as the [`live_non_blocking_tool_agent` sample](https://github.com/google/adk-python/tree/main/contributing/samples/live/live_non_blocking_tool_agent).
+The agent stays free while the tool runs, answers whatever else the user brings up, and folds the result in when it is ready. A runnable example ships as the [`non_blocking_tool_agent` sample](https://github.com/google/adk-python/tree/main/contributing/samples/live/non_blocking_tool_agent).
 
-Requires Python 2.4+
+Requires ADK Python 2.4 or higher
 
-`response_scheduling` was added in adk-python 2.4, and support is per model. See [Supported models](../models/#live-models).
+The `response_scheduling` feature was added in adk-python 2.4, and support is per model. See [Supported models](../models/#live-models).
 
 `response_scheduling` also controls _when_ a finished result reaches the user:
 
@@ -341,6 +352,19 @@ Value | Behavior | Use it for
 `INTERRUPT` | Delivers immediately | Alarms, failures, "the transfer failed"  
 `SILENT` | Enters context, announced only if relevant | Background info the model may use later  
   
+### Setting `behavior` explicitly¶
+
+You can also mark a tool non-blocking with the `behavior` field. When set, it takes precedence over `response_scheduling`:
+    
+    
+    report_tool = FunctionTool(export_report)
+    report_tool.behavior = types.Behavior.NON_BLOCKING
+    
+
+Requires ADK Python 2.10 or higher
+
+The `behavior` field was added in adk-python 2.10.
+
 ## Streaming tools¶
 
 A streaming tool stays running and pushes intermediate results back to the agent, so the agent can narrate progress or react to a changing input (a stock price, a person entering a video frame) without the user asking again. Making a tool stream is a one-line change: an `async` function that `yield`s instead of `return`s. ADK treats any async-generator tool as non-blocking automatically.

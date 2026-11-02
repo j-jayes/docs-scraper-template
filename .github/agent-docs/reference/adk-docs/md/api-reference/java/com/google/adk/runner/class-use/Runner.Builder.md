@@ -79,6 +79,12 @@ Runner.`[builder](../Runner.html#builder\(\))()`
 
 `[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
 
+Runner.Builder.`[instantSource](../Runner.Builder.html#instantSource\(java.time.InstantSource\))(@Nullable [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource)`
+
+Sets the [`InstantSource`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") that supplies every timestamp this runner generates: event timestamps, and the `lastUpdateTime` of sessions created by the default in-memory session service, which is created on the first `build()`.
+
+`[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
+
 Runner.Builder.`[memoryService](../Runner.Builder.html#memoryService\(com.google.adk.memory.BaseMemoryService\))([BaseMemoryService](../../memory/BaseMemoryService.html "interface in com.google.adk.memory") memoryService)`
 
  
@@ -97,9 +103,21 @@ Runner.Builder.`[plugins](../Runner.Builder.html#plugins\(java.util.List\))([Lis
 
 `[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
 
+Runner.Builder.`[scheduler](../Runner.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\))(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)`
+
+Sets the `Scheduler` for the work ADK hands off to worker threads in this runner's invocations: the sub-agents of a `ParallelAgent`, tool calls in [`RunConfig.ToolExecutionMode.PARALLEL_SUBSCRIBE`](../../agents/RunConfig.ToolExecutionMode.html#PARALLEL_SUBSCRIBE) mode, and the hop that starts the live send loop.
+
+`[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
+
 Runner.Builder.`[sessionService](../Runner.Builder.html#sessionService\(com.google.adk.sessions.BaseSessionService\))([BaseSessionService](../../sessions/BaseSessionService.html "interface in com.google.adk.sessions") sessionService)`
 
  
+
+`[Runner.Builder](../Runner.Builder.html "class in com.google.adk.runner")`
+
+Runner.Builder.`[uuidProvider](../Runner.Builder.html#uuidProvider\(com.google.adk.platform.UuidProvider\))(@Nullable [UuidProvider](../../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Sets the [`UuidProvider`](../../platform/UuidProvider.html "interface in com.google.adk.platform") that supplies every identifier this runner generates: event, invocation, and client function-call ids, and the ids of sessions created by the default in-memory session service, which is created on the first `build()`.
 
 
 

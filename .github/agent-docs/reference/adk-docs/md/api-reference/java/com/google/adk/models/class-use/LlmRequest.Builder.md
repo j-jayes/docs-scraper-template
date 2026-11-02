@@ -137,6 +137,24 @@ LlmRequest.`[builder](../LlmRequest.html#builder\(\))()`
 
 `abstract [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")`
 
+LlmRequest.Builder.`[cacheableContentsTokenCount](../LlmRequest.Builder.html#cacheableContentsTokenCount\(java.lang.Integer\))(@Nullable [Integer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html "class in java.lang") cacheableContentsTokenCount)`
+
+ 
+
+`abstract [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")`
+
+LlmRequest.Builder.`[cacheConfig](../LlmRequest.Builder.html#cacheConfig\(com.google.adk.agents.ContextCacheConfig\))(@Nullable [ContextCacheConfig](../../agents/ContextCacheConfig.html "class in com.google.adk.agents") cacheConfig)`
+
+ 
+
+`abstract [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")`
+
+LlmRequest.Builder.`[cacheMetadata](../LlmRequest.Builder.html#cacheMetadata\(com.google.adk.models.CacheMetadata\))(@Nullable [CacheMetadata](../CacheMetadata.html "class in com.google.adk.models") cacheMetadata)`
+
+ 
+
+`abstract [LlmRequest.Builder](../LlmRequest.Builder.html "class in com.google.adk.models")`
+
 LlmRequest.Builder.`[config](../LlmRequest.Builder.html#config\(com.google.genai.types.GenerateContentConfig\))(com.google.genai.types.GenerateContentConfig config)`
 
  

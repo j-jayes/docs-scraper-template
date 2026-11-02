@@ -39,7 +39,15 @@ com.google.adk.apps
 
  
 
+com.google.adk.events
+
+ 
+
 com.google.adk.runner
+
+ 
+
+com.google.adk.workflow
 
  
 
@@ -63,6 +71,16 @@ Description
 
 Marks the annotated element as experimental, exempt from standard stability guarantees.
 
+  * Classes in [com.google.adk.annotations](package-summary.html) used by [com.google.adk.events](../events/package-summary.html)
+
+Class
+
+Description
+
+[Experimental](class-use/Experimental.html#com.google.adk.events)
+
+Marks the annotated element as experimental, exempt from standard stability guarantees.
+
   * Classes in [com.google.adk.annotations](package-summary.html) used by [com.google.adk.runner](../runner/package-summary.html)
 
 Class
@@ -70,6 +88,16 @@ Class
 Description
 
 [Experimental](class-use/Experimental.html#com.google.adk.runner)
+
+Marks the annotated element as experimental, exempt from standard stability guarantees.
+
+  * Classes in [com.google.adk.annotations](package-summary.html) used by [com.google.adk.workflow](../workflow/package-summary.html)
+
+Class
+
+Description
+
+[Experimental](class-use/Experimental.html#com.google.adk.workflow)
 
 Marks the annotated element as experimental, exempt from standard stability guarantees.
 

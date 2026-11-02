@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../llm-agents/)
       * [ Managed agents  ](../../managed-agents/)
+      * [ Service registration  ](../../service-registration/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
@@ -73,6 +74,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../google-gemini/deferred-schedule/)
       * [ Gemma  ](../google-gemma/)
       * Claude  [ Claude  ](./) Table of contents 
         * Python 
@@ -201,6 +205,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../../live/get-started/streaming-python/)
         * [ Java  ](../../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../../live/workflows/)
         * [ Tools  ](../../../live/tools/)

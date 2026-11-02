@@ -52,6 +52,12 @@ Description
 
 Indicates that a requested session could not be found.
 
+`final class `
+
+`[VertexAiApiException](../VertexAiApiException.html "class in com.google.adk.sessions")`
+
+Signals a non-2xx, non-404 HTTP status from the Vertex AI Session API.
+
 
 
 

@@ -49,6 +49,7 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../llm-agents/)
       * [ Managed agents  ](../managed-agents/)
+      * [ Service registration  ](../service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
@@ -91,6 +92,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../models/google-gemma/)
       * [ Claude  ](../models/anthropic/)
       * [ Agent Platform hosted  ](../models/agent-platform/)
@@ -214,6 +218,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -299,7 +308,7 @@ Alternative: graph-based workflows
 
 Starting in ADK 2.0, agent-based workflows using `BaseAgent` have been superseded
 
-by more flexible workflow structures, including [graph-based workflows](/workflows/graphs/) and [dynamic workflows](/workflows/dynamic/). You should evaluate the capabilities of these workflow mechanisms **_before_** building a custom agent for your target workflow.
+by more flexible workflow structures, including [graph-based workflows](/graphs/) and [dynamic workflows](/graphs/dynamic/). You should evaluate the capabilities of these workflow mechanisms **_before_** building a custom agent for your target workflow.
 
 Advanced Concept
 
@@ -315,7 +324,7 @@ The specific method name for implementing an agent's core asynchronous logic may
 
 ### Why build Custom Agents?¶
 
-After reviewing exising ADK [agent workflow](/workflows/) approaches and architectures, you may want to consider building a custom workflow agent if those mechanisms cannot meet one or more of following requirements for your project:
+After reviewing existing ADK [agent workflow](/workflows/) approaches and architectures, you may want to consider building a custom workflow agent if those mechanisms cannot meet one or more of the following requirements for your project:
 
   * **Conditional Logic:** Executing different sub-agents or taking different paths based on runtime conditions or the results of previous steps.
   * **Complex State Management:** Implementing intricate logic for maintaining and updating state throughout the workflow beyond simple sequential passing.
@@ -347,7 +356,7 @@ The heart of any custom agent is the `runAsyncImpl` method. This is where you de
 
 
 
-In Go, you implement the `Run` method as part of a struct that satisfies the `agent.Agent` interface. The actual logic is typically a method on your custom agent struct.
+In Go, you create a custom agent by passing a `Run` function to `agent.New` in an `agent.Config`. You can't implement the `agent.Agent` interface directly, because it includes an unexported method. The actual logic is typically a method on your custom agent struct, which you pass as `Run`.
 
   * **Signature:** `Run(ctx agent.InvocationContext) iter.Seq2[*session.Event, error]`
   * **Iterator:** The `Run` method returns an iterator (`iter.Seq2`) that yields events and errors. This is the standard way to handle streaming results from an agent's execution.

@@ -50,7 +50,7 @@ Description
 
 SpringAIAutoConfiguration.`[springAIEmbedding](../autoconfigure/SpringAIAutoConfiguration.html#springAIEmbedding\(org.springframework.ai.embedding.EmbeddingModel,com.google.adk.models.springai.properties.SpringAIProperties\))(org.springframework.ai.embedding.EmbeddingModel embeddingModel, [SpringAIProperties](../properties/SpringAIProperties.html "class in com.google.adk.models.springai.properties") properties)`
 
-Creates a SpringAIEmbedding bean when EmbeddingModel is available.
+Creates a SpringAIEmbedding bean when a single-candidate EmbeddingModel is available.
 
 
 

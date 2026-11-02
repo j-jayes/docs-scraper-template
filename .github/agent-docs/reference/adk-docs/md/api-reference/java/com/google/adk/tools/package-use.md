@@ -39,26 +39,6 @@ com.example.a2a_basic
 
  
 
-com.example.adkprtriaging
-
- 
-
-com.example.adkspam
-
- 
-
-com.example.adkstale
-
- 
-
-com.example.adktriaging
-
- 
-
-com.example.github
-
- 
-
 com.example.helloworld
 
  
@@ -154,56 +134,6 @@ Description
 [ToolContext](class-use/ToolContext.html#com.example.a2a_basic)
 
 ToolContext object provides a structured context for executing tools or functions.
-
-  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adkprtriaging](../../../example/adkprtriaging/package-summary.html)
-
-Class
-
-Description
-
-[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adkprtriaging)
-
-The annotation for binding the 'Schema' input.
-
-  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adkspam](../../../example/adkspam/package-summary.html)
-
-Class
-
-Description
-
-[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adkspam)
-
-The annotation for binding the 'Schema' input.
-
-  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adkstale](../../../example/adkstale/package-summary.html)
-
-Class
-
-Description
-
-[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adkstale)
-
-The annotation for binding the 'Schema' input.
-
-  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.adktriaging](../../../example/adktriaging/package-summary.html)
-
-Class
-
-Description
-
-[Annotations.Schema](class-use/Annotations.Schema.html#com.example.adktriaging)
-
-The annotation for binding the 'Schema' input.
-
-  * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.github](../../../example/github/package-summary.html)
-
-Class
-
-Description
-
-[Annotations.Schema](class-use/Annotations.Schema.html#com.example.github)
-
-The annotation for binding the 'Schema' input.
 
   * Classes in [com.google.adk.tools](package-summary.html) used by [com.example.helloworld](../../../example/helloworld/package-summary.html)
 
@@ -365,7 +295,7 @@ A tool that wraps a sub-agent that only uses google_search tool.
 
 [GoogleSearchTool](class-use/GoogleSearchTool.html#com.google.adk.tools)
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve search results from Google Search.
+A built-in tool that is automatically invoked by Gemini models to retrieve search results from Google Search.
 
 [LoadArtifactsTool](class-use/LoadArtifactsTool.html#com.google.adk.tools)
 
@@ -393,7 +323,7 @@ Functional interface to decide whether a tool should be exposed to the LLM based
 
 [UrlContextTool](class-use/UrlContextTool.html#com.google.adk.tools)
 
-A built-in tool that is automatically invoked by Gemini 2 and 3 models to retrieve information from the given URLs.
+A built-in tool that is automatically invoked by Gemini models to retrieve information from the given URLs.
 
 [VertexAiSearchAgentTool](class-use/VertexAiSearchAgentTool.html#com.google.adk.tools)
 

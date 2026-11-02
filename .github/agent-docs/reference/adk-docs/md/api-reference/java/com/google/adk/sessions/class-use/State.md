@@ -52,9 +52,9 @@ Description
 
 `[State](../State.html "class in com.google.adk.sessions")`
 
-CallbackContext.`[state](../../agents/CallbackContext.html#state\(\))()`
+Context.`[state](../../agents/Context.html#state\(\))()`
 
-Returns the delta-aware state of the current callback.
+Returns the delta-aware state of the current context.
 
   * ## Uses of [State](../State.html "class in com.google.adk.sessions") in [com.google.adk.sessions](../package-summary.html)
 

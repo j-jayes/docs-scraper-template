@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Get Started ](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)[Develop ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Connect and Run ](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)[Protocol and Versions ](https://modelcontextprotocol.info/specification/)[Reference ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -10,216 +10,65 @@
 
 
 
-  * [MCP Docs ](https://modelcontextprotocol.info/docs/)
+  * [Get Started](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
 
-    * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
-    * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
-    * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
+    * [What is MCP?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
+    * [Architecture and roles](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
+    * [Servers and primitives](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
+    * [Hosts and clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
 
-      * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
-      * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
-      * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
-      * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
-      * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
+  * [Develop](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
 
-    * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
+    * [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
+    * [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
+    * [Choose an SDK](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
+    * [Build with agent skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
+    * [Node.js client: calls and failures without a model](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+    * [Design and check effective tools](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
 
-      * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
-      * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
-      * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
-      * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
-      * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
-      * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
-      * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
+  * [Connect and Run](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
 
-    * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
+    * [Connect a local server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
+    * [Connect a remote server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
+    * [Authorization with OAuth 2.1](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
+    * [Local server security defaults](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
+    * [Security checklist before launch](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
+    * [Host applications at scale](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
+    * [Troubleshoot connections and calls](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
+    * [Inspector: test a server interactively](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
+    * [Inspector CLI: scripted checks and CI](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
+    * [Inspector recipes: transports, Docker, config import](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
+    * [Inspector lab: reproducible calls and failure diagnosis](https://modelcontextprotocol.info/tools/inspector/)
 
-      * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
-      * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
-      * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
-      * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
+  * [Protocol and Versions](https://modelcontextprotocol.info/specification/)
 
-    * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
-    * [Clients](https://modelcontextprotocol.info/docs/clients/)
-    * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
-      * 🏗️ Architecture & Design Decisions
-      * 🔒 Security & Compliance
-      * 🚀 Implementation & Development
-      * 🎯 Production Deployment
-      * 🔮 Future-Proofing & Evolution
-      * 💡 Still Have Questions?
-    * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
-    * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
+    * [Version negotiation rules](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
+    * [Revision and method matrix](https://modelcontextprotocol.info/specification/)
+    * [Key changes in 2026-07-28](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
+    * [Deprecated features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
+    * [Legacy and modern protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
+    * [Client extension support matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
 
-      * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
+  * [Reference](https://modelcontextprotocol.info/tools/)
 
-        * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
-        * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
-        * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
+    * [Tools and Registry overview](https://modelcontextprotocol.info/tools/)
+    * [Production checklist](https://modelcontextprotocol.info/docs/best-practices/)
+    * [Client capability matrix](https://modelcontextprotocol.info/docs/clients/)
+    * [Tools: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/tools/)
+    * [Resources: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/resources/)
+    * [Prompts: definitions and trade-offs](https://modelcontextprotocol.info/docs/concepts/prompts/)
+    * [Sampling: deprecated server requests for client model calls](https://modelcontextprotocol.info/docs/concepts/sampling/)
+    * [Current transports: stdio and Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
+    * [Publish a server to the Registry](https://modelcontextprotocol.info/tools/registry/publishing/)
+    * [Official SEP status index](https://modelcontextprotocol.info/seps/)
+    * [SEP impact and method lifecycle guide](https://modelcontextprotocol.info/docs/reference/sep-impact-guide/)
+    * [FAQ: revisions, authorization and failure handling](https://modelcontextprotocol.info/docs/faqs/)
 
-    * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
-    * [Extensions](https://modelcontextprotocol.info/docs/extensions/)
+  * In this section
 
-  * [Tools ](https://modelcontextprotocol.info/tools/)
+    * [MCP Docs](https://modelcontextprotocol.info/docs/)
+    * [MCP FAQ: Versions, Authorization and Troubleshooting](https://modelcontextprotocol.info/docs/faqs/)
 
-    * [MCP Registry ](https://modelcontextprotocol.info/tools/registry/)
-
-      * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
-      * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
-      * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
-
-    * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
-    * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-
-  * [Specification ](https://modelcontextprotocol.info/specification/)
-
-    * [Specification (Draft) ](https://modelcontextprotocol.info/specification/draft/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/draft/architecture/)
-      * [Base Protocol ](https://modelcontextprotocol.info/specification/draft/basic/)
-
-        * [Transports](https://modelcontextprotocol.info/specification/draft/basic/transports/)
-        * [Authorization](https://modelcontextprotocol.info/specification/draft/basic/authorization/)
-        * [Messages](https://modelcontextprotocol.info/specification/draft/basic/messages/)
-        * [Lifecycle](https://modelcontextprotocol.info/specification/draft/basic/lifecycle/)
-        * [Versioning](https://modelcontextprotocol.info/specification/draft/basic/versioning/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/draft/basic/utilities/)
-
-          * [Ping](https://modelcontextprotocol.info/specification/draft/basic/utilities/ping/)
-          * [Cancellation](https://modelcontextprotocol.info/specification/draft/basic/utilities/cancellation/)
-          * [Progress](https://modelcontextprotocol.info/specification/draft/basic/utilities/progress/)
-
-      * [Server Features ](https://modelcontextprotocol.info/specification/draft/server/)
-
-        * [Prompts](https://modelcontextprotocol.info/specification/draft/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/draft/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/draft/server/tools/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/draft/server/utilities/)
-
-          * [Completion](https://modelcontextprotocol.info/specification/draft/server/utilities/completion/)
-          * [Logging](https://modelcontextprotocol.info/specification/draft/server/utilities/logging/)
-          * [Pagination](https://modelcontextprotocol.info/specification/draft/server/utilities/pagination/)
-
-      * [Client Features ](https://modelcontextprotocol.info/specification/draft/client/)
-
-        * [Roots](https://modelcontextprotocol.info/specification/draft/client/roots/)
-        * [Sampling](https://modelcontextprotocol.info/specification/draft/client/sampling/)
-
-      * [Contributions](https://modelcontextprotocol.info/specification/draft/contributing/)
-      * [Revisions ](https://modelcontextprotocol.info/specification/draft/revisions/)
-
-        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/draft/revisions/2024-11-05/)
-
-    * [Specification (Latest) ](https://modelcontextprotocol.info/specification/2024-11-05/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/2024-11-05/architecture/)
-      * [Base Protocol ](https://modelcontextprotocol.info/specification/2024-11-05/basic/)
-
-        * [Messages](https://modelcontextprotocol.info/specification/2024-11-05/basic/messages/)
-        * [Lifecycle](https://modelcontextprotocol.info/specification/2024-11-05/basic/lifecycle/)
-        * [Transports](https://modelcontextprotocol.info/specification/2024-11-05/basic/transports/)
-        * [Versioning](https://modelcontextprotocol.info/specification/2024-11-05/basic/versioning/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/)
-
-          * [Ping](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/ping/)
-          * [Cancellation](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/cancellation/)
-          * [Progress](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/progress/)
-
-      * [Server Features ](https://modelcontextprotocol.info/specification/2024-11-05/server/)
-
-        * [Prompts](https://modelcontextprotocol.info/specification/2024-11-05/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/2024-11-05/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/2024-11-05/server/tools/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/)
-
-          * [Completion](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/completion/)
-          * [Logging](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/logging/)
-          * [Pagination](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/pagination/)
-
-      * [Client Features ](https://modelcontextprotocol.info/specification/2024-11-05/client/)
-
-        * [Roots](https://modelcontextprotocol.info/specification/2024-11-05/client/roots/)
-        * [Sampling](https://modelcontextprotocol.info/specification/2024-11-05/client/sampling/)
-
-      * [Contributions](https://modelcontextprotocol.info/specification/2024-11-05/contributing/)
-      * [Revisions ](https://modelcontextprotocol.info/specification/2024-11-05/revisions/)
-
-        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/2024-11-05/revisions/2024-11-05/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2025-06-18/)
-
-      * [Key Changes](https://modelcontextprotocol.info/specification/2025-06-18/changelog/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2025-11-25/)
-
-      * [Key Changes](https://modelcontextprotocol.info/specification/2025-11-25/changelog/)
-
-  * [MCP Protocol Blog ](https://modelcontextprotocol.info/blog/)
-
-    * [Mastering MCP Tool Development: Unlocking AI Agent Potential](https://modelcontextprotocol.info/blog/writing-effective-mcp-tools/)
-    * [Update on the Next MCP Protocol Release](https://modelcontextprotocol.info/blog/mcp-next-version-update/)
-    * [MCP Apps Now Official - Bringing UI Capabilities to MCP Clients](https://modelcontextprotocol.info/blog/mcp-apps-ui-capabilities/)
-    * [January MCP Core Maintainer Update](https://modelcontextprotocol.info/blog/core-maintainer-update/)
-    * [Exploring the Future of MCP Transports](https://modelcontextprotocol.info/blog/transport-future/)
-    * [MCP joins the Agentic AI Foundation](https://modelcontextprotocol.info/blog/joins-agentic-ai-foundation/)
-    * [One Year of MCP: November 2025 Spec Release](https://modelcontextprotocol.info/blog/first-mcp-anniversary/)
-    * [Adopting the MCP Bundle Format (.mcpb) for Portable Local Servers](https://modelcontextprotocol.info/blog/adopting-mcpb/)
-    * [Server Instructions: Giving LLMs a User Manual for Your Server](https://modelcontextprotocol.info/blog/server-instructions/)
-    * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
-    * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
-    * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
-
-  * [About](https://modelcontextprotocol.info/about/)
-  * More
-  * [Docs ↗](https://modelcontextprotocol.info/docs/)
-  * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about/)
-
-
-  * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
-  * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
-  * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
-
-    * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
-    * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
-    * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
-    * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
-    * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
-
-  * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
-
-    * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
-    * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
-    * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
-    * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
-    * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
-    * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
-    * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
-
-  * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
-
-    * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
-    * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
-    * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
-    * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
-
-  * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
-  * [Clients](https://modelcontextprotocol.info/docs/clients/)
-  * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
-  * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
-  * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
-
-    * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
-
-      * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
-      * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
-      * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
-
-  * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
-  * [Extensions](https://modelcontextprotocol.info/docs/extensions/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
@@ -230,9 +79,7 @@
 English
 
   * [English](https://modelcontextprotocol.info/docs/faqs/)
-  * [简体中文](https://modelcontextprotocol.info/zh-cn/docs/faqs/)
-  * [繁體中文](https://modelcontextprotocol.info/zh-tw/docs/faqs/)
-  * [한국어](https://modelcontextprotocol.info/ko/docs/faqs/)
+  * [简体中文](https://mcpcn.com/docs/faqs/)
 
 
 
@@ -247,24 +94,25 @@ English
 
 On this page
 
-  * 🏗️ Architecture & Design Decisions
-  * Q: How does MCP compare to REST APIs or GraphQL for AI integrations?
-  * Q: Why client-server architecture instead of direct database connections?
-  * Q: Can MCP handle high-throughput production workloads?
-  * 🔒 Security & Compliance
-  * Q: How do I implement enterprise-grade security with MCP?
-  * Q: What about data privacy and GDPR compliance?
-  * 🚀 Implementation & Development
-  * Q: What’s the fastest way to prototype an MCP integration?
-  * Q: How do I handle errors and edge cases gracefully?
-  * Q: How do I test MCP servers effectively?
-  * 🎯 Production Deployment
-  * Q: What’s the recommended deployment architecture for enterprise?
-  * Q: How do I monitor MCP server performance?
-  * 🔮 Future-Proofing & Evolution
-  * Q: How do I prepare for future MCP protocol versions?
-  * Q: What’s the roadmap for MCP ecosystem growth?
-  * 💡 Still Have Questions?
+  * Versions and specifications
+  * Which revision should a new implementation target?
+  * Can a historical revision or SEP define current behavior?
+  * Is a Draft proposal already a protocol capability?
+  * Requests and interaction
+  * What is MRTR?
+  * What is elicitation?
+  * How do protocol Tasks differ from application tasks?
+  * Authorization and security
+  * Does every server require OAuth?
+  * How does a client discover the authorization server?
+  * Can registrations be reused across authorization servers?
+  * Does using MCP establish security or compliance?
+  * Failure handling
+  * What should be checked first when connection or capability use fails?
+  * How should repeated remote authorization failures be diagnosed?
+  * What happens when a pagination cursor or cache becomes invalid?
+  * Where can a suspected specification problem be reported?
+  * Related specification
 
 
 
@@ -272,436 +120,89 @@ Scroll to top
 
 [MCP Docs](https://modelcontextprotocol.info/docs/)
 
-MCP FAQ: Expert Answers to Real-World Questions
-
-# MCP FAQ: Expert Answers to Real-World Questions
-
-Based on **extensive protocol design experience** and real-world MCP implementations, this FAQ addresses the questions that matter most to architects, developers, and decision-makers.
-
-## 🏗️ Architecture & Design Decisions
-
-### Q: How does MCP compare to REST APIs or GraphQL for AI integrations?
-
-**A: MCP is purpose-built for AI context, not general web APIs.**
-
-Aspect| REST/GraphQL| MCP  
----|---|---  
-**Design Goal**|  Human-readable web APIs| AI-optimized context exchange  
-**Data Flow**|  Request-response| Bidirectional with streaming  
-**Security Model**|  Token-based auth| Capability-based permissions  
-**Schema Evolution**|  Breaking changes common| Forward-compatible protocol  
-**AI Integration**|  Manual adaptation needed| Native AI context understanding  
-  
-**Bottom Line** : Use MCP when your primary consumer is an AI system. Use REST/GraphQL for traditional web applications.
-
-### Q: Why client-server architecture instead of direct database connections?
-
-**A: Security, abstraction, and maintainability.**
-    
-    
-      flowchart LR
-        subgraph "❌ Direct Access Problems"
-            AI1["AI App A"] --> DB[("Database")]
-            AI2["AI App B"] --> DB
-            AI3["AI App C"] --> DB
-        end
-        
-        subgraph "✅ MCP Benefits"
-            AI4["AI App A"] --> MCP["MCP Server"]
-            AI5["AI App B"] --> MCP
-            AI6["AI App C"] --> MCP
-            MCP --> DB2[("Database")]
-        end
-    
+MCP FAQ: Versions, Authorization and Troubleshooting
 
-**Key Benefits** :
+# MCP FAQ: Versions, Authorization and Troubleshooting
 
-  * **Security** : No direct database credentials in AI applications
-  * **Abstraction** : Business logic centralized in MCP server
-  * **Monitoring** : Single point for access logging and rate limiting
-  * **Evolution** : Database schema changes don't break AI applications
+This page answers implementation questions that can be checked against the [2026-07-28 documentation](https://modelcontextprotocol.io/docs/2026-07-28) and its specification. Check the peer's actual supported revisions and capabilities before adopting a feature.
 
+## Versions and specifications
 
+### Which revision should a new implementation target?
 
-### Q: Can MCP handle high-throughput production workloads?
+Use the site's current `2026-07-28` revision as the reference, then choose an SDK that supports it. Package versions and protocol revisions differ. Discover or negotiate the revision and capabilities actually supported by both peers; upgrading a package alone does not establish interoperability.
 
-**A: Yes, with proper architecture.**
+### Can a historical revision or SEP define current behavior?
 
-**Performance Characteristics** :
+[Historical specifications](https://modelcontextprotocol.info/specification/) support maintenance and explain evolution. SEPs record proposals and decisions; later specifications or extensions can change the result. Implement against the applicable published specification, extension and changelog.
 
-  * **Protocol Overhead** : Minimal JSON-RPC messaging
-  * **Connection Model** : Persistent connections reduce handshake costs
-  * **Streaming Support** : Large datasets can be streamed incrementally
-  * **Horizontal Scaling** : Multiple server instances behind load balancers
+### Is a Draft proposal already a protocol capability?
 
+No. A Draft is under discussion. A proposal becomes an interoperability contract only through the applicable published specification or extension and its required capability negotiation.
 
+## Requests and interaction
 
-**Production Patterns** :
-    
-    
-    # High-throughput deployment example
-    deployment:
-      servers: 3-5 instances
-      load_balancer: nginx/haproxy
-      caching: Redis for frequent queries
-      monitoring: Prometheus + Grafana
-      rate_limiting: per-client quotas
-
-## 🔒 Security & Compliance
-
-### Q: How do I implement enterprise-grade security with MCP?
-
-**A: Layer security at multiple levels.**
+### What is MRTR?
 
-**1\. Network Security**
-    
-    
-    {
-      "transport": "stdio",  // Local process isolation
-      "network_isolation": true,
-      "firewall_rules": ["block_external_access"]
-    }
+[Multi-Round-Trip Requests](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/mrtr/) let a server end a request with `InputRequiredResult`; after obtaining input, the client retries the original method with a new JSON-RPC ID. The client must return `requestState` unchanged and must not inspect, parse or modify it.
 
-**2\. Capability-Based Access Control**
-    
-    
-     # Server-side permission model
-    class MCPServer:
-        def __init__(self):
-            self.capabilities = {
-                "read_files": ["/safe/directory/*"],
-                "write_files": ["/output/only/*"],
-                "execute_commands": ["git", "npm"]  # Whitelist only
-            }
+### What is elicitation?
 
-**3\. Audit & Compliance**
-    
-    
-    # Comprehensive logging
-    @audit_log
-    def handle_request(self, request):
-        log.info({
-            "client_id": request.client_id,
-            "operation": request.method,
-            "resources": request.params.get("resources", []),
-            "timestamp": datetime.utcnow(),
-            "result": "success|failure"
-        })
+Elicitation asks a user for information needed to complete an operation. Form mode collects structured input; URL mode handles sensitive interactions outside the client. Show the request's source and purpose, and open a URL only after explicit user acceptance. Return `decline` or `cancel` when the user declines or cancels; client policy may map a timeout to `cancel`. The server can then choose a fallback, retry later or stop.
 
-### Q: What about data privacy and GDPR compliance?
+### How do protocol Tasks differ from application tasks?
 
-**A: MCP enables privacy-by-design patterns.**
+[The Tasks extension](https://modelcontextprotocol.info/extensions/tasks/overview/) defines durable handles, polling, input during execution and deferred result retrieval. A to-do item or business job is application data unless it implements and negotiates that extension. [SEP-1686](https://modelcontextprotocol.info/seps/1686-tasks/) records the earlier core-protocol design; `2026-07-28` moved Tasks into an official extension.
 
-**Data Minimization** :
+## Authorization and security
 
-  * Servers only expose necessary data fields
-  * Client requests specify exact data requirements
-  * No bulk data dumps to AI systems
+### Does every server require OAuth?
 
+Local stdio servers normally rely on host and operating-system security boundaries. A protected remote HTTP server should publish protected-resource metadata and use the flow appropriate to its client under [the authorization specification](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/). MCP does not create an OS sandbox or grant automatic user approval.
 
+### How does a client discover the authorization server?
 
-**Processing Transparency** :
+Prefer `resource_metadata` in the `WWW-Authenticate` challenge from a 401 response; when absent, try the specification's ordered protected-resource well-known URIs. Validate the discovered `issuer`, request tokens for the target `resource`, and reject credentials whose issuer, resource or audience does not match the intended server.
 
-  * All data access logged with purpose
-  * Clear audit trail for compliance officers
-  * User consent can be enforced at server level
-
-
+### Can registrations be reused across authorization servers?
 
-**Data Locality** :
-
-  * Servers can enforce geographic restrictions
-  * Sensitive data never leaves controlled environment
-  * AI models work with processed/anonymized results only
-
-
-
-## 🚀 Implementation & Development
-
-### Q: What's the fastest way to prototype an MCP integration?
-
-**A: Start with the TypeScript SDK for rapid iteration.**
-
-**5-Minute Prototype** :
-    
-    
-    # 1. Initialize project
-    npm init -y
-    npm install @modelcontextprotocol/sdk-typescript
-    
-    # 2. Create basic server
-    cat > server.ts << 'EOF'
-    import { Server } from '@modelcontextprotocol/sdk-typescript';
-    
-    const server = new Server({
-      name: 'my-prototype',
-      version: '1.0.0'
-    });
-    
-    server.tool('hello', 'Say hello', {
-      name: { type: 'string' }
-    }, async (args) => {
-      return `Hello, ${args.name}!`;
-    });
-    
-    server.start();
-    EOF
-    
-    # 3. Test immediately
-    npx tsx server.ts
-
-**Production Evolution Path** :
-
-  1. **Prototype** → TypeScript/Node.js (fastest iteration)
-  2. **MVP** → Python (rich ecosystem, easy deployment)
-  3. **Scale** → Go/Rust (performance-critical components)
-
-
-
-### Q: How do I handle errors and edge cases gracefully?
-
-**A: Implement comprehensive error handling patterns.**
-
-**Error Classification** :
-    
-    
-    class MCPErrorHandler:
-        def handle_error(self, error):
-            if isinstance(error, ValidationError):
-                return self.client_error(400, "Invalid request format")
-            elif isinstance(error, PermissionError):
-                return self.client_error(403, "Access denied")
-            elif isinstance(error, ResourceNotFound):
-                return self.client_error(404, "Resource not available")
-            elif isinstance(error, RateLimitExceeded):
-                return self.client_error(429, "Rate limit exceeded")
-            else:
-                # Log for debugging, return generic error to client
-                self.log_internal_error(error)
-                return self.server_error(500, "Internal server error")
-
-**Resilience Patterns** :
-
-  * **Circuit Breaker** : Fail fast when downstream services are down
-  * **Retry Logic** : Exponential backoff for transient failures
-  * **Graceful Degradation** : Partial results when some data unavailable
-  * **Health Checks** : Proactive monitoring and alerting
-
-
-
-### Q: How do I test MCP servers effectively?
-
-**A: Multi-layer testing strategy.**
-
-**Unit Tests** (Server Logic):
-    
-    
-    def test_file_access_permissions():
-        server = FileSystemServer(allowed_paths=["/safe/"])
-        
-        # Should succeed
-        result = server.read_file("/safe/document.txt")
-        assert result.success
-        
-        # Should fail
-        with pytest.raises(PermissionError):
-            server.read_file("/etc/passwd")
-
-**Integration Tests** (Protocol Compliance):
-    
-    
-    def test_mcp_protocol_compliance():
-        client = MCPClient()
-        client.connect(server_url)
-        
-        # Test capability discovery
-        capabilities = client.list_capabilities()
-        assert "read_files" in capabilities
-        
-        # Test actual operations
-        result = client.call_tool("read_file", {"path": "/test.txt"})
-        assert result.status == "success"
-
-**End-to-End Tests** (AI Integration):
-    
-    
-    def test_claude_integration():
-        # Configure Claude with test server
-        config = {
-            "mcpServers": {
-                "test": {"command": "python", "args": ["test_server.py"]}
-            }
-        }
-        
-        claude = ClaudeClient(config)
-        response = claude.chat("Read the contents of test.txt")
-        assert "file contents" in response.lower()
-
-## 🎯 Production Deployment
-
-### Q: What's the recommended deployment architecture for enterprise?
-
-**A: Multi-tier architecture with proper separation of concerns.**
-    
-    
-      flowchart TB
-        subgraph "Client Tier"
-            Claude["Claude Desktop"]
-            CustomAI["Custom AI Apps"]
-            IDE["IDE Extensions"]
-        end
-        
-        subgraph "Gateway Tier"
-            LB["Load Balancer"]
-            Auth["Authentication"]
-            RateLimit["Rate Limiting"]
-        end
-        
-        subgraph "Application Tier"
-            MCP1["MCP Server 1"]
-            MCP2["MCP Server 2"]
-            MCP3["MCP Server 3"]
-        end
-        
-        subgraph "Data Tier"
-            DB[("Database")]
-            Cache[("Redis Cache")]
-            Files[("File Storage")]
-        end
-        
-        Claude --> LB
-        CustomAI --> LB
-        IDE --> LB
-        
-        LB --> Auth
-        Auth --> RateLimit
-        RateLimit --> MCP1
-        RateLimit --> MCP2
-        RateLimit --> MCP3
-        
-        MCP1 --> DB
-        MCP2 --> Cache
-        MCP3 --> Files
-    
-
-**Key Components** :
-
-  * **Load Balancer** : nginx/HAProxy with health checks
-  * **Authentication** : OAuth2/SAML integration
-  * **Rate Limiting** : Per-client quotas and burst handling
-  * **Monitoring** : Prometheus metrics + Grafana dashboards
-  * **Logging** : Structured logs to ELK/Splunk
-
-
-
-### Q: How do I monitor MCP server performance?
-
-**A: Comprehensive observability stack.**
-
-**Metrics to Track** :
-    
-    
-    # Key performance indicators
-    metrics = {
-        "request_rate": "requests/second",
-        "response_time": "p50, p95, p99 latencies",
-        "error_rate": "errors/total_requests",
-        "connection_count": "active_connections",
-        "resource_usage": "cpu, memory, disk_io",
-        "business_metrics": "tools_called, files_accessed"
-    }
-
-**Alerting Rules** :
-    
-    
-    # Prometheus alerting rules
-    groups:
-      - name: mcp_server
-        rules:
-          - alert: HighErrorRate
-            expr: rate(mcp_errors_total[5m]) > 0.1
-            for: 2m
-            labels:
-              severity: warning
-            annotations:
-              summary: "MCP server error rate is high"
-          
-          - alert: SlowResponseTime
-            expr: histogram_quantile(0.95, rate(mcp_request_duration_seconds_bucket[5m])) > 2
-            for: 5m
-            labels:
-              severity: critical
-            annotations:
-              summary: "MCP server response time is slow"
-
-## 🔮 Future-Proofing & Evolution
-
-### Q: How do I prepare for future MCP protocol versions?
-
-**A: Design for forward compatibility from day one.**
-
-**Version-Safe Patterns** :
-    
-    
-    class VersionAwareServer:
-        def __init__(self):
-            self.supported_versions = ["1.0", "1.1", "2.0"]
-            self.feature_flags = {
-                "streaming": "1.1+",
-                "batch_operations": "2.0+",
-                "async_tools": "2.0+"
-            }
-        
-        def handle_request(self, request):
-            client_version = request.headers.get("mcp-version", "1.0")
-            
-            if self.supports_feature("streaming", client_version):
-                return self.handle_streaming_request(request)
-            else:
-                return self.handle_legacy_request(request)
-
-**Migration Strategy** :
-
-  1. **Parallel Deployment** : Run old and new versions simultaneously
-  2. **Feature Flags** : Gradually enable new capabilities
-  3. **Monitoring** : Track adoption and performance of new features
-  4. **Rollback Plan** : Quick revert if issues discovered
-
-
-
-### Q: What's the roadmap for MCP ecosystem growth?
-
-**A: Focus on standardization and ecosystem maturity.**
-
-**Expected Evolution** :
-
-  * **Protocol Maturity** : Stable 2.0 spec with advanced features
-  * **Language Support** : SDKs for all major programming languages
-  * **Tool Ecosystem** : Rich marketplace of pre-built servers
-  * **Enterprise Features** : Advanced security, compliance, and monitoring
-  * **AI Integration** : Deeper integration with major AI platforms
-
-
-
-**Investment Priorities** :
-
-  1. **Core Infrastructure** : Robust, scalable server implementations
-  2. **Developer Experience** : Better tooling, documentation, and examples
-  3. **Security** : Enterprise-grade security and compliance features
-  4. **Performance** : Optimization for high-throughput scenarios
-  5. **Ecosystem** : Community growth and third-party integrations
-
-
-
-* * *
-
-## 💡 Still Have Questions?
-
-[Community DiscussionsAsk questions, share experiences, get expert help](https://github.com/orgs/modelcontextprotocol/discussions)[Hands-On TutorialsStep-by-step guides for common scenarios](../tutorials)[Deep Dive DocumentationComprehensive technical reference](../concepts)
-
-[Clients](https://modelcontextprotocol.info/docs/clients/ "Clients")[MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/ "MCP Best Practices: Architecture & Implementation Guide")
-
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
+No. Client IDs, credentials and tokens belong to the authorization server that issued them. Store separate registration state and credentials for each server listed by PRM.
+
+### Does using MCP establish security or compliance?
+
+No. Implement authentication, authorization, input validation, user controls, audit and retention for the application. Use least privilege, validate credentials and external data, prohibit token passthrough, and keep secrets out of logs. See [local-server boundaries](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/).
+
+## Failure handling
+
+### What should be checked first when connection or capability use fails?
+
+Confirm the actual revision, transport and capabilities, then the method's requirements. Keep redacted JSON-RPC error codes, HTTP status and correlation IDs. Separate revision mismatch, missing capability, invalid input and server failure; [the debugging guide](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/) includes controlled failure cases.
+
+### How should repeated remote authorization failures be diagnosed?
+
+Check PRM, authorization-server discovery, issuer, registration ownership, exact redirect URI, PKCE, scope, resource and token audience in order. Do not disable issuer or audience validation to make a connection pass. [The authorization tutorial](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/) distinguishes local resource checks from untested IdP flows.
+
+### What happens when a pagination cursor or cache becomes invalid?
+
+Cache cursor pages separately. If a cursor is rejected, discard all cached pages for that list and restart without a cursor. A relevant change notification invalidates the cache even before TTL expires.
+
+### Where can a suspected specification problem be reported?
+
+First isolate the specification, SDK or implementation with a minimal request and redacted logs. Report to the appropriate repository, or use [MCP GitHub Discussions](https://github.com/orgs/modelcontextprotocol/discussions).
+
+## Related specification
+
+  * [Elicitation and declined requests](https://modelcontextprotocol.info/specification/2026-07-28/client/elicitation/)
+  * [Pagination](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/pagination/) and [cache behavior](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/caching/)
+  * [Measured client capabilities](https://modelcontextprotocol.info/docs/clients/) (a dated observation, not a result for every client)
+
+
+
+[MCP Clients: What Each One Supports and How to Confirm What a Client Declares](https://modelcontextprotocol.info/docs/clients/ "MCP Clients: What Each One Supports and How to Confirm What a Client Declares")[MCP Server Best Practices: Transport, Security and Tool Design](https://modelcontextprotocol.info/docs/best-practices/ "MCP Server Best Practices: Transport, Security and Tool Design")
+
+[About](https://modelcontextprotocol.info/about/)[Privacy](https://modelcontextprotocol.info/privacy/)[Contact](https://modelcontextprotocol.info/contact/)[Official Sources](https://modelcontextprotocol.info/docs/#official-sources)
+
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab ](https://OpenClawLab.com/ "OpenClaw 技术站")[DSHx Community ](https://dshx.dev "DeepSeek Harness Developer Community")[DSH Plugins](https://plugin.dshx.dev "DeepSeek Harness Plugin Directory")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

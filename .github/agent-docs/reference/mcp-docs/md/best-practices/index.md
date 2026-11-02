@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Documentation ](https://modelcontextprotocol.info/docs/)[Specification ](https://modelcontextprotocol.info/specification/)[Tools ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Get Started ](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)[Develop ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Connect and Run ](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)[Protocol and Versions ](https://modelcontextprotocol.info/specification/)[Reference ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -10,217 +10,65 @@
 
 
 
-  * [MCP Docs ](https://modelcontextprotocol.info/docs/)
+  * [Get Started](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
 
-    * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
-    * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
-    * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
+    * [What is MCP?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
+    * [Architecture and roles](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
+    * [Servers and primitives](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
+    * [Hosts and clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
 
-      * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
-      * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
-      * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
-      * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
-      * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
+  * [Develop](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
 
-    * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
+    * [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
+    * [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
+    * [Choose an SDK](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
+    * [Build with agent skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
+    * [Node.js client: calls and failures without a model](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+    * [Design and check effective tools](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
 
-      * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
-      * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
-      * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
-      * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
-      * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
-      * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
-      * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
+  * [Connect and Run](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
 
-    * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
+    * [Connect a local server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
+    * [Connect a remote server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
+    * [Authorization with OAuth 2.1](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
+    * [Local server security defaults](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
+    * [Security checklist before launch](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
+    * [Host applications at scale](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
+    * [Troubleshoot connections and calls](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
+    * [Inspector: test a server interactively](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
+    * [Inspector CLI: scripted checks and CI](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
+    * [Inspector recipes: transports, Docker, config import](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
+    * [Inspector lab: reproducible calls and failure diagnosis](https://modelcontextprotocol.info/tools/inspector/)
 
-      * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
-      * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
-      * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
-      * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
+  * [Protocol and Versions](https://modelcontextprotocol.info/specification/)
 
-    * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
-    * [Clients](https://modelcontextprotocol.info/docs/clients/)
-    * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
-    * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
-      * 🏗️ Architectural Design Principles
-      * 🔧 Implementation Best Practices
-      * 🚀 Production Operations
-      * 🔍 Testing Strategies
-      * 📊 Performance Benchmarking
-      * 🎯 Summary: The Path to Production Excellence
-      * 📚 Additional Resources
-    * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
+    * [Version negotiation rules](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
+    * [Revision and method matrix](https://modelcontextprotocol.info/specification/)
+    * [Key changes in 2026-07-28](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
+    * [Deprecated features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
+    * [Legacy and modern protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
+    * [Client extension support matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
 
-      * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
+  * [Reference](https://modelcontextprotocol.info/tools/)
 
-        * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
-        * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
-        * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
+    * [Tools and Registry overview](https://modelcontextprotocol.info/tools/)
+    * [Production checklist](https://modelcontextprotocol.info/docs/best-practices/)
+    * [Client capability matrix](https://modelcontextprotocol.info/docs/clients/)
+    * [Tools: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/tools/)
+    * [Resources: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/resources/)
+    * [Prompts: definitions and trade-offs](https://modelcontextprotocol.info/docs/concepts/prompts/)
+    * [Sampling: deprecated server requests for client model calls](https://modelcontextprotocol.info/docs/concepts/sampling/)
+    * [Current transports: stdio and Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
+    * [Publish a server to the Registry](https://modelcontextprotocol.info/tools/registry/publishing/)
+    * [Official SEP status index](https://modelcontextprotocol.info/seps/)
+    * [SEP impact and method lifecycle guide](https://modelcontextprotocol.info/docs/reference/sep-impact-guide/)
+    * [FAQ: revisions, authorization and failure handling](https://modelcontextprotocol.info/docs/faqs/)
 
-    * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
-    * [Extensions](https://modelcontextprotocol.info/docs/extensions/)
+  * In this section
 
-  * [Tools ](https://modelcontextprotocol.info/tools/)
+    * [MCP Docs](https://modelcontextprotocol.info/docs/)
+    * [MCP Server Best Practices: Transport, Security and Tool Design](https://modelcontextprotocol.info/docs/best-practices/)
 
-    * [MCP Registry ](https://modelcontextprotocol.info/tools/registry/)
-
-      * [Publish Your MCP Server](https://modelcontextprotocol.info/tools/registry/publishing/)
-      * [Registry CLI Tool](https://modelcontextprotocol.info/tools/registry/cli/)
-      * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/tools/registry/github-actions/)
-      * [Consuming Registry Data](https://modelcontextprotocol.info/tools/registry/consuming/)
-      * [Registry FAQ](https://modelcontextprotocol.info/tools/registry/faq/)
-
-    * [Debugging](https://modelcontextprotocol.info/tools/debugging/)
-    * [Inspector](https://modelcontextprotocol.info/tools/inspector/)
-
-  * [Specification ](https://modelcontextprotocol.info/specification/)
-
-    * [Specification (Draft) ](https://modelcontextprotocol.info/specification/draft/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/draft/architecture/)
-      * [Base Protocol ](https://modelcontextprotocol.info/specification/draft/basic/)
-
-        * [Transports](https://modelcontextprotocol.info/specification/draft/basic/transports/)
-        * [Authorization](https://modelcontextprotocol.info/specification/draft/basic/authorization/)
-        * [Messages](https://modelcontextprotocol.info/specification/draft/basic/messages/)
-        * [Lifecycle](https://modelcontextprotocol.info/specification/draft/basic/lifecycle/)
-        * [Versioning](https://modelcontextprotocol.info/specification/draft/basic/versioning/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/draft/basic/utilities/)
-
-          * [Ping](https://modelcontextprotocol.info/specification/draft/basic/utilities/ping/)
-          * [Cancellation](https://modelcontextprotocol.info/specification/draft/basic/utilities/cancellation/)
-          * [Progress](https://modelcontextprotocol.info/specification/draft/basic/utilities/progress/)
-
-      * [Server Features ](https://modelcontextprotocol.info/specification/draft/server/)
-
-        * [Prompts](https://modelcontextprotocol.info/specification/draft/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/draft/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/draft/server/tools/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/draft/server/utilities/)
-
-          * [Completion](https://modelcontextprotocol.info/specification/draft/server/utilities/completion/)
-          * [Logging](https://modelcontextprotocol.info/specification/draft/server/utilities/logging/)
-          * [Pagination](https://modelcontextprotocol.info/specification/draft/server/utilities/pagination/)
-
-      * [Client Features ](https://modelcontextprotocol.info/specification/draft/client/)
-
-        * [Roots](https://modelcontextprotocol.info/specification/draft/client/roots/)
-        * [Sampling](https://modelcontextprotocol.info/specification/draft/client/sampling/)
-
-      * [Contributions](https://modelcontextprotocol.info/specification/draft/contributing/)
-      * [Revisions ](https://modelcontextprotocol.info/specification/draft/revisions/)
-
-        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/draft/revisions/2024-11-05/)
-
-    * [Specification (Latest) ](https://modelcontextprotocol.info/specification/2024-11-05/)
-
-      * [Architecture](https://modelcontextprotocol.info/specification/2024-11-05/architecture/)
-      * [Base Protocol ](https://modelcontextprotocol.info/specification/2024-11-05/basic/)
-
-        * [Messages](https://modelcontextprotocol.info/specification/2024-11-05/basic/messages/)
-        * [Lifecycle](https://modelcontextprotocol.info/specification/2024-11-05/basic/lifecycle/)
-        * [Transports](https://modelcontextprotocol.info/specification/2024-11-05/basic/transports/)
-        * [Versioning](https://modelcontextprotocol.info/specification/2024-11-05/basic/versioning/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/)
-
-          * [Ping](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/ping/)
-          * [Cancellation](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/cancellation/)
-          * [Progress](https://modelcontextprotocol.info/specification/2024-11-05/basic/utilities/progress/)
-
-      * [Server Features ](https://modelcontextprotocol.info/specification/2024-11-05/server/)
-
-        * [Prompts](https://modelcontextprotocol.info/specification/2024-11-05/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/2024-11-05/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/2024-11-05/server/tools/)
-        * [Utilities ](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/)
-
-          * [Completion](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/completion/)
-          * [Logging](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/logging/)
-          * [Pagination](https://modelcontextprotocol.info/specification/2024-11-05/server/utilities/pagination/)
-
-      * [Client Features ](https://modelcontextprotocol.info/specification/2024-11-05/client/)
-
-        * [Roots](https://modelcontextprotocol.info/specification/2024-11-05/client/roots/)
-        * [Sampling](https://modelcontextprotocol.info/specification/2024-11-05/client/sampling/)
-
-      * [Contributions](https://modelcontextprotocol.info/specification/2024-11-05/contributing/)
-      * [Revisions ](https://modelcontextprotocol.info/specification/2024-11-05/revisions/)
-
-        * [2024-11-05 (Current)](https://modelcontextprotocol.info/specification/2024-11-05/revisions/2024-11-05/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2025-06-18/)
-
-      * [Key Changes](https://modelcontextprotocol.info/specification/2025-06-18/changelog/)
-
-    * [Specification ](https://modelcontextprotocol.info/specification/2025-11-25/)
-
-      * [Key Changes](https://modelcontextprotocol.info/specification/2025-11-25/changelog/)
-
-  * [MCP Protocol Blog ](https://modelcontextprotocol.info/blog/)
-
-    * [Mastering MCP Tool Development: Unlocking AI Agent Potential](https://modelcontextprotocol.info/blog/writing-effective-mcp-tools/)
-    * [Update on the Next MCP Protocol Release](https://modelcontextprotocol.info/blog/mcp-next-version-update/)
-    * [MCP Apps Now Official - Bringing UI Capabilities to MCP Clients](https://modelcontextprotocol.info/blog/mcp-apps-ui-capabilities/)
-    * [January MCP Core Maintainer Update](https://modelcontextprotocol.info/blog/core-maintainer-update/)
-    * [Exploring the Future of MCP Transports](https://modelcontextprotocol.info/blog/transport-future/)
-    * [MCP joins the Agentic AI Foundation](https://modelcontextprotocol.info/blog/joins-agentic-ai-foundation/)
-    * [One Year of MCP: November 2025 Spec Release](https://modelcontextprotocol.info/blog/first-mcp-anniversary/)
-    * [Adopting the MCP Bundle Format (.mcpb) for Portable Local Servers](https://modelcontextprotocol.info/blog/adopting-mcpb/)
-    * [Server Instructions: Giving LLMs a User Manual for Your Server](https://modelcontextprotocol.info/blog/server-instructions/)
-    * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
-    * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
-    * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
-
-  * [About](https://modelcontextprotocol.info/about/)
-  * More
-  * [Docs ↗](https://modelcontextprotocol.info/docs/)
-  * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about/)
-
-
-  * [Understanding Model Context Protocol (MCP)](https://modelcontextprotocol.info/docs/introduction/)
-  * [MCP Learning Path: From Zero to Hero](https://modelcontextprotocol.info/docs/learning-path/)
-  * [Quickstart ](https://modelcontextprotocol.info/docs/quickstart/)
-
-    * [Guide](https://modelcontextprotocol.info/docs/quickstart/guide/)
-    * [For Server Developers](https://modelcontextprotocol.info/docs/quickstart/server/)
-    * [For Client Developers](https://modelcontextprotocol.info/docs/quickstart/client/)
-    * [Your First MCP Experience: 5-Minute Setup](https://modelcontextprotocol.info/docs/quickstart/user/)
-    * [Quickstart](https://modelcontextprotocol.info/docs/quickstart/quickstart/)
-
-  * [Core Concepts ](https://modelcontextprotocol.info/docs/concepts/)
-
-    * [MCP Architecture: Design Philosophy & Engineering Principles](https://modelcontextprotocol.info/docs/concepts/architecture/)
-    * [Prompts](https://modelcontextprotocol.info/docs/concepts/prompts/)
-    * [Resources](https://modelcontextprotocol.info/docs/concepts/resources/)
-    * [Roots](https://modelcontextprotocol.info/docs/concepts/roots/)
-    * [Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)
-    * [Tools](https://modelcontextprotocol.info/docs/concepts/tools/)
-    * [Transports](https://modelcontextprotocol.info/docs/concepts/transports/)
-
-  * [MCP Tutorials: From Concept to Production ](https://modelcontextprotocol.info/docs/tutorials/)
-
-    * [Building MCP with LLMs](https://modelcontextprotocol.info/docs/tutorials/building-mcp-with-llms/)
-    * [Building MCP clients-Python](https://modelcontextprotocol.info/docs/tutorials/building-a-client/)
-    * [Building MCP clients-Node.js](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
-    * [Writing Effective Tools for Agents: Complete MCP Development Guide](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
-
-  * [MCP Server Ecosystem: From Proof-of-Concept to Production](https://modelcontextprotocol.info/docs/examples/)
-  * [Clients](https://modelcontextprotocol.info/docs/clients/)
-  * [MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/)
-  * [MCP Best Practices: Architecture & Implementation Guide](https://modelcontextprotocol.info/docs/best-practices/)
-  * [SDK ](https://modelcontextprotocol.info/docs/sdk/)
-
-    * [Java SDK ](https://modelcontextprotocol.info/docs/sdk/java/)
-
-      * [Overview](https://modelcontextprotocol.info/docs/sdk/java/mcp-overview/)
-      * [MCP Server](https://modelcontextprotocol.info/docs/sdk/java/mcp-server/)
-      * [MCP Client](https://modelcontextprotocol.info/docs/sdk/java/mcp-client/)
-
-  * [Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/)
-  * [Extensions](https://modelcontextprotocol.info/docs/extensions/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
@@ -231,9 +79,7 @@
 English
 
   * [English](https://modelcontextprotocol.info/docs/best-practices/)
-  * [简体中文](https://modelcontextprotocol.info/zh-cn/docs/best-practices/)
-  * [繁體中文](https://modelcontextprotocol.info/zh-tw/docs/best-practices/)
-  * [한국어](https://modelcontextprotocol.info/ko/docs/best-practices/)
+  * [简体中文](https://mcpcn.com/docs/best-practices/)
 
 
 
@@ -248,29 +94,15 @@ English
 
 On this page
 
-  * 🏗️ Architectural Design Principles
-  * 1\. Single Responsibility Principle
-  * 2\. Defense in Depth Security Model
-  * 3\. Fail-Safe Design Patterns
-  * 🔧 Implementation Best Practices
-  * 1\. Configuration Management
-  * 2\. Comprehensive Error Handling
-  * 3\. Performance Optimization Strategies
-  * 🚀 Production Operations
-  * 1\. Monitoring & Observability
-  * 2\. Health Checks & Service Discovery
-  * 3\. Deployment & Scaling Strategies
-  * 🔍 Testing Strategies
-  * 1\. Multi-Layer Testing Approach
-  * 2\. Chaos Engineering
-  * 📊 Performance Benchmarking
-  * Key Performance Indicators (KPIs)
-  * 🎯 Summary: The Path to Production Excellence
-  * Phase 1: Foundation (Weeks 1-2)
-  * Phase 2: Hardening (Weeks 3-4)
-  * Phase 3: Scale & Optimize (Weeks 5-6)
-  * Phase 4: Production Operations (Ongoing)
-  * 📚 Additional Resources
+  * 1\. Pick the deployment shape first
+  * 2\. Make the server stateless on purpose
+  * 3\. The rules a remote server must pass
+  * 4\. Define tools so the model can recover
+  * 5\. Failure modes and recovery
+  * 6\. Run the HTTP probe
+  * 7\. Before you ship
+  * Versions and Verification
+  * Sources
 
 
 
@@ -278,695 +110,409 @@ Scroll to top
 
 [MCP Docs](https://modelcontextprotocol.info/docs/)
 
-MCP Best Practices: Architecture & Implementation Guide
+MCP Server Best Practices: Transport, Security and Tool Design
 
-# MCP Best Practices: Architecture & Implementation Guide
+# MCP Server Best Practices: Transport, Security and Tool Design
 
-This guide distills **extensive distributed systems experience** into actionable best practices for MCP server development, from initial design through production operations.
+Before an MCP server faces real users or real data, settle the deployment shape, transport, and auth model; meet the MUST rules for Streamable HTTP and OAuth; and make sure tool definitions let a model correct itself. Each practice points to the official text that requires it, with failure modes and recovery steps; a script in the text tests the HTTP rules of a live endpoint.
 
-🎯
+**Scope.** Server side only, 2026-07-28 revision. Client behavior is covered by the official [client best practices](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/); hardening a local stdio server on a developer machine is covered by [Local MCP Server Security](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/).
 
-**Target Audience** : Software architects, senior developers, and engineering teams building production MCP integrations.
+## 1\. Pick the deployment shape first
 
-## 🏗️ Architectural Design Principles
+Most security decisions follow from where the server runs and who can reach it. Decide this before writing handlers.
 
-### 1\. Single Responsibility Principle
+Your situation| Use| Authentication| Official basis  
+---|---|---|---  
+A tool for one user, started by the host on the same machine| `stdio`| Read credentials from the environment. Do not implement the HTTP authorization flow| Authorization is OPTIONAL; implementations on stdio SHOULD NOT follow the HTTP authorization spec ([Basic protocol: Auth](https://modelcontextprotocol.info/specification/2026-07-28/basic/))  
+A local HTTP server that other processes on the machine could reach| Streamable HTTP| Bind to `127.0.0.1`, validate `Origin`, and require a token or use IPC with restricted access| Streamable HTTP, "Security & Endpoint"; Security Best Practices, "Local MCP Server Compromise"  
+A shared server for many users| Streamable HTTP| OAuth 2.1 resource server: Protected Resource Metadata, token validation, audience binding| [Authorization](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/)  
+A server that calls another API on the user's behalf| Streamable HTTP| A token issued for your server. Use separate credentials downstream and never forward the client's token| Authorization, "Token Handling": servers MUST NOT accept or transit tokens issued for other resources  
+  
+## 2\. Make the server stateless on purpose
 
-**Each MCP server should have one clear, well-defined purpose.**
+Revision 2026-07-28 has no protocol sessions. Every request carries its own `_meta` (protocol version, client info, capabilities), and servers MUST NOT rely on earlier requests on the same connection ([Basic protocol: Statelessness](https://modelcontextprotocol.info/specification/2026-07-28/basic/)). A client may interleave unrelated work on one connection, so a connection or process is not a conversation.
+
+State that spans requests, such as a cart, a draft or a long job, lives behind an explicit handle that the model carries as an ordinary tool argument ([Tools: Stateful Tools](https://modelcontextprotocol.info/specification/2026-07-28/server/tools/), non-normative).
+
+You need to remember| Do| Avoid  
+---|---|---  
+A cart, a transaction, a long-running job| Return an opaque handle from a creation tool and accept it as an argument on later calls| Keying state on the connection, the process, or an `Mcp-Session-Id` header  
+Who may use a handle| Store state under `<user_id>:<handle>` where the user comes from the verified token, and reject other principals| Treating possession of a handle as authentication  
+Handle format| Cryptographically random, opaque, expiring| Counters, timestamps, or identifiers that encode internal structure  
+Expiry| State the retention rule in the creation tool's description, and answer an expired handle with a tool execution error that says so| Silent failure or a generic protocol error  
+Scaling out| Keep shared state in a store behind the handle so any instance can serve any request| Requiring the same connection or process for related requests (SHOULD NOT)  
+  
+A server that supports only this revision should ignore an incoming `Mcp-Session-Id` and neither mint nor echo one ([Streamable HTTP: Earlier Streamable HTTP Revisions](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/streamable-http/)).
+
+## 3\. The rules a remote server must pass
+
+Each row is a practice, the level of the official text behind it, where to read it, and which probe check in section 6 exercises it. "Guidance" marks text that describes behavior without an RFC 2119 keyword.
+
+#| Practice| Level| Official source| Probe check  
+---|---|---|---|---  
+1| Implement `server/discover` and list the versions you support in `supportedVersions`| MUST| Discovery| `discover`  
+2| Validate `Origin` on all incoming connections. If it is present and invalid, answer `403 Forbidden`| MUST| Streamable HTTP, "Security & Endpoint"| `origin`  
+3| Reject a request whose `Mcp-Method`, `Mcp-Name` or `MCP-Protocol-Version` header is missing, malformed or different from the body: `400` with JSON-RPC error `-32020` (`HeaderMismatch`)| MUST| Streamable HTTP, "Server Validation"| `method-header-missing`, `method-header-mismatch`  
+4| For an unsupported protocol version answer `400` with `UnsupportedProtocolVersionError` (`-32022`) and list the supported versions| MUST| Streamable HTTP, "Protocol Version Header"| `unsupported-version`, `unsupported-version-lists-supported`  
+5| For an unknown RPC method answer `404` with `-32601`| MUST| Streamable HTTP, "Protocol Version Header"| `unknown-method`  
+6| Reject a request without `MCP-Protocol-Version`, unless you deliberately serve clients older than 2025-06-18| MUST, for servers that do not support such clients| Streamable HTTP, "Protocol Version Header"| `version-header-missing` (WARN)  
+7| Answer GET and DELETE on the endpoint with `405`; ignore `Mcp-Session-Id` and do not mint session IDs| SHOULD| Streamable HTTP, "Earlier Streamable HTTP Revisions"| `get-not-allowed`, `no-session-id` (WARN)  
+8| Validate all tool inputs, enforce access control, rate limit invocations, sanitize outputs| MUST| Tools, "Security Considerations"| not probed  
+9| Report input validation failures as results with `isError: true`; report an unknown tool as a protocol error (`-32602`)| Guidance| Tools, "Error Handling"| `tool-input-error`, `unknown-tool` (WARN)  
+10| Serve Protected Resource Metadata with at least one entry in `authorization_servers`, and advertise it through the `resource_metadata` parameter of `WWW-Authenticate` or a well-known URI| MUST| Authorization Server Discovery| `auth-resource-metadata`  
+11| Validate access tokens, accept only tokens issued for this server as audience, answer invalid or expired tokens with `401`| MUST| Authorization, "Token Handling"| `auth-required`, `auth-invalid-token`, `auth-audience`  
+12| Never accept or pass through tokens issued for another resource| MUST NOT| Authorization, "Token Handling"; Security Best Practices, "Token Passthrough"| `auth-audience` (acceptance only)  
+13| For insufficient scope answer `403` with `WWW-Authenticate` carrying `error="insufficient_scope"`, `scope` and `resource_metadata`, and put every scope the operation needs into one challenge| SHOULD| Authorization, "Scope Challenge Handling"| not probed  
+14| Use least-privilege scopes: a small initial set, no wildcard scopes, no full catalog in `scopes_supported`| Guidance| Security Best Practices, "Scope Minimization"| not probed  
+15| Make state handles unpredictable and bind them server-side to the authenticated user| SHOULD| Security Best Practices, "State Handle Hijacking"| not probed  
+  
+Rows 8, 13, 14 and 15 need your application logic or a token with limited scope, so no generic probe can cover them. Write those tests yourself. The scenarios are in section 5.
+
+## 4\. Define tools so the model can recover
+
+Rule| Level| Official source  
+---|---|---  
+Name: 1 to 128 characters from `A-Z a-z 0-9 _ - .`, case-sensitive, unique within the server| SHOULD| Tools, "Tool Names"  
+`inputSchema` is a valid JSON Schema object, never `null`. For a tool without parameters use `{ "type": "object", "additionalProperties": false }`| MUST (valid object); recommended form| Tools, "Tool"  
+If you declare `outputSchema`, every structured result conforms to it. Also return the serialized JSON in a text block for older clients| MUST; SHOULD| Tools, "Output Schema" and "Structured Content"  
+`tools/list` returns the tools available to the requesting client and does not vary per connection or as a side effect of other requests. It MAY vary with the authorization on the request. Keep the order deterministic| MUST NOT vary per connection; SHOULD for order| Tools, "Capabilities"  
+Return validation and business-rule failures as `isError: true` results with a message that says what was wrong and what is valid, such as the format or range. Clients SHOULD show execution errors to the model, while protocol errors are less likely to be recovered| Guidance| Tools, "Error Handling"  
+Do not mark secrets or personal data with `x-mcp-header`; header values are visible to network intermediaries| SHOULD NOT| Tools, "x-mcp-header"  
+Do not depend on annotations as a security control. Clients MUST treat them as untrusted unless the server is trusted| MUST (client)| Tools, "Tool"  
+  
+Guidance that does not belong in a single tool description, such as how tools relate to each other, goes into the server `instructions`. [Server Instructions in Practice](https://modelcontextprotocol.info/blog/server-instructions/) covers where that field is delivered in each revision and how to test it.
+
+## 5\. Failure modes and recovery
+
+Symptom| Likely cause| How to confirm| Fix  
+---|---|---|---  
+Every request through a gateway fails with `400` and `-32020`| A proxy drops or rewrites `Mcp-Method`, `Mcp-Name` or `MCP-Protocol-Version`. The spec counts a missing or mismatched header as a validation failure| Run the probe against the origin and through the gateway, then compare `method-header-*`| Forward the three headers unchanged and keep body and headers in sync  
+A client retries after `-32022` and never succeeds| It ignores `data.supported`, or your list holds versions it does not speak| Read `data.supported` and `data.requested` in the error body| Return an accurate list. The client retries with a version both sides support ([Versioning](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/))  
+A legacy client fails on its first request| A modern-only server and a client that starts with `initialize`. SDK 2.3.0 answered a request without `MCP-Protocol-Version` with `400` and `-32600`| `version-header-missing`| Accept that, or implement the earlier-revision behavior described in the corresponding spec revision  
+A browser app gets `403`| The `Origin` allow-list lacks the app's origin| Repeat the request with the app's `Origin`| Add exact origins. The probe only sends a hostile origin, so add a test for each allowed one  
+Every call returns `401` after enabling auth| The token was minted for another audience, or the server compares against a resource identifier that differs from what the client requested| Run the probe with `--token`; `discover` must pass first| Bind tokens to the server's canonical URI and configure the same URI in the server  
+A token issued for another service is accepted| Nothing checks the audience. In SDK 2.3.0, `AuthSettings.validate_token_resource` is unset by default: the SDK warns, does not check, and says it will default to `True` in 3.0| `auth-audience` fails with `got 200` (reproduced in section 6)| Set `validate_token_resource=True`, or check the audience inside your `TokenVerifier`  
+The client keeps sending the user through consent| The server challenges one scope at a time| Count the `403` challenges for one operation| Put all scopes the operation needs into one challenge; clients should cap retries  
+One user reaches another user's cart| A guessable handle, or a handle not bound to the caller| Replay a handle with a second user's token| Random opaque handles, keyed by `<user_id>:<handle>` with the user taken from the verified token  
+The model repeats the same bad call| The failure came back as a protocol error or as vague text| Compare a JSON-RPC error with an `isError` result and read the message| Return `isError: true` naming the field and the valid values  
+The tool list differs between two connections| The listing depends on connection state or on unordered storage| Call `tools/list` on two connections and diff| Compute it from the request's authorization alone and sort it  
+  
+Test scenarios to add to your own CI for the rows the probe cannot cover: a token with too few scopes gets `403` and the challenge lists every needed scope; a second user's token cannot use the first user's handle; an expired handle returns an `isError` result; two connections get the same `tools/list` for the same token; a tool call over the rate limit is refused.
+
+## 6\. Run the HTTP probe
+
+`probe_http.py` uses only the Python standard library. It sends the requests behind the probed rows of section 3 and prints one line per check. `FAIL` means a MUST is not met, `WARN` means a SHOULD or the tools page's error guidance is not followed. Exit code 0 means no FAIL, 1 at least one FAIL, 2 means the endpoint was unreachable.
     
     
-      flowchart LR
-        subgraph "❌ Monolithic Anti-Pattern"
-            Mono["Mega-Server"]
-            Mono --> DB[("Database")]
-            Mono --> Files[("Files")]
-            Mono --> API[("External APIs")]
-            Mono --> Email[("Email")]
-        end
-        
-        subgraph "✅ Focused Services"
-            DB_Server["Database Server"] --> DB2[("Database")]
-            File_Server["File Server"] --> Files2[("Files")]
-            API_Server["API Gateway"] --> API2[("External APIs")]
-            Email_Server["Email Server"] --> Email2[("Email")]
-        end
-    
+    python3 probe_http.py http://127.0.0.1:8000/mcp --tool echo --bad-args '{"text":123}'
+    python3 probe_http.py http://127.0.0.1:8001/mcp --tool echo --bad-args '{"text":123}' \
+      --token good-token --expect-auth --bad-audience-token other-audience-token
 
-**Benefits** :
-
-  * **Maintainability** : Easier to understand, test, and modify
-  * **Scalability** : Scale components independently based on load
-  * **Reliability** : Failures in one service don't cascade to others
-  * **Team Ownership** : Clear boundaries for different development teams
-
-
-
-### 2\. Defense in Depth Security Model
-
-**Layer security controls throughout your architecture.**
+**probe_http.py**
     
     
-     # Example: Multi-layer security implementation
-    class SecureMCPServer:
-        def __init__(self):
-            # Layer 1: Network isolation
-            self.bind_address = "127.0.0.1"  # Local only
-            
-            # Layer 2: Authentication
-            self.auth_handler = JWTAuthHandler()
-            
-            # Layer 3: Authorization
-            self.permissions = CapabilityBasedACL()
-            
-            # Layer 4: Input validation
-            self.validator = StrictSchemaValidator()
-            
-            # Layer 5: Output sanitization
-            self.sanitizer = DataSanitizer()
-        
-        @authenticate
-        @authorize(["read_files"])
-        @validate_input
-        @sanitize_output
-        def read_file(self, path: str) -> str:
-            # Business logic here
+     #!/usr/bin/env python3
+    """Probe a Streamable HTTP MCP endpoint against the HTTP rules of spec 2026-07-28 (stdlib only).
+    
+    Usage: probe_http.py URL [--tool NAME --bad-args JSON] [--token T [--expect-auth] [--bad-audience-token T]]
+    Levels: FAIL = a MUST in the spec is not met, WARN = a SHOULD or the tools page's error guidance is not followed
+    (version-header-missing is WARN because a server may serve pre-2025-06-18 clients and treat the request as 2025-03-26).
+    Exit code: 0 no FAIL, 1 at least one FAIL, 2 endpoint unreachable.
+    """
+    import argparse
+    import http.client
+    import json
+    import sys
+    from urllib.parse import urlsplit
+    
+    VERSION = "2026-07-28"
+    EVIL_ORIGIN = "https://evil.example"
+    counts = {"PASS": 0, "WARN": 0, "FAIL": 0}
+    
+    
+    def meta(version):
+        return {
+            "io.modelcontextprotocol/protocolVersion": version,
+            "io.modelcontextprotocol/clientInfo": {"name": "probe", "version": "0"},
+            "io.modelcontextprotocol/clientCapabilities": {},
+        }
+    
+    
+    def parse(raw):
+        """Return the JSON-RPC response from a JSON body or an SSE stream, else None."""
+        try:
+            return json.loads(raw)
+        except ValueError:
             pass
-
-**Security Layers** :
-
-  1. **Network** : Firewall rules, VPN access, local binding
-  2. **Authentication** : Strong identity verification
-  3. **Authorization** : Granular permission controls
-  4. **Validation** : Input sanitization and schema enforcement
-  5. **Monitoring** : Comprehensive audit logging and alerting
-
-
-
-### 3\. Fail-Safe Design Patterns
-
-**Design for graceful degradation under failure conditions.**
-    
-    
-     class ResilientMCPServer:
-        def __init__(self):
-            self.circuit_breaker = CircuitBreaker(
-                failure_threshold=5,
-                recovery_timeout=30,
-                expected_exception=DatabaseError
-            )
-            self.cache = RedisCache(ttl=300)
-            self.rate_limiter = TokenBucket(rate=100, burst=20)
-        
-        @circuit_breaker
-        @cached(ttl=300)
-        @rate_limited
-        def get_user_data(self, user_id: str):
-            try:
-                return self.database.get_user(user_id)
-            except DatabaseError:
-                # Fallback to cached data
-                return self.cache.get(f"user:{user_id}")
-            except Exception as e:
-                # Log error, return safe default
-                self.logger.error(f"Unexpected error: {e}")
-                return {"error": "Service temporarily unavailable"}
-
-## 🔧 Implementation Best Practices
-
-### 1\. Configuration Management
-
-**Externalize all configuration with environment-specific overrides.**
-    
-    
-     # config/base.yaml
-    server:
-      name: "my-mcp-server"
-      version: "1.0.0"
-      timeout: 30
-      max_connections: 100
-    
-    logging:
-      level: "INFO"
-      format: "json"
-      
-    security:
-      auth_required: true
-      rate_limit: 1000
-      
-    ---
-    # config/production.yaml (overrides)
-    logging:
-      level: "WARN"
-      
-    security:
-      rate_limit: 10000
-      
-    monitoring:
-      metrics_enabled: true
-      health_check_interval: 30
-    
-    
-    # Configuration loading with validation
-    from pydantic import BaseSettings
-    
-    class MCPServerConfig(BaseSettings):
-        server_name: str
-        server_version: str
-        timeout: int = 30
-        max_connections: int = 100
-        
-        auth_required: bool = True
-        rate_limit: int = 1000
-        
-        database_url: str
-        redis_url: Optional[str] = None
-        
-        class Config:
-            env_file = ".env"
-            env_prefix = "MCP_"
-
-### 2\. Comprehensive Error Handling
-
-**Implement structured error handling with proper classification.**
-    
-    
-     from enum import Enum
-    from dataclasses import dataclass
-    
-    class ErrorCategory(Enum):
-        CLIENT_ERROR = "client_error"      # 4xx - Client's fault
-        SERVER_ERROR = "server_error"      # 5xx - Our fault
-        EXTERNAL_ERROR = "external_error"  # 502/503 - Dependency fault
-    
-    @dataclass
-    class MCPError:
-        category: ErrorCategory
-        code: str
-        message: str
-        details: Optional[Dict] = None
-        retry_after: Optional[int] = None
-    
-    class ErrorHandler:
-        def handle_error(self, error: Exception) -> MCPError:
-            if isinstance(error, ValidationError):
-                return MCPError(
-                    category=ErrorCategory.CLIENT_ERROR,
-                    code="INVALID_INPUT",
-                    message="Request validation failed",
-                    details={"validation_errors": error.errors()}
-                )
-            elif isinstance(error, PermissionError):
-                return MCPError(
-                    category=ErrorCategory.CLIENT_ERROR,
-                    code="ACCESS_DENIED",
-                    message="Insufficient permissions"
-                )
-            elif isinstance(error, DatabaseConnectionError):
-                return MCPError(
-                    category=ErrorCategory.SERVER_ERROR,
-                    code="DATABASE_UNAVAILABLE",
-                    message="Database connection failed",
-                    retry_after=60
-                )
-            else:
-                # Log unexpected errors for investigation
-                self.logger.exception("Unexpected error occurred")
-                return MCPError(
-                    category=ErrorCategory.SERVER_ERROR,
-                    code="INTERNAL_ERROR",
-                    message="An unexpected error occurred"
-                )
-
-### 3\. Performance Optimization Strategies
-
-**Optimize for the most common use cases while maintaining flexibility.**
-    
-    
-     class PerformantMCPServer:
-        def __init__(self):
-            # Connection pooling
-            self.db_pool = ConnectionPool(
-                min_connections=5,
-                max_connections=20,
-                connection_timeout=30
-            )
-            
-            # Caching strategy
-            self.cache = MultiLevelCache([
-                InMemoryCache(max_size=1000, ttl=60),      # L1: Fast, small
-                RedisCache(ttl=3600),                      # L2: Shared, persistent
-                DatabaseCache(ttl=86400)                   # L3: Durable, large
-            ])
-            
-            # Async processing for heavy operations
-            self.task_queue = AsyncTaskQueue(
-                workers=4,
-                max_queue_size=1000
-            )
-        
-        async def process_large_dataset(self, query: str):
-            # Check cache first
-            cache_key = f"query:{hash(query)}"
-            if cached_result := await self.cache.get(cache_key):
-                return cached_result
-            
-            # Process asynchronously if not cached
-            task = await self.task_queue.submit(
-                self._execute_heavy_query,
-                query
-            )
-            
-            # Return immediately with task ID for polling
-            return {
-                "task_id": task.id,
-                "status": "processing",
-                "estimated_completion": task.estimated_completion
-            }
-
-## 🚀 Production Operations
-
-### 1\. Monitoring & Observability
-
-**Implement comprehensive monitoring across all system layers.**
-    
-    
-     from prometheus_client import Counter, Histogram, Gauge
-    import structlog
-    
-    # Metrics collection
-    REQUEST_COUNT = Counter('mcp_requests_total', 'Total requests', ['method', 'status'])
-    REQUEST_DURATION = Histogram('mcp_request_duration_seconds', 'Request duration')
-    ACTIVE_CONNECTIONS = Gauge('mcp_active_connections', 'Active connections')
-    
-    # Structured logging
-    logger = structlog.get_logger()
-    
-    class MonitoredMCPServer:
-        @REQUEST_DURATION.time()
-        def handle_request(self, request):
-            start_time = time.time()
-            
-            try:
-                # Process request
-                result = self.process_request(request)
-                
-                # Record success metrics
-                REQUEST_COUNT.labels(
-                    method=request.method,
-                    status='success'
-                ).inc()
-                
-                # Structured logging
-                logger.info(
-                    "request_processed",
-                    method=request.method,
-                    duration=time.time() - start_time,
-                    client_id=request.client_id,
-                    resource_count=len(result.get('resources', []))
-                )
-                
-                return result
-                
-            except Exception as e:
-                # Record error metrics
-                REQUEST_COUNT.labels(
-                    method=request.method,
-                    status='error'
-                ).inc()
-                
-                # Error logging with context
-                logger.error(
-                    "request_failed",
-                    method=request.method,
-                    error=str(e),
-                    error_type=type(e).__name__,
-                    client_id=request.client_id,
-                    duration=time.time() - start_time
-                )
-                
-                raise
-
-### 2\. Health Checks & Service Discovery
-
-**Implement comprehensive health checks for reliable service discovery.**
-    
-    
-     from enum import Enum
-    from dataclasses import dataclass
-    from typing import List
-    
-    class HealthStatus(Enum):
-        HEALTHY = "healthy"
-        DEGRADED = "degraded"
-        UNHEALTHY = "unhealthy"
-    
-    @dataclass
-    class HealthCheck:
-        name: str
-        status: HealthStatus
-        message: str
-        response_time_ms: float
-        last_checked: datetime
-    
-    class HealthMonitor:
-        def __init__(self):
-            self.checks = [
-                DatabaseHealthCheck(),
-                CacheHealthCheck(),
-                ExternalAPIHealthCheck(),
-                DiskSpaceHealthCheck(),
-                MemoryHealthCheck()
-            ]
-        
-        async def get_health_status(self) -> Dict:
-            results = []
-            overall_status = HealthStatus.HEALTHY
-            
-            for check in self.checks:
-                start_time = time.time()
+        found = None
+        for line in raw.splitlines():
+            if line.startswith("data:"):
                 try:
-                    status = await check.check()
-                    response_time = (time.time() - start_time) * 1000
-                    
-                    results.append(HealthCheck(
-                        name=check.name,
-                        status=status,
-                        message=check.get_message(),
-                        response_time_ms=response_time,
-                        last_checked=datetime.utcnow()
-                    ))
-                    
-                    # Determine overall status
-                    if status == HealthStatus.UNHEALTHY:
-                        overall_status = HealthStatus.UNHEALTHY
-                    elif status == HealthStatus.DEGRADED and overall_status == HealthStatus.HEALTHY:
-                        overall_status = HealthStatus.DEGRADED
-                        
-                except Exception as e:
-                    results.append(HealthCheck(
-                        name=check.name,
-                        status=HealthStatus.UNHEALTHY,
-                        message=f"Health check failed: {e}",
-                        response_time_ms=(time.time() - start_time) * 1000,
-                        last_checked=datetime.utcnow()
-                    ))
-                    overall_status = HealthStatus.UNHEALTHY
-            
-            return {
-                "status": overall_status.value,
-                "checks": [asdict(check) for check in results],
-                "timestamp": datetime.utcnow().isoformat()
-            }
-
-### 3\. Deployment & Scaling Strategies
-
-**Design for horizontal scaling and zero-downtime deployments.**
+                    msg = json.loads(line[5:].strip())
+                except ValueError:
+                    continue
+                if isinstance(msg, dict) and ("result" in msg or "error" in msg):
+                    found = msg
+        return found
     
     
-     # Kubernetes deployment example
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: mcp-server
-    spec:
-      replicas: 3
-      strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxUnavailable: 1
-          maxSurge: 1
-      
-      template:
-        spec:
-          containers:
-          - name: mcp-server
-            image: my-mcp-server:v1.2.3
-            ports:
-            - containerPort: 8080
-            
-            # Resource limits
-            resources:
-              requests:
-                memory: "256Mi"
-                cpu: "250m"
-              limits:
-                memory: "512Mi"
-                cpu: "500m"
-            
-            # Health checks
-            livenessProbe:
-              httpGet:
-                path: /health
-                port: 8080
-              initialDelaySeconds: 30
-              periodSeconds: 10
-            
-            readinessProbe:
-              httpGet:
-                path: /ready
-                port: 8080
-              initialDelaySeconds: 5
-              periodSeconds: 5
-            
-            # Configuration
-            env:
-            - name: MCP_DATABASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: mcp-secrets
-                  key: database-url
-            
-            - name: MCP_REDIS_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: mcp-config
-                  key: redis-url
-    
-    ---
-    # Horizontal Pod Autoscaler
-    apiVersion: autoscaling/v2
-    kind: HorizontalPodAutoscaler
-    metadata:
-      name: mcp-server-hpa
-    spec:
-      scaleTargetRef:
-        apiVersion: apps/v1
-        kind: Deployment
-        name: mcp-server
-      minReplicas: 3
-      maxReplicas: 10
-      metrics:
-      - type: Resource
-        resource:
-          name: cpu
-          target:
-            type: Utilization
-            averageUtilization: 70
-      - type: Resource
-        resource:
-          name: memory
-          target:
-            type: Utilization
-            averageUtilization: 80
-
-## 🔍 Testing Strategies
-
-### 1\. Multi-Layer Testing Approach
-
-**Implement comprehensive testing at all levels.**
+    def request(url, verb="POST", method=None, params=None, headers=None, version=VERSION):
+        """Send one request; a header whose value is None is removed. Returns (status, headers, body)."""
+        parts = urlsplit(url)
+        cls = http.client.HTTPSConnection if parts.scheme == "https" else http.client.HTTPConnection
+        conn = cls(parts.netloc, timeout=10)
+        hdrs = {"Accept": "application/json, text/event-stream", "MCP-Protocol-Version": version}
+        payload = None
+        if verb == "POST":
+            hdrs.update({"Content-Type": "application/json", "Mcp-Method": method})
+            if params and "name" in params:
+                hdrs["Mcp-Name"] = params["name"]
+            payload = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method,
+                                  "params": {**(params or {}), "_meta": meta(version)}})
+        hdrs.update(headers or {})
+        conn.request(verb, parts.path or "/", payload, {k: v for k, v in hdrs.items() if v is not None})
+        resp = conn.getresponse()
+        raw = resp.read().decode("utf-8", "replace")
+        conn.close()
+        return resp.status, resp, parse(raw)
     
     
-     # Unit tests - Test individual components
-    class TestMCPServer(unittest.TestCase):
-        def setUp(self):
-            self.server = MCPServer(config=test_config)
-        
-        def test_file_access_validation(self):
-            # Test permission checking
-            with self.assertRaises(PermissionError):
-                self.server.read_file("/etc/passwd")
-            
-            # Test successful access
-            result = self.server.read_file("/allowed/test.txt")
-            self.assertIsNotNone(result)
-    
-    # Integration tests - Test component interactions
-    class TestMCPIntegration(unittest.TestCase):
-        def setUp(self):
-            self.test_db = TestDatabase()
-            self.server = MCPServer(database=self.test_db)
-        
-        def test_database_query_flow(self):
-            # Test complete query flow
-            result = self.server.execute_query("SELECT * FROM users")
-            self.assertEqual(len(result), 3)
-    
-    # Contract tests - Test MCP protocol compliance
-    class TestMCPProtocol(unittest.TestCase):
-        def test_capability_discovery(self):
-            client = MCPTestClient()
-            capabilities = client.list_capabilities()
-            
-            # Verify required capabilities
-            self.assertIn("read_files", capabilities)
-            self.assertIn("execute_queries", capabilities)
-    
-    # Load tests - Test performance characteristics
-    class TestMCPPerformance(unittest.TestCase):
-        def test_concurrent_requests(self):
-            with ThreadPoolExecutor(max_workers=50) as executor:
-                futures = [
-                    executor.submit(self.make_request)
-                    for _ in range(1000)
-                ]
-                
-                results = [f.result() for f in futures]
-                success_rate = sum(1 for r in results if r.success) / len(results)
-                
-                self.assertGreater(success_rate, 0.99)  # 99% success rate
-
-### 2\. Chaos Engineering
-
-**Test system resilience under failure conditions.**
+    def code(body):
+        err = body.get("error") if isinstance(body, dict) else None
+        return err.get("code") if isinstance(err, dict) else None
     
     
-     class ChaosTestSuite:
-        def test_database_failure_recovery(self):
-            # Simulate database failure
-            with DatabaseFailureSimulator():
-                # System should gracefully degrade
-                response = self.client.make_request()
-                self.assertEqual(response.status, "degraded")
-                self.assertIsNotNone(response.cached_data)
-        
-        def test_network_partition_handling(self):
-            # Simulate network partition
-            with NetworkPartitionSimulator():
-                # System should detect partition and fail safely
-                response = self.client.make_request()
-                self.assertEqual(response.status, "unavailable")
-                self.assertIn("network_partition", response.error_code)
-        
-        def test_memory_pressure_behavior(self):
-            # Simulate memory pressure
-            with MemoryPressureSimulator(target_usage=0.95):
-                # System should shed load gracefully
-                response = self.client.make_request()
-                if response.status == "rate_limited":
-                    self.assertIn("memory_pressure", response.reason)
-
-## 📊 Performance Benchmarking
-
-### Key Performance Indicators (KPIs)
-
-**Track metrics that matter for production operations.**
+    def show(status, rpc_code):
+        return "%s/%s" % (status, rpc_code) if rpc_code is not None else str(status)
     
     
-     # Performance benchmarking framework
-    class MCPBenchmark:
-        def __init__(self):
-            self.metrics = {
-                "throughput": [],           # requests/second
-                "latency_p50": [],          # 50th percentile response time
-                "latency_p95": [],          # 95th percentile response time
-                "latency_p99": [],          # 99th percentile response time
-                "error_rate": [],           # errors/total_requests
-                "memory_usage": [],         # MB
-                "cpu_usage": [],            # percentage
-                "connection_count": []      # active connections
-            }
-        
-        def run_benchmark(self, duration_seconds=300, concurrent_clients=50):
-            start_time = time.time()
-            
-            with ThreadPoolExecutor(max_workers=concurrent_clients) as executor:
-                while time.time() - start_time < duration_seconds:
-                    # Submit batch of requests
-                    futures = [
-                        executor.submit(self.make_request)
-                        for _ in range(concurrent_clients)
-                    ]
-                    
-                    # Collect results
-                    batch_results = [f.result() for f in futures]
-                    self.record_metrics(batch_results)
-                    
-                    time.sleep(1)  # 1-second intervals
-            
-            return self.generate_report()
-        
-        def generate_report(self):
-            return {
-                "throughput_avg": np.mean(self.metrics["throughput"]),
-                "latency_p50": np.percentile(self.metrics["latency_p50"], 50),
-                "latency_p95": np.percentile(self.metrics["latency_p95"], 95),
-                "latency_p99": np.percentile(self.metrics["latency_p99"], 99),
-                "error_rate_avg": np.mean(self.metrics["error_rate"]),
-                "memory_peak": max(self.metrics["memory_usage"]),
-                "cpu_peak": max(self.metrics["cpu_usage"])
-            }
+    def report(name, ok, detail, level="FAIL"):
+        status = "PASS" if ok else level
+        counts[status] += 1
+        print("%s %s: %s" % (status, name, detail))
+    
+    
+    def main():
+        ap = argparse.ArgumentParser()
+        ap.add_argument("url")
+        ap.add_argument("--tool", help="name of an existing tool, enables the tool-error check")
+        ap.add_argument("--bad-args", default="{}", help="JSON arguments that violate the tool's input schema")
+        ap.add_argument("--token", help="bearer token that the server accepts")
+        ap.add_argument("--expect-auth", action="store_true", help="the endpoint is protected: run the auth checks")
+        ap.add_argument("--bad-audience-token", help="a valid token issued for a different resource")
+        args = ap.parse_args()
+        if args.expect_auth and not args.token:
+            ap.error("--expect-auth needs --token (the other checks must get past authentication)")
+        auth = {"Authorization": "Bearer " + args.token} if args.token else {}
+        url = args.url
+    
+        try:
+            status, _, body = request(url, method="server/discover", headers=auth)
+        except (OSError, http.client.HTTPException) as exc:
+            print("ERROR endpoint unreachable: %s" % exc)
+            return 2
+        result = body.get("result") if isinstance(body, dict) else None
+        ok = status == 200 and isinstance(result, dict) and VERSION in result.get("supportedVersions", [])
+        report("discover", ok, "HTTP %s, supportedVersions %s" % (status, (result or {}).get("supportedVersions")))
+        tools = "tools" in (result or {}).get("capabilities", {})
+    
+        def expect(name, want_status, want_code, **kw):
+            st, _, b = request(url, **{"headers": auth, **kw})
+            report(name, st == want_status and (want_code is None or code(b) == want_code),
+                   "want %s, got %s" % (show(want_status, want_code), show(st, code(b))))
+            return b
+    
+        expect("origin", 403, None, method="server/discover", headers={**auth, "Origin": EVIL_ORIGIN})
+        expect("method-header-missing", 400, -32020, method="server/discover", headers={**auth, "Mcp-Method": None})
+        expect("method-header-mismatch", 400, -32020, method="server/discover", headers={**auth, "Mcp-Method": "tools/list"})
+        b = expect("unsupported-version", 400, -32022, method="server/discover", version="2099-01-01",
+                   headers={**auth})
+        supported = ((b or {}).get("error") or {}).get("data", {}).get("supported") if isinstance(b, dict) else None
+        report("unsupported-version-lists-supported", bool(supported) and VERSION in supported, "data.supported = %s" % supported)
+        expect("unknown-method", 404, -32601, method="nope/nothing")
+    
+        st, _, b = request(url, method="server/discover", headers={**auth, "MCP-Protocol-Version": None})
+        report("version-header-missing", st == 400, "want 400, got %s" % show(st, code(b)), "WARN")
+        st, _, _ = request(url, verb="GET", headers=auth)
+        report("get-not-allowed", st == 405, "want 405, got %s" % st, "WARN")
+        st, resp, _ = request(url, method="server/discover", headers={**auth, "Mcp-Session-Id": "probe-session"})
+        report("no-session-id", resp.getheader("Mcp-Session-Id") is None, "Mcp-Session-Id in response: %s" % resp.getheader("Mcp-Session-Id"), "WARN")
+    
+        if args.tool:
+            st, _, b = request(url, method="tools/call", params={"name": args.tool, "arguments": json.loads(args.bad_args)}, headers=auth)
+            is_error = isinstance(b, dict) and (b.get("result") or {}).get("isError") is True
+            report("tool-input-error", st == 200 and is_error, "want 200 with result.isError=true, got %s" % show(st, "isError" if is_error else code(b)), "WARN")
+            st, _, b = request(url, method="tools/call", params={"name": "no_such_tool", "arguments": {}}, headers=auth)
+            report("unknown-tool", code(b) == -32602, "want JSON-RPC error -32602, got %s" % show(st, code(b) or "result"), "WARN")
+        elif tools:
+            print("SKIP tool checks: pass --tool NAME --bad-args JSON")
+    
+        if args.expect_auth:
+            st, resp, b = request(url, method="server/discover")
+            challenge = resp.getheader("WWW-Authenticate") or ""
+            report("auth-required", st == 401, "no token: want 401, got %s" % st)
+            report("auth-invalid-token", request(url, method="server/discover", headers={"Authorization": "Bearer invalid"})[0] == 401,
+                   "garbage token must get 401")
+            if args.bad_audience_token:
+                st = request(url, method="server/discover", headers={"Authorization": "Bearer " + args.bad_audience_token})[0]
+                report("auth-audience", st == 401, "token for another resource: want 401, got %s" % st)
+            meta_url = challenge.split('resource_metadata="')[1].split('"')[0] if 'resource_metadata="' in challenge else None
+            origin = "%s://%s" % (urlsplit(url).scheme, urlsplit(url).netloc)
+            well_known = "/.well-known/oauth-protected-resource"
+            found = None
+            for candidate in [meta_url, origin + well_known + urlsplit(url).path, origin + well_known]:
+                if not candidate:
+                    continue
+                st, _, doc = request(candidate, verb="GET", headers={})
+                if st == 200 and isinstance(doc, dict):
+                    found = doc
+                    break
+            report("auth-resource-metadata", bool(found and found.get("authorization_servers")),
+                   "challenge resource_metadata=%s; document authorization_servers=%s" % (meta_url, (found or {}).get("authorization_servers")))
+    
+        print("%d pass, %d warn, %d fail" % (counts["PASS"], counts["WARN"], counts["FAIL"]))
+        return 1 if counts["FAIL"] else 0
+    
+    
+    if __name__ == "__main__":
+        try:
+            sys.exit(main())
+        except (OSError, http.client.HTTPException) as exc:
+            print("ERROR connection failed: %s" % exc)
+            sys.exit(2)
 
-**Performance Targets** :
+The two reference servers use the official Python SDK (`pip install mcp==2.3.0`):
 
-  * **Throughput** : > 1000 requests/second per instance
-  * **Latency P95** : < 100ms for simple operations
-  * **Latency P99** : < 500ms for complex operations
-  * **Error Rate** : < 0.1% under normal conditions
-  * **Availability** : > 99.9% uptime
+**ref_server.py**
+    
+    
+     """Official Python SDK (mcp==2.3.0) server on Streamable HTTP, http://127.0.0.1:8000/mcp, no auth."""
+    from mcp.server.mcpserver import MCPServer
+    
+    server = MCPServer("ref")
+    
+    
+    @server.tool()
+    def echo(text: str) -> str:
+        """Echo text."""
+        return text
+    
+    
+    if __name__ == "__main__":
+        server.run("streamable-http")
+
+**auth_ref_server.py**
+    
+    
+     """Same server behind bearer-token auth, http://127.0.0.1:8001/mcp.
+    
+    Tokens: good-token is issued for this server; other-audience-token is valid but issued for another resource.
+    """
+    from mcp.server.auth.provider import AccessToken
+    from mcp.server.auth.settings import AuthSettings
+    from mcp.server.mcpserver import MCPServer
+    
+    RESOURCE = "http://127.0.0.1:8001/mcp"
+    
+    
+    class Verifier:
+        async def verify_token(self, token: str) -> AccessToken | None:
+            if token == "good-token":
+                return AccessToken(token=token, client_id="probe", scopes=[], resource=RESOURCE)
+            if token == "other-audience-token":
+                return AccessToken(token=token, client_id="probe", scopes=[], resource="https://other.example/mcp")
+            return None
+    
+    
+    server = MCPServer(
+        "ref-auth",
+        token_verifier=Verifier(),
+        auth=AuthSettings(
+            issuer_url="https://auth.example.com",
+            resource_server_url=RESOURCE,
+            validate_token_resource=True,
+        ),
+    )
+    
+    
+    @server.tool()
+    def echo(text: str) -> str:
+        """Echo text."""
+        return text
+    
+    
+    if __name__ == "__main__":
+        server.run("streamable-http", port=8001)
+
+What the probe reported on this setup (Python 3.14, macOS, `mcp==2.3.0`):
+
+Target| Result  
+---|---  
+SDK server without auth (`ref_server.py`)| 11 pass, 1 warn, 0 fail  
+SDK server with bearer auth (`auth_ref_server.py`)| 15 pass, 1 warn, 0 fail  
+The same auth server with `validate_token_resource` removed (the SDK default)| 1 fail: `auth-audience`, got 200  
+A stub written from the spec text, without and with auth| 12 pass, 0 warn, 0 fail; 16 pass, 0 warn, 0 fail  
+The stub with one rule broken at a time, 11 variants| 8 variants fail the named check, 3 variants only warn, none passes silently  
+  
+Full output for the auth server:
+    
+    
+    PASS discover: HTTP 200, supportedVersions ['2026-07-28']
+    PASS origin: want 403, got 403
+    PASS method-header-missing: want 400/-32020, got 400/-32020
+    PASS method-header-mismatch: want 400/-32020, got 400/-32020
+    PASS unsupported-version: want 400/-32022, got 400/-32022
+    PASS unsupported-version-lists-supported: data.supported = ['2026-07-28']
+    PASS unknown-method: want 404/-32601, got 404/-32601
+    PASS version-header-missing: want 400, got 400/-32600
+    PASS get-not-allowed: want 405, got 405
+    PASS no-session-id: Mcp-Session-Id in response: None
+    PASS tool-input-error: want 200 with result.isError=true, got 200/isError
+    WARN unknown-tool: want JSON-RPC error -32602, got 200/result
+    PASS auth-required: no token: want 401, got 401
+    PASS auth-invalid-token: garbage token must get 401
+    PASS auth-audience: token for another resource: want 401, got 401
+    PASS auth-resource-metadata: challenge resource_metadata=http://127.0.0.1:8001/.well-known/oauth-protected-resource/mcp; document authorization_servers=['https://auth.example.com']
+    15 pass, 1 warn, 0 fail
+
+How to read it:
+
+  * **The one warning is a finding, not a bug in the probe.** The tools page lists "Unknown tool" under protocol errors with `-32602`. SDK 2.3.0 returns a normal result with `isError: true` instead. The text is guidance rather than a MUST, and the model can recover from either, but pick one behavior on purpose and test it.
+  * **The default-audience run shows why negative tests matter.** The server answered `200` for a token issued for `https://other.example/mcp`. Nothing crashed and the happy path worked, so only a negative test finds it.
+  * **Passing proves the listed behaviors on one setup.** The probe does not test: that an allow-listed origin passes, TLS, rate limits, scope challenges, streamed (SSE) responses, cancellation, `x-mcp-header` mirroring, multi round-trip requests, output sanitization, or load. A stub and the SDK passing the same checks are two independent readings of the spec, but they do not rule out a shared misreading, so keep the matrix in section 3 as the review list.
 
 
 
-## 🎯 Summary: The Path to Production Excellence
+## 7\. Before you ship
 
-### Phase 1: Foundation (Weeks 1-2)
-
-  * ✅ Implement core MCP protocol compliance
-  * ✅ Add comprehensive error handling
-  * ✅ Set up basic monitoring and logging
-  * ✅ Write unit and integration tests
-
-
-
-### Phase 2: Hardening (Weeks 3-4)
-
-  * ✅ Implement security controls and validation
-  * ✅ Add performance optimizations (caching, pooling)
-  * ✅ Set up health checks and service discovery
-  * ✅ Create deployment automation
+  * You chose the deployment shape in section 1 and wrote down why.
+  * Nothing depends on connection or process identity; every handle is opaque, expiring and bound to its owner.
+  * Origin validation, header validation and version errors pass the probe, and your gateway forwards the three mirrored headers.
+  * For a protected server: invalid, expired and wrong-audience tokens get `401`; the metadata document names an authorization server; no token is forwarded downstream.
+  * Tool names, schemas and result shapes follow section 4, and validation failures are `isError` results the model can act on.
+  * Rows 8, 13, 14 and 15 have tests in your own suite.
+  * You re-run the probe when you change the SDK, the gateway or the authorization server.
 
 
 
-### Phase 3: Scale & Optimize (Weeks 5-6)
+## Versions and Verification
 
-  * ✅ Load testing and performance tuning
-  * ✅ Chaos engineering and resilience testing
-  * ✅ Advanced monitoring and alerting
-  * ✅ Documentation and runbooks
+Spec facts come from the 2026-07-28 pages published on this site. The experiments in section 6 ran locally against the official Python SDK 2.3.0 and are labeled as such.
 
+### Sources
 
-
-### Phase 4: Production Operations (Ongoing)
-
-  * ✅ Continuous monitoring and optimization
-  * ✅ Regular security audits and updates
-  * ✅ Performance benchmarking and capacity planning
-  * ✅ Incident response and post-mortem analysis
+  * [Streamable HTTP transport](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/streamable-http/), [Authorization](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/), [Authorization Server Discovery](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/authorization-server-discovery/), [Tools](https://modelcontextprotocol.info/specification/2026-07-28/server/tools/), [Versioning](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/) and [Basic protocol](https://modelcontextprotocol.info/specification/2026-07-28/basic/) in the 2026-07-28 specification
+  * [Security Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/), [Local MCP Server Security](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/) and [Authorization tutorial](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
+  * [Server Instructions in Practice](https://modelcontextprotocol.info/blog/server-instructions/) on this site
 
 
 
-🚀
+[MCP FAQ: Versions, Authorization and Troubleshooting](https://modelcontextprotocol.info/docs/faqs/ "MCP FAQ: Versions, Authorization and Troubleshooting")[Build an MCP Server](https://modelcontextprotocol.info/docs/development/build-server/ "Build an MCP Server")
 
-**Ready to implement these practices?** Start with our [Quick Start Guide](../quickstart/) and gradually adopt these patterns as your system matures.
+[About](https://modelcontextprotocol.info/about/)[Privacy](https://modelcontextprotocol.info/privacy/)[Contact](https://modelcontextprotocol.info/contact/)[Official Sources](https://modelcontextprotocol.info/docs/#official-sources)
 
-* * *
-
-## 📚 Additional Resources
-
-[Expert FAQAnswers to complex architecture and implementation questions](../faqs)[Production ExamplesReal-world server implementations and patterns](../examples)[Community DiscussionsShare experiences and get expert advice](https://github.com/orgs/modelcontextprotocol/discussions)
-
-[MCP FAQ: Expert Answers to Real-World Questions](https://modelcontextprotocol.info/docs/faqs/ "MCP FAQ: Expert Answers to Real-World Questions")[Build an MCP Client (Core)](https://modelcontextprotocol.info/docs/development/build-client/ "Build an MCP Client \(Core\)")
-
-[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab](https://OpenClawLab.com/ "OpenClaw 技术站")
+[Model Context Protocol Hub ](https://modelcontextprotocol.info "Model Context Protocol")[MCP 中文站 ](https://mcpcn.com "MCP 中文社区")[A2A Protocol ](https://a2acn.com "A2A Protocol Community")[AP2 Lab ](https://ap2lab.com "Agent Payments Protocol Community")[ACP Protocol ](https://acplib.com "Agentic Commerce Protocol Community")[Agent2Agent 文档 ](https://agent2agent.info "Agent2Agent Protocol")[AI to Sora ](https://aitosora.com "AI to Sora")[ChatGPT 中文 ](https://chatgptcn.com "ChatGPT 中文社区")[UCP 技术 ](https://ucp.md "UCP 技术站")[Clawd Bot ](https://clawdbot.sh/ "Clawd Bot 技术站")[moltBot Lab ](https://OpenClawLab.com/ "OpenClaw 技术站")[DSHx Community ](https://dshx.dev "DeepSeek Harness Developer Community")[DSH Plugins](https://plugin.dshx.dev "DeepSeek Harness Plugin Directory")
 
 [Powered by ModelContextProtocol](https://github.com/imfing/hextra "Hextra GitHub Homepage")
 

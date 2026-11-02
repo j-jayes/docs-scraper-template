@@ -32,13 +32,29 @@ Package
 
 Description
 
+com.google.adk.agents
+
+ 
+
 com.google.adk.memory
 
  
 
-com.google.adk.tools
+  * ## Uses of [SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory") in [com.google.adk.agents](../../agents/package-summary.html)
 
- 
+Methods in [com.google.adk.agents](../../agents/package-summary.html) that return types with arguments of type [SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")
+
+Modifier and Type
+
+Method
+
+Description
+
+`io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")>`
+
+Context.`[searchMemory](../../agents/Context.html#searchMemory\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
+
+Searches the memory of the current user.
 
   * ## Uses of [SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory") in [com.google.adk.memory](../package-summary.html)
 
@@ -81,22 +97,6 @@ Searches memory entries for the given appName and userId that match the query ke
 InMemoryMemoryService.`[searchMemory](../InMemoryMemoryService.html#searchMemory\(java.lang.String,java.lang.String,java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") appName, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") userId, [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
 
  
-
-  * ## Uses of [SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory") in [com.google.adk.tools](../../tools/package-summary.html)
-
-Methods in [com.google.adk.tools](../../tools/package-summary.html) that return types with arguments of type [SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")
-
-Modifier and Type
-
-Method
-
-Description
-
-`io.reactivex.rxjava3.core.Single<[SearchMemoryResponse](../SearchMemoryResponse.html "class in com.google.adk.memory")>`
-
-ToolContext.`[searchMemory](../../tools/ToolContext.html#searchMemory\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") query)`
-
-Searches the memory of the current user.
 
 
 

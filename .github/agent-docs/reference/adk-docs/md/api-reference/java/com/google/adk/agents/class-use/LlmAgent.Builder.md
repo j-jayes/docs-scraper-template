@@ -179,7 +179,7 @@ LlmAgent.Builder.`[disallowTransferToPeers](../LlmAgent.Builder.html#disallowTra
 
 LlmAgent.Builder.`[executor](../LlmAgent.Builder.html#executor\(java.util.concurrent.Executor\))([Executor](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html "interface in java.util.concurrent") executor)`
 
- 
+Sets the executor for this agent's offloaded work: tool calls in ` ToolExecutionMode.PARALLEL_SUBSCRIBE` mode and the live request loop.
 
 `[LlmAgent.Builder](../LlmAgent.Builder.html "class in com.google.adk.agents")`
 

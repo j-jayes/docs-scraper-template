@@ -29,16 +29,19 @@ Contents
   2. Constructor Summary
   3. Method Summary
   4. Constructor Details
-     1. ContextCacheConfig()
-     2. ContextCacheConfig(int, Duration, int)
+     1. ContextCacheConfig(int, Duration, int, HttpOptions)
+     2. ContextCacheConfig()
+     3. ContextCacheConfig(int, Duration, int)
   5. Method Details
-     1. getTtlString()
-     2. toString()
-     3. hashCode()
-     4. equals(Object)
-     5. maxInvocations()
-     6. ttl()
-     7. minTokens()
+     1. maxInvocations()
+     2. getTtlString()
+     3. toString()
+     4. hashCode()
+     5. equals(Object)
+     6. cacheIntervals()
+     7. ttl()
+     8. minTokens()
+     9. createHttpOptions()
 
 Hide sidebar  Show sidebar
 
@@ -51,19 +54,16 @@ Hide sidebar  Show sidebar
 com.google.adk.agents.ContextCacheConfig
 
 Record Components:
-    `maxInvocations` \- Maximum number of invocations to reuse the same cache before refreshing it. Defaults to 10.
-    `ttl` \- Time-to-live for cache. Defaults to 1800 seconds (30 minutes).
-    `minTokens` \- Minimum estimated request tokens required to enable caching. This compares against the estimated total tokens of the request (system instruction + tools + contents). Context cache storage may have cost. Set higher to avoid caching small requests where overhead may exceed benefits. Defaults to 0.
+    `cacheIntervals` \- maximum number of invocations that reuse the same cache before it is refreshed; must be from 1 to 100
+    `ttl` \- time-to-live of the cache; must be a whole number of seconds, at least one
+    `minTokens` \- minimum prompt token count of the agent's previous request needed to create a cache; raise it to skip small requests, where cache storage can cost more than it saves; must not be negative
+    `createHttpOptions` \- HTTP options, such as a timeout, for the call that creates a cache, or `null` to use the client's defaults; if that call fails, the request is sent without a cache
 
 * * *
 
-public record ContextCacheConfig(int maxInvocations, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens) extends [Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
+public record ContextCacheConfig(int cacheIntervals, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens, @Nullable com.google.genai.types.HttpOptions createHttpOptions) extends [Record](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html "class in java.lang")
 
-Configuration for context caching across all agents in an app. 
-
-This configuration enables and controls context caching behavior for all LLM agents in an app. When this config is present on an app, context caching is enabled for all agents. When absent (null), context caching is disabled. 
-
-Context caching can significantly reduce costs and improve response times by reusing previously processed context across multiple requests.
+Configures context caching for all agents in an app. Without it, nothing is cached.
 
   * ## Constructor Summary
 
@@ -75,21 +75,37 @@ Description
 
 `ContextCacheConfig()`
 
- 
+Creates a config with the defaults: `cacheIntervals` of 10, `ttl` of 30 minutes, `minTokens` of 0, and the client's default HTTP options (`createHttpOptions` is `null`).
 
-`ContextCacheConfig(int maxInvocations, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens)`
+`ContextCacheConfig(int cacheIntervals, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens)`
 
-Creates an instance of a `ContextCacheConfig` record class.
+Creates a config that creates caches with the client's default HTTP options.
+
+`ContextCacheConfig(int cacheIntervals, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens, @Nullable com.google.genai.types.HttpOptions createHttpOptions)`
+
+Creates a config.
 
   * ## Method Summary
 
-All MethodsInstance MethodsConcrete Methods
+All MethodsInstance MethodsConcrete MethodsDeprecated Methods
 
 Modifier and Type
 
 Method
 
 Description
+
+`int`
+
+`cacheIntervals()`
+
+Returns the value of the `cacheIntervals` record component.
+
+`@Nullable com.google.genai.types.HttpOptions`
+
+`createHttpOptions()`
+
+Returns the value of the `createHttpOptions` record component.
 
 `final boolean`
 
@@ -101,7 +117,7 @@ Indicates whether some other object is "equal to" this one.
 
 `getTtlString()`
 
-Returns TTL as string format for cache creation.
+Returns the TTL in the `"<seconds>s"` form that the Gemini API uses.
 
 `final int`
 
@@ -113,7 +129,9 @@ Returns a hash code value for this object.
 
 `maxInvocations()`
 
-Returns the value of the `maxInvocations` record component.
+Deprecated.
+
+Use `cacheIntervals()`, the name ADK Python and ADK Kotlin use.
 
 `int`
 
@@ -144,26 +162,42 @@ Returns the value of the `ttl` record component.
 
     * ### ContextCacheConfig
 
-public ContextCacheConfig()
+public ContextCacheConfig(int cacheIntervals, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens, @Nullable com.google.genai.types.HttpOptions createHttpOptions)
+
+Creates a config.
+
+Throws:
+    `[IllegalArgumentException](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html "class in java.lang")` \- if a value is out of range
 
     * ### ContextCacheConfig
 
-public ContextCacheConfig(int maxInvocations, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens)
+public ContextCacheConfig()
 
-Creates an instance of a `ContextCacheConfig` record class.
+Creates a config with the defaults: `cacheIntervals` of 10, `ttl` of 30 minutes, `minTokens` of 0, and the client's default HTTP options (`createHttpOptions` is `null`).
 
-Parameters:
-    `maxInvocations` \- the value for the `maxInvocations` record component
-    `ttl` \- the value for the `ttl` record component
-    `minTokens` \- the value for the `minTokens` record component
+    * ### ContextCacheConfig
+
+public ContextCacheConfig(int cacheIntervals, [Duration](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html "class in java.time") ttl, int minTokens)
+
+Creates a config that creates caches with the client's default HTTP options.
 
   * ## Method Details
+
+    * ### maxInvocations
+
+[@Deprecated](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html "annotation interface in java.lang") @InlineMe(replacement="this.cacheIntervals()") public int maxInvocations()
+
+Deprecated.
+
+Use `cacheIntervals()`, the name ADK Python and ADK Kotlin use.
+
+Returns `cacheIntervals()`.
 
     * ### getTtlString
 
 public [String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") getTtlString()
 
-Returns TTL as string format for cache creation.
+Returns the TTL in the `"<seconds>s"` form that the Gemini API uses.
 
     * ### toString
 
@@ -200,14 +234,14 @@ Parameters:
 Returns:
     `true` if this object is the same as the `o` argument; `false` otherwise.
 
-    * ### maxInvocations
+    * ### cacheIntervals
 
-public int maxInvocations()
+public int cacheIntervals()
 
-Returns the value of the `maxInvocations` record component.
+Returns the value of the `cacheIntervals` record component.
 
 Returns:
-    the value of the `maxInvocations` record component
+    the value of the `cacheIntervals` record component
 
     * ### ttl
 
@@ -226,6 +260,15 @@ Returns the value of the `minTokens` record component.
 
 Returns:
     the value of the `minTokens` record component
+
+    * ### createHttpOptions
+
+public @Nullable com.google.genai.types.HttpOptions createHttpOptions()
+
+Returns the value of the `createHttpOptions` record component.
+
+Returns:
+    the value of the `createHttpOptions` record component
 
 
 

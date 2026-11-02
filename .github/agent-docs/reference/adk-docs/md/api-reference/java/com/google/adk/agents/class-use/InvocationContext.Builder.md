@@ -97,6 +97,12 @@ Sets the events compaction configuration for the current agent run.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
+InvocationContext.Builder.`[instantSource](../InvocationContext.Builder.html#instantSource\(java.time.InstantSource\))(@Nullable [InstantSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html "interface in java.time") instantSource)`
+
+Sets the instant source for the invocation; `null` (the default) selects [`InstantSource.system()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/InstantSource.html#system\(\)).
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
 InvocationContext.Builder.`[invocationId](../InvocationContext.Builder.html#invocationId\(java.lang.String\))([String](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html "class in java.lang") invocationId)`
 
 Sets the unique ID for the invocation.
@@ -133,6 +139,12 @@ Sets the configuration for the current agent run.
 
 `[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
 
+InvocationContext.Builder.`[scheduler](../InvocationContext.Builder.html#scheduler\(io.reactivex.rxjava3.core.Scheduler\))(@Nullable io.reactivex.rxjava3.core.Scheduler scheduler)`
+
+Sets the scheduler for the invocation's internal fan-out; see [`InvocationContext.scheduler()`](../InvocationContext.html#scheduler\(\)).
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
 InvocationContext.Builder.`[session](../InvocationContext.Builder.html#session\(com.google.adk.sessions.Session\))([Session](../../sessions/Session.html "class in com.google.adk.sessions") session)`
 
 Sets the session associated with this invocation.
@@ -154,6 +166,12 @@ Returns a [`InvocationContext.Builder`](../InvocationContext.Builder.html "class
 InvocationContext.Builder.`[userContent](../InvocationContext.Builder.html#userContent\(com.google.genai.types.Content\))(@Nullable com.google.genai.types.Content userContent)`
 
 Sets the user content that triggered this invocation.
+
+`[InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")`
+
+InvocationContext.Builder.`[uuidProvider](../InvocationContext.Builder.html#uuidProvider\(com.google.adk.platform.UuidProvider\))(@Nullable [UuidProvider](../../platform/UuidProvider.html "interface in com.google.adk.platform") uuidProvider)`
+
+Sets the UUID provider for the invocation; `null` (the default) selects [`UuidProvider.SYSTEM`](../../platform/UuidProvider.html#SYSTEM).
 
 Constructors in [com.google.adk.agents](../package-summary.html) with parameters of type [InvocationContext.Builder](../InvocationContext.Builder.html "class in com.google.adk.agents")
 

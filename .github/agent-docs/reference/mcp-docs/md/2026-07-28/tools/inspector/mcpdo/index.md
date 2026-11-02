@@ -1,4 +1,4 @@
-[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Build ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Upgrade ](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)[Diagnose ](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)[Secure ](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)[Compatibility ](https://modelcontextprotocol.info/specification/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
+[ Model Context Protocol （MCP） ](https://modelcontextprotocol.info/)[Home ](https://modelcontextprotocol.info/)[Get Started ](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)[Develop ](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)[Connect and Run ](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)[Protocol and Versions ](https://modelcontextprotocol.info/specification/)[Reference ](https://modelcontextprotocol.info/tools/)[Blog ](https://modelcontextprotocol.info/blog/)[About](https://modelcontextprotocol.info/about/)
 
 `CTRL K`
 
@@ -10,263 +10,65 @@
 
 
 
-  * [MCP Docs ](https://modelcontextprotocol.info/docs/)
+  * [Get Started](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
 
-    * [Versioning](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
-    * [Architecture overview](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
-    * [Build an MCP client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
-    * [Build an MCP server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
-    * [Build with Agent Skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
-    * [Client Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
-    * [Connect to local MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
-    * [Connect to remote MCP Servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
-    * [Debugging](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
-    * [Local Server Security](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
-    * [MCP Inspector ](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
+    * [What is MCP?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
+    * [Architecture and roles](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
+    * [Servers and primitives](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
+    * [Hosts and clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
 
-      * [Authorization](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/authorization/)
-      * [CLI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
-      * [Configuration and flags](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/configuration/)
-      * [mcpdo connection client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/mcpdo/)
-        * Install
-        * Quickstart
-        * Choosing what to connect
-        * Addressing a connection
-        * Tasks
-        * Output
-        * Authorization
-        * Elicitation
-        * Protocol eras
-        * The daemon
-        * Isolating untrusted stdio servers
-        * Environment variables
-        * Using mcpdo from a coding agent
-      * [Protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
-      * [Recipes](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
-      * [Security](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/security/)
-      * [TUI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/tui/)
-      * [Web client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/web/)
+  * [Develop](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
 
-    * [SDKs](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
-    * [Security Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
-    * [Understanding Authorization in MCP](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
-    * [Understanding MCP clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
-    * [Understanding MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
-    * [What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
+    * [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
+    * [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
+    * [Choose an SDK](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
+    * [Build with agent skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
+    * [Node.js client: calls and failures without a model](https://modelcontextprotocol.info/docs/tutorials/building-a-client-node/)
+    * [Design and check effective tools](https://modelcontextprotocol.info/docs/tutorials/writing-effective-tools/)
 
-  * [Tools ](https://modelcontextprotocol.info/tools/)
+  * [Connect and Run](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
 
-  * [Specification ](https://modelcontextprotocol.info/specification/)
+    * [Connect a local server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
+    * [Connect a remote server](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
+    * [Authorization with OAuth 2.1](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
+    * [Local server security defaults](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
+    * [Security checklist before launch](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
+    * [Host applications at scale](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
+    * [Troubleshoot connections and calls](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
+    * [Inspector: test a server interactively](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
+    * [Inspector CLI: scripted checks and CI](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
+    * [Inspector recipes: transports, Docker, config import](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
+    * [Inspector lab: reproducible calls and failure diagnosis](https://modelcontextprotocol.info/tools/inspector/)
 
-    * [Specification ](https://modelcontextprotocol.info/specification/2026-07-28/)
+  * [Protocol and Versions](https://modelcontextprotocol.info/specification/)
 
-      * [Architecture](https://modelcontextprotocol.info/specification/2026-07-28/architecture/)
-      * [Deprecated Features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
-      * [Elicitation](https://modelcontextprotocol.info/specification/2026-07-28/client/elicitation/)
-      * [Key Changes](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
-      * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/basic/)
+    * [Version negotiation rules](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
+    * [Revision and method matrix](https://modelcontextprotocol.info/specification/)
+    * [Key changes in 2026-07-28](https://modelcontextprotocol.info/specification/2026-07-28/changelog/)
+    * [Deprecated features](https://modelcontextprotocol.info/specification/2026-07-28/deprecated/)
+    * [Legacy and modern protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
+    * [Client extension support matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
 
-        * [Authorization ](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/)
+  * [Reference](https://modelcontextprotocol.info/tools/)
 
-          * [Authorization Security Considerations](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/security-considerations/)
-          * [Authorization Server Discovery](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/authorization-server-discovery/)
-          * [Client Registration](https://modelcontextprotocol.info/specification/2026-07-28/basic/authorization/client-registration/)
+    * [Tools and Registry overview](https://modelcontextprotocol.info/tools/)
+    * [Production checklist](https://modelcontextprotocol.info/docs/best-practices/)
+    * [Client capability matrix](https://modelcontextprotocol.info/docs/clients/)
+    * [Tools: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/tools/)
+    * [Resources: definitions and version differences](https://modelcontextprotocol.info/docs/concepts/resources/)
+    * [Prompts: definitions and trade-offs](https://modelcontextprotocol.info/docs/concepts/prompts/)
+    * [Sampling: deprecated server requests for client model calls](https://modelcontextprotocol.info/docs/concepts/sampling/)
+    * [Current transports: stdio and Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
+    * [Publish a server to the Registry](https://modelcontextprotocol.info/tools/registry/publishing/)
+    * [Official SEP status index](https://modelcontextprotocol.info/seps/)
+    * [SEP impact and method lifecycle guide](https://modelcontextprotocol.info/docs/reference/sep-impact-guide/)
+    * [FAQ: revisions, authorization and failure handling](https://modelcontextprotocol.info/docs/faqs/)
 
-        * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/)
+  * In this section
 
-          * [Cancellation](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/cancellation/)
-          * [Multi Round-Trip Requests](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/mrtr/)
-          * [Progress](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/progress/)
-          * [Subscriptions](https://modelcontextprotocol.info/specification/2026-07-28/basic/patterns/subscriptions/)
-
-        * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/)
-
-          * [stdio](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/stdio/)
-          * [Streamable HTTP](https://modelcontextprotocol.info/specification/2026-07-28/basic/transports/streamable-http/)
-
-        * [Versioning and Compatibility](https://modelcontextprotocol.info/specification/2026-07-28/basic/versioning/)
-
-      * [Overview ](https://modelcontextprotocol.info/specification/2026-07-28/server/)
-
-        * [Caching](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/caching/)
-        * [Completion](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/completion/)
-        * [Discovery](https://modelcontextprotocol.info/specification/2026-07-28/server/discover/)
-        * [Logging](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/logging/)
-        * [Pagination](https://modelcontextprotocol.info/specification/2026-07-28/server/utilities/pagination/)
-        * [Prompts](https://modelcontextprotocol.info/specification/2026-07-28/server/prompts/)
-        * [Resources](https://modelcontextprotocol.info/specification/2026-07-28/server/resources/)
-        * [Tools](https://modelcontextprotocol.info/specification/2026-07-28/server/tools/)
-
-      * [Roots](https://modelcontextprotocol.info/specification/2026-07-28/client/roots/)
-      * [Sampling](https://modelcontextprotocol.info/specification/2026-07-28/client/sampling/)
-      * [Schema Reference](https://modelcontextprotocol.info/specification/2026-07-28/schema/)
-
-  * [MCP Protocol Blog ](https://modelcontextprotocol.info/blog/)
-
-    * [Mastering MCP Tool Development: Unlocking AI Agent Potential](https://modelcontextprotocol.info/blog/writing-effective-mcp-tools/)
-    * [Update on the Next MCP Protocol Release](https://modelcontextprotocol.info/blog/mcp-next-version-update/)
-    * [MCP Apps in Practice: Wiring, Negotiation and Testing](https://modelcontextprotocol.info/blog/mcp-apps-ui-capabilities/)
-    * [Server Instructions in Practice: Spec Versions and Testing](https://modelcontextprotocol.info/blog/server-instructions/)
-    * [January MCP Core Maintainer Update](https://modelcontextprotocol.info/blog/core-maintainer-update/)
-    * [Exploring the Future of MCP Transports](https://modelcontextprotocol.info/blog/transport-future/)
-    * [MCP joins the Agentic AI Foundation](https://modelcontextprotocol.info/blog/joins-agentic-ai-foundation/)
-    * [One Year of MCP: November 2025 Spec Release](https://modelcontextprotocol.info/blog/first-mcp-anniversary/)
-    * [Adopting the MCP Bundle Format (.mcpb) for Portable Local Servers](https://modelcontextprotocol.info/blog/adopting-mcpb/)
-    * [Chrome DevTools MCP: Giving AI Coding Assistants Eyes to See Beyond Blind Programming](https://modelcontextprotocol.info/blog/chrome-devtools-mcp-ai-debugging/)
-    * [Introducing the MCP Registry](https://modelcontextprotocol.info/blog/mcp-registry-preview/)
-    * [Model Context Protocol (MCP): A New Standard for AI Application and External Data Integration](https://modelcontextprotocol.info/blog/mcp-guide/)
-    * [Understanding MCP: The USB‑C Interface for AI Agents](https://modelcontextprotocol.info/blog/understanding-mcp-protocol/)
-
-  * [About](https://modelcontextprotocol.info/about/)
-  * [Communities ](https://modelcontextprotocol.info/community/)
-
-    * [Agents Charter](https://modelcontextprotocol.info/community/interest-groups/agents/)
-    * [Antitrust Policy](https://modelcontextprotocol.info/community/antitrust/)
-    * [Authorization Charter](https://modelcontextprotocol.info/community/interest-groups/auth/)
-    * [Contributing to MCP](https://modelcontextprotocol.info/community/contributing/)
-    * [Contributor Communication](https://modelcontextprotocol.info/community/communication/)
-    * [Contributor Ladder](https://modelcontextprotocol.info/community/contributor-ladder/)
-    * [Design Principles](https://modelcontextprotocol.info/community/design-principles/)
-    * [Enterprise Interest Group Charter](https://modelcontextprotocol.info/community/interest-groups/enterprise/)
-    * [Feature Lifecycle and Deprecation Policy](https://modelcontextprotocol.info/community/feature-lifecycle/)
-    * [File Uploads Charter](https://modelcontextprotocol.info/community/working-groups/file-uploads/)
-    * [Filesystems Charter](https://modelcontextprotocol.info/community/working-groups/filesystems/)
-    * [Financial Services Charter](https://modelcontextprotocol.info/community/interest-groups/financial-services/)
-    * [Governance and Stewardship](https://modelcontextprotocol.info/community/governance/)
-    * [Governance Working Group Charter](https://modelcontextprotocol.info/community/working-groups/governance/)
-    * [Infrastructure Charter](https://modelcontextprotocol.info/community/working-groups/infrastructure/)
-    * [Inspector V2 Working Group Charter](https://modelcontextprotocol.info/community/working-groups/inspector-v2/)
-    * [Interceptors Charter](https://modelcontextprotocol.info/community/working-groups/interceptors/)
-    * [MCP Apps Working Group Charter](https://modelcontextprotocol.info/community/working-groups/apps/)
-    * [Progressive Disclosure Charter](https://modelcontextprotocol.info/community/working-groups/progressive-disclosure/)
-    * [Registry Charter](https://modelcontextprotocol.info/community/working-groups/registry/)
-    * [Scientific Computing Charter](https://modelcontextprotocol.info/community/interest-groups/scientific-computing/)
-    * [SDK Tiering System](https://modelcontextprotocol.info/community/sdk-tiers/)
-    * [SDK Working Group Charter](https://modelcontextprotocol.info/community/working-groups/sdk/)
-    * [Security Charter](https://modelcontextprotocol.info/community/interest-groups/security/)
-    * [Security Policy](https://modelcontextprotocol.info/community/security/)
-    * [SEP Guidelines](https://modelcontextprotocol.info/community/sep-guidelines/)
-    * [Server Card Charter](https://modelcontextprotocol.info/community/working-groups/server-card/)
-    * [Skills Over MCP Charter](https://modelcontextprotocol.info/community/working-groups/skills-over-mcp/)
-    * [Tasks and Events Charter](https://modelcontextprotocol.info/community/working-groups/tasks-events/)
-    * [Tool Annotations Charter](https://modelcontextprotocol.info/community/interest-groups/tool-annotations/)
-    * [Transports Charter](https://modelcontextprotocol.info/community/working-groups/transports/)
-    * [Working and Interest Groups](https://modelcontextprotocol.info/community/working-interest-groups/)
-
-  * [Contact](https://modelcontextprotocol.info/contact/)
-  * [Developments ](https://modelcontextprotocol.info/development/)
-
-    * [Roadmap](https://modelcontextprotocol.info/development/roadmap/)
-
-  * [Language-Archives ](https://modelcontextprotocol.info/language-archives/)
-
-  * [MCP Extensions ](https://modelcontextprotocol.info/extensions/)
-
-    * [Authorization Extensions](https://modelcontextprotocol.info/extensions/auth/overview/)
-    * [Build an MCP App](https://modelcontextprotocol.info/extensions/apps/build/)
-    * [Enterprise-Managed Authorization](https://modelcontextprotocol.info/extensions/auth/enterprise-managed-authorization/)
-    * [Extension Support Matrix](https://modelcontextprotocol.info/extensions/client-matrix/)
-    * [Extensions Overview](https://modelcontextprotocol.info/extensions/overview/)
-    * [MCP Apps](https://modelcontextprotocol.info/extensions/apps/overview/)
-    * [OAuth Client Credentials](https://modelcontextprotocol.info/extensions/auth/oauth-client-credentials/)
-    * [Skills](https://modelcontextprotocol.info/extensions/skills/overview/)
-    * [Tasks](https://modelcontextprotocol.info/extensions/tasks/overview/)
-
-  * [Privacy Policy](https://modelcontextprotocol.info/privacy/)
-  * [Registries ](https://modelcontextprotocol.info/registry/)
-
-    * [Frequently Asked Questions](https://modelcontextprotocol.info/registry/faq/)
-    * [How to Authenticate When Publishing to the Official MCP Registry](https://modelcontextprotocol.info/registry/authentication/)
-    * [How to Automate Publishing with GitHub Actions](https://modelcontextprotocol.info/registry/github-actions/)
-    * [MCP Registry Aggregators](https://modelcontextprotocol.info/registry/registry-aggregators/)
-    * [MCP Registry Supported Package Types](https://modelcontextprotocol.info/registry/package-types/)
-    * [Official MCP Registry Terms of Service](https://modelcontextprotocol.info/registry/terms-of-service/)
-    * [Publishing Remote Servers](https://modelcontextprotocol.info/registry/remote-servers/)
-    * [Quickstart: Publish an MCP Server to the MCP Registry](https://modelcontextprotocol.info/registry/quickstart/)
-    * [The MCP Registry](https://modelcontextprotocol.info/registry/about/)
-    * [The MCP Registry Moderation Policy](https://modelcontextprotocol.info/registry/moderation-policy/)
-    * [Versioning Published MCP Servers](https://modelcontextprotocol.info/registry/versioning/)
-
-  * [Specification Enhancement Proposals (SEPs) ](https://modelcontextprotocol.info/seps/)
-
-    * [SEP-1024: MCP Client Security Requirements for Local Server Installation](https://modelcontextprotocol.info/seps/1024-mcp-client-security-requirements-for-local-server-/)
-    * [SEP-1034: Support default values for all primitive types in elicitation schemas](https://modelcontextprotocol.info/seps/1034--support-default-values-for-all-primitive-types-in/)
-    * [SEP-1036: URL Mode Elicitation for secure out-of-band interactions](https://modelcontextprotocol.info/seps/1036-url-mode-elicitation-for-secure-out-of-band-intera/)
-    * [SEP-1046: Support OAuth client credentials flow in authorization](https://modelcontextprotocol.info/seps/1046-support-oauth-client-credentials-flow-in-authoriza/)
-    * [SEP-1302: Formalize Working Groups and Interest Groups in MCP Governance](https://modelcontextprotocol.info/seps/1302-formalize-working-groups-and-interest-groups-in-mc/)
-    * [SEP-1303: Input Validation Errors as Tool Execution Errors](https://modelcontextprotocol.info/seps/1303-input-validation-errors-as-tool-execution-errors/)
-    * [SEP-1319: Decouple Request Payload from RPC Methods Definition](https://modelcontextprotocol.info/seps/1319-decouple-request-payload-from-rpc-methods-definiti/)
-    * [SEP-1330: Elicitation Enum Schema Improvements and Standards Compliance](https://modelcontextprotocol.info/seps/1330-elicitation-enum-schema-improvements-and-standards/)
-    * [SEP-1577: Sampling With Tools](https://modelcontextprotocol.info/seps/1577--sampling-with-tools/)
-    * [SEP-1613: Establish JSON Schema 2020-12 as Default Dialect for MCP](https://modelcontextprotocol.info/seps/1613-establish-json-schema-2020-12-as-default-dialect-f/)
-    * [SEP-1686: Tasks](https://modelcontextprotocol.info/seps/1686-tasks/)
-    * [SEP-1699: Support SSE polling via server-side disconnect](https://modelcontextprotocol.info/seps/1699-support-sse-polling-via-server-side-disconnect/)
-    * [SEP-1730: SDKs Tiering System](https://modelcontextprotocol.info/seps/1730-sdks-tiering-system/)
-    * [SEP-1850: PR-Based SEP Workflow](https://modelcontextprotocol.info/seps/1850-pr-based-sep-workflow/)
-    * [SEP-1865: MCP Apps - Interactive User Interfaces for MCP](https://modelcontextprotocol.info/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp/)
-    * [SEP-2085: Governance Succession and Amendment Procedures](https://modelcontextprotocol.info/seps/2085-governance-succession-and-amendment/)
-    * [SEP-2106: Tools `inputSchema` & `outputSchema` Conform to JSON Schema 2020-12](https://modelcontextprotocol.info/seps/2106-json-schema-2020-12/)
-    * [SEP-2127: MCP Server Cards - HTTP Server Discovery](https://modelcontextprotocol.info/seps/2127-mcp-server-cards/)
-    * [SEP-2133: Extensions](https://modelcontextprotocol.info/seps/2133-extensions/)
-    * [SEP-2148: MCP Contributor Ladder](https://modelcontextprotocol.info/seps/2148-contributor-ladder/)
-    * [SEP-2149: MCP Group Governance and Charter Template](https://modelcontextprotocol.info/seps/2149-working-group-charter-template/)
-    * [SEP-2164: Standardize Resource Not Found Error Code](https://modelcontextprotocol.info/seps/2164-resource-not-found-error/)
-    * [SEP-2207: OIDC-Flavored Refresh Token Guidance](https://modelcontextprotocol.info/seps/2207-oidc-refresh-token-guidance/)
-    * [SEP-2243: HTTP Header Standardization for Streamable HTTP Transport](https://modelcontextprotocol.info/seps/2243-http-standardization/)
-    * [SEP-2260: Require Server requests to be associated with a Client request.](https://modelcontextprotocol.info/seps/2260-require-server-requests-to-be-associated-with-client-requests/)
-    * [SEP-2322: Multi Round-Trip Requests](https://modelcontextprotocol.info/seps/2322-mrtr/)
-    * [SEP-2468: Recommend Issuer (iss) Parameter in MCP Auth Responses](https://modelcontextprotocol.info/seps/2468-recommend-issuer-claim-for-auth/)
-    * [SEP-2484: Require Conformance Tests for Standards Track SEPs to Reach Final Status](https://modelcontextprotocol.info/seps/2484-conformance-tests-required-for-final-seps/)
-    * [SEP-2549: TTL for List Results](https://modelcontextprotocol.info/seps/2549-ttl-for-list-results/)
-    * [SEP-2567: Sessionless MCP via Explicit State Handles](https://modelcontextprotocol.info/seps/2567-sessionless-mcp/)
-    * [SEP-2575: Make MCP Stateless](https://modelcontextprotocol.info/seps/2575-stateless-mcp/)
-    * [SEP-2577: Deprecate Roots, Sampling, and Logging](https://modelcontextprotocol.info/seps/2577-deprecate-roots-sampling-and-logging/)
-    * [SEP-2596: Specification Feature Lifecycle and Deprecation Policy](https://modelcontextprotocol.info/seps/2596-spec-feature-lifecycle-and-deprecation/)
-    * [SEP-2640: Skills Extension](https://modelcontextprotocol.info/seps/2640-skills-extension/)
-    * [SEP-2663: Tasks Extension](https://modelcontextprotocol.info/seps/2663-tasks-extension/)
-    * [SEP-414: Document OpenTelemetry Trace Context Propagation Conventions](https://modelcontextprotocol.info/seps/414-request-meta/)
-    * [SEP-932: Model Context Protocol Governance](https://modelcontextprotocol.info/seps/932-model-context-protocol-governance/)
-    * [SEP-973: Expose additional metadata for Implementations, Resources, Tools and Prompts](https://modelcontextprotocol.info/seps/973-expose-additional-metadata-for-implementations-res/)
-    * [SEP-985: Align OAuth 2.0 Protected Resource Metadata with RFC 9728](https://modelcontextprotocol.info/seps/985-align-oauth-20-protected-resource-metadata-with-rf/)
-    * [SEP-986: Specify Format for Tool Names](https://modelcontextprotocol.info/seps/986-specify-format-for-tool-names/)
-    * [SEP-990: Enable enterprise IdP policy controls during MCP OAuth flows](https://modelcontextprotocol.info/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o/)
-    * [SEP-991: Enable URL-based Client Registration using OAuth Client ID Metadata Documents](https://modelcontextprotocol.info/seps/991-enable-url-based-client-registration-using-oauth-c/)
-    * [SEP-994: Shared Communication Practices/Guidelines](https://modelcontextprotocol.info/seps/994-shared-communication-practicesguidelines/)
-
-  * More
-  * [Docs ↗](https://modelcontextprotocol.info/docs/)
-  * [Specification ↗](https://modelcontextprotocol.info/specification/)
-  * [About](https://modelcontextprotocol.info/about/)
-
-
-  * [Versioning](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)
-  * [Architecture overview](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/)
-  * [Build an MCP client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)
-  * [Build an MCP server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)
-  * [Build with Agent Skills](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-with-agent-skills/)
-  * [Client Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/develop/clients/client-best-practices/)
-  * [Connect to local MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/)
-  * [Connect to remote MCP Servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)
-  * [Debugging](https://modelcontextprotocol.info/docs/2026-07-28/tools/debugging/)
-  * [Local Server Security](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/local-server-security/)
-  * [MCP Inspector ](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
-
-    * [Authorization](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/authorization/)
-    * [CLI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/)
-    * [Configuration and flags](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/configuration/)
+    * [MCP Inspector](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/)
     * [mcpdo connection client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/mcpdo/)
-    * [Protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/)
-    * [Recipes](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/recipes/)
-    * [Security](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/security/)
-    * [TUI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/tui/)
-    * [Web client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/web/)
 
-  * [SDKs](https://modelcontextprotocol.info/docs/2026-07-28/sdk/)
-  * [Security Best Practices](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/security_best_practices/)
-  * [Understanding Authorization in MCP](https://modelcontextprotocol.info/docs/2026-07-28/tutorials/security/authorization/)
-  * [Understanding MCP clients](https://modelcontextprotocol.info/docs/2026-07-28/learn/client-concepts/)
-  * [Understanding MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/)
-  * [What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.info/docs/2026-07-28/getting-started/intro/)
   * More
   * [Docs ↗](https://modelcontextprotocol.info/docs/)
   * [Specification ↗](https://modelcontextprotocol.info/specification/)
@@ -318,7 +120,19 @@ mcpdo connection client
 
 # mcpdo connection client
 
-Source: [MCP b491e568](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/b491e56832ce09207d6d7bb2aae186ce55fdf172/docs/docs/2026-07-28/tools/inspector/mcpdo.mdx)
+Source: [MCP c1c81072](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/c1c81072057ed9a3eb40a1213eb7577651c1937b/docs/docs/2026-07-28/tools/inspector/mcpdo.mdx)
+
+## When a command hangs or is rejected, check these first
+
+Symptom| Cause| Fix  
+---|---|---  
+A command never returns| Another call is in flight on that connection| One connection runs one call at a time; queue behind it  
+New calls are rejected| A previous call has a pending elicitation| Answer from any shell with elicitation/respond, or let it expire after 10 minutes  
+Other commands wait during -load| The load test owns the connection| Wait for it to finish, or open another connection  
+Odd behavior after upgrading the package| The old daemon still runs old code| mcpdo daemon stop, then reconnect  
+A connection "mysteriously" rebuilds| Transport self-healing| Expected; only auth_required needs a fresh connect  
+  
+Human-in-the-loop split: connecting to a protected server without a TTY returns pendingAuth plus an authUrl — hand that URL to whoever will log in; the connection completes by itself, so don't reconnect repeatedly. In scripts and agents, always pass @name / -connection; omitting it fails outright without a TTY, a guard against background tasks hitting your most-recent server.
 
 `mcpdo` is an **experimental** command-line client that ships in the `@modelcontextprotocol/inspector` package alongside `mcp-inspector`. Where the [CLI client](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/) connects, runs one `--method` and disconnects, `mcpdo` **connects once** and keeps the connection open, so you can run many commands against it from any shell, the way `ssh-agent` keeps keys loaded.
 
@@ -385,16 +199,20 @@ Name the connection on each command with `@name`, or with `--connection <name>` 
 
 Omitting the name falls back to the most recently used connection, but only on an interactive TTY. From a script or an agent, where stdin is not a TTY, an unqualified command is an error, so that a background job never acts on whichever server you last used. Set `MCP_ALLOW_DEFAULT_CONNECTION=1` to allow the fallback anyway.
 
+`mcpdo connections/use <name>` sets the most recently used connection without sending anything to the server.
+
 Connections **self-heal** : a dropped transport (an expired HTTP session, an exited stdio child) is re-dialed transparently on next use with the stored credentials. Only an `auth_required` error needs you to run `connect` again.
 
 A connection runs **one call at a time**. Commands against it from other shells queue behind the call in flight, and while a call is parked on an elicitation, new calls on that connection are refused until it is answered. A long call does not block other connections.
 
+`tools/call` also accepts the one-shot CLI's `--load` family (`--load`, `--load-concurrency`, `--load-connections`, `--load-duration`, `--load-requests`, `--load-rate`, `--load-max-error-rate`, `--load-max-p99`), with the same defaults and the same summary, run inside the daemon against the connection (see [CI gates](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/#ci-gates)). `--load-connections` opens its extra sessions with stored credentials only. Later commands on the connection wait until the run ends.
+
 ## Tasks
 
-A tool that requires task support is refused by a plain `tools/call`; add `--task` to make a task-augmented call. It still **blocks** until the task finishes, then prints the final result:
+On a legacy connection, a plain `tools/call` refuses a tool that requires task support. Add `--task` to make a task-augmented call. `--task` applies to legacy servers only. On a modern connection the server decides per request whether to return a task, and the flag changes nothing on the wire. The call still **blocks** until the task finishes, then prints the final result:
     
     
-    mcpdo @my-server tools/call --task start_job size:=large
+    mcpdo @my-server tools/call --task start_job size:=large   # task-augmented call on a legacy connection
 
 If the task reaches `input_required`, its question is handled like any other elicitation.
 
@@ -419,7 +237,7 @@ Command| Effect
 `mcpdo disconnect <name> --clear-auth` (`-c`)| Close the connection **and** clear its stored tokens, so the next `connect` signs in fresh.  
 `mcpdo auth/list`| Stored credentials, each annotated with the catalog or connection names it is "known as", and `● live` when an open connection holds it.  
 `mcpdo auth/clear <url-or-name>`| Clear one stored credential, by store URL or friendly name. `--all --yes` clears every one.  
-`mcpdo auth/ema-login` / `auth/ema-status` / `auth/ema-logout`| Enterprise-managed authorization: sign in to the IdP once, then connect to EMA servers silently.  
+`mcpdo auth/ema-login` / `auth/ema-status` / `auth/ema-logout`| Enterprise-managed authorization: sign in to the IdP once, then connect to EMA servers silently. `mcpdo connect <name> --ema` treats a catalog entry as enterprise-managed for that connect, overriding its `oauth.enterpriseManaged`. It needs the entry's OAuth client ID and secret, so it cannot be used with an ad-hoc target.  
   
 When a browser sign-in is needed and neither stdin nor stderr is a TTY (and `MCP_AUTO_OPEN_ENABLED` is not forced on), `connect` exits `0` immediately with `pendingAuth: true` and an `authUrl`. Relay that URL to whoever will sign in. The connection completes on its own once they do: the next real command against it finishes the connection, and `connections/list` reports `pendingAuthSignedIn` in the meantime. Don't reconnect to fix a pending sign-in.
 
@@ -481,7 +299,7 @@ Variable| Effect
   
 ## Using mcpdo from a coding agent
 
-The package ships an agent skill that teaches an agent to drive `mcpdo`: connections it holds then extend the agent's toolset, and it knows to relay sign-in URLs and answer parked elicitations. `mcpdo agent-help` prints the guide, `mcpdo agent-help --skill-path` prints the path of the installable skill file, and `mcpdo agent-help --instructions` prints a block to append to a project's `CLAUDE.md` or `AGENTS.md`.
+The package ships an agent skill that teaches an agent to drive `mcpdo`: connections it holds then extend the agent's toolset, and it knows to relay sign-in URLs and answer parked elicitations. `mcpdo agent-help` prints the guide, `mcpdo agent-help --skill-path` prints the path of the installable skill file, and `mcpdo agent-help --instructions` prints a block to append to a project's `CLAUDE.md` or `AGENTS.md`. The skill can also be installed with `npx skills add modelcontextprotocol/inspector --skill mcpdo`.
 
 [Configuration and flags](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/configuration/ "Configuration and flags")[Protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/ "Protocol eras")
 

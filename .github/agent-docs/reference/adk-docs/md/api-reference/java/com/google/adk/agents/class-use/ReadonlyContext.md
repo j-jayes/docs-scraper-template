@@ -72,6 +72,12 @@ Description
 
 The context of various callbacks for an agent invocation.
 
+`class `
+
+`[Context](../Context.html "class in com.google.adk.agents")`
+
+The context passed to callbacks and tools during an invocation.
+
 Methods in [com.google.adk.agents](../package-summary.html) that return types with arguments of type [ReadonlyContext](../ReadonlyContext.html "class in com.google.adk.agents")
 
 Modifier and Type
