@@ -57,12 +57,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -81,6 +83,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -204,6 +209,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -315,7 +325,7 @@ Use the `npm` tool to install and configure dependencies for your project, inclu
 
 ### Define the agent code¶
 
-Create the code for a basic agent, including a simple implementation of an ADK [Function Tool](/tools-custom/function-tools/), called `getCurrentTime`. Create an `agent.ts` file in your project directory and add the following code:
+Create the code for a basic agent, including a simple implementation of an ADK [Function Tool](/tools-custom/function-tools/), called `get_current_time`. Create an `agent.ts` file in your project directory and add the following code:
 
 my-agent/agent.ts
     
@@ -340,7 +350,7 @@ my-agent/agent.ts
       model: 'gemini-flash-latest',
       description: 'Tells the current time in a specified city.',
       instruction: `You are a helpful assistant that tells the current time in a city.
-                    Use the 'getCurrentTime' tool for this purpose.`,
+                    Use the 'get_current_time' tool for this purpose.`,
       tools: [getCurrentTime],
     });
     

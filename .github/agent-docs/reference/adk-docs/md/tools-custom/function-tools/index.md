@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -73,6 +75,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -141,6 +146,9 @@ Custom Tools
                 * Optional parameters 
                 * Optional parameters with typing.Optional 
                 * Variadic parameters (*args and **kwargs) 
+                * Configure JSON schema tool declarations 
+                  * Option 1: Configure via Command Line 
+                  * Option 2: Configure in Python 
               * Context injection 
                 * Customize the parameter name 
               * Return type 
@@ -164,6 +172,12 @@ Custom Tools
         * [ Tool performance  ](../performance/)
         * [ Action confirmations  ](../confirmation/)
       * [ MCP tools  ](../mcp-tools/)
+
+MCP tools 
+        * [ Advanced configuration  ](../mcp-tools/advanced/)
+        * [ Deployment  ](../mcp-tools/deployment/)
+        * [ Agent as MCP server  ](../mcp-tools/agent-as-server/)
+        * [ Sub-agent delegation  ](../mcp-tools/agent-managed/)
       * [ OpenAPI tools  ](../openapi-tools/)
       * [ Authentication  ](../authentication/)
       * [ Tool limitations  ](../../tools/limitations/)
@@ -196,9 +210,6 @@ Sessions
       * [ Memory  ](../../sessions/memory/)
       * [ Context compression  ](../../context/compaction/)
       * [ Model context caching  ](../../context/caching/)
-    * [ MCP  ](../../mcp/)
-
-MCP 
     * [ A2A Protocol  ](../../a2a/)
 
 A2A Protocol 
@@ -221,6 +232,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -229,6 +245,7 @@ Get started
         * [ Audio and video  ](../../live/audio-video/)
         * [ Configuration  ](../../live/configuration/)
       * Production  Production 
+        * [ Guardrails  ](../../live/guardrails/)
         * [ Evaluation  ](../../live/evaluation/)
         * [ Build a custom server  ](../../live/custom-server/)
       * [ Supported models  ](../../live/models/)
@@ -275,6 +292,9 @@ Table of contents
         * Optional parameters 
         * Optional parameters with typing.Optional 
         * Variadic parameters (*args and **kwargs) 
+        * Configure JSON schema tool declarations 
+          * Option 1: Configure via Command Line 
+          * Option 2: Configure in Python 
       * Context injection 
         * Customize the parameter name 
       * Return type 
@@ -332,6 +352,8 @@ The ADK framework automatically inspects your Python function's signature—incl
 A well-defined function signature is crucial for the LLM to use your tool correctly.
 
 #### Parameters¶
+
+Parameters determine the data your tool expects to receive when called. You can configure them as either required or optional based on your tool's needs.
 
 ##### Required parameters¶
 
@@ -556,6 +578,115 @@ Python
 ##### Variadic parameters (`*args` and `**kwargs`)¶
 
 While you can include `*args` (variable positional arguments) and `**kwargs` (variable keyword arguments) in your function signature for other purposes, they are **ignored by the ADK framework** when generating the tool schema for the LLM. The LLM will not be aware of them and cannot pass arguments to them. It's best to rely on explicitly defined parameters for all data you expect from the LLM.
+
+##### Configure JSON schema tool declarations¶
+
+ADK for Python generates JSON schemas from your function signatures using Pydantic for model function declarations. This feature (`JSON_SCHEMA_FOR_FUNC_DECL`) is **enabled by default**.
+
+Experimental
+
+JSON schema tool declarations (`JSON_SCHEMA_FOR_FUNC_DECL`) are an experimental feature of ADK for Python. The feature is enabled by default, but its behavior and API may change, and ADK emits an `[EXPERIMENTAL]` warning while it is active.
+
+###### Option 1: Configure via Command Line¶
+
+Set the appropriate environment variable in your terminal before launching your agent process:
+
+macOS/LinuxWindows (Command Prompt)Windows (PowerShell)
+    
+    
+    export ADK_ENABLE_JSON_SCHEMA_FOR_FUNC_DECL=1
+    
+    
+    
+    set ADK_ENABLE_JSON_SCHEMA_FOR_FUNC_DECL=1
+    
+    
+    
+    $env:ADK_ENABLE_JSON_SCHEMA_FOR_FUNC_DECL="1"
+    
+
+To disable JSON schema generation and fall back to the previous `Schema`-based declaration behavior:
+
+macOS/LinuxWindows (Command Prompt)Windows (PowerShell)
+    
+    
+    export ADK_DISABLE_JSON_SCHEMA_FOR_FUNC_DECL=1
+    
+    
+    
+    set ADK_DISABLE_JSON_SCHEMA_FOR_FUNC_DECL=1
+    
+    
+    
+    $env:ADK_DISABLE_JSON_SCHEMA_FOR_FUNC_DECL="1"
+    
+
+###### Option 2: Configure in Python¶
+
+Use ADK's `override_feature_enabled` function before creating tools and agents:
+    
+    
+    import asyncio
+    from google.adk.features import FeatureName, override_feature_enabled
+    from google.adk.agents import Agent
+    from google.adk.tools import FunctionTool
+    
+    # The feature is enabled by default, so pass False to fall back to the previous behavior:
+    override_feature_enabled(FeatureName.JSON_SCHEMA_FOR_FUNC_DECL, False)
+    
+    def get_current_weather(location: str, unit: str = "celsius") -> str:
+        """Get the current weather for a given location.
+    
+        Args:
+            location: The city and state, e.g. San Francisco, CA
+            unit: Temperature unit ('celsius' or 'fahrenheit')
+        """
+        return f"Weather in {location}: 22° {unit.capitalize()}"
+    
+    async def main():
+        weather_tool = FunctionTool(func=get_current_weather)
+    
+        agent = Agent(
+            model="gemini-2.5-flash",
+            name="my_agent",
+            instruction="You are a helpful assistant.",
+            tools=[weather_tool]
+        )
+        # Execution logic here
+    
+    if __name__ == "__main__":
+        asyncio.run(main())
+    
+
+Alternatively, set the environment variable in your script before initializing agent components:
+    
+    
+    import os
+    import asyncio
+    
+    os.environ["ADK_ENABLE_JSON_SCHEMA_FOR_FUNC_DECL"] = "1"
+    
+    from google.adk.agents import Agent
+    from google.adk.tools import FunctionTool
+    
+    def get_current_weather(location: str) -> str:
+        """Get the current weather for a given location."""
+        return f"Weather in {location}: 20°C"
+    
+    async def main():
+        weather_tool = FunctionTool(func=get_current_weather)
+    
+        agent = Agent(
+            model="gemini-2.5-flash",
+            name="my_agent",
+            instruction="You are a helpful assistant.",
+            tools=[weather_tool]
+        )
+        # Execution logic here
+    
+    if __name__ == "__main__":
+        asyncio.run(main())
+    
 
 #### Context injection¶
 
@@ -1347,8 +1478,9 @@ PythonTypeScriptGoJavaKotlin
     func createTicketAgent(ctx context.Context) (agent.Agent, error) {
         ticketTool, err := functiontool.New(
             functiontool.Config{
-                Name:        "create_ticket_long_running",
-                Description: "Creates a new support ticket with a specified urgency level.",
+                Name:          "create_ticket_long_running",
+                Description:   "Creates a new support ticket with a specified urgency level.",
+                IsLongRunning: true,
             },
             createTicketAsync,
         )
@@ -1519,7 +1651,7 @@ PythonTypeScriptGoJavaKotlin
                     return part.function_call
     
         def get_function_response(event: Event, function_call_id: str) -> types.FunctionResponse:
-            # Get the function response for the fuction call with specified id.
+            # Get the function response for the function call with specified id.
             if not event.content or not event.content.parts:
                 return
             for part in event.content.parts:
@@ -1555,7 +1687,7 @@ PythonTypeScriptGoJavaKotlin
     
     
         if long_running_function_response:
-            # query the status of the correpsonding ticket via tciket_id
+            # query the status of the corresponding ticket via ticket_id
             # send back an intermediate / final response
             updated_response = long_running_function_response.model_copy(deep=True)
             updated_response.response = {'status': 'approved'}
@@ -2183,7 +2315,7 @@ Python complete example: File Processing Simulation
                     return part.function_call
     
         def get_function_response(event: Event, function_call_id: str) -> types.FunctionResponse:
-            # Get the function response for the fuction call with specified id.
+            # Get the function response for the function call with specified id.
             if not event.content or not event.content.parts:
                 return
             for part in event.content.parts:
@@ -2219,7 +2351,7 @@ Python complete example: File Processing Simulation
     
     
         if long_running_function_response:
-            # query the status of the correpsonding ticket via tciket_id
+            # query the status of the corresponding ticket via ticket_id
             # send back an intermediate / final response
             updated_response = long_running_function_response.model_copy(deep=True)
             updated_response.response = {'status': 'approved'}

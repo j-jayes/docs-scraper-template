@@ -1,6 +1,6 @@
 [ google-adk-kotlin ](../../../../index.html) Toggle table of contents 
 
-1.4.0 
+1.5.0 
 
 common
 
@@ -43,6 +43,14 @@ common
 constructor()
 
 ## Functions
+
+[additionalProperties](additional-properties.html)
+
+Link copied to clipboard
+
+common
+
+fun [additionalProperties](additional-properties.html)(additionalProperties: [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)?): [Schema.Builder](index.html)
 
 [anyOf](any-of.html)
 

@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -224,6 +226,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -377,7 +384,7 @@ Here is a quick guide to authentication for key ADK toolsets:
   * [**_OpenAPIToolset_**](/tools-custom/openapi-tools/): Set `auth_scheme` and `auth_credential` during initialization
   * [**_APIHubToolset_**](/integrations/apigee-api-hub/): Set `auth_scheme` and `auth_credential` during initialization, _if_ the API requires authentication.
   * [**_ApplicationIntegrationToolset_**](/integrations/application-integration/): Set `auth_scheme` and `auth_credential` during initialization, _if_ the API requires authentication.
-  * [**_GoogleApiToolSet_**](https://github.com/google/adk-python/blob/main/src/google/adk/tools/google_api_tool/google_api_toolset.py): Use this toolset's specific authentication method.
+  * [**_GoogleApiToolset_**](/integrations/google-api-toolsets/): Use this toolset's specific authentication method.
 
 
 
@@ -399,9 +406,9 @@ You can configure authentication differently depending on your toolset type, Ope
 
 Pass the scheme and credential during toolset initialization. The toolset applies them to all generated tools. Here are few ways to create tools with authentication in ADK.
 
-API KeyOAuth2Service AccountOpenID connect
+API KeyOAuth2 (Authorization Code)OAuth2 (Client Credentials)Service AccountOpenID Connect
 
-Create a tool requiring an API Key.
+Create a tool requiring an API key for simple authentication that needs no token exchange:
     
     
     from google.adk.tools.openapi_tool.auth.auth_helpers import token_to_scheme_credential
@@ -418,7 +425,7 @@ Create a tool requiring an API Key.
     )
     
 
-Create a tool requiring OAuth2.
+Create a tool requiring the OAuth 2.0 authorization code flow for interactive authentication on behalf of a human user:
     
     
     from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import OpenAPIToolset
@@ -456,7 +463,52 @@ Create a tool requiring OAuth2.
     )
     
 
-Create a tool requiring Service Account.
+Create a tool that uses the OAuth 2.0 client credentials grant type for non-interactive, machine-to-machine authentication. Supply a `client_id` and `client_secret` to obtain an access token:
+    
+    
+    from fastapi.openapi.models import (
+        OAuth2,
+        OAuthFlowClientCredentials,
+        OAuthFlows,
+    )
+    from google.adk.auth import (
+        AuthCredential,
+        AuthCredentialTypes,
+        OAuth2Auth,
+    )
+    from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import (
+        OpenAPIToolset,
+    )
+    
+    # Define the OAuth2 scheme with the client credentials flow.
+    flows = OAuthFlows(
+        clientCredentials=OAuthFlowClientCredentials(
+            tokenUrl="https://example.com/token",  # Replace with your authorization server's token endpoint.
+            scopes={"read:weather": "Read weather data"},
+        )
+    )
+    auth_scheme = OAuth2(flows=flows)
+    
+    # Define the AuthCredential with a client ID and client secret.
+    # Do not hardcode secrets: load them from a .env file locally or from a
+    # secrets manager in production. See "Self-managed authentication" above.
+    auth_credential = AuthCredential(
+        auth_type=AuthCredentialTypes.OAUTH2,
+        oauth2=OAuth2Auth(
+            client_id="YOUR_CLIENT_ID",
+            client_secret="YOUR_CLIENT_SECRET",
+        ),
+    )
+    
+    weather_toolset = OpenAPIToolset(
+        spec_str="...",  # Pass your OpenAPI specification YAML string here.
+        spec_str_type="yaml",
+        auth_scheme=auth_scheme,
+        auth_credential=auth_credential,
+    )
+    
+
+Create a tool that authenticates as a non-human identity using a Service Account JSON key or Application Default Credentials:
     
     
     from google.adk.tools.openapi_tool.auth.auth_helpers import service_account_dict_to_scheme_credential
@@ -475,7 +527,7 @@ Create a tool requiring Service Account.
     )
     
 
-Create a tool requiring OpenID connect.
+Create a tool requiring OpenID Connect to verify user identity via an authorization server:
     
     
     from google.adk.auth.auth_schemes import OpenIdConnectWithConfig
@@ -1006,7 +1058,7 @@ After successfully obtaining the token from ADK (Step 2) or if the token is stil
 **Step 7: Return Tool Result**
 
   * After a successful API call, process the result into a dictionary format that is useful for the LLM.
-  * **Crucially, include a** along with the data.
+  * **Crucially, include a** `status` field along with the data.
 
 
     

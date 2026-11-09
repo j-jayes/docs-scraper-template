@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -207,6 +209,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -304,12 +311,12 @@ In Java, rather than manually generating requests, ADK relies on the official A2
 
 ### 1\. Getting the Sample Code¶
 
-The native sample matching this quickstart workflow in Java can be found in the `adk-java` source code under `contrib/samples/a2a_basic`.
+The native sample matching this quickstart workflow in Java can be found in the `adk-java` source code under `examples/a2a_basic`.
 
-You can navigate to the [**`a2a_basic`** sample](https://github.com/google/adk-java/tree/main/contrib/samples/a2a_basic):
+You can navigate to the [**`a2a_basic`** sample](https://github.com/google/adk-java/tree/main/examples/a2a_basic):
     
     
-    cd contrib/samples/a2a_basic
+    cd examples/a2a_basic
     
 
 ### 2\. Start the Remote Prime Agent server¶
@@ -318,7 +325,7 @@ To show how your ADK agent can consume a remote agent via A2A, you'll first need
     
     
     # In adk-java root, start the pre-configured Quarkus remote service on port 9090
-    ./mvnw -f contrib/samples/a2a_server/pom.xml quarkus:dev
+    ./mvnw -f examples/a2a_server/pom.xml quarkus:dev
     
 
 Once running successfully, the agent will be accessible via HTTP endpoints locally.
@@ -334,7 +341,7 @@ For an ADK Java webservice, the agent card is generally accessible dynamically u
 In another terminal, you can run the client agent:
     
     
-    ./mvnw -f contrib/samples/a2a_basic/pom.xml exec:java -Dexec.args="http://localhost:9090"
+    ./mvnw -f examples/a2a_basic/pom.xml exec:java -Dexec.args="http://localhost:9090"
     
 
 #### How it works¶

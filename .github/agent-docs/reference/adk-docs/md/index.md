@@ -54,6 +54,7 @@ Graph Workflows
       * [ Graph routes  ](graphs/routes/)
       * [ Data handling  ](graphs/data-handling/)
       * [ Human input  ](graphs/human-input/)
+      * [ Retries and timeouts  ](graphs/retry/)
       * [ Dynamic workflows  ](graphs/dynamic/)
     * [ Multi-Agent Workflows  ](workflows/)
 

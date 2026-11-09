@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -73,6 +75,9 @@ Template workflows
 
 Models for Agents 
       * [ Gemini  ](../../agents/models/google-gemini/)
+
+Gemini 
+        * [ Deferred scheduling  ](../../agents/models/google-gemini/deferred-schedule/)
       * [ Gemma  ](../../agents/models/google-gemma/)
       * [ Claude  ](../../agents/models/anthropic/)
       * [ Agent Platform hosted  ](../../agents/models/agent-platform/)
@@ -196,6 +201,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -316,6 +326,16 @@ Then start the web interface by passing the `web`, `api`, and `webui` subcommand
     
 
 The `web` keyword activates the HTTP server. `api` adds the ADK REST API backend, and `webui` serves the browser-based chat interface. Both `api` and `webui` are required to use the web interface together; either can be omitted if you only need the API or UI independently.
+
+The `AgentLoader` field of `launcher.Config` sets which agents the launcher serves. To serve several agents from one launcher, create it with `agent.NewMultiLoader`. Each agent is listed as a separate app that you can select in the web interface. Agent names must be unique:
+    
+    
+    loader, err := agent.NewMultiLoader(rootAgent, otherAgent)
+    if err != nil {
+        log.Fatalf("Failed to create agent loader: %v", err)
+    }
+    config := &launcher.Config{AgentLoader: loader}
+    
 
 Make sure to update the port number.
 

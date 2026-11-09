@@ -1,6 +1,6 @@
 [ google-adk-kotlin ](../../index.html) Toggle table of contents 
 
-1.4.0 
+1.5.0 
 
 commonJvmAndroid common
 
@@ -156,6 +156,16 @@ common
 class [StreamingResponseAggregator](-streaming-response-aggregator/index.html)
 
 Aggregates partial streaming responses into a single, cohesive response.
+
+[TrackingHeaders](-tracking-headers/index.html)
+
+Link copied to clipboard
+
+common
+
+object [TrackingHeaders](-tracking-headers/index.html)
+
+Headers that let Google APIs attribute model calls to ADK, in the format all ADK SDKs use. A header value is a space-separated list of `name/version` tags.
 
 [VertexCredentials](-vertex-credentials/index.html)
 

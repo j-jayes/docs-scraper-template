@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -209,6 +211,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -453,9 +460,9 @@ You can override the default user simulator configuration to change the model, i
   * `max_allowed_invocations`: The maximum user-agent interactions allowed before the conversation is forcefully terminated. This should be set to be greater than the longest reasonable user-agent interaction in your `EvalSet`. The initial fixed prompt counts as an invocation. Setting this value to `-1` removes the innovation limit, which is not recommended.
   * `include_function_calls`: Optional. Whether to include function calls and responses in the conversation history prompt given to the user simulator. Defaults to `false`.
   * `custom_instructions`: Optional. Overrides the default instructions for the user simulator. The instruction string must contain the following formatting placeholders using [Jinja](https://jinja.palletsprojects.com/en/stable/templates/#) syntax (_do not substitute values in advance!_):
-    * `{{ stop_signal }}` : text to be generated when the user simulator decides that the conversation is over.
-    * `{{ conversation_plan }}` : the overall plan for the conversation that the user simulator must follow.
-    * `{{ conversation_history }}` : the conversation between the user and the agent so far.
+    * `{{ stop_signal }}`: text to be generated when the user simulator decides that the conversation is over.
+    * `{{ conversation_plan }}`: the overall plan for the conversation that the user simulator must follow.
+    * `{{ conversation_history }}`: the conversation between the user and the agent so far.
     * You can also access the `UserPersona` object through the `{{ persona }}` placeholder.
 
 

@@ -1,6 +1,6 @@
 [ google-adk-kotlin ](../../index.html) Toggle table of contents 
 
-1.4.0 
+1.5.0 
 
 commonJvmAndroid common jvm
 

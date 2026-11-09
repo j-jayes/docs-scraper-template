@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -199,6 +201,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../get-started/streaming-python/)
         * [ Java  ](../get-started/streaming-java/)
+      * [ Architectures  ](../architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../architectures/speech-to-speech/)
+        * [ Cascade  ](../architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../workflows/)
         * [ Tools  ](../tools/)
@@ -288,9 +295,9 @@ Table of contents
 
 Supported in ADKPython v0.1.0Java v0.2.0
 
-`RunConfig` is where you shape a live session: how the agent sounds, how it transcribes speech, when it decides a turn is over, how much history it keeps, and what limits it runs under. You pass it to [`Runner.run_live()`](https://google.github.io/adk-docs/api-reference/python/), and it applies to that session only. Two users of the same agent can run with completely different configurations.
+`RunConfig` is where you shape a live session: how the agent sounds, how it transcribes speech, when it decides a turn is over, how much history it keeps, and what limits it runs under. You pass it to [`Runner.run_live()`](../../api-reference/python/google-adk.html#google.adk.runners.Runner.run_live), and it applies to that session only. Two users of the same agent can run with completely different configurations.
 
-`RunConfig` is not live-specific; [Runtime configuration](../../runtime/runconfig/) documents the full class and the fields that apply to `run_async()`. What follows is the subset that matters under `run_live()`, plus the voice-facing settings that only exist in a live session.
+`RunConfig` is not live-specific; [Runtime configuration](../../runtime/runconfig/) documents the full class and the fields that apply to `run_async()`. What follows is the subset that matters under `run_live()` for native audio models. For agents using the [cascaded architecture](../architectures/cascade/#configure-a-cascaded-agent), configure voice and turn detection on the speech providers instead.
 
 ## RunConfig Parameter Quick Reference¶
 
@@ -612,7 +619,7 @@ Some Live models offer two conversational features, both off by default:
 
 Both behaviors are probabilistic and make responses less predictable, so leave them off for formal or high-precision contexts and while debugging.
 
-Both settings are model-dependent: Gemini 2.5 Flash Live supports them, Gemini 3.1 Flash Live does not, and leaving them set is the most common failure when moving to 3.1. See [Per-model feature support](../models/#per-model-feature-support).
+Both settings are model-dependent: Gemini 2.5 Flash Live supports them, but the Gemini 3.1 Flash Live and Gemini 3.8 Live models do not. ADK doesn't send these settings to Gemini 3.x Live models, so leaving them set has no effect. See [Per-model feature support](../models/#per-model-feature-support).
 
 Back to top 
 

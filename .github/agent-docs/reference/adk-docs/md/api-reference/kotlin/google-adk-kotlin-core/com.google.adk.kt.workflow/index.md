@@ -1,6 +1,6 @@
 [ google-adk-kotlin ](../../index.html) Toggle table of contents 
 
-1.4.0 
+1.5.0 
 
 common
 
@@ -110,7 +110,7 @@ common
 
 class [FunctionNode](-function-node/index.html)<[I](-function-node/index.html), [O](-function-node/index.html)> : [BaseNode](-base-node/index.html)
 
-A workflow [Node](-node/index.html) backed by a suspending function that may emit progress [Event](../com.google.adk.kt.events/-event/index.html)s and returns an output of type [O](-function-node/index.html). Its schemas inferred from [I](-function-node/index.html) and [O](-function-node/index.html) only describe it; an explicit schema passed to [node](node.html) is also enforced.
+A workflow [Node](-node/index.html) backed by a suspending function that returns an [O](-function-node/index.html) and may emit [Event](../com.google.adk.kt.events/-event/index.html)s. An input that does not decode as [I](-function-node/index.html) throws [NodeInputValidationException](-node-input-validation-exception/index.html); an output that is not an [O](-function-node/index.html) or a `Content`, has no JSON form, or fails an explicit schema throws [IllegalArgumentException](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html).
 
 [GraphValidationException](-graph-validation-exception/index.html)
 
@@ -145,6 +145,18 @@ common
 interface [Node](-node/index.html)
 
 A unit of work in a workflow graph.
+
+[NodeBody](-node-body/index.html)
+
+Link copied to clipboard
+
+common
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+fun interface [NodeBody](-node-body/index.html)<[I](-node-body/index.html), [O](-node-body/index.html)>
+
+The body of a [FunctionNode](-function-node/index.html) set through [FunctionNode.Builder.body](-function-node/-builder/body.html); it runs on the workflow's coroutine, so it must not block, and asynchronous work belongs in a `BasePublisherNode`. `input` arrives as the node's input type, in JSON form on an untyped port (a whole number as a `Long`, a fraction as a `Double`, an object as a `Map`), or as a [Content](../com.google.adk.kt.types/-content/index.html) message, and may be a predecessor's own collection, so the body must not mutate it. Return `null` for no output, a value of the output type, or an [Event](../com.google.adk.kt.events/-event/index.html) to emit as it is (an `Event` with content sends a message, and an output goes in the return value, not in the `Event`), and ask the user with [requestInput](-node-body/-companion/request-input.html).
 
 [NodeConfig](-node-config/index.html)
 
@@ -386,9 +398,21 @@ common
 
 @[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
 
-fun [edges](edges.html)(block: [EdgesDslBlock](-edges-dsl-block/index.html)<[EdgesBuilder](-edges-builder/index.html)>): [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[Edge](-edge/index.html)>
+fun [edges](edges.html)(graphDefinition: [EdgesDslBlock](-edges-dsl-block/index.html)<[EdgesBuilder](-edges-builder/index.html)>): [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[Edge](-edge/index.html)>
 
-Returns the edges declared by [block](edges.html) for a [Workflow](-workflow/index.html); [workflow](workflow.html) builds both in one step.
+Returns the edges declared by [graphDefinition](edges.html) for a [Workflow](-workflow/index.html); [workflow](workflow.html) builds both in one step.
+
+[emit](emit.html)
+
+Link copied to clipboard
+
+common
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+suspend fun [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.[emit](emit.html)(content: [Content](../com.google.adk.kt.types/-content/index.html))
+
+Emits [content](emit.html) from a [node](node.html) body as a message, which is not the node's output. In a custom [Node](-node/index.html)'s `flow {}`, `emit(content)` emits a raw value instead, which becomes the output.
 
 [node](node.html)
 
@@ -398,9 +422,15 @@ common
 
 @[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
 
-inline fun <[I](node.html), [O](node.html)> [node](node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, crossinline block: suspend [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.(context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](node.html)) -> [O](node.html)): [FunctionNode](-function-node/index.html)<[I](node.html), [O](node.html)>
+inline fun <[I](node.html), [O](node.html)> [node](node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, requireConfirmation: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, crossinline block: suspend [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.(context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](node.html)) -> [O](node.html)): [FunctionNode](-function-node/index.html)<[I](node.html), [O](node.html)>
 
-Creates a [FunctionNode](-function-node/index.html) that runs [block](node.html) on an input of type [I](node.html) and returns an output of type [O](node.html), emitting progress [Event](../com.google.adk.kt.events/-event/index.html)s through its [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html) receiver. Schemas inferred from [I](node.html) and [O](node.html) describe the node, while an explicit [inputSchema](node.html) or [outputSchema](node.html) is also enforced on every run.
+Creates a [FunctionNode](-function-node/index.html) that runs [block](node.html), which uses `context.state`, `context.updateState` and [requestInput](request-input.html). An edge into it builds only if the predecessor's output schema fits its input schema; inferred output schemas require every field, inferred input schemas only fields without defaults.
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+inline fun <[I](node.html), [O](node.html)> [node](node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, noinline requireConfirmation: suspend (context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](node.html)) -> [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html), crossinline block: suspend [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.(context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](node.html)) -> [O](node.html)): [FunctionNode](-function-node/index.html)<[I](node.html), [O](node.html)>
+
+Creates a [FunctionNode](-function-node/index.html) as the other [node](node.html) overload does, asking the user to approve a run only when [requireConfirmation](node.html) returns true for its decoded input.
 
 [parallelNode](parallel-node.html)
 
@@ -412,13 +442,45 @@ common
 
 inline fun <[I](parallel-node.html), [O](parallel-node.html)> [parallelNode](parallel-node.html)(node: [FunctionNode](-function-node/index.html)<[I](parallel-node.html), [O](parallel-node.html)>, maxParallelWorkers: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null): [FunctionNode](-function-node/index.html)<[List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[I](parallel-node.html)>, [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[O](parallel-node.html)>>
 
-Wraps [node](parallel-node.html) so it runs concurrently on each item of a list input and returns the results in input order. [node](parallel-node.html)'s configuration applies to each item's run.
+Wraps [node](parallel-node.html) so it runs concurrently on each item of a list input and returns the results in input order. [node](parallel-node.html)'s configuration and schemas apply to each item's run; the fan-out node declares no input or output schema.
 
 @[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
 
-inline fun <[I](parallel-node.html), [O](parallel-node.html)> [parallelNode](parallel-node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, maxParallelWorkers: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, crossinline block: suspend [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.(context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](parallel-node.html)) -> [O](parallel-node.html)): [FunctionNode](-function-node/index.html)<[List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[I](parallel-node.html)>, [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[O](parallel-node.html)>>
+@[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html)
 
-Creates a [FunctionNode](-function-node/index.html) that runs [block](parallel-node.html) concurrently on each item of a list input and returns the results as a [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html) of [O](parallel-node.html) in input order. A non-list input runs as one item.
+fun [parallelNode](parallel-node.html)(node: [Node](-node/index.html), maxParallelWorkers: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null): [Node](-node/index.html)
+
+Returns a node that runs [node](parallel-node.html) once per item of a list input concurrently and outputs the items' outputs as a list in input order. A text-only [Content](../com.google.adk.kt.types/-content/index.html) input, unless [node](parallel-node.html) is a function node taking [Content](../com.google.adk.kt.types/-content/index.html), is read as JSON so a JSON list fans out; text that is not JSON arrives as a string. Any other non-list input runs as a single item.
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+inline fun <[I](parallel-node.html), [O](parallel-node.html)> [parallelNode](parallel-node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, maxParallelWorkers: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, requireConfirmation: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, crossinline block: suspend [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.(context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](parallel-node.html)) -> [O](parallel-node.html)): [FunctionNode](-function-node/index.html)<[List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[I](parallel-node.html)>, [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[O](parallel-node.html)>>
+
+Creates a [FunctionNode](-function-node/index.html) that runs [block](parallel-node.html) concurrently on each item of a list input and returns the results as a [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html) of [O](parallel-node.html) in input order. A text-only [Content](../com.google.adk.kt.types/-content/index.html) input, unless [I](parallel-node.html) is [Content](../com.google.adk.kt.types/-content/index.html), is read as JSON so a JSON list fans out. Any other non-list input runs as one item.
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+inline fun <[I](parallel-node.html), [O](parallel-node.html)> [parallelNode](parallel-node.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, maxParallelWorkers: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, noinline requireConfirmation: suspend (context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](parallel-node.html)) -> [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html), crossinline block: suspend [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Event](../com.google.adk.kt.events/-event/index.html)>.(context: [Context](../com.google.adk.kt.agents/-context/index.html), input: [I](parallel-node.html)) -> [O](parallel-node.html)): [FunctionNode](-function-node/index.html)<[List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[I](parallel-node.html)>, [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[O](parallel-node.html)>>
+
+Creates a fan-out [FunctionNode](-function-node/index.html) as the other block-form [parallelNode](parallel-node.html) does, asking to approve an item's run only when [requireConfirmation](parallel-node.html) returns true for it. The predicate runs on each item's run with no answer yet; once the item has asked, the answer decides. A rejected item outputs as in [node](node.html).
+
+[requestInput](request-input.html)
+
+Link copied to clipboard
+
+common
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+fun [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Nothing](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html)>.[requestInput](request-input.html)(interruptId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = Uuid.random(), message: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, responseSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null): [Nothing](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html)
+
+From a node's body, asks the user for input once per run and ends it. With `rerunOnResume = true` the body reruns and reads the answer from `ctx.resumeInputs[interruptId]`; `ctx.resumeInputs[id] ?: requestInput(id)` asks again on a null answer [responseSchema](request-input.html) allows. Otherwise the answer, checked against any [responseSchema](request-input.html), is the node's output.
+
+@[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
+
+inline fun <[P](request-input.html)> [FlowCollector](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/index.html)<[Nothing](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html)>.[requestInput](request-input.html)(interruptId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = Uuid.random(), message: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, payload: [P](request-input.html), responseSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null): [Nothing](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html)
+
+Like the overload without a payload, and also sends [payload](request-input.html) in its JSON form under [P](request-input.html)'s serializer, as `Context.setOutput` writes an output.
 
 [workflow](workflow.html)
 
@@ -428,9 +490,9 @@ common
 
 @[ExperimentalWorkflowApi](../com.google.adk.kt.annotations/-experimental-workflow-api/index.html)
 
-fun [workflow](workflow.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", maxConcurrency: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null, rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = true, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, block: [EdgesDslBlock](-edges-dsl-block/index.html)<[EdgesBuilder](-edges-builder/index.html)>): [Workflow](-workflow/index.html)
+fun [workflow](workflow.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", maxConcurrency: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null, rerunOnResume: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = true, waitForOutput: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, config: [NodeConfig](-node-config/index.html) = NodeConfig(), inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, stateSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, graphDefinition: [EdgesDslBlock](-edges-dsl-block/index.html)<[EdgesBuilder](-edges-builder/index.html)>): [Workflow](-workflow/index.html)
 
-Builds a [Workflow](-workflow/index.html) from the edges [block](workflow.html) declares.
+Builds a [Workflow](-workflow/index.html) from the edges [graphDefinition](workflow.html) declares.
 
 Generated by  [ Dokka ](https://github.com/Kotlin/dokka)
 

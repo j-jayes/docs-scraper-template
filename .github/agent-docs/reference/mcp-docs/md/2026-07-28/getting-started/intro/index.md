@@ -116,14 +116,14 @@ Source: [MCP b491e568](https://github.com/modelcontextprotocol/modelcontextproto
 
 ## New to MCP: route yourself first
 
-MCP is an open protocol standard, not a software package: it defines how an AI application (a client) exchanges capabilities with external systems (servers). When either side says it "supports MCP", the practical meaning is whatever protocol revision and extensions it actually implements — confirm both sides' declared version sets before building (see the "Versioning" concept page).
+MCP is an open protocol standard, not a software package: it defines how an AI application (a client) exchanges capabilities with external systems (servers). When either side says it "supports MCP", the practical meaning is whatever protocol revision and extensions it actually implements — confirm both sides' declared version sets before building (see [Versioning](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)).
 
 Your goal| Read first| Then  
 ---|---|---  
-Use an existing server in Claude, your editor, etc.| "Connect Local Servers" / "Connect Remote Servers"| Register the server in your client's config  
-Build a server that exposes data or tools| "Build a Server"| Exercise tools, resources and prompts in Inspector  
-Build an app that talks to MCP servers| "Build a Client"| Check "Architecture" for the three-party roles  
-Understand the protocol itself| "Architecture" / "Versioning"| Read the spec tree for the revision you target  
+Use an existing server in Claude, your editor, etc.| [Connect local servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-local-servers/) / [connect remote servers](https://modelcontextprotocol.info/docs/2026-07-28/develop/connect-remote-servers/)| Register the server in your client's config  
+Build a server that exposes data or tools| [Build a server](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-server/)| Use the [Inspector guide](https://modelcontextprotocol.info/tools/inspector/) to check the connection and the capabilities your server actually exposes  
+Build an app that talks to MCP servers| [Build a client](https://modelcontextprotocol.info/docs/2026-07-28/develop/build-client/)| Check [Architecture](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/) for the three-party roles  
+Understand the protocol itself| [Architecture](https://modelcontextprotocol.info/docs/2026-07-28/learn/architecture/) / [Versioning](https://modelcontextprotocol.info/docs/2026-07-28/learn/versioning/)| Read the spec tree for the revision you target  
   
 This page is pinned to the upstream commit in its front matter; the current protocol revision is 2026-07-28.
 

@@ -127,6 +127,22 @@ MCP Inspector
 
 Source: [MCP d998c804](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/d998c8049b8850d49d1fe3389ebf0e4a63262ab5/docs/docs/2026-07-28/tools/inspector.mdx)
 
+## Start with one question and one observable result
+
+Use the Web client when you need to inspect individual requests or understand a server's capabilities interactively. Use the CLI when the result must be checked by a script, and the TUI when you want an interactive session without a browser. These are different clients for the same debugging task; starting all three does not provide three independent proofs that your server works.
+
+Keep the first check narrow: discover a known server, list its tools, then call one harmless tool with valid arguments. Listing tools proves discovery, not successful execution. If the call fails, retain the method, transport, protocol era, and error category before changing configuration. Use synthetic inputs rather than production data.
+
+Observation| Check next  
+---|---  
+The Web UI opens, but no server is connected| Inspect the target command or remote URL and transport; UI startup is not server startup  
+Tools are listed, but a call fails| Check that tool's input schema, required arguments, permissions, and returned error  
+An expected feature or tab is absent| Compare the selected protocol era and server capabilities before reinstalling  
+An unattended CLI command waits for login| Use the documented stored-auth-only workflow for automation and provision credentials separately  
+A local check succeeds but a remote check fails| Check routing, authorization, and the actual remotely reachable address before changing business logic  
+  
+Read the [CLI recipes](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/cli/) for machine assertions, [protocol eras](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/protocol-eras/) for legacy/modern differences, and [security](https://modelcontextprotocol.info/docs/2026-07-28/tools/inspector/security/) before sharing a listener. This guide is tied to the attributed documentation revision; it does not claim that whichever package `npx` resolves today was tested by this site.
+
 The [MCP Inspector](https://github.com/modelcontextprotocol/inspector) is the reference developer tool for testing and debugging [MCP servers](https://modelcontextprotocol.info/docs/2026-07-28/learn/server-concepts/). It ships as a single package, `@modelcontextprotocol/inspector`, providing **three clients behind one binary** :
 
 Client| Invocation| What it's for  

@@ -120,7 +120,7 @@ MCP Tools Explained: Definitions, Results, Errors and Version Differences
 
 A tool is a named operation that a server exposes and a model can call. A call passes through five steps: definition, list, call, result, and failure. The sections below follow that path on the 2026-07-28 revision, show what changed in each revision since 2024-11-05, and say which channel an error should use.
 
-For how to design tools that a model can use well, read [MCP server best practices](https://modelcontextprotocol.info/docs/best-practices/). For the normative text, read the official [Tools](https://modelcontextprotocol.info/specification/2026-07-28/server/tools/) page.
+For how to design tools that a model can use well, read [MCP server best practices](https://modelcontextprotocol.info/docs/best-practices/). To list and call tools on a running server and distinguish connection failures from tool failures, follow the [MCP Inspector testing guide](https://modelcontextprotocol.info/tools/inspector/). For the normative text, read the official [Tools](https://modelcontextprotocol.info/specification/2026-07-28/server/tools/) page.
 
 ## 1\. The path of a tool call
 

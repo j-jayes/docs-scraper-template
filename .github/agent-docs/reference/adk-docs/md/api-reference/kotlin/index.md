@@ -1,6 +1,6 @@
 [ google-adk-kotlin ](index.html) Toggle table of contents 
 
-1.4.0 
+1.5.0 
 
 Switch theme 
 
@@ -23,11 +23,11 @@ Link copied to clipboard
 
 Link copied to clipboard
 
-[google-adk-kotlin-integrations](google-adk-kotlin-integrations/index.html)
+[google-adk-kotlin-integrations-anthropic](google-adk-kotlin-integrations-anthropic/index.html)
 
 Link copied to clipboard
 
-[google-adk-kotlin-integrations-anthropic](google-adk-kotlin-integrations-anthropic/index.html)
+[google-adk-kotlin-integrations-bigquery](google-adk-kotlin-integrations-bigquery/index.html)
 
 Link copied to clipboard
 

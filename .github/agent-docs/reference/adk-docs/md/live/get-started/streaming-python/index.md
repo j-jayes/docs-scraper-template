@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../../agents/llm-agents/)
       * [ Managed agents  ](../../../agents/managed-agents/)
+      * [ Service registration  ](../../../agents/service-registration/)
     * [ Graph Workflows  ](../../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../../graphs/routes/)
       * [ Data handling  ](../../../graphs/data-handling/)
       * [ Human input  ](../../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../../graphs/retry/)
       * [ Dynamic workflows  ](../../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../../workflows/)
 
@@ -210,6 +212,11 @@ Get started
             * Note on ADK Streaming 
           * Next steps: build custom streaming app 
         * [ Java  ](../streaming-java/)
+      * [ Architectures  ](../../architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../architectures/speech-to-speech/)
+        * [ Cascade  ](../../architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../workflows/)
         * [ Tools  ](../../tools/)
@@ -440,7 +447,7 @@ Open the URL provided (usually `http://localhost:8000` or `http://127.0.0.1:8000
 
 ### Try with voice and video¶
 
-To try with voice, reload the web browser, click the microphone button to enable the voice input, and ask the the following questions in voice. The agent will use the google_search tool to get the latest information to answer those questions. You will hear the answer in voice in real-time.
+To try with voice, reload the web browser, click the microphone button to enable the voice input, and ask the following questions in voice. The agent will use the google_search tool to get the latest information to answer those questions. You will hear the answer in voice in real-time.
 
   * What is the weather in New York?
   * What is the time in New York?

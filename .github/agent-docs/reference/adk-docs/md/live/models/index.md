@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../../agents/llm-agents/)
       * [ Managed agents  ](../../agents/managed-agents/)
+      * [ Service registration  ](../../agents/service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -199,6 +201,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../get-started/streaming-python/)
         * [ Java  ](../get-started/streaming-java/)
+      * [ Architectures  ](../architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../architectures/speech-to-speech/)
+        * [ Cascade  ](../architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../workflows/)
         * [ Tools  ](../tools/)
@@ -211,9 +218,10 @@ Get started
         * [ Evaluation  ](../evaluation/)
         * [ Build a custom server  ](../custom-server/)
       * Supported models  [ Supported models  ](./) Table of contents 
-        * Live models 
-        * Choosing a backend 
+        * Native audio models 
           * Per-model feature support 
+        * Cascaded models 
+        * Choosing a backend 
         * Platform limits and quotas 
         * How to handle model names 
         * Model compatibility and availability 
@@ -252,9 +260,10 @@ ADK 2.0
 
 Table of contents 
 
-  * Live models 
-  * Choosing a backend 
+  * Native audio models 
     * Per-model feature support 
+  * Cascaded models 
+  * Choosing a backend 
   * Platform limits and quotas 
   * How to handle model names 
   * Model compatibility and availability 
@@ -271,24 +280,68 @@ Table of contents
 
 Supported in ADKPython v0.1.0
 
-Live agents require a model that can hold a bidirectional connection; a standard Gemini model will not. For the models ADK supports outside live agents, and for non-Gemini providers, see [Models for agents](../../agents/models/).
+Live agents run in one of two [voice architectures](../architectures/) under `run_live()`:
 
-## Live models¶
+  * **[Speech-to-speech](../architectures/speech-to-speech/)** : A single native audio Live model handles audio input and audio output directly over a bidirectional connection.
+  * **[Cascade](../architectures/cascade/)** : Chains speech-to-text, any text LLM, and text-to-speech in sequence.
 
-Live agents run on models that take audio in and produce audio out, end to end, with no intermediate text-to-speech stage. That is what gives them human-like speech with natural prosody, and it is what a standard Gemini model cannot do over a bidirectional connection.
+
+
+## Native audio models¶
+
+Native audio models take audio in and produce audio out end to end, with no intermediate text-to-speech stage. That gives them natural prosody over a single bidirectional connection.
 
 Model | AI Studio | Agent Platform  
 ---|---|---  
 Gemini 2.5 Flash Live | `gemini-2.5-flash-native-audio-preview-12-2025` (Preview) | `gemini-live-2.5-flash-native-audio` (GA)  
 Gemini 3.1 Flash Live | `gemini-3.1-flash-live-preview` (Preview) | Not available  
+Gemini 3.8 Live | `gemini-3.8-live` (GA) | `gemini-3.8-live` (GA)  
+Gemini 3.8 Live Extended Thinking | `gemini-3.8-live-extended-thinking` (GA) | Not available  
   
-Gemini 2.5 Flash Live is one model with a different ID on each backend; the features are the same either way. `gemini-live-2.5-flash-native-audio` is ADK's `LlmAgent.DEFAULT_LIVE_MODEL`, the only Live model that is publicly available, and the model used in this section's examples.
+Gemini 2.5 Flash Live is one model with a different ID on each backend; the features are the same either way. ADK's `LlmAgent.DEFAULT_LIVE_MODEL` is `gemini-live-2.5-flash-native-audio`, which is also the model used in this section's examples.
 
-Gemini 3.1 Flash Live is the newer model and is lower latency, but it is AI Studio only and it drops features that 2.5 has — see Per-model feature support before you switch.
+Gemini 3.1 Flash Live is available only on AI Studio and does not support non-blocking tools. For details, see Per-model feature support and the [Gemini 3.1 Flash Live model page](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview).
+
+Gemini 3.8 Live runs on both backends. Gemini 3.8 Live Extended Thinking adds background reasoning, is available only on AI Studio, and requires changes to your agent, which are listed in Per-model feature support. To compare the two models, see the Gemini 3.8 Live model page for [AI Studio](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live) or [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live), and the [Gemini 3.8 Live Extended Thinking model page](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking).
+
+These models produce **audio only** and detect the conversation language automatically. They do not support the `TEXT` response modality, so to get text alongside speech you use [audio transcription](../configuration/#audio-transcription). Voice selection, transcription, and turn detection are covered in [Configuration](../configuration/).
+
+### Per-model feature support¶
+
+A few ADK settings behave differently depending on which model you are running:
+
+Feature | Gemini 2.5 Flash Live | Gemini 3.1 Flash Live | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking  
+---|---|---|---|---  
+[Proactivity and affective dialog](../configuration/#proactivity-and-affective-dialog) | Opt-in via `RunConfig` | `RunConfig` settings ignored | `RunConfig` settings ignored | `RunConfig` settings ignored  
+[Non-blocking tools](../tools/#non-blocking-tools) | Supported | Not supported | Supported | Required on every tool (see below)  
+[`response_scheduling`](../tools/#non-blocking-tools) on tools | Supported | Not supported | Supported | Not supported  
+[End of the model's response](../events/#interaction-status) | `turn_complete` | `turn_complete` | `turn_complete` | `interaction_status` is `IDLE` (see below)  
+  
+When moving from 2.5 to a newer model, iterate over `event.content.parts` instead of reading `parts[0]`, because a single server event can carry several parts. Turn coverage can also include all detected audio activity and video frames, which changes token costs if you stream video continuously. See the upstream [migration notes](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview#migrating-from-gemini-25-flash-live).
+
+Each model's page in the [AI Studio](https://ai.google.dev/gemini-api/docs/models) and [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) documentation covers model-level behavior, such as supported thinking levels. In ADK, you set thinking through the agent's `generate_content_config.thinking_config`.
+
+Gemini 3.8 Live Extended Thinking requires ADK Python 2.10 or higher and two changes to your agent:
+
+  * **Non-blocking tools** : Set `behavior = types.Behavior.NON_BLOCKING` on every tool, and leave `response_scheduling` unset. See [Non-blocking tools](../tools/#non-blocking-tools).
+  * **Interaction status** : Because `turn_complete` can arrive several times per request, read `event.interaction_status` (`interactionStatus` over `/run_live`), which is `IN_PROGRESS` while the model is still working on the request and `IDLE` once it has finished. See [Interaction status](../events/#interaction-status).
+
+
+
+## Cascaded models¶
+
+In a [cascaded architecture](../architectures/cascade/), the reasoning stage accepts any text model in [Models for agents](../../agents/models/). For the speech stages, ADK supports the following Gemini speech models:
+
+Stage | Model  
+---|---  
+**Speech-to-text (`GeminiSTT`)** | `gemini-3.5-transcribe-live`  
+**Text-to-speech (`GeminiTTS`)** | `gemini-3.8-flash-lite-tts`, `gemini-3.8-flash-tts`  
+  
+`CascadeLive` also includes built-in adapters for [ElevenLabs models](https://elevenlabs.io/docs/overview/models) (`ElevenLabsSTT`, `ElevenLabsTTS`) and supports any other speech provider through [custom transforms](../architectures/cascade/#custom-speech-transforms).
 
 ## Choosing a backend¶
 
-Live models are reached through one of two backends. ADK talks to both with the same code; you switch with environment variables, so you can develop on one and deploy on the other.
+Gemini models are reached through one of two backends. ADK talks to both with the same code; you switch with environment variables, so you can develop on one and deploy on the other.
 
 | AI Studio | Agent Platform  
 ---|---|---  
@@ -300,27 +353,9 @@ Live models are reached through one of two backends. ADK talks to both with the 
   
 Switch with the `GOOGLE_GENAI_USE_ENTERPRISE` environment variable (`FALSE` for AI Studio, `TRUE` for Agent Platform); no code changes. See the [quickstarts](../get-started/streaming-python/) for setup.
 
-Agent Platform: the `global` location is not supported
+Agent Platform: the `global` location is not supported for Live API models
 
-Live models are not available at `GOOGLE_CLOUD_LOCATION=global`. Use a regional endpoint such as `us-central1`, `us-east1`, or `asia-northeast1`, and check it against the endpoint-locations table in [Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) before deploying.
-
-These models produce audio directly, with natural prosody, and detect the conversation language on their own. What you configure on top — voices, transcription, turn detection — is described in [Configuration](../configuration/).
-
-One property is fixed at the model level: Live models produce **audio only**. They do not support the `TEXT` response modality, so to get text alongside speech you use [audio transcription](../configuration/#audio-transcription).
-
-### Per-model feature support¶
-
-A few `RunConfig` and tool settings depend on which model you are running:
-
-Feature | Gemini 2.5 Flash Live | Gemini 3.1 Flash Live  
----|---|---  
-[Proactivity and affective dialog](../configuration/#proactivity-and-affective-dialog) | Opt-in via `RunConfig` | Not supported  
-[`response_scheduling`](../tools/#non-blocking-tools) on tools | Supported | Not supported; function calling is synchronous, so the model stays silent until you return the tool response  
-Thinking control | `thinking_budget` | `thinking_level` (`minimal`, `low`, `medium`, `high`)  
-  
-Moving from 2.5 to 3.1
-
-Leaving `RunConfig.proactivity` or `RunConfig.enable_affective_dialog` set is the most common upgrade failure — remove them. Two more differences bite client code: a single server event can now carry several content parts at once, so iterate over `event.content.parts` instead of reading `parts[0]`; and turn coverage now defaults to including all detected audio activity and video frames, which changes token costs if you stream video continuously. See the upstream [migration notes](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview#migrating-from-gemini-25-flash-live).
+Live API models are not available at `GOOGLE_CLOUD_LOCATION=global`. Use a regional endpoint such as `us-central1`, `us-east1`, or `asia-northeast1`, and check it against the endpoint-locations table in [Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) before deploying.
 
 ## Platform limits and quotas¶
 
@@ -370,8 +405,11 @@ Read the model name from an environment variable rather than hard-coding it. The
     # AI Studio
     DEMO_AGENT_MODEL=gemini-2.5-flash-native-audio-preview-12-2025
     
-    # AI Studio, if you do not need proactivity, affective dialog, or non-blocking tools
-    # DEMO_AGENT_MODEL=gemini-3.1-flash-live-preview
+    # AI Studio or Agent Platform
+    # DEMO_AGENT_MODEL=gemini-3.8-live
+    
+    # AI Studio, for multi-step reasoning and slow tools
+    # DEMO_AGENT_MODEL=gemini-3.8-live-extended-thinking
     
     # Agent Platform
     # DEMO_AGENT_MODEL=gemini-live-2.5-flash-native-audio
@@ -408,7 +446,7 @@ This is a Python import behavior: when you import a module, its top-level code e
 
 **Selecting the right model:**
 
-  1. **Choose a backend** : AI Studio for prototyping, Agent Platform for production. This picks the ID column in the table above, and on Agent Platform it settles the model too — Gemini 2.5 Flash Live is the only Live model there
+  1. **Choose a backend** : AI Studio for prototyping, Agent Platform for production. This picks the ID column in the table above, and on Agent Platform it narrows the choice to Gemini 2.5 Flash Live and Gemini 3.8 Live
   2. **Check current availability** : Refer to the model table above and the official documentation
   3. **Configure environment variable** : Set the model name in your `.env` file and read it from there when constructing the agent
 

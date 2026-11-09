@@ -1,6 +1,6 @@
 [ google-adk-kotlin ](../../index.html) Toggle table of contents 
 
-1.4.0 
+1.5.0 
 
 common
 
@@ -27,6 +27,26 @@ google-adk-kotlin  __
 TypesFunctions
 
 ## Types
+
+[AgentMode](-agent-mode/index.html)
+
+Link copied to clipboard
+
+common
+
+enum [AgentMode](-agent-mode/index.html) : [Enum](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html)<[AgentMode](-agent-mode/index.html)>
+
+How an [LlmAgent](-llm-agent/index.html) converses when it runs as a workflow node or a delegated sub-agent. The modes are part of the experimental workflow API.
+
+[AgentModeOverride](-agent-mode-override/index.html)
+
+Link copied to clipboard
+
+common
+
+class [AgentModeOverride](-agent-mode-override/index.html)
+
+The mode a workflow node wrapper runs [agent](../../google-adk-kotlin-core/com.google.adk.kt.agents/-agent-mode-override/--root--.html) in, keyed to that agent so it does not leak to sub-agents or transfer targets when the invocation context is copied down. The type is public only because it is a [ContextFrameworkData](-context-framework-data/index.html) property type; its constructor and members are non-public.
 
 [AgentState](-agent-state/index.html)
 
@@ -64,7 +84,7 @@ Link copied to clipboard
 
 common
 
-open class [Context](-context/index.html)(val invocationContext: [InvocationContext](-invocation-context/index.html), actions: [EventActions](../com.google.adk.kt.events/-event-actions/index.html)? = null, val functionCallId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val toolConfirmation: [ToolConfirmation](../com.google.adk.kt.events/-tool-confirmation/index.html)? = null, val eventId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null) : [ReadonlyContext](-readonly-context/index.html), [ReadonlyToolContext](../com.google.adk.kt.tools/-readonly-tool-context/index.html)
+open class [Context](-context/index.html)(val invocationContext: [InvocationContext](-invocation-context/index.html), actions: [EventActions](../com.google.adk.kt.events/-event-actions/index.html)? = null, val functionCallId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, toolConfirmation: [ToolConfirmation](../com.google.adk.kt.events/-tool-confirmation/index.html)? = null, val eventId: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null) : [ReadonlyContext](-readonly-context/index.html), [ReadonlyToolContext](../com.google.adk.kt.tools/-readonly-tool-context/index.html)
 
 Execution context passed to agent callbacks, model callbacks, tools, and workflow nodes during an invocation.
 
@@ -84,7 +104,7 @@ Link copied to clipboard
 
 common
 
-data class [ContextFrameworkData](-context-framework-data/index.html)(val callbackContextData: [MutableMap](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)> = concurrentMutableMapOf())
+data class [ContextFrameworkData](-context-framework-data/index.html)(val callbackContextData: [MutableMap](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)> = concurrentMutableMapOf(), val nodePath: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val isolationScope: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val agentModeOverride: [AgentModeOverride](-agent-mode-override/index.html)? = null, val nodeContext: [Context](-context/index.html)? = null, val continuesPausedTask: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false)
 
 Framework-internal per-invocation data holder. Groups scratch state used by ADK's own machinery and the ADK Java interop so it stays off [InvocationContext](-invocation-context/index.html)'s public constructor. The type itself needs no opt-in; its public members are marked [FrameworkInternalApi](../com.google.adk.kt.annotations/-framework-internal-api/index.html).
 
@@ -140,13 +160,23 @@ class [LiveRequestQueue](-live-request-queue/index.html) @[ExperimentalLiveApi](
 
 The input side of a live conversation: everything the user sends reaches the agent through one of these, from any thread and without suspending, so audio can be pushed from a microphone callback or a UI handler without a coroutine.
 
+[LiveRunConfig](-live-run-config/index.html)
+
+Link copied to clipboard
+
+common
+
+data class [LiveRunConfig](-live-run-config/index.html) @[ExperimentalLiveApi](../com.google.adk.kt.annotations/-experimental-live-api/index.html) @[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html) constructor(val responseModalities: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[Modality](../com.google.adk.kt.types/-modality/index.html)> = emptyList(), val speechConfig: [SpeechConfig](../com.google.adk.kt.types/-speech-config/index.html)? = null, val outputAudioTranscription: [AudioTranscriptionConfig](../com.google.adk.kt.types/-audio-transcription-config/index.html)? = AudioTranscriptionConfig(), val inputAudioTranscription: [AudioTranscriptionConfig](../com.google.adk.kt.types/-audio-transcription-config/index.html)? = AudioTranscriptionConfig(), val realtimeInputConfig: [RealtimeInputConfig](../com.google.adk.kt.types/-realtime-input-config/index.html)? = null, val explicitVadSignal: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val translationConfig: [TranslationConfig](../com.google.adk.kt.types/-translation-config/index.html)? = null, val enableAffectiveDialog: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val proactivity: [ProactivityConfig](../com.google.adk.kt.types/-proactivity-config/index.html)? = null, val sessionResumption: [SessionResumptionConfig](../com.google.adk.kt.types/-session-resumption-config/index.html)? = null, val contextWindowCompression: [ContextWindowCompressionConfig](../com.google.adk.kt.types/-context-window-compression-config/index.html)? = null, val saveLiveBlob: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false)
+
+Settings of a live run, held in [RunConfig.live](-run-config/live.html). They belong to the experimental live API, the only code that reads them, and may change without notice.
+
 [LlmAgent](-llm-agent/index.html)
 
 Link copied to clipboard
 
 common
 
-class [LlmAgent](-llm-agent/index.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), val model: [Model](../com.google.adk.kt.models/-model/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", subAgents: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BaseAgent](-base-agent/index.html)> = emptyList(), beforeAgentCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BeforeAgentCallback](../com.google.adk.kt.callbacks/-before-agent-callback/index.html)> = emptyList(), afterAgentCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[AfterAgentCallback](../com.google.adk.kt.callbacks/-after-agent-callback/index.html)> = emptyList(), disallowTransferToParent: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, disallowTransferToPeers: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, val tools: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BaseTool](../com.google.adk.kt.tools/-base-tool/index.html)> = emptyList(), val toolsets: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[Toolset](../com.google.adk.kt.tools/-toolset/index.html)> = emptyList(), val generateContentConfig: [GenerateContentConfig](../com.google.adk.kt.types/-generate-content-config/index.html)? = null, val instruction: [Instruction](-instruction/index.html)? = null, val staticInstruction: [Content](../com.google.adk.kt.types/-content/index.html)? = null, val beforeModelCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BeforeModelCallback](../com.google.adk.kt.callbacks/-before-model-callback/index.html)> = emptyList(), val afterModelCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[AfterModelCallback](../com.google.adk.kt.callbacks/-after-model-callback/index.html)> = emptyList(), val beforeToolCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BeforeToolCallback](../com.google.adk.kt.callbacks/-before-tool-callback/index.html)> = emptyList(), val afterToolCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[AfterToolCallback](../com.google.adk.kt.callbacks/-after-tool-callback/index.html)> = emptyList(), val inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, val outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, val outputKey: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val onModelErrorCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[OnModelErrorCallback](../com.google.adk.kt.callbacks/-on-model-error-callback/index.html)> = emptyList(), val onToolErrorCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[OnToolErrorCallback](../com.google.adk.kt.callbacks/-on-tool-error-callback/index.html)> = emptyList(), val includeContents: [LlmAgent.IncludeContents](-llm-agent/-include-contents/index.html) = IncludeContents.DEFAULT, val maxSteps: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null) : [BaseAgent](-base-agent/index.html)
+class [LlmAgent](-llm-agent/index.html)(name: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), val model: [Model](../com.google.adk.kt.models/-model/index.html), description: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html) = "", subAgents: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BaseAgent](-base-agent/index.html)> = emptyList(), beforeAgentCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BeforeAgentCallback](../com.google.adk.kt.callbacks/-before-agent-callback/index.html)> = emptyList(), afterAgentCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[AfterAgentCallback](../com.google.adk.kt.callbacks/-after-agent-callback/index.html)> = emptyList(), disallowTransferToParent: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, disallowTransferToPeers: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html) = false, tools: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BaseTool](../com.google.adk.kt.tools/-base-tool/index.html)> = emptyList(), val toolsets: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[Toolset](../com.google.adk.kt.tools/-toolset/index.html)> = emptyList(), val generateContentConfig: [GenerateContentConfig](../com.google.adk.kt.types/-generate-content-config/index.html)? = null, val instruction: [Instruction](-instruction/index.html)? = null, val staticInstruction: [Content](../com.google.adk.kt.types/-content/index.html)? = null, val beforeModelCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BeforeModelCallback](../com.google.adk.kt.callbacks/-before-model-callback/index.html)> = emptyList(), val afterModelCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[AfterModelCallback](../com.google.adk.kt.callbacks/-after-model-callback/index.html)> = emptyList(), val beforeToolCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[BeforeToolCallback](../com.google.adk.kt.callbacks/-before-tool-callback/index.html)> = emptyList(), val afterToolCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[AfterToolCallback](../com.google.adk.kt.callbacks/-after-tool-callback/index.html)> = emptyList(), val inputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, val outputSchema: [Schema](../com.google.adk.kt.types/-schema/index.html)? = null, val outputKey: [String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html)? = null, val onModelErrorCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[OnModelErrorCallback](../com.google.adk.kt.callbacks/-on-model-error-callback/index.html)> = emptyList(), val onToolErrorCallbacks: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[OnToolErrorCallback](../com.google.adk.kt.callbacks/-on-tool-error-callback/index.html)> = emptyList(), includeContents: [LlmAgent.IncludeContents](-llm-agent/-include-contents/index.html)? = null, val maxSteps: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html)? = null, val mode: [AgentMode](-agent-mode/index.html)? = null) : [BaseAgent](-base-agent/index.html)
 
 LLM-based Agent.
 
@@ -216,7 +246,7 @@ Link copied to clipboard
 
 common
 
-data class [RunConfig](-run-config/index.html) @[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html) constructor(val streamingMode: [StreamingMode](-streaming-mode/index.html) = StreamingMode.NONE, val maxLlmCalls: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html) = 500, val customMetadata: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)>? = null, val responseModalities: [List](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html)<[Modality](../com.google.adk.kt.types/-modality/index.html)> = emptyList(), val speechConfig: [SpeechConfig](../com.google.adk.kt.types/-speech-config/index.html)? = null, val outputAudioTranscription: [AudioTranscriptionConfig](../com.google.adk.kt.types/-audio-transcription-config/index.html)? = AudioTranscriptionConfig(), val inputAudioTranscription: [AudioTranscriptionConfig](../com.google.adk.kt.types/-audio-transcription-config/index.html)? = AudioTranscriptionConfig(), val realtimeInputConfig: [RealtimeInputConfig](../com.google.adk.kt.types/-realtime-input-config/index.html)? = null, val explicitVadSignal: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val translationConfig: [TranslationConfig](../com.google.adk.kt.types/-translation-config/index.html)? = null, val enableAffectiveDialog: [Boolean](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html)? = null, val proactivity: [ProactivityConfig](../com.google.adk.kt.types/-proactivity-config/index.html)? = null, val sessionResumption: [SessionResumptionConfig](../com.google.adk.kt.types/-session-resumption-config/index.html)? = null, val contextWindowCompression: [ContextWindowCompressionConfig](../com.google.adk.kt.types/-context-window-compression-config/index.html)? = null)
+data class [RunConfig](-run-config/index.html) @[JvmOverloads](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html) constructor(val streamingMode: [StreamingMode](-streaming-mode/index.html) = StreamingMode.NONE, val maxLlmCalls: [Int](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html) = 500, val customMetadata: [Map](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html)<[String](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html), [Any](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html)>? = null, val live: [LiveRunConfig](-live-run-config/index.html) = LiveRunConfig())
 
 Configs for runtime behavior of agents.
 

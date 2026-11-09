@@ -66,7 +66,7 @@
 
   * In this section
 
-    * [Registries](https://modelcontextprotocol.info/registry/)
+    * [MCP Registry: Find, Publish and Integrate Servers](https://modelcontextprotocol.info/registry/)
     * [The MCP Registry](https://modelcontextprotocol.info/registry/about/)
 
   * More
@@ -109,7 +109,7 @@ On this page
 
 Scroll to top
 
-[Registries](https://modelcontextprotocol.info/registry/)
+[MCP Registry: Find, Publish and Integrate Servers](https://modelcontextprotocol.info/registry/)
 
 The MCP Registry
 

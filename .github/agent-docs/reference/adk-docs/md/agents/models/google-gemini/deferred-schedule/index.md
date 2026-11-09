@@ -56,6 +56,7 @@ Graph Workflows
       * [ Graph routes  ](../../../../graphs/routes/)
       * [ Data handling  ](../../../../graphs/data-handling/)
       * [ Human input  ](../../../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../../../graphs/retry/)
       * [ Dynamic workflows  ](../../../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../../../workflows/)
 
@@ -211,6 +212,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../../../live/get-started/streaming-python/)
         * [ Java  ](../../../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../../../live/workflows/)
         * [ Tools  ](../../../../live/tools/)
@@ -283,7 +289,7 @@ Table of contents
 
 Supported in ADKPython v2.10.0Preview
 
-Agent workloads have different latency needs. An interactive assistant must answer immediately, but a summarization job, a bulk evaluation run, or a document-processing pipeline can wait for capacity. Deferred scheduling lets ADK agents queue those model calls to run on off-peak capacity instead of competing for interactive capacity.
+Agent workloads have different latency needs. An interactive assistant must answer immediately, but a summarization job, a bulk evaluation run, or a document-processing pipeline can wait for capacity. Deferred scheduling lets ADK agents queue the model calls for those workloads to run on off-peak capacity at a [discounted rate](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing), instead of competing for interactive capacity.
 
 You can request deferred scheduling per run, using the `service_tier` setting of `RunConfig`. The setting is part of the run configuration rather than the model or the agent, so one agent definition can serve both interactive requests and batch workloads.
 
@@ -355,7 +361,7 @@ The runner submits the model call, waits for the queued work to finish, and then
 
 The run appears to hang while it waits
 
-The `run_async()` method yields no events while the request sits in the queue. How long that takes depends on backend load, and ADK applies no upper bound. In a web UI or a terminal, the delay looks like a hang. Show a progress indicator, or set a client deadline.
+The `run_async()` method yields no events while the request sits in the queue. How long that takes depends on backend load, and ADK applies no upper bound. In a web UI or a terminal, the application appears unresponsive during the delay. Show a progress indicator, or set a client deadline.
 
 To confirm that the tier took effect, check your application logs for these messages:
 
@@ -370,7 +376,7 @@ Log message | Level | Meaning
 
 Standard model requests are synchronous. ADK sends the request and the model returns a response on the same connection. When you enable deferred scheduling by setting `ServiceTier.DEFERRED`, ADK marks the request for background execution and the backend queues it, returning an interaction ID immediately instead of a result.
 
-ADK then waits for that result, checking the queued work with exponential backoff and absorbing transient read failures until it reaches a final status. It converts that result to a normal response event and yields it. This loop is internal: it does not surface interaction IDs, and you do not need to write any retrieval code. It does add a few seconds of polling delay on top of the queue wait, so deferred scheduling should not be used for short, latency-sensitive calls.
+ADK then waits for that result, checking the queued work with exponential backoff and absorbing transient read failures until it reaches a final status. It converts that result to a normal response event and yields it. If 5 consecutive reads fail, ADK raises the error from the last read. This loop is internal: it does not surface interaction IDs, and you do not need to write any retrieval code. It does add a few seconds of polling delay on top of the queue wait, so deferred scheduling should not be used for short, latency-sensitive calls.
 
 The following properties of the wait affect how you design your agent:
 
@@ -389,7 +395,7 @@ Option | Type | Default | Description
   
 The `ServiceTier` enum defines the following tiers:
 
-  * `ServiceTier.DEFERRED`: Queues the call to run on off-peak capacity. The call waits for room instead of failing when capacity is tight. No other tier changes how ADK executes the request, and it cannot be combined with streaming.
+  * `ServiceTier.DEFERRED`: Queues the call to run on off-peak capacity. The call waits for room instead of failing when capacity is limited. No other tier changes how ADK executes the request, and it cannot be combined with streaming.
   * `ServiceTier.FLEX`: Best-effort capacity at a lower cost, with no latency guarantee.
   * `ServiceTier.STANDARD`: The default tier.
   * `ServiceTier.PRIORITY`: Reserved capacity for latency-sensitive calls.
@@ -425,20 +431,21 @@ Python
     )
     run_config = RunConfig(service_tier=ServiceTier.DEFERRED)
     
-    try:
-      async with asyncio.timeout(300):
-        async for event in runner.run_async(
-            user_id='user_123',
-            session_id=session.id,
-            new_message=message,
-            run_config=run_config,
-        ):
-          if event.content and event.content.parts:
-            for part in event.content.parts:
-              if part.text:
-                print(part.text)
-    except TimeoutError:
-      logger.error('Deferred run exceeded the 300 second client deadline.')
+    async def run_with_deadline(runner, session) -> None:
+      try:
+        async with asyncio.timeout(300):
+          async for event in runner.run_async(
+              user_id='user_123',
+              session_id=session.id,
+              new_message=message,
+              run_config=run_config,
+          ):
+            if event.content and event.content.parts:
+              for part in event.content.parts:
+                if part.text:
+                  print(part.text)
+      except TimeoutError:
+        logger.error('Deferred run exceeded the 300 second client deadline.')
     
 
 Client deadlines do not cancel requests

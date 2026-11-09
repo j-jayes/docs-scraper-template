@@ -61,12 +61,14 @@ Agents
         * Code example 
         * Additional features 
       * [ Managed agents  ](../managed-agents/)
+      * [ Service registration  ](../service-registration/)
     * [ Graph Workflows  ](../../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../../graphs/routes/)
       * [ Data handling  ](../../graphs/data-handling/)
       * [ Human input  ](../../graphs/human-input/)
+      * [ Retries and timeouts  ](../../graphs/retry/)
       * [ Dynamic workflows  ](../../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../../workflows/)
 
@@ -211,6 +213,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](../../live/get-started/streaming-python/)
         * [ Java  ](../../live/get-started/streaming-java/)
+      * [ Architectures  ](../../live/architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](../../live/architectures/speech-to-speech/)
+        * [ Cascade  ](../../live/architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](../../live/workflows/)
         * [ Tools  ](../../live/tools/)
@@ -478,9 +485,11 @@ PythonTypeScriptGoJavaKotlin
         )
     
 
+To fetch agent instructions dynamically from a Model Context Protocol (MCP) server in Python, see [Dynamic instructions with `McpInstructionProvider`](/tools-custom/mcp-tools/advanced/#dynamic-instructions-with-mcpinstructionprovider).
+
 GlobalInstructionPlugin
 
-To apply shared rules or a consistent personality to _all_ agents in your system, use `GlobalInstructionPlugin` instead of the deprecated `global_instruction` parameter.
+To apply shared rules or a consistent personality to _all_ agents in your system, use `GlobalInstructionPlugin` instead of the deprecated `global_instruction` parameter. For ADK Go set `GlobalInstruction` or `GlobalInstructionProvider` on `llmagent.Config`.
 
 ## Equip the agent with tools¶
 
@@ -869,7 +878,8 @@ The input and output schema is a `google.genai.types.Schema` object.
         Instruction:  `You are a Capital Information Agent. Given a country, respond ONLY with a JSON object containing the capital. Format: {"capital": "capital_name"}`,
         OutputSchema: capitalOutput,
         OutputKey:    "found_capital",
-        // Cannot use the capitalTool tool effectively here
+        // Tools can still be added. ADK injects a set_model_response tool when
+        // the model can't combine tools with OutputSchema natively.
     })
     
 
@@ -1013,6 +1023,8 @@ ADK Go v2.0.0 introduces an explicit `Mode` field on `llmagent.Config` that cont
 
 
 When you wrap an `llmagent` with `workflow.NewAgentNode`, the workflow engine automatically sets the mode to `ModeSingleTurn` if no mode is specified — equivalent to Python's `mode="single_turn"` on an agent used as a workflow node. For more information on composing agents in graph-based workflows, see [Graph-based agent workflows](/graphs/).
+
+An agent that runs as a `ModeSingleTurn` node, such as a workflow node, sees only the current turn, as if `IncludeContents` were `IncludeContentsNone`. Since ADK Go v2.4.0, you can keep the conversation history by setting `IncludeContents` to `llmagent.IncludeContentsDefault` explicitly. Earlier versions ignore that setting for single-turn nodes.
 
 ### Configure a planner¶
 
@@ -2241,7 +2253,7 @@ ADK provides additional features for agents not covered in this guide, including
 
   * **Callbacks:** Add more controls by intercepting agent execution points, including before and after model calls, and before and after tool calls with [Callbacks](/callbacks/types-of-callbacks/).
   * **Graph-based workflows:** Compose LLM agents as steps in deterministic, graph-based pipelines using [Graph-based agent workflows](/graphs/). In Go v2.0.0, use `workflow.NewAgentNode` to wrap any LLM agent as a workflow node.
-  * **Multi-agent systems:** Advanced strategies for agent interaction, including agent transfer (`disallow_transfer_to_parent`, `disallow_transfer_to_peers`), and consistent identity and rules for every agent in your app (`GlobalInstructionPlugin`). See [Multi-agent workflows](/workflows/) and [collaborative agent teams](/workflows/collaboration/).
+  * **Multi-agent systems:** Advanced strategies for agent interaction, including agent transfer (`disallow_transfer_to_parent`, `disallow_transfer_to_peers`), and consistent identity and rules for every agent in your app (`GlobalInstructionPlugin`, or `GlobalInstruction` in Go). See [Multi-agent workflows](/workflows/) and [collaborative agent teams](/workflows/collaboration/).
 
 
 

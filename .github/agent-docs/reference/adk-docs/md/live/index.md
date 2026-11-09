@@ -49,12 +49,14 @@ Build your Agent
 Agents 
       * [ Simple agents  ](../agents/llm-agents/)
       * [ Managed agents  ](../agents/managed-agents/)
+      * [ Service registration  ](../agents/service-registration/)
     * [ Graph Workflows  ](../graphs/)
 
 Graph Workflows 
       * [ Graph routes  ](../graphs/routes/)
       * [ Data handling  ](../graphs/data-handling/)
       * [ Human input  ](../graphs/human-input/)
+      * [ Retries and timeouts  ](../graphs/retry/)
       * [ Dynamic workflows  ](../graphs/dynamic/)
     * [ Multi-Agent Workflows  ](../workflows/)
 
@@ -199,6 +201,11 @@ Live and Voice Agents
 Get started 
         * [ Python  ](get-started/streaming-python/)
         * [ Java  ](get-started/streaming-java/)
+      * [ Architectures  ](architectures/)
+
+Architectures 
+        * [ Speech-to-speech  ](architectures/speech-to-speech/)
+        * [ Cascade  ](architectures/cascade/)
       * Building  Building 
         * [ Workflows  ](workflows/)
         * [ Tools  ](tools/)
@@ -265,7 +272,7 @@ Supported in ADKPython v0.5.0Java v0.2.0Experimental
 
 ADK is the framework for building live and voice agents. A live agent holds an open, two-way connection with the user: instead of sending a message and waiting for a reply, the user and the agent both speak, listen, and respond at the same time, and the user can interrupt the agent mid-sentence the way people interrupt each other in real conversation. Live agents accept text, audio, and video input and reply with text or speech.
 
-A live agent is an ADK agent, built with the same agent, tool, and session abstractions you use everywhere else. You describe the agent's behavior; ADK manages the real-time connection, tool execution, and session state underneath. Today that connection runs on the [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api); ADK handles the wiring so your agent code stays the same as the platform evolves.
+A live agent is an ADK agent, built with the same agent, tool, and session abstractions you use everywhere else. You describe the agent's behavior; ADK manages the real-time connection, tool execution, and session state underneath. You can run a live agent end-to-end on the [Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api) with a [speech-to-speech](architectures/speech-to-speech/) model, or chain speech-to-text, any text LLM, and text-to-speech in a [cascaded pipeline](architectures/cascade/).
 
 ## Build live agents¶
 
@@ -277,6 +284,7 @@ Build your first live agent and talk to it in the browser.
 
     * [Start here](get-started/) — pick a language and build one
     * Jump straight to [Python](get-started/streaming-python/) or [Java](get-started/streaming-java/)
+    * [Choose an architecture](architectures/): [speech-to-speech](architectures/speech-to-speech/) or [cascade](architectures/cascade/)
   * **Building**
 
 * * *
